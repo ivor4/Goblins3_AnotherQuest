@@ -1,0 +1,19 @@
+N,ENUM_ID,TYPE,SAFE,ARRAY,DEFVALUE,SAVE,,GameMaster,InputMaster,LevelMaster,PhysicsMaster,GraphicsMaster,GameMenu,PlayerMaster,EnemyMaster,ItemMaster,GameEventMaster,BossMaster
+0,GAME_OPTIONS,GameOptionsStruct,2,0,GameOptionsStruct_Default,Y,,R,R E,R,,R,W,,,,,
+1,POWERS,bool,2,8,false,Y,,W,,,,,R,R,,,R,
+2,ELAPSED_TIME_MS,ulong,2,0,0UL,Y,,W,R,R,,R,R,,,,,R
+3,ACTUAL_ROOM,Room,2,0,Room.NONE,Y,,W,,R,R,R,,,,,,
+4,LIFE_TOTAL,byte,2,0,3,Y,,,,,,R E,,,,,W,
+5,LIFE_ACTUAL,byte,2,0,3,Y,,,,,,R E,,W,,,,
+6,ITEMS_COLLECTED,ulong,2,2,0UL,Y,,,,R,,,,,,W,,
+7,EVENTS_OCCURRED,ulong,2,2,0UL,Y,,,,R,,,,R,R,,W,
+8,SELECTED_CHARMS,byte,2,2,0,Y,,W,,,,R,,R,,,R,
+9,OTHER_WORLD,bool,2,0,false,N,,,,W,R E,R E,,R,R E,R,,
+10,OTHER_WORLD_TRANSITION_ACTIVE,bool,2,0,false,N,,,,W,R,R,,R,R,R,,
+11,OTHER_WORLD_TRANSITION_PROGRESS,float,2,0,0f,N,,,,W,R,R,,R,R,R,,
+12,OTHER_WORLD_MODE,OtherWorldMode,2,0,OtherWorldMode.OTHER_WORLD_OBSERVE,N,,,,W,R E,R E,,R,R E,R,,
+12,GAMESTATUS,Game_Status,0,0,Game_Status.GAME_STATUS_STOPPED,N,,W,,R E,R E,R E,R E,R E,R E,,,R E
+13,PRESSED_KEYS,KeyStruct,0,0,KeyStruct_Default,N,,R,W,,,,R,R,,,,
+14,MOUSE_PROPERTIES,MousePropertiesStruct,0,0,MouseProperties_Default,N,,R,W,,,R,R,,,,,
+15,PLAYER_POSITION,Vector3Struct,0,0,Vector3Struct_Default,N,,,,,,R,,W,,,R,
+16,BOSS_STEP,byte,1,0,0,N,,,,,,,,,,,,W E

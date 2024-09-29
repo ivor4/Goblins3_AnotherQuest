@@ -1,9 +1,9 @@
 
-using MVerse.VARMAP.Types;
+using Gob3AQ.VARMAP.Types;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MVerse.VARMAP.DefaultValues
+namespace Gob3AQ.VARMAP.DefaultValues
 {
 
     public abstract partial class VARMAP_DefaultValues : VARMAP

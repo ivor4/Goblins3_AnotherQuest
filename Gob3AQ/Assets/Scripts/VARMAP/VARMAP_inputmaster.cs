@@ -1,7 +1,7 @@
-using MVerse.VARMAP.Types;
-using MVerse.VARMAP.Types.Delegates;
+using Gob3AQ.VARMAP.Types;
+using Gob3AQ.VARMAP.Types.Delegates;
 
-namespace MVerse.VARMAP.InputMaster
+namespace Gob3AQ.VARMAP.InputMaster
 {
     /// <summary>
     /// VARMAP inheritance with permissions for MainMenu module

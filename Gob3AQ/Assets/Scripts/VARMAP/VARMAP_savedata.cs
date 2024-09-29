@@ -1,8 +1,8 @@
 ﻿using UnityEditor;
 using UnityEngine;
-using MVerse.VARMAP.Enum;
+using Gob3AQ.VARMAP.Enum;
 
-namespace MVerse.VARMAP.SaveData
+namespace Gob3AQ.VARMAP.SaveData
 {
     public abstract class VARMAP_savedata : VARMAP
     {
@@ -13,14 +13,10 @@ namespace MVerse.VARMAP.SaveData
         {
             /* > ATG 1 START < */
             VARMAP_Variable_ID.VARMAP_ID_GAME_OPTIONS,
-            VARMAP_Variable_ID.VARMAP_ID_POWERS,
             VARMAP_Variable_ID.VARMAP_ID_ELAPSED_TIME_MS,
             VARMAP_Variable_ID.VARMAP_ID_ACTUAL_ROOM,
-            VARMAP_Variable_ID.VARMAP_ID_LIFE_TOTAL,
-            VARMAP_Variable_ID.VARMAP_ID_LIFE_ACTUAL,
             VARMAP_Variable_ID.VARMAP_ID_ITEMS_COLLECTED,
             VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED,
-            VARMAP_Variable_ID.VARMAP_ID_SELECTED_CHARMS,
             /* > ATG 1 END < */
         };
 

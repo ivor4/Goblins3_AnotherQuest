@@ -2,7 +2,7 @@ using System;
 using System.IO;
 
 
-namespace MVerse.Libs.CRC32
+namespace Gob3AQ.Libs.CRC32
 {
     public struct Digest
     {

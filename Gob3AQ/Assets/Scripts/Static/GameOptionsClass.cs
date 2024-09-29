@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using MVerse.VARMAP.Types;
-using MVerse.VARMAP.DefaultValues;
+using Gob3AQ.VARMAP.Types;
+using Gob3AQ.VARMAP.DefaultValues;
 
-namespace MVerse.GameOptions
+namespace Gob3AQ.GameOptions
 {
     
     public static class GameOptionsClass

@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MVerse.VARMAP.Types;
-using MVerse.VARMAP.GameMaster;
+using Gob3AQ.VARMAP.Types;
+using Gob3AQ.VARMAP.GameMaster;
 using UnityEngine.SceneManagement;
-using MVerse.VARMAP.Initialization;
-using MVerse.FixedConfig;
-using MVerse.VARMAP.Safe;
+using Gob3AQ.VARMAP.Initialization;
+using Gob3AQ.FixedConfig;
+using Gob3AQ.VARMAP.Safe;
 using UnityEditor;
 
-namespace MVerse.GameMaster
+namespace Gob3AQ.GameMaster
 {
 
     public class GameMasterClass : MonoBehaviour
@@ -50,6 +50,7 @@ namespace MVerse.GameMaster
             bool pausePressed;
             Game_Status gstatus = VARMAP_GameMaster.GET_GAMESTATUS();
             KeyStruct kstruct = VARMAP_GameMaster.GET_PRESSED_KEYS();
+            
 
             pausePressed = (kstruct.cyclepressedKeys & KeyFunctions.KEYFUNC_PAUSE) != KeyFunctions.KEYFUNC_NONE;
 
@@ -142,28 +143,6 @@ namespace MVerse.GameMaster
             LoadRoomService(Room.ROOM_1_ORIGIN, out error);
         }
 
-        public static void LoadOneBossFightService(OBFight fight, out bool error)
-        {
-            VARMAP_Initialization.ResetVARMAP();
-
-            switch(fight)
-            {
-                case OBFight.OBF_SPACE_MAMA:
-                    VARMAP_GameMaster.SET_ELEM_POWERS((int)Powers_Index.POWER_INDEX_SHOT, true);
-                    VARMAP_GameMaster.SET_ELEM_POWERS((int)Powers_Index.POWER_INDEX_CLIMB, true);
-                    VARMAP_GameMaster.SET_ELEM_POWERS((int)Powers_Index.POWER_INDEX_DOUBLE_JUMP, true);
-                    VARMAP_GameMaster.SET_ELEM_SELECTED_CHARMS(0, (byte)Charm.CHARM_INPU_OTHER_WORLD);
-                    VARMAP_GameMaster.SET_ELEM_SELECTED_CHARMS(1, (byte)Charm.CHARM_NONE);
-                    LoadRoomService(Room.ROOM_SPACE_MAMA, out error);
-                    break;
-
-                default:
-                    error = true;
-                    break;
-            }
-
-            
-        }
 
         public static void LoadingCompletedService(out bool error)
         {

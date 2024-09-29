@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MVerse.VARMAP.InputMaster;
-using MVerse.VARMAP.Types;
-using MVerse.FixedConfig;
+using Gob3AQ.VARMAP.InputMaster;
+using Gob3AQ.VARMAP.Types;
+using Gob3AQ.FixedConfig;
 using System;
-using MVerse.Libs.Arith;
+using Gob3AQ.Libs.Arith;
 
-namespace MVerse.InputMaster
+namespace Gob3AQ.InputMaster
 {
     public class InputMasterClass : MonoBehaviour
     {
@@ -16,12 +16,6 @@ namespace MVerse.InputMaster
         private KeyStruct cachedPressedKeys;
         private KeyFunctions accumulatedDownkeys;
         private float ellapsedMillis;
-        private float comboTimeoutMillis;
-        private KeyFunctions[] keyCombo;
-        private int keyComboWritten;
-        private int keyComboWriteIndex;
-        private int keyComboReadIndex;
-        private bool keyComboInProgress;
 
 
         private void Awake()
@@ -45,8 +39,6 @@ namespace MVerse.InputMaster
             ellapsedMillis = 0f;
             accumulatedDownkeys = 0;
 
-            keyCombo = new KeyFunctions[GameFixedConfig.COMBO_MAX_KEYS];
-            ClearCombo();
 
             VARMAP_InputMaster.REG_GAME_OPTIONS(_GameOptionsChanged);
             VARMAP_InputMaster.SET_PRESSED_KEYS(new KeyStruct() { pressedKeys = 0 });
@@ -76,34 +68,20 @@ namespace MVerse.InputMaster
 
                 pressedandreleasedKeys = cachedPressedKeys.cyclepressedKeys | cachedPressedKeys.cyclereleasedKeys;
                 accumulationCycle = ellapsedMillis >= GameFixedConfig.KEY_REFRESH_TIME_SECONDS;
-
-                bool observeComboTimeout = keyComboInProgress;
                 
-                cachedPressedKeys.activeCombo = KeyCombo.KEY_COMBO_NONE;
 
                 if ((accumulationCycle && (accumulatedDownkeys != cachedPressedKeys.pressedKeys)) || (pressedandreleasedKeys != 0))
                 {
                     cachedPressedKeys.cyclepressedKeys = (accumulatedDownkeys ^ cachedPressedKeys.pressedKeys) & accumulatedDownkeys;
                     cachedPressedKeys.cyclereleasedKeys = (accumulatedDownkeys ^ cachedPressedKeys.pressedKeys) & cachedPressedKeys.pressedKeys;
-
-                    /* If some key is pressed, insert in combo list */
-                    if(cachedPressedKeys.cyclepressedKeys != KeyFunctions.KEYFUNC_NONE)
-                    {
-                        UpdateCombo(cachedPressedKeys.cyclepressedKeys);
-                        observeComboTimeout = false;
-                    }
-
                     cachedPressedKeys.pressedKeys = accumulatedDownkeys;
                 }
-
-                ManageComboTimeout(observeComboTimeout, deltaTime);
 
                 if (accumulationCycle)
                 {
                     ellapsedMillis = 0f;
                     accumulatedDownkeys = 0;
                 }
-
 
 
                 MousePropertiesStruct mouseProps = new MousePropertiesStruct();
@@ -121,100 +99,7 @@ namespace MVerse.InputMaster
 
         }
 
-        private void ClearCombo()
-        {
-            keyComboInProgress = false;
-            keyComboReadIndex = 0;
-            keyComboWriteIndex = 0;
-            keyComboWritten = 0;
-            comboTimeoutMillis = 0f;
-        }
 
-        private void UpdateCombo(KeyFunctions newPressedKeys)
-        {
-            /* Update array and increase writeIndex */
-            int initialKeyComboWriteIndex = keyComboWriteIndex;
-            keyCombo[keyComboWriteIndex] = newPressedKeys;
-            keyComboWriteIndex = (keyComboWriteIndex + 1) & GameFixedConfig.COMBO_MAX_MASK;
-            comboTimeoutMillis = 0f;
-            keyComboInProgress = true;
-
-            if(keyComboWritten < GameFixedConfig.COMBO_MAX_KEYS)
-            {
-                keyComboWritten++;
-            }
-            
-            /* ReadIndex should always be "behind" write index. It will read until WriteIndex. If WriteIndex reaches Read, increase read one position to be N-1 positions behind (circular array) */
-            if ((initialKeyComboWriteIndex == keyComboReadIndex)&&(keyComboWritten == GameFixedConfig.COMBO_MAX_KEYS))
-            {
-                keyComboReadIndex = (keyComboReadIndex + 1) & GameFixedConfig.COMBO_MAX_MASK;
-            }
-
-            /* Analyze combo */
-            Span<KeyFunctions> observedComboSpan = stackalloc KeyFunctions[GameFixedConfig.COMBO_MAX_KEYS];
-            GrowingStackArray<KeyFunctions> observedCombo = new GrowingStackArray<KeyFunctions>(observedComboSpan, false);
-
-            int tempReadIndex = keyComboReadIndex;
-            int tempreadIndexes = 0;
-
-            /* Populate actual ongoing combo */
-
-            while (tempreadIndexes < keyComboWritten)
-            {
-                observedCombo.Add(keyCombo[tempReadIndex]);
-                tempReadIndex = (tempReadIndex + 1) & GameFixedConfig.COMBO_MAX_MASK;
-                tempreadIndexes++;
-            }
-
-            bool foundCombo = false;
-            int advancedKeys = 0;
-            int length = observedCombo.Count;
-
-            while ((!foundCombo)&&(length >= 2))
-            {
-                int availableCombosForLength = ComboHolder.CombosForKeyCombination(length);
-
-                for (int i=0;(i<availableCombosForLength)&&(!foundCombo);i++)
-                {
-                    ReadOnlySpan<KeyFunctions> comboArray = ComboHolder.GetComboArray(length, i, out KeyCombo comboName);
-
-                    foundCombo = true;
-
-                    for(int e=0;(e < comboArray.Length) && foundCombo;e++)
-                    {
-                        if(observedCombo[advancedKeys+e] != comboArray[e])
-                        {
-                            foundCombo = false;
-                        }
-                    }
-
-                    if(foundCombo)
-                    {
-                        cachedPressedKeys.activeCombo = comboName;
-                        ClearCombo();
-                    }
-                }
-
-                if(!foundCombo)
-                {
-                    advancedKeys++;
-                    length = observedCombo.Count - advancedKeys;
-                }
-            }
-        }
-
-        private void ManageComboTimeout(bool observeTimeout, float deltaTime)
-        {
-            if (observeTimeout)
-            {
-                comboTimeoutMillis += deltaTime;
-
-                if (comboTimeoutMillis >= GameFixedConfig.KEY_COMBO_TIMEOUT_SECONDS)
-                {
-                    ClearCombo();
-                }
-            }
-        }
 
         private int CountPressedKeys(KeyFunctions keys)
         {

@@ -1,8 +1,8 @@
 ﻿using UnityEditor;
 using UnityEngine;
-using MVerse.VARMAP.GameMenu;
+using Gob3AQ.VARMAP.GameMenu;
 
-namespace MVerse.MainMenu
+namespace Gob3AQ.MainMenu
 {
     public class MainMenuClass : MonoBehaviour
     {
@@ -32,11 +32,7 @@ namespace MVerse.MainMenu
             {
                 VARMAP_GameMenu.START_GAME(out _);
             }
-            
-            if(GUILayout.Button("One Boss Fight - Space Mama"))
-            {
-                VARMAP_GameMenu.LOAD_OBF(VARMAP.Types.OBFight.OBF_SPACE_MAMA, out _);
-            }
+           
 
             
             GUILayout.EndVertical();

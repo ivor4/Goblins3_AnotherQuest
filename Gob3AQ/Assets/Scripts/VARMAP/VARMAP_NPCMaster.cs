@@ -1,25 +1,24 @@
-using MVerse.VARMAP.Types;
-using MVerse.VARMAP.Types.Delegates;
+using Gob3AQ.VARMAP.Types;
+using Gob3AQ.VARMAP.Types.Delegates;
 
-namespace MVerse.VARMAP.BossMaster
+namespace Gob3AQ.VARMAP.NPCMaster
 {
     /// <summary>
     /// VARMAP inheritance with permissions for MainMenu module
     /// </summary>
-    public abstract class VARMAP_BossMaster : VARMAP
+    public abstract class VARMAP_NPCMaster : VARMAP
     {
         /* All delegate update */
         public static void UpdateDelegates()
         {
             /* > ATG 1 START */
-            GET_ELAPSED_TIME_MS = _GET_ELAPSED_TIME_MS;
+            GET_ELEM_EVENTS_OCCURRED = _GET_ELEM_EVENTS_OCCURRED;
+            GET_SIZE_EVENTS_OCCURRED = _GET_SIZE_EVENTS_OCCURRED;
+            GET_ARRAY_EVENTS_OCCURRED = _GET_ARRAY_EVENTS_OCCURRED;
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
-            GET_BOSS_STEP = _GET_BOSS_STEP;
-            SET_BOSS_STEP = _SET_BOSS_STEP;
-            REG_BOSS_STEP = _REG_BOSS_STEP;
-            UNREG_BOSS_STEP = _UNREG_BOSS_STEP;
+            NPC_REGISTER = _NPC_REGISTER;
             MONO_REGISTER = _MONO_REGISTER;
             /* > ATG 1 END */
         }
@@ -28,18 +27,17 @@ namespace MVerse.VARMAP.BossMaster
 
         /* GET/SET */
         /* > ATG 2 START */
-        public static GetVARMAPValueDelegate<ulong> GET_ELAPSED_TIME_MS;
+        public static GetVARMAPArrayElemValueDelegate<ulong> GET_ELEM_EVENTS_OCCURRED;
+        public static GetVARMAPArraySizeDelegate GET_SIZE_EVENTS_OCCURRED;
+        public static GetVARMAPArrayDelegate<ulong> GET_ARRAY_EVENTS_OCCURRED;
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
-        public static GetVARMAPValueDelegate<byte> GET_BOSS_STEP;
-        public static SetVARMAPValueDelegate<byte> SET_BOSS_STEP;
-        public static ReUnRegisterVARMAPValueChangeEventDelegate<byte> REG_BOSS_STEP;
-        public static ReUnRegisterVARMAPValueChangeEventDelegate<byte> UNREG_BOSS_STEP;
         /* > ATG 2 END */
 
         /* SERVICES */
         /* > ATG 3 START */
+        public static NPC_REGISTER_SERVICE NPC_REGISTER;
         public static MONO_REGISTER_SERVICE MONO_REGISTER;
         /* > ATG 3 END */
     }

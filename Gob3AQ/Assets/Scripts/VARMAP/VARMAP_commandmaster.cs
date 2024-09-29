@@ -1,6 +1,6 @@
-using MVerse.VARMAP.Types;
+using Gob3AQ.VARMAP.Types;
 
-namespace MVerse.VARMAP.CommandMaster
+namespace Gob3AQ.VARMAP.CommandMaster
 {
     /// <summary>
     /// VARMAP inheritance with permissions for MainMenu module

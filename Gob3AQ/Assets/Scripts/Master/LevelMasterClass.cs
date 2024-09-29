@@ -1,20 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MVerse.VARMAP.Types;
-using MVerse.VARMAP.LevelMaster;
+using Gob3AQ.VARMAP.Types;
+using Gob3AQ.VARMAP.LevelMaster;
 using System;
-using MVerse.FixedConfig;
-using MVerse.EnemyMaster;
+using Gob3AQ.FixedConfig;
+using Gob3AQ.NPCMaster;
 
-namespace MVerse.LevelMaster
+namespace Gob3AQ.LevelMaster
 {
     public class LevelMasterClass : MonoBehaviour
     {
         private static LevelMasterClass _singleton;
 
         private static List<MonoBehaviour> _Mono_List;
-        private static List<EnemyMasterClass> _Enemy_List;
+        private static List<NPCMasterClass> _Enemy_List;
 
         private int loadpercentage;
         private float otherworld_transition_time;
@@ -91,100 +91,30 @@ namespace MVerse.LevelMaster
 
         private void Update_Play()
         {
-            OtherWorldMode otherworldmode = VARMAP_LevelMaster.GET_OTHER_WORLD_MODE();
-            bool otherworldTransition = VARMAP_LevelMaster.GET_OTHER_WORLD_TRANSITION_ACTIVE();
-            bool otherworld = VARMAP_LevelMaster.GET_OTHER_WORLD();
-            float elapsedTime = Time.deltaTime;
 
-            /* Use timeout when observe Mode of otherworld is active */
-            if(otherworld && (!otherworldTransition) && (otherworldmode == OtherWorldMode.OTHER_WORLD_OBSERVE))
-            {
-                otherworld_observe_time += elapsedTime;
-                float progress;
-
-                progress = 1f - otherworld_observe_time / GameFixedConfig.OBSERVE_OTHER_WORLD_TIMEOUT;
-
-                if (otherworld_observe_time >= GameFixedConfig.OBSERVE_OTHER_WORLD_TIMEOUT)
-                {
-                    progress = 0f;
-                    ChangeOtherWorldService(false, OtherWorldMode.OTHER_WORLD_STAY);
-                }
-
-                VARMAP_LevelMaster.SET_OTHER_WORLD_TRANSITION_PROGRESS(progress);
-            }
         }
 
         
         private void Update_Play_Freeze()
         {
-            if(VARMAP_LevelMaster.GET_OTHER_WORLD_TRANSITION_ACTIVE())
-            {
-                if (otherworld_transition_time < GameFixedConfig.OTHER_WORLD_TRANSITION_TIME_SECONDS)
-                {
-                    otherworld_transition_time += Time.deltaTime;
 
-                    if (otherworld_transition_time >= GameFixedConfig.OTHER_WORLD_TRANSITION_TIME_SECONDS)
-                    {
-                        /* At least one cycle of 100% */
-                        VARMAP_LevelMaster.SET_OTHER_WORLD_TRANSITION_PROGRESS(1f);
-                    }
-                    else
-                    {
-                        VARMAP_LevelMaster.SET_OTHER_WORLD_TRANSITION_PROGRESS(otherworld_transition_time / GameFixedConfig.OTHER_WORLD_TRANSITION_TIME_SECONDS);
-                    }
-                }
-                else
-                {
-                    VARMAP_LevelMaster.SET_OTHER_WORLD_TRANSITION_ACTIVE(false);
-                    VARMAP_LevelMaster.FREEZE_PLAY(false);
-
-                    bool otherworld = VARMAP_LevelMaster.GET_OTHER_WORLD();
-
-    
-
-                    otherworld_observe_time = 0f;
-                    otherworld_transition_time = 0f;
-                    DeactivateAllWorldEnemies(otherworld);
-                }
-            }
         }
 
 
         private void Initializations()
         {
-            _Enemy_List = new List<EnemyMasterClass>(GameFixedConfig.MAX_POOLED_ENEMIES);
+            _Enemy_List = new List<NPCMasterClass>(GameFixedConfig.MAX_POOLED_ENEMIES);
             _Mono_List = new List<MonoBehaviour>();
         }
 
         
-        public static void ChangeOtherWorldService(bool toOtherWorld, OtherWorldMode otherWorldMode)
-        {
-            /* And many more conditions to check here */
-            if((VARMAP_LevelMaster.GET_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY) && (!VARMAP_LevelMaster.GET_OTHER_WORLD_TRANSITION_ACTIVE()))
-            {
-                ActivateAllWorldEnemies(toOtherWorld);
-
-                VARMAP_LevelMaster.SET_OTHER_WORLD(toOtherWorld);
-                VARMAP_LevelMaster.SET_OTHER_WORLD_TRANSITION_ACTIVE(true);
-                VARMAP_LevelMaster.SET_OTHER_WORLD_TRANSITION_PROGRESS(0f);
-                VARMAP_LevelMaster.SET_OTHER_WORLD_MODE(otherWorldMode);
-                VARMAP_LevelMaster.FREEZE_PLAY(true);
-
-                _singleton.otherworld_transition_time = 0f;
-            }
-        }
 
 
-        public static void EnemyRegisterService(bool register, EnemyMasterClass instance)
+        public static void NPCRegisterService(bool register, NPCMasterClass instance)
         {
             if(register)
             {
                 _Enemy_List.Add(instance);
-
-                if(instance.BelongsToOtherWorld != VARMAP_LevelMaster.GET_OTHER_WORLD())
-                {
-                    instance.gameObject.SetActive(false);
-                }
             }
             else
             {
@@ -204,27 +134,6 @@ namespace MVerse.LevelMaster
             }
         }
 
-        private static void ActivateAllWorldEnemies(bool otherworld)
-        {
-            for(int i=0;i<_Enemy_List.Count;i++)
-            {
-                if (_Enemy_List[i].BelongsToOtherWorld == otherworld)
-                {
-                    _Enemy_List[i].gameObject.SetActive(true);
-                }
-            }
-        }
-
-        private static void DeactivateAllWorldEnemies(bool otherworld)
-        {
-            for (int i = 0; i < _Enemy_List.Count; i++)
-            {
-                if (_Enemy_List[i].BelongsToOtherWorld != otherworld)
-                {
-                    _Enemy_List[i].gameObject.SetActive(false);
-                }
-            }
-        }
 
 
         private void _OnGameStatusChanged(ChangedEventType evType, ref Game_Status oldval, ref Game_Status newval)

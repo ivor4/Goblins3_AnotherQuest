@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-namespace MVerse.VARMAP.Config
+namespace Gob3AQ.VARMAP.Config
 {
     public static class VARMAP_Config
     {

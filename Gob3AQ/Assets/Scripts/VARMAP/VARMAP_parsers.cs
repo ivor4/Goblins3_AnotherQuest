@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace MVerse.VARMAP.Types.Parsers
+namespace Gob3AQ.VARMAP.Types.Parsers
 {
     public static class VARMAP_parsers
     {
@@ -16,26 +16,6 @@ namespace MVerse.VARMAP.Types.Parsers
             value = (Game_Status)BitConverter.ToInt32(reader);
         }
 
-        public static void OtherWorldMode_ParseToBytes(ref OtherWorldMode value, ref Span<byte> writer)
-        {
-            BitConverter.TryWriteBytes(writer, (int)value);
-        }
-
-        public static void OtherWorldMode_ParseFromBytes(ref OtherWorldMode value, ref ReadOnlySpan<byte> reader)
-        {
-            value = (OtherWorldMode)BitConverter.ToInt32(reader);
-        }
-
-
-        public static void KeyCombo_ParseToBytes(ref KeyCombo value, ref Span<byte> writer)
-        {
-            BitConverter.TryWriteBytes(writer, (int)value);
-        }
-
-        public static void KeyCombo_ParseFromBytes(ref KeyCombo value, ref ReadOnlySpan<byte> reader)
-        {
-            value = (KeyCombo)BitConverter.ToInt32(reader);
-        }
 
         public static void Room_ParseToBytes(ref Room value, ref Span<byte> writer)
         {
@@ -47,25 +27,6 @@ namespace MVerse.VARMAP.Types.Parsers
             value = (Room)BitConverter.ToInt32(reader);
         }
 
-        public static void Charm_ParseToBytes(ref Charm value, ref Span<byte> writer)
-        {
-            BitConverter.TryWriteBytes(writer, (int)value);
-        }
-
-        public static void Charm_ParseFromBytes(ref Charm value, ref ReadOnlySpan<byte> reader)
-        {
-            value = (Charm)BitConverter.ToInt32(reader);
-        }
-
-        public static void Powers_ParseToBytes(ref Powers value, ref Span<byte> writer)
-        {
-            BitConverter.TryWriteBytes(writer, (int)value);
-        }
-
-        public static void Powers_ParseFromBytes(ref Powers value, ref ReadOnlySpan<byte> reader)
-        {
-            value = (Powers)BitConverter.ToInt32(reader);
-        }
 
         public static void byte_ParseToBytes(ref byte value, ref Span<byte> writer)
         {

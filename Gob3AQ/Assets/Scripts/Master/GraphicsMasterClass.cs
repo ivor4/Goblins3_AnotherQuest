@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using MVerse.VARMAP.Types;
-using MVerse.VARMAP.GraphicsMaster;
-using MVerse.FixedConfig;
+using Gob3AQ.VARMAP.Types;
+using Gob3AQ.VARMAP.GraphicsMaster;
+using Gob3AQ.FixedConfig;
 
 
-namespace MVerse.GraphicsMaster
+namespace Gob3AQ.GraphicsMaster
 {
     public class GraphicsMasterClass : MonoBehaviour
     {
@@ -71,19 +71,9 @@ namespace MVerse.GraphicsMaster
 
             paused_text = guicanvas.transform.Find("paused").GetComponent<Text>();
 
-            VARMAP_GraphicsMaster.REG_LIFE_ACTUAL(LifeChanged);
-            VARMAP_GraphicsMaster.REG_LIFE_TOTAL(TotalLifeChanged);
+
             VARMAP_GraphicsMaster.REG_GAMESTATUS(_GameStatusChanged);
 
-            cached_life = 0;
-            cached_totallife = 0;
-
-            byte temp1 = 1;
-            byte lifeactual = VARMAP_GraphicsMaster.GET_LIFE_ACTUAL();
-            byte lifetotal = VARMAP_GraphicsMaster.GET_LIFE_TOTAL();
-
-            LifeChanged(ChangedEventType.CHANGED_EVENT_SET, ref temp1, ref lifeactual);
-            TotalLifeChanged(ChangedEventType.CHANGED_EVENT_SET, ref temp1, ref lifetotal);
         }
 
         // Update is called once per frame
@@ -94,10 +84,6 @@ namespace MVerse.GraphicsMaster
             switch(gstatus)
             {
                 case Game_Status.GAME_STATUS_PLAY_FREEZE:
-                    if (VARMAP_GraphicsMaster.GET_OTHER_WORLD_TRANSITION_ACTIVE())
-                    {
-                        OtherWorldTransition();
-                    }
                     break;
                 case Game_Status.GAME_STATUS_PLAY:
                     FollowPlayerWithCamera();
@@ -114,8 +100,6 @@ namespace MVerse.GraphicsMaster
             {
                 _singleton = null;
 
-                VARMAP_GraphicsMaster.UNREG_LIFE_ACTUAL(LifeChanged);
-                VARMAP_GraphicsMaster.UNREG_LIFE_TOTAL(TotalLifeChanged);
                 VARMAP_GraphicsMaster.UNREG_GAMESTATUS(_GameStatusChanged);
             }
         }
@@ -152,78 +136,7 @@ namespace MVerse.GraphicsMaster
             lastCharacterPos = playerpos;
         }
 
-        private void OtherWorldTransition()
-        {
-            Color mixed;
-            float progress = VARMAP_GraphicsMaster.GET_OTHER_WORLD_TRANSITION_PROGRESS();
-            bool otherworld = VARMAP_GraphicsMaster.GET_OTHER_WORLD();
 
-            if (progress < 1f)
-            {
-                Color origin;
-                Color dest;
-
-                if (otherworld)
-                {
-                    origin = GameFixedConfig.SUN_COLOR_NORMAL;
-                    dest = GameFixedConfig.SUN_COLOR_OTHERWORLD;
-                }
-                else
-                {
-                    origin = GameFixedConfig.SUN_COLOR_OTHERWORLD;
-                    dest = GameFixedConfig.SUN_COLOR_NORMAL;
-                }
-
-                mixed = Color.Lerp(origin, dest, progress);
-            }
-            else
-            {
-                if (otherworld)
-                {
-                    mixed = GameFixedConfig.SUN_COLOR_OTHERWORLD;
-                }
-                else
-                {
-                    mixed = GameFixedConfig.SUN_COLOR_NORMAL;
-                }
-            }
-
-            sunLight.color = mixed;
-        }
-
-        private void LifeChanged(ChangedEventType evtype, ref byte oldval, ref byte newval)
-        {
-            for(int i=0; i< GameFixedConfig.MAX_POSSIBLE_LIFE; i++)
-            {
-                if (i <= (newval - 1))
-                {
-                    guicanvas_hearts[i].color = Color.white;
-                }
-                else
-                {
-                    guicanvas_hearts[i].color = Color.black;
-                }
-            }
-
-            cached_life = newval;
-        }
-
-        private void TotalLifeChanged(ChangedEventType evtype, ref byte oldval, ref byte newval)
-        {
-            for (int i = 0; i < GameFixedConfig.MAX_POSSIBLE_LIFE; i++)
-            {
-                if (i <= (newval-1))
-                {
-                    guicanvas_hearts[i].gameObject.SetActive(true);
-                }
-                else
-                {
-                    guicanvas_hearts[i].gameObject.SetActive(false);
-                }
-            }
-
-            cached_totallife = newval;
-        }
 
         private void _GameStatusChanged(ChangedEventType evtype, ref Game_Status oldval, ref Game_Status newval)
         {

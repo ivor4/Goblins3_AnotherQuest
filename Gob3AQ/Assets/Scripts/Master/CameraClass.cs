@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MVerse.CameraMaster
+namespace Gob3AQ.CameraMaster
 {
     public class CameraClass : MonoBehaviour
     {

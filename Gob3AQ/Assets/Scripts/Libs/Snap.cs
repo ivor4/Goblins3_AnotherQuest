@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MVerse.FixedConfig;
+using Gob3AQ.FixedConfig;
 using System.Runtime.CompilerServices;
 
-namespace MVerse.Libs.Snap
+namespace Gob3AQ.Libs.Snap
 {
     public struct GridCoordinates
     {

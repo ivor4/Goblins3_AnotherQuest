@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace MVerse.Libs.Regulation
+namespace Gob3AQ.Libs.Regulation
 {
 
     public class PI_RegulatorClass

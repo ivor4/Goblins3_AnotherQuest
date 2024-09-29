@@ -1,10 +1,10 @@
-using MVerse.Libs.CRC32;
+using Gob3AQ.Libs.CRC32;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-namespace MVerse.VARMAP.Variable.IstreamableNamespace
+namespace Gob3AQ.VARMAP.Variable.IstreamableNamespace
 {
     public delegate IStreamable StreamableNewInstanceDelegate();
     public interface IStreamable

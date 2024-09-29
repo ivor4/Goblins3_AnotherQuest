@@ -1,27 +1,25 @@
-using MVerse.VARMAP.Enum;
-using MVerse.VARMAP.Safe;
-using MVerse.VARMAP.SaveData;
-using MVerse.VARMAP.DefaultValues;
-using MVerse.VARMAP.Variable;
-using MVerse.VARMAP.Config;
-using MVerse.Libs.CRC32;
-using MVerse.VARMAP.GameMaster;
-using MVerse.VARMAP.LevelMaster;
-using MVerse.VARMAP.InputMaster;
-using MVerse.VARMAP.PhysicsMaster;
-using MVerse.VARMAP.GraphicsMaster;
-using MVerse.VARMAP.GameMenu;
-using MVerse.VARMAP.PlayerMaster;
-using MVerse.VARMAP.EnemyMaster;
-using MVerse.VARMAP.ItemMaster;
-using MVerse.VARMAP.GameEventMaster;
-using MVerse.VARMAP.BossMaster;
+using Gob3AQ.VARMAP.Enum;
+using Gob3AQ.VARMAP.Safe;
+using Gob3AQ.VARMAP.SaveData;
+using Gob3AQ.VARMAP.DefaultValues;
+using Gob3AQ.VARMAP.Variable;
+using Gob3AQ.VARMAP.Config;
+using Gob3AQ.Libs.CRC32;
+using Gob3AQ.VARMAP.GameMaster;
+using Gob3AQ.VARMAP.LevelMaster;
+using Gob3AQ.VARMAP.InputMaster;
+using Gob3AQ.VARMAP.GraphicsMaster;
+using Gob3AQ.VARMAP.GameMenu;
+using Gob3AQ.VARMAP.PlayerMaster;
+using Gob3AQ.VARMAP.NPCMaster;
+using Gob3AQ.VARMAP.ItemMaster;
+using Gob3AQ.VARMAP.GameEventMaster;
 using System.IO;
-using MVerse.FixedConfig;
+using Gob3AQ.FixedConfig;
 using System;
 using UnityEngine;
 
-namespace MVerse.VARMAP.Initialization
+namespace Gob3AQ.VARMAP.Initialization
 {
     public abstract partial class VARMAP_Initialization : VARMAP
     {
@@ -50,14 +48,12 @@ namespace MVerse.VARMAP.Initialization
             VARMAP_GameMaster.UpdateDelegates();
             VARMAP_LevelMaster.UpdateDelegates();
             VARMAP_InputMaster.UpdateDelegates();
-            VARMAP_PhysicsMaster.UpdateDelegates();
             VARMAP_GraphicsMaster.UpdateDelegates();
             VARMAP_GameMenu.UpdateDelegates();
             VARMAP_PlayerMaster.UpdateDelegates();
-            VARMAP_EnemyMaster.UpdateDelegates();
+            VARMAP_NPCMaster.UpdateDelegates();
             VARMAP_ItemMaster.UpdateDelegates();
             VARMAP_GameEventMaster.UpdateDelegates();
-            VARMAP_BossMaster.UpdateDelegates();
 
 
             /* BONUS: Set VARMAP data with default values */

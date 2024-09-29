@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
-using MVerse.VARMAP.Config;
+using Gob3AQ.VARMAP.Config;
 
-namespace MVerse.VARMAP.Safe
+namespace Gob3AQ.VARMAP.Safe
 {
 
     public abstract class VARMAP_Safe : VARMAP

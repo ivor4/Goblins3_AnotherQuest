@@ -1,12 +1,12 @@
-using MVerse.VARMAP.Variable.IstreamableNamespace;
+using Gob3AQ.VARMAP.Variable.IstreamableNamespace;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using MVerse.Libs.Arith;
+using Gob3AQ.Libs.Arith;
 
-namespace MVerse.VARMAP.Types
+namespace Gob3AQ.VARMAP.Types
 {
     public delegate void VARMAPValueChangedEvent<T>(ChangedEventType eventType, ref T oldval, ref T newval);
     public delegate T GetVARMAPValueDelegate<T>();
@@ -31,50 +31,8 @@ namespace MVerse.VARMAP.Types
         CHANGED_EVENT_SET_LIST_ELEM
     }
 
-    public enum OtherWorldMode
-    {
-        OTHER_WORLD_OBSERVE,
-        OTHER_WORLD_STAY
-    }
 
-    public enum KeyCombo
-    {
-        KEY_COMBO_NONE,
-        KEY_COMBO_SUPER_ATTACK_LEFT,
-        KEY_COMBO_SUPER_ATTACK_RIGHT,
-        KEY_COMBO_FAST_FORWARD_LEFT,
-        KEY_COMBO_FAST_FORWARD_RIGHT,
-        KEY_COMBO_ROLL_RIGHT,
-        KEY_COMBO_OBSERVE_OTHER_WORLD,
-        KEY_COMBO_OTHER_WORLD,
-        KEY_COMBO_CLIMB_WALL_LEFT,
-        KEY_COMBO_CLIMB_WALL_RIGHT,
 
-        KEY_COMBO_TOTAL
-    }
-
-    public enum Charm
-    {
-        CHARM_NONE,
-        CHARM_INPU_OTHER_WORLD = 1,
-        CHARM_NEIT_SHOT = 2,
-        CHARM_BASTET_CLIMB = 4
-    }
-
-    public enum Powers_Index
-    {
-        POWER_INDEX_SHOT,
-        POWER_INDEX_DOUBLE_JUMP,
-        POWER_INDEX_CLIMB
-    }
-
-    public enum Powers
-    {
-        POWER_NONE = 0,
-        POWER_SHOT = 1 << Powers_Index.POWER_INDEX_SHOT,
-        POWER_DOUBLE_JUMP = 1 << Powers_Index.POWER_INDEX_DOUBLE_JUMP,
-        POWER_CLIMB = 1 << Powers_Index.POWER_INDEX_CLIMB
-    }
 
     public enum Room
     {
@@ -86,21 +44,6 @@ namespace MVerse.VARMAP.Types
         TOTAL_ROOMS
     }
 
-    public enum OBFight
-    {
-        NONE,
-        OBF_SPACE_MAMA,
-
-        TOTAL_OBF
-    }
-
-    public enum CollisionLayer
-    {
-        LAYER_SOLID = 6,
-        LAYER_PLAYER = 7,
-        LAYER_ENEMY = 8,
-        LAYER_ENEMY_AS_SOLID = 9,
-    }
 
 
      public enum KeyFunctions
@@ -364,7 +307,6 @@ namespace MVerse.VARMAP.Types
         public KeyFunctions pressedKeys;
         public KeyFunctions cyclepressedKeys;
         public KeyFunctions cyclereleasedKeys;
-        public KeyCombo activeCombo;
 
 
 
@@ -380,7 +322,6 @@ namespace MVerse.VARMAP.Types
             gstruct.pressedKeys = (KeyFunctions)BitConverter.ToUInt32(readZone.ReadNext(sizeof(uint)));
             gstruct.cyclepressedKeys = (KeyFunctions)BitConverter.ToUInt32(readZone.ReadNext(sizeof(uint)));
             gstruct.cyclereleasedKeys = (KeyFunctions)BitConverter.ToUInt32(readZone.ReadNext(sizeof(uint)));
-            gstruct.activeCombo = (KeyCombo)BitConverter.ToInt32(readZone.ReadNext(sizeof(int)));
         }
 
         public static void StaticParseToBytes(ref KeyStruct gstruct, ref Span<byte> writer)
@@ -390,7 +331,6 @@ namespace MVerse.VARMAP.Types
             BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(uint)), (uint)gstruct.pressedKeys);
             BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(uint)), (uint)gstruct.cyclepressedKeys);
             BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(uint)), (uint)gstruct.cyclereleasedKeys);
-            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(int)), (int)gstruct.activeCombo);
         }
 
         public void ParseFromBytes(ref ReadOnlySpan<byte> reader)

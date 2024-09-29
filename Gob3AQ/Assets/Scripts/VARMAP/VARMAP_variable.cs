@@ -1,18 +1,18 @@
 
 using System;
-using MVerse.VARMAP.Types;
-using MVerse.VARMAP.Safe;
-using MVerse.VARMAP.Enum;
+using Gob3AQ.VARMAP.Types;
+using Gob3AQ.VARMAP.Safe;
+using Gob3AQ.VARMAP.Enum;
 using UnityEngine;
 using System.IO;
 using System.Collections;
-using MVerse.VARMAP.Variable.IstreamableNamespace;
+using Gob3AQ.VARMAP.Variable.IstreamableNamespace;
 using System.Collections.Generic;
-using MVerse.Libs.Cast;
-using MVerse.Libs.CRC32;
-using MVerse.Libs.Arith;
+using Gob3AQ.Libs.Cast;
+using Gob3AQ.Libs.CRC32;
+using Gob3AQ.Libs.Arith;
 
-namespace MVerse.VARMAP.Variable
+namespace Gob3AQ.VARMAP.Variable
 {
 
     public abstract class VARMAP_Variable_Indexable : IStreamable

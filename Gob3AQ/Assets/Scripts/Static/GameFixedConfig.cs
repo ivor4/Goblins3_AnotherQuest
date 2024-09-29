@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MVerse.FixedConfig
+namespace Gob3AQ.FixedConfig
 {
     public static class GameFixedConfig
     {

@@ -4,7 +4,7 @@ Spyder Editor
 
 This is not a temporary script file.
 """
-atg_path = "./../Assets/Scripts/VARMAP/"
+atg_path = "./../Gob3AQ/Assets/Scripts/VARMAP/"
 proto_path = atg_path+"VARMAP.cs"
 initialization_path = atg_path+"VARMAP_datasystem.cs"
 defaultvalues_path = atg_path+"VARMAP_defaultvalues.cs"

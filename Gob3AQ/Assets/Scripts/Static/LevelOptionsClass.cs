@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using MVerse.VARMAP.Types;
+using Gob3AQ.VARMAP.Types;
 
-namespace MVerse.LevelOptions
+namespace Gob3AQ.LevelOptions
 {
     public static class LevelOptionsClass
     {

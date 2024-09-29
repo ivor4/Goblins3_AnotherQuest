@@ -2,10 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MVerse.Libs.Arith;
-using MVerse.Libs.Triangulator;
+using Gob3AQ.Libs.Arith;
+using Gob3AQ.Libs.Triangulator;
 
-namespace MVerse.Libs.MeshManipulation
+namespace Gob3AQ.Libs.MeshManipulation
 {
     public struct VertexTruple
     {

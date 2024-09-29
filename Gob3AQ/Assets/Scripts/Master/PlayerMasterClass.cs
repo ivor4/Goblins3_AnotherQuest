@@ -1,5 +1,4 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 using Gob3AQ.VARMAP.PlayerMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.FixedConfig;
@@ -7,33 +6,36 @@ using System;
 
 namespace Gob3AQ.PlayerMaster
 {
-    public enum PhysicalState
-    {
-        PHYSICAL_STATE_STANDING,
-        PHYSICAL_STATE_TALKING,
-        PHYSICAL_STATE_ACTING,
-        PHYSICAL_STATE_ANIMATION
-    }
+    
 
     public class PlayerMasterClass : MonoBehaviour
     {
-        /* GameObject components */
-        private SpriteRenderer myspriteRenderer;
+        private static PlayerMasterClass _singleton;
 
-        /* Status */
-        private PhysicalState physicalstate;
+
+
+        public static void MovePlayerService(Vector2 position)
+        {
+
+        }
 
 
         private void Awake()
         {
-            myspriteRenderer = GetComponent<SpriteRenderer>();
+            if(_singleton)
+            {
+                Destroy(this);
+                return;
+            }
+            else
+            {
+                _singleton = this;
+            }
         }
 
         private void Start()
         {
-            physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
 
-            VARMAP_PlayerMaster.MONO_REGISTER(this, true);
         }
 
 
@@ -56,7 +58,10 @@ namespace Gob3AQ.PlayerMaster
 
         private void OnDestroy()
         {
-            VARMAP_PlayerMaster.MONO_REGISTER(this, false);
+            if(_singleton == this)
+            {
+                _singleton = null;
+            }
         }
     }
 }

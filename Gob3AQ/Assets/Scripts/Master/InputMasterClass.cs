@@ -6,6 +6,7 @@ using Gob3AQ.VARMAP.Types;
 using Gob3AQ.FixedConfig;
 using System;
 using Gob3AQ.Libs.Arith;
+using Gob3AQ.VARMAP.DefaultValues;
 
 namespace Gob3AQ.InputMaster
 {
@@ -15,6 +16,7 @@ namespace Gob3AQ.InputMaster
         private KeyOptions cachedKeyOptions;
         private KeyStruct cachedPressedKeys;
         private KeyFunctions accumulatedDownkeys;
+        private MousePropertiesStruct cachedMouseProps;
         private float ellapsedMillis;
 
 
@@ -36,6 +38,7 @@ namespace Gob3AQ.InputMaster
         {
             cachedPressedKeys = new KeyStruct() { cyclepressedKeys = 0, cyclereleasedKeys = 0, pressedKeys = 0};
             cachedKeyOptions = VARMAP_InputMaster.GET_GAME_OPTIONS().keyOptions;
+            cachedMouseProps = VARMAP_DefaultValues.MouseProperties_Default;
             ellapsedMillis = 0f;
             accumulatedDownkeys = 0;
 
@@ -84,17 +87,19 @@ namespace Gob3AQ.InputMaster
                 }
 
 
-                MousePropertiesStruct mouseProps = new MousePropertiesStruct();
                 Vector2 mousePosition = Input.mousePosition;
                 bool mousenowpressed = Input.GetMouseButton(0);
-                bool secondarynowpressed = Input.GetMouseButton(1);
 
-                mouseProps.pos2 = mousePosition;
-                mouseProps.pos1 = mousePosition;
+                cachedMouseProps.primaryPressed = (!cachedMouseProps.primaryPressing) & mousenowpressed;
+                cachedMouseProps.primaryReleased = cachedMouseProps.primaryPressing & (!mousenowpressed);
+                cachedMouseProps.primaryPressing = mousenowpressed;
+
+                cachedMouseProps.pos1 = mousePosition;
+                cachedMouseProps.pos2 = mousePosition;
 
 
                 VARMAP_InputMaster.SET_PRESSED_KEYS(cachedPressedKeys);
-                VARMAP_InputMaster.SET_MOUSE_PROPERTIES(mouseProps);
+                VARMAP_InputMaster.SET_MOUSE_PROPERTIES(cachedMouseProps);
             }
 
         }

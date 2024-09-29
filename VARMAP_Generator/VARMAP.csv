@@ -6,5 +6,5 @@ N,ENUM_ID,TYPE,SAFE,ARRAY,DEFVALUE,SAVE,,GameMaster,InputMaster,LevelMaster,Grap
 4,EVENTS_OCCURRED,ulong,2,2,0UL,Y,,,,R,,,R,R,,W
 5,GAMESTATUS,Game_Status,0,0,Game_Status.GAME_STATUS_STOPPED,N,,W,,R E,R E,R E,R E,R E,,
 6,PRESSED_KEYS,KeyStruct,0,0,KeyStruct_Default,N,,R,W,,,R,R,,,
-7,MOUSE_PROPERTIES,MousePropertiesStruct,0,0,MouseProperties_Default,N,,R,W,,R,R,,,,
+7,MOUSE_PROPERTIES,MousePropertiesStruct,0,0,MouseProperties_Default,N,,,W,R,R,R,,,,
 8,PLAYER_POSITION,Vector3Struct,0,0,Vector3Struct_Default,N,,,,,R,,W,,,R

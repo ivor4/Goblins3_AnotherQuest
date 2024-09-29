@@ -23,6 +23,7 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             GET_PLAYER_POSITION = _GET_PLAYER_POSITION;
             SET_PLAYER_POSITION = _SET_PLAYER_POSITION;
             MONO_REGISTER = _MONO_REGISTER;
+            MOVE_PLAYER = _MOVE_PLAYER;
             /* > ATG 1 END */
         }
 
@@ -44,6 +45,7 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         /* SERVICES */
         /* > ATG 3 START */
         public static MONO_REGISTER_SERVICE MONO_REGISTER;
+        public static MOVE_PLAYER_SERVICE MOVE_PLAYER;
         /* > ATG 3 END */
     }
 }

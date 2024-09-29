@@ -10,4 +10,5 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void FREEZE_PLAY_DELEGATE(bool freeze);
     public delegate void NPC_REGISTER_SERVICE(bool register, NPCMasterClass instance);
     public delegate void MONO_REGISTER_SERVICE(MonoBehaviour mono, bool add);
+    public delegate void MOVE_PLAYER_SERVICE(Vector2 position);
 }

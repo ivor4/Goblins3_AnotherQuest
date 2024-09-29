@@ -9,6 +9,7 @@ using Gob3AQ.LevelMaster;
 using Gob3AQ.InputMaster;
 using Gob3AQ.GraphicsMaster;
 using Gob3AQ.VARMAP.Variable;
+using Gob3AQ.PlayerMaster;
 
 namespace Gob3AQ.VARMAP.Initialization
 {
@@ -75,6 +76,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _FREEZE_PLAY = GameMasterClass.FreezePlayService;
             _NPC_REGISTER = LevelMasterClass.NPCRegisterService;
             _MONO_REGISTER = LevelMasterClass.MonoRegisterService;
+            _MOVE_PLAYER = PlayerMasterClass.MovePlayerService;
             /* > ATG 2 END */
         }
     }

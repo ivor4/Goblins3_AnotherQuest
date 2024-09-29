@@ -75,10 +75,15 @@ namespace Gob3AQ.VARMAP.Types
 
     public struct MousePropertiesStruct : IStreamable
     {
-        public const int STRUCT_SIZE = 2*2*sizeof(float);
+        public const int STRUCT_SIZE = 2*2*sizeof(float) + 3*sizeof(bool);
 
         public Vector2 pos1;
         public Vector2 pos2;
+
+        public bool primaryPressed;
+        public bool primaryPressing;
+        public bool primaryReleased;
+
 
         public static void StaticParseFromBytes(ref MousePropertiesStruct gstruct, ref ReadOnlySpan<byte> reader)
         {
@@ -86,6 +91,9 @@ namespace Gob3AQ.VARMAP.Types
 
             gstruct.pos1 = new Vector2(BitConverter.ToSingle(readZone.ReadNext(sizeof(float))), BitConverter.ToSingle(readZone.ReadNext(sizeof(float))));
             gstruct.pos2 = new Vector2(BitConverter.ToSingle(readZone.ReadNext(sizeof(float))), BitConverter.ToSingle(readZone.ReadNext(sizeof(float))));
+            gstruct.primaryPressed = BitConverter.ToBoolean(readZone.ReadNext(sizeof(bool)));
+            gstruct.primaryPressing = BitConverter.ToBoolean(readZone.ReadNext(sizeof(bool)));
+            gstruct.primaryReleased = BitConverter.ToBoolean(readZone.ReadNext(sizeof(bool)));
         }
 
         public static void StaticParseToBytes(ref MousePropertiesStruct gstruct, ref Span<byte> writer)
@@ -96,6 +104,9 @@ namespace Gob3AQ.VARMAP.Types
             BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(float)), gstruct.pos1.y);
             BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(float)), gstruct.pos2.x);
             BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(float)), gstruct.pos2.y);
+            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(bool)), gstruct.primaryPressed);
+            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(bool)), gstruct.primaryPressing);
+            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(bool)), gstruct.primaryReleased);
         }
 
         public static IStreamable CreateNewInstance()

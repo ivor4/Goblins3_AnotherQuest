@@ -21,11 +21,13 @@ namespace Gob3AQ.VARMAP.LevelMaster
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
+            GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
             LOAD_ROOM = _LOAD_ROOM;
             LOADING_COMPLETED = _LOADING_COMPLETED;
             FREEZE_PLAY = _FREEZE_PLAY;
             NPC_REGISTER = _NPC_REGISTER;
             MONO_REGISTER = _MONO_REGISTER;
+            MOVE_PLAYER = _MOVE_PLAYER;
             /* > ATG 1 END */
         }
 
@@ -45,6 +47,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
+        public static GetVARMAPValueDelegate<MousePropertiesStruct> GET_MOUSE_PROPERTIES;
         /* > ATG 2 END */
 
         /* SERVICES */
@@ -54,6 +57,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static FREEZE_PLAY_DELEGATE FREEZE_PLAY;
         public static NPC_REGISTER_SERVICE NPC_REGISTER;
         public static MONO_REGISTER_SERVICE MONO_REGISTER;
+        public static MOVE_PLAYER_SERVICE MOVE_PLAYER;
         /* > ATG 3 END */
     }
 }

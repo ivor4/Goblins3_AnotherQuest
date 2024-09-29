@@ -36,6 +36,7 @@ namespace Gob3AQ.VARMAP.DefaultValues
             position = Vector3.zero
         };
 
-        public static MousePropertiesStruct MouseProperties_Default => new MousePropertiesStruct() { pos1 = Vector2.zero, pos2 = Vector2.zero };
+        public static MousePropertiesStruct MouseProperties_Default => new MousePropertiesStruct() { pos1 = Vector2.zero, pos2 = Vector2.zero,
+            primaryPressed = false, primaryPressing = false, primaryReleased = false };
     }
 }

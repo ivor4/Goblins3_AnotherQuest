@@ -65,6 +65,7 @@ namespace Gob3AQ.VARMAP
         protected static FREEZE_PLAY_DELEGATE _FREEZE_PLAY;
         protected static NPC_REGISTER_SERVICE _NPC_REGISTER;
         protected static MONO_REGISTER_SERVICE _MONO_REGISTER;
+        protected static MOVE_PLAYER_SERVICE _MOVE_PLAYER;
         /* > ATG 2 END < */
         
         

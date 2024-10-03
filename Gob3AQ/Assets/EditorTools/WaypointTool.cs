@@ -8,11 +8,11 @@ using Gob3AQ.Waypoint.Types;
 
 namespace Gob3AQ.Waypoint.WaypointTool
 {
-    [EditorTool("Waypoint Tool", typeof(Waypoint))]
+    [EditorTool("Waypoint Tool", typeof(WaypointClass))]
     public class WaypointTool : EditorTool
     {
         GUIContent m_ToolbarIcon;
-        List<Waypoint> selectedWaypoints;
+        List<WaypointClass> selectedWaypoints;
         WaypointConnectionType connType;
         WaypointType wpType;
 
@@ -44,10 +44,10 @@ namespace Gob3AQ.Waypoint.WaypointTool
                 return;
 
             List<Object> selectedList = new List<Object>(targets);
-            selectedWaypoints = new List<Waypoint>(selectedList.Count);
+            selectedWaypoints = new List<WaypointClass>(selectedList.Count);
             for (int i = 0; i < selectedList.Count; i++)
             {
-                selectedWaypoints.Add((Waypoint)selectedList[i]);
+                selectedWaypoints.Add((WaypointClass)selectedList[i]);
             }
             wpType = WaypointType.WAYPOINT_TYPE_GROUND;
             connType = WaypointConnectionType.WAYPOINT_CONNECTION_NORMAL;
@@ -104,15 +104,13 @@ namespace Gob3AQ.Waypoint.WaypointTool
 
             if (selectedWaypoints.Count == 1)
             {
-                Waypoint selectedWaypoint = selectedWaypoints[0];
+                WaypointClass selectedWaypoint = selectedWaypoints[0];
 
                 if (GUILayout.Button("Connect New Waypoint", GUILayout.Width(200)))
                 {
-                    Waypoint waypoint = CreateWaypoint(selectedWaypoint.transform.position + Vector3.up, selectedWaypoint.name + "_NEW");
+                    WaypointClass waypoint = CreateWaypoint(selectedWaypoint.transform.position + Vector3.up, selectedWaypoint.name + "_NEW");
 
-                    waypoint.PreloadPathPoint = new WaypointPreloadPathPoint() { pathNum = -1, pathPoint = -1 };
-
-                    Waypoint.PreloadWaypointConnection(selectedWaypoint, waypoint, connType);
+                    WaypointClass.PreloadWaypointConnection(selectedWaypoint, waypoint, connType);
 
                     EditorUtility.SetDirty(waypoint.gameObject);
                 }
@@ -121,7 +119,7 @@ namespace Gob3AQ.Waypoint.WaypointTool
                 {
                     for (int i = 0; i < selectedWaypoint.PreloadConnections.Count; i++)
                     {
-                        Waypoint otherWaypoint = selectedWaypoint.PreloadConnections[i].withWaypoint;
+                        WaypointClass otherWaypoint = selectedWaypoint.PreloadConnections[i].withWaypoint;
 
                         for (int e = 0; e < otherWaypoint.PreloadConnections.Count; e++)
                         {
@@ -139,25 +137,23 @@ namespace Gob3AQ.Waypoint.WaypointTool
             }
             else if (selectedWaypoints.Count == 2)
             {
-                if (Waypoint.IsPreloadConnectedWith(selectedWaypoints[0], selectedWaypoints[1]))
+                if (WaypointClass.IsPreloadConnectedWith(selectedWaypoints[0], selectedWaypoints[1]))
                 {
                     if (GUILayout.Button("Disconnect", GUILayout.Width(200)))
                     {
-                        Waypoint.PreloadWaypointDisconnection(selectedWaypoints[0], selectedWaypoints[1]);
+                        WaypointClass.PreloadWaypointDisconnection(selectedWaypoints[0], selectedWaypoints[1]);
                         EditorUtility.SetDirty(selectedWaypoints[0].gameObject);
                         EditorUtility.SetDirty(selectedWaypoints[1].gameObject);
                     }
 
                     if (GUILayout.Button("Insert New between", GUILayout.Width(200)))
                     {
-                        Waypoint waypoint = CreateWaypoint((selectedWaypoints[0].transform.position + selectedWaypoints[1].transform.position) / 2 + Vector3.up, selectedWaypoints[0].name + "_NEW");
+                        WaypointClass waypoint = CreateWaypoint((selectedWaypoints[0].transform.position + selectedWaypoints[1].transform.position) / 2 + Vector3.up, selectedWaypoints[0].name + "_NEW");
 
-                        /* This will belong the same terrain, however, not attached to a path num nor point */
-                        waypoint.PreloadPathPoint = new WaypointPreloadPathPoint() { pathNum = -1, pathPoint = -1 };
 
-                        Waypoint.PreloadWaypointDisconnection(selectedWaypoints[0], selectedWaypoints[1]);
-                        Waypoint.PreloadWaypointConnection(selectedWaypoints[0], waypoint, connType);
-                        Waypoint.PreloadWaypointConnection(waypoint, selectedWaypoints[1], connType);
+                        WaypointClass.PreloadWaypointDisconnection(selectedWaypoints[0], selectedWaypoints[1]);
+                        WaypointClass.PreloadWaypointConnection(selectedWaypoints[0], waypoint, connType);
+                        WaypointClass.PreloadWaypointConnection(waypoint, selectedWaypoints[1], connType);
 
                         EditorUtility.SetDirty(waypoint.gameObject);
                         EditorUtility.SetDirty(selectedWaypoints[0].gameObject);
@@ -168,7 +164,7 @@ namespace Gob3AQ.Waypoint.WaypointTool
                 {
                     if (GUILayout.Button("Connect(Normal)", GUILayout.Width(200)))
                     {
-                        Waypoint.PreloadWaypointConnection(selectedWaypoints[0], selectedWaypoints[1], connType);
+                        WaypointClass.PreloadWaypointConnection(selectedWaypoints[0], selectedWaypoints[1], connType);
                         EditorUtility.SetDirty(selectedWaypoints[0].gameObject);
                         EditorUtility.SetDirty(selectedWaypoints[1].gameObject);
                     }
@@ -181,13 +177,13 @@ namespace Gob3AQ.Waypoint.WaypointTool
             Handles.EndGUI();
         }
 
-        private Waypoint CreateWaypoint(Vector3 position, string name)
+        private WaypointClass CreateWaypoint(Vector3 position, string name)
         {
             GameObject wpgameobject = Instantiate(Resources.Load<GameObject>("Prefabs/Waypoint")); 
             wpgameobject.transform.position = position;
             wpgameobject.name = name;
 
-            Waypoint waypoint = wpgameobject.GetComponent<Waypoint>();
+            WaypointClass waypoint = wpgameobject.GetComponent<WaypointClass>();
 
             waypoint.PreloadType = wpType;
 

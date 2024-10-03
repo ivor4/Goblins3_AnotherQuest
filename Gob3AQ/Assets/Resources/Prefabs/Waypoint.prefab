@@ -97,20 +97,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 9015982732794815057}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ddc2e3fd5597654492acd4f6e3f70f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 45804a27f23d5814ea6e3f3eeb8e99a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PreloadConnections: []
-  PreloadPathPoint:
-    pathNum: 0
-    pathPoint: 0
   PreloadType: 0
   CreateNetwork: 0
   type: 0
   network:
     waypointList: []
     resolvedSolutions_normal: []
-  attachedPathNum: 0
-  attachedPoint: 0
   indexInNetwork: 0
   connections: []

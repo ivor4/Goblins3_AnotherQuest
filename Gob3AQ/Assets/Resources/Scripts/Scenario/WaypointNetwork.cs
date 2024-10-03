@@ -10,9 +10,9 @@ namespace Gob3AQ.Waypoint.Network
         public const float IMPOSSIBLEDISTANCE = 1000000f;
 
         [SerializeField]
-        private List<Waypoint> waypointList;
+        private List<WaypointClass> waypointList;
 
-        public List<Waypoint> WaypointList => waypointList;
+        public List<WaypointClass> WaypointList => waypointList;
 
         /// <summary>
         /// Solutions for normal hability
@@ -29,7 +29,7 @@ namespace Gob3AQ.Waypoint.Network
 
         public WaypointNetwork()
         {
-            waypointList = new List<Waypoint>();
+            waypointList = new List<WaypointClass>();
             resolvedSolutions_normal = new List<WaypointSolutions>();
 
             resolvedSolutionsByType = new Dictionary<WaypointSkillType, List<WaypointSolutions>>();
@@ -43,7 +43,7 @@ namespace Gob3AQ.Waypoint.Network
 
 
 
-        public void AddIsolatedWaypoint(Waypoint wp)
+        public void AddIsolatedWaypoint(WaypointClass wp)
         {
             waypointList.Add(wp);
             dirty = true;
@@ -54,7 +54,7 @@ namespace Gob3AQ.Waypoint.Network
         /// </summary>
         /// <param name="wp">New waypoint to connect (its network and connections will be reseted)</param>
         /// <param name="connectedWith">Already existing waypoint in Network</param>
-        public void AddWayPointConnectedTo(Waypoint wp, Waypoint connectedWith, WaypointConnectionType type = WaypointConnectionType.WAYPOINT_CONNECTION_NORMAL)
+        public void AddWayPointConnectedTo(WaypointClass wp, WaypointClass connectedWith, WaypointConnectionType type = WaypointConnectionType.WAYPOINT_CONNECTION_NORMAL)
         {
             if (connectedWith.Network == this)
             {
@@ -77,10 +77,10 @@ namespace Gob3AQ.Waypoint.Network
         /// <param name="wp">New waypoint to add (its original network and connections will be reseted)</param>
         /// <param name="connection">Connection to break to insert between</param>
         /// <param name="type">New connection type for two new connections</param>
-        public void InsertWaypointBetweenConnection(Waypoint wp, WaypointConnection connection, WaypointConnectionType type = WaypointConnectionType.WAYPOINT_CONNECTION_NORMAL)
+        public void InsertWaypointBetweenConnection(WaypointClass wp, WaypointConnection connection, WaypointConnectionType type = WaypointConnectionType.WAYPOINT_CONNECTION_NORMAL)
         {
-            Waypoint originWp = connection.ownerWaypoint;
-            Waypoint destWp = connection.destWaypoint;
+            WaypointClass originWp = connection.ownerWaypoint;
+            WaypointClass destWp = connection.destWaypoint;
 
             if (originWp.Network == this)
             {
@@ -105,17 +105,17 @@ namespace Gob3AQ.Waypoint.Network
         /// Also valid to explore all connected points in a network
         /// </summary>
         /// <param name="wp">One of the waypoints of the network</param>
-        public void AddWaypointAndItsBranch(Waypoint wp)
+        public void AddWaypointAndItsBranch(WaypointClass wp)
         {
-            List<Waypoint> visitedWaypoints = new List<Waypoint>();
-            Stack<Waypoint> waypointStack = new Stack<Waypoint>();
+            List<WaypointClass> visitedWaypoints = new List<WaypointClass>();
+            Stack<WaypointClass> waypointStack = new Stack<WaypointClass>();
 
             waypointList.Add(wp);
             visitedWaypoints.Add(wp);
 
             wp.SetNetwork(this, waypointList.Count - 1);
 
-            Waypoint inspectedWaypoint = wp;
+            WaypointClass inspectedWaypoint = wp;
             waypointStack.Push(wp);
             do
             {
@@ -125,7 +125,7 @@ namespace Gob3AQ.Waypoint.Network
 
                 for (int i = 0; i < inspectedConnections.Count; i++)
                 {
-                    Waypoint newPushCandidate = inspectedConnections[i].destWaypoint;
+                    WaypointClass newPushCandidate = inspectedConnections[i].destWaypoint;
 
                     if (!waypointList.Contains(newPushCandidate))
                     {
@@ -156,13 +156,13 @@ namespace Gob3AQ.Waypoint.Network
             dirty = true;
         }
 
-        public bool IsWaypointOnNetwork(Waypoint wp)
+        public bool IsWaypointOnNetwork(WaypointClass wp)
         {
             return waypointList.Contains(wp);
         }
 
 
-        public WaypointSolution GetWaypointSolution(Waypoint source, Waypoint dest, WaypointSkillType availableSkill)
+        public WaypointSolution GetWaypointSolution(WaypointClass source, WaypointClass dest, WaypointSkillType availableSkill)
         {
             if (waypointList.Contains(source) && waypointList.Contains(dest))
             {
@@ -176,8 +176,8 @@ namespace Gob3AQ.Waypoint.Network
                 List<WaypointConnection> solutionConnections = sourceSolutions.shortestPathTo[wp2Index].stackedConnectionList;
                 float solutionDistance = sourceSolutions.totalDistanceTo[wp2Index];
 
-                List<Waypoint> waypointTrace = new List<Waypoint>();
-                Waypoint lastWpTrace = dest;
+                List<WaypointClass> waypointTrace = new List<WaypointClass>();
+                WaypointClass lastWpTrace = dest;
 
                 waypointTrace.Add(lastWpTrace);
 
@@ -216,7 +216,7 @@ namespace Gob3AQ.Waypoint.Network
             {
                 WaypointSolutions solution;
 
-                Waypoint genesisWaypoint = waypointList[i];
+                WaypointClass genesisWaypoint = waypointList[i];
 
                 solution = CalculateWaypointPath(genesisWaypoint, (ushort)WaypointConnectionType.WAYPOINT_CONNECTION_NORMAL);
                 resolvedSolutions_normal.Add(solution);
@@ -231,7 +231,7 @@ namespace Gob3AQ.Waypoint.Network
         /// <param name="genesisWaypoint">Point to calculate its relative connections</param>
         /// <param name="availabletype">Power to consider to cross paths</param>
         /// <returns></returns>
-        private WaypointSolutions CalculateWaypointPath(Waypoint genesisWaypoint, ushort availableConnectionTypeBitField)
+        private WaypointSolutions CalculateWaypointPath(WaypointClass genesisWaypoint, ushort availableConnectionTypeBitField)
         {
             WaypointSolutions newSolution = new WaypointSolutions();
 
@@ -261,10 +261,10 @@ namespace Gob3AQ.Waypoint.Network
             Stack<WaypointConnection> connectionStack = new Stack<WaypointConnection>();
 
             /* Waypoint stack goes one element ahead (the starting point) */
-            Stack<Waypoint> waypointStack = new Stack<Waypoint>();
+            Stack<WaypointClass> waypointStack = new Stack<WaypointClass>();
 
             /* Define starting point with distance to its own - 0 */
-            Waypoint inspectedWaypoint = genesisWaypoint;
+            WaypointClass inspectedWaypoint = genesisWaypoint;
             float accumulatedDistance = 0f;
 
             /* First element in stack relative to genesis point */
@@ -287,7 +287,7 @@ namespace Gob3AQ.Waypoint.Network
 
 
                     /* Get new candidate, even if it was already visited */
-                    Waypoint newPushCandidate = inspectedConnection.destWaypoint;
+                    WaypointClass newPushCandidate = inspectedConnection.destWaypoint;
                     int indexOfCandidate = newPushCandidate.IndexInNetwork;
 
                     /* Solution distance starts being Infinity, and goes correction by correction in a way to its minimum */

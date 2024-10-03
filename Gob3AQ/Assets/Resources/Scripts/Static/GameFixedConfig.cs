@@ -64,8 +64,7 @@ namespace Gob3AQ.FixedConfig
         private static readonly string[] _ROOM_TO_SCENE_NAME =
         {
             "",
-            "Scene1",
-            "SceneSpaceMama",
+            "SampleScene",
             ""
         };
 

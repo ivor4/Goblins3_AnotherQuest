@@ -41,8 +41,8 @@ namespace Gob3AQ.Waypoint.Types
     public class WaypointConnection
     {
         public string name;
-        public Waypoint ownerWaypoint;
-        public Waypoint destWaypoint;
+        public WaypointClass ownerWaypoint;
+        public WaypointClass destWaypoint;
         public WaypointConnectionType type;
         public float distance;
         public bool isReciprocal;
@@ -90,20 +90,12 @@ namespace Gob3AQ.Waypoint.Types
     [System.Serializable]
     public struct WaypointPreloadConnection
     {
-        public Waypoint withWaypoint;
+        public WaypointClass withWaypoint;
         public WaypointConnectionType type;
         public int connectedPath;
         public int connectedPoint;
     }
 
-    [System.Serializable]
-    public struct WaypointPreloadPathPoint
-    {
-        public int pathNum;
-        public int pathPoint;
-
-        public static WaypointPreloadPathPoint DEFAULT => new WaypointPreloadPathPoint() { pathNum = -1, pathPoint = -1 };
-    }
 
     [System.Serializable]
     public struct WaypointSolutions
@@ -123,7 +115,7 @@ namespace Gob3AQ.Waypoint.Types
     public struct WaypointSolution
     {
         public List<WaypointConnection> path;
-        public List<Waypoint> waypointTrace;
+        public List<WaypointClass> waypointTrace;
         public float totalDistance;
 
         public static WaypointSolution DEFAULT => new WaypointSolution() { path = null, totalDistance = float.PositiveInfinity, waypointTrace = null };

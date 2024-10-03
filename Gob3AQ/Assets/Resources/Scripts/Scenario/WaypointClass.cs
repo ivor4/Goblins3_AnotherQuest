@@ -8,11 +8,9 @@ using Gob3AQ.Waypoint.Network;
 namespace Gob3AQ.Waypoint
 {
 
-    public class Waypoint : MonoBehaviour
+    public class WaypointClass : MonoBehaviour
     {
         public List<WaypointPreloadConnection> PreloadConnections;
-
-        public WaypointPreloadPathPoint PreloadPathPoint;
 
         public WaypointType PreloadType;
 
@@ -28,14 +26,6 @@ namespace Gob3AQ.Waypoint
         private WaypointNetwork network;
         public WaypointNetwork Network => network;
 
-
-        [SerializeField]
-        private int attachedPathNum;
-        public int AttachedPathNum => attachedPathNum;
-
-        [SerializeField]
-        private int attachedPoint;
-        public int AttachedPoint => attachedPoint;
 
         [SerializeField]
         private int indexInNetwork;
@@ -73,9 +63,6 @@ namespace Gob3AQ.Waypoint
                     ConnectPoint(PreloadConnections[i].withWaypoint, PreloadConnections[i].type);
                 }
             }
-
-            attachedPathNum = PreloadPathPoint.pathNum;
-            attachedPoint = PreloadPathPoint.pathPoint;
 
 
             type = PreloadType;
@@ -143,13 +130,13 @@ namespace Gob3AQ.Waypoint
             connections.Clear();
         }
 
-        public void DisconnectPoint(Waypoint waypoint)
+        public void DisconnectPoint(WaypointClass waypoint)
         {
             for (int i = 0; i < connections.Count; i++)
             {
                 WaypointConnection conn = connections[i];
 
-                Waypoint otherWp = conn.destWaypoint;
+                WaypointClass otherWp = conn.destWaypoint;
                 if (otherWp == waypoint)
                 {
                     otherWp.DetachConnection(conn.reciprocal);
@@ -163,7 +150,7 @@ namespace Gob3AQ.Waypoint
         {
             if (connections.Contains(wpconn))
             {
-                Waypoint otherWp = wpconn.destWaypoint;
+                WaypointClass otherWp = wpconn.destWaypoint;
                 otherWp.DetachConnection(wpconn.reciprocal);
                 DetachConnection(wpconn);
                 return true;
@@ -178,7 +165,7 @@ namespace Gob3AQ.Waypoint
             indexInNetwork = index;
         }
 
-        public void ConnectPoint(Waypoint destWaypoint, WaypointConnectionType type)
+        public void ConnectPoint(WaypointClass destWaypoint, WaypointConnectionType type)
         {
             for (int i = 0; i < connections.Count; i++)
             {
@@ -218,7 +205,7 @@ namespace Gob3AQ.Waypoint
 
         }
 
-        public static void PreloadWaypointConnection(Waypoint wp1, Waypoint wp2, WaypointConnectionType type = WaypointConnectionType.WAYPOINT_CONNECTION_NORMAL)
+        public static void PreloadWaypointConnection(WaypointClass wp1, WaypointClass wp2, WaypointConnectionType type = WaypointConnectionType.WAYPOINT_CONNECTION_NORMAL)
         {
             WaypointPreloadConnection prelo = new WaypointPreloadConnection();
             prelo.type = type;
@@ -229,7 +216,7 @@ namespace Gob3AQ.Waypoint
             wp2.PreloadConnections.Add(prelo);
         }
 
-        public static void PreloadWaypointDisconnection(Waypoint wp1, Waypoint wp2)
+        public static void PreloadWaypointDisconnection(WaypointClass wp1, WaypointClass wp2)
         {
             for (int i = 0; i < wp1.PreloadConnections.Count; i++)
             {
@@ -251,7 +238,7 @@ namespace Gob3AQ.Waypoint
             }
         }
 
-        public static bool IsPreloadConnectedWith(Waypoint wp1, Waypoint wp2)
+        public static bool IsPreloadConnectedWith(WaypointClass wp1, WaypointClass wp2)
         {
             bool retVal = false;
 
@@ -273,9 +260,9 @@ namespace Gob3AQ.Waypoint
         /// <param name="conn1">Waypoint connection A</param>
         /// <param name="conn2">Waypoint connection B</param>
         /// <returns></returns>
-        public static Waypoint GetConnectionWaypoint(WaypointConnection conn1, WaypointConnection conn2)
+        public static WaypointClass GetConnectionWaypoint(WaypointConnection conn1, WaypointConnection conn2)
         {
-            Waypoint common;
+            WaypointClass common;
 
             if (conn1.reciprocal == conn2)
             {

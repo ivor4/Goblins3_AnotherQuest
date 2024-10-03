@@ -4,6 +4,7 @@ using Gob3AQ.VARMAP.PlayerMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.FixedConfig;
 using System;
+using Gob3AQ.Waypoint;
 
 namespace Gob3AQ.GameElement.PlayableChar
 {
@@ -16,8 +17,12 @@ namespace Gob3AQ.GameElement.PlayableChar
     }
 
 
+    [System.Serializable]
     public class PlayableCharScript : MonoBehaviour
     {
+        [SerializeField]
+        public WaypointClass initialWaypoint;
+
         /* GameObject components */
         private SpriteRenderer myspriteRenderer;
 

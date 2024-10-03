@@ -63,7 +63,7 @@ namespace Gob3AQ.Waypoint.ProgrammedPath
             return retVal;
         }
 
-        public int GetSegmentOfPathFromCrossedWaypoint(Waypoint crossedWaypoint)
+        public int GetSegmentOfPathFromCrossedWaypoint(WaypointClass crossedWaypoint)
         {
             int retVal = -1;
 

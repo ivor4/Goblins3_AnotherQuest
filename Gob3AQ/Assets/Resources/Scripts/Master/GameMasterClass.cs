@@ -15,13 +15,8 @@ namespace Gob3AQ.GameMaster
     public class GameMasterClass : MonoBehaviour
     {
         private static GameMasterClass _singleton;
-
-        private float elapsed_seconds;
-
         static private Game_Status prevPauseStatus;
 
-        private int debug_index;
-        private int debug_value;
 
         private void Awake()
         {
@@ -39,11 +34,7 @@ namespace Gob3AQ.GameMaster
             }
         }
 
-        private void Start()
-        {
-            /* CAREFUL, TODO must create a Load system before starting assigning like this */
-            elapsed_seconds = VARMAP_GameMaster.GET_ELAPSED_TIME_MS() / GameFixedConfig.MILLISECONDS_TO_SECONDS;
-        }
+
 
         private void Update()
         {
@@ -84,13 +75,14 @@ namespace Gob3AQ.GameMaster
 
         private void Play_Process_Time()
         {
+            float elapsed_millis;
             float elapsedDelta = Time.deltaTime;
 
-            elapsed_seconds = VARMAP_GameMaster.GET_ELAPSED_TIME_MS() / GameFixedConfig.MILLISECONDS_TO_SECONDS;
+            elapsed_millis = VARMAP_GameMaster.GET_ELAPSED_TIME_MS();
 
-            elapsed_seconds += elapsedDelta;
+            elapsed_millis += elapsedDelta * GameFixedConfig.MILLISECONDS_TO_SECONDS;
 
-            VARMAP_GameMaster.SET_ELAPSED_TIME_MS((ulong)(elapsed_seconds * GameFixedConfig.MILLISECONDS_TO_SECONDS));
+            VARMAP_GameMaster.SET_ELAPSED_TIME_MS((ulong)elapsed_millis);
         }
 
         public static void PauseGameService(bool pause)

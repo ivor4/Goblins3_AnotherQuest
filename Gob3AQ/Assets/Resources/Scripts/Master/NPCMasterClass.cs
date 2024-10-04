@@ -5,30 +5,14 @@ using Gob3AQ.VARMAP.Types;
 using Gob3AQ.FixedConfig;
 using System.Collections.Generic;
 
-namespace Gob3AQ.NPCMaster
+namespace Gob3AQ.GameElement.NPC
 {
     public class NPCMasterClass : MonoBehaviour
     {
 
-        [SerializeField]
-
         private Rigidbody myrigidbody;
         private Collider mycollider;
-        private MeshRenderer myrenderer;
 
-        private Vector3 stored_velocity;
-        private Vector3 stored_ang_velocity;
-
-        private bool on_world;
-        private bool on_transition;
-
-        private bool kinematic_on_other_reason;
-        private bool collider_enable_other_reason;
-
-        private void Awake()
-        {
-
-        }
 
         private void Start()
         {
@@ -48,17 +32,6 @@ namespace Gob3AQ.NPCMaster
                 case Game_Status.GAME_STATUS_PLAY:
                     
                     break;
-            }
-        }
-
-        private void OnCollisionStay(Collision collision)
-        {
-            if (on_world)
-            {
-                if (myrigidbody.linearVelocity.y < 0.1f)
-                {
-                    myrigidbody.AddForce(Vector3.up * 500f);
-                }
             }
         }
 

@@ -33,27 +33,6 @@ namespace Gob3AQ.PlayerMaster
             }
         }
 
-        private void Start()
-        {
-
-        }
-
-
-        private void Update()
-        {
-            Execute_Play();
-        }
-
-
-
-        private void Execute_Play()
-        {
-            KeyStruct keyInfo = VARMAP_PlayerMaster.GET_PRESSED_KEYS();
-            Vector3Struct posstruct = new Vector3Struct();
-
-            posstruct.position = transform.position;
-            VARMAP_PlayerMaster.SET_PLAYER_POSITION(posstruct);
-        }
 
 
         private void OnDestroy()

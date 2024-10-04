@@ -15,31 +15,14 @@ namespace Gob3AQ.GraphicsMaster
 
         
         private GameObject guicanvas;
-        private Image[] guicanvas_hearts;
         private Text paused_text;
         private Camera mainCamera;
         private Transform mainCameraTransform;
-        private Light sunLight;
-        private byte cached_life;
-        private byte cached_totallife;
+
 
         private Vector3 lastCharacterPos;
 
 
-        public static Vector3 ScreenToWorldService(Vector3 screenPos)
-        {
-            return _singleton.mainCamera.ScreenToWorldPoint(screenPos);
-        }
-
-        public static Vector3 WorldToScreenService(Vector3 worldpos)
-        {
-            return _singleton.mainCamera.WorldToScreenPoint(worldpos);
-        }
-
-        public static Ray RayFromScreenService(Vector3 screenpos)
-        {
-            return _singleton.mainCamera.ScreenPointToRay(screenpos);
-        }
 
         private void Awake()
         {
@@ -59,18 +42,9 @@ namespace Gob3AQ.GraphicsMaster
         {
             mainCamera = Camera.main;
             mainCameraTransform = mainCamera.transform;
-            sunLight = GameObject.Find("SpotLight1").GetComponent<Light>();
             guicanvas = GameObject.Find("GUICanvas");
 
-            guicanvas_hearts = new Image[GameFixedConfig.MAX_POSSIBLE_LIFE];
-
-            for(int i=0; i < guicanvas_hearts.Length; i++)
-            {
-                guicanvas_hearts[i] = guicanvas.transform.Find("heart" + i.ToString()).GetComponent<Image>();
-            }
-
             paused_text = guicanvas.transform.Find("paused").GetComponent<Text>();
-
 
             VARMAP_GraphicsMaster.REG_GAMESTATUS(_GameStatusChanged);
 

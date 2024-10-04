@@ -22,20 +22,8 @@ namespace Gob3AQ.FixedConfig
         /* Time and timeouts */
         public const float MILLISECONDS_TO_SECONDS = 1000f;
         public const float KEY_REFRESH_TIME_SECONDS = 0.05f;
-        public const float KEY_COMBO_TIMEOUT_SECONDS = 0.75f;
-        public const float KEY_DOUBLE_PUSH_MAX_SECONDS = 0.5f;
-        public const float OTHER_WORLD_TRANSITION_TIME_SECONDS = 2f;
-        public const float CLIMB_WALL_TIMEOUT = 0.75f;
-        public const float RECEIVE_DAMAGE_INVINCIBLE_TIMEOUT = 1.5f;
-        public const float OBSERVE_OTHER_WORLD_TIMEOUT = 10f;
 
-        /* Physics */
-        public const float COLLISION_STAND_MIN_NORMAL_Y = 0.15f;
-        public const float CLIMB_WALL_MIN_NORMAL_X = 0.95f;
-        public const float PLAYER_NORMAL_MOVEMENT_SPEED = 6.0f;
-        public const float PLAYER_JUMP_SPEED_REDUCTION_SHORT_PRESS = 1f / 3f;
-        public static readonly Vector3 PLAYER_NORMAL_MOVE_LEFT_VECTOR = Vector3.left * PLAYER_NORMAL_MOVEMENT_SPEED;
-        public static readonly Vector3 PLAYER_NORMAL_MOVE_RIGHT_VECTOR = Vector3.right * PLAYER_NORMAL_MOVEMENT_SPEED;
+  
 
         /* Colors */
         public static readonly Color SUN_COLOR_NORMAL = new Color(255f / 255f, 244f / 255f, 214f / 255f);
@@ -46,14 +34,9 @@ namespace Gob3AQ.FixedConfig
 
         /* Performance */
         public const int MAX_POOLED_ENEMIES = 50;
+        public const int MAX_LEVEL_PLAYABLE_CHARACTERS = 3;
+        public const int MAX_LEVEL_WAYPOINTS = 128;
 
-        /* Power ups */
-        public const int MAX_POSSIBLE_LIFE = 6;
-
-
-        /* Keys */
-        public const int COMBO_MAX_KEYS = 4;    /* Needs to be a power of 2 */
-        public const int COMBO_MAX_MASK = COMBO_MAX_KEYS - 1;
 
         /* File routes */
         public static readonly string LOADSAVE_FILEPATH = Application.persistentDataPath + "/savedat.dat";

@@ -64,6 +64,10 @@ namespace Gob3AQ.VARMAP.Initialization
             _SET_PLAYER_POSITION = ((VARMAP_Variable_Interface<Vector3Struct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_POSITION]).SetValue;
             _REG_PLAYER_POSITION = ((VARMAP_Variable_Interface<Vector3Struct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_POSITION]).RegisterChangeEvent;
             _UNREG_PLAYER_POSITION = ((VARMAP_Variable_Interface<Vector3Struct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_POSITION]).UnregisterChangeEvent;
+            _GET_PLAYER_ID_SELECTED = ((VARMAP_Variable_Interface<byte>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_ID_SELECTED]).GetValue;
+            _SET_PLAYER_ID_SELECTED = ((VARMAP_Variable_Interface<byte>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_ID_SELECTED]).SetValue;
+            _REG_PLAYER_ID_SELECTED = ((VARMAP_Variable_Interface<byte>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_ID_SELECTED]).RegisterChangeEvent;
+            _UNREG_PLAYER_ID_SELECTED = ((VARMAP_Variable_Interface<byte>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_ID_SELECTED]).UnregisterChangeEvent;
             /* > ATG 1 END */
 
 
@@ -76,7 +80,9 @@ namespace Gob3AQ.VARMAP.Initialization
             _FREEZE_PLAY = GameMasterClass.FreezePlayService;
             _NPC_REGISTER = LevelMasterClass.NPCRegisterService;
             _MONO_REGISTER = LevelMasterClass.MonoRegisterService;
+            _WP_REGISTER = LevelMasterClass.WPRegisterService;
             _MOVE_PLAYER = PlayerMasterClass.MovePlayerService;
+            _GET_PLAYER_LIST = LevelMasterClass.GetPlayerListService;
             /* > ATG 2 END */
         }
     }

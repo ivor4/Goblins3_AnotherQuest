@@ -13,6 +13,7 @@ namespace Gob3AQ.VARMAP.Enum
         VARMAP_ID_PRESSED_KEYS,
         VARMAP_ID_MOUSE_PROPERTIES,
         VARMAP_ID_PLAYER_POSITION,
+        VARMAP_ID_PLAYER_ID_SELECTED,
         VARMAP_ID_TOTAL
         /* > ATG 1 END < */
     }

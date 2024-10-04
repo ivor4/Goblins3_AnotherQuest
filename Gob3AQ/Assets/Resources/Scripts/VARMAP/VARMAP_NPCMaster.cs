@@ -37,8 +37,8 @@ namespace Gob3AQ.VARMAP.NPCMaster
 
         /* SERVICES */
         /* > ATG 3 START */
-        public static NPC_REGISTER_SERVICE NPC_REGISTER;
-        public static MONO_REGISTER_SERVICE MONO_REGISTER;
+        public static NPC_REGISTER_DELEGATE NPC_REGISTER;
+        public static MONO_REGISTER_DELEGATE MONO_REGISTER;
         /* > ATG 3 END */
     }
 }

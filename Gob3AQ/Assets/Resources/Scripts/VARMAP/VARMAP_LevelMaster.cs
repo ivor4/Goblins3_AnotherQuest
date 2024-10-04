@@ -22,12 +22,16 @@ namespace Gob3AQ.VARMAP.LevelMaster
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
+            GET_PLAYER_ID_SELECTED = _GET_PLAYER_ID_SELECTED;
+            SET_PLAYER_ID_SELECTED = _SET_PLAYER_ID_SELECTED;
             LOAD_ROOM = _LOAD_ROOM;
             LOADING_COMPLETED = _LOADING_COMPLETED;
             FREEZE_PLAY = _FREEZE_PLAY;
             NPC_REGISTER = _NPC_REGISTER;
             MONO_REGISTER = _MONO_REGISTER;
+            WP_REGISTER = _WP_REGISTER;
             MOVE_PLAYER = _MOVE_PLAYER;
+            GET_PLAYER_LIST = _GET_PLAYER_LIST;
             /* > ATG 1 END */
         }
 
@@ -48,6 +52,8 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
         public static GetVARMAPValueDelegate<MousePropertiesStruct> GET_MOUSE_PROPERTIES;
+        public static GetVARMAPValueDelegate<byte> GET_PLAYER_ID_SELECTED;
+        public static SetVARMAPValueDelegate<byte> SET_PLAYER_ID_SELECTED;
         /* > ATG 2 END */
 
         /* SERVICES */
@@ -55,9 +61,11 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static LOAD_ROOM_DELEGATE LOAD_ROOM;
         public static LODING_COMPLETED_DELEGATE LOADING_COMPLETED;
         public static FREEZE_PLAY_DELEGATE FREEZE_PLAY;
-        public static NPC_REGISTER_SERVICE NPC_REGISTER;
-        public static MONO_REGISTER_SERVICE MONO_REGISTER;
-        public static MOVE_PLAYER_SERVICE MOVE_PLAYER;
+        public static NPC_REGISTER_DELEGATE NPC_REGISTER;
+        public static MONO_REGISTER_DELEGATE MONO_REGISTER;
+        public static WP_REGISTER_DELEGATE WP_REGISTER;
+        public static MOVE_PLAYER_DELEGATE MOVE_PLAYER;
+        public static GET_PLAYER_LIST_DELEGATE GET_PLAYER_LIST;
         /* > ATG 3 END */
     }
 }

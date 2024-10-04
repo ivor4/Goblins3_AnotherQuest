@@ -86,16 +86,18 @@ namespace Gob3AQ.InputMaster
                     accumulatedDownkeys = 0;
                 }
 
-
                 Vector2 mousePosition = Input.mousePosition;
                 bool mousenowpressed = Input.GetMouseButton(0);
+
+                Vector2 mouseWorld = Camera.main.ScreenToWorldPoint(mousePosition);
 
                 cachedMouseProps.primaryPressed = (!cachedMouseProps.primaryPressing) & mousenowpressed;
                 cachedMouseProps.primaryReleased = cachedMouseProps.primaryPressing & (!mousenowpressed);
                 cachedMouseProps.primaryPressing = mousenowpressed;
 
-                cachedMouseProps.pos1 = mousePosition;
-                cachedMouseProps.pos2 = mousePosition;
+                
+                cachedMouseProps.pos1 = mouseWorld;
+                cachedMouseProps.pos2 = mouseWorld;
 
 
                 VARMAP_InputMaster.SET_PRESSED_KEYS(cachedPressedKeys);

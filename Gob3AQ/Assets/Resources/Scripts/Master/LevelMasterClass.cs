@@ -5,7 +5,10 @@ using Gob3AQ.VARMAP.Types;
 using Gob3AQ.VARMAP.LevelMaster;
 using System;
 using Gob3AQ.FixedConfig;
-using Gob3AQ.NPCMaster;
+using Gob3AQ.GameElement.NPC;
+using Gob3AQ.Waypoint;
+using Gob3AQ.GameElement.PlayableChar;
+using Gob3AQ.Libs.Arith;
 
 namespace Gob3AQ.LevelMaster
 {
@@ -13,12 +16,65 @@ namespace Gob3AQ.LevelMaster
     {
         private static LevelMasterClass _singleton;
 
-        private static List<MonoBehaviour> _Mono_List;
-        private static List<NPCMasterClass> _Enemy_List;
+        private static List<WaypointClass> _WP_List;
+        private static List<PlayableCharScript> _Player_List;
+        private static List<NPCMasterClass> _NPC_List;
+
 
         private int loadpercentage;
-        private float otherworld_transition_time;
-        private float otherworld_observe_time;
+
+        #region "Services"
+
+
+           
+
+        public static void GetPlayerListService(ref ReadOnlyList<PlayableCharScript> rolist)
+        {
+            rolist = new ReadOnlyList<PlayableCharScript>(_Player_List);
+        }
+
+        public static void NPCRegisterService(bool register, NPCMasterClass instance)
+        {
+            if (register)
+            {
+                _NPC_List.Add(instance);
+            }
+            else
+            {
+                _NPC_List.Remove(instance);
+            }
+        }
+
+        public static void MonoRegisterService(PlayableCharScript mono, bool add, out byte id)
+        {
+            if (add)
+            {
+                id = (byte)_Player_List.Count;
+                _Player_List.Add(mono);
+            }
+            else
+            {
+                id = 0xFF;
+                _Player_List.Remove(mono);
+            }
+        }
+
+        public static void WPRegisterService(WaypointClass waypoint, bool add)
+        {
+            if (add)
+            {
+                _WP_List.Add(waypoint);
+            }
+            else
+            {
+                _WP_List.Remove(waypoint);
+            }
+        }
+
+
+        #endregion
+
+        
 
         private void Awake()
         {
@@ -39,8 +95,8 @@ namespace Gob3AQ.LevelMaster
         private void Start()
         {
             loadpercentage = 0;
-            otherworld_transition_time = 0f;
 
+            VARMAP_LevelMaster.SET_PLAYER_ID_SELECTED(0xFF);
             VARMAP_LevelMaster.REG_GAMESTATUS(_OnGameStatusChanged);
         }
 
@@ -74,6 +130,25 @@ namespace Gob3AQ.LevelMaster
             }
         }
 
+        private void OnDestroy()
+        {
+            if (_singleton == this)
+            {
+                _singleton = null;
+                _NPC_List = null;
+                VARMAP_LevelMaster.UNREG_GAMESTATUS(_OnGameStatusChanged);
+            }
+        }
+
+
+        private void Initializations()
+        {
+            _NPC_List = new List<NPCMasterClass>(GameFixedConfig.MAX_POOLED_ENEMIES);
+            _Player_List = new List<PlayableCharScript>(GameFixedConfig.MAX_LEVEL_PLAYABLE_CHARACTERS);
+            _WP_List = new List<WaypointClass>(GameFixedConfig.MAX_LEVEL_WAYPOINTS);
+        }
+
+
 
         private void Update_Loading()
         {
@@ -91,7 +166,7 @@ namespace Gob3AQ.LevelMaster
 
         private void Update_Play()
         {
-
+            UpdateMouseEvents();
         }
 
         
@@ -101,41 +176,29 @@ namespace Gob3AQ.LevelMaster
         }
 
 
-        private void Initializations()
+        private void UpdateMouseEvents()
         {
-            _Enemy_List = new List<NPCMasterClass>(GameFixedConfig.MAX_POOLED_ENEMIES);
-            _Mono_List = new List<MonoBehaviour>();
-        }
+            MousePropertiesStruct mouse = VARMAP_LevelMaster.GET_MOUSE_PROPERTIES();
 
-        
+            if(mouse.primaryReleased)
+            {
+                for (byte i=0; i < _Player_List.Count; ++i)
+                {
+                    PlayableCharScript player = _Player_List[i];
+                    Collider2D collider = player.Collider;
 
-
-        public static void NPCRegisterService(bool register, NPCMasterClass instance)
-        {
-            if(register)
-            {
-                _Enemy_List.Add(instance);
-            }
-            else
-            {
-                _Enemy_List.Remove(instance);
-            }
-        }
-
-        public static void MonoRegisterService(MonoBehaviour mono, bool add)
-        {
-            if (add)
-            {
-                _Mono_List.Add(mono);
-            }
-            else
-            {
-                _Mono_List.Remove(mono);
+                    if(collider.OverlapPoint(mouse.pos1))
+                    {
+                        VARMAP_LevelMaster.SET_PLAYER_ID_SELECTED(i);
+                        break;
+                    }
+                }
             }
         }
 
 
 
+        #region "Events"
         private void _OnGameStatusChanged(ChangedEventType evType, ref Game_Status oldval, ref Game_Status newval)
         {
             bool use;
@@ -159,23 +222,16 @@ namespace Gob3AQ.LevelMaster
 
             if (use)
             {
-                for (int i = 0; i < _Mono_List.Count; i++)
+                for (int i = 0; i < _Player_List.Count; i++)
                 {
-                    _Mono_List[i].enabled = activate;
+                    _Player_List[i].enabled = activate;
                 }
             }
         }
+        #endregion
 
 
-        private void OnDestroy()
-        {
-            if (_singleton == this)
-            {
-                _singleton = null;
-                _Enemy_List = null;
-                VARMAP_LevelMaster.UNREG_GAMESTATUS(_OnGameStatusChanged);
-            }
-        }
+       
     }
 }
 

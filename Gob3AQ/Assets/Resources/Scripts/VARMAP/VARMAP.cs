@@ -54,6 +54,10 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPValueDelegate<Vector3Struct> _SET_PLAYER_POSITION;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<Vector3Struct> _REG_PLAYER_POSITION;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<Vector3Struct> _UNREG_PLAYER_POSITION;
+        protected static GetVARMAPValueDelegate<byte> _GET_PLAYER_ID_SELECTED;
+        protected static SetVARMAPValueDelegate<byte> _SET_PLAYER_ID_SELECTED;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<byte> _REG_PLAYER_ID_SELECTED;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<byte> _UNREG_PLAYER_ID_SELECTED;
         /* > ATG 1 END < */
 
         /* All SERVICE Links */
@@ -63,9 +67,11 @@ namespace Gob3AQ.VARMAP
         protected static EXIT_GAME_DELEGATE _EXIT_GAME;
         protected static LODING_COMPLETED_DELEGATE _LOADING_COMPLETED;
         protected static FREEZE_PLAY_DELEGATE _FREEZE_PLAY;
-        protected static NPC_REGISTER_SERVICE _NPC_REGISTER;
-        protected static MONO_REGISTER_SERVICE _MONO_REGISTER;
-        protected static MOVE_PLAYER_SERVICE _MOVE_PLAYER;
+        protected static NPC_REGISTER_DELEGATE _NPC_REGISTER;
+        protected static MONO_REGISTER_DELEGATE _MONO_REGISTER;
+        protected static WP_REGISTER_DELEGATE _WP_REGISTER;
+        protected static MOVE_PLAYER_DELEGATE _MOVE_PLAYER;
+        protected static GET_PLAYER_LIST_DELEGATE _GET_PLAYER_LIST;
         /* > ATG 2 END < */
         
         

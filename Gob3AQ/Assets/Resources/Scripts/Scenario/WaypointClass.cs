@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Gob3AQ.Waypoint.Types;
 using Gob3AQ.Waypoint.Network;
+using Gob3AQ.VARMAP.LevelMaster;
 
 namespace Gob3AQ.Waypoint
 {
 
+    [System.Serializable]
     public class WaypointClass : MonoBehaviour
     {
         public List<WaypointPreloadConnection> PreloadConnections;
@@ -66,6 +68,8 @@ namespace Gob3AQ.Waypoint
 
 
             type = PreloadType;
+
+            VARMAP_LevelMaster.WP_REGISTER(this, true);
         }
 
         /// <summary>

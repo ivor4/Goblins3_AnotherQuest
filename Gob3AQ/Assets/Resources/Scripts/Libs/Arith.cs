@@ -26,25 +26,25 @@ namespace Gob3AQ.Libs.Arith
         }
     }
 
-    public struct ReadOnlyArray<T>
+    public readonly ref struct ReadOnlyList<T>
     {
-        private T[] array;
+        private readonly List<T> _list;
 
-        public int Length => array.Length;
 
-        public ReadOnlyArray(T[] array)
+        public ReadOnlyList(List<T> list)
         {
-            this.array = array;
+            _list = list;
         }
 
-        public T this[int index]
+        public readonly T this[int index]
         {
             get
             {
-                return array[index];
+                return _list[index];
             }
         }
     }
+
 
     public ref struct ClearableArray<T>
     {

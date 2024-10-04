@@ -15,6 +15,6 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void NPC_REGISTER_DELEGATE(bool register, NPCMasterClass instance);
     public delegate void MONO_REGISTER_DELEGATE(PlayableCharScript mono, bool add, out byte id);
     public delegate void WP_REGISTER_DELEGATE(WaypointClass wp, bool add);
-    public delegate void MOVE_PLAYER_DELEGATE(Vector2 position);
+    public delegate void MOVE_PLAYER_DELEGATE(WaypointClass wp);
     public delegate void GET_PLAYER_LIST_DELEGATE(ref ReadOnlyList<PlayableCharScript> list);
 }

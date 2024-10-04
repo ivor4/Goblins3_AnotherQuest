@@ -26,12 +26,17 @@ namespace Gob3AQ.Libs.Arith
         }
     }
 
-    public readonly ref struct ReadOnlyList<T>
+    public ref struct ReadOnlyList<T>
     {
-        private readonly List<T> _list;
+        private List<T> _list;
 
 
         public ReadOnlyList(List<T> list)
+        {
+            _list = list;
+        }
+
+        public void SetRefList(List<T> list)
         {
             _list = list;
         }

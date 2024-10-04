@@ -162,7 +162,7 @@ namespace Gob3AQ.Waypoint.Network
         }
 
 
-        public WaypointSolution GetWaypointSolution(WaypointClass source, WaypointClass dest, WaypointSkillType availableSkill)
+        public WaypointSolution GetWaypointSolution(WaypointClass source, WaypointClass dest, WaypointSkillType availableSkill, List<WaypointClass> waypointTrace)
         {
             if (waypointList.Contains(source) && waypointList.Contains(dest))
             {
@@ -176,7 +176,7 @@ namespace Gob3AQ.Waypoint.Network
                 List<WaypointConnection> solutionConnections = sourceSolutions.shortestPathTo[wp2Index].stackedConnectionList;
                 float solutionDistance = sourceSolutions.totalDistanceTo[wp2Index];
 
-                List<WaypointClass> waypointTrace = new List<WaypointClass>();
+                waypointTrace.Clear();
                 WaypointClass lastWpTrace = dest;
 
                 waypointTrace.Add(lastWpTrace);

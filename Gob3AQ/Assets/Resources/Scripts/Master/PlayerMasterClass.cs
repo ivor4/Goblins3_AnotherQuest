@@ -2,6 +2,9 @@
 using Gob3AQ.VARMAP.PlayerMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.FixedConfig;
+using Gob3AQ.Libs.Arith;
+using Gob3AQ.GameElement.PlayableChar;
+using Gob3AQ.Waypoint;
 using System;
 
 namespace Gob3AQ.PlayerMaster
@@ -14,9 +17,18 @@ namespace Gob3AQ.PlayerMaster
 
 
 
-        public static void MovePlayerService(Vector2 position)
+        public static void MovePlayerService(WaypointClass wp)
         {
+            ReadOnlyList<PlayableCharScript> playerlist;
+            byte pid;
+            PlayableCharScript selectedPlayer;
 
+            pid = VARMAP_PlayerMaster.GET_PLAYER_ID_SELECTED();
+            playerlist = new(null);
+            VARMAP_PlayerMaster.GET_PLAYER_LIST(ref playerlist);
+            selectedPlayer = playerlist[pid];
+
+            selectedPlayer.MoveRequest(wp);
         }
 
 

@@ -5,15 +5,18 @@ using Gob3AQ.VARMAP.Types;
 using Gob3AQ.FixedConfig;
 using System;
 using Gob3AQ.Waypoint;
+using Gob3AQ.Waypoint.Types;
+using Gob3AQ.Libs.Arith;
+using System.Collections.Generic;
 
 namespace Gob3AQ.GameElement.PlayableChar
 {
     public enum PhysicalState
     {
-        PHYSICAL_STATE_STANDING,
-        PHYSICAL_STATE_TALKING,
-        PHYSICAL_STATE_ACTING,
-        PHYSICAL_STATE_ANIMATION
+        PHYSICAL_STATE_STANDING = 0x0,
+        PHYSICAL_STATE_TALKING = 0x1,
+        PHYSICAL_STATE_ACTING = 0x2,
+        PHYSICAL_STATE_WALKING = 0x4
     }
 
 
@@ -41,7 +44,31 @@ namespace Gob3AQ.GameElement.PlayableChar
         private PhysicalState physicalstate;
 
         private byte playerID;
+        private bool selected;
         private WaypointClass actualWaypoint;
+        private List<WaypointClass> wpsolution;
+
+
+        public void MoveRequest(WaypointClass wp)
+        {
+            /* Move only if not talking or doing an action */
+            if((physicalstate & (PhysicalState.PHYSICAL_STATE_TALKING | PhysicalState.PHYSICAL_STATE_ACTING)) == 0)
+            {
+                physicalstate = PhysicalState.PHYSICAL_STATE_WALKING;
+
+                WaypointSolution solution = wp.Network.GetWaypointSolution(actualWaypoint, wp, WaypointSkillType.WAYPOINT_SKILL_NORMAL);
+
+                if(solution.totalDistance == float.PositiveInfinity)
+                {
+                    Debug.LogError("Point is not reachable from actual waypoint");
+                }
+                else
+                {
+
+                }
+            }
+        }
+
 
         private void Awake()
         {
@@ -54,6 +81,7 @@ namespace Gob3AQ.GameElement.PlayableChar
             physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
             actualWaypoint = initialWaypoint;
             transform.position = actualWaypoint.transform.position;
+            selected = false;
 
             VARMAP_PlayerMaster.MONO_REGISTER(this, true, out playerID);
             VARMAP_PlayerMaster.REG_PLAYER_ID_SELECTED(ChangedSelectedPlayerEvent);
@@ -74,10 +102,7 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         private void Execute_Play()
         {
-            Vector3Struct posstruct = new Vector3Struct();
 
-            posstruct.position = transform.position;
-            VARMAP_PlayerMaster.SET_PLAYER_POSITION(posstruct);
         }
 
 
@@ -85,7 +110,13 @@ namespace Gob3AQ.GameElement.PlayableChar
         {
             if(newval == playerID)
             {
-                Debug.Log("I have been selected");
+                _sprRenderer.color = Color.red;
+                selected = true;
+            }
+            else
+            {
+                _sprRenderer.color = Color.white;
+                selected = false;
             }
         }
 

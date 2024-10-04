@@ -8,14 +8,13 @@ using System.IO;
 using System.Collections;
 using Gob3AQ.VARMAP.Variable.IstreamableNamespace;
 using System.Collections.Generic;
-using Gob3AQ.Libs.Cast;
 using Gob3AQ.Libs.CRC32;
 using Gob3AQ.Libs.Arith;
 
 namespace Gob3AQ.VARMAP.Variable
 {
 
-    public abstract class VARMAP_Variable_Indexable : IStreamable
+    public abstract class VARMAP_Variable_Indexable
     {
         public abstract void ClearChangeEvent();
 

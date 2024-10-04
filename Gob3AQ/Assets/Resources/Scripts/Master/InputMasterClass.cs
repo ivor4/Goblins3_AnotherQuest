@@ -36,7 +36,7 @@ namespace Gob3AQ.InputMaster
 
         private void Start()
         {
-            cachedPressedKeys = new KeyStruct() { cyclepressedKeys = 0, cyclereleasedKeys = 0, pressedKeys = 0};
+            cachedPressedKeys = default(KeyStruct);
             cachedKeyOptions = VARMAP_InputMaster.GET_GAME_OPTIONS().keyOptions;
             cachedMouseProps = VARMAP_DefaultValues.MouseProperties_Default;
             ellapsedMillis = 0f;
@@ -98,6 +98,7 @@ namespace Gob3AQ.InputMaster
                 
                 cachedMouseProps.pos1 = mouseWorld;
                 cachedMouseProps.pos2 = mouseWorld;
+                cachedMouseProps.posPixels = new Vector2Int((int)mousePosition.x, (int)mousePosition.y);
 
 
                 VARMAP_InputMaster.SET_PRESSED_KEYS(cachedPressedKeys);

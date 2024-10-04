@@ -23,7 +23,8 @@ namespace Gob3AQ.FixedConfig
         public const float MILLISECONDS_TO_SECONDS = 1000f;
         public const float KEY_REFRESH_TIME_SECONDS = 0.05f;
 
-  
+        /* HUD */
+        public const float DISTANCE_MOUSE_FURTHEST_WP = 1.5f;
 
         /* Colors */
         public static readonly Color SUN_COLOR_NORMAL = new Color(255f / 255f, 244f / 255f, 214f / 255f);

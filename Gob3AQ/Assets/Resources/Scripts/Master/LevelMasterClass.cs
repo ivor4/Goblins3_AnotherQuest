@@ -14,6 +14,8 @@ namespace Gob3AQ.LevelMaster
 {
     public class LevelMasterClass : MonoBehaviour
     {
+        private const byte NO_PLAYER = 0xFF;
+
         private static LevelMasterClass _singleton;
 
         private static List<WaypointClass> _WP_List;
@@ -23,6 +25,8 @@ namespace Gob3AQ.LevelMaster
 
         private int loadpercentage;
 
+        private LayerMask WPLayerMask;
+
         #region "Services"
 
 
@@ -30,7 +34,7 @@ namespace Gob3AQ.LevelMaster
 
         public static void GetPlayerListService(ref ReadOnlyList<PlayableCharScript> rolist)
         {
-            rolist = new ReadOnlyList<PlayableCharScript>(_Player_List);
+            rolist.SetRefList(_Player_List);
         }
 
         public static void NPCRegisterService(bool register, NPCMasterClass instance)
@@ -54,7 +58,7 @@ namespace Gob3AQ.LevelMaster
             }
             else
             {
-                id = 0xFF;
+                id = NO_PLAYER;
                 _Player_List.Remove(mono);
             }
         }
@@ -96,7 +100,7 @@ namespace Gob3AQ.LevelMaster
         {
             loadpercentage = 0;
 
-            VARMAP_LevelMaster.SET_PLAYER_ID_SELECTED(0xFF);
+            VARMAP_LevelMaster.SET_PLAYER_ID_SELECTED(NO_PLAYER);
             VARMAP_LevelMaster.REG_GAMESTATUS(_OnGameStatusChanged);
         }
 
@@ -146,6 +150,8 @@ namespace Gob3AQ.LevelMaster
             _NPC_List = new List<NPCMasterClass>(GameFixedConfig.MAX_POOLED_ENEMIES);
             _Player_List = new List<PlayableCharScript>(GameFixedConfig.MAX_LEVEL_PLAYABLE_CHARACTERS);
             _WP_List = new List<WaypointClass>(GameFixedConfig.MAX_LEVEL_WAYPOINTS);
+
+            WPLayerMask.value = LayerMask.NameToLayer("WPLayer");
         }
 
 
@@ -179,8 +185,11 @@ namespace Gob3AQ.LevelMaster
         private void UpdateMouseEvents()
         {
             MousePropertiesStruct mouse = VARMAP_LevelMaster.GET_MOUSE_PROPERTIES();
+            byte playerSelected = VARMAP_LevelMaster.GET_PLAYER_ID_SELECTED();
+            bool consumed = false;
 
-            if(mouse.primaryReleased)
+            /* If no items menu or just a menu opened */
+            if (mouse.primaryReleased)
             {
                 for (byte i=0; i < _Player_List.Count; ++i)
                 {
@@ -190,9 +199,43 @@ namespace Gob3AQ.LevelMaster
                     if(collider.OverlapPoint(mouse.pos1))
                     {
                         VARMAP_LevelMaster.SET_PLAYER_ID_SELECTED(i);
+                        consumed = true;
                         break;
                     }
                 }
+
+                if((playerSelected != NO_PLAYER)&&(!consumed))
+                {
+                    /* Proceed with items/NPCs if event has not been consumed */
+                }
+
+                /* Make player move */
+                if((!consumed) && (playerSelected != NO_PLAYER))
+                {
+                    MovePlayerRequest(ref mouse);
+                }
+            }
+        }
+
+        private void MovePlayerRequest(ref MousePropertiesStruct mouse)
+        {
+            float minDistance = float.PositiveInfinity;
+            WaypointClass candidate = null;
+
+            foreach (WaypointClass wp in _WP_List)
+            {
+                float dist = Vector2.Distance(wp.transform.position, mouse.pos1);
+
+                if ((dist < minDistance) && (dist <= GameFixedConfig.DISTANCE_MOUSE_FURTHEST_WP))
+                {
+                    minDistance = dist;
+                    candidate = wp;
+                }
+            }
+
+            if (candidate)
+            {
+                VARMAP_LevelMaster.MOVE_PLAYER(candidate);
             }
         }
 

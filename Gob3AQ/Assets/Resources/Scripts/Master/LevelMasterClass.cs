@@ -37,6 +37,29 @@ namespace Gob3AQ.LevelMaster
             rolist.SetRefList(_Player_List);
         }
 
+        public static void GetNearestWPService(Vector2 position, float maxRadius, out WaypointClass candidate)
+        {
+            float minDistance = float.PositiveInfinity;
+            candidate = null;
+
+            foreach (WaypointClass wp in _WP_List)
+            {
+                float dist = Vector2.Distance(wp.transform.position, position);
+
+                if (dist < minDistance)
+                {
+                    minDistance = dist;
+                    candidate = wp;
+                }
+            }
+
+            /* Its better to cancel with ONE comparison at the end than do this comparison on each element */
+            if(minDistance > maxRadius)
+            {
+                candidate = null;
+            }
+        }
+
         public static void NPCRegisterService(bool register, NPCMasterClass instance)
         {
             if (register)
@@ -212,26 +235,14 @@ namespace Gob3AQ.LevelMaster
                 /* Make player move */
                 if((!consumed) && (playerSelected != NO_PLAYER))
                 {
-                    MovePlayerRequest(ref mouse);
+                    CheckPlayerMovementOrder(ref mouse);
                 }
             }
         }
 
-        private void MovePlayerRequest(ref MousePropertiesStruct mouse)
+        private void CheckPlayerMovementOrder(ref MousePropertiesStruct mouse)
         {
-            float minDistance = float.PositiveInfinity;
-            WaypointClass candidate = null;
-
-            foreach (WaypointClass wp in _WP_List)
-            {
-                float dist = Vector2.Distance(wp.transform.position, mouse.pos1);
-
-                if ((dist < minDistance) && (dist <= GameFixedConfig.DISTANCE_MOUSE_FURTHEST_WP))
-                {
-                    minDistance = dist;
-                    candidate = wp;
-                }
-            }
+            GetNearestWPService(mouse.pos1, GameFixedConfig.DISTANCE_MOUSE_FURTHEST_WP, out WaypointClass candidate);
 
             if (candidate)
             {

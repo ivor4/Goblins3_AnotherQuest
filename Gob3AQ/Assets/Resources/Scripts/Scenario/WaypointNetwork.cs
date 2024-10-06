@@ -198,7 +198,7 @@ namespace Gob3AQ.Waypoint.Network
                     }
                 }
 
-                return new WaypointSolution() { path = solutionConnections, totalDistance = solutionDistance, waypointTrace = waypointTrace };
+                return new WaypointSolution() { totalDistance = solutionDistance, waypointTrace = waypointTrace };
             }
             else
             {

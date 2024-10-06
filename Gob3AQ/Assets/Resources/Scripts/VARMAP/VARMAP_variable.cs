@@ -409,7 +409,6 @@ namespace Gob3AQ.VARMAP.Variable
             ReadStreamSpan<byte> readZone = new ReadStreamSpan<byte>(streamreader);
             int listSize = _elems;
 
-            T _exchange;
 
             for (int i = 0; i < listSize; i++)
             {
@@ -417,16 +416,15 @@ namespace Gob3AQ.VARMAP.Variable
 
                 if(ConstructorFunction != null)
                 {
-                    _exchange = ConstructorFunction();
+                    _values[i] = ConstructorFunction();
                 }
                 else
                 {
-                    _exchange = default;
+                    _values[i] = default;
                 }
 
-                ParseFromBytesFunction(ref _exchange, ref tempspan);
+                ParseFromBytesFunction(ref _values[i], ref tempspan);
 
-                _values[i] = _exchange;
             }
         }
 

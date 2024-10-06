@@ -83,6 +83,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _WP_REGISTER = LevelMasterClass.WPRegisterService;
             _MOVE_PLAYER = PlayerMasterClass.MovePlayerService;
             _GET_PLAYER_LIST = LevelMasterClass.GetPlayerListService;
+            _GET_NEAREST_WP = LevelMasterClass.GetNearestWPService;
             /* > ATG 2 END */
         }
     }

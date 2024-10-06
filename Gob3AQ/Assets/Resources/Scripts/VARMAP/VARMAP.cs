@@ -72,6 +72,7 @@ namespace Gob3AQ.VARMAP
         protected static WP_REGISTER_DELEGATE _WP_REGISTER;
         protected static MOVE_PLAYER_DELEGATE _MOVE_PLAYER;
         protected static GET_PLAYER_LIST_DELEGATE _GET_PLAYER_LIST;
+        protected static GET_NEAREST_WP_DELEGATE _GET_NEAREST_WP;
         /* > ATG 2 END < */
         
         

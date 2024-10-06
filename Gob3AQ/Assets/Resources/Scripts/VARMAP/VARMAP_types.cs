@@ -17,11 +17,6 @@ namespace Gob3AQ.VARMAP.Types
     public delegate int GetVARMAPArraySizeDelegate();
     public delegate ReadOnlySpan<T> GetVARMAPArrayDelegate<T>();
     public delegate void SetVARMAPArrayDelegate<T>(List<T> newvals);
-    public delegate void AddVARMAPArrayElemDelegate<T>(T newval);
-    public delegate void RemoveVARMAPArrayElemDelegate<T>(T val);
-    public delegate void RemoveVARMAPArrayElemAtPosDelegate(int pos);
-    public delegate void InsertVARMAPArrayElemDelegate<T>(int pos, T newval);
-    public delegate void ClearVARMAPArrayDelegate();
 
 
     public enum ChangedEventType

@@ -19,10 +19,6 @@ namespace Gob3AQ.Waypoint.Types
     {
         WAYPOINT_SKILL_UNDEFINED,
         WAYPOINT_SKILL_NORMAL,
-        WAYPOINT_SKILL_JUMP, // AKA CLIMB
-        WAYPOINT_SKILL_AIR,
-        WAYPOINT_SKILL_SWIM,
-        WAYPOINT_SKILL_SWIM_JUMP,
         WAYPOINT_SKILL_ALL
     }
 
@@ -114,11 +110,10 @@ namespace Gob3AQ.Waypoint.Types
     [System.Serializable]
     public struct WaypointSolution
     {
-        public List<WaypointConnection> path;
         public List<WaypointClass> waypointTrace;
         public float totalDistance;
 
-        public static WaypointSolution DEFAULT => new WaypointSolution() { path = null, totalDistance = float.PositiveInfinity, waypointTrace = null };
+        public static WaypointSolution DEFAULT => new WaypointSolution() { totalDistance = float.PositiveInfinity, waypointTrace = null };
     }
 
     [System.Serializable]

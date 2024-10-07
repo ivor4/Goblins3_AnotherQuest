@@ -72,13 +72,7 @@ namespace Gob3AQ.GameElement.PlayableChar
                     actualProgrammedPath = new WaypointProgrammedPath(solution);
                     physicalstate = PhysicalState.PHYSICAL_STATE_WALKING;
 
-                    List<WaypointClass> wplist = actualProgrammedPath.originalSolution.waypointTrace;
-                    Debug.Log("Actual Position: " + transform.position);
-                    for (int i=0;i<wplist.Count;i++)
-                    {
-                        Debug.Log(i.ToString() + ": " + wplist[i].name + " : " + wplist[i].transform.position);
-                    }
-                    _rigidbody.linearVelocity = GameFixedConfig.CHARACTER_NORMAL_SPEED * Vector2.MoveTowards(transform.position, actualProgrammedPath.originalSolution.waypointTrace[1].transform.position, 1.0f);
+                    Walk_StartNextSegment();
                 }
             }
         }
@@ -164,7 +158,43 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         private void Execute_Walk()
         {
-            
+            List<WaypointClass> wplist = actualProgrammedPath.originalSolution.waypointTrace;
+            int seg_index = actualProgrammedPath.crossedWaypointIndex;
+            WaypointClass target_wp = wplist[seg_index];
+            Vector3 target_pos = target_wp.transform.position;
+            Vector2 deltaPos = target_pos - transform.position;
+
+            /* If delta vector of positions and original velocity vector lose their cos(0deg)=1, it means character crossed the point */
+            float dot = Vector2.Dot(deltaPos, _rigidbody.linearVelocity);
+
+            if(dot <= 0f)
+            {
+                /* If last segment */
+                if(actualProgrammedPath.crossedWaypointIndex == (wplist.Count - 1))
+                {
+                    physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
+                    transform.position = target_pos;
+                    _rigidbody.linearVelocity = Vector2.zero;
+                }
+                else
+                {
+                    Walk_StartNextSegment();
+                }
+
+                actualWaypoint = target_wp;
+            }
+        }
+
+        private void Walk_StartNextSegment()
+        {
+            List<WaypointClass> wplist = actualProgrammedPath.originalSolution.waypointTrace;
+            int seg_index = actualProgrammedPath.crossedWaypointIndex;
+            Vector2 delta = (wplist[seg_index + 1].transform.position - wplist[seg_index].transform.position).normalized;
+            transform.position = wplist[seg_index].transform.position;
+
+            _rigidbody.linearVelocity = GameFixedConfig.CHARACTER_NORMAL_SPEED * delta;
+
+            actualProgrammedPath.crossedWaypointIndex++;
         }
 
         #endregion

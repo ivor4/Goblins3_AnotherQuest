@@ -177,7 +177,7 @@ namespace Gob3AQ.Waypoint.Network
                 float solutionDistance = sourceSolutions.totalDistanceTo[wp2Index];
 
                 waypointTrace.Clear();
-                WaypointClass lastWpTrace = dest;
+                WaypointClass lastWpTrace = source;
 
                 waypointTrace.Add(lastWpTrace);
 
@@ -357,6 +357,12 @@ namespace Gob3AQ.Waypoint.Network
                     }
                 }
             } while (waypointStack.Count > 0);
+
+            /* Reverse */
+            foreach(WaypointPath wpath in newSolution.shortestPathTo)
+            {
+                wpath.stackedConnectionList.Reverse();
+            }
 
             return newSolution;
         }

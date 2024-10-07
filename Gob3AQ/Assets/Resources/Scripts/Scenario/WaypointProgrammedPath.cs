@@ -10,7 +10,6 @@ namespace Gob3AQ.Waypoint.ProgrammedPath
     public struct WaypointProgrammedPath
     {
         public WaypointSolution originalSolution;
-        public WaypointClass actualWaypoint;
         public float totalDistance;
         public float remainingDistance;
         public int crossedWaypointIndex;
@@ -29,7 +28,6 @@ namespace Gob3AQ.Waypoint.ProgrammedPath
             totalDistance = solution.totalDistance;
             remainingDistance = totalDistance;
             crossedWaypointIndex = 0;
-            actualWaypoint = solution.waypointTrace[crossedWaypointIndex];
         }
 
 

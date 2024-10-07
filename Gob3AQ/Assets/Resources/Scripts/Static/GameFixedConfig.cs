@@ -22,7 +22,7 @@ namespace Gob3AQ.FixedConfig
         /* Time and timeouts */
         public const float MILLISECONDS_TO_SECONDS = 1000f;
         public const float KEY_REFRESH_TIME_SECONDS = 0.05f;
-        public const float CHARACTER_NORMAL_SPEED = 1.0f;
+        public const float CHARACTER_NORMAL_SPEED = 5.0f;
 
         /* HUD */
         public const float DISTANCE_MOUSE_FURTHEST_WP = 1.5f;

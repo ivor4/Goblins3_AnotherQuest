@@ -71,8 +71,7 @@ namespace Gob3AQ.GameElement.PlayableChar
                 {
                     actualProgrammedPath = new WaypointProgrammedPath(solution);
                     physicalstate = PhysicalState.PHYSICAL_STATE_WALKING;
-
-                    Walk_StartNextSegment();
+                    Walk_StartNextSegment(false);
                 }
             }
         }
@@ -178,23 +177,33 @@ namespace Gob3AQ.GameElement.PlayableChar
                 }
                 else
                 {
-                    Walk_StartNextSegment();
+                    Walk_StartNextSegment(true);
                 }
-
-                actualWaypoint = target_wp;
             }
         }
 
-        private void Walk_StartNextSegment()
+        private void Walk_StartNextSegment(bool reached)
         {
             List<WaypointClass> wplist = actualProgrammedPath.originalSolution.waypointTrace;
-            int seg_index = actualProgrammedPath.crossedWaypointIndex;
-            Vector2 delta = (wplist[seg_index + 1].transform.position - wplist[seg_index].transform.position).normalized;
-            transform.position = wplist[seg_index].transform.position;
+            WaypointClass target_wp;
+            Vector2 delta;
+
+            if (reached)
+            {
+                actualProgrammedPath.crossedWaypointIndex++;
+                target_wp = wplist[actualProgrammedPath.crossedWaypointIndex];
+                delta = (target_wp.transform.position - actualWaypoint.transform.position).normalized;
+                transform.position = actualWaypoint.transform.position;
+            }
+            else
+            {
+                target_wp = wplist[actualProgrammedPath.crossedWaypointIndex];
+                delta = (target_wp.transform.position - transform.position).normalized;
+            }
 
             _rigidbody.linearVelocity = GameFixedConfig.CHARACTER_NORMAL_SPEED * delta;
-
-            actualProgrammedPath.crossedWaypointIndex++;
+            
+            actualWaypoint = target_wp;
         }
 
         #endregion

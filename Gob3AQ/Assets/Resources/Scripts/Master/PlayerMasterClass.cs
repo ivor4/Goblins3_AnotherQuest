@@ -19,6 +19,18 @@ namespace Gob3AQ.PlayerMaster
 
         public static void MovePlayerService(WaypointClass wp)
         {
+            PlayableCharScript selectedPlayer = GetActivePlayer();
+            selectedPlayer.MoveRequest(wp);
+        }
+
+        public static void InteractItemPlayerService(GameItem item, WaypointClass itemwp)
+        {
+            PlayableCharScript selectedPlayer = GetActivePlayer();
+            selectedPlayer.ItemInteractRequest(item, itemwp);
+        }
+
+        private static PlayableCharScript GetActivePlayer()
+        {
             ReadOnlyList<PlayableCharScript> playerlist;
             byte pid;
             PlayableCharScript selectedPlayer;
@@ -28,7 +40,7 @@ namespace Gob3AQ.PlayerMaster
             VARMAP_PlayerMaster.GET_PLAYER_LIST(ref playerlist);
             selectedPlayer = playerlist[pid];
 
-            selectedPlayer.MoveRequest(wp);
+            return selectedPlayer;
         }
 
 

@@ -8,7 +8,9 @@ using Gob3AQ.Waypoint;
 using Gob3AQ.Waypoint.Types;
 using Gob3AQ.Waypoint.ProgrammedPath;
 using Gob3AQ.Libs.Arith;
+using Gob3AQ.Brain.ItemsInteraction;
 using System.Collections.Generic;
+
 
 namespace Gob3AQ.GameElement.PlayableChar
 {
@@ -20,11 +22,21 @@ namespace Gob3AQ.GameElement.PlayableChar
         PHYSICAL_STATE_WALKING = 0x4
     }
 
+    public enum BufferedInteraction
+    {
+        BUFFERED_INT_NONE,
+        BUFFERED_INT_ITEM,
+        BUFFERED_INT_TALK
+    }
+
 
     [System.Serializable]
     public class PlayableCharScript : MonoBehaviour
     {
         /* Fields */
+        [SerializeField]
+        public CharacterType charType;
+
         public Collider2D Collider
         {
             get
@@ -46,6 +58,8 @@ namespace Gob3AQ.GameElement.PlayableChar
         private bool loaded;
         private WaypointClass actualWaypoint;
         private WaypointProgrammedPath actualProgrammedPath;
+        private GameItem bufferedInteractionItem;
+        private BufferedInteraction bufferedInteraction;
 
         /// <summary>
         /// This is a preallocated list to avoid unnecessary allocs when asking for a calculated solution
@@ -73,6 +87,34 @@ namespace Gob3AQ.GameElement.PlayableChar
                     physicalstate = PhysicalState.PHYSICAL_STATE_WALKING;
                     Walk_StartNextSegment(false);
                 }
+
+                /* Cancel interaction which could be ongoing */
+                bufferedInteraction = BufferedInteraction.BUFFERED_INT_NONE;
+            }
+        }
+
+        public void ItemInteractRequest(GameItem item, WaypointClass itemwp)
+        {
+            /* Interact only if not talking or doing an action */
+            if ((physicalstate & (PhysicalState.PHYSICAL_STATE_TALKING | PhysicalState.PHYSICAL_STATE_ACTING)) == 0)
+            {
+                WaypointSolution solution = itemwp.Network.GetWaypointSolution(actualWaypoint, itemwp, WaypointSkillType.WAYPOINT_SKILL_NORMAL, wpsolutionlist);
+
+                if (solution.totalDistance == float.PositiveInfinity)
+                {
+                    Debug.LogError("Point is not reachable from actual waypoint");
+                    physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
+                }
+                else
+                {
+                    bufferedInteractionItem = item;
+                    bufferedInteraction = BufferedInteraction.BUFFERED_INT_ITEM;
+
+                    actualProgrammedPath = new WaypointProgrammedPath(solution);
+                    physicalstate = PhysicalState.PHYSICAL_STATE_WALKING; 
+
+                    Walk_StartNextSegment(false);
+                }
             }
         }
 
@@ -96,6 +138,7 @@ namespace Gob3AQ.GameElement.PlayableChar
             physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
             selected = false;
             loaded = false;
+            bufferedInteraction = BufferedInteraction.BUFFERED_INT_NONE;
 
             VARMAP_PlayerMaster.MONO_REGISTER(this, true, out playerID);
             VARMAP_PlayerMaster.REG_PLAYER_ID_SELECTED(ChangedSelectedPlayerEvent);
@@ -174,6 +217,8 @@ namespace Gob3AQ.GameElement.PlayableChar
                     physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
                     transform.position = target_pos;
                     _rigidbody.linearVelocity = Vector2.zero;
+
+                    StartBufferedInteraction();
                 }
                 else
                 {
@@ -204,6 +249,32 @@ namespace Gob3AQ.GameElement.PlayableChar
             _rigidbody.linearVelocity = GameFixedConfig.CHARACTER_NORMAL_SPEED * delta;
             
             actualWaypoint = target_wp;
+        }
+
+        private void StartBufferedInteraction()
+        {
+
+            /* Now interact if buffered */
+            switch (bufferedInteraction)
+            {
+                case BufferedInteraction.BUFFERED_INT_ITEM:
+                    InteractionItemType permittedInteraction;
+                    VARMAP_PlayerMaster.GET_ITEM_INTERACTION(charType, bufferedInteractionItem, out permittedInteraction);
+
+                    if(permittedInteraction == InteractionItemType.INTERACTION_TAKE)
+                    {
+                        GamePickableItem pickable = ItemsInteractionsClass.ITEM_TO_PICKABLE[(int)bufferedInteractionItem];
+                        VARMAP_PlayerMaster.TAKE_ITEM_OBJECT(pickable);
+                    }
+
+                    break;
+
+                default:
+                    break;
+            }
+
+            /* Clear */
+            bufferedInteraction = BufferedInteraction.BUFFERED_INT_NONE;
         }
 
         #endregion

@@ -6,6 +6,7 @@ using Gob3AQ.VARMAP.LevelMaster;
 using System;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameElement.NPC;
+using Gob3AQ.GameElement.Item;
 using Gob3AQ.Waypoint;
 using Gob3AQ.GameElement.PlayableChar;
 using Gob3AQ.Libs.Arith;
@@ -21,6 +22,7 @@ namespace Gob3AQ.LevelMaster
         private static List<WaypointClass> _WP_List;
         private static List<PlayableCharScript> _Player_List;
         private static List<NPCMasterClass> _NPC_List;
+        private static List<ItemClass> _Item_List;
 
 
         private int loadpercentage;
@@ -35,6 +37,11 @@ namespace Gob3AQ.LevelMaster
         public static void GetPlayerListService(ref ReadOnlyList<PlayableCharScript> rolist)
         {
             rolist.SetRefList(_Player_List);
+        }
+
+        public static void GetItemListService(ref ReadOnlyList<ItemClass> rolist)
+        {
+            rolist.SetRefList(_Item_List);
         }
 
         public static void GetNearestWPService(Vector2 position, float maxRadius, out WaypointClass candidate)
@@ -69,6 +76,18 @@ namespace Gob3AQ.LevelMaster
             else
             {
                 _NPC_List.Remove(instance);
+            }
+        }
+
+        public static void ItemRegisterService(bool register, ItemClass instance)
+        {
+            if (register)
+            {
+                _Item_List.Add(instance);
+            }
+            else
+            {
+                _Item_List.Remove(instance);
             }
         }
 
@@ -173,6 +192,7 @@ namespace Gob3AQ.LevelMaster
             _NPC_List = new List<NPCMasterClass>(GameFixedConfig.MAX_POOLED_ENEMIES);
             _Player_List = new List<PlayableCharScript>(GameFixedConfig.MAX_LEVEL_PLAYABLE_CHARACTERS);
             _WP_List = new List<WaypointClass>(GameFixedConfig.MAX_LEVEL_WAYPOINTS);
+            _Item_List = new List<ItemClass>(GameFixedConfig.MAX_POOLED_ENEMIES);
 
             WPLayerMask.value = LayerMask.NameToLayer("WPLayer");
         }
@@ -214,14 +234,14 @@ namespace Gob3AQ.LevelMaster
             /* If no items menu or just a menu opened */
             if (mouse.primaryReleased)
             {
-                for (byte i=0; i < _Player_List.Count; ++i)
+                for (int i=0; i < _Player_List.Count; ++i)
                 {
                     PlayableCharScript player = _Player_List[i];
                     Collider2D collider = player.Collider;
 
                     if(collider.OverlapPoint(mouse.pos1))
                     {
-                        VARMAP_LevelMaster.SET_PLAYER_ID_SELECTED(i);
+                        VARMAP_LevelMaster.SET_PLAYER_ID_SELECTED((byte)i);
                         consumed = true;
                         break;
                     }
@@ -230,6 +250,34 @@ namespace Gob3AQ.LevelMaster
                 if((playerSelected != NO_PLAYER)&&(!consumed))
                 {
                     /* Proceed with items/NPCs if event has not been consumed */
+                    for (int i = 0; i < _Item_List.Count; ++i)
+                    {
+                        ItemClass item = _Item_List[i];
+                        Collider2D collider = item.Collider;
+
+                        if (collider.OverlapPoint(mouse.pos1))
+                        {
+                            VARMAP_LevelMaster.INTERACT_ITEM_PLAYER(item.itemID, item.Waypoint);
+
+                            consumed = true;
+                            break;
+                        }
+                    }
+
+                    if(!consumed)
+                    {
+                        for (int i = 0; i < _NPC_List.Count; ++i)
+                        {
+                            NPCMasterClass npc = _NPC_List[i];
+                            Collider2D collider = npc.Collider;
+
+                            if (collider.OverlapPoint(mouse.pos1))
+                            {
+                                consumed = true;
+                                break;
+                            }
+                        }
+                    }
                 }
 
                 /* Make player move */

@@ -24,20 +24,20 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPValueDelegate<Room> _SET_ACTUAL_ROOM;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<Room> _REG_ACTUAL_ROOM;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<Room> _UNREG_ACTUAL_ROOM;
-        protected static GetVARMAPArrayElemValueDelegate<ulong> _GET_ELEM_ITEMS_COLLECTED;
-        protected static SetVARMAPArrayElemValueDelegate<ulong> _SET_ELEM_ITEMS_COLLECTED;
+        protected static GetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> _GET_ELEM_ITEMS_COLLECTED;
+        protected static SetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> _SET_ELEM_ITEMS_COLLECTED;
         protected static GetVARMAPArraySizeDelegate _GET_SIZE_ITEMS_COLLECTED;
-        protected static GetVARMAPArrayDelegate<ulong> _GET_ARRAY_ITEMS_COLLECTED;
-        protected static SetVARMAPArrayDelegate<ulong> _SET_ARRAY_ITEMS_COLLECTED;
-        protected static ReUnRegisterVARMAPValueChangeEventDelegate<ulong> _REG_ITEMS_COLLECTED;
-        protected static ReUnRegisterVARMAPValueChangeEventDelegate<ulong> _UNREG_ITEMS_COLLECTED;
-        protected static GetVARMAPArrayElemValueDelegate<ulong> _GET_ELEM_EVENTS_OCCURRED;
-        protected static SetVARMAPArrayElemValueDelegate<ulong> _SET_ELEM_EVENTS_OCCURRED;
+        protected static GetVARMAPArrayDelegate<MultiBitFieldStruct> _GET_ARRAY_ITEMS_COLLECTED;
+        protected static SetVARMAPArrayDelegate<MultiBitFieldStruct> _SET_ARRAY_ITEMS_COLLECTED;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<MultiBitFieldStruct> _REG_ITEMS_COLLECTED;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<MultiBitFieldStruct> _UNREG_ITEMS_COLLECTED;
+        protected static GetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> _GET_ELEM_EVENTS_OCCURRED;
+        protected static SetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> _SET_ELEM_EVENTS_OCCURRED;
         protected static GetVARMAPArraySizeDelegate _GET_SIZE_EVENTS_OCCURRED;
-        protected static GetVARMAPArrayDelegate<ulong> _GET_ARRAY_EVENTS_OCCURRED;
-        protected static SetVARMAPArrayDelegate<ulong> _SET_ARRAY_EVENTS_OCCURRED;
-        protected static ReUnRegisterVARMAPValueChangeEventDelegate<ulong> _REG_EVENTS_OCCURRED;
-        protected static ReUnRegisterVARMAPValueChangeEventDelegate<ulong> _UNREG_EVENTS_OCCURRED;
+        protected static GetVARMAPArrayDelegate<MultiBitFieldStruct> _GET_ARRAY_EVENTS_OCCURRED;
+        protected static SetVARMAPArrayDelegate<MultiBitFieldStruct> _SET_ARRAY_EVENTS_OCCURRED;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<MultiBitFieldStruct> _REG_EVENTS_OCCURRED;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<MultiBitFieldStruct> _UNREG_EVENTS_OCCURRED;
         protected static GetVARMAPValueDelegate<Game_Status> _GET_GAMESTATUS;
         protected static SetVARMAPValueDelegate<Game_Status> _SET_GAMESTATUS;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> _REG_GAMESTATUS;
@@ -68,11 +68,22 @@ namespace Gob3AQ.VARMAP
         protected static LODING_COMPLETED_DELEGATE _LOADING_COMPLETED;
         protected static FREEZE_PLAY_DELEGATE _FREEZE_PLAY;
         protected static NPC_REGISTER_DELEGATE _NPC_REGISTER;
+        protected static ITEM_REGISTER_DELEGATE _ITEM_REGISTER;
         protected static MONO_REGISTER_DELEGATE _MONO_REGISTER;
         protected static WP_REGISTER_DELEGATE _WP_REGISTER;
         protected static MOVE_PLAYER_DELEGATE _MOVE_PLAYER;
         protected static GET_PLAYER_LIST_DELEGATE _GET_PLAYER_LIST;
         protected static GET_NEAREST_WP_DELEGATE _GET_NEAREST_WP;
+        protected static IS_EVENT_OCCURRED_DELEGATE _IS_EVENT_OCCURRED;
+        protected static COMMIT_EVENT_DELEGATE _COMMIT_EVENT;
+        protected static TAKE_ITEM_EVENT_DELEGATE _TAKE_ITEM_EVENT;
+        protected static RETAKE_ITEM_EVENT_DELEGATE _RETAKE_ITEM_EVENT;
+        protected static IS_ITEM_TAKEN_FIRST_DELEGATE _IS_ITEM_TAKEN_FIRST;
+        protected static IS_ITEM_TAKEN_DELEGATE _IS_ITEM_TAKEN;
+        protected static INTERACT_ITEM_PLAYER_DELEGATE _INTERACT_ITEM_PLAYER;
+        protected static GET_ITEM_INTERACTION_DELEGATE _GET_ITEM_INTERACTION;
+        protected static TAKE_ITEM_OBJECT_DELEGATE _TAKE_ITEM_OBJECT;
+        protected static GET_ITEM_LIST_DELEGATE _GET_ITEM_LIST;
         /* > ATG 2 END < */
         
         

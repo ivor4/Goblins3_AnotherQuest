@@ -30,6 +30,13 @@ namespace Gob3AQ.Libs.Arith
     {
         private List<T> _list;
 
+        public int Count
+        {
+            get
+            {
+                return _list.Count;
+            }
+        }
 
         public ReadOnlyList(List<T> list)
         {

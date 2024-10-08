@@ -10,11 +10,26 @@ namespace Gob3AQ.GameElement.NPC
     public class NPCMasterClass : MonoBehaviour
     {
 
-        private Rigidbody myrigidbody;
-        private Collider mycollider;
+        private Rigidbody2D _rigidbody;
+        private Collider2D _collider;
+
+        public Collider2D Collider
+        {
+            get
+            {
+                return _collider;
+            }
+        }
 
 
-        private void Start()
+        void Awake()
+        {
+            _rigidbody = GetComponent<Rigidbody2D>();
+            _collider = GetComponent<Collider2D>();
+        }
+
+
+        void Start()
         {
 
             VARMAP_NPCMaster.REG_GAMESTATUS(OnGameStatusChanged);
@@ -23,7 +38,7 @@ namespace Gob3AQ.GameElement.NPC
         }
 
 
-        private void Update()
+        void Update()
         {
             Game_Status gstatus = VARMAP_NPCMaster.GET_GAMESTATUS();
 

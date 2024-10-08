@@ -6,6 +6,26 @@ namespace Gob3AQ.VARMAP.Types.Parsers
 {
     public static class VARMAP_parsers
     {
+        public static void GameItem_ParseToBytes(ref GameItem value, ref Span<byte> writer)
+        {
+            BitConverter.TryWriteBytes(writer, (int)value);
+        }
+
+        public static void GameItem_ParseFromBytes(ref GameItem value, ref ReadOnlySpan<byte> reader)
+        {
+            value = (GameItem)BitConverter.ToInt32(reader);
+        }
+
+        public static void GameEvent_ParseToBytes(ref GameEvent value, ref Span<byte> writer)
+        {
+            BitConverter.TryWriteBytes(writer, (int)value);
+        }
+
+        public static void GameEvent_ParseFromBytes(ref GameEvent value, ref ReadOnlySpan<byte> reader)
+        {
+            value = (GameEvent)BitConverter.ToInt32(reader);
+        }
+
         public static void Game_Status_ParseToBytes(ref Game_Status value, ref Span<byte> writer)
         {
             BitConverter.TryWriteBytes(writer, (int)value);

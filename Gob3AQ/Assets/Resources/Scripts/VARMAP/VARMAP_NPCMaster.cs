@@ -12,14 +12,13 @@ namespace Gob3AQ.VARMAP.NPCMaster
         public static void UpdateDelegates()
         {
             /* > ATG 1 START */
-            GET_ELEM_EVENTS_OCCURRED = _GET_ELEM_EVENTS_OCCURRED;
-            GET_SIZE_EVENTS_OCCURRED = _GET_SIZE_EVENTS_OCCURRED;
-            GET_ARRAY_EVENTS_OCCURRED = _GET_ARRAY_EVENTS_OCCURRED;
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             NPC_REGISTER = _NPC_REGISTER;
-            MONO_REGISTER = _MONO_REGISTER;
+            GET_NEAREST_WP = _GET_NEAREST_WP;
+            IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
+            COMMIT_EVENT = _COMMIT_EVENT;
             /* > ATG 1 END */
         }
 
@@ -27,9 +26,6 @@ namespace Gob3AQ.VARMAP.NPCMaster
 
         /* GET/SET */
         /* > ATG 2 START */
-        public static GetVARMAPArrayElemValueDelegate<ulong> GET_ELEM_EVENTS_OCCURRED;
-        public static GetVARMAPArraySizeDelegate GET_SIZE_EVENTS_OCCURRED;
-        public static GetVARMAPArrayDelegate<ulong> GET_ARRAY_EVENTS_OCCURRED;
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
@@ -38,7 +34,9 @@ namespace Gob3AQ.VARMAP.NPCMaster
         /* SERVICES */
         /* > ATG 3 START */
         public static NPC_REGISTER_DELEGATE NPC_REGISTER;
-        public static MONO_REGISTER_DELEGATE MONO_REGISTER;
+        public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
+        public static IS_EVENT_OCCURRED_DELEGATE IS_EVENT_OCCURRED;
+        public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
         /* > ATG 3 END */
     }
 }

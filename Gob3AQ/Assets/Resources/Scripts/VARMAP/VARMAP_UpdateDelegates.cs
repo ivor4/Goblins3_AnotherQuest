@@ -10,6 +10,8 @@ using Gob3AQ.InputMaster;
 using Gob3AQ.GraphicsMaster;
 using Gob3AQ.VARMAP.Variable;
 using Gob3AQ.PlayerMaster;
+using Gob3AQ.GameEventMaster;
+using Gob3AQ.ItemMaster;
 
 namespace Gob3AQ.VARMAP.Initialization
 {
@@ -34,20 +36,20 @@ namespace Gob3AQ.VARMAP.Initialization
             _SET_ACTUAL_ROOM = ((VARMAP_Variable_Interface<Room>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ACTUAL_ROOM]).SetValue;
             _REG_ACTUAL_ROOM = ((VARMAP_Variable_Interface<Room>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ACTUAL_ROOM]).RegisterChangeEvent;
             _UNREG_ACTUAL_ROOM = ((VARMAP_Variable_Interface<Room>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ACTUAL_ROOM]).UnregisterChangeEvent;
-            _GET_ELEM_ITEMS_COLLECTED = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEMS_COLLECTED]).GetListElem;
-            _SET_ELEM_ITEMS_COLLECTED = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEMS_COLLECTED]).SetListElem;
-            _GET_SIZE_ITEMS_COLLECTED = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEMS_COLLECTED]).GetListSize;
-            _GET_ARRAY_ITEMS_COLLECTED = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEMS_COLLECTED]).GetListCopy;
-            _SET_ARRAY_ITEMS_COLLECTED = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEMS_COLLECTED]).SetListValues;
-            _REG_ITEMS_COLLECTED = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEMS_COLLECTED]).RegisterChangeEvent;
-            _UNREG_ITEMS_COLLECTED = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEMS_COLLECTED]).UnregisterChangeEvent;
-            _GET_ELEM_EVENTS_OCCURRED = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED]).GetListElem;
-            _SET_ELEM_EVENTS_OCCURRED = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED]).SetListElem;
-            _GET_SIZE_EVENTS_OCCURRED = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED]).GetListSize;
-            _GET_ARRAY_EVENTS_OCCURRED = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED]).GetListCopy;
-            _SET_ARRAY_EVENTS_OCCURRED = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED]).SetListValues;
-            _REG_EVENTS_OCCURRED = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED]).RegisterChangeEvent;
-            _UNREG_EVENTS_OCCURRED = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED]).UnregisterChangeEvent;
+            _GET_ELEM_ITEMS_COLLECTED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEMS_COLLECTED]).GetListElem;
+            _SET_ELEM_ITEMS_COLLECTED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEMS_COLLECTED]).SetListElem;
+            _GET_SIZE_ITEMS_COLLECTED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEMS_COLLECTED]).GetListSize;
+            _GET_ARRAY_ITEMS_COLLECTED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEMS_COLLECTED]).GetListCopy;
+            _SET_ARRAY_ITEMS_COLLECTED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEMS_COLLECTED]).SetListValues;
+            _REG_ITEMS_COLLECTED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEMS_COLLECTED]).RegisterChangeEvent;
+            _UNREG_ITEMS_COLLECTED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEMS_COLLECTED]).UnregisterChangeEvent;
+            _GET_ELEM_EVENTS_OCCURRED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED]).GetListElem;
+            _SET_ELEM_EVENTS_OCCURRED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED]).SetListElem;
+            _GET_SIZE_EVENTS_OCCURRED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED]).GetListSize;
+            _GET_ARRAY_EVENTS_OCCURRED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED]).GetListCopy;
+            _SET_ARRAY_EVENTS_OCCURRED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED]).SetListValues;
+            _REG_EVENTS_OCCURRED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED]).RegisterChangeEvent;
+            _UNREG_EVENTS_OCCURRED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED]).UnregisterChangeEvent;
             _GET_GAMESTATUS = ((VARMAP_Variable_Interface<Game_Status>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_GAMESTATUS]).GetValue;
             _SET_GAMESTATUS = ((VARMAP_Variable_Interface<Game_Status>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_GAMESTATUS]).SetValue;
             _REG_GAMESTATUS = ((VARMAP_Variable_Interface<Game_Status>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_GAMESTATUS]).RegisterChangeEvent;
@@ -79,11 +81,22 @@ namespace Gob3AQ.VARMAP.Initialization
             _LOADING_COMPLETED = GameMasterClass.LoadingCompletedService;
             _FREEZE_PLAY = GameMasterClass.FreezePlayService;
             _NPC_REGISTER = LevelMasterClass.NPCRegisterService;
+            _ITEM_REGISTER = LevelMasterClass.ItemRegisterService;
             _MONO_REGISTER = LevelMasterClass.MonoRegisterService;
             _WP_REGISTER = LevelMasterClass.WPRegisterService;
             _MOVE_PLAYER = PlayerMasterClass.MovePlayerService;
             _GET_PLAYER_LIST = LevelMasterClass.GetPlayerListService;
             _GET_NEAREST_WP = LevelMasterClass.GetNearestWPService;
+            _IS_EVENT_OCCURRED = GameEventMasterClass.IsEventOccurredService;
+            _COMMIT_EVENT = GameEventMasterClass.CommitEventService;
+            _TAKE_ITEM_EVENT = GameEventMasterClass.TakeItemEventService;
+            _RETAKE_ITEM_EVENT = GameEventMasterClass.ReTakeItemEventService;
+            _IS_ITEM_TAKEN_FIRST = GameEventMasterClass.IsItemTakenFirstService;
+            _IS_ITEM_TAKEN = GameEventMasterClass.IsItemTakenService;
+            _INTERACT_ITEM_PLAYER = PlayerMasterClass.InteractItemPlayerService;
+            _GET_ITEM_INTERACTION = GameEventMasterClass.GetItemInteractionService;
+            _TAKE_ITEM_OBJECT = ItemMasterClass.TakeItemObjectService;
+            _GET_ITEM_LIST = LevelMasterClass.GetItemListService;
             /* > ATG 2 END */
         }
     }

@@ -13,9 +13,6 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         public static void UpdateDelegates()
         {
             /* > ATG 1 START */
-            GET_ELEM_EVENTS_OCCURRED = _GET_ELEM_EVENTS_OCCURRED;
-            GET_SIZE_EVENTS_OCCURRED = _GET_SIZE_EVENTS_OCCURRED;
-            GET_ARRAY_EVENTS_OCCURRED = _GET_ARRAY_EVENTS_OCCURRED;
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
@@ -29,6 +26,11 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             MOVE_PLAYER = _MOVE_PLAYER;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
             GET_NEAREST_WP = _GET_NEAREST_WP;
+            IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
+            COMMIT_EVENT = _COMMIT_EVENT;
+            INTERACT_ITEM_PLAYER = _INTERACT_ITEM_PLAYER;
+            GET_ITEM_INTERACTION = _GET_ITEM_INTERACTION;
+            TAKE_ITEM_OBJECT = _TAKE_ITEM_OBJECT;
             /* > ATG 1 END */
         }
 
@@ -36,9 +38,6 @@ namespace Gob3AQ.VARMAP.PlayerMaster
 
         /* GET/SET */
         /* > ATG 2 START */
-        public static GetVARMAPArrayElemValueDelegate<ulong> GET_ELEM_EVENTS_OCCURRED;
-        public static GetVARMAPArraySizeDelegate GET_SIZE_EVENTS_OCCURRED;
-        public static GetVARMAPArrayDelegate<ulong> GET_ARRAY_EVENTS_OCCURRED;
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
@@ -56,6 +55,11 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         public static MOVE_PLAYER_DELEGATE MOVE_PLAYER;
         public static GET_PLAYER_LIST_DELEGATE GET_PLAYER_LIST;
         public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
+        public static IS_EVENT_OCCURRED_DELEGATE IS_EVENT_OCCURRED;
+        public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
+        public static INTERACT_ITEM_PLAYER_DELEGATE INTERACT_ITEM_PLAYER;
+        public static GET_ITEM_INTERACTION_DELEGATE GET_ITEM_INTERACTION;
+        public static TAKE_ITEM_OBJECT_DELEGATE TAKE_ITEM_OBJECT;
         /* > ATG 3 END */
     }
 }

@@ -65,7 +65,42 @@ namespace Gob3AQ.VARMAP.Types
         GAME_STATUS_LOADING
     }
 
+    public enum InteractionItemType
+    {
+        INTERACTION_NONE,
+        INTERACTION_TAKE,
+        INTERACTION_USE
+    }
 
+    public enum CharacterType
+    {
+        CHARACTER_MAIN,
+        CHARACTER_PARROT,
+        CHARACTER_SNAKE
+    }
+
+    public enum GameItem
+    {
+        ITEM_POTION,
+        ITEM_FORK,
+
+        ITEM_TOTAL
+    }
+
+    public enum GamePickableItem
+    {
+        ITEM_PICK_POTION,
+
+        ITEM_PICK_TOTAL,
+
+        ITEM_PICK_NONE = 0xFFFF
+    }
+
+    public enum GameEvent
+    {
+        GEVENT_DOOR1_OPENED,
+        GEVENT_TALK_MAN
+    }
 
 
     public struct MousePropertiesStruct : IStreamable
@@ -160,6 +195,81 @@ namespace Gob3AQ.VARMAP.Types
         public static IStreamable CreateNewInstance()
         {
             return new Vector3Struct();
+        }
+
+        public int GetElemSize()
+        {
+            return STRUCT_SIZE;
+        }
+
+
+        public void ParseFromBytes(ref ReadOnlySpan<byte> reader)
+        {
+            StaticParseFromBytes(ref this, ref reader);
+        }
+
+        public void ParseToBytes(ref Span<byte> writer)
+        {
+            StaticParseToBytes(ref this, ref writer);
+        }
+    }
+
+    public struct MultiBitFieldStruct : IStreamable
+    {
+        public const int STRUCT_SIZE = sizeof(ulong);
+        public ulong bitfield;
+
+        public static void StaticParseFromBytes(ref MultiBitFieldStruct gstruct, ref ReadOnlySpan<byte> reader)
+        {
+            ReadStreamSpan<byte> readZone = new ReadStreamSpan<byte>(reader);
+            gstruct.bitfield = BitConverter.ToUInt64(readZone.ReadNext(sizeof(float)));
+        }
+
+        public static void StaticParseToBytes(ref MultiBitFieldStruct gstruct, ref Span<byte> writer)
+        {
+            WriteStreamSpan<byte> writeZone = new WriteStreamSpan<byte>(writer);
+            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ulong)), gstruct.bitfield);
+        }
+
+        public bool GetIndividualBool(int pos)
+        {
+            bool retVal;
+            int pos_corrected;
+
+            pos_corrected = pos & 0x3F;
+
+            retVal = ((bitfield >> pos_corrected) & 0x1ul) != 0x0ul;
+
+
+            return retVal;
+        }
+
+        public void SetIndividualBool(int pos, bool value)
+        {
+            int pos_corrected;
+            ulong setbitval;
+
+            pos_corrected = pos & 0x3F;
+
+            setbitval = 0x1ul << pos_corrected;
+
+            if (value)
+            {
+                bitfield |= setbitval;
+            }
+            else
+            {
+                bitfield &= ~setbitval;
+            }
+        }
+
+        /// <summary>
+        /// Normally used to give a new instance to receive from parsed Bytes
+        /// </summary>
+        /// <returns>new instance of struct/class</returns>
+        public static IStreamable CreateNewInstance()
+        {
+            return new MultiBitFieldStruct();
         }
 
         public int GetElemSize()

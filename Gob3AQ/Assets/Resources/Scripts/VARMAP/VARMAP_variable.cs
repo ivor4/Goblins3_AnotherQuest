@@ -28,7 +28,10 @@ namespace Gob3AQ.VARMAP.Variable
 
         public abstract VARMAP_Variable_ID GetID();
 
-        
+#if UNITY_EDITOR
+        public abstract string[] GetDebugValues();
+#endif
+
     }
 
     public abstract class VARMAP_Variable_Interface<T> : VARMAP_Variable_Indexable
@@ -455,6 +458,20 @@ namespace Gob3AQ.VARMAP.Variable
                 _values[i] = defaultValue;
             }
         }
+
+#if UNITY_EDITOR
+        public override string[] GetDebugValues()
+        {
+            string[] retVal = new string[_elems];
+
+            for(int i=0;i<retVal.Length;i++)
+            {
+                retVal[i] = _values[i].ToString();
+            }
+
+            return retVal;
+        }
+#endif
     }
 
 
@@ -778,5 +795,14 @@ namespace Gob3AQ.VARMAP.Variable
         {
             throw new Exception("Not array VARMAP variable");
         }
+
+#if UNITY_EDITOR
+        public override string[] GetDebugValues()
+        {
+            string[] retVal = new string[1];
+            retVal[0] = _value.ToString();
+            return retVal;
+        }
+#endif
     }
 }

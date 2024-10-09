@@ -287,6 +287,12 @@ namespace Gob3AQ.VARMAP.Types
         {
             StaticParseToBytes(ref this, ref writer);
         }
+
+        public override string ToString()
+        {
+            string str = bitfield.ToString("X16");
+            return str;
+        }
     }
 
     public struct GameOptionsStruct : IStreamable

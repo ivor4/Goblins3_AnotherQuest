@@ -31,8 +31,10 @@ namespace Gob3AQ.FixedConfig
         public static readonly Color SUN_COLOR_NORMAL = new Color(255f / 255f, 244f / 255f, 214f / 255f);
         public static readonly Color SUN_COLOR_OTHERWORLD = Color.blue;
 
-        /* Graphics */
-        public static readonly float HEART_PERCENT_OF_SCREEN_WIDTH = 1f / 100f;
+        /* Graphics - Mouse */
+        public const float MENU_TOP_SCREEN_HEIGHT_PERCENT = 0.1f;
+        public const float GAME_ZONE_HEIGHT_PERCENT = 1.0f - MENU_TOP_SCREEN_HEIGHT_PERCENT;
+        public const float GAME_ZONE_HEIGHT_FACTOR = 1.0f / GAME_ZONE_HEIGHT_PERCENT;
 
         /* Performance */
         public const int MAX_POOLED_ENEMIES = 50;

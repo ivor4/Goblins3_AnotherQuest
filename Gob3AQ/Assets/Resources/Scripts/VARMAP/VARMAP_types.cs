@@ -105,7 +105,7 @@ namespace Gob3AQ.VARMAP.Types
 
     public struct MousePropertiesStruct : IStreamable
     {
-        public const int STRUCT_SIZE = 2*2*sizeof(float) + 1*2 * sizeof(int) + 3*sizeof(bool);
+        public const int STRUCT_SIZE = 2*2*sizeof(float) + 1*2 * sizeof(int) + 6*sizeof(bool);
 
         public Vector2 pos1;
         public Vector2 pos2;
@@ -115,6 +115,9 @@ namespace Gob3AQ.VARMAP.Types
         public bool primaryPressed;
         public bool primaryPressing;
         public bool primaryReleased;
+        public bool secondaryPressed;
+        public bool secondaryPressing;
+        public bool secondaryReleased;
 
 
         public static void StaticParseFromBytes(ref MousePropertiesStruct gstruct, ref ReadOnlySpan<byte> reader)
@@ -127,6 +130,9 @@ namespace Gob3AQ.VARMAP.Types
             gstruct.primaryPressed = BitConverter.ToBoolean(readZone.ReadNext(sizeof(bool)));
             gstruct.primaryPressing = BitConverter.ToBoolean(readZone.ReadNext(sizeof(bool)));
             gstruct.primaryReleased = BitConverter.ToBoolean(readZone.ReadNext(sizeof(bool)));
+            gstruct.secondaryPressed = BitConverter.ToBoolean(readZone.ReadNext(sizeof(bool)));
+            gstruct.secondaryPressing = BitConverter.ToBoolean(readZone.ReadNext(sizeof(bool)));
+            gstruct.secondaryReleased = BitConverter.ToBoolean(readZone.ReadNext(sizeof(bool)));
         }
 
         public static void StaticParseToBytes(ref MousePropertiesStruct gstruct, ref Span<byte> writer)
@@ -142,6 +148,9 @@ namespace Gob3AQ.VARMAP.Types
             BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(bool)), gstruct.primaryPressed);
             BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(bool)), gstruct.primaryPressing);
             BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(bool)), gstruct.primaryReleased);
+            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(bool)), gstruct.secondaryPressed);
+            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(bool)), gstruct.secondaryPressing);
+            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(bool)), gstruct.secondaryReleased);
         }
 
         public static IStreamable CreateNewInstance()

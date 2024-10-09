@@ -21,6 +21,7 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
             GET_PLAYER_POSITION = _GET_PLAYER_POSITION;
+            GET_ITEM_MENU_ACTIVE = _GET_ITEM_MENU_ACTIVE;
             /* > ATG 1 END */
         }
 
@@ -36,6 +37,7 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
         public static GetVARMAPValueDelegate<MousePropertiesStruct> GET_MOUSE_PROPERTIES;
         public static GetVARMAPValueDelegate<Vector3Struct> GET_PLAYER_POSITION;
+        public static GetVARMAPValueDelegate<bool> GET_ITEM_MENU_ACTIVE;
         /* > ATG 2 END */
 
         /* SERVICES */

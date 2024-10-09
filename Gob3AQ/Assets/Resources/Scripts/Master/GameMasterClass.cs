@@ -15,10 +15,10 @@ namespace Gob3AQ.GameMaster
     public class GameMasterClass : MonoBehaviour
     {
         private static GameMasterClass _singleton;
-        static private Game_Status prevPauseStatus;
+        private static Game_Status prevPauseStatus;
 
 
-        private void Awake()
+        void Awake()
         {
             if (_singleton != null)
             {
@@ -36,7 +36,7 @@ namespace Gob3AQ.GameMaster
 
 
 
-        private void Update()
+        void Update()
         {
             bool pausePressed;
             Game_Status gstatus = VARMAP_GameMaster.GET_GAMESTATUS();
@@ -73,7 +73,15 @@ namespace Gob3AQ.GameMaster
 
         }
 
-        private void Play_Process_Time()
+        void OnDestroy()
+        {
+            if (_singleton == this)
+            {
+                _singleton = null;
+            }
+        }
+
+        private static void Play_Process_Time()
         {
             float elapsed_millis;
             float elapsedDelta = Time.deltaTime;
@@ -90,12 +98,12 @@ namespace Gob3AQ.GameMaster
             if (pause)
             {
                 VARMAP_GameMaster.SET_GAMESTATUS(Game_Status.GAME_STATUS_PAUSE);
-                Physics.simulationMode = SimulationMode.Script;
+                Physics2D.simulationMode = SimulationMode2D.Script;
             }
             else
             {
                 _SetGameStatus(prevPauseStatus);
-                Physics.simulationMode = SimulationMode.FixedUpdate;
+                Physics2D.simulationMode = SimulationMode2D.FixedUpdate;
             }
         }
 
@@ -189,13 +197,7 @@ namespace Gob3AQ.GameMaster
         }
 
 
-        private void OnDestroy()
-        {
-            if (_singleton == this)
-            {
-                _singleton = null;
-            }
-        }
+        
     }
 }
 

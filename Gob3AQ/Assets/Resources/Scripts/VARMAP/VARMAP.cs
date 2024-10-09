@@ -58,6 +58,10 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPValueDelegate<byte> _SET_PLAYER_ID_SELECTED;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<byte> _REG_PLAYER_ID_SELECTED;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<byte> _UNREG_PLAYER_ID_SELECTED;
+        protected static GetVARMAPValueDelegate<bool> _GET_ITEM_MENU_ACTIVE;
+        protected static SetVARMAPValueDelegate<bool> _SET_ITEM_MENU_ACTIVE;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<bool> _REG_ITEM_MENU_ACTIVE;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<bool> _UNREG_ITEM_MENU_ACTIVE;
         /* > ATG 1 END < */
 
         /* All SERVICE Links */

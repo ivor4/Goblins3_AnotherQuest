@@ -88,6 +88,7 @@ namespace Gob3AQ.InputMaster
 
                 Vector2 mousePosition = Input.mousePosition;
                 bool mousenowpressed = Input.GetMouseButton(0);
+                bool secmousenowpressed = Input.GetMouseButton(1);
 
                 Vector2 mouseWorld = Camera.main.ScreenToWorldPoint(mousePosition);
 
@@ -95,7 +96,11 @@ namespace Gob3AQ.InputMaster
                 cachedMouseProps.primaryReleased = cachedMouseProps.primaryPressing & (!mousenowpressed);
                 cachedMouseProps.primaryPressing = mousenowpressed;
 
-                
+                cachedMouseProps.secondaryPressed = (!cachedMouseProps.secondaryPressing) & secmousenowpressed;
+                cachedMouseProps.secondaryReleased = cachedMouseProps.secondaryPressing & (!secmousenowpressed);
+                cachedMouseProps.secondaryPressing = secmousenowpressed;
+
+
                 cachedMouseProps.pos1 = mouseWorld;
                 cachedMouseProps.pos2 = mouseWorld;
                 cachedMouseProps.posPixels = new Vector2Int((int)mousePosition.x, (int)mousePosition.y);

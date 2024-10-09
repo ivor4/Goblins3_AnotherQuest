@@ -70,6 +70,10 @@ namespace Gob3AQ.VARMAP.Initialization
             _SET_PLAYER_ID_SELECTED = ((VARMAP_Variable_Interface<byte>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_ID_SELECTED]).SetValue;
             _REG_PLAYER_ID_SELECTED = ((VARMAP_Variable_Interface<byte>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_ID_SELECTED]).RegisterChangeEvent;
             _UNREG_PLAYER_ID_SELECTED = ((VARMAP_Variable_Interface<byte>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_ID_SELECTED]).UnregisterChangeEvent;
+            _GET_ITEM_MENU_ACTIVE = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_ACTIVE]).GetValue;
+            _SET_ITEM_MENU_ACTIVE = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_ACTIVE]).SetValue;
+            _REG_ITEM_MENU_ACTIVE = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_ACTIVE]).RegisterChangeEvent;
+            _UNREG_ITEM_MENU_ACTIVE = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_ACTIVE]).UnregisterChangeEvent;
             /* > ATG 1 END */
 
 

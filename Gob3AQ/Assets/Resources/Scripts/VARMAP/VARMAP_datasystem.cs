@@ -26,6 +26,7 @@ namespace Gob3AQ.VARMAP.Initialization
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MOUSE_PROPERTIES] = new VARMAP_Variable<MousePropertiesStruct>(VARMAP_Variable_ID.VARMAP_ID_MOUSE_PROPERTIES, MousePropertiesStruct.StaticParseFromBytes, MousePropertiesStruct.StaticParseToBytes, null);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_POSITION] = new VARMAP_Variable<Vector3Struct>(VARMAP_Variable_ID.VARMAP_ID_PLAYER_POSITION, Vector3Struct.StaticParseFromBytes, Vector3Struct.StaticParseToBytes, null);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_ID_SELECTED] = new VARMAP_Variable<byte>(VARMAP_Variable_ID.VARMAP_ID_PLAYER_ID_SELECTED, VARMAP_parsers.byte_ParseFromBytes, VARMAP_parsers.byte_ParseToBytes, null);
+            DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_ACTIVE] = new VARMAP_Variable<bool>(VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_ACTIVE, VARMAP_parsers.bool_ParseFromBytes, VARMAP_parsers.bool_ParseToBytes, null);
             /* > ATG 1 END < */
 
         }

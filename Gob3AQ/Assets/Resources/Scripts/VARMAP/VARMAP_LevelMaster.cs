@@ -18,6 +18,8 @@ namespace Gob3AQ.VARMAP.LevelMaster
             GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
             GET_PLAYER_ID_SELECTED = _GET_PLAYER_ID_SELECTED;
             SET_PLAYER_ID_SELECTED = _SET_PLAYER_ID_SELECTED;
+            GET_ITEM_MENU_ACTIVE = _GET_ITEM_MENU_ACTIVE;
+            SET_ITEM_MENU_ACTIVE = _SET_ITEM_MENU_ACTIVE;
             LOAD_ROOM = _LOAD_ROOM;
             LOADING_COMPLETED = _LOADING_COMPLETED;
             FREEZE_PLAY = _FREEZE_PLAY;
@@ -50,6 +52,8 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static GetVARMAPValueDelegate<MousePropertiesStruct> GET_MOUSE_PROPERTIES;
         public static GetVARMAPValueDelegate<byte> GET_PLAYER_ID_SELECTED;
         public static SetVARMAPValueDelegate<byte> SET_PLAYER_ID_SELECTED;
+        public static GetVARMAPValueDelegate<bool> GET_ITEM_MENU_ACTIVE;
+        public static SetVARMAPValueDelegate<bool> SET_ITEM_MENU_ACTIVE;
         /* > ATG 2 END */
 
         /* SERVICES */

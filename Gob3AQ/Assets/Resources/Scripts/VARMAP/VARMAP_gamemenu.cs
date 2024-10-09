@@ -20,6 +20,7 @@ namespace Gob3AQ.VARMAP.GameMenu
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             GET_PRESSED_KEYS = _GET_PRESSED_KEYS;
             GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
+            GET_ITEM_MENU_ACTIVE = _GET_ITEM_MENU_ACTIVE;
             START_GAME = _START_GAME;
             EXIT_GAME = _EXIT_GAME;
             /* > ATG 1 END */
@@ -37,6 +38,7 @@ namespace Gob3AQ.VARMAP.GameMenu
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
         public static GetVARMAPValueDelegate<KeyStruct> GET_PRESSED_KEYS;
         public static GetVARMAPValueDelegate<MousePropertiesStruct> GET_MOUSE_PROPERTIES;
+        public static GetVARMAPValueDelegate<bool> GET_ITEM_MENU_ACTIVE;
         /* > ATG 2 END */
 
         /* SERVICES */

@@ -228,18 +228,41 @@ namespace Gob3AQ.LevelMaster
         private void UpdateMouseEvents()
         {
             MousePropertiesStruct mouse = VARMAP_LevelMaster.GET_MOUSE_PROPERTIES();
-            byte playerSelected = VARMAP_LevelMaster.GET_PLAYER_ID_SELECTED();
-            bool consumed = false;
 
-            /* If no items menu or just a menu opened */
-            if (mouse.primaryReleased)
+            bool itemsActive = VARMAP_LevelMaster.GET_ITEM_MENU_ACTIVE();
+
+            if(itemsActive)
             {
-                for (int i=0; i < _Player_List.Count; ++i)
+                if(mouse.secondaryReleased)
+                {
+                    VARMAP_LevelMaster.SET_ITEM_MENU_ACTIVE(false);
+                }
+            }
+            else
+            {
+                UpdateCharItemMouseEvents(ref mouse);
+            }
+          
+        }
+
+        private void UpdateCharItemMouseEvents(ref MousePropertiesStruct mouse)
+        {
+            /* If no items menu or just a menu opened */
+            if (mouse.secondaryReleased)
+            {
+                VARMAP_LevelMaster.SET_ITEM_MENU_ACTIVE(true);
+            }
+            else if (mouse.primaryReleased)
+            {
+                byte playerSelected = VARMAP_LevelMaster.GET_PLAYER_ID_SELECTED();
+                bool consumed = false;
+
+                for (int i = 0; i < _Player_List.Count; ++i)
                 {
                     PlayableCharScript player = _Player_List[i];
                     Collider2D collider = player.Collider;
 
-                    if(collider.OverlapPoint(mouse.pos1))
+                    if (collider.OverlapPoint(mouse.pos1))
                     {
                         VARMAP_LevelMaster.SET_PLAYER_ID_SELECTED((byte)i);
                         consumed = true;
@@ -247,7 +270,7 @@ namespace Gob3AQ.LevelMaster
                     }
                 }
 
-                if((playerSelected != NO_PLAYER)&&(!consumed))
+                if ((playerSelected != NO_PLAYER) && (!consumed))
                 {
                     /* Proceed with items/NPCs if event has not been consumed */
                     for (int i = 0; i < _Item_List.Count; ++i)
@@ -264,7 +287,7 @@ namespace Gob3AQ.LevelMaster
                         }
                     }
 
-                    if(!consumed)
+                    if (!consumed)
                     {
                         for (int i = 0; i < _NPC_List.Count; ++i)
                         {
@@ -281,10 +304,14 @@ namespace Gob3AQ.LevelMaster
                 }
 
                 /* Make player move */
-                if((!consumed) && (playerSelected != NO_PLAYER))
+                if ((!consumed) && (playerSelected != NO_PLAYER))
                 {
                     CheckPlayerMovementOrder(ref mouse);
                 }
+            }
+            else
+            {
+                /**/
             }
         }
 

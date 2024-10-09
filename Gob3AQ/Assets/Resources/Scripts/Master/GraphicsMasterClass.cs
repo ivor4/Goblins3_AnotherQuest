@@ -12,16 +12,9 @@ namespace Gob3AQ.GraphicsMaster
     public class GraphicsMasterClass : MonoBehaviour
     {
         private static GraphicsMasterClass _singleton;
-
         
-        private GameObject guicanvas;
-        private Text paused_text;
         private Camera mainCamera;
         private Transform mainCameraTransform;
-
-
-        private Vector3 lastCharacterPos;
-
 
 
         private void Awake()
@@ -42,9 +35,7 @@ namespace Gob3AQ.GraphicsMaster
         {
             mainCamera = Camera.main;
             mainCameraTransform = mainCamera.transform;
-            guicanvas = GameObject.Find("GUICanvas");
 
-            paused_text = guicanvas.transform.Find("paused").GetComponent<Text>();
 
             VARMAP_GraphicsMaster.REG_GAMESTATUS(_GameStatusChanged);
 
@@ -55,12 +46,16 @@ namespace Gob3AQ.GraphicsMaster
         {
             Game_Status gstatus = VARMAP_GraphicsMaster.GET_GAMESTATUS();
 
-            switch(gstatus)
+            MousePropertiesStruct mouse = VARMAP_GraphicsMaster.GET_MOUSE_PROPERTIES();
+
+            Vector2 screenzone = new Vector2((float)mouse.posPixels.x / Screen.width, (float)mouse.posPixels.y / Screen.height);
+
+            switch (gstatus)
             {
                 case Game_Status.GAME_STATUS_PLAY_FREEZE:
                     break;
                 case Game_Status.GAME_STATUS_PLAY:
-                    FollowPlayerWithCamera();
+                    FollowMouseWithCamera(ref screenzone);
                     break;
                 case Game_Status.GAME_STATUS_PAUSE:
                     break;
@@ -78,36 +73,16 @@ namespace Gob3AQ.GraphicsMaster
             }
         }
 
-        private void FollowPlayerWithCamera()
+        private void FollowMouseWithCamera(ref Vector2 screenzone)
         {
-            Vector3 playerpos = VARMAP_GraphicsMaster.GET_PLAYER_POSITION().position;
-
-            bool firstpersoncamera = false;
-
-            if (!firstpersoncamera)
+            /* If not in menu zone */
+            if(screenzone.y < GameFixedConfig.GAME_ZONE_HEIGHT_PERCENT)
             {
-                mainCameraTransform.position = new Vector3(playerpos.x, playerpos.y, mainCameraTransform.position.z);
-            }
-            else
-            {
-                /* First person camera LOL xD */
-                if(playerpos.x < lastCharacterPos.x)
-                {
-                    mainCameraTransform.position = new Vector3(playerpos.x + 3, playerpos.y, playerpos.z);
-                    mainCameraTransform.LookAt(playerpos, Vector3.up);
-                }
-                else if(playerpos.x > lastCharacterPos.x)
-                {
-                    mainCameraTransform.position = new Vector3(playerpos.x - 3, playerpos.y, playerpos.z);
-                    mainCameraTransform.LookAt(playerpos, Vector3.up);
-                }
-                else
-                {
-                    /**/
-                }
-            }
+                /* Expand Y of game zone to 100% */
+                Vector2 szone = new Vector2(screenzone.x, screenzone.y * GameFixedConfig.GAME_ZONE_HEIGHT_FACTOR);
 
-            lastCharacterPos = playerpos;
+                
+            }
         }
 
 
@@ -116,11 +91,11 @@ namespace Gob3AQ.GraphicsMaster
         {
             if(newval == Game_Status.GAME_STATUS_PAUSE)
             {
-                paused_text.gameObject.SetActive(true);
+                //paused_text.gameObject.SetActive(true);
             }
             else
             {
-                paused_text.gameObject.SetActive(false);
+                //paused_text.gameObject.SetActive(false);
             }
         }
     }

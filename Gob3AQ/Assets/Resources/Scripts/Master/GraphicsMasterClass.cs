@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.VARMAP.GraphicsMaster;
 using Gob3AQ.FixedConfig;
+using Gob3AQ.ResourceAtlas;
 
 
 namespace Gob3AQ.GraphicsMaster
@@ -13,8 +14,11 @@ namespace Gob3AQ.GraphicsMaster
     {
         private static GraphicsMasterClass _singleton;
         
-        private Camera mainCamera;
-        private Transform mainCameraTransform;
+        private static Camera mainCamera;
+        private static Transform mainCameraTransform;
+        private static GameObject cursor;
+        private static SpriteRenderer cursor_spr;
+        private static Sprite cursor_orig_spr;
 
 
         private void Awake()
@@ -26,6 +30,9 @@ namespace Gob3AQ.GraphicsMaster
             else
             {
                 _singleton = this;
+                cursor = transform.Find("Cursor").gameObject;
+                cursor_spr = cursor.GetComponent<SpriteRenderer>();
+                cursor_orig_spr = cursor_spr.sprite;
             }
 
         }
@@ -38,6 +45,7 @@ namespace Gob3AQ.GraphicsMaster
 
 
             VARMAP_GraphicsMaster.REG_GAMESTATUS(_GameStatusChanged);
+            VARMAP_GraphicsMaster.REG_PICKABLE_ITEM_CHOSEN(_OnPickedItemChanged);
 
         }
 
@@ -52,12 +60,11 @@ namespace Gob3AQ.GraphicsMaster
 
             switch (gstatus)
             {
-                case Game_Status.GAME_STATUS_PLAY_FREEZE:
-                    break;
                 case Game_Status.GAME_STATUS_PLAY:
+                    MoveCursor(ref mouse.pos1);
                     FollowMouseWithCamera(ref screenzone);
                     break;
-                case Game_Status.GAME_STATUS_PAUSE:
+                default:
                     break;
             }
         }
@@ -70,7 +77,14 @@ namespace Gob3AQ.GraphicsMaster
                 _singleton = null;
 
                 VARMAP_GraphicsMaster.UNREG_GAMESTATUS(_GameStatusChanged);
+                VARMAP_GraphicsMaster.UNREG_PICKABLE_ITEM_CHOSEN(_OnPickedItemChanged);
             }
+        }
+
+
+        private void MoveCursor(ref Vector2 mousePos)
+        {
+            cursor.transform.position = mousePos;
         }
 
         private void FollowMouseWithCamera(ref Vector2 screenzone)
@@ -85,7 +99,22 @@ namespace Gob3AQ.GraphicsMaster
             }
         }
 
+        private static void _OnPickedItemChanged(ChangedEventType evtype, ref GamePickableItem oldval, ref GamePickableItem newval)
+        {
+            _ = evtype;
 
+            if (newval != oldval)
+            {
+                if (newval == GamePickableItem.ITEM_PICK_NONE)
+                {
+                    cursor_spr.sprite = cursor_orig_spr;
+                }
+                else
+                {
+                    cursor_spr.sprite = ResourceAtlasClass.GetSpriteFromPickableItem(newval);
+                }
+            }
+        }
 
         private void _GameStatusChanged(ChangedEventType evtype, ref Game_Status oldval, ref Game_Status newval)
         {

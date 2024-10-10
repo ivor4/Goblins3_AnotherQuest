@@ -250,7 +250,16 @@ namespace Gob3AQ.LevelMaster
             /* If no items menu or just a menu opened */
             if (mouse.secondaryReleased)
             {
-                VARMAP_LevelMaster.SET_ITEM_MENU_ACTIVE(true);
+                GamePickableItem actualItem = VARMAP_LevelMaster.GET_PICKABLE_ITEM_CHOSEN();
+
+                if (actualItem == GamePickableItem.ITEM_PICK_NONE)
+                {
+                    VARMAP_LevelMaster.SET_ITEM_MENU_ACTIVE(true);
+                }
+                else
+                {
+                    VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
+                }
             }
             else if (mouse.primaryReleased)
             {

@@ -36,13 +36,6 @@ namespace Gob3AQ.VARMAP.Initialization
             _SET_ACTUAL_ROOM = ((VARMAP_Variable_Interface<Room>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ACTUAL_ROOM]).SetValue;
             _REG_ACTUAL_ROOM = ((VARMAP_Variable_Interface<Room>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ACTUAL_ROOM]).RegisterChangeEvent;
             _UNREG_ACTUAL_ROOM = ((VARMAP_Variable_Interface<Room>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ACTUAL_ROOM]).UnregisterChangeEvent;
-            _GET_ELEM_ITEMS_COLLECTED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEMS_COLLECTED]).GetListElem;
-            _SET_ELEM_ITEMS_COLLECTED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEMS_COLLECTED]).SetListElem;
-            _GET_SIZE_ITEMS_COLLECTED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEMS_COLLECTED]).GetListSize;
-            _GET_ARRAY_ITEMS_COLLECTED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEMS_COLLECTED]).GetListCopy;
-            _SET_ARRAY_ITEMS_COLLECTED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEMS_COLLECTED]).SetListValues;
-            _REG_ITEMS_COLLECTED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEMS_COLLECTED]).RegisterChangeEvent;
-            _UNREG_ITEMS_COLLECTED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEMS_COLLECTED]).UnregisterChangeEvent;
             _GET_ELEM_EVENTS_OCCURRED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED]).GetListElem;
             _SET_ELEM_EVENTS_OCCURRED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED]).SetListElem;
             _GET_SIZE_EVENTS_OCCURRED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED]).GetListSize;
@@ -74,6 +67,10 @@ namespace Gob3AQ.VARMAP.Initialization
             _SET_ITEM_MENU_ACTIVE = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_ACTIVE]).SetValue;
             _REG_ITEM_MENU_ACTIVE = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_ACTIVE]).RegisterChangeEvent;
             _UNREG_ITEM_MENU_ACTIVE = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_ACTIVE]).UnregisterChangeEvent;
+            _GET_PICKABLE_ITEM_CHOSEN = ((VARMAP_Variable_Interface<GamePickableItem>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_CHOSEN]).GetValue;
+            _SET_PICKABLE_ITEM_CHOSEN = ((VARMAP_Variable_Interface<GamePickableItem>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_CHOSEN]).SetValue;
+            _REG_PICKABLE_ITEM_CHOSEN = ((VARMAP_Variable_Interface<GamePickableItem>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_CHOSEN]).RegisterChangeEvent;
+            _UNREG_PICKABLE_ITEM_CHOSEN = ((VARMAP_Variable_Interface<GamePickableItem>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_CHOSEN]).UnregisterChangeEvent;
             /* > ATG 1 END */
 
 
@@ -102,6 +99,8 @@ namespace Gob3AQ.VARMAP.Initialization
             _TAKE_ITEM_OBJECT = ItemMasterClass.TakeItemObjectService;
             _GET_SCENARIO_ITEM_LIST = LevelMasterClass.GetScenarioItemListService;
             _GET_PICKED_ITEM_LIST = ItemMasterClass.GetPickedItemListService;
+            _PICK_PICKABLE_ITEM = ItemMasterClass.PickPickableItemService;
+            _CANCEL_PICKABLE_ITEM = ItemMasterClass.CancelPickableItemService;
             /* > ATG 2 END */
         }
     }

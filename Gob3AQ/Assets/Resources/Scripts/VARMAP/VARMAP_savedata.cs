@@ -15,7 +15,6 @@ namespace Gob3AQ.VARMAP.SaveData
             VARMAP_Variable_ID.VARMAP_ID_GAME_OPTIONS,
             VARMAP_Variable_ID.VARMAP_ID_ELAPSED_TIME_MS,
             VARMAP_Variable_ID.VARMAP_ID_ACTUAL_ROOM,
-            VARMAP_Variable_ID.VARMAP_ID_ITEMS_COLLECTED,
             VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED,
             /* > ATG 1 END < */
         };

@@ -20,6 +20,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
             SET_PLAYER_ID_SELECTED = _SET_PLAYER_ID_SELECTED;
             GET_ITEM_MENU_ACTIVE = _GET_ITEM_MENU_ACTIVE;
             SET_ITEM_MENU_ACTIVE = _SET_ITEM_MENU_ACTIVE;
+            GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
             LOAD_ROOM = _LOAD_ROOM;
             LOADING_COMPLETED = _LOADING_COMPLETED;
             FREEZE_PLAY = _FREEZE_PLAY;
@@ -36,6 +37,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
             INTERACT_ITEM_PLAYER = _INTERACT_ITEM_PLAYER;
             TAKE_ITEM_OBJECT = _TAKE_ITEM_OBJECT;
             GET_SCENARIO_ITEM_LIST = _GET_SCENARIO_ITEM_LIST;
+            CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             /* > ATG 1 END */
         }
 
@@ -54,6 +56,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static SetVARMAPValueDelegate<byte> SET_PLAYER_ID_SELECTED;
         public static GetVARMAPValueDelegate<bool> GET_ITEM_MENU_ACTIVE;
         public static SetVARMAPValueDelegate<bool> SET_ITEM_MENU_ACTIVE;
+        public static GetVARMAPValueDelegate<GamePickableItem> GET_PICKABLE_ITEM_CHOSEN;
         /* > ATG 2 END */
 
         /* SERVICES */
@@ -74,6 +77,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static INTERACT_ITEM_PLAYER_DELEGATE INTERACT_ITEM_PLAYER;
         public static TAKE_ITEM_OBJECT_DELEGATE TAKE_ITEM_OBJECT;
         public static GET_SCENARIO_ITEM_LIST_DELEGATE GET_SCENARIO_ITEM_LIST;
+        public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
         /* > ATG 3 END */
     }
 }

@@ -52,6 +52,16 @@ namespace Gob3AQ.ItemMaster
             list.SetRefList(_actualPickedItems);
         }
 
+        public static void PickPickableItemService(GamePickableItem item)
+        {
+            VARMAP_ItemMaster.SET_PICKABLE_ITEM_CHOSEN(item);
+        }
+
+        public static void CancelPickableItemService()
+        {
+            VARMAP_ItemMaster.SET_PICKABLE_ITEM_CHOSEN(GamePickableItem.ITEM_PICK_NONE);
+        }
+
 
 
         void Awake()

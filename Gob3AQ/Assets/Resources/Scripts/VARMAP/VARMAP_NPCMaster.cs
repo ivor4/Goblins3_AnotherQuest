@@ -15,6 +15,7 @@ namespace Gob3AQ.VARMAP.NPCMaster
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
+            GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
             NPC_REGISTER = _NPC_REGISTER;
             GET_NEAREST_WP = _GET_NEAREST_WP;
             IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
@@ -29,6 +30,7 @@ namespace Gob3AQ.VARMAP.NPCMaster
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
+        public static GetVARMAPValueDelegate<GamePickableItem> GET_PICKABLE_ITEM_CHOSEN;
         /* > ATG 2 END */
 
         /* SERVICES */

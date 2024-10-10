@@ -12,14 +12,11 @@ namespace Gob3AQ.VARMAP.ItemMaster
         public static void UpdateDelegates()
         {
             /* > ATG 1 START */
-            GET_ELEM_ITEMS_COLLECTED = _GET_ELEM_ITEMS_COLLECTED;
-            SET_ELEM_ITEMS_COLLECTED = _SET_ELEM_ITEMS_COLLECTED;
-            GET_SIZE_ITEMS_COLLECTED = _GET_SIZE_ITEMS_COLLECTED;
-            GET_ARRAY_ITEMS_COLLECTED = _GET_ARRAY_ITEMS_COLLECTED;
-            SET_ARRAY_ITEMS_COLLECTED = _SET_ARRAY_ITEMS_COLLECTED;
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
+            GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
+            SET_PICKABLE_ITEM_CHOSEN = _SET_PICKABLE_ITEM_CHOSEN;
             ITEM_REGISTER = _ITEM_REGISTER;
             GET_NEAREST_WP = _GET_NEAREST_WP;
             IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
@@ -31,6 +28,8 @@ namespace Gob3AQ.VARMAP.ItemMaster
             TAKE_ITEM_OBJECT = _TAKE_ITEM_OBJECT;
             GET_SCENARIO_ITEM_LIST = _GET_SCENARIO_ITEM_LIST;
             GET_PICKED_ITEM_LIST = _GET_PICKED_ITEM_LIST;
+            PICK_PICKABLE_ITEM = _PICK_PICKABLE_ITEM;
+            CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             /* > ATG 1 END */
         }
 
@@ -38,14 +37,11 @@ namespace Gob3AQ.VARMAP.ItemMaster
 
         /* GET/SET */
         /* > ATG 2 START */
-        public static GetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> GET_ELEM_ITEMS_COLLECTED;
-        public static SetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> SET_ELEM_ITEMS_COLLECTED;
-        public static GetVARMAPArraySizeDelegate GET_SIZE_ITEMS_COLLECTED;
-        public static GetVARMAPArrayDelegate<MultiBitFieldStruct> GET_ARRAY_ITEMS_COLLECTED;
-        public static SetVARMAPArrayDelegate<MultiBitFieldStruct> SET_ARRAY_ITEMS_COLLECTED;
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
+        public static GetVARMAPValueDelegate<GamePickableItem> GET_PICKABLE_ITEM_CHOSEN;
+        public static SetVARMAPValueDelegate<GamePickableItem> SET_PICKABLE_ITEM_CHOSEN;
         /* > ATG 2 END */
 
         /* SERVICES */
@@ -61,6 +57,8 @@ namespace Gob3AQ.VARMAP.ItemMaster
         public static TAKE_ITEM_OBJECT_DELEGATE TAKE_ITEM_OBJECT;
         public static GET_SCENARIO_ITEM_LIST_DELEGATE GET_SCENARIO_ITEM_LIST;
         public static GET_PICKED_ITEM_LIST_DELEGATE GET_PICKED_ITEM_LIST;
+        public static PICK_PICKABLE_ITEM_DELEGATE PICK_PICKABLE_ITEM;
+        public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
         /* > ATG 3 END */
     }
 }

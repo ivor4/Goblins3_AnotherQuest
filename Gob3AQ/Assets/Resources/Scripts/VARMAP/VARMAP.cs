@@ -24,13 +24,6 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPValueDelegate<Room> _SET_ACTUAL_ROOM;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<Room> _REG_ACTUAL_ROOM;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<Room> _UNREG_ACTUAL_ROOM;
-        protected static GetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> _GET_ELEM_ITEMS_COLLECTED;
-        protected static SetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> _SET_ELEM_ITEMS_COLLECTED;
-        protected static GetVARMAPArraySizeDelegate _GET_SIZE_ITEMS_COLLECTED;
-        protected static GetVARMAPArrayDelegate<MultiBitFieldStruct> _GET_ARRAY_ITEMS_COLLECTED;
-        protected static SetVARMAPArrayDelegate<MultiBitFieldStruct> _SET_ARRAY_ITEMS_COLLECTED;
-        protected static ReUnRegisterVARMAPValueChangeEventDelegate<MultiBitFieldStruct> _REG_ITEMS_COLLECTED;
-        protected static ReUnRegisterVARMAPValueChangeEventDelegate<MultiBitFieldStruct> _UNREG_ITEMS_COLLECTED;
         protected static GetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> _GET_ELEM_EVENTS_OCCURRED;
         protected static SetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> _SET_ELEM_EVENTS_OCCURRED;
         protected static GetVARMAPArraySizeDelegate _GET_SIZE_EVENTS_OCCURRED;
@@ -62,6 +55,10 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPValueDelegate<bool> _SET_ITEM_MENU_ACTIVE;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<bool> _REG_ITEM_MENU_ACTIVE;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<bool> _UNREG_ITEM_MENU_ACTIVE;
+        protected static GetVARMAPValueDelegate<GamePickableItem> _GET_PICKABLE_ITEM_CHOSEN;
+        protected static SetVARMAPValueDelegate<GamePickableItem> _SET_PICKABLE_ITEM_CHOSEN;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<GamePickableItem> _REG_PICKABLE_ITEM_CHOSEN;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<GamePickableItem> _UNREG_PICKABLE_ITEM_CHOSEN;
         /* > ATG 1 END < */
 
         /* All SERVICE Links */
@@ -89,6 +86,8 @@ namespace Gob3AQ.VARMAP
         protected static TAKE_ITEM_OBJECT_DELEGATE _TAKE_ITEM_OBJECT;
         protected static GET_SCENARIO_ITEM_LIST_DELEGATE _GET_SCENARIO_ITEM_LIST;
         protected static GET_PICKED_ITEM_LIST_DELEGATE _GET_PICKED_ITEM_LIST;
+        protected static PICK_PICKABLE_ITEM_DELEGATE _PICK_PICKABLE_ITEM;
+        protected static CANCEL_PICKABLE_ITEM_DELEGATE _CANCEL_PICKABLE_ITEM;
         /* > ATG 2 END < */
         
         

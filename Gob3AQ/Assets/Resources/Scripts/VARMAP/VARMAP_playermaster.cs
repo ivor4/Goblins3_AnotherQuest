@@ -22,6 +22,7 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             GET_PLAYER_ID_SELECTED = _GET_PLAYER_ID_SELECTED;
             REG_PLAYER_ID_SELECTED = _REG_PLAYER_ID_SELECTED;
             UNREG_PLAYER_ID_SELECTED = _UNREG_PLAYER_ID_SELECTED;
+            GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
             MONO_REGISTER = _MONO_REGISTER;
             MOVE_PLAYER = _MOVE_PLAYER;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
@@ -31,6 +32,7 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             INTERACT_ITEM_PLAYER = _INTERACT_ITEM_PLAYER;
             GET_ITEM_INTERACTION = _GET_ITEM_INTERACTION;
             TAKE_ITEM_OBJECT = _TAKE_ITEM_OBJECT;
+            CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             /* > ATG 1 END */
         }
 
@@ -47,6 +49,7 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         public static GetVARMAPValueDelegate<byte> GET_PLAYER_ID_SELECTED;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<byte> REG_PLAYER_ID_SELECTED;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<byte> UNREG_PLAYER_ID_SELECTED;
+        public static GetVARMAPValueDelegate<GamePickableItem> GET_PICKABLE_ITEM_CHOSEN;
         /* > ATG 2 END */
 
         /* SERVICES */
@@ -60,6 +63,7 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         public static INTERACT_ITEM_PLAYER_DELEGATE INTERACT_ITEM_PLAYER;
         public static GET_ITEM_INTERACTION_DELEGATE GET_ITEM_INTERACTION;
         public static TAKE_ITEM_OBJECT_DELEGATE TAKE_ITEM_OBJECT;
+        public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
         /* > ATG 3 END */
     }
 }

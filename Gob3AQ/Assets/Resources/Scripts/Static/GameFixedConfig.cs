@@ -42,7 +42,7 @@ namespace Gob3AQ.FixedConfig
         public const int MAX_LEVEL_WAYPOINTS = 128;
         public const int MAX_PICKED_ITEMS = 64;
         public const int MAX_DISPLAYED_PICKED_ITEMS = 16;
-        public const int MAX_DISPLAYED_HOR_PICKED_ITEMS = 4;
+        public const int MAX_DISPLAYED_HOR_PICKED_ITEMS = 6;
 
 
         /* File routes */

@@ -3,17 +3,22 @@ using Gob3AQ.VARMAP.GameMenu;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.FixedConfig;
+using Gob3AQ.GameMenu.PickableItemDisplay;
+using Gob3AQ.Libs.Arith;
 
 namespace Gob3AQ.GameMenu
 {
+
     public class GameMenuClass : MonoBehaviour
     {
+
         private static GameMenuClass _singleton;
         private static GameObject _itemMenu;
-        private static SpriteRenderer _itemMenuspr;
         private static bool _prevItemMenuOpened;
         private static bool _loaded;
-        private static GameObject[] _displayItemArray;
+        private static PickableItemDisplayClass[] _displayItemArray;
+
+        
 
         void Awake()
         {
@@ -28,9 +33,8 @@ namespace Gob3AQ.GameMenu
 
                 Transform child = transform.Find("ItemMenu");
                 _itemMenu = child.gameObject;
-                _itemMenuspr = _itemMenu.GetComponent<SpriteRenderer>();
 
-                _displayItemArray = new GameObject[GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS];
+                _displayItemArray = new PickableItemDisplayClass[GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS];
 
                 _loaded = false;
             }
@@ -83,13 +87,13 @@ namespace Gob3AQ.GameMenu
                     newObj.name = "PickableItemDisplay" + i;
                     newTrns.SetParent(_itemMenu.transform, false);
 
-                    float x = -0.825f + 0.5f * (i % GameFixedConfig.MAX_DISPLAYED_HOR_PICKED_ITEMS);
-                    float y = 0.825f - 0.5f * (i / GameFixedConfig.MAX_DISPLAYED_HOR_PICKED_ITEMS);
+                    float x = -0.825f + 0.333f * (i % GameFixedConfig.MAX_DISPLAYED_HOR_PICKED_ITEMS);
+                    float y = 0.825f - 0.333f * (i / GameFixedConfig.MAX_DISPLAYED_HOR_PICKED_ITEMS);
 
                     newTrns.localPosition = new Vector3(x, y);
-                    
 
-                    _displayItemArray[i] = newObj;
+                    _displayItemArray[i] = newObj.GetComponent<PickableItemDisplayClass>();
+                    _displayItemArray[i].SetCallFunction(OnItemDisplayClick);
                 }
 
                 _loaded = true;
@@ -104,14 +108,17 @@ namespace Gob3AQ.GameMenu
             {
                 if (!_prevItemMenuOpened)
                 {
+                    /* Activate family */
                     _itemMenu.SetActive(true);
 
                     /* Populate menu */
+                    RefreshItemMenuElements();
                 }
 
             }
             else if (_prevItemMenuOpened)
             {
+                /* Deactivate family */
                 _itemMenu.SetActive(false);
             }
             else
@@ -123,5 +130,47 @@ namespace Gob3AQ.GameMenu
 
             _prevItemMenuOpened = itemMenuOpened;
         }
+
+        private static void RefreshItemMenuElements()
+        {
+            ReadOnlyList<GamePickableItem> pickedItems = new(null);
+            VARMAP_GameMenu.GET_PICKED_ITEM_LIST(ref pickedItems);
+
+            int pickedTotal = pickedItems.Count;
+
+            for(int i = 0; i < _displayItemArray.Length; i++)
+            {
+                /* If this element has to show a picked item */
+                if(i < pickedTotal)
+                {
+                    _displayItemArray[i].gameObject.SetActive(true);
+                    _displayItemArray[i].SetDisplayedItem(pickedItems[i]);
+                }
+                else
+                {
+                    /* Otherwise keep hidden */
+                    _displayItemArray[i].gameObject.SetActive(false);
+                }
+            }
+        }
+
+        private static void OnItemDisplayClick(GamePickableItem item)
+        {
+            GamePickableItem prevChoosen = VARMAP_GameMenu.GET_PICKABLE_ITEM_CHOSEN();
+
+            
+            if (prevChoosen == item)
+            {
+                VARMAP_GameMenu.CANCEL_PICKABLE_ITEM();
+            }
+            else
+            {
+                /* Possible interaction of item combine ? */
+                _ = prevChoosen;
+
+                VARMAP_GameMenu.PICK_PICKABLE_ITEM(item);
+            }
+        }
+
     }
 }

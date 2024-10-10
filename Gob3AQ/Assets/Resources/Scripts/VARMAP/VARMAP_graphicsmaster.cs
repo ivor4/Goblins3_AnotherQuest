@@ -22,6 +22,9 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
             GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
             GET_PLAYER_POSITION = _GET_PLAYER_POSITION;
             GET_ITEM_MENU_ACTIVE = _GET_ITEM_MENU_ACTIVE;
+            GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
+            REG_PICKABLE_ITEM_CHOSEN = _REG_PICKABLE_ITEM_CHOSEN;
+            UNREG_PICKABLE_ITEM_CHOSEN = _UNREG_PICKABLE_ITEM_CHOSEN;
             /* > ATG 1 END */
         }
 
@@ -38,6 +41,9 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
         public static GetVARMAPValueDelegate<MousePropertiesStruct> GET_MOUSE_PROPERTIES;
         public static GetVARMAPValueDelegate<Vector3Struct> GET_PLAYER_POSITION;
         public static GetVARMAPValueDelegate<bool> GET_ITEM_MENU_ACTIVE;
+        public static GetVARMAPValueDelegate<GamePickableItem> GET_PICKABLE_ITEM_CHOSEN;
+        public static ReUnRegisterVARMAPValueChangeEventDelegate<GamePickableItem> REG_PICKABLE_ITEM_CHOSEN;
+        public static ReUnRegisterVARMAPValueChangeEventDelegate<GamePickableItem> UNREG_PICKABLE_ITEM_CHOSEN;
         /* > ATG 2 END */
 
         /* SERVICES */

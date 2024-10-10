@@ -14,6 +14,8 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GamePickableItem.ITEM_PICK_NONE     /* ITEM_FORK */
         };
 
+        
+
         public static InteractionItemType GetItemInteraction(CharacterType character, GameItem item)
         {
             InteractionItemType interaction = InteractionItemType.INTERACTION_NONE;

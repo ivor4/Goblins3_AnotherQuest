@@ -22,3 +22,5 @@ N,SERVICE_ID,SPECIAL_DELEGATE,SERVICE_ROUTE,,GameMaster,InputMaster,LevelMaster,
 20,TAKE_ITEM_OBJECT,TAKE_ITEM_OBJECT_DELEGATE,ItemMasterClass.TakeItemObjectService,,-,-,X,-,-,X,-,W,-
 21,GET_SCENARIO_ITEM_LIST,GET_SCENARIO_ITEM_LIST_DELEGATE,LevelMasterClass.GetScenarioItemListService,,-,-,W,-,-,-,-,X,-
 22,GET_PICKED_ITEM_LIST,GET_PICKED_ITEM_LIST_DELEGATE,ItemMasterClass.GetPickedItemListService,,-,-,-,-,X,-,-,W,-
+23,PICK_PICKABLE_ITEM,PICK_PICKABLE_ITEM_DELEGATE,ItemMasterClass.PickPickableItemService,,-,-,-,-,X,-,-,W,-
+24,CANCEL_PICKABLE_ITEM,CANCEL_PICKABLE_ITEM_DELEGATE,ItemMasterClass.CancelPickableItemService,,-,-,X,-,X,X,-,W,-

@@ -13,7 +13,7 @@ TagManager:
   - UI
   - WPLayer
   - ItemLayer
-  - 
+  - MenuItem
   - 
   - 
   - 
@@ -46,6 +46,9 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 2686833567
+    locked: 0
+  - name: UI
+    uniqueID: 4208722211
     locked: 0
   m_RenderingLayers:
   - Default

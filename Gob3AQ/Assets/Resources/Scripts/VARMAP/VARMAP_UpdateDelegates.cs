@@ -100,7 +100,8 @@ namespace Gob3AQ.VARMAP.Initialization
             _INTERACT_ITEM_PLAYER = PlayerMasterClass.InteractItemPlayerService;
             _GET_ITEM_INTERACTION = GameEventMasterClass.GetItemInteractionService;
             _TAKE_ITEM_OBJECT = ItemMasterClass.TakeItemObjectService;
-            _GET_ITEM_LIST = LevelMasterClass.GetItemListService;
+            _GET_SCENARIO_ITEM_LIST = LevelMasterClass.GetScenarioItemListService;
+            _GET_PICKED_ITEM_LIST = ItemMasterClass.GetPickedItemListService;
             /* > ATG 2 END */
         }
     }

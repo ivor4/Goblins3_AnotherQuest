@@ -85,7 +85,7 @@ namespace Gob3AQ.GameElement.Item
             }
             else
             {
-                enabled = false;
+                gameObject.SetActive(false);
                 registered = false;
             }
 
@@ -108,7 +108,7 @@ namespace Gob3AQ.GameElement.Item
             }
         }
 
-        void OnDestroy()
+        void OnDisable()
         {
             if(registered)
             {

@@ -13,5 +13,25 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GamePickableItem.ITEM_PICK_POTION,  /* ITEM_POTION */
             GamePickableItem.ITEM_PICK_NONE     /* ITEM_FORK */
         };
+
+        public static InteractionItemType GetItemInteraction(CharacterType character, GameItem item)
+        {
+            InteractionItemType interaction = InteractionItemType.INTERACTION_NONE;
+
+            switch (item)
+            {
+                case GameItem.ITEM_POTION:
+                    if (character == CharacterType.CHARACTER_MAIN)
+                    {
+                        interaction = InteractionItemType.INTERACTION_TAKE;
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+
+            return interaction;
+        }
     }
 }

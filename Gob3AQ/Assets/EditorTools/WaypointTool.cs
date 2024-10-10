@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEditor.EditorTools;
 using UnityEngine;
 using Gob3AQ.Waypoint.Types;
+using Gob3AQ.ResourceAtlas;
 
 namespace Gob3AQ.Waypoint.WaypointTool
 {
@@ -179,7 +180,7 @@ namespace Gob3AQ.Waypoint.WaypointTool
 
         private WaypointClass CreateWaypoint(Vector3 position, string name)
         {
-            GameObject wpgameobject = Instantiate(Resources.Load<GameObject>("Prefabs/Waypoint")); 
+            GameObject wpgameobject = Instantiate(ResourceAtlasClass.GetPrefab(PrefabEnum.PREFAB_WAYPOINT)); 
             wpgameobject.transform.position = position;
             wpgameobject.name = name;
 

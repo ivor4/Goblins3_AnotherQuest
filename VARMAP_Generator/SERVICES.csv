@@ -20,4 +20,5 @@ N,SERVICE_ID,SPECIAL_DELEGATE,SERVICE_ROUTE,,GameMaster,InputMaster,LevelMaster,
 18,INTERACT_ITEM_PLAYER,INTERACT_ITEM_PLAYER_DELEGATE,PlayerMasterClass.InteractItemPlayerService,,-,-,X,-,-,W,-,-,-
 19,GET_ITEM_INTERACTION,GET_ITEM_INTERACTION_DELEGATE,GameEventMasterClass.GetItemInteractionService,,-,-,-,-,-,X,-,-,W
 20,TAKE_ITEM_OBJECT,TAKE_ITEM_OBJECT_DELEGATE,ItemMasterClass.TakeItemObjectService,,-,-,X,-,-,X,-,W,-
-21,GET_ITEM_LIST,GET_ITEM_LIST_DELEGATE,LevelMasterClass.GetItemListService,,-,-,W,-,-,-,-,X,-
+21,GET_SCENARIO_ITEM_LIST,GET_SCENARIO_ITEM_LIST_DELEGATE,LevelMasterClass.GetScenarioItemListService,,-,-,W,-,-,-,-,X,-
+22,GET_PICKED_ITEM_LIST,GET_PICKED_ITEM_LIST_DELEGATE,ItemMasterClass.GetPickedItemListService,,-,-,-,-,X,-,-,W,-

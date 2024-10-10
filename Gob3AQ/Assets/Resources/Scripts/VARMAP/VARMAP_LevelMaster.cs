@@ -35,7 +35,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
             IS_ITEM_TAKEN_FIRST = _IS_ITEM_TAKEN_FIRST;
             INTERACT_ITEM_PLAYER = _INTERACT_ITEM_PLAYER;
             TAKE_ITEM_OBJECT = _TAKE_ITEM_OBJECT;
-            GET_ITEM_LIST = _GET_ITEM_LIST;
+            GET_SCENARIO_ITEM_LIST = _GET_SCENARIO_ITEM_LIST;
             /* > ATG 1 END */
         }
 
@@ -73,7 +73,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static IS_ITEM_TAKEN_FIRST_DELEGATE IS_ITEM_TAKEN_FIRST;
         public static INTERACT_ITEM_PLAYER_DELEGATE INTERACT_ITEM_PLAYER;
         public static TAKE_ITEM_OBJECT_DELEGATE TAKE_ITEM_OBJECT;
-        public static GET_ITEM_LIST_DELEGATE GET_ITEM_LIST;
+        public static GET_SCENARIO_ITEM_LIST_DELEGATE GET_SCENARIO_ITEM_LIST;
         /* > ATG 3 END */
     }
 }

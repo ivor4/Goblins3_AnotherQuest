@@ -29,6 +29,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void INTERACT_ITEM_PLAYER_DELEGATE(GameItem item, WaypointClass wp);
     public delegate void GET_ITEM_INTERACTION_DELEGATE(CharacterType character, GameItem item, out InteractionItemType interaction);
     public delegate void TAKE_ITEM_OBJECT_DELEGATE(GamePickableItem item);
-    public delegate void GET_ITEM_LIST_DELEGATE(ref ReadOnlyList<ItemClass> list);
+    public delegate void GET_SCENARIO_ITEM_LIST_DELEGATE(ref ReadOnlyList<ItemClass> list);
+    public delegate void GET_PICKED_ITEM_LIST_DELEGATE(ref ReadOnlyList<GamePickableItem> list);
 
 }

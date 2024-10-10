@@ -87,7 +87,8 @@ namespace Gob3AQ.VARMAP
         protected static INTERACT_ITEM_PLAYER_DELEGATE _INTERACT_ITEM_PLAYER;
         protected static GET_ITEM_INTERACTION_DELEGATE _GET_ITEM_INTERACTION;
         protected static TAKE_ITEM_OBJECT_DELEGATE _TAKE_ITEM_OBJECT;
-        protected static GET_ITEM_LIST_DELEGATE _GET_ITEM_LIST;
+        protected static GET_SCENARIO_ITEM_LIST_DELEGATE _GET_SCENARIO_ITEM_LIST;
+        protected static GET_PICKED_ITEM_LIST_DELEGATE _GET_PICKED_ITEM_LIST;
         /* > ATG 2 END < */
         
         

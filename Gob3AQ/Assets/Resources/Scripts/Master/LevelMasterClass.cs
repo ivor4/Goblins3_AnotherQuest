@@ -39,7 +39,7 @@ namespace Gob3AQ.LevelMaster
             rolist.SetRefList(_Player_List);
         }
 
-        public static void GetItemListService(ref ReadOnlyList<ItemClass> rolist)
+        public static void GetScenarioItemListService(ref ReadOnlyList<ItemClass> rolist)
         {
             rolist.SetRefList(_Item_List);
         }

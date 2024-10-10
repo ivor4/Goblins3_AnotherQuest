@@ -23,6 +23,7 @@ namespace Gob3AQ.VARMAP.GameMenu
             GET_ITEM_MENU_ACTIVE = _GET_ITEM_MENU_ACTIVE;
             START_GAME = _START_GAME;
             EXIT_GAME = _EXIT_GAME;
+            GET_PICKED_ITEM_LIST = _GET_PICKED_ITEM_LIST;
             /* > ATG 1 END */
         }
 
@@ -45,6 +46,7 @@ namespace Gob3AQ.VARMAP.GameMenu
         /* > ATG 3 START */
         public static START_GAME_DELEGATE START_GAME;
         public static EXIT_GAME_DELEGATE EXIT_GAME;
+        public static GET_PICKED_ITEM_LIST_DELEGATE GET_PICKED_ITEM_LIST;
         /* > ATG 3 END */
     }
 }

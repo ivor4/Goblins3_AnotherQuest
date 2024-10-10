@@ -5,6 +5,7 @@ using Gob3AQ.FixedConfig;
 using Gob3AQ.Libs.Arith;
 using Gob3AQ.GameElement.PlayableChar;
 using Gob3AQ.Waypoint;
+using Gob3AQ.Brain.ItemsInteraction;
 using System;
 
 namespace Gob3AQ.GameEventMaster
@@ -96,20 +97,7 @@ namespace Gob3AQ.GameEventMaster
 
         public static void GetItemInteractionService(CharacterType character, GameItem item, out InteractionItemType interaction)
         {
-            interaction = InteractionItemType.INTERACTION_NONE;
-
-            switch(item)
-            {
-                case GameItem.ITEM_POTION:
-                    if(character == CharacterType.CHARACTER_MAIN)
-                    {
-                        interaction = InteractionItemType.INTERACTION_TAKE;
-                    }
-                    break;
-
-                default:
-                    break;
-            }
+            interaction = ItemsInteractionsClass.GetItemInteraction(character, item);
         }
 
 

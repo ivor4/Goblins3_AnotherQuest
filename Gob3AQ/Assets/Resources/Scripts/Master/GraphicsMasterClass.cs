@@ -10,9 +10,19 @@ using Gob3AQ.ResourceAtlas;
 
 namespace Gob3AQ.GraphicsMaster
 {
+    [System.Serializable]
     public class GraphicsMasterClass : MonoBehaviour
     {
+        [SerializeField]
+        public GameObject background;
+
+        private static SpriteRenderer background_spr;
+
         private static GraphicsMasterClass _singleton;
+
+        private static Bounds _levelBounds;
+        private static Bounds _cameraCenterLimitBounds;
+        private static Bounds _cameraBounds;
         
         private static Camera mainCamera;
         private static Transform mainCameraTransform;
@@ -33,6 +43,10 @@ namespace Gob3AQ.GraphicsMaster
                 cursor = transform.Find("Cursor").gameObject;
                 cursor_spr = cursor.GetComponent<SpriteRenderer>();
                 cursor_orig_spr = cursor_spr.sprite;
+                background_spr = background.GetComponent<SpriteRenderer>();
+                _levelBounds = background_spr.bounds;
+
+                
             }
 
         }
@@ -42,6 +56,13 @@ namespace Gob3AQ.GraphicsMaster
         {
             mainCamera = Camera.main;
             mainCameraTransform = mainCamera.transform;
+            _cameraBounds = new Bounds();
+
+            _cameraBounds.min = mainCamera.ScreenToWorldPoint(Vector3.zero);
+            _cameraBounds.max = mainCamera.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+
+            _cameraCenterLimitBounds = _levelBounds;
+            _cameraCenterLimitBounds.extents -= _cameraBounds.extents;
 
 
             VARMAP_GraphicsMaster.REG_GAMESTATUS(_GameStatusChanged);
@@ -89,13 +110,62 @@ namespace Gob3AQ.GraphicsMaster
 
         private void FollowMouseWithCamera(ref Vector2 screenzone)
         {
+            bool itemMenuOpened = VARMAP_GraphicsMaster.GET_ITEM_MENU_ACTIVE();
+
             /* If not in menu zone */
-            if(screenzone.y < GameFixedConfig.GAME_ZONE_HEIGHT_PERCENT)
+            if((screenzone.y < GameFixedConfig.GAME_ZONE_HEIGHT_PERCENT)&&(!itemMenuOpened))
             {
                 /* Expand Y of game zone to 100% */
                 Vector2 szone = new Vector2(screenzone.x, screenzone.y * GameFixedConfig.GAME_ZONE_HEIGHT_FACTOR);
 
-                
+                Vector3 moveCameraDelta;
+                Vector3 cameraNewPosition;
+
+                float deltaX;
+                float deltaY;
+
+                if(szone.x < GameFixedConfig.GAME_ZONE_CURSOR_MOVE_CAMERA_FACTOR)
+                {
+                    deltaX = -GameFixedConfig.MOVE_CAMERA_SPEED;
+                }
+                else if(szone.x > GameFixedConfig.GAME_ZONE_CURSOR_MOVE_CAMERA_1MFACTOR)
+                {
+                    deltaX = GameFixedConfig.MOVE_CAMERA_SPEED;
+                }
+                else
+                {
+                    deltaX = 0f;
+                }
+
+                if (szone.y < GameFixedConfig.GAME_ZONE_CURSOR_MOVE_CAMERA_FACTOR)
+                {
+                    deltaY = -GameFixedConfig.MOVE_CAMERA_SPEED;
+                }
+                else if (szone.y > GameFixedConfig.GAME_ZONE_CURSOR_MOVE_CAMERA_1MFACTOR)
+                {
+                    deltaY = GameFixedConfig.MOVE_CAMERA_SPEED;
+                }
+                else
+                {
+                    deltaY = 0f;
+                }
+
+                /* Create movement vector and propose new camera center position */
+                moveCameraDelta = new(deltaX, deltaY);
+                moveCameraDelta *= Time.deltaTime;
+                cameraNewPosition = mainCameraTransform.position + moveCameraDelta;
+
+                /* Limit center of camera to stablished level bounds */
+                Vector3 deltaFromMin = _cameraCenterLimitBounds.min - cameraNewPosition;
+                Vector3 deltaFromMax = _cameraCenterLimitBounds.max - cameraNewPosition;
+
+                deltaFromMin = Vector2.Max(deltaFromMin, Vector2.zero);
+                deltaFromMax = Vector2.Min(deltaFromMax, Vector2.zero);
+
+                /* Correct limited position in case deltaFromMin or deltaFromMax differ from 0 */
+                cameraNewPosition += deltaFromMin + deltaFromMax;
+
+                mainCameraTransform.position = cameraNewPosition;
             }
         }
 

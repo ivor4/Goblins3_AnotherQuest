@@ -16,7 +16,9 @@ namespace Gob3AQ.GameMenu
         private static GameObject _itemMenu;
         private static bool _prevItemMenuOpened;
         private static bool _loaded;
+        private static bool _levelLoaded;
         private static PickableItemDisplayClass[] _displayItemArray;
+        private static Camera _mainCamera;
 
         
 
@@ -37,13 +39,18 @@ namespace Gob3AQ.GameMenu
                 _displayItemArray = new PickableItemDisplayClass[GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS];
 
                 _loaded = false;
+                _levelLoaded = false;
             }
         }
 
         void Start()
         {
             _prevItemMenuOpened = false;
+
+            VARMAP_GameMenu.REG_ACTUAL_ROOM(_OnLevelChanged);
         }
+
+        
 
         void Update()
         {
@@ -72,6 +79,7 @@ namespace Gob3AQ.GameMenu
             if(_singleton == this)
             {
                 _singleton = null;
+                VARMAP_GameMenu.UNREG_ACTUAL_ROOM(_OnLevelChanged);
             }
         }
 
@@ -98,6 +106,12 @@ namespace Gob3AQ.GameMenu
 
                 _loaded = true;
             }
+
+            if(!_levelLoaded)
+            {
+                _mainCamera = Camera.main;
+                _levelLoaded = true;
+            }
         }
 
         private static void Execute_Play()
@@ -110,6 +124,9 @@ namespace Gob3AQ.GameMenu
                 {
                     /* Activate family */
                     _itemMenu.SetActive(true);
+
+                    /* Place Item Menu just in center of camera (World coordinates) */
+                    _itemMenu.transform.position = (Vector2)_mainCamera.transform.position;
 
                     /* Populate menu */
                     RefreshItemMenuElements();
@@ -152,6 +169,16 @@ namespace Gob3AQ.GameMenu
                     _displayItemArray[i].gameObject.SetActive(false);
                 }
             }
+        }
+
+        private static void _OnLevelChanged(ChangedEventType evtype, ref Room oldval, ref Room newval)
+        {
+            _ = evtype;
+            _ = oldval;
+            _ = newval;
+
+            /* It is needed to take new Camera from this level, as this object survives between levels */
+            _levelLoaded = false;
         }
 
         private static void OnItemDisplayClick(GamePickableItem item)

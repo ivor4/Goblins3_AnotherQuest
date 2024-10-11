@@ -150,18 +150,19 @@ namespace Gob3AQ.GameMenu
 
         private static void RefreshItemMenuElements()
         {
-            ReadOnlyList<GamePickableItem> pickedItems = new(null);
+            ReadOnlyList<PickableItemAndOwner> pickedItems = new(null);
             VARMAP_GameMenu.GET_PICKED_ITEM_LIST(ref pickedItems);
+            CharacterType selectedChar = VARMAP_GameMenu.GET_PLAYER_SELECTED();
 
             int pickedTotal = pickedItems.Count;
 
             for(int i = 0; i < _displayItemArray.Length; i++)
             {
                 /* If this element has to show a picked item */
-                if(i < pickedTotal)
+                if((i < pickedTotal)&&(pickedItems[i].character == selectedChar))
                 {
                     _displayItemArray[i].gameObject.SetActive(true);
-                    _displayItemArray[i].SetDisplayedItem(pickedItems[i]);
+                    _displayItemArray[i].SetDisplayedItem(pickedItems[i].item);
                 }
                 else
                 {
@@ -195,7 +196,7 @@ namespace Gob3AQ.GameMenu
                 /* Possible interaction of item combine ? */
                 _ = prevChoosen;
 
-                VARMAP_GameMenu.PICK_PICKABLE_ITEM(item);
+                VARMAP_GameMenu.SELECT_PICKABLE_ITEM(item);
             }
         }
 

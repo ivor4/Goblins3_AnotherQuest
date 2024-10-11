@@ -19,7 +19,7 @@ namespace Gob3AQ.GameEventMaster
         public static void IsEventOccurredService(GameEvent ev, out bool occurred)
         {
             int evIndex = (int)ev;
-            evIndex += 2 * (int)GamePickableItem.ITEM_PICK_TOTAL;    /* Every item has 2 events, which are placed at the beginning */
+            evIndex += (int)GamePickableItem.ITEM_PICK_TOTAL;    /* Every item has 2 events, which are placed at the beginning */
 
             GetArrayIndexAndPos(evIndex, out int arraypos, out int itembit);
 
@@ -31,7 +31,7 @@ namespace Gob3AQ.GameEventMaster
         public static void CommitEventService(GameEvent ev, bool occurred)
         {
             int evIndex = (int)ev;
-            evIndex += 2 * (int)GamePickableItem.ITEM_PICK_TOTAL;    /* Every item has 2 events, which are placed at the beginning */
+            evIndex += (int)GamePickableItem.ITEM_PICK_TOTAL;    /* Every item has 2 events, which are placed at the beginning */
 
             GetArrayIndexAndPos(evIndex, out int arraypos, out int itembit);
 
@@ -42,9 +42,9 @@ namespace Gob3AQ.GameEventMaster
             VARMAP_GameEventMaster.SET_ELEM_EVENTS_OCCURRED(arraypos, mbfs);
         }
 
-        public static void TakeItemEventService(GamePickableItem item)
+        public static void TakeItemFromSceneEventService(GamePickableItem item)
         {
-            int evIndex = 2 * (int)item;
+            int evIndex = (int)item;
 
             GetArrayIndexAndPos(evIndex, out int arraypos, out int itembit);
 
@@ -53,47 +53,17 @@ namespace Gob3AQ.GameEventMaster
             mbfs.SetIndividualBool(itembit, true);
 
             VARMAP_GameEventMaster.SET_ELEM_EVENTS_OCCURRED(arraypos, mbfs);
-
-            ++evIndex;
-
-            GetArrayIndexAndPos(evIndex, out arraypos, out itembit);
-
-            mbfs = VARMAP_GameEventMaster.GET_ELEM_EVENTS_OCCURRED(arraypos);
-
-            mbfs.SetIndividualBool(itembit, true);
-
-            VARMAP_GameEventMaster.SET_ELEM_EVENTS_OCCURRED(arraypos, mbfs);
         }
 
 
-        public static void ReTakeItemEventService(GamePickableItem item, bool take)
+        public static void IsItemTakenFromSceneService(GamePickableItem item, out bool taken)
         {
-            int evIndex = (2 * (int)item) + 1;
-
-            GetArrayIndexAndPos(evIndex, out int arraypos, out int itembit);
-
-            MultiBitFieldStruct mbfs = VARMAP_GameEventMaster.GET_ELEM_EVENTS_OCCURRED(arraypos);
-
-            mbfs.SetIndividualBool(itembit, take);
-
-            VARMAP_GameEventMaster.SET_ELEM_EVENTS_OCCURRED(arraypos, mbfs);
-        }
-
-        public static void IsItemTakenFirstService(GamePickableItem item, out bool taken)
-        {
-            int evIndex = 2 * (int)item;
+            int evIndex = (int)item;
             GetArrayIndexAndPos(evIndex, out int arraypos, out int itembit);
             MultiBitFieldStruct mbfs = VARMAP_GameEventMaster.GET_ELEM_EVENTS_OCCURRED(arraypos);
             taken = mbfs.GetIndividualBool(itembit);
         }
 
-        public static void IsItemTakenService(GamePickableItem item, out bool taken)
-        {
-            int evIndex = (2 * (int)item) + 1;
-            GetArrayIndexAndPos(evIndex, out int arraypos, out int itembit);
-            MultiBitFieldStruct mbfs = VARMAP_GameEventMaster.GET_ELEM_EVENTS_OCCURRED(arraypos);
-            taken = mbfs.GetIndividualBool(itembit);
-        }
 
         public static void GetItemInteractionService(CharacterType character, GameItem item, out InteractionItemType interaction)
         {

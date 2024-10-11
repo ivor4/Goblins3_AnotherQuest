@@ -31,6 +31,13 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPArrayDelegate<MultiBitFieldStruct> _SET_ARRAY_EVENTS_OCCURRED;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<MultiBitFieldStruct> _REG_EVENTS_OCCURRED;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<MultiBitFieldStruct> _UNREG_EVENTS_OCCURRED;
+        protected static GetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> _GET_ELEM_PICKABLE_ITEM_OWNER;
+        protected static SetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> _SET_ELEM_PICKABLE_ITEM_OWNER;
+        protected static GetVARMAPArraySizeDelegate _GET_SIZE_PICKABLE_ITEM_OWNER;
+        protected static GetVARMAPArrayDelegate<MultiBitFieldStruct> _GET_ARRAY_PICKABLE_ITEM_OWNER;
+        protected static SetVARMAPArrayDelegate<MultiBitFieldStruct> _SET_ARRAY_PICKABLE_ITEM_OWNER;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<MultiBitFieldStruct> _REG_PICKABLE_ITEM_OWNER;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<MultiBitFieldStruct> _UNREG_PICKABLE_ITEM_OWNER;
         protected static GetVARMAPValueDelegate<Game_Status> _GET_GAMESTATUS;
         protected static SetVARMAPValueDelegate<Game_Status> _SET_GAMESTATUS;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> _REG_GAMESTATUS;
@@ -47,10 +54,10 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPValueDelegate<Vector3Struct> _SET_PLAYER_POSITION;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<Vector3Struct> _REG_PLAYER_POSITION;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<Vector3Struct> _UNREG_PLAYER_POSITION;
-        protected static GetVARMAPValueDelegate<byte> _GET_PLAYER_ID_SELECTED;
-        protected static SetVARMAPValueDelegate<byte> _SET_PLAYER_ID_SELECTED;
-        protected static ReUnRegisterVARMAPValueChangeEventDelegate<byte> _REG_PLAYER_ID_SELECTED;
-        protected static ReUnRegisterVARMAPValueChangeEventDelegate<byte> _UNREG_PLAYER_ID_SELECTED;
+        protected static GetVARMAPValueDelegate<CharacterType> _GET_PLAYER_SELECTED;
+        protected static SetVARMAPValueDelegate<CharacterType> _SET_PLAYER_SELECTED;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<CharacterType> _REG_PLAYER_SELECTED;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<CharacterType> _UNREG_PLAYER_SELECTED;
         protected static GetVARMAPValueDelegate<bool> _GET_ITEM_MENU_ACTIVE;
         protected static SetVARMAPValueDelegate<bool> _SET_ITEM_MENU_ACTIVE;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<bool> _REG_ITEM_MENU_ACTIVE;
@@ -77,16 +84,15 @@ namespace Gob3AQ.VARMAP
         protected static GET_NEAREST_WP_DELEGATE _GET_NEAREST_WP;
         protected static IS_EVENT_OCCURRED_DELEGATE _IS_EVENT_OCCURRED;
         protected static COMMIT_EVENT_DELEGATE _COMMIT_EVENT;
-        protected static TAKE_ITEM_EVENT_DELEGATE _TAKE_ITEM_EVENT;
-        protected static RETAKE_ITEM_EVENT_DELEGATE _RETAKE_ITEM_EVENT;
-        protected static IS_ITEM_TAKEN_FIRST_DELEGATE _IS_ITEM_TAKEN_FIRST;
-        protected static IS_ITEM_TAKEN_DELEGATE _IS_ITEM_TAKEN;
+        protected static TAKE_ITEM_FROM_SCENE_EVENT_DELEGATE _TAKE_ITEM_FROM_SCENE_EVENT;
+        protected static TAKE_ITEM_DELEGATE _TAKE_ITEM;
+        protected static IS_ITEM_TAKEN_FROM_SCENE_DELEGATE _IS_ITEM_TAKEN_FROM_SCENE;
+        protected static IS_ITEM_OWNED_DELEGATE _IS_ITEM_OWNED;
         protected static INTERACT_ITEM_PLAYER_DELEGATE _INTERACT_ITEM_PLAYER;
         protected static GET_ITEM_INTERACTION_DELEGATE _GET_ITEM_INTERACTION;
-        protected static TAKE_ITEM_OBJECT_DELEGATE _TAKE_ITEM_OBJECT;
         protected static GET_SCENARIO_ITEM_LIST_DELEGATE _GET_SCENARIO_ITEM_LIST;
         protected static GET_PICKED_ITEM_LIST_DELEGATE _GET_PICKED_ITEM_LIST;
-        protected static PICK_PICKABLE_ITEM_DELEGATE _PICK_PICKABLE_ITEM;
+        protected static SELECT_PICKABLE_ITEM_DELEGATE _SELECT_PICKABLE_ITEM;
         protected static CANCEL_PICKABLE_ITEM_DELEGATE _CANCEL_PICKABLE_ITEM;
         /* > ATG 2 END < */
         

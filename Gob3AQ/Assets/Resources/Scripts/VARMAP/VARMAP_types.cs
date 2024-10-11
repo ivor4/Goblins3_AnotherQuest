@@ -74,10 +74,15 @@ namespace Gob3AQ.VARMAP.Types
 
     public enum CharacterType
     {
+        CHARACTER_NONE,
         CHARACTER_MAIN,
         CHARACTER_PARROT,
-        CHARACTER_SNAKE
+        CHARACTER_SNAKE,
+
+        CHARACTER_TOTAL
     }
+
+    
 
     public enum GameItem
     {
@@ -100,6 +105,12 @@ namespace Gob3AQ.VARMAP.Types
     {
         GEVENT_DOOR1_OPENED,
         GEVENT_TALK_MAN
+    }
+
+    public struct PickableItemAndOwner
+    {
+        public CharacterType character;
+        public GamePickableItem item;
     }
 
 
@@ -253,6 +264,19 @@ namespace Gob3AQ.VARMAP.Types
             return retVal;
         }
 
+        public ulong GetValueFromOffset(int offset)
+        {
+            ulong retVal;
+            int offset_corrected;
+
+            offset_corrected = offset & 0x3F;
+
+            retVal = bitfield >> offset_corrected;
+
+
+            return retVal;
+        }
+
         public void SetIndividualBool(int pos, bool value)
         {
             int pos_corrected;
@@ -270,6 +294,16 @@ namespace Gob3AQ.VARMAP.Types
             {
                 bitfield &= ~setbitval;
             }
+        }
+
+        public void SetValueFromOffset(int offset, ulong value, ulong mask)
+        {
+            int offset_corrected;
+
+            offset_corrected = offset & 0x3F;
+
+            bitfield &= ~(mask << offset_corrected);
+            bitfield |= (value & mask) << offset_corrected;
         }
 
         /// <summary>

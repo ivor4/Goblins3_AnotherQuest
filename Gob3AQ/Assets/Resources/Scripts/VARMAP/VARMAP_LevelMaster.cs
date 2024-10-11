@@ -16,8 +16,8 @@ namespace Gob3AQ.VARMAP.LevelMaster
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
-            GET_PLAYER_ID_SELECTED = _GET_PLAYER_ID_SELECTED;
-            SET_PLAYER_ID_SELECTED = _SET_PLAYER_ID_SELECTED;
+            GET_PLAYER_SELECTED = _GET_PLAYER_SELECTED;
+            SET_PLAYER_SELECTED = _SET_PLAYER_SELECTED;
             GET_ITEM_MENU_ACTIVE = _GET_ITEM_MENU_ACTIVE;
             SET_ITEM_MENU_ACTIVE = _SET_ITEM_MENU_ACTIVE;
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
@@ -33,9 +33,9 @@ namespace Gob3AQ.VARMAP.LevelMaster
             GET_NEAREST_WP = _GET_NEAREST_WP;
             IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
-            IS_ITEM_TAKEN_FIRST = _IS_ITEM_TAKEN_FIRST;
+            TAKE_ITEM = _TAKE_ITEM;
+            IS_ITEM_TAKEN_FROM_SCENE = _IS_ITEM_TAKEN_FROM_SCENE;
             INTERACT_ITEM_PLAYER = _INTERACT_ITEM_PLAYER;
-            TAKE_ITEM_OBJECT = _TAKE_ITEM_OBJECT;
             GET_SCENARIO_ITEM_LIST = _GET_SCENARIO_ITEM_LIST;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             /* > ATG 1 END */
@@ -52,8 +52,8 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
         public static GetVARMAPValueDelegate<MousePropertiesStruct> GET_MOUSE_PROPERTIES;
-        public static GetVARMAPValueDelegate<byte> GET_PLAYER_ID_SELECTED;
-        public static SetVARMAPValueDelegate<byte> SET_PLAYER_ID_SELECTED;
+        public static GetVARMAPValueDelegate<CharacterType> GET_PLAYER_SELECTED;
+        public static SetVARMAPValueDelegate<CharacterType> SET_PLAYER_SELECTED;
         public static GetVARMAPValueDelegate<bool> GET_ITEM_MENU_ACTIVE;
         public static SetVARMAPValueDelegate<bool> SET_ITEM_MENU_ACTIVE;
         public static GetVARMAPValueDelegate<GamePickableItem> GET_PICKABLE_ITEM_CHOSEN;
@@ -73,9 +73,9 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
         public static IS_EVENT_OCCURRED_DELEGATE IS_EVENT_OCCURRED;
         public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
-        public static IS_ITEM_TAKEN_FIRST_DELEGATE IS_ITEM_TAKEN_FIRST;
+        public static TAKE_ITEM_DELEGATE TAKE_ITEM;
+        public static IS_ITEM_TAKEN_FROM_SCENE_DELEGATE IS_ITEM_TAKEN_FROM_SCENE;
         public static INTERACT_ITEM_PLAYER_DELEGATE INTERACT_ITEM_PLAYER;
-        public static TAKE_ITEM_OBJECT_DELEGATE TAKE_ITEM_OBJECT;
         public static GET_SCENARIO_ITEM_LIST_DELEGATE GET_SCENARIO_ITEM_LIST;
         public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
         /* > ATG 3 END */

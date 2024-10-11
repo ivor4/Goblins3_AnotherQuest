@@ -32,13 +32,22 @@ namespace Gob3AQ.PlayerMaster
         private static PlayableCharScript GetActivePlayer()
         {
             ReadOnlyList<PlayableCharScript> playerlist;
-            byte pid;
-            PlayableCharScript selectedPlayer;
+            CharacterType selectedChar;
+            PlayableCharScript selectedPlayer = null;
 
-            pid = VARMAP_PlayerMaster.GET_PLAYER_ID_SELECTED();
+            selectedChar = VARMAP_PlayerMaster.GET_PLAYER_SELECTED();
             playerlist = new(null);
             VARMAP_PlayerMaster.GET_PLAYER_LIST(ref playerlist);
-            selectedPlayer = playerlist[pid];
+            int totalPlayers = playerlist.Count;
+
+            for(int i=0; i< totalPlayers; i++)
+            {
+                if(selectedChar == playerlist[i].charType)
+                {
+                    selectedPlayer = playerlist[i];
+                    break;
+                }
+            }
 
             return selectedPlayer;
         }

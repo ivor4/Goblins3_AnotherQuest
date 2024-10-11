@@ -6,6 +6,15 @@ namespace Gob3AQ.VARMAP.Types.Parsers
 {
     public static class VARMAP_parsers
     {
+        public static void CharacterType_ParseToBytes(ref CharacterType value, ref Span<byte> writer)
+        {
+            BitConverter.TryWriteBytes(writer, (int)value);
+        }
+        public static void CharacterType_ParseFromBytes(ref CharacterType value, ref ReadOnlySpan<byte> reader)
+        {
+            value = (CharacterType)BitConverter.ToInt32(reader);
+        }
+
         public static void GamePickableItem_ParseToBytes(ref GamePickableItem value, ref Span<byte> writer)
         {
             BitConverter.TryWriteBytes(writer, (int)value);

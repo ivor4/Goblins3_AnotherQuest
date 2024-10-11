@@ -68,7 +68,7 @@ namespace Gob3AQ.GameElement.Item
             /* If it is a pickable item, may have been picked before */
             if (pickable != GamePickableItem.ITEM_PICK_NONE)
             {
-                VARMAP_ItemMaster.IS_ITEM_TAKEN_FIRST(pickable, out taken);
+                VARMAP_ItemMaster.IS_ITEM_TAKEN_FROM_SCENE(pickable, out taken);
             }
             else
             {

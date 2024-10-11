@@ -53,7 +53,6 @@ namespace Gob3AQ.GameElement.PlayableChar
         /* Status */
         private PhysicalState physicalstate;
 
-        private byte playerID;
         private bool selected;
         private bool loaded;
         private WaypointClass actualWaypoint;
@@ -140,8 +139,8 @@ namespace Gob3AQ.GameElement.PlayableChar
             loaded = false;
             bufferedInteraction = BufferedInteraction.BUFFERED_INT_NONE;
 
-            VARMAP_PlayerMaster.MONO_REGISTER(this, true, out playerID);
-            VARMAP_PlayerMaster.REG_PLAYER_ID_SELECTED(ChangedSelectedPlayerEvent);
+            VARMAP_PlayerMaster.MONO_REGISTER(this, true);
+            VARMAP_PlayerMaster.REG_PLAYER_SELECTED(ChangedSelectedPlayerEvent);
         }
 
 
@@ -167,8 +166,8 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         private void OnDestroy()
         {
-            VARMAP_PlayerMaster.MONO_REGISTER(this, false, out _);
-            VARMAP_PlayerMaster.UNREG_PLAYER_ID_SELECTED(ChangedSelectedPlayerEvent);
+            VARMAP_PlayerMaster.MONO_REGISTER(this, false);
+            VARMAP_PlayerMaster.UNREG_PLAYER_SELECTED(ChangedSelectedPlayerEvent);
         }
 
         #region "Private Methods "
@@ -264,7 +263,7 @@ namespace Gob3AQ.GameElement.PlayableChar
                     if(permittedInteraction == InteractionItemType.INTERACTION_TAKE)
                     {
                         GamePickableItem pickable = ItemsInteractionsClass.ITEM_TO_PICKABLE[(int)bufferedInteractionItem];
-                        VARMAP_PlayerMaster.TAKE_ITEM_OBJECT(pickable);
+                        VARMAP_PlayerMaster.TAKE_ITEM(pickable, charType);
                     }
 
                     break;
@@ -281,9 +280,9 @@ namespace Gob3AQ.GameElement.PlayableChar
 
 
         #region "Events"
-        private void ChangedSelectedPlayerEvent(ChangedEventType eventType, ref byte oldval, ref byte newval)
+        private void ChangedSelectedPlayerEvent(ChangedEventType eventType, ref CharacterType oldval, ref CharacterType newval)
         {
-            if(newval == playerID)
+            if(newval == charType)
             {
                 _sprRenderer.color = Color.red;
                 selected = true;

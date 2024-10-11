@@ -15,8 +15,6 @@ namespace Gob3AQ.LevelMaster
 {
     public class LevelMasterClass : MonoBehaviour
     {
-        private const byte NO_PLAYER = 0xFF;
-
         private static LevelMasterClass _singleton;
 
         private static List<WaypointClass> _WP_List;
@@ -91,16 +89,14 @@ namespace Gob3AQ.LevelMaster
             }
         }
 
-        public static void MonoRegisterService(PlayableCharScript mono, bool add, out byte id)
+        public static void MonoRegisterService(PlayableCharScript mono, bool add)
         {
             if (add)
             {
-                id = (byte)_Player_List.Count;
                 _Player_List.Add(mono);
             }
             else
             {
-                id = NO_PLAYER;
                 _Player_List.Remove(mono);
             }
         }
@@ -142,7 +138,7 @@ namespace Gob3AQ.LevelMaster
         {
             loadpercentage = 0;
 
-            VARMAP_LevelMaster.SET_PLAYER_ID_SELECTED(NO_PLAYER);
+            VARMAP_LevelMaster.SET_PLAYER_SELECTED(CharacterType.CHARACTER_NONE);
             VARMAP_LevelMaster.REG_GAMESTATUS(_OnGameStatusChanged);
         }
 
@@ -263,7 +259,7 @@ namespace Gob3AQ.LevelMaster
             }
             else if (mouse.primaryReleased)
             {
-                byte playerSelected = VARMAP_LevelMaster.GET_PLAYER_ID_SELECTED();
+                CharacterType playerSelected = VARMAP_LevelMaster.GET_PLAYER_SELECTED();
                 bool consumed = false;
 
                 for (int i = 0; i < _Player_List.Count; ++i)
@@ -273,13 +269,13 @@ namespace Gob3AQ.LevelMaster
 
                     if (collider.OverlapPoint(mouse.pos1))
                     {
-                        VARMAP_LevelMaster.SET_PLAYER_ID_SELECTED((byte)i);
+                        VARMAP_LevelMaster.SET_PLAYER_SELECTED(player.charType);
                         consumed = true;
                         break;
                     }
                 }
 
-                if ((playerSelected != NO_PLAYER) && (!consumed))
+                if ((playerSelected != CharacterType.CHARACTER_NONE) && (!consumed))
                 {
                     /* Proceed with items/NPCs if event has not been consumed */
                     for (int i = 0; i < _Item_List.Count; ++i)
@@ -313,7 +309,7 @@ namespace Gob3AQ.LevelMaster
                 }
 
                 /* Make player move */
-                if ((!consumed) && (playerSelected != NO_PLAYER))
+                if ((!consumed) && (playerSelected != CharacterType.CHARACTER_NONE))
                 {
                     CheckPlayerMovementOrder(ref mouse);
                 }

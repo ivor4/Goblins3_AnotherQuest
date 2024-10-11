@@ -43,6 +43,13 @@ namespace Gob3AQ.VARMAP.Initialization
             _SET_ARRAY_EVENTS_OCCURRED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED]).SetListValues;
             _REG_EVENTS_OCCURRED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED]).RegisterChangeEvent;
             _UNREG_EVENTS_OCCURRED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED]).UnregisterChangeEvent;
+            _GET_ELEM_PICKABLE_ITEM_OWNER = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER]).GetListElem;
+            _SET_ELEM_PICKABLE_ITEM_OWNER = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER]).SetListElem;
+            _GET_SIZE_PICKABLE_ITEM_OWNER = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER]).GetListSize;
+            _GET_ARRAY_PICKABLE_ITEM_OWNER = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER]).GetListCopy;
+            _SET_ARRAY_PICKABLE_ITEM_OWNER = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER]).SetListValues;
+            _REG_PICKABLE_ITEM_OWNER = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER]).RegisterChangeEvent;
+            _UNREG_PICKABLE_ITEM_OWNER = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER]).UnregisterChangeEvent;
             _GET_GAMESTATUS = ((VARMAP_Variable_Interface<Game_Status>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_GAMESTATUS]).GetValue;
             _SET_GAMESTATUS = ((VARMAP_Variable_Interface<Game_Status>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_GAMESTATUS]).SetValue;
             _REG_GAMESTATUS = ((VARMAP_Variable_Interface<Game_Status>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_GAMESTATUS]).RegisterChangeEvent;
@@ -59,10 +66,10 @@ namespace Gob3AQ.VARMAP.Initialization
             _SET_PLAYER_POSITION = ((VARMAP_Variable_Interface<Vector3Struct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_POSITION]).SetValue;
             _REG_PLAYER_POSITION = ((VARMAP_Variable_Interface<Vector3Struct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_POSITION]).RegisterChangeEvent;
             _UNREG_PLAYER_POSITION = ((VARMAP_Variable_Interface<Vector3Struct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_POSITION]).UnregisterChangeEvent;
-            _GET_PLAYER_ID_SELECTED = ((VARMAP_Variable_Interface<byte>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_ID_SELECTED]).GetValue;
-            _SET_PLAYER_ID_SELECTED = ((VARMAP_Variable_Interface<byte>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_ID_SELECTED]).SetValue;
-            _REG_PLAYER_ID_SELECTED = ((VARMAP_Variable_Interface<byte>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_ID_SELECTED]).RegisterChangeEvent;
-            _UNREG_PLAYER_ID_SELECTED = ((VARMAP_Variable_Interface<byte>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_ID_SELECTED]).UnregisterChangeEvent;
+            _GET_PLAYER_SELECTED = ((VARMAP_Variable_Interface<CharacterType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_SELECTED]).GetValue;
+            _SET_PLAYER_SELECTED = ((VARMAP_Variable_Interface<CharacterType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_SELECTED]).SetValue;
+            _REG_PLAYER_SELECTED = ((VARMAP_Variable_Interface<CharacterType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_SELECTED]).RegisterChangeEvent;
+            _UNREG_PLAYER_SELECTED = ((VARMAP_Variable_Interface<CharacterType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_SELECTED]).UnregisterChangeEvent;
             _GET_ITEM_MENU_ACTIVE = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_ACTIVE]).GetValue;
             _SET_ITEM_MENU_ACTIVE = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_ACTIVE]).SetValue;
             _REG_ITEM_MENU_ACTIVE = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_ACTIVE]).RegisterChangeEvent;
@@ -90,16 +97,15 @@ namespace Gob3AQ.VARMAP.Initialization
             _GET_NEAREST_WP = LevelMasterClass.GetNearestWPService;
             _IS_EVENT_OCCURRED = GameEventMasterClass.IsEventOccurredService;
             _COMMIT_EVENT = GameEventMasterClass.CommitEventService;
-            _TAKE_ITEM_EVENT = GameEventMasterClass.TakeItemEventService;
-            _RETAKE_ITEM_EVENT = GameEventMasterClass.ReTakeItemEventService;
-            _IS_ITEM_TAKEN_FIRST = GameEventMasterClass.IsItemTakenFirstService;
-            _IS_ITEM_TAKEN = GameEventMasterClass.IsItemTakenService;
+            _TAKE_ITEM_FROM_SCENE_EVENT = GameEventMasterClass.TakeItemFromSceneEventService;
+            _TAKE_ITEM = ItemMasterClass.TakeItemService;
+            _IS_ITEM_TAKEN_FROM_SCENE = GameEventMasterClass.IsItemTakenFromSceneService;
+            _IS_ITEM_OWNED = ItemMasterClass.IsItemOwnedService;
             _INTERACT_ITEM_PLAYER = PlayerMasterClass.InteractItemPlayerService;
             _GET_ITEM_INTERACTION = GameEventMasterClass.GetItemInteractionService;
-            _TAKE_ITEM_OBJECT = ItemMasterClass.TakeItemObjectService;
             _GET_SCENARIO_ITEM_LIST = LevelMasterClass.GetScenarioItemListService;
             _GET_PICKED_ITEM_LIST = ItemMasterClass.GetPickedItemListService;
-            _PICK_PICKABLE_ITEM = ItemMasterClass.PickPickableItemService;
+            _SELECT_PICKABLE_ITEM = ItemMasterClass.SelectPickableItemService;
             _CANCEL_PICKABLE_ITEM = ItemMasterClass.CancelPickableItemService;
             /* > ATG 2 END */
         }

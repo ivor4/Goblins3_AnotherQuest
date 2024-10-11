@@ -23,12 +23,13 @@ namespace Gob3AQ.VARMAP.GameMenu
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             GET_PRESSED_KEYS = _GET_PRESSED_KEYS;
             GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
+            GET_PLAYER_SELECTED = _GET_PLAYER_SELECTED;
             GET_ITEM_MENU_ACTIVE = _GET_ITEM_MENU_ACTIVE;
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
             START_GAME = _START_GAME;
             EXIT_GAME = _EXIT_GAME;
             GET_PICKED_ITEM_LIST = _GET_PICKED_ITEM_LIST;
-            PICK_PICKABLE_ITEM = _PICK_PICKABLE_ITEM;
+            SELECT_PICKABLE_ITEM = _SELECT_PICKABLE_ITEM;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             /* > ATG 1 END */
         }
@@ -48,6 +49,7 @@ namespace Gob3AQ.VARMAP.GameMenu
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
         public static GetVARMAPValueDelegate<KeyStruct> GET_PRESSED_KEYS;
         public static GetVARMAPValueDelegate<MousePropertiesStruct> GET_MOUSE_PROPERTIES;
+        public static GetVARMAPValueDelegate<CharacterType> GET_PLAYER_SELECTED;
         public static GetVARMAPValueDelegate<bool> GET_ITEM_MENU_ACTIVE;
         public static GetVARMAPValueDelegate<GamePickableItem> GET_PICKABLE_ITEM_CHOSEN;
         /* > ATG 2 END */
@@ -57,7 +59,7 @@ namespace Gob3AQ.VARMAP.GameMenu
         public static START_GAME_DELEGATE START_GAME;
         public static EXIT_GAME_DELEGATE EXIT_GAME;
         public static GET_PICKED_ITEM_LIST_DELEGATE GET_PICKED_ITEM_LIST;
-        public static PICK_PICKABLE_ITEM_DELEGATE PICK_PICKABLE_ITEM;
+        public static SELECT_PICKABLE_ITEM_DELEGATE SELECT_PICKABLE_ITEM;
         public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
         /* > ATG 3 END */
     }

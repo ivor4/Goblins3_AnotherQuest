@@ -43,13 +43,13 @@ namespace Gob3AQ.VARMAP.Initialization
             _SET_ARRAY_EVENTS_OCCURRED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED]).SetListValues;
             _REG_EVENTS_OCCURRED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED]).RegisterChangeEvent;
             _UNREG_EVENTS_OCCURRED = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED]).UnregisterChangeEvent;
-            _GET_ELEM_PICKABLE_ITEM_OWNER = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER]).GetListElem;
-            _SET_ELEM_PICKABLE_ITEM_OWNER = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER]).SetListElem;
-            _GET_SIZE_PICKABLE_ITEM_OWNER = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER]).GetListSize;
-            _GET_ARRAY_PICKABLE_ITEM_OWNER = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER]).GetListCopy;
-            _SET_ARRAY_PICKABLE_ITEM_OWNER = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER]).SetListValues;
-            _REG_PICKABLE_ITEM_OWNER = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER]).RegisterChangeEvent;
-            _UNREG_PICKABLE_ITEM_OWNER = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER]).UnregisterChangeEvent;
+            _GET_ELEM_PICKABLE_ITEM_OWNER = ((VARMAP_Variable_Interface<CharacterType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER]).GetListElem;
+            _SET_ELEM_PICKABLE_ITEM_OWNER = ((VARMAP_Variable_Interface<CharacterType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER]).SetListElem;
+            _GET_SIZE_PICKABLE_ITEM_OWNER = ((VARMAP_Variable_Interface<CharacterType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER]).GetListSize;
+            _GET_ARRAY_PICKABLE_ITEM_OWNER = ((VARMAP_Variable_Interface<CharacterType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER]).GetListCopy;
+            _SET_ARRAY_PICKABLE_ITEM_OWNER = ((VARMAP_Variable_Interface<CharacterType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER]).SetListValues;
+            _REG_PICKABLE_ITEM_OWNER = ((VARMAP_Variable_Interface<CharacterType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER]).RegisterChangeEvent;
+            _UNREG_PICKABLE_ITEM_OWNER = ((VARMAP_Variable_Interface<CharacterType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER]).UnregisterChangeEvent;
             _GET_GAMESTATUS = ((VARMAP_Variable_Interface<Game_Status>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_GAMESTATUS]).GetValue;
             _SET_GAMESTATUS = ((VARMAP_Variable_Interface<Game_Status>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_GAMESTATUS]).SetValue;
             _REG_GAMESTATUS = ((VARMAP_Variable_Interface<Game_Status>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_GAMESTATUS]).RegisterChangeEvent;
@@ -93,6 +93,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _MONO_REGISTER = LevelMasterClass.MonoRegisterService;
             _WP_REGISTER = LevelMasterClass.WPRegisterService;
             _MOVE_PLAYER = PlayerMasterClass.MovePlayerService;
+            _SELECT_PLAYER = PlayerMasterClass.SelectPlayerService;
             _GET_PLAYER_LIST = LevelMasterClass.GetPlayerListService;
             _GET_NEAREST_WP = LevelMasterClass.GetNearestWPService;
             _IS_EVENT_OCCURRED = GameEventMasterClass.IsEventOccurredService;
@@ -100,13 +101,13 @@ namespace Gob3AQ.VARMAP.Initialization
             _TAKE_ITEM_FROM_SCENE_EVENT = GameEventMasterClass.TakeItemFromSceneEventService;
             _TAKE_ITEM = ItemMasterClass.TakeItemService;
             _IS_ITEM_TAKEN_FROM_SCENE = GameEventMasterClass.IsItemTakenFromSceneService;
-            _IS_ITEM_OWNED = ItemMasterClass.IsItemOwnedService;
-            _INTERACT_ITEM_PLAYER = PlayerMasterClass.InteractItemPlayerService;
-            _GET_ITEM_INTERACTION = GameEventMasterClass.GetItemInteractionService;
+            _INTERACT_PLAYER_ITEM = PlayerMasterClass.InteractPlayerItemService;
+            _GET_ITEM_INTERACTION = ItemMasterClass.GetItemInteractionService;
             _GET_SCENARIO_ITEM_LIST = LevelMasterClass.GetScenarioItemListService;
-            _GET_PICKED_ITEM_LIST = ItemMasterClass.GetPickedItemListService;
             _SELECT_PICKABLE_ITEM = ItemMasterClass.SelectPickableItemService;
             _CANCEL_PICKABLE_ITEM = ItemMasterClass.CancelPickableItemService;
+            _USE_ITEM = ItemMasterClass.UseItemService;
+            _LAST_SERVICE = GameMasterClass.ExitGameService;
             /* > ATG 2 END */
         }
     }

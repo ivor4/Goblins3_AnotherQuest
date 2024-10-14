@@ -16,6 +16,8 @@ namespace Gob3AQ.ResourceAtlas
 
     public enum SpriteEnum
     {
+        SPRITE_NONE,
+
         SPRITE_POTION,
 
         SPRITE_TOTAL
@@ -41,7 +43,8 @@ namespace Gob3AQ.ResourceAtlas
 
         private static readonly SpriteEnum[] _PickableItemToSpriteId = new SpriteEnum[(int)GamePickableItem.ITEM_PICK_TOTAL]
         {
-            SpriteEnum.SPRITE_POTION
+            SpriteEnum.SPRITE_NONE,      /* PICKABLE_NONE */
+            SpriteEnum.SPRITE_POTION     /* PICKABLE_POTION */
         };
 
         private static readonly string[] _PrefabList = new string[(int)PrefabEnum.PREFAB_TOTAL]
@@ -52,6 +55,7 @@ namespace Gob3AQ.ResourceAtlas
 
         private static readonly string[] _SpriteList = new string[(int)SpriteEnum.SPRITE_TOTAL]
         {
+            "",
             "Sprites/potion_64"
         };
     }

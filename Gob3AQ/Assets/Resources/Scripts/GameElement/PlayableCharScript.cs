@@ -25,7 +25,7 @@ namespace Gob3AQ.GameElement.PlayableChar
     public enum BufferedInteraction
     {
         BUFFERED_INT_NONE,
-        BUFFERED_INT_ITEM,
+        BUFFERED_INT_PLAYER__SCENE_ITEM,
         BUFFERED_INT_TALK
     }
 
@@ -107,7 +107,7 @@ namespace Gob3AQ.GameElement.PlayableChar
                 else
                 {
                     bufferedInteractionItem = item;
-                    bufferedInteraction = BufferedInteraction.BUFFERED_INT_ITEM;
+                    bufferedInteraction = BufferedInteraction.BUFFERED_INT_PLAYER__SCENE_ITEM;
 
                     actualProgrammedPath = new WaypointProgrammedPath(solution);
                     physicalstate = PhysicalState.PHYSICAL_STATE_WALKING; 
@@ -256,9 +256,12 @@ namespace Gob3AQ.GameElement.PlayableChar
             /* Now interact if buffered */
             switch (bufferedInteraction)
             {
-                case BufferedInteraction.BUFFERED_INT_ITEM:
-                    InteractionItemType permittedInteraction;
-                    VARMAP_PlayerMaster.GET_ITEM_INTERACTION(charType, bufferedInteractionItem, out permittedInteraction);
+                case BufferedInteraction.BUFFERED_INT_PLAYER__SCENE_ITEM:
+
+                    ItemUsage usage = new(ItemUsageType.PLAYER_WITH_ITEM, charType, GameItem.ITEM_NONE,
+                    CharacterType.CHARACTER_NONE, CharacterType.CHARACTER_NONE, bufferedInteractionItem);
+
+                    VARMAP_PlayerMaster.GET_ITEM_INTERACTION(in usage, out InteractionItemType permittedInteraction);
 
                     if(permittedInteraction == InteractionItemType.INTERACTION_TAKE)
                     {

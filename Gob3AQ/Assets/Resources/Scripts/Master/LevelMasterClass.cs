@@ -32,14 +32,14 @@ namespace Gob3AQ.LevelMaster
 
            
 
-        public static void GetPlayerListService(ref ReadOnlyList<PlayableCharScript> rolist)
+        public static void GetPlayerListService(out ReadOnlyList<PlayableCharScript> rolist)
         {
-            rolist.SetRefList(_Player_List);
+            rolist = new ReadOnlyList<PlayableCharScript>(_Player_List);
         }
 
-        public static void GetScenarioItemListService(ref ReadOnlyList<ItemClass> rolist)
+        public static void GetScenarioItemListService(out ReadOnlyList<ItemClass> rolist)
         {
-            rolist.SetRefList(_Item_List);
+            rolist = new ReadOnlyList<ItemClass>(_Item_List);
         }
 
         public static void GetNearestWPService(Vector2 position, float maxRadius, out WaypointClass candidate)
@@ -138,7 +138,6 @@ namespace Gob3AQ.LevelMaster
         {
             loadpercentage = 0;
 
-            VARMAP_LevelMaster.SET_PLAYER_SELECTED(CharacterType.CHARACTER_NONE);
             VARMAP_LevelMaster.REG_GAMESTATUS(_OnGameStatusChanged);
         }
 
@@ -269,7 +268,7 @@ namespace Gob3AQ.LevelMaster
 
                     if (collider.OverlapPoint(mouse.pos1))
                     {
-                        VARMAP_LevelMaster.SET_PLAYER_SELECTED(player.charType);
+                        VARMAP_LevelMaster.SELECT_PLAYER(player.charType);
                         consumed = true;
                         break;
                     }
@@ -285,7 +284,7 @@ namespace Gob3AQ.LevelMaster
 
                         if (collider.OverlapPoint(mouse.pos1))
                         {
-                            VARMAP_LevelMaster.INTERACT_ITEM_PLAYER(item.itemID, item.Waypoint);
+                            VARMAP_LevelMaster.INTERACT_PLAYER_ITEM(item.itemID, item.Waypoint);
 
                             consumed = true;
                             break;

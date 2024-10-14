@@ -3,11 +3,11 @@ N,ENUM_ID,TYPE,SAFE,ARRAY,DEFVALUE,SAVE,,GameMaster,InputMaster,LevelMaster,Grap
 1,ELAPSED_TIME_MS,ulong,2,0,0UL,Y,,W,R,R,R,R,-,-,-,-
 2,ACTUAL_ROOM,Room,2,0,Room.NONE,Y,,W,-,R,R,R E,-,-,-,-
 4,EVENTS_OCCURRED,MultiBitFieldStruct,2,2,default(MultiBitFieldStruct),Y,,-,-,-,-,-,-,-,-,W
-5,PICKABLE_ITEM_OWNER,MultiBitFieldStruct,2,2,default(MultiBitFieldStruct),Y,,-,-,-,-,-,-,-,W,-
+5,PICKABLE_ITEM_OWNER,CharacterType,2,2,CharacterType.CHARACTER_NONE,Y,,-,-,R,-,R,R,-,W,-
 6,GAMESTATUS,Game_Status,0,0,Game_Status.GAME_STATUS_STOPPED,N,,W,-,R E,R E,R E,R E,R E,R E,-
 7,PRESSED_KEYS,KeyStruct,0,0,KeyStruct_Default,N,,R,W,-,-,R,R,-,-,-
 8,MOUSE_PROPERTIES,MousePropertiesStruct,0,0,MouseProperties_Default,N,,R,W,R,R,R,-,-,-,-
 9,PLAYER_POSITION,Vector3Struct,0,0,Vector3Struct_Default,N,,-,-,-,R,-,W,-,-,R
-10,PLAYER_SELECTED,CharacterType,0,0,CharacterType.CHARACTER_NONE,N,,-,-,W,-,R,R E,-,-,-
+10,PLAYER_SELECTED,CharacterType,0,0,CharacterType.CHARACTER_NONE,N,,-,-,R,-,R,W E,-,R,-
 11,ITEM_MENU_ACTIVE,bool,0,0,false,N,,-,-,W,R,R,-,-,-,-
 12,PICKABLE_ITEM_CHOSEN,GamePickableItem,1,0,GamePickableItem.ITEM_PICK_NONE,N,,-,-,R,R E,R,R,R,W,-

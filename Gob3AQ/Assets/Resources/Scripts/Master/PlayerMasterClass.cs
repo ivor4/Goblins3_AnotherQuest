@@ -14,30 +14,39 @@ namespace Gob3AQ.PlayerMaster
     public class PlayerMasterClass : MonoBehaviour
     {
         private static PlayerMasterClass _singleton;
-
+        private static PlayableCharScript _selectedPlayer;
 
 
         public static void MovePlayerService(WaypointClass wp)
         {
-            PlayableCharScript selectedPlayer = GetActivePlayer();
-            selectedPlayer.MoveRequest(wp);
+            if (_selectedPlayer != null)
+            {
+                _selectedPlayer.MoveRequest(wp);
+            }
         }
 
-        public static void InteractItemPlayerService(GameItem item, WaypointClass itemwp)
+        public static void SelectPlayerService(CharacterType character)
         {
-            PlayableCharScript selectedPlayer = GetActivePlayer();
-            selectedPlayer.ItemInteractRequest(item, itemwp);
+            VARMAP_PlayerMaster.SET_PLAYER_SELECTED(character);
+
+            _selectedPlayer = GetActivePlayer();
+        }
+
+        public static void InteractPlayerItemService(GameItem item, WaypointClass itemwp)
+        {
+            if (_selectedPlayer != null)
+            {
+                _selectedPlayer.ItemInteractRequest(item, itemwp);
+            }
         }
 
         private static PlayableCharScript GetActivePlayer()
         {
-            ReadOnlyList<PlayableCharScript> playerlist;
             CharacterType selectedChar;
             PlayableCharScript selectedPlayer = null;
 
             selectedChar = VARMAP_PlayerMaster.GET_PLAYER_SELECTED();
-            playerlist = new(null);
-            VARMAP_PlayerMaster.GET_PLAYER_LIST(ref playerlist);
+            VARMAP_PlayerMaster.GET_PLAYER_LIST(out ReadOnlyList<PlayableCharScript> playerlist);
             int totalPlayers = playerlist.Count;
 
             for(int i=0; i< totalPlayers; i++)
@@ -64,6 +73,12 @@ namespace Gob3AQ.PlayerMaster
             {
                 _singleton = this;
             }
+        }
+
+        void Start()
+        {
+            VARMAP_PlayerMaster.SELECT_PLAYER(CharacterType.CHARACTER_NONE);
+            _selectedPlayer = null;
         }
 
 

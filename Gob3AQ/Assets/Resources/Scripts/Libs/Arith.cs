@@ -38,12 +38,12 @@ namespace Gob3AQ.Libs.Arith
             }
         }
 
-        public ReadOnlyList(List<T> list)
+        public int IndexOf(T searchVal)
         {
-            _list = list;
+            return _list.IndexOf(searchVal);
         }
 
-        public void SetRefList(List<T> list)
+        public ReadOnlyList(List<T> list)
         {
             _list = list;
         }

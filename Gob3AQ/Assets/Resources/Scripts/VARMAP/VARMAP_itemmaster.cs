@@ -20,6 +20,7 @@ namespace Gob3AQ.VARMAP.ItemMaster
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
+            GET_PLAYER_SELECTED = _GET_PLAYER_SELECTED;
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
             SET_PICKABLE_ITEM_CHOSEN = _SET_PICKABLE_ITEM_CHOSEN;
             ITEM_REGISTER = _ITEM_REGISTER;
@@ -29,11 +30,11 @@ namespace Gob3AQ.VARMAP.ItemMaster
             TAKE_ITEM_FROM_SCENE_EVENT = _TAKE_ITEM_FROM_SCENE_EVENT;
             TAKE_ITEM = _TAKE_ITEM;
             IS_ITEM_TAKEN_FROM_SCENE = _IS_ITEM_TAKEN_FROM_SCENE;
-            IS_ITEM_OWNED = _IS_ITEM_OWNED;
+            GET_ITEM_INTERACTION = _GET_ITEM_INTERACTION;
             GET_SCENARIO_ITEM_LIST = _GET_SCENARIO_ITEM_LIST;
-            GET_PICKED_ITEM_LIST = _GET_PICKED_ITEM_LIST;
             SELECT_PICKABLE_ITEM = _SELECT_PICKABLE_ITEM;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
+            USE_ITEM = _USE_ITEM;
             /* > ATG 1 END */
         }
 
@@ -41,14 +42,15 @@ namespace Gob3AQ.VARMAP.ItemMaster
 
         /* GET/SET */
         /* > ATG 2 START */
-        public static GetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> GET_ELEM_PICKABLE_ITEM_OWNER;
-        public static SetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> SET_ELEM_PICKABLE_ITEM_OWNER;
+        public static GetVARMAPArrayElemValueDelegate<CharacterType> GET_ELEM_PICKABLE_ITEM_OWNER;
+        public static SetVARMAPArrayElemValueDelegate<CharacterType> SET_ELEM_PICKABLE_ITEM_OWNER;
         public static GetVARMAPArraySizeDelegate GET_SIZE_PICKABLE_ITEM_OWNER;
-        public static GetVARMAPArrayDelegate<MultiBitFieldStruct> GET_ARRAY_PICKABLE_ITEM_OWNER;
-        public static SetVARMAPArrayDelegate<MultiBitFieldStruct> SET_ARRAY_PICKABLE_ITEM_OWNER;
+        public static GetVARMAPArrayDelegate<CharacterType> GET_ARRAY_PICKABLE_ITEM_OWNER;
+        public static SetVARMAPArrayDelegate<CharacterType> SET_ARRAY_PICKABLE_ITEM_OWNER;
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
+        public static GetVARMAPValueDelegate<CharacterType> GET_PLAYER_SELECTED;
         public static GetVARMAPValueDelegate<GamePickableItem> GET_PICKABLE_ITEM_CHOSEN;
         public static SetVARMAPValueDelegate<GamePickableItem> SET_PICKABLE_ITEM_CHOSEN;
         /* > ATG 2 END */
@@ -62,11 +64,11 @@ namespace Gob3AQ.VARMAP.ItemMaster
         public static TAKE_ITEM_FROM_SCENE_EVENT_DELEGATE TAKE_ITEM_FROM_SCENE_EVENT;
         public static TAKE_ITEM_DELEGATE TAKE_ITEM;
         public static IS_ITEM_TAKEN_FROM_SCENE_DELEGATE IS_ITEM_TAKEN_FROM_SCENE;
-        public static IS_ITEM_OWNED_DELEGATE IS_ITEM_OWNED;
+        public static GET_ITEM_INTERACTION_DELEGATE GET_ITEM_INTERACTION;
         public static GET_SCENARIO_ITEM_LIST_DELEGATE GET_SCENARIO_ITEM_LIST;
-        public static GET_PICKED_ITEM_LIST_DELEGATE GET_PICKED_ITEM_LIST;
         public static SELECT_PICKABLE_ITEM_DELEGATE SELECT_PICKABLE_ITEM;
         public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
+        public static USE_ITEM_DELEGATE USE_ITEM;
         /* > ATG 3 END */
     }
 }

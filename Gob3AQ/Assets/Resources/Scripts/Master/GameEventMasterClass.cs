@@ -65,11 +65,7 @@ namespace Gob3AQ.GameEventMaster
         }
 
 
-        public static void GetItemInteractionService(CharacterType character, GameItem item, out InteractionItemType interaction)
-        {
-            interaction = ItemsInteractionsClass.GetItemInteraction(character, item);
-        }
-
+       
 
         /// <summary>
         /// Based on 64 bit bitfield, gets decomposition of array element and bit position

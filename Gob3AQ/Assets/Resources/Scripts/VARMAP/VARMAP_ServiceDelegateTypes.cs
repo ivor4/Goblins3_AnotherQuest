@@ -18,7 +18,8 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void MONO_REGISTER_DELEGATE(PlayableCharScript mono, bool add);
     public delegate void WP_REGISTER_DELEGATE(WaypointClass wp, bool add);
     public delegate void MOVE_PLAYER_DELEGATE(WaypointClass wp);
-    public delegate void GET_PLAYER_LIST_DELEGATE(ref ReadOnlyList<PlayableCharScript> list);
+    public delegate void SELECT_PLAYER_DELEGATE(CharacterType character);
+    public delegate void GET_PLAYER_LIST_DELEGATE(out ReadOnlyList<PlayableCharScript> list);
     public delegate void GET_NEAREST_WP_DELEGATE(Vector2 pos, float maxradius, out WaypointClass wp);
     public delegate void IS_EVENT_OCCURRED_DELEGATE(GameEvent ev, out bool occurred);
     public delegate void COMMIT_EVENT_DELEGATE(GameEvent ev, bool occurred);
@@ -26,11 +27,11 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void RETAKE_ITEM_EVENT_DELEGATE(GamePickableItem item, bool take);
     public delegate void IS_ITEM_TAKEN_FROM_SCENE_DELEGATE(GamePickableItem item, out bool taken);
     public delegate void IS_ITEM_OWNED_DELEGATE(GamePickableItem item, out CharacterType character);
-    public delegate void INTERACT_ITEM_PLAYER_DELEGATE(GameItem item, WaypointClass wp);
-    public delegate void GET_ITEM_INTERACTION_DELEGATE(CharacterType character, GameItem item, out InteractionItemType interaction);
+    public delegate void INTERACT_PLAYER_ITEM_DELEGATE(GameItem item, WaypointClass wp);
+    public delegate void GET_ITEM_INTERACTION_DELEGATE(in ItemUsage usage, out InteractionItemType interaction);
     public delegate void TAKE_ITEM_DELEGATE(GamePickableItem item, CharacterType character);
-    public delegate void GET_SCENARIO_ITEM_LIST_DELEGATE(ref ReadOnlyList<ItemClass> list);
-    public delegate void GET_PICKED_ITEM_LIST_DELEGATE(ref ReadOnlyList<PickableItemAndOwner> list);
+    public delegate void USE_ITEM_DELEGATE(in ItemUsage usage);
+    public delegate void GET_SCENARIO_ITEM_LIST_DELEGATE(out ReadOnlyList<ItemClass> list);
     public delegate void SELECT_PICKABLE_ITEM_DELEGATE(GamePickableItem item);
     public delegate void CANCEL_PICKABLE_ITEM_DELEGATE();
 

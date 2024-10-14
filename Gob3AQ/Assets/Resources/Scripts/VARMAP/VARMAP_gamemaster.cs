@@ -25,6 +25,7 @@ namespace Gob3AQ.VARMAP.GameMaster
             EXIT_GAME = _EXIT_GAME;
             LOADING_COMPLETED = _LOADING_COMPLETED;
             FREEZE_PLAY = _FREEZE_PLAY;
+            LAST_SERVICE = _LAST_SERVICE;
             /* > ATG 1 END */
         }
 
@@ -50,6 +51,7 @@ namespace Gob3AQ.VARMAP.GameMaster
         public static EXIT_GAME_DELEGATE EXIT_GAME;
         public static LODING_COMPLETED_DELEGATE LOADING_COMPLETED;
         public static FREEZE_PLAY_DELEGATE FREEZE_PLAY;
+        public static EXIT_GAME_DELEGATE LAST_SERVICE;
         /* > ATG 3 END */
     }
 }

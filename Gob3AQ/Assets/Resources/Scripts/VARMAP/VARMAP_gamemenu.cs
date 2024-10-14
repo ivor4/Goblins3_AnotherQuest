@@ -18,6 +18,9 @@ namespace Gob3AQ.VARMAP.GameMenu
             GET_ACTUAL_ROOM = _GET_ACTUAL_ROOM;
             REG_ACTUAL_ROOM = _REG_ACTUAL_ROOM;
             UNREG_ACTUAL_ROOM = _UNREG_ACTUAL_ROOM;
+            GET_ELEM_PICKABLE_ITEM_OWNER = _GET_ELEM_PICKABLE_ITEM_OWNER;
+            GET_SIZE_PICKABLE_ITEM_OWNER = _GET_SIZE_PICKABLE_ITEM_OWNER;
+            GET_ARRAY_PICKABLE_ITEM_OWNER = _GET_ARRAY_PICKABLE_ITEM_OWNER;
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
@@ -28,7 +31,6 @@ namespace Gob3AQ.VARMAP.GameMenu
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
             START_GAME = _START_GAME;
             EXIT_GAME = _EXIT_GAME;
-            GET_PICKED_ITEM_LIST = _GET_PICKED_ITEM_LIST;
             SELECT_PICKABLE_ITEM = _SELECT_PICKABLE_ITEM;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             /* > ATG 1 END */
@@ -44,6 +46,9 @@ namespace Gob3AQ.VARMAP.GameMenu
         public static GetVARMAPValueDelegate<Room> GET_ACTUAL_ROOM;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Room> REG_ACTUAL_ROOM;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Room> UNREG_ACTUAL_ROOM;
+        public static GetVARMAPArrayElemValueDelegate<CharacterType> GET_ELEM_PICKABLE_ITEM_OWNER;
+        public static GetVARMAPArraySizeDelegate GET_SIZE_PICKABLE_ITEM_OWNER;
+        public static GetVARMAPArrayDelegate<CharacterType> GET_ARRAY_PICKABLE_ITEM_OWNER;
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
@@ -58,7 +63,6 @@ namespace Gob3AQ.VARMAP.GameMenu
         /* > ATG 3 START */
         public static START_GAME_DELEGATE START_GAME;
         public static EXIT_GAME_DELEGATE EXIT_GAME;
-        public static GET_PICKED_ITEM_LIST_DELEGATE GET_PICKED_ITEM_LIST;
         public static SELECT_PICKABLE_ITEM_DELEGATE SELECT_PICKABLE_ITEM;
         public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
         /* > ATG 3 END */

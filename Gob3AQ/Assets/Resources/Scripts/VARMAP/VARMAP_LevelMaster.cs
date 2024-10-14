@@ -12,12 +12,14 @@ namespace Gob3AQ.VARMAP.LevelMaster
             GET_GAME_OPTIONS = _GET_GAME_OPTIONS;
             GET_ELAPSED_TIME_MS = _GET_ELAPSED_TIME_MS;
             GET_ACTUAL_ROOM = _GET_ACTUAL_ROOM;
+            GET_ELEM_PICKABLE_ITEM_OWNER = _GET_ELEM_PICKABLE_ITEM_OWNER;
+            GET_SIZE_PICKABLE_ITEM_OWNER = _GET_SIZE_PICKABLE_ITEM_OWNER;
+            GET_ARRAY_PICKABLE_ITEM_OWNER = _GET_ARRAY_PICKABLE_ITEM_OWNER;
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
             GET_PLAYER_SELECTED = _GET_PLAYER_SELECTED;
-            SET_PLAYER_SELECTED = _SET_PLAYER_SELECTED;
             GET_ITEM_MENU_ACTIVE = _GET_ITEM_MENU_ACTIVE;
             SET_ITEM_MENU_ACTIVE = _SET_ITEM_MENU_ACTIVE;
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
@@ -29,15 +31,17 @@ namespace Gob3AQ.VARMAP.LevelMaster
             MONO_REGISTER = _MONO_REGISTER;
             WP_REGISTER = _WP_REGISTER;
             MOVE_PLAYER = _MOVE_PLAYER;
+            SELECT_PLAYER = _SELECT_PLAYER;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
             GET_NEAREST_WP = _GET_NEAREST_WP;
             IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
             TAKE_ITEM = _TAKE_ITEM;
             IS_ITEM_TAKEN_FROM_SCENE = _IS_ITEM_TAKEN_FROM_SCENE;
-            INTERACT_ITEM_PLAYER = _INTERACT_ITEM_PLAYER;
+            INTERACT_PLAYER_ITEM = _INTERACT_PLAYER_ITEM;
             GET_SCENARIO_ITEM_LIST = _GET_SCENARIO_ITEM_LIST;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
+            USE_ITEM = _USE_ITEM;
             /* > ATG 1 END */
         }
 
@@ -48,12 +52,14 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static GetVARMAPValueDelegate<GameOptionsStruct> GET_GAME_OPTIONS;
         public static GetVARMAPValueDelegate<ulong> GET_ELAPSED_TIME_MS;
         public static GetVARMAPValueDelegate<Room> GET_ACTUAL_ROOM;
+        public static GetVARMAPArrayElemValueDelegate<CharacterType> GET_ELEM_PICKABLE_ITEM_OWNER;
+        public static GetVARMAPArraySizeDelegate GET_SIZE_PICKABLE_ITEM_OWNER;
+        public static GetVARMAPArrayDelegate<CharacterType> GET_ARRAY_PICKABLE_ITEM_OWNER;
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
         public static GetVARMAPValueDelegate<MousePropertiesStruct> GET_MOUSE_PROPERTIES;
         public static GetVARMAPValueDelegate<CharacterType> GET_PLAYER_SELECTED;
-        public static SetVARMAPValueDelegate<CharacterType> SET_PLAYER_SELECTED;
         public static GetVARMAPValueDelegate<bool> GET_ITEM_MENU_ACTIVE;
         public static SetVARMAPValueDelegate<bool> SET_ITEM_MENU_ACTIVE;
         public static GetVARMAPValueDelegate<GamePickableItem> GET_PICKABLE_ITEM_CHOSEN;
@@ -69,15 +75,17 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static MONO_REGISTER_DELEGATE MONO_REGISTER;
         public static WP_REGISTER_DELEGATE WP_REGISTER;
         public static MOVE_PLAYER_DELEGATE MOVE_PLAYER;
+        public static SELECT_PLAYER_DELEGATE SELECT_PLAYER;
         public static GET_PLAYER_LIST_DELEGATE GET_PLAYER_LIST;
         public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
         public static IS_EVENT_OCCURRED_DELEGATE IS_EVENT_OCCURRED;
         public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
         public static TAKE_ITEM_DELEGATE TAKE_ITEM;
         public static IS_ITEM_TAKEN_FROM_SCENE_DELEGATE IS_ITEM_TAKEN_FROM_SCENE;
-        public static INTERACT_ITEM_PLAYER_DELEGATE INTERACT_ITEM_PLAYER;
+        public static INTERACT_PLAYER_ITEM_DELEGATE INTERACT_PLAYER_ITEM;
         public static GET_SCENARIO_ITEM_LIST_DELEGATE GET_SCENARIO_ITEM_LIST;
         public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
+        public static USE_ITEM_DELEGATE USE_ITEM;
         /* > ATG 3 END */
     }
 }

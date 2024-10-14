@@ -86,6 +86,8 @@ namespace Gob3AQ.VARMAP.Types
 
     public enum GameItem
     {
+        ITEM_NONE,
+
         ITEM_POTION,
         ITEM_FORK,
 
@@ -94,11 +96,19 @@ namespace Gob3AQ.VARMAP.Types
 
     public enum GamePickableItem
     {
+        ITEM_PICK_NONE,
+
         ITEM_PICK_POTION,
 
-        ITEM_PICK_TOTAL,
+        ITEM_PICK_TOTAL
+    }
 
-        ITEM_PICK_NONE = 0xFFFF
+    public enum ItemUsageType
+    {
+        PLAYER_WITH_ITEM,
+        ITEM_WITH_ITEM,
+        ITEM_WITH_PLAYER,
+        ITEM_WITH_NPC
     }
 
     public enum GameEvent
@@ -107,12 +117,26 @@ namespace Gob3AQ.VARMAP.Types
         GEVENT_TALK_MAN
     }
 
-    public struct PickableItemAndOwner
+    public readonly ref struct ItemUsage
     {
-        public CharacterType character;
-        public GamePickableItem item;
-    }
+        public readonly ItemUsageType type;
+        public readonly CharacterType playerSource;
+        public readonly GameItem itemSource;
+        public readonly CharacterType playerDest;
+        public readonly CharacterType npcDest;
+        public readonly GameItem itemDest;
 
+        public ItemUsage(ItemUsageType type, CharacterType playerSource, GameItem itemSource,
+            CharacterType playerDest, CharacterType npcDest, GameItem itemDest)
+        {
+            this.type = type;
+            this.playerSource = playerSource;
+            this.itemSource = itemSource;
+            this.playerDest = playerDest;
+            this.npcDest = npcDest;
+            this.itemDest = itemDest;
+        }
+    }
 
     public struct MousePropertiesStruct : IStreamable
     {

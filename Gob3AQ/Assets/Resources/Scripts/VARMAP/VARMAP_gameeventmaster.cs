@@ -23,8 +23,6 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             COMMIT_EVENT = _COMMIT_EVENT;
             TAKE_ITEM_FROM_SCENE_EVENT = _TAKE_ITEM_FROM_SCENE_EVENT;
             IS_ITEM_TAKEN_FROM_SCENE = _IS_ITEM_TAKEN_FROM_SCENE;
-            IS_ITEM_OWNED = _IS_ITEM_OWNED;
-            GET_ITEM_INTERACTION = _GET_ITEM_INTERACTION;
             /* > ATG 1 END */
         }
 
@@ -46,8 +44,6 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
         public static TAKE_ITEM_FROM_SCENE_EVENT_DELEGATE TAKE_ITEM_FROM_SCENE_EVENT;
         public static IS_ITEM_TAKEN_FROM_SCENE_DELEGATE IS_ITEM_TAKEN_FROM_SCENE;
-        public static IS_ITEM_OWNED_DELEGATE IS_ITEM_OWNED;
-        public static GET_ITEM_INTERACTION_DELEGATE GET_ITEM_INTERACTION;
         /* > ATG 3 END */
     }
 }

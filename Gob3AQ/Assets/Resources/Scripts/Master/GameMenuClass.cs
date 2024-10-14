@@ -5,6 +5,7 @@ using Gob3AQ.ResourceAtlas;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameMenu.PickableItemDisplay;
 using Gob3AQ.Libs.Arith;
+using System;
 
 namespace Gob3AQ.GameMenu
 {
@@ -150,19 +151,20 @@ namespace Gob3AQ.GameMenu
 
         private static void RefreshItemMenuElements()
         {
-            ReadOnlyList<PickableItemAndOwner> pickedItems = new(null);
-            VARMAP_GameMenu.GET_PICKED_ITEM_LIST(ref pickedItems);
+            ReadOnlySpan<CharacterType> array = VARMAP_GameMenu.GET_ARRAY_PICKABLE_ITEM_OWNER();
             CharacterType selectedChar = VARMAP_GameMenu.GET_PLAYER_SELECTED();
 
-            int pickedTotal = pickedItems.Count;
+
+            /* Ignore first element which is ITEM_NONE */
+            int totalarrayItems = array.Length - 1;
 
             for(int i = 0; i < _displayItemArray.Length; i++)
             {
                 /* If this element has to show a picked item */
-                if((i < pickedTotal)&&(pickedItems[i].character == selectedChar))
+                if((i < totalarrayItems)&&(selectedChar != CharacterType.CHARACTER_NONE)&&(array[i + 1] == selectedChar))
                 {
                     _displayItemArray[i].gameObject.SetActive(true);
-                    _displayItemArray[i].SetDisplayedItem(pickedItems[i].item);
+                    _displayItemArray[i].SetDisplayedItem((GamePickableItem)(i+1));
                 }
                 else
                 {

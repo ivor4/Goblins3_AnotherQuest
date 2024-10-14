@@ -18,6 +18,7 @@ namespace Gob3AQ.GameMenu
         private static bool _prevItemMenuOpened;
         private static bool _loaded;
         private static bool _levelLoaded;
+        private static bool _pendingRefresh;
         private static PickableItemDisplayClass[] _displayItemArray;
         private static Camera _mainCamera;
 
@@ -41,6 +42,7 @@ namespace Gob3AQ.GameMenu
 
                 _loaded = false;
                 _levelLoaded = false;
+                _pendingRefresh = false;
             }
         }
 
@@ -49,6 +51,7 @@ namespace Gob3AQ.GameMenu
             _prevItemMenuOpened = false;
 
             VARMAP_GameMenu.REG_ACTUAL_ROOM(_OnLevelChanged);
+            VARMAP_GameMenu.REG_PICKABLE_ITEM_OWNER(_OnItemOwnerChanged);
         }
 
         
@@ -81,6 +84,7 @@ namespace Gob3AQ.GameMenu
             {
                 _singleton = null;
                 VARMAP_GameMenu.UNREG_ACTUAL_ROOM(_OnLevelChanged);
+                VARMAP_GameMenu.UNREG_PICKABLE_ITEM_OWNER(_OnItemOwnerChanged);
             }
         }
 
@@ -121,7 +125,7 @@ namespace Gob3AQ.GameMenu
 
             if (itemMenuOpened)
             {
-                if (!_prevItemMenuOpened)
+                if ((!_prevItemMenuOpened)||_pendingRefresh)
                 {
                     /* Activate family */
                     _itemMenu.SetActive(true);
@@ -132,7 +136,6 @@ namespace Gob3AQ.GameMenu
                     /* Populate menu */
                     RefreshItemMenuElements();
                 }
-
             }
             else if (_prevItemMenuOpened)
             {
@@ -151,27 +154,41 @@ namespace Gob3AQ.GameMenu
 
         private static void RefreshItemMenuElements()
         {
-            ReadOnlySpan<CharacterType> array = VARMAP_GameMenu.GET_ARRAY_PICKABLE_ITEM_OWNER();
+            ReadOnlySpan<CharacterType> item_owner = VARMAP_GameMenu.GET_ARRAY_PICKABLE_ITEM_OWNER();
             CharacterType selectedChar = VARMAP_GameMenu.GET_PLAYER_SELECTED();
 
 
-            /* Ignore first element which is ITEM_NONE */
-            int totalarrayItems = array.Length - 1;
+            int totalarrayItems = item_owner.Length;
+            int lastFoundItemIndex = 0;
 
+
+            /* Fill all spots with first available item */
             for(int i = 0; i < _displayItemArray.Length; i++)
             {
-                /* If this element has to show a picked item */
-                if((i < totalarrayItems)&&(selectedChar != CharacterType.CHARACTER_NONE)&&(array[i + 1] == selectedChar))
+                bool found = false;
+                if (selectedChar != CharacterType.CHARACTER_NONE)
                 {
-                    _displayItemArray[i].gameObject.SetActive(true);
-                    _displayItemArray[i].SetDisplayedItem((GamePickableItem)(i+1));
+                    for (; (lastFoundItemIndex < totalarrayItems)&&(!found); lastFoundItemIndex++)
+                    {
+                        /* If this element has to show a picked item */
+                        if (item_owner[lastFoundItemIndex] == selectedChar)
+                        {
+                            _displayItemArray[i].gameObject.SetActive(true);
+                            _displayItemArray[i].SetDisplayedItem((GameItem)lastFoundItemIndex);
+                            found = true;
+                        }
+                    }
                 }
-                else
+
+                if(!found)
                 {
                     /* Otherwise keep hidden */
                     _displayItemArray[i].gameObject.SetActive(false);
                 }
+                
             }
+
+            _pendingRefresh = false;
         }
 
         private static void _OnLevelChanged(ChangedEventType evtype, ref Room oldval, ref Room newval)
@@ -184,9 +201,18 @@ namespace Gob3AQ.GameMenu
             _levelLoaded = false;
         }
 
-        private static void OnItemDisplayClick(GamePickableItem item)
+        private static void _OnItemOwnerChanged(ChangedEventType evtype, ref CharacterType oldVal, ref CharacterType newVal)
         {
-            GamePickableItem prevChoosen = VARMAP_GameMenu.GET_PICKABLE_ITEM_CHOSEN();
+            _ = evtype;
+            _ = oldVal;
+            _ = newVal;
+
+            _pendingRefresh = true;
+        }
+
+        private static void OnItemDisplayClick(GameItem item)
+        {
+            GameItem prevChoosen = VARMAP_GameMenu.GET_PICKABLE_ITEM_CHOSEN();
 
             
             if (prevChoosen == item)

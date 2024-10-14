@@ -24,17 +24,16 @@ namespace Gob3AQ.VARMAP.ItemMaster
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
             SET_PICKABLE_ITEM_CHOSEN = _SET_PICKABLE_ITEM_CHOSEN;
             ITEM_REGISTER = _ITEM_REGISTER;
+            ITEM_REMOVE_FROM_SCENE = _ITEM_REMOVE_FROM_SCENE;
             GET_NEAREST_WP = _GET_NEAREST_WP;
             IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
             TAKE_ITEM_FROM_SCENE_EVENT = _TAKE_ITEM_FROM_SCENE_EVENT;
-            TAKE_ITEM = _TAKE_ITEM;
+            USE_ITEM = _USE_ITEM;
             IS_ITEM_TAKEN_FROM_SCENE = _IS_ITEM_TAKEN_FROM_SCENE;
-            GET_ITEM_INTERACTION = _GET_ITEM_INTERACTION;
             GET_SCENARIO_ITEM_LIST = _GET_SCENARIO_ITEM_LIST;
             SELECT_PICKABLE_ITEM = _SELECT_PICKABLE_ITEM;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
-            USE_ITEM = _USE_ITEM;
             /* > ATG 1 END */
         }
 
@@ -51,24 +50,23 @@ namespace Gob3AQ.VARMAP.ItemMaster
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
         public static GetVARMAPValueDelegate<CharacterType> GET_PLAYER_SELECTED;
-        public static GetVARMAPValueDelegate<GamePickableItem> GET_PICKABLE_ITEM_CHOSEN;
-        public static SetVARMAPValueDelegate<GamePickableItem> SET_PICKABLE_ITEM_CHOSEN;
+        public static GetVARMAPValueDelegate<GameItem> GET_PICKABLE_ITEM_CHOSEN;
+        public static SetVARMAPValueDelegate<GameItem> SET_PICKABLE_ITEM_CHOSEN;
         /* > ATG 2 END */
 
         /* SERVICES */
         /* > ATG 3 START */
         public static ITEM_REGISTER_DELEGATE ITEM_REGISTER;
+        public static ITEM_REMOVE_FROM_SCENE_DELEGATE ITEM_REMOVE_FROM_SCENE;
         public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
         public static IS_EVENT_OCCURRED_DELEGATE IS_EVENT_OCCURRED;
         public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
         public static TAKE_ITEM_FROM_SCENE_EVENT_DELEGATE TAKE_ITEM_FROM_SCENE_EVENT;
-        public static TAKE_ITEM_DELEGATE TAKE_ITEM;
+        public static USE_ITEM_DELEGATE USE_ITEM;
         public static IS_ITEM_TAKEN_FROM_SCENE_DELEGATE IS_ITEM_TAKEN_FROM_SCENE;
-        public static GET_ITEM_INTERACTION_DELEGATE GET_ITEM_INTERACTION;
         public static GET_SCENARIO_ITEM_LIST_DELEGATE GET_SCENARIO_ITEM_LIST;
         public static SELECT_PICKABLE_ITEM_DELEGATE SELECT_PICKABLE_ITEM;
         public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
-        public static USE_ITEM_DELEGATE USE_ITEM;
         /* > ATG 3 END */
     }
 }

@@ -2,6 +2,7 @@ using UnityEngine;
 using Gob3AQ.Libs.Arith;
 using System.Collections.Generic;
 using Gob3AQ.VARMAP.Types;
+using Gob3AQ.Brain.ItemsInteraction;
 using System;
 
 namespace Gob3AQ.ResourceAtlas
@@ -36,9 +37,14 @@ namespace Gob3AQ.ResourceAtlas
             return Resources.Load<Sprite>(_SpriteList[(int)spriteId]);
         }
 
-        public static Sprite GetSpriteFromPickableItem(GamePickableItem item)
+        public static Sprite GetAvatarSpriteFromPickableItem(GamePickableItem item)
         {
             return GetSprite(_PickableItemToSpriteId[(int)item]);
+        }
+
+        public static Sprite GetPickableAvatarSpriteFromItem(GameItem item)
+        {
+            return GetSprite(_PickableItemToSpriteId[(int)ItemsInteractionsClass.ITEM_TO_PICKABLE[(int)item]]);
         }
 
         private static readonly SpriteEnum[] _PickableItemToSpriteId = new SpriteEnum[(int)GamePickableItem.ITEM_PICK_TOTAL]

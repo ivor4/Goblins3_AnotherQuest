@@ -62,10 +62,10 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPValueDelegate<bool> _SET_ITEM_MENU_ACTIVE;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<bool> _REG_ITEM_MENU_ACTIVE;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<bool> _UNREG_ITEM_MENU_ACTIVE;
-        protected static GetVARMAPValueDelegate<GamePickableItem> _GET_PICKABLE_ITEM_CHOSEN;
-        protected static SetVARMAPValueDelegate<GamePickableItem> _SET_PICKABLE_ITEM_CHOSEN;
-        protected static ReUnRegisterVARMAPValueChangeEventDelegate<GamePickableItem> _REG_PICKABLE_ITEM_CHOSEN;
-        protected static ReUnRegisterVARMAPValueChangeEventDelegate<GamePickableItem> _UNREG_PICKABLE_ITEM_CHOSEN;
+        protected static GetVARMAPValueDelegate<GameItem> _GET_PICKABLE_ITEM_CHOSEN;
+        protected static SetVARMAPValueDelegate<GameItem> _SET_PICKABLE_ITEM_CHOSEN;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> _REG_PICKABLE_ITEM_CHOSEN;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> _UNREG_PICKABLE_ITEM_CHOSEN;
         /* > ATG 1 END < */
 
         /* All SERVICE Links */
@@ -77,6 +77,7 @@ namespace Gob3AQ.VARMAP
         protected static FREEZE_PLAY_DELEGATE _FREEZE_PLAY;
         protected static NPC_REGISTER_DELEGATE _NPC_REGISTER;
         protected static ITEM_REGISTER_DELEGATE _ITEM_REGISTER;
+        protected static ITEM_REMOVE_FROM_SCENE_DELEGATE _ITEM_REMOVE_FROM_SCENE;
         protected static MONO_REGISTER_DELEGATE _MONO_REGISTER;
         protected static WP_REGISTER_DELEGATE _WP_REGISTER;
         protected static MOVE_PLAYER_DELEGATE _MOVE_PLAYER;
@@ -86,14 +87,12 @@ namespace Gob3AQ.VARMAP
         protected static IS_EVENT_OCCURRED_DELEGATE _IS_EVENT_OCCURRED;
         protected static COMMIT_EVENT_DELEGATE _COMMIT_EVENT;
         protected static TAKE_ITEM_FROM_SCENE_EVENT_DELEGATE _TAKE_ITEM_FROM_SCENE_EVENT;
-        protected static TAKE_ITEM_DELEGATE _TAKE_ITEM;
+        protected static USE_ITEM_DELEGATE _USE_ITEM;
         protected static IS_ITEM_TAKEN_FROM_SCENE_DELEGATE _IS_ITEM_TAKEN_FROM_SCENE;
         protected static INTERACT_PLAYER_ITEM_DELEGATE _INTERACT_PLAYER_ITEM;
-        protected static GET_ITEM_INTERACTION_DELEGATE _GET_ITEM_INTERACTION;
         protected static GET_SCENARIO_ITEM_LIST_DELEGATE _GET_SCENARIO_ITEM_LIST;
         protected static SELECT_PICKABLE_ITEM_DELEGATE _SELECT_PICKABLE_ITEM;
         protected static CANCEL_PICKABLE_ITEM_DELEGATE _CANCEL_PICKABLE_ITEM;
-        protected static USE_ITEM_DELEGATE _USE_ITEM;
         protected static EXIT_GAME_DELEGATE _LAST_SERVICE;
         /* > ATG 2 END < */
         

@@ -14,6 +14,14 @@ namespace Gob3AQ.GameElement.Item
         [SerializeField]
         public GameItem itemID;
 
+        public GameItem ItemID
+        {
+            get
+            {
+                return itemID;
+            }
+        }
+
         public Collider2D Collider
         {
             get
@@ -122,9 +130,8 @@ namespace Gob3AQ.GameElement.Item
             if (!loaded)
             {
                 VARMAP_ItemMaster.GET_NEAREST_WP(transform.position, float.MaxValue, out actualWaypoint);
+                loaded = true;
             }
-
-            loaded = true;
         }
     }
 }

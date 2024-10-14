@@ -8,12 +8,14 @@ namespace Gob3AQ.Brain.ItemsInteraction
     {
         public static ReadOnlySpan<GamePickableItem> ITEM_TO_PICKABLE => _ItemToPickable;
 
+
         private static readonly GamePickableItem[] _ItemToPickable = new GamePickableItem[(int)GameItem.ITEM_TOTAL]
         {
             GamePickableItem.ITEM_PICK_NONE,    /* ITEM_NONE */
             GamePickableItem.ITEM_PICK_POTION,  /* ITEM_POTION */
-            GamePickableItem.ITEM_PICK_NONE     /* ITEM_FORK */
+            GamePickableItem.ITEM_PICK_NONE     /* ITEM_FOUNTAIN */
         };
+
 
         private static readonly InteractionItemType[,] _PlayerWithItemIteraction =
             new InteractionItemType[(int)CharacterType.CHARACTER_TOTAL - 1, (int)GameItem.ITEM_TOTAL - 1]
@@ -21,20 +23,35 @@ namespace Gob3AQ.Brain.ItemsInteraction
                 /* CHARACTER_MAIN */
                 {
                     InteractionItemType.INTERACTION_TAKE,   /* ITEM_POTION */
-                    InteractionItemType.INTERACTION_NONE    /* ITEM_FORK */
+                    InteractionItemType.INTERACTION_NONE    /* ITEM_FOUNTAIN */
                 },
                 /* CHARACTER_PARROT */
                 {
                     InteractionItemType.INTERACTION_NONE,   /* ITEM_POTION */
-                    InteractionItemType.INTERACTION_NONE    /* ITEM_FORK */
+                    InteractionItemType.INTERACTION_NONE    /* ITEM_FOUNTAIN */
                 },
                 /* CHARACTER_SNAKE */
                 {
                     InteractionItemType.INTERACTION_NONE,   /* ITEM_POTION */
-                    InteractionItemType.INTERACTION_NONE    /* ITEM_FORK */
+                    InteractionItemType.INTERACTION_NONE    /* ITEM_FOUNTAIN */
                 }
             };
-        
+
+        private static readonly InteractionItemType[,] _ItemWithItemIteraction =
+            new InteractionItemType[(int)GameItem.ITEM_TOTAL - 1, (int)GameItem.ITEM_TOTAL - 1]
+            {
+                /* ITEM_POTION */
+                {
+                    InteractionItemType.INTERACTION_NONE,  /* ITEM_POTION */
+                    InteractionItemType.INTERACTION_USE    /* ITEM_FOUNTAIN */
+                },
+                /* ITEM_FOUNTAIN */
+                {
+                    InteractionItemType.INTERACTION_NONE,   /* ITEM_POTION */
+                    InteractionItemType.INTERACTION_NONE    /* ITEM_FOUNTAIN */
+                }
+            };
+
 
         public static InteractionItemType GetItemInteraction(in ItemUsage usage)
         {
@@ -50,6 +67,10 @@ namespace Gob3AQ.Brain.ItemsInteraction
                     break;
 
                 case ItemUsageType.ITEM_WITH_ITEM:
+                    if((usage.itemSource != GameItem.ITEM_NONE)&&(usage.itemDest != GameItem.ITEM_NONE))
+                    {
+                        interaction = _ItemWithItemIteraction[(int)usage.itemSource - 1, (int)usage.itemDest - 1];
+                    }
                     break;
                 case ItemUsageType.ITEM_WITH_PLAYER:
                     break;

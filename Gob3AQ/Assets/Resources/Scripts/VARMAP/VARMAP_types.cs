@@ -89,7 +89,7 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_NONE,
 
         ITEM_POTION,
-        ITEM_FORK,
+        ITEM_FOUNTAIN,
 
         ITEM_TOTAL
     }
@@ -117,7 +117,7 @@ namespace Gob3AQ.VARMAP.Types
         GEVENT_TALK_MAN
     }
 
-    public readonly ref struct ItemUsage
+    public readonly struct ItemUsage
     {
         public readonly ItemUsageType type;
         public readonly CharacterType playerSource;

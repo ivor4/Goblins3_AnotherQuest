@@ -89,6 +89,18 @@ namespace Gob3AQ.LevelMaster
             }
         }
 
+        public static void ItemRemoveFromSceneService(GameItem item)
+        {
+            foreach(ItemClass itemclass in _Item_List)
+            {
+                if(itemclass.ItemID == item)
+                {
+                    itemclass.gameObject.SetActive(false);
+                    break;
+                }
+            }
+        }
+
         public static void MonoRegisterService(PlayableCharScript mono, bool add)
         {
             if (add)
@@ -242,12 +254,12 @@ namespace Gob3AQ.LevelMaster
 
         private void UpdateCharItemMouseEvents(ref MousePropertiesStruct mouse)
         {
+            GameItem chosenItem = VARMAP_LevelMaster.GET_PICKABLE_ITEM_CHOSEN();
+
             /* If no items menu or just a menu opened */
             if (mouse.secondaryReleased)
             {
-                GamePickableItem actualItem = VARMAP_LevelMaster.GET_PICKABLE_ITEM_CHOSEN();
-
-                if (actualItem == GamePickableItem.ITEM_PICK_NONE)
+                if (chosenItem == GameItem.ITEM_NONE)
                 {
                     VARMAP_LevelMaster.SET_ITEM_MENU_ACTIVE(true);
                 }
@@ -265,6 +277,8 @@ namespace Gob3AQ.LevelMaster
                 {
                     PlayableCharScript player = _Player_List[i];
                     Collider2D collider = player.Collider;
+
+                    /* TODO: Better this with Physics2D.OverlapCircle against Player layer ??? */
 
                     if (collider.OverlapPoint(mouse.pos1))
                     {
@@ -284,8 +298,24 @@ namespace Gob3AQ.LevelMaster
 
                         if (collider.OverlapPoint(mouse.pos1))
                         {
-                            VARMAP_LevelMaster.INTERACT_PLAYER_ITEM(item.itemID, item.Waypoint);
+                            ItemUsageType usageType;
+                            GameItem itemSource;
 
+                            if(chosenItem == GameItem.ITEM_NONE)
+                            {
+                                usageType = ItemUsageType.PLAYER_WITH_ITEM;
+                                itemSource = GameItem.ITEM_NONE;
+                            }
+                            else
+                            {
+                                usageType = ItemUsageType.ITEM_WITH_ITEM;
+                                itemSource = chosenItem;
+                            }
+
+                            ItemUsage usage = new(usageType, playerSelected, itemSource, CharacterType.CHARACTER_NONE,
+                                CharacterType.CHARACTER_NONE, item.ItemID);
+
+                            VARMAP_LevelMaster.INTERACT_PLAYER_ITEM(in usage, item.Waypoint);
                             consumed = true;
                             break;
                         }

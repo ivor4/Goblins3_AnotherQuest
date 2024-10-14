@@ -5,11 +5,11 @@ using Gob3AQ.FixedConfig;
 using Gob3AQ.Libs.Arith;
 using Gob3AQ.GameElement.PlayableChar;
 using Gob3AQ.Waypoint;
+using Gob3AQ.Brain.ItemsInteraction;
 using System;
 
 namespace Gob3AQ.PlayerMaster
 {
-    
 
     public class PlayerMasterClass : MonoBehaviour
     {
@@ -32,11 +32,11 @@ namespace Gob3AQ.PlayerMaster
             _selectedPlayer = GetActivePlayer();
         }
 
-        public static void InteractPlayerItemService(GameItem item, WaypointClass itemwp)
+        public static void InteractPlayerItemService(in ItemUsage usage, WaypointClass itemwp)
         {
             if (_selectedPlayer != null)
             {
-                _selectedPlayer.ItemInteractRequest(item, itemwp);
+                _selectedPlayer.ItemInteractRequest(in usage, itemwp);
             }
         }
 

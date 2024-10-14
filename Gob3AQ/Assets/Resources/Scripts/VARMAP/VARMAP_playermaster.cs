@@ -34,9 +34,8 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             GET_NEAREST_WP = _GET_NEAREST_WP;
             IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
-            TAKE_ITEM = _TAKE_ITEM;
+            USE_ITEM = _USE_ITEM;
             INTERACT_PLAYER_ITEM = _INTERACT_PLAYER_ITEM;
-            GET_ITEM_INTERACTION = _GET_ITEM_INTERACTION;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             /* > ATG 1 END */
         }
@@ -58,7 +57,7 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         public static SetVARMAPValueDelegate<CharacterType> SET_PLAYER_SELECTED;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<CharacterType> REG_PLAYER_SELECTED;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<CharacterType> UNREG_PLAYER_SELECTED;
-        public static GetVARMAPValueDelegate<GamePickableItem> GET_PICKABLE_ITEM_CHOSEN;
+        public static GetVARMAPValueDelegate<GameItem> GET_PICKABLE_ITEM_CHOSEN;
         /* > ATG 2 END */
 
         /* SERVICES */
@@ -70,9 +69,8 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
         public static IS_EVENT_OCCURRED_DELEGATE IS_EVENT_OCCURRED;
         public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
-        public static TAKE_ITEM_DELEGATE TAKE_ITEM;
+        public static USE_ITEM_DELEGATE USE_ITEM;
         public static INTERACT_PLAYER_ITEM_DELEGATE INTERACT_PLAYER_ITEM;
-        public static GET_ITEM_INTERACTION_DELEGATE GET_ITEM_INTERACTION;
         public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
         /* > ATG 3 END */
     }

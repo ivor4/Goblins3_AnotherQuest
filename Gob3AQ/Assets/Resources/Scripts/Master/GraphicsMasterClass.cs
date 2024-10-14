@@ -169,19 +169,19 @@ namespace Gob3AQ.GraphicsMaster
             }
         }
 
-        private static void _OnPickedItemChanged(ChangedEventType evtype, ref GamePickableItem oldval, ref GamePickableItem newval)
+        private static void _OnPickedItemChanged(ChangedEventType evtype, ref GameItem oldval, ref GameItem newval)
         {
             _ = evtype;
 
             if (newval != oldval)
             {
-                if (newval == GamePickableItem.ITEM_PICK_NONE)
+                if (newval == GameItem.ITEM_NONE)
                 {
                     cursor_spr.sprite = cursor_orig_spr;
                 }
                 else
                 {
-                    cursor_spr.sprite = ResourceAtlasClass.GetSpriteFromPickableItem(newval);
+                    cursor_spr.sprite = ResourceAtlasClass.GetPickableAvatarSpriteFromItem(newval);
                 }
             }
         }

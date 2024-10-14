@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEditor;
+using Gob3AQ.PlayerMaster;
 using Gob3AQ.VARMAP.PlayerMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.FixedConfig;
@@ -22,11 +23,10 @@ namespace Gob3AQ.GameElement.PlayableChar
         PHYSICAL_STATE_WALKING = 0x4
     }
 
-    public enum BufferedInteraction
+    public struct BufferedData
     {
-        BUFFERED_INT_NONE,
-        BUFFERED_INT_PLAYER__SCENE_ITEM,
-        BUFFERED_INT_TALK
+        public bool pending;
+        public ItemUsage usage;
     }
 
 
@@ -57,8 +57,7 @@ namespace Gob3AQ.GameElement.PlayableChar
         private bool loaded;
         private WaypointClass actualWaypoint;
         private WaypointProgrammedPath actualProgrammedPath;
-        private GameItem bufferedInteractionItem;
-        private BufferedInteraction bufferedInteraction;
+        private BufferedData bufferedData;
 
         /// <summary>
         /// This is a preallocated list to avoid unnecessary allocs when asking for a calculated solution
@@ -88,11 +87,11 @@ namespace Gob3AQ.GameElement.PlayableChar
                 }
 
                 /* Cancel interaction which could be ongoing */
-                bufferedInteraction = BufferedInteraction.BUFFERED_INT_NONE;
+                bufferedData.pending = false;
             }
         }
 
-        public void ItemInteractRequest(GameItem item, WaypointClass itemwp)
+        public void ItemInteractRequest(in ItemUsage usage, WaypointClass itemwp)
         {
             /* Interact only if not talking or doing an action */
             if ((physicalstate & (PhysicalState.PHYSICAL_STATE_TALKING | PhysicalState.PHYSICAL_STATE_ACTING)) == 0)
@@ -106,8 +105,9 @@ namespace Gob3AQ.GameElement.PlayableChar
                 }
                 else
                 {
-                    bufferedInteractionItem = item;
-                    bufferedInteraction = BufferedInteraction.BUFFERED_INT_PLAYER__SCENE_ITEM;
+                    bufferedData.usage = usage;
+                    bufferedData.pending = true;
+
 
                     actualProgrammedPath = new WaypointProgrammedPath(solution);
                     physicalstate = PhysicalState.PHYSICAL_STATE_WALKING; 
@@ -137,7 +137,7 @@ namespace Gob3AQ.GameElement.PlayableChar
             physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
             selected = false;
             loaded = false;
-            bufferedInteraction = BufferedInteraction.BUFFERED_INT_NONE;
+            bufferedData.pending = false;
 
             VARMAP_PlayerMaster.MONO_REGISTER(this, true);
             VARMAP_PlayerMaster.REG_PLAYER_SELECTED(ChangedSelectedPlayerEvent);
@@ -252,31 +252,14 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         private void StartBufferedInteraction()
         {
-
             /* Now interact if buffered */
-            switch (bufferedInteraction)
+            if (bufferedData.pending)
             {
-                case BufferedInteraction.BUFFERED_INT_PLAYER__SCENE_ITEM:
+                VARMAP_PlayerMaster.USE_ITEM(in bufferedData.usage, out InteractionItemType permitted);
 
-                    ItemUsage usage = new(ItemUsageType.PLAYER_WITH_ITEM, charType, GameItem.ITEM_NONE,
-                    CharacterType.CHARACTER_NONE, CharacterType.CHARACTER_NONE, bufferedInteractionItem);
-
-                    VARMAP_PlayerMaster.GET_ITEM_INTERACTION(in usage, out InteractionItemType permittedInteraction);
-
-                    if(permittedInteraction == InteractionItemType.INTERACTION_TAKE)
-                    {
-                        GamePickableItem pickable = ItemsInteractionsClass.ITEM_TO_PICKABLE[(int)bufferedInteractionItem];
-                        VARMAP_PlayerMaster.TAKE_ITEM(pickable, charType);
-                    }
-
-                    break;
-
-                default:
-                    break;
+                /* Clear */
+                bufferedData.pending = false;
             }
-
-            /* Clear */
-            bufferedInteraction = BufferedInteraction.BUFFERED_INT_NONE;
         }
 
         #endregion

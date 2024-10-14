@@ -41,9 +41,9 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
         public static GetVARMAPValueDelegate<MousePropertiesStruct> GET_MOUSE_PROPERTIES;
         public static GetVARMAPValueDelegate<Vector3Struct> GET_PLAYER_POSITION;
         public static GetVARMAPValueDelegate<bool> GET_ITEM_MENU_ACTIVE;
-        public static GetVARMAPValueDelegate<GamePickableItem> GET_PICKABLE_ITEM_CHOSEN;
-        public static ReUnRegisterVARMAPValueChangeEventDelegate<GamePickableItem> REG_PICKABLE_ITEM_CHOSEN;
-        public static ReUnRegisterVARMAPValueChangeEventDelegate<GamePickableItem> UNREG_PICKABLE_ITEM_CHOSEN;
+        public static GetVARMAPValueDelegate<GameItem> GET_PICKABLE_ITEM_CHOSEN;
+        public static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> REG_PICKABLE_ITEM_CHOSEN;
+        public static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> UNREG_PICKABLE_ITEM_CHOSEN;
         /* > ATG 2 END */
 
         /* SERVICES */

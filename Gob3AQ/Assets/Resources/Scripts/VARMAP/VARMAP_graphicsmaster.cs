@@ -25,6 +25,7 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
             REG_PICKABLE_ITEM_CHOSEN = _REG_PICKABLE_ITEM_CHOSEN;
             UNREG_PICKABLE_ITEM_CHOSEN = _UNREG_PICKABLE_ITEM_CHOSEN;
+            LATE_START_SUBSCRIPTION = _LATE_START_SUBSCRIPTION;
             /* > ATG 1 END */
         }
 
@@ -48,6 +49,7 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
 
         /* SERVICES */
         /* > ATG 3 START */
+        public static LATE_START_SUBSCRIPTION_DELEGATE LATE_START_SUBSCRIPTION;
         /* > ATG 3 END */
     }
 }

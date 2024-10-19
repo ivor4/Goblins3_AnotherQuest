@@ -13,11 +13,12 @@ namespace Gob3AQ.InputMaster
     public class InputMasterClass : MonoBehaviour
     {
         private static InputMasterClass _singleton;
-        private KeyOptions cachedKeyOptions;
-        private KeyStruct cachedPressedKeys;
-        private KeyFunctions accumulatedDownkeys;
-        private MousePropertiesStruct cachedMouseProps;
-        private float ellapsedMillis;
+        private static KeyOptions cachedKeyOptions;
+        private static KeyStruct cachedPressedKeys;
+        private static KeyFunctions accumulatedDownkeys;
+        private static MousePropertiesStruct cachedMouseProps;
+        private static float ellapsedMillis;
+        private static Camera mainCamera;
 
 
         private void Awake()
@@ -41,6 +42,7 @@ namespace Gob3AQ.InputMaster
             cachedMouseProps = VARMAP_DefaultValues.MouseProperties_Default;
             ellapsedMillis = 0f;
             accumulatedDownkeys = 0;
+            mainCamera = Camera.main;
 
 
             VARMAP_InputMaster.REG_GAME_OPTIONS(_GameOptionsChanged);
@@ -90,7 +92,7 @@ namespace Gob3AQ.InputMaster
                 bool mousenowpressed = Input.GetMouseButton(0);
                 bool secmousenowpressed = Input.GetMouseButton(1);
 
-                Vector2 mouseWorld = Camera.main.ScreenToWorldPoint(mousePosition);
+                Vector2 mouseWorld = mainCamera.ScreenToWorldPoint(mousePosition);
 
                 cachedMouseProps.primaryPressed = (!cachedMouseProps.primaryPressing) & mousenowpressed;
                 cachedMouseProps.primaryReleased = cachedMouseProps.primaryPressing & (!mousenowpressed);
@@ -132,15 +134,15 @@ namespace Gob3AQ.InputMaster
         {
             if (evtype == ChangedEventType.CHANGED_EVENT_SET)
             {
-                _singleton.cachedKeyOptions = newval.keyOptions;
+                cachedKeyOptions = newval.keyOptions;
             }
         }
 
         public static void ResetPressedKeysService()
         {
-            _singleton.cachedPressedKeys.pressedKeys = 0;
-            _singleton.cachedPressedKeys.cyclepressedKeys = 0;
-            _singleton.cachedPressedKeys.cyclereleasedKeys = 0;
+            cachedPressedKeys.pressedKeys = 0;
+            cachedPressedKeys.cyclepressedKeys = 0;
+            cachedPressedKeys.cyclereleasedKeys = 0;
         }
 
         private void OnDestroy()

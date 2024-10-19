@@ -20,6 +20,7 @@ namespace Gob3AQ.VARMAP.InputMaster
             SET_PRESSED_KEYS = _SET_PRESSED_KEYS;
             GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
             SET_MOUSE_PROPERTIES = _SET_MOUSE_PROPERTIES;
+            LATE_START_SUBSCRIPTION = _LATE_START_SUBSCRIPTION;
             /* > ATG 1 END */
         }
 
@@ -39,6 +40,7 @@ namespace Gob3AQ.VARMAP.InputMaster
 
         /* SERVICES */
         /* > ATG 3 START */
+        public static LATE_START_SUBSCRIPTION_DELEGATE LATE_START_SUBSCRIPTION;
         /* > ATG 3 END */
     }
 }

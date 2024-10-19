@@ -40,22 +40,19 @@ namespace Gob3AQ.Waypoint
 
         public List<WaypointConnection> Connections => connections;
 
-        private bool lateStartExecuted;
 
 
 
-        public void Awake()
+        void Awake()
         {
             connections = new List<WaypointConnection>();
-
-            lateStartExecuted = false;
 
             indexInNetwork = -1;
 
             network = null;
         }
 
-        public void Start()
+        void Start()
         {
             /* Make connection of preloaded connections */
             if ((PreloadConnections != null) && (PreloadConnections.Count > 0))
@@ -64,6 +61,12 @@ namespace Gob3AQ.Waypoint
                 {
                     ConnectPoint(PreloadConnections[i].withWaypoint, PreloadConnections[i].type);
                 }
+            }
+
+            /* Subscribe only if this WP will create the whole Network */
+            if (CreateNetwork)
+            {
+                VARMAP_LevelMaster.LATE_START_SUBSCRIPTION(LateStart, true);
             }
 
 
@@ -76,47 +79,32 @@ namespace Gob3AQ.Waypoint
         /// This function could be executed cyclic until all conditions are given
         /// </summary>
         /// <returns>TRUE if ended</returns>
-        public bool LateStart()
+        public void LateStart()
         {
-            bool done = false;
-
-            if (CreateNetwork)
+            if (network == null)
             {
-                if (network == null)
-                {
-                    /* This will set network variable */
-                    WaypointNetwork wpnet = new WaypointNetwork();
-                    wpnet.AddWaypointAndItsBranch(this);
-                }
-
-                /* This could also be valid just after above assign */
-                if (network != null)
-                {
-                    DateTime before = DateTime.Now;
-                    network.CalculatePaths();
-                    DateTime after = DateTime.Now;
-
-                    TimeSpan duration = after.Subtract(before);
-
-                    Debug.LogWarning("Dijkstra operation lasted: " + duration.Milliseconds + "ms");
-
-                    done = true;
-                }
-            }
-            else
-            {
-                done = true;
+                /* This will set network variable */
+                WaypointNetwork wpnet = new WaypointNetwork();
+                wpnet.AddWaypointAndItsBranch(this);
             }
 
-            return done;
+            /* This could also be valid just after above assign */
+            if (network != null)
+            {
+                DateTime before = DateTime.Now;
+                network.CalculatePaths();
+                DateTime after = DateTime.Now;
+
+                TimeSpan duration = after.Subtract(before);
+
+                Debug.LogWarning("Dijkstra operation lasted: " + duration.Milliseconds + "ms");
+            }
         }
 
-        public void Update()
+
+        void OnDestroy()
         {
-            if (!lateStartExecuted)
-            {
-                lateStartExecuted = LateStart();
-            }
+            VARMAP_LevelMaster.LATE_START_SUBSCRIPTION(LateStart, false);
         }
 
         public void ResetNetoworkAndConnections()

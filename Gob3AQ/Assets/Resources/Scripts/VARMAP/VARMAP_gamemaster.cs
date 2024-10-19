@@ -23,6 +23,7 @@ namespace Gob3AQ.VARMAP.GameMaster
             START_GAME = _START_GAME;
             LOAD_ROOM = _LOAD_ROOM;
             EXIT_GAME = _EXIT_GAME;
+            LATE_START_SUBSCRIPTION = _LATE_START_SUBSCRIPTION;
             LOADING_COMPLETED = _LOADING_COMPLETED;
             FREEZE_PLAY = _FREEZE_PLAY;
             LAST_SERVICE = _LAST_SERVICE;
@@ -49,6 +50,7 @@ namespace Gob3AQ.VARMAP.GameMaster
         public static START_GAME_DELEGATE START_GAME;
         public static LOAD_ROOM_DELEGATE LOAD_ROOM;
         public static EXIT_GAME_DELEGATE EXIT_GAME;
+        public static LATE_START_SUBSCRIPTION_DELEGATE LATE_START_SUBSCRIPTION;
         public static LODING_COMPLETED_DELEGATE LOADING_COMPLETED;
         public static FREEZE_PLAY_DELEGATE FREEZE_PLAY;
         public static EXIT_GAME_DELEGATE LAST_SERVICE;

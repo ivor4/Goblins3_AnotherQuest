@@ -16,7 +16,8 @@ namespace Gob3AQ.GameMaster
     {
         private static GameMasterClass _singleton;
         private static Game_Status prevPauseStatus;
-
+        private static LATE_START_CALL_DELEGATE _lateStartSubscibers;
+        private static int firstFrameOfScenePending;
 
         void Awake()
         {
@@ -27,6 +28,7 @@ namespace Gob3AQ.GameMaster
             else
             {
                 _singleton = this;
+                firstFrameOfScenePending = -1;
                 DontDestroyOnLoad(gameObject);
 
                 /* Initialize VARMAP once for all the game */
@@ -41,6 +43,16 @@ namespace Gob3AQ.GameMaster
             bool pausePressed;
             Game_Status gstatus = VARMAP_GameMaster.GET_GAMESTATUS();
             KeyStruct kstruct = VARMAP_GameMaster.GET_PRESSED_KEYS();
+
+            /* Call late update subscribers */
+            if(firstFrameOfScenePending >= 0)
+            {
+                if (firstFrameOfScenePending == 0)
+                {
+                    _lateStartSubscibers?.Invoke();
+                }
+                --firstFrameOfScenePending;
+            }
             
 
             pausePressed = (kstruct.cyclepressedKeys & KeyFunctions.KEYFUNC_PAUSE) != KeyFunctions.KEYFUNC_NONE;
@@ -132,6 +144,7 @@ namespace Gob3AQ.GameMaster
             {
                 VARMAP_GameMaster.SET_ACTUAL_ROOM(room);
                 _SetGameStatus(Game_Status.GAME_STATUS_LOADING);
+                firstFrameOfScenePending = 1;
 
                 SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
             }
@@ -187,6 +200,18 @@ namespace Gob3AQ.GameMaster
             else
             {
                 error = true;
+            }
+        }
+
+        public static void LateStartSubrsciptionService(LATE_START_CALL_DELEGATE callable, bool add)
+        {
+            if (add)
+            {
+                _lateStartSubscibers += callable;
+            }
+            else
+            {
+                _lateStartSubscibers -= callable;
             }
         }
 

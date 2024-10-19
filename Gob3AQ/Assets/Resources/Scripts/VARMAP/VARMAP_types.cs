@@ -17,6 +17,7 @@ namespace Gob3AQ.VARMAP.Types
     public delegate int GetVARMAPArraySizeDelegate();
     public delegate ReadOnlySpan<T> GetVARMAPArrayDelegate<T>();
     public delegate void SetVARMAPArrayDelegate<T>(List<T> newvals);
+    public delegate void LATE_START_CALL_DELEGATE();
 
 
     public enum ChangedEventType

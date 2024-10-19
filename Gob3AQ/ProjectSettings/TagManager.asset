@@ -14,8 +14,8 @@ TagManager:
   - WPLayer
   - ItemLayer
   - MenuItem
-  - 
-  - 
+  - PlayerLayer
+  - NPCLayer
   - 
   - 
   - 

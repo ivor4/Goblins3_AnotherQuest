@@ -15,6 +15,50 @@ namespace Gob3AQ.LevelMaster
 {
     public class LevelMasterClass : MonoBehaviour
     {
+        private enum MouseActiveElemsType
+        {
+            MELEMS_PLAYER,
+            MELEMS_ITEM,
+            MELEMS_NPC
+        }
+
+        private class MouseActiveElems
+        {
+            public MouseActiveElemsType type;
+            public PlayableCharScript player;
+            public NPCMasterClass npc;
+            public ItemClass item;
+
+            public MouseActiveElems(PlayableCharScript player)
+            {
+                type = MouseActiveElemsType.MELEMS_PLAYER;
+                this.player = player;
+                this.npc = null;
+                this.item = null;
+            }
+
+            public MouseActiveElems(NPCMasterClass npc)
+            {
+                type = MouseActiveElemsType.MELEMS_NPC;
+                this.player = null;
+                this.npc = npc;
+                this.item = null;
+            }
+
+            public MouseActiveElems(ItemClass item)
+            {
+                type = MouseActiveElemsType.MELEMS_ITEM;
+                this.player = null;
+                this.npc = null;
+                this.item = item;
+            }
+        }
+
+        private static Dictionary<Collider2D, MouseActiveElems> _ColliderReference;
+        private static RaycastHit2D[] _HitArray;
+        private static int _LayerOnlyPlayers;
+        private static int _LayerPlayersAndItemsNPC;
+
         private static LevelMasterClass _singleton;
 
         private static List<WaypointClass> _WP_List;
@@ -24,8 +68,6 @@ namespace Gob3AQ.LevelMaster
 
 
         private int loadpercentage;
-
-        private LayerMask WPLayerMask;
 
         #region "Services"
 
@@ -70,9 +112,12 @@ namespace Gob3AQ.LevelMaster
             if (register)
             {
                 _NPC_List.Add(instance);
+                MouseActiveElems melems = new(instance);
+                _ColliderReference.Add(instance.Collider, melems);
             }
             else
             {
+                _ColliderReference.Remove(instance.Collider);
                 _NPC_List.Remove(instance);
             }
         }
@@ -82,9 +127,12 @@ namespace Gob3AQ.LevelMaster
             if (register)
             {
                 _Item_List.Add(instance);
+                MouseActiveElems melems = new(instance);
+                _ColliderReference.Add(instance.Collider, melems);
             }
             else
             {
+                _ColliderReference.Remove(instance.Collider);
                 _Item_List.Remove(instance);
             }
         }
@@ -106,9 +154,12 @@ namespace Gob3AQ.LevelMaster
             if (add)
             {
                 _Player_List.Add(mono);
+                MouseActiveElems melems = new(mono);
+                _ColliderReference.Add(mono.Collider, melems);
             }
             else
             {
+                _ColliderReference.Remove(mono.Collider);
                 _Player_List.Remove(mono);
             }
         }
@@ -201,7 +252,12 @@ namespace Gob3AQ.LevelMaster
             _WP_List = new List<WaypointClass>(GameFixedConfig.MAX_LEVEL_WAYPOINTS);
             _Item_List = new List<ItemClass>(GameFixedConfig.MAX_POOLED_ENEMIES);
 
-            WPLayerMask.value = LayerMask.NameToLayer("WPLayer");
+            _ColliderReference = new Dictionary<Collider2D, MouseActiveElems>(GameFixedConfig.MAX_LEVEL_WAYPOINTS);
+            _HitArray = new RaycastHit2D[GameFixedConfig.MAX_LEVEL_PLAYABLE_CHARACTERS];
+
+
+            _LayerOnlyPlayers = 0x1 << LayerMask.NameToLayer("PlayerLayer");
+            _LayerPlayersAndItemsNPC = _LayerOnlyPlayers | (0x1 << LayerMask.NameToLayer("ItemLayer")) | (0x1 << LayerMask.NameToLayer("NPCLayer"));
         }
 
 
@@ -271,37 +327,53 @@ namespace Gob3AQ.LevelMaster
             else if (mouse.primaryReleased)
             {
                 CharacterType playerSelected = VARMAP_LevelMaster.GET_PLAYER_SELECTED();
-                bool consumed = false;
+                int layerMask;
 
-                for (int i = 0; i < _Player_List.Count; ++i)
+                if(playerSelected == CharacterType.CHARACTER_NONE)
                 {
-                    PlayableCharScript player = _Player_List[i];
-                    Collider2D collider = player.Collider;
+                    layerMask = _LayerOnlyPlayers;
+                }
+                else
+                {
+                    layerMask = _LayerPlayersAndItemsNPC;
+                }
 
-                    /* TODO: Better this with Physics2D.OverlapCircle against Player layer ??? */
+                int hits = Physics2D.RaycastNonAlloc(mouse.pos1, Vector2.zero, _HitArray, float.PositiveInfinity, layerMask);
+                MouseActiveElems candidateMelems = null;
 
-                    if (collider.OverlapPoint(mouse.pos1))
+
+                /* Give first priority to player selection, then items, then npcs */
+                for (int i = 0; i < hits; i++)
+                {
+                    MouseActiveElems melems = _ColliderReference[_HitArray[i].collider];
+
+                    if (candidateMelems != null)
                     {
-                        VARMAP_LevelMaster.SELECT_PLAYER(player.charType);
-                        consumed = true;
-                        break;
+                        /* Lower type index, higher priority */
+                        if (melems.type < candidateMelems.type)
+                        {
+                            candidateMelems = melems;
+                        }
+                    }
+                    else
+                    {
+                        candidateMelems = melems;
                     }
                 }
 
-                if ((playerSelected != CharacterType.CHARACTER_NONE) && (!consumed))
+                /* Selected player or item */
+                if(candidateMelems != null)
                 {
-                    /* Proceed with items/NPCs if event has not been consumed */
-                    for (int i = 0; i < _Item_List.Count; ++i)
+                    switch(candidateMelems.type)
                     {
-                        ItemClass item = _Item_List[i];
-                        Collider2D collider = item.Collider;
-
-                        if (collider.OverlapPoint(mouse.pos1))
-                        {
+                        case MouseActiveElemsType.MELEMS_PLAYER:
+                            VARMAP_LevelMaster.SELECT_PLAYER(candidateMelems.player.charType);
+                            break;
+                        case MouseActiveElemsType.MELEMS_ITEM:
                             ItemUsageType usageType;
                             GameItem itemSource;
 
-                            if(chosenItem == GameItem.ITEM_NONE)
+                            if (chosenItem == GameItem.ITEM_NONE)
                             {
                                 usageType = ItemUsageType.PLAYER_WITH_ITEM;
                                 itemSource = GameItem.ITEM_NONE;
@@ -313,34 +385,19 @@ namespace Gob3AQ.LevelMaster
                             }
 
                             ItemUsage usage = new(usageType, playerSelected, itemSource, CharacterType.CHARACTER_NONE,
-                                CharacterType.CHARACTER_NONE, item.ItemID);
+                                CharacterType.CHARACTER_NONE, candidateMelems.item.ItemID);
 
-                            VARMAP_LevelMaster.INTERACT_PLAYER_ITEM(in usage, item.Waypoint);
-                            consumed = true;
+                            VARMAP_LevelMaster.INTERACT_PLAYER_ITEM(in usage, candidateMelems.item.Waypoint);
                             break;
-                        }
-                    }
-
-                    if (!consumed)
-                    {
-                        for (int i = 0; i < _NPC_List.Count; ++i)
-                        {
-                            NPCMasterClass npc = _NPC_List[i];
-                            Collider2D collider = npc.Collider;
-
-                            if (collider.OverlapPoint(mouse.pos1))
-                            {
-                                consumed = true;
-                                break;
-                            }
-                        }
                     }
                 }
-
-                /* Make player move */
-                if ((!consumed) && (playerSelected != CharacterType.CHARACTER_NONE))
+                else if(playerSelected != CharacterType.CHARACTER_NONE)
                 {
                     CheckPlayerMovementOrder(ref mouse);
+                }
+                else
+                {
+                    /* Nothing interesting */
                 }
             }
             else

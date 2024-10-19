@@ -73,6 +73,7 @@ namespace Gob3AQ.VARMAP
         protected static START_GAME_DELEGATE _START_GAME;
         protected static LOAD_ROOM_DELEGATE _LOAD_ROOM;
         protected static EXIT_GAME_DELEGATE _EXIT_GAME;
+        protected static LATE_START_SUBSCRIPTION_DELEGATE _LATE_START_SUBSCRIPTION;
         protected static LODING_COMPLETED_DELEGATE _LOADING_COMPLETED;
         protected static FREEZE_PLAY_DELEGATE _FREEZE_PLAY;
         protected static NPC_REGISTER_DELEGATE _NPC_REGISTER;

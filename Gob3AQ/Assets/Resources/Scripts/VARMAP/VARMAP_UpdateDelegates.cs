@@ -86,6 +86,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _START_GAME = GameMasterClass.StartGameService;
             _LOAD_ROOM = GameMasterClass.LoadRoomService;
             _EXIT_GAME = GameMasterClass.ExitGameService;
+            _LATE_START_SUBSCRIPTION = GameMasterClass.LateStartSubrsciptionService;
             _LOADING_COMPLETED = GameMasterClass.LoadingCompletedService;
             _FREEZE_PLAY = GameMasterClass.FreezePlayService;
             _NPC_REGISTER = LevelMasterClass.NPCRegisterService;

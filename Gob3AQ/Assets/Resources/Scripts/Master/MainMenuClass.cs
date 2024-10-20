@@ -32,9 +32,14 @@ namespace Gob3AQ.MainMenu
             {
                 VARMAP_GameMenu.START_GAME(out _);
             }
-           
 
-            
+            if (GUILayout.Button("Load Game"))
+            {
+                VARMAP_GameMenu.LOAD_GAME();
+            }
+
+
+
             GUILayout.EndVertical();
             GUILayout.EndHorizontal();
 

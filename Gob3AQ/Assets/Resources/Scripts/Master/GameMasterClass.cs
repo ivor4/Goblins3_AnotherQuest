@@ -156,6 +156,19 @@ namespace Gob3AQ.GameMaster
             LoadRoomService(Room.ROOM_1_ORIGIN, out error);
         }
 
+        public static void SaveGameService()
+        {
+            VARMAP_Initialization.SaveVARMAPData();
+        }
+
+        public static void LoadGameService()
+        {
+            VARMAP_Initialization.ResetVARMAP();
+            VARMAP_Initialization.LoadVARMAPData();
+
+            LoadRoomService(VARMAP_GameMaster.GET_ACTUAL_ROOM(), out _);
+        }
+
 
         public static void LoadingCompletedService(out bool error)
         {

@@ -84,6 +84,8 @@ namespace Gob3AQ.VARMAP.Initialization
             /* All Service Links */
             /* > ATG 2 START */
             _START_GAME = GameMasterClass.StartGameService;
+            _SAVE_GAME = GameMasterClass.SaveGameService;
+            _LOAD_GAME = GameMasterClass.LoadGameService;
             _LOAD_ROOM = GameMasterClass.LoadRoomService;
             _EXIT_GAME = GameMasterClass.ExitGameService;
             _LATE_START_SUBSCRIPTION = GameMasterClass.LateStartSubrsciptionService;

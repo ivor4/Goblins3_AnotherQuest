@@ -21,6 +21,8 @@ namespace Gob3AQ.VARMAP.GameMaster
             GET_PRESSED_KEYS = _GET_PRESSED_KEYS;
             GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
             START_GAME = _START_GAME;
+            SAVE_GAME = _SAVE_GAME;
+            LOAD_GAME = _LOAD_GAME;
             LOAD_ROOM = _LOAD_ROOM;
             EXIT_GAME = _EXIT_GAME;
             LATE_START_SUBSCRIPTION = _LATE_START_SUBSCRIPTION;
@@ -48,6 +50,8 @@ namespace Gob3AQ.VARMAP.GameMaster
         /* SERVICES */
         /* > ATG 3 START */
         public static START_GAME_DELEGATE START_GAME;
+        public static SAVE_GAME_DELEGATE SAVE_GAME;
+        public static LOAD_GAME_DELEGATE LOAD_GAME;
         public static LOAD_ROOM_DELEGATE LOAD_ROOM;
         public static EXIT_GAME_DELEGATE EXIT_GAME;
         public static LATE_START_SUBSCRIPTION_DELEGATE LATE_START_SUBSCRIPTION;

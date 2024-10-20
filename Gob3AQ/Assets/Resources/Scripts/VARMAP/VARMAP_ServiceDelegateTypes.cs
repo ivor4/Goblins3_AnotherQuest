@@ -9,6 +9,8 @@ using System;
 namespace Gob3AQ.VARMAP.Types.Delegates
 {
     public delegate void START_GAME_DELEGATE(out bool error);
+    public delegate void SAVE_GAME_DELEGATE();
+    public delegate void LOAD_GAME_DELEGATE();
     public delegate void LOAD_ROOM_DELEGATE(Room room, out bool error);
     public delegate void EXIT_GAME_DELEGATE(out bool error);
     public delegate void LATE_START_SUBSCRIPTION_DELEGATE(LATE_START_CALL_DELEGATE callable, bool add);

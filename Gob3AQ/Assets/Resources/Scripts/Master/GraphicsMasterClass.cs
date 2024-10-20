@@ -24,6 +24,7 @@ namespace Gob3AQ.GraphicsMaster
         private static Bounds _cameraCenterLimitBounds;
         private static Bounds _cameraBounds;
         
+        
         private static Camera mainCamera;
         private static Transform mainCameraTransform;
         private static GameObject cursor;
@@ -45,8 +46,6 @@ namespace Gob3AQ.GraphicsMaster
                 cursor_orig_spr = cursor_spr.sprite;
                 background_spr = background.GetComponent<SpriteRenderer>();
                 _levelBounds = background_spr.bounds;
-
-                
             }
 
         }
@@ -77,7 +76,7 @@ namespace Gob3AQ.GraphicsMaster
 
             MousePropertiesStruct mouse = VARMAP_GraphicsMaster.GET_MOUSE_PROPERTIES();
 
-            Vector2 screenzone = new Vector2((float)mouse.posPixels.x / Screen.width, (float)mouse.posPixels.y / Screen.height);
+            Vector2 screenzone = new Vector2((float)mouse.posPixels.x / Screen.safeArea.width, (float)mouse.posPixels.y / Screen.safeArea.height);
 
             switch (gstatus)
             {
@@ -89,6 +88,7 @@ namespace Gob3AQ.GraphicsMaster
                     break;
             }
         }
+
 
 
         private void OnDestroy()

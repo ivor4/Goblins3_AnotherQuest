@@ -33,7 +33,7 @@ namespace Gob3AQ.FixedConfig
         public static readonly Color SUN_COLOR_OTHERWORLD = Color.blue;
 
         /* Graphics - Mouse */
-        public const float MENU_TOP_SCREEN_HEIGHT_PERCENT = 0.1f;
+        public const float MENU_TOP_SCREEN_HEIGHT_PERCENT = 0.05f;
         public const float GAME_ZONE_HEIGHT_PERCENT = 1.0f - MENU_TOP_SCREEN_HEIGHT_PERCENT;
         public const float GAME_ZONE_HEIGHT_FACTOR = 1.0f / GAME_ZONE_HEIGHT_PERCENT;
         public const float GAME_ZONE_CURSOR_MOVE_CAMERA_FACTOR = 0.1f;
@@ -54,7 +54,7 @@ namespace Gob3AQ.FixedConfig
 
 
         /* Scenes */
-        public const string ROOM_MAINMENU = "MainMenu";
+        public const string ROOM_MAINMENU = "Boot";
         private static readonly string[] _ROOM_TO_SCENE_NAME =
         {
             "",

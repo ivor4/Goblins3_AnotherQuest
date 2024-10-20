@@ -1,5 +1,7 @@
 N,SERVICE_ID,SPECIAL_DELEGATE,SERVICE_ROUTE,,GameMaster,InputMaster,LevelMaster,GraphicsMaster,GameMenu,PlayerMaster,NPCMaster,ItemMaster,GameEventMaster
 0,START_GAME,START_GAME_DELEGATE,GameMasterClass.StartGameService,,W,-,-,-,X,-,-,-,-
+1,SAVE_GAME,SAVE_GAME_DELEGATE,GameMasterClass.SaveGameService,,W,-,X,-,X,-,-,-,-
+2,LOAD_GAME,LOAD_GAME_DELEGATE,GameMasterClass.LoadGameService,,W,-,-,-,X,-,-,-,-
 1,LOAD_ROOM,LOAD_ROOM_DELEGATE,GameMasterClass.LoadRoomService,,W,-,X,-,-,-,-,-,-
 2,EXIT_GAME,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,,W,-,-,-,X,-,-,-,-
 3,LATE_START_SUBSCRIPTION,LATE_START_SUBSCRIPTION_DELEGATE,GameMasterClass.LateStartSubrsciptionService,,W,X,X,X,X,X,X,X,X

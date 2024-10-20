@@ -311,11 +311,12 @@ namespace Gob3AQ.LevelMaster
         private void UpdateCharItemMouseEvents(ref MousePropertiesStruct mouse)
         {
             GameItem chosenItem = VARMAP_LevelMaster.GET_PICKABLE_ITEM_CHOSEN();
+            CharacterType playerSelected = VARMAP_LevelMaster.GET_PLAYER_SELECTED();
 
             /* If no items menu or just a menu opened */
             if (mouse.secondaryReleased)
             {
-                if (chosenItem == GameItem.ITEM_NONE)
+                if ((chosenItem == GameItem.ITEM_NONE)&&(playerSelected != CharacterType.CHARACTER_NONE))
                 {
                     VARMAP_LevelMaster.SET_ITEM_MENU_ACTIVE(true);
                 }
@@ -326,7 +327,7 @@ namespace Gob3AQ.LevelMaster
             }
             else if (mouse.primaryReleased)
             {
-                CharacterType playerSelected = VARMAP_LevelMaster.GET_PLAYER_SELECTED();
+                
                 int layerMask;
 
                 if(playerSelected == CharacterType.CHARACTER_NONE)

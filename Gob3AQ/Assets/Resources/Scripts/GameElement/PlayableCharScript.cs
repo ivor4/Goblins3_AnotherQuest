@@ -69,8 +69,8 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         public void MoveRequest(WaypointClass wp)
         {
-            /* Move only if not talking or doing an action */
-            if((physicalstate & (PhysicalState.PHYSICAL_STATE_TALKING | PhysicalState.PHYSICAL_STATE_ACTING)) == 0)
+            /* Move only if not talking or doing an action and WP has a defined Network */
+            if((wp.Network != null) && ((physicalstate & (PhysicalState.PHYSICAL_STATE_TALKING | PhysicalState.PHYSICAL_STATE_ACTING)) == 0))
             {
                 WaypointSolution solution = wp.Network.GetWaypointSolution(actualWaypoint, wp, WaypointSkillType.WAYPOINT_SKILL_NORMAL, wpsolutionlist);
 
@@ -255,7 +255,7 @@ namespace Gob3AQ.GameElement.PlayableChar
             /* Now interact if buffered */
             if (bufferedData.pending)
             {
-                VARMAP_PlayerMaster.USE_ITEM(in bufferedData.usage, out InteractionItemType permitted);
+                VARMAP_PlayerMaster.USE_ITEM(in bufferedData.usage, out _);
 
                 /* Clear */
                 bufferedData.pending = false;

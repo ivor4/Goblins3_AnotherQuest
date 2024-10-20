@@ -21,8 +21,9 @@ namespace Gob3AQ.GameMenu
         private static bool _pendingRefresh;
         private static PickableItemDisplayClass[] _displayItemArray;
         private static Camera _mainCamera;
+        private static Rect _upperGameMenuRect;
 
-        
+
 
         void Awake()
         {
@@ -33,7 +34,6 @@ namespace Gob3AQ.GameMenu
             else
             {
                 _singleton = this;
-                DontDestroyOnLoad(gameObject);
 
                 Transform child = transform.Find("ItemMenu");
                 _itemMenu = child.gameObject;
@@ -43,6 +43,9 @@ namespace Gob3AQ.GameMenu
                 _loaded = false;
                 _levelLoaded = false;
                 _pendingRefresh = false;
+
+                float menuHeight = Screen.safeArea.height * GameFixedConfig.MENU_TOP_SCREEN_HEIGHT_PERCENT;
+                _upperGameMenuRect = new Rect(0, 0, Screen.safeArea.width, menuHeight);
             }
         }
 
@@ -50,7 +53,6 @@ namespace Gob3AQ.GameMenu
         {
             _prevItemMenuOpened = false;
 
-            VARMAP_GameMenu.REG_ACTUAL_ROOM(_OnLevelChanged);
             VARMAP_GameMenu.REG_PICKABLE_ITEM_OWNER(_OnItemOwnerChanged);
         }
 
@@ -77,13 +79,39 @@ namespace Gob3AQ.GameMenu
  
         }
 
+        void OnGUI()
+        {
+            GUILayout.BeginArea(_upperGameMenuRect);
+
+
+            
+            GUILayout.BeginVertical();
+            GUILayout.BeginHorizontal();
+
+            if (GUILayout.Button("Save Game"))
+            {
+                VARMAP_GameMenu.SAVE_GAME();
+            }
+
+            if (GUILayout.Button("Exit Game"))
+            {
+                VARMAP_GameMenu.EXIT_GAME(out _);
+            }
+
+
+            GUILayout.EndHorizontal();
+            GUILayout.EndVertical();
+            
+
+            GUILayout.EndArea();
+        }
+
 
         private void OnDestroy()
         {
             if(_singleton == this)
             {
                 _singleton = null;
-                VARMAP_GameMenu.UNREG_ACTUAL_ROOM(_OnLevelChanged);
                 VARMAP_GameMenu.UNREG_PICKABLE_ITEM_OWNER(_OnItemOwnerChanged);
             }
         }
@@ -191,15 +219,6 @@ namespace Gob3AQ.GameMenu
             _pendingRefresh = false;
         }
 
-        private static void _OnLevelChanged(ChangedEventType evtype, ref Room oldval, ref Room newval)
-        {
-            _ = evtype;
-            _ = oldval;
-            _ = newval;
-
-            /* It is needed to take new Camera from this level, as this object survives between levels */
-            _levelLoaded = false;
-        }
 
         private static void _OnItemOwnerChanged(ChangedEventType evtype, ref CharacterType oldVal, ref CharacterType newVal)
         {

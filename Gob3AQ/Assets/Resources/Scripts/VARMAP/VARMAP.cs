@@ -71,6 +71,8 @@ namespace Gob3AQ.VARMAP
         /* All SERVICE Links */
         /* > ATG 2 START < */
         protected static START_GAME_DELEGATE _START_GAME;
+        protected static SAVE_GAME_DELEGATE _SAVE_GAME;
+        protected static LOAD_GAME_DELEGATE _LOAD_GAME;
         protected static LOAD_ROOM_DELEGATE _LOAD_ROOM;
         protected static EXIT_GAME_DELEGATE _EXIT_GAME;
         protected static LATE_START_SUBSCRIPTION_DELEGATE _LATE_START_SUBSCRIPTION;

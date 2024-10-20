@@ -14,8 +14,6 @@ namespace Gob3AQ.ItemMaster
     public class ItemMasterClass : MonoBehaviour
     {
         private static ItemMasterClass _singleton;
-        private static bool loaded;
-
 
 
 
@@ -57,25 +55,9 @@ namespace Gob3AQ.ItemMaster
             else
             {
                 _singleton = this;
-                DontDestroyOnLoad(gameObject);
-                loaded = false;
             }
         }
 
-        void Update()
-        {
-            Game_Status gstatus = VARMAP_ItemMaster.GET_GAMESTATUS();
-
-            switch(gstatus)
-            {
-                case Game_Status.GAME_STATUS_LOADING:
-                    if(!loaded)
-                    {
-                        loaded = true;
-                    }
-                    break;
-            }
-        }
 
 
         private void OnDestroy()

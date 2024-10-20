@@ -18,12 +18,12 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             GET_SIZE_EVENTS_OCCURRED = _GET_SIZE_EVENTS_OCCURRED;
             GET_ARRAY_EVENTS_OCCURRED = _GET_ARRAY_EVENTS_OCCURRED;
             SET_ARRAY_EVENTS_OCCURRED = _SET_ARRAY_EVENTS_OCCURRED;
-            GET_PLAYER_POSITION = _GET_PLAYER_POSITION;
             LATE_START_SUBSCRIPTION = _LATE_START_SUBSCRIPTION;
             IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
             TAKE_ITEM_FROM_SCENE_EVENT = _TAKE_ITEM_FROM_SCENE_EVENT;
             IS_ITEM_TAKEN_FROM_SCENE = _IS_ITEM_TAKEN_FROM_SCENE;
+            EVENT_SUBSCRIPTION = _EVENT_SUBSCRIPTION;
             /* > ATG 1 END */
         }
 
@@ -36,7 +36,6 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         public static GetVARMAPArraySizeDelegate GET_SIZE_EVENTS_OCCURRED;
         public static GetVARMAPArrayDelegate<MultiBitFieldStruct> GET_ARRAY_EVENTS_OCCURRED;
         public static SetVARMAPArrayDelegate<MultiBitFieldStruct> SET_ARRAY_EVENTS_OCCURRED;
-        public static GetVARMAPValueDelegate<Vector3Struct> GET_PLAYER_POSITION;
         /* > ATG 2 END */
 
         /* SERVICES */
@@ -46,6 +45,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
         public static TAKE_ITEM_FROM_SCENE_EVENT_DELEGATE TAKE_ITEM_FROM_SCENE_EVENT;
         public static IS_ITEM_TAKEN_FROM_SCENE_DELEGATE IS_ITEM_TAKEN_FROM_SCENE;
+        public static EVENT_SUBSCRIPTION_DELEGATE EVENT_SUBSCRIPTION;
         /* > ATG 3 END */
     }
 }

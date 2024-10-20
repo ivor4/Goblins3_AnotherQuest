@@ -16,12 +16,15 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             GET_ELEM_PICKABLE_ITEM_OWNER = _GET_ELEM_PICKABLE_ITEM_OWNER;
             GET_SIZE_PICKABLE_ITEM_OWNER = _GET_SIZE_PICKABLE_ITEM_OWNER;
             GET_ARRAY_PICKABLE_ITEM_OWNER = _GET_ARRAY_PICKABLE_ITEM_OWNER;
+            GET_ELEM_PLAYER_ACTUAL_WAYPOINT = _GET_ELEM_PLAYER_ACTUAL_WAYPOINT;
+            SET_ELEM_PLAYER_ACTUAL_WAYPOINT = _SET_ELEM_PLAYER_ACTUAL_WAYPOINT;
+            GET_SIZE_PLAYER_ACTUAL_WAYPOINT = _GET_SIZE_PLAYER_ACTUAL_WAYPOINT;
+            GET_ARRAY_PLAYER_ACTUAL_WAYPOINT = _GET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
+            SET_ARRAY_PLAYER_ACTUAL_WAYPOINT = _SET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             GET_PRESSED_KEYS = _GET_PRESSED_KEYS;
-            GET_PLAYER_POSITION = _GET_PLAYER_POSITION;
-            SET_PLAYER_POSITION = _SET_PLAYER_POSITION;
             GET_PLAYER_SELECTED = _GET_PLAYER_SELECTED;
             SET_PLAYER_SELECTED = _SET_PLAYER_SELECTED;
             REG_PLAYER_SELECTED = _REG_PLAYER_SELECTED;
@@ -39,6 +42,7 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             INTERACT_PLAYER_ITEM = _INTERACT_PLAYER_ITEM;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             SET_PLAYER_ANIMATION = _SET_PLAYER_ANIMATION;
+            EVENT_SUBSCRIPTION = _EVENT_SUBSCRIPTION;
             /* > ATG 1 END */
         }
 
@@ -49,12 +53,15 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         public static GetVARMAPArrayElemValueDelegate<CharacterType> GET_ELEM_PICKABLE_ITEM_OWNER;
         public static GetVARMAPArraySizeDelegate GET_SIZE_PICKABLE_ITEM_OWNER;
         public static GetVARMAPArrayDelegate<CharacterType> GET_ARRAY_PICKABLE_ITEM_OWNER;
+        public static GetVARMAPArrayElemValueDelegate<int> GET_ELEM_PLAYER_ACTUAL_WAYPOINT;
+        public static SetVARMAPArrayElemValueDelegate<int> SET_ELEM_PLAYER_ACTUAL_WAYPOINT;
+        public static GetVARMAPArraySizeDelegate GET_SIZE_PLAYER_ACTUAL_WAYPOINT;
+        public static GetVARMAPArrayDelegate<int> GET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
+        public static SetVARMAPArrayDelegate<int> SET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
         public static GetVARMAPValueDelegate<KeyStruct> GET_PRESSED_KEYS;
-        public static GetVARMAPValueDelegate<Vector3Struct> GET_PLAYER_POSITION;
-        public static SetVARMAPValueDelegate<Vector3Struct> SET_PLAYER_POSITION;
         public static GetVARMAPValueDelegate<CharacterType> GET_PLAYER_SELECTED;
         public static SetVARMAPValueDelegate<CharacterType> SET_PLAYER_SELECTED;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<CharacterType> REG_PLAYER_SELECTED;
@@ -76,6 +83,7 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         public static INTERACT_PLAYER_ITEM_DELEGATE INTERACT_PLAYER_ITEM;
         public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
         public static SET_PLAYER_ANIMATION_DELEGATE SET_PLAYER_ANIMATION;
+        public static EVENT_SUBSCRIPTION_DELEGATE EVENT_SUBSCRIPTION;
         /* > ATG 3 END */
     }
 }

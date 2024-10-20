@@ -13,7 +13,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void LOAD_GAME_DELEGATE();
     public delegate void LOAD_ROOM_DELEGATE(Room room, out bool error);
     public delegate void EXIT_GAME_DELEGATE(out bool error);
-    public delegate void LATE_START_SUBSCRIPTION_DELEGATE(LATE_START_CALL_DELEGATE callable, bool add);
+    public delegate void LATE_START_SUBSCRIPTION_DELEGATE(SUBSCRIPTION_CALL_DELEGATE callable, bool add);
     public delegate void LODING_COMPLETED_DELEGATE(out bool error);
     public delegate void FREEZE_PLAY_DELEGATE(bool freeze);
     public delegate void NPC_REGISTER_DELEGATE(bool register, NPCMasterClass instance);
@@ -37,5 +37,6 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void SELECT_PICKABLE_ITEM_DELEGATE(GameItem item);
     public delegate void CANCEL_PICKABLE_ITEM_DELEGATE();
     public delegate void SET_PLAYER_ANIMATION_DELEGATE(CharacterType character, CharacterAnimation animation);
+    public delegate void EVENT_SUBSCRIPTION_DELEGATE(GameEvent gevent, SUBSCRIPTION_CALL_DELEGATE callable, bool add);
 
 }

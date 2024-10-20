@@ -17,7 +17,7 @@ namespace Gob3AQ.VARMAP.Types
     public delegate int GetVARMAPArraySizeDelegate();
     public delegate ReadOnlySpan<T> GetVARMAPArrayDelegate<T>();
     public delegate void SetVARMAPArrayDelegate<T>(List<T> newvals);
-    public delegate void LATE_START_CALL_DELEGATE();
+    public delegate void SUBSCRIPTION_CALL_DELEGATE();
 
 
     public enum ChangedEventType
@@ -117,7 +117,9 @@ namespace Gob3AQ.VARMAP.Types
         GEVENT_NONE,
 
         GEVENT_FOUNTAIN_FULL,
-        GEVENT_TALK_MAN
+        GEVENT_TALK_MAN,
+
+        GEVENT_TOTAL
     }
 
     public enum CharacterAnimation

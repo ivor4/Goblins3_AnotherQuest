@@ -189,7 +189,18 @@ namespace Gob3AQ.GameElement.PlayableChar
         {
             if(!loaded)
             {
-                VARMAP_PlayerMaster.GET_NEAREST_WP(transform.position, float.MaxValue, out actualWaypoint);
+                int wpStartIndex = VARMAP_PlayerMaster.GET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)charType - 1);
+                VARMAP_PlayerMaster.GET_NEAREST_WP(transform.position, float.MaxValue, out WaypointClass nearestWp);
+
+                if (wpStartIndex == -1)
+                {
+                    actualWaypoint = nearestWp;
+                }
+                else
+                {
+                    actualWaypoint = nearestWp.Network.WaypointList[wpStartIndex];
+                }
+
                 transform.position = actualWaypoint.transform.position;
                 _sprRenderer.enabled = true;
             }
@@ -226,6 +237,9 @@ namespace Gob3AQ.GameElement.PlayableChar
 
             if(dot <= 0f)
             {
+                /* Store WP Index */
+                VARMAP_PlayerMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)charType - 1, target_wp.IndexInNetwork);
+
                 /* If last segment */
                 if(actualProgrammedPath.crossedWaypointIndex == (wplist.Count - 1))
                 {

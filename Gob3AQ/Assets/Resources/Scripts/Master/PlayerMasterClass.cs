@@ -5,7 +5,6 @@ using Gob3AQ.FixedConfig;
 using Gob3AQ.Libs.Arith;
 using Gob3AQ.GameElement.PlayableChar;
 using Gob3AQ.Waypoint;
-using Gob3AQ.Brain.ItemsInteraction;
 using System;
 
 namespace Gob3AQ.PlayerMaster
@@ -42,7 +41,7 @@ namespace Gob3AQ.PlayerMaster
 
         private static PlayableCharScript GetPlayerInstance(CharacterType character)
         {
-            PlayableCharScript selectedPlayer = null;
+            PlayableCharScript selectedPlayer;
 
             VARMAP_PlayerMaster.GET_PLAYER_LIST(out ReadOnlySpan<PlayableCharScript> playerlist);
 

@@ -38,6 +38,13 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPArrayDelegate<CharacterType> _SET_ARRAY_PICKABLE_ITEM_OWNER;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<CharacterType> _REG_PICKABLE_ITEM_OWNER;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<CharacterType> _UNREG_PICKABLE_ITEM_OWNER;
+        protected static GetVARMAPArrayElemValueDelegate<int> _GET_ELEM_PLAYER_ACTUAL_WAYPOINT;
+        protected static SetVARMAPArrayElemValueDelegate<int> _SET_ELEM_PLAYER_ACTUAL_WAYPOINT;
+        protected static GetVARMAPArraySizeDelegate _GET_SIZE_PLAYER_ACTUAL_WAYPOINT;
+        protected static GetVARMAPArrayDelegate<int> _GET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
+        protected static SetVARMAPArrayDelegate<int> _SET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<int> _REG_PLAYER_ACTUAL_WAYPOINT;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<int> _UNREG_PLAYER_ACTUAL_WAYPOINT;
         protected static GetVARMAPValueDelegate<Game_Status> _GET_GAMESTATUS;
         protected static SetVARMAPValueDelegate<Game_Status> _SET_GAMESTATUS;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> _REG_GAMESTATUS;
@@ -50,10 +57,6 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPValueDelegate<MousePropertiesStruct> _SET_MOUSE_PROPERTIES;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<MousePropertiesStruct> _REG_MOUSE_PROPERTIES;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<MousePropertiesStruct> _UNREG_MOUSE_PROPERTIES;
-        protected static GetVARMAPValueDelegate<Vector3Struct> _GET_PLAYER_POSITION;
-        protected static SetVARMAPValueDelegate<Vector3Struct> _SET_PLAYER_POSITION;
-        protected static ReUnRegisterVARMAPValueChangeEventDelegate<Vector3Struct> _REG_PLAYER_POSITION;
-        protected static ReUnRegisterVARMAPValueChangeEventDelegate<Vector3Struct> _UNREG_PLAYER_POSITION;
         protected static GetVARMAPValueDelegate<CharacterType> _GET_PLAYER_SELECTED;
         protected static SetVARMAPValueDelegate<CharacterType> _SET_PLAYER_SELECTED;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<CharacterType> _REG_PLAYER_SELECTED;
@@ -97,6 +100,7 @@ namespace Gob3AQ.VARMAP
         protected static SELECT_PICKABLE_ITEM_DELEGATE _SELECT_PICKABLE_ITEM;
         protected static CANCEL_PICKABLE_ITEM_DELEGATE _CANCEL_PICKABLE_ITEM;
         protected static SET_PLAYER_ANIMATION_DELEGATE _SET_PLAYER_ANIMATION;
+        protected static EVENT_SUBSCRIPTION_DELEGATE _EVENT_SUBSCRIPTION;
         protected static EXIT_GAME_DELEGATE _LAST_SERVICE;
         /* > ATG 2 END < */
         

@@ -14,12 +14,12 @@ namespace Gob3AQ.GameEventMaster
     public class GameEventMasterClass : MonoBehaviour
     {
         private static GameEventMasterClass _singleton;
-
+        private static SUBSCRIPTION_CALL_DELEGATE[] _event_subscription;
 
         public static void IsEventOccurredService(GameEvent ev, out bool occurred)
         {
             int evIndex = (int)ev;
-            evIndex += (int)GamePickableItem.ITEM_PICK_TOTAL;    /* Every item has 2 events, which are placed at the beginning */
+            evIndex += (int)GamePickableItem.ITEM_PICK_TOTAL - 2;    /* Every item has 1 event, which is placed at the beginning */
 
             GetArrayIndexAndPos(evIndex, out int arraypos, out int itembit);
 
@@ -31,7 +31,7 @@ namespace Gob3AQ.GameEventMaster
         public static void CommitEventService(GameEvent ev, bool occurred)
         {
             int evIndex = (int)ev;
-            evIndex += (int)GamePickableItem.ITEM_PICK_TOTAL;    /* Every item has 2 events, which are placed at the beginning */
+            evIndex += (int)GamePickableItem.ITEM_PICK_TOTAL - 2;    /* Every item has 1 event, which is placed at the beginning */
 
             GetArrayIndexAndPos(evIndex, out int arraypos, out int itembit);
 
@@ -40,11 +40,14 @@ namespace Gob3AQ.GameEventMaster
             mbfs.SetIndividualBool(itembit, occurred);
 
             VARMAP_GameEventMaster.SET_ELEM_EVENTS_OCCURRED(arraypos, mbfs);
+
+            /* Invoke subscribers of this event */
+            _event_subscription[(int)ev - 1]?.Invoke();
         }
 
         public static void TakeItemFromSceneEventService(GamePickableItem item)
         {
-            int evIndex = (int)item;
+            int evIndex = (int)item - 1;
 
             GetArrayIndexAndPos(evIndex, out int arraypos, out int itembit);
 
@@ -58,14 +61,28 @@ namespace Gob3AQ.GameEventMaster
 
         public static void IsItemTakenFromSceneService(GamePickableItem item, out bool taken)
         {
-            int evIndex = (int)item;
+            int evIndex = (int)item - 1;
             GetArrayIndexAndPos(evIndex, out int arraypos, out int itembit);
             MultiBitFieldStruct mbfs = VARMAP_GameEventMaster.GET_ELEM_EVENTS_OCCURRED(arraypos);
             taken = mbfs.GetIndividualBool(itembit);
         }
 
 
-       
+        public static void EventSubscriptionService(GameEvent gevent, SUBSCRIPTION_CALL_DELEGATE callable, bool add)
+        {
+            int evIndex = (int)gevent - 1;
+
+            if (add)
+            {
+                _event_subscription[evIndex] += callable;
+            }
+            else
+            {
+                _event_subscription[evIndex] -= callable;
+            }
+        }
+
+
 
         /// <summary>
         /// Based on 64 bit bitfield, gets decomposition of array element and bit position
@@ -79,7 +96,7 @@ namespace Gob3AQ.GameEventMaster
             bitPos = index & 0x3F;
         }
 
-        private void Awake()
+        void Awake()
         {
             if (_singleton)
             {
@@ -89,12 +106,12 @@ namespace Gob3AQ.GameEventMaster
             else
             {
                 _singleton = this;
+                _event_subscription = new SUBSCRIPTION_CALL_DELEGATE[(int)GameEvent.GEVENT_TOTAL - 1];
             }
         }
 
 
-
-        private void OnDestroy()
+        void OnDestroy()
         {
             if (_singleton == this)
             {

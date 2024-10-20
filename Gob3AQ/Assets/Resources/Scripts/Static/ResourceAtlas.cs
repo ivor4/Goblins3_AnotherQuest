@@ -21,6 +21,10 @@ namespace Gob3AQ.ResourceAtlas
 
         SPRITE_POTION,
 
+        SPRITE_FOUNTAIN_DRY,
+
+        SPRITE_FOUNTAIN_FULL,
+
         SPRITE_TOTAL
     }
 
@@ -62,7 +66,9 @@ namespace Gob3AQ.ResourceAtlas
         private static readonly string[] _SpriteList = new string[(int)SpriteEnum.SPRITE_TOTAL]
         {
             "",
-            "Sprites/potion_64"
+            "Sprites/potion_64",
+            "Sprites/spr_fountain_256",
+            "Sprites/spr_fountain_full_256",
         };
     }
 }

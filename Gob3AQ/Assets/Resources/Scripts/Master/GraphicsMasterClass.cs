@@ -6,7 +6,8 @@ using Gob3AQ.VARMAP.Types;
 using Gob3AQ.VARMAP.GraphicsMaster;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.ResourceAtlas;
-
+using System;
+using Gob3AQ.GameElement.PlayableChar;
 
 namespace Gob3AQ.GraphicsMaster
 {
@@ -30,6 +31,7 @@ namespace Gob3AQ.GraphicsMaster
         private static GameObject cursor;
         private static SpriteRenderer cursor_spr;
         private static Sprite cursor_orig_spr;
+        private static bool loaded;
 
 
         private void Awake()
@@ -46,6 +48,7 @@ namespace Gob3AQ.GraphicsMaster
                 cursor_orig_spr = cursor_spr.sprite;
                 background_spr = background.GetComponent<SpriteRenderer>();
                 _levelBounds = background_spr.bounds;
+                loaded = false;
             }
 
         }
@@ -80,6 +83,28 @@ namespace Gob3AQ.GraphicsMaster
 
             switch (gstatus)
             {
+                case Game_Status.GAME_STATUS_LOADING:
+                    if(!loaded)
+                    {
+                        VARMAP_GraphicsMaster.GET_PLAYER_LIST(out ReadOnlySpan<PlayableCharScript> playerlist);
+                        Vector3 candidatePos = mainCameraTransform.position;
+
+                        for(int i=0;i<playerlist.Length;i++)
+                        {
+                            if(playerlist[i] != null)
+                            {
+                                candidatePos = playerlist[i].transform.position;
+                                break;    
+                            }
+                        }
+
+                        candidatePos.z = mainCameraTransform.position.z;
+
+                        MoveCameraToPosition(candidatePos);
+
+                        loaded = true;
+                    }
+                    break;
                 case Game_Status.GAME_STATUS_PLAY:
                     MoveCursor(ref mouse.pos1);
                     FollowMouseWithCamera(ref screenzone);
@@ -155,18 +180,25 @@ namespace Gob3AQ.GraphicsMaster
                 moveCameraDelta *= Time.deltaTime;
                 cameraNewPosition = mainCameraTransform.position + moveCameraDelta;
 
-                /* Limit center of camera to stablished level bounds */
-                Vector3 deltaFromMin = _cameraCenterLimitBounds.min - cameraNewPosition;
-                Vector3 deltaFromMax = _cameraCenterLimitBounds.max - cameraNewPosition;
-
-                deltaFromMin = Vector2.Max(deltaFromMin, Vector2.zero);
-                deltaFromMax = Vector2.Min(deltaFromMax, Vector2.zero);
-
-                /* Correct limited position in case deltaFromMin or deltaFromMax differ from 0 */
-                cameraNewPosition += deltaFromMin + deltaFromMax;
-
-                mainCameraTransform.position = cameraNewPosition;
+                MoveCameraToPosition(cameraNewPosition);
             }
+        }
+
+        private static void MoveCameraToPosition(Vector3 position)
+        {
+            Vector3 cameraNewPosition = position;
+
+            /* Limit center of camera to stablished level bounds */
+            Vector3 deltaFromMin = _cameraCenterLimitBounds.min - cameraNewPosition;
+            Vector3 deltaFromMax = _cameraCenterLimitBounds.max - cameraNewPosition;
+
+            deltaFromMin = Vector2.Max(deltaFromMin, Vector2.zero);
+            deltaFromMax = Vector2.Min(deltaFromMax, Vector2.zero);
+
+            /* Correct limited position in case deltaFromMin or deltaFromMax differ from 0 */
+            cameraNewPosition += deltaFromMin + deltaFromMax;
+
+            mainCameraTransform.position = cameraNewPosition;
         }
 
         private static void _OnPickedItemChanged(ChangedEventType evtype, ref GameItem oldval, ref GameItem newval)

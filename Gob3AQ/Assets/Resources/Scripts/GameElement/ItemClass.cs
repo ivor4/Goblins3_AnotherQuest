@@ -46,14 +46,13 @@ namespace Gob3AQ.GameElement.Item
             }
         }
 
-        private SpriteRenderer _sprRenderer;
-        private Collider2D _collider;
-        private Rigidbody2D _rigidbody;
-        private WaypointClass actualWaypoint;
-        private GamePickableItem pickable;
+        protected SpriteRenderer _sprRenderer;
+        protected Collider2D _collider;
+        protected Rigidbody2D _rigidbody;
+        protected WaypointClass actualWaypoint;
+        protected GamePickableItem pickable;
 
-        private bool registered;
-        private bool loaded;
+        protected bool registered;
 
         void Awake()
         {
@@ -68,7 +67,7 @@ namespace Gob3AQ.GameElement.Item
         }
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+        protected virtual void Start()
         {
             bool taken;
             pickable = ItemsInteractionsClass.ITEM_TO_PICKABLE[(int)itemID];
@@ -90,48 +89,29 @@ namespace Gob3AQ.GameElement.Item
                 _collider.enabled = true;
                 _sprRenderer.enabled = true;
                 registered = true;
+
+                VARMAP_ItemMaster.LATE_START_SUBSCRIPTION(Execute_Loading, true);
             }
             else
             {
                 gameObject.SetActive(false);
                 registered = false;
             }
-
-            loaded = false;
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-            Game_Status gstatus = VARMAP_ItemMaster.GET_GAMESTATUS();
-
-            switch (gstatus)
-            {
-                case Game_Status.GAME_STATUS_LOADING:
-                    Execute_Loading();
-                    break;
-
-                default:
-                    break;
-            }
-        }
-
-        void OnDisable()
+        protected virtual void OnDisable()
         {
             if(registered)
             {
                 VARMAP_ItemMaster.ITEM_REGISTER(false, this);
+                VARMAP_ItemMaster.LATE_START_SUBSCRIPTION(Execute_Loading, false);
             }
         }
 
 
-        private void Execute_Loading()
+        protected virtual void Execute_Loading()
         {
-            if (!loaded)
-            {
-                VARMAP_ItemMaster.GET_NEAREST_WP(transform.position, float.MaxValue, out actualWaypoint);
-                loaded = true;
-            }
+            VARMAP_ItemMaster.GET_NEAREST_WP(transform.position, float.MaxValue, out actualWaypoint);
         }
     }
 }

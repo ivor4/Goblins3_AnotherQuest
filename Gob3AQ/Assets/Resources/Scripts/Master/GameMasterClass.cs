@@ -16,7 +16,7 @@ namespace Gob3AQ.GameMaster
     {
         private static GameMasterClass _singleton;
         private static Game_Status prevPauseStatus;
-        private static LATE_START_CALL_DELEGATE _lateStartSubscibers;
+        private static SUBSCRIPTION_CALL_DELEGATE _lateStartSubscibers;
         private static int firstFrameOfScenePending;
 
         void Awake()
@@ -216,7 +216,7 @@ namespace Gob3AQ.GameMaster
             }
         }
 
-        public static void LateStartSubrsciptionService(LATE_START_CALL_DELEGATE callable, bool add)
+        public static void LateStartSubrsciptionService(SUBSCRIPTION_CALL_DELEGATE callable, bool add)
         {
             if (add)
             {

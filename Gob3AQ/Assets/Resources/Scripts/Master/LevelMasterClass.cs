@@ -54,6 +54,7 @@ namespace Gob3AQ.LevelMaster
             }
         }
 
+        private static Rect _playMouseArea;
         private static Dictionary<Collider2D, MouseActiveElems> _ColliderReference;
         private static RaycastHit2D[] _HitArray;
         private static int _LayerOnlyPlayers;
@@ -258,6 +259,8 @@ namespace Gob3AQ.LevelMaster
 
             _LayerOnlyPlayers = 0x1 << LayerMask.NameToLayer("PlayerLayer");
             _LayerPlayersAndItemsNPC = _LayerOnlyPlayers | (0x1 << LayerMask.NameToLayer("ItemLayer")) | (0x1 << LayerMask.NameToLayer("NPCLayer"));
+
+            _playMouseArea = new Rect(0, 0, Screen.width, Screen.height * GameFixedConfig.GAME_ZONE_HEIGHT_PERCENT);
         }
 
 
@@ -301,9 +304,13 @@ namespace Gob3AQ.LevelMaster
                     VARMAP_LevelMaster.SET_ITEM_MENU_ACTIVE(false);
                 }
             }
-            else
+            else if(_playMouseArea.Contains(mouse.posPixels))
             {
                 UpdateCharItemMouseEvents(ref mouse);
+            }
+            else
+            {
+                /**/
             }
           
         }

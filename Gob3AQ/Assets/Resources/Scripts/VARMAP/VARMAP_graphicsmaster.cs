@@ -20,12 +20,12 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
-            GET_PLAYER_POSITION = _GET_PLAYER_POSITION;
             GET_ITEM_MENU_ACTIVE = _GET_ITEM_MENU_ACTIVE;
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
             REG_PICKABLE_ITEM_CHOSEN = _REG_PICKABLE_ITEM_CHOSEN;
             UNREG_PICKABLE_ITEM_CHOSEN = _UNREG_PICKABLE_ITEM_CHOSEN;
             LATE_START_SUBSCRIPTION = _LATE_START_SUBSCRIPTION;
+            GET_PLAYER_LIST = _GET_PLAYER_LIST;
             /* > ATG 1 END */
         }
 
@@ -40,7 +40,6 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
         public static GetVARMAPValueDelegate<MousePropertiesStruct> GET_MOUSE_PROPERTIES;
-        public static GetVARMAPValueDelegate<Vector3Struct> GET_PLAYER_POSITION;
         public static GetVARMAPValueDelegate<bool> GET_ITEM_MENU_ACTIVE;
         public static GetVARMAPValueDelegate<GameItem> GET_PICKABLE_ITEM_CHOSEN;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> REG_PICKABLE_ITEM_CHOSEN;
@@ -50,6 +49,7 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
         /* SERVICES */
         /* > ATG 3 START */
         public static LATE_START_SUBSCRIPTION_DELEGATE LATE_START_SUBSCRIPTION;
+        public static GET_PLAYER_LIST_DELEGATE GET_PLAYER_LIST;
         /* > ATG 3 END */
     }
 }

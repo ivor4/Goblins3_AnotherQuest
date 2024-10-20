@@ -17,6 +17,7 @@ namespace Gob3AQ.VARMAP.SaveData
             VARMAP_Variable_ID.VARMAP_ID_ACTUAL_ROOM,
             VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED,
             VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER,
+            VARMAP_Variable_ID.VARMAP_ID_PLAYER_ACTUAL_WAYPOINT,
             /* > ATG 1 END < */
         };
 

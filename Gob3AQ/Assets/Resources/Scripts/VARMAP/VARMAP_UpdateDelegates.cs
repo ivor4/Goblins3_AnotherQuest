@@ -109,6 +109,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _GET_SCENARIO_ITEM_LIST = LevelMasterClass.GetScenarioItemListService;
             _SELECT_PICKABLE_ITEM = ItemMasterClass.SelectPickableItemService;
             _CANCEL_PICKABLE_ITEM = ItemMasterClass.CancelPickableItemService;
+            _SET_PLAYER_ANIMATION = PlayerMasterClass.SetPlayerAnimation;
             _LAST_SERVICE = GameMasterClass.ExitGameService;
             /* > ATG 2 END */
         }

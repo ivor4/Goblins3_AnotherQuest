@@ -16,60 +16,62 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GamePickableItem.ITEM_PICK_NONE     /* ITEM_FOUNTAIN */
         };
 
+        private static readonly ItemInteractionInfo _InvalidInteraction = 
+            new ItemInteractionInfo(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE, CharacterAnimation.ITEM_USE_ANIMATION_NONE);
 
-        private static readonly InteractionItemType[,] _PlayerWithItemIteraction =
-            new InteractionItemType[(int)CharacterType.CHARACTER_TOTAL - 1, (int)GameItem.ITEM_TOTAL - 1]
+
+        private static readonly ItemInteractionInfo[,] _PlayerWithItemIteraction =
+            new ItemInteractionInfo[(int)CharacterType.CHARACTER_TOTAL - 1, (int)GameItem.ITEM_TOTAL - 1]
             {
                 /* CHARACTER_MAIN */
                 {
-                    InteractionItemType.INTERACTION_TAKE,   /* ITEM_POTION */
-                    InteractionItemType.INTERACTION_NONE    /* ITEM_FOUNTAIN */
+                    new(ItemInteractionType.INTERACTION_TAKE, GameEvent.GEVENT_NONE, CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_POTION */
+                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE, CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_FOUNTAIN */
                 },
                 /* CHARACTER_PARROT */
                 {
-                    InteractionItemType.INTERACTION_NONE,   /* ITEM_POTION */
-                    InteractionItemType.INTERACTION_NONE    /* ITEM_FOUNTAIN */
+                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE, CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_POTION */
+                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE, CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_FOUNTAIN */
                 },
                 /* CHARACTER_SNAKE */
                 {
-                    InteractionItemType.INTERACTION_NONE,   /* ITEM_POTION */
-                    InteractionItemType.INTERACTION_NONE    /* ITEM_FOUNTAIN */
+                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE, CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_POTION */
+                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE, CharacterAnimation.ITEM_USE_ANIMATION_NORMAL)    /* ITEM_FOUNTAIN */
                 }
             };
 
-        private static readonly InteractionItemType[,] _ItemWithItemIteraction =
-            new InteractionItemType[(int)GameItem.ITEM_TOTAL - 1, (int)GameItem.ITEM_TOTAL - 1]
+        private static readonly ItemInteractionInfo[,] _ItemWithItemIteraction =
+            new ItemInteractionInfo[(int)GameItem.ITEM_TOTAL - 1, (int)GameItem.ITEM_TOTAL - 1]
             {
                 /* ITEM_POTION */
                 {
-                    InteractionItemType.INTERACTION_NONE,  /* ITEM_POTION */
-                    InteractionItemType.INTERACTION_USE    /* ITEM_FOUNTAIN */
+                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE, CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_POTION */
+                    new(ItemInteractionType.INTERACTION_USE, GameEvent.GEVENT_FOUNTAIN_FULL, CharacterAnimation.ITEM_USE_ANIMATION_POUR),    /* ITEM_FOUNTAIN */
                 },
                 /* ITEM_FOUNTAIN */
                 {
-                    InteractionItemType.INTERACTION_NONE,   /* ITEM_POTION */
-                    InteractionItemType.INTERACTION_NONE    /* ITEM_FOUNTAIN */
+                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE, CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_POTION */
+                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE, CharacterAnimation.ITEM_USE_ANIMATION_NORMAL)    /* ITEM_FOUNTAIN */
                 }
             };
 
 
-        public static InteractionItemType GetItemInteraction(in ItemUsage usage)
+        public static ref readonly ItemInteractionInfo GetItemInteraction(in ItemUsage usage)
         {
-            InteractionItemType interaction = InteractionItemType.INTERACTION_NONE;
-
-            switch(usage.type)
+            ref readonly ItemInteractionInfo interaction = ref _InvalidInteraction;
+            switch (usage.type)
             {
                 case ItemUsageType.PLAYER_WITH_ITEM:
                     if ((usage.playerSource != CharacterType.CHARACTER_NONE)&&(usage.itemDest != GameItem.ITEM_NONE))
                     {
-                        interaction = _PlayerWithItemIteraction[(int)usage.playerSource - 1, (int)usage.itemDest - 1];
+                        interaction = ref _PlayerWithItemIteraction[(int)usage.playerSource - 1, (int)usage.itemDest - 1];
                     }
                     break;
 
                 case ItemUsageType.ITEM_WITH_ITEM:
                     if((usage.itemSource != GameItem.ITEM_NONE)&&(usage.itemDest != GameItem.ITEM_NONE))
                     {
-                        interaction = _ItemWithItemIteraction[(int)usage.itemSource - 1, (int)usage.itemDest - 1];
+                        interaction = ref _ItemWithItemIteraction[(int)usage.itemSource - 1, (int)usage.itemDest - 1];
                     }
                     break;
                 case ItemUsageType.ITEM_WITH_PLAYER:
@@ -80,7 +82,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
                     break; 
             }
 
-            return interaction;
+            return ref interaction;
         }
     }
 }

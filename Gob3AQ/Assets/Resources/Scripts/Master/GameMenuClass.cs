@@ -22,6 +22,9 @@ namespace Gob3AQ.GameMenu
         private static PickableItemDisplayClass[] _displayItemArray;
         private static Camera _mainCamera;
         private static Rect _upperGameMenuRect;
+        
+        private static string[] _gameMenuToolbarStrings;
+
 
 
 
@@ -46,6 +49,8 @@ namespace Gob3AQ.GameMenu
 
                 float menuHeight = Screen.safeArea.height * GameFixedConfig.MENU_TOP_SCREEN_HEIGHT_PERCENT;
                 _upperGameMenuRect = new Rect(0, 0, Screen.safeArea.width, menuHeight);
+
+                _gameMenuToolbarStrings = new string[] { "Save Game", "Exit Game" };
             }
         }
 
@@ -81,6 +86,8 @@ namespace Gob3AQ.GameMenu
 
         void OnGUI()
         {
+            GUI.backgroundColor = Color.blue;
+
             GUILayout.BeginArea(_upperGameMenuRect);
 
 
@@ -88,16 +95,21 @@ namespace Gob3AQ.GameMenu
             GUILayout.BeginVertical();
             GUILayout.BeginHorizontal();
 
-            if (GUILayout.Button("Save Game"))
-            {
-                VARMAP_GameMenu.SAVE_GAME();
-            }
+            int selected = GUILayout.Toolbar(-1, _gameMenuToolbarStrings, GUILayout.Height(_upperGameMenuRect.height));
 
-            if (GUILayout.Button("Exit Game"))
+            switch(selected)
             {
-                VARMAP_GameMenu.EXIT_GAME(out _);
-            }
+                case 0:
+                    VARMAP_GameMenu.SAVE_GAME();
+                    break;
 
+                case 1:
+                    VARMAP_GameMenu.EXIT_GAME(out _);
+                    break;
+
+                default:
+                    break;
+            }
 
             GUILayout.EndHorizontal();
             GUILayout.EndVertical();
@@ -105,6 +117,8 @@ namespace Gob3AQ.GameMenu
 
             GUILayout.EndArea();
         }
+
+
 
 
         private void OnDestroy()

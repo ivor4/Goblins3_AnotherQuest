@@ -66,7 +66,7 @@ namespace Gob3AQ.VARMAP.Types
         GAME_STATUS_LOADING
     }
 
-    public enum InteractionItemType
+    public enum ItemInteractionType
     {
         INTERACTION_NONE,
         INTERACTION_TAKE,
@@ -114,8 +114,32 @@ namespace Gob3AQ.VARMAP.Types
 
     public enum GameEvent
     {
-        GEVENT_DOOR1_OPENED,
+        GEVENT_NONE,
+
+        GEVENT_FOUNTAIN_FULL,
         GEVENT_TALK_MAN
+    }
+
+    public enum CharacterAnimation
+    {
+        ITEM_USE_ANIMATION_NONE,
+
+        ITEM_USE_ANIMATION_NORMAL,
+        ITEM_USE_ANIMATION_POUR
+    }
+
+    public readonly struct ItemInteractionInfo
+    {
+        public readonly ItemInteractionType type;
+        public readonly GameEvent linkedEvent;
+        public readonly CharacterAnimation useAnimation;
+
+        public ItemInteractionInfo(ItemInteractionType type, GameEvent linkedEvent, CharacterAnimation useAnimation)
+        {
+            this.type = type;
+            this.linkedEvent = linkedEvent;
+            this.useAnimation = useAnimation;
+        }
     }
 
     public readonly struct ItemUsage

@@ -38,6 +38,7 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             USE_ITEM = _USE_ITEM;
             INTERACT_PLAYER_ITEM = _INTERACT_PLAYER_ITEM;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
+            SET_PLAYER_ANIMATION = _SET_PLAYER_ANIMATION;
             /* > ATG 1 END */
         }
 
@@ -74,6 +75,7 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         public static USE_ITEM_DELEGATE USE_ITEM;
         public static INTERACT_PLAYER_ITEM_DELEGATE INTERACT_PLAYER_ITEM;
         public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
+        public static SET_PLAYER_ANIMATION_DELEGATE SET_PLAYER_ANIMATION;
         /* > ATG 3 END */
     }
 }

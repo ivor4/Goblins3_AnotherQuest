@@ -14,49 +14,39 @@ namespace Gob3AQ.PlayerMaster
     public class PlayerMasterClass : MonoBehaviour
     {
         private static PlayerMasterClass _singleton;
-        private static PlayableCharScript _selectedPlayer;
 
 
-        public static void MovePlayerService(WaypointClass wp)
+        public static void MovePlayerService(CharacterType character, WaypointClass wp)
         {
-            if (_selectedPlayer != null)
-            {
-                _selectedPlayer.MoveRequest(wp);
-            }
+            PlayableCharScript instance = GetPlayerInstance(character);
+
+            instance.MoveRequest(wp);
         }
 
         public static void SelectPlayerService(CharacterType character)
         {
             VARMAP_PlayerMaster.SET_PLAYER_SELECTED(character);
-
-            _selectedPlayer = GetActivePlayer();
         }
 
         public static void InteractPlayerItemService(in ItemUsage usage, WaypointClass itemwp)
         {
-            if (_selectedPlayer != null)
-            {
-                _selectedPlayer.ItemInteractRequest(in usage, itemwp);
-            }
+            PlayableCharScript instance = GetPlayerInstance(usage.playerSource);
+            instance.ItemInteractRequest(in usage, itemwp);
         }
 
-        private static PlayableCharScript GetActivePlayer()
+        public static void SetPlayerAnimation(CharacterType character, CharacterAnimation animation)
         {
-            CharacterType selectedChar;
+            PlayableCharScript instance = GetPlayerInstance(character);
+            instance.ActAnimationRequest(animation);
+        }
+
+        private static PlayableCharScript GetPlayerInstance(CharacterType character)
+        {
             PlayableCharScript selectedPlayer = null;
 
-            selectedChar = VARMAP_PlayerMaster.GET_PLAYER_SELECTED();
-            VARMAP_PlayerMaster.GET_PLAYER_LIST(out ReadOnlyList<PlayableCharScript> playerlist);
-            int totalPlayers = playerlist.Count;
+            VARMAP_PlayerMaster.GET_PLAYER_LIST(out ReadOnlySpan<PlayableCharScript> playerlist);
 
-            for(int i=0; i< totalPlayers; i++)
-            {
-                if(selectedChar == playerlist[i].charType)
-                {
-                    selectedPlayer = playerlist[i];
-                    break;
-                }
-            }
+            selectedPlayer = playerlist[(int)character - 1];
 
             return selectedPlayer;
         }
@@ -78,7 +68,6 @@ namespace Gob3AQ.PlayerMaster
         void Start()
         {
             VARMAP_PlayerMaster.SELECT_PLAYER(CharacterType.CHARACTER_NONE);
-            _selectedPlayer = null;
         }
 
 

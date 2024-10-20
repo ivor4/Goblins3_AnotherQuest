@@ -62,7 +62,7 @@ namespace Gob3AQ.LevelMaster
         private static LevelMasterClass _singleton;
 
         private static List<WaypointClass> _WP_List;
-        private static List<PlayableCharScript> _Player_List;
+        private static PlayableCharScript[] _Player_List;
         private static List<NPCMasterClass> _NPC_List;
         private static List<ItemClass> _Item_List;
 
@@ -74,9 +74,9 @@ namespace Gob3AQ.LevelMaster
 
            
 
-        public static void GetPlayerListService(out ReadOnlyList<PlayableCharScript> rolist)
+        public static void GetPlayerListService(out ReadOnlySpan<PlayableCharScript> rolist)
         {
-            rolist = new ReadOnlyList<PlayableCharScript>(_Player_List);
+            rolist = _Player_List;
         }
 
         public static void GetScenarioItemListService(out ReadOnlyList<ItemClass> rolist)
@@ -153,14 +153,14 @@ namespace Gob3AQ.LevelMaster
         {
             if (add)
             {
-                _Player_List.Add(mono);
+                _Player_List[(int)mono.CharType - 1] = mono;
                 MouseActiveElems melems = new(mono);
                 _ColliderReference.Add(mono.Collider, melems);
             }
             else
             {
                 _ColliderReference.Remove(mono.Collider);
-                _Player_List.Remove(mono);
+                _Player_List[(int)mono.CharType - 1] = null;
             }
         }
 
@@ -248,7 +248,7 @@ namespace Gob3AQ.LevelMaster
         private void Initializations()
         {
             _NPC_List = new List<NPCMasterClass>(GameFixedConfig.MAX_POOLED_ENEMIES);
-            _Player_List = new List<PlayableCharScript>(GameFixedConfig.MAX_LEVEL_PLAYABLE_CHARACTERS);
+            _Player_List = new PlayableCharScript[GameFixedConfig.MAX_LEVEL_PLAYABLE_CHARACTERS];
             _WP_List = new List<WaypointClass>(GameFixedConfig.MAX_LEVEL_WAYPOINTS);
             _Item_List = new List<ItemClass>(GameFixedConfig.MAX_POOLED_ENEMIES);
 
@@ -368,7 +368,7 @@ namespace Gob3AQ.LevelMaster
                     switch(candidateMelems.type)
                     {
                         case MouseActiveElemsType.MELEMS_PLAYER:
-                            VARMAP_LevelMaster.SELECT_PLAYER(candidateMelems.player.charType);
+                            VARMAP_LevelMaster.SELECT_PLAYER(candidateMelems.player.CharType);
                             break;
                         case MouseActiveElemsType.MELEMS_ITEM:
                             ItemUsageType usageType;
@@ -394,7 +394,7 @@ namespace Gob3AQ.LevelMaster
                 }
                 else if(playerSelected != CharacterType.CHARACTER_NONE)
                 {
-                    CheckPlayerMovementOrder(ref mouse);
+                    CheckPlayerMovementOrder(ref mouse, playerSelected);
                 }
                 else
                 {
@@ -407,13 +407,13 @@ namespace Gob3AQ.LevelMaster
             }
         }
 
-        private void CheckPlayerMovementOrder(ref MousePropertiesStruct mouse)
+        private void CheckPlayerMovementOrder(ref MousePropertiesStruct mouse, CharacterType selectedCharacter)
         {
             GetNearestWPService(mouse.pos1, GameFixedConfig.DISTANCE_MOUSE_FURTHEST_WP, out WaypointClass candidate);
 
             if (candidate)
             {
-                VARMAP_LevelMaster.MOVE_PLAYER(candidate);
+                VARMAP_LevelMaster.MOVE_PLAYER(selectedCharacter, candidate);
             }
         }
 
@@ -443,9 +443,12 @@ namespace Gob3AQ.LevelMaster
 
             if (use)
             {
-                for (int i = 0; i < _Player_List.Count; i++)
+                for (int i = 0; i < _Player_List.Length; i++)
                 {
-                    _Player_List[i].enabled = activate;
+                    if (_Player_List[i] != null)
+                    {
+                        _Player_List[i].enabled = activate;
+                    }
                 }
             }
         }

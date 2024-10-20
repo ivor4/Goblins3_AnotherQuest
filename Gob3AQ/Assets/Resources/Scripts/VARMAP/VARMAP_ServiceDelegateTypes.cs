@@ -21,9 +21,9 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void ITEM_REMOVE_FROM_SCENE_DELEGATE(GameItem item);
     public delegate void MONO_REGISTER_DELEGATE(PlayableCharScript mono, bool add);
     public delegate void WP_REGISTER_DELEGATE(WaypointClass wp, bool add);
-    public delegate void MOVE_PLAYER_DELEGATE(WaypointClass wp);
+    public delegate void MOVE_PLAYER_DELEGATE(CharacterType character, WaypointClass wp);
     public delegate void SELECT_PLAYER_DELEGATE(CharacterType character);
-    public delegate void GET_PLAYER_LIST_DELEGATE(out ReadOnlyList<PlayableCharScript> list);
+    public delegate void GET_PLAYER_LIST_DELEGATE(out ReadOnlySpan<PlayableCharScript> list);
     public delegate void GET_NEAREST_WP_DELEGATE(Vector2 pos, float maxradius, out WaypointClass wp);
     public delegate void IS_EVENT_OCCURRED_DELEGATE(GameEvent ev, out bool occurred);
     public delegate void COMMIT_EVENT_DELEGATE(GameEvent ev, bool occurred);
@@ -31,10 +31,11 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void IS_ITEM_TAKEN_FROM_SCENE_DELEGATE(GamePickableItem item, out bool taken);
     public delegate void IS_ITEM_OWNED_DELEGATE(GamePickableItem item, out CharacterType character);
     public delegate void INTERACT_PLAYER_ITEM_DELEGATE(in ItemUsage usage, WaypointClass wp);
-    public delegate void TAKE_ITEM_DELEGATE(CharacterType character, GameItem item, out InteractionItemType permitted);
-    public delegate void USE_ITEM_DELEGATE(in ItemUsage usage, out InteractionItemType permitted);
+    public delegate void TAKE_ITEM_DELEGATE(CharacterType character, GameItem item, out ItemInteractionType permitted);
+    public delegate void USE_ITEM_DELEGATE(in ItemUsage usage, out ItemInteractionType permitted);
     public delegate void GET_SCENARIO_ITEM_LIST_DELEGATE(out ReadOnlyList<ItemClass> list);
     public delegate void SELECT_PICKABLE_ITEM_DELEGATE(GameItem item);
     public delegate void CANCEL_PICKABLE_ITEM_DELEGATE();
+    public delegate void SET_PLAYER_ANIMATION_DELEGATE(CharacterType character, CharacterAnimation animation);
 
 }

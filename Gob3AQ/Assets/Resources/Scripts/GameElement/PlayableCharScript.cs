@@ -37,6 +37,8 @@ namespace Gob3AQ.GameElement.PlayableChar
         [SerializeField]
         public CharacterType charType;
 
+        public CharacterType CharType => charType;
+
         public Collider2D Collider
         {
             get
@@ -52,6 +54,7 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         /* Status */
         private PhysicalState physicalstate;
+        private float actTimeout;
 
         private bool selected;
         private bool loaded;
@@ -117,6 +120,15 @@ namespace Gob3AQ.GameElement.PlayableChar
             }
         }
 
+        public void ActAnimationRequest(CharacterAnimation animation)
+        {
+            _ = animation;
+
+            physicalstate = PhysicalState.PHYSICAL_STATE_ACTING;
+            _sprRenderer.color = Color.blue;
+            actTimeout = 1f;
+        }
+
         #endregion
 
 
@@ -138,6 +150,7 @@ namespace Gob3AQ.GameElement.PlayableChar
             selected = false;
             loaded = false;
             bufferedData.pending = false;
+            actTimeout = 0f;
 
             VARMAP_PlayerMaster.MONO_REGISTER(this, true);
             VARMAP_PlayerMaster.REG_PLAYER_SELECTED(ChangedSelectedPlayerEvent);
@@ -191,6 +204,9 @@ namespace Gob3AQ.GameElement.PlayableChar
                 case PhysicalState.PHYSICAL_STATE_WALKING:
                     Execute_Walk();
                     break;
+                case PhysicalState.PHYSICAL_STATE_ACTING:
+                    Execute_Act();
+                    break;
 
                 default:
                     break;
@@ -222,6 +238,26 @@ namespace Gob3AQ.GameElement.PlayableChar
                 else
                 {
                     Walk_StartNextSegment(true);
+                }
+            }
+        }
+
+        private void Execute_Act()
+        {
+            actTimeout -= Time.deltaTime;
+
+            if(actTimeout <= 0f)
+            {
+                actTimeout = 0f;
+                physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
+
+                if(selected)
+                {
+                    _sprRenderer.color = Color.red;
+                }
+                else
+                {
+                    _sprRenderer.color = Color.white;
                 }
             }
         }

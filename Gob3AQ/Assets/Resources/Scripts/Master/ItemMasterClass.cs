@@ -28,7 +28,7 @@ namespace Gob3AQ.ItemMaster
         }
 
         
-        public static void UseItemService(in ItemUsage usage, out InteractionItemType permitted)
+        public static void UseItemService(in ItemUsage usage, out ItemInteractionType permitted)
         {
             switch(usage.type)
             {
@@ -39,7 +39,7 @@ namespace Gob3AQ.ItemMaster
                     UseItemWithItem(in usage, out permitted);
                     break;
                 default:
-                    permitted = InteractionItemType.INTERACTION_NONE;
+                    permitted = ItemInteractionType.INTERACTION_NONE;
                     break;
             }
         }
@@ -75,12 +75,14 @@ namespace Gob3AQ.ItemMaster
         /// </summary>
         /// <param name="item">involved labelled item</param>
         /// <param name="character">Character who took the item</param>
-        private static void TakePickableItem(in ItemUsage usage, out InteractionItemType permitted)
+        private static void TakePickableItem(in ItemUsage usage, out ItemInteractionType permitted)
         {
-            permitted = ItemsInteractionsClass.GetItemInteraction(in usage);
+            ref readonly ItemInteractionInfo interactionInfo = ref ItemsInteractionsClass.GetItemInteraction(in usage);
+
+            permitted = interactionInfo.type;
 
             /* If interaction is take, remove item from scenario and trigger events, also add it to inventory */
-            if (permitted == InteractionItemType.INTERACTION_TAKE)
+            if (interactionInfo.type == ItemInteractionType.INTERACTION_TAKE)
             {
                 GamePickableItem pickable = ItemsInteractionsClass.ITEM_TO_PICKABLE[(int)usage.itemDest];
 
@@ -96,17 +98,18 @@ namespace Gob3AQ.ItemMaster
             }
         }
 
-        private static void UseItemWithItem(in ItemUsage usage, out InteractionItemType permitted)
+        private static void UseItemWithItem(in ItemUsage usage, out ItemInteractionType permitted)
         {
             GamePickableItem pickable = ItemsInteractionsClass.ITEM_TO_PICKABLE[(int)usage.itemSource];
-            permitted = ItemsInteractionsClass.GetItemInteraction(in usage);
+            ref readonly ItemInteractionInfo interactionInfo = ref ItemsInteractionsClass.GetItemInteraction(in usage);
+            permitted = interactionInfo.type;
 
             /* Pickable items which are already stored in inventory */
             if (pickable != GamePickableItem.ITEM_PICK_NONE)
             {
                 CharacterType owner = VARMAP_ItemMaster.GET_ELEM_PICKABLE_ITEM_OWNER((int)pickable);
 
-                if ((owner == usage.playerSource) && (permitted == InteractionItemType.INTERACTION_USE))
+                if ((owner == usage.playerSource) && (permitted == ItemInteractionType.INTERACTION_USE))
                 {
                     /* Lose item */
                     VARMAP_ItemMaster.SET_ELEM_PICKABLE_ITEM_OWNER((int)pickable, CharacterType.CHARACTER_NONE);
@@ -114,10 +117,16 @@ namespace Gob3AQ.ItemMaster
             }
 
             /* Common part */
-            if (permitted == InteractionItemType.INTERACTION_USE)
+            if (permitted == ItemInteractionType.INTERACTION_USE)
             {
-                /* ... */
-                Debug.Log("Item used correctly");
+                /* Unchain event (in case) */
+                if (interactionInfo.linkedEvent != GameEvent.GEVENT_NONE)
+                {
+                    VARMAP_ItemMaster.COMMIT_EVENT(interactionInfo.linkedEvent, true);
+                }
+
+                /* Unchain player animation */
+                VARMAP_ItemMaster.SET_PLAYER_ANIMATION(usage.playerSource, interactionInfo.useAnimation);
             }
 
             /* No more available */

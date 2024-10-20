@@ -23,8 +23,8 @@ namespace Gob3AQ.GraphicsMaster
         private static Bounds _levelBounds;
         private static Bounds _cameraCenterLimitBounds;
         private static Bounds _cameraBounds;
-        
-        
+
+
         private static Camera mainCamera;
         private static Transform mainCameraTransform;
         private static GameObject cursor;

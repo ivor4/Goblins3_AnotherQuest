@@ -120,14 +120,6 @@ namespace Gob3AQ.GameElement.PlayableChar
             }
         }
 
-        public void ActAnimationRequest(CharacterAnimation animation)
-        {
-            _ = animation;
-
-            physicalstate = PhysicalState.PHYSICAL_STATE_ACTING;
-            _sprRenderer.color = Color.blue;
-            actTimeout = 1f;
-        }
 
         #endregion
 
@@ -305,11 +297,27 @@ namespace Gob3AQ.GameElement.PlayableChar
             /* Now interact if buffered */
             if (bufferedData.pending)
             {
-                VARMAP_PlayerMaster.USE_ITEM(in bufferedData.usage, out _);
+                /* Use Item is also Take Item */
+                VARMAP_PlayerMaster.USE_ITEM(in bufferedData.usage, out ItemInteractionType permitted, out CharacterAnimation animation);
+
+                /* If action is valid */
+                if(permitted != ItemInteractionType.INTERACTION_NONE)
+                {
+                    ActAnimationRequest(animation);
+                }
 
                 /* Clear */
                 bufferedData.pending = false;
             }
+        }
+
+        private void ActAnimationRequest(CharacterAnimation animation)
+        {
+            _ = animation;
+
+            physicalstate = PhysicalState.PHYSICAL_STATE_ACTING;
+            _sprRenderer.color = Color.blue;
+            actTimeout = 1f;
         }
 
         #endregion

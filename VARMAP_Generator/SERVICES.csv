@@ -25,6 +25,5 @@ N,SERVICE_ID,SPECIAL_DELEGATE,SERVICE_ROUTE,,GameMaster,InputMaster,LevelMaster,
 23,GET_SCENARIO_ITEM_LIST,GET_SCENARIO_ITEM_LIST_DELEGATE,LevelMasterClass.GetScenarioItemListService,,-,-,W,-,-,-,-,X,-
 24,SELECT_PICKABLE_ITEM,SELECT_PICKABLE_ITEM_DELEGATE,ItemMasterClass.SelectPickableItemService,,-,-,-,-,X,-,-,W,-
 25,CANCEL_PICKABLE_ITEM,CANCEL_PICKABLE_ITEM_DELEGATE,ItemMasterClass.CancelPickableItemService,,-,-,X,-,X,X,-,W,-
-26,SET_PLAYER_ANIMATION,SET_PLAYER_ANIMATION_DELEGATE,PlayerMasterClass.SetPlayerAnimation,,-,-,X,-,-,W,-,X,-
-27,EVENT_SUBSCRIPTION,EVENT_SUBSCRIPTION_DELEGATE,GameEventMasterClass.EventSubscriptionService,,-,-,X,-,-,X,X,X,W
-28,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,,W,-,-,-,-,-,-,-,-
+26,EVENT_SUBSCRIPTION,EVENT_SUBSCRIPTION_DELEGATE,GameEventMasterClass.EventSubscriptionService,,-,-,X,-,-,X,X,X,W
+27,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,,W,-,-,-,-,-,-,-,-

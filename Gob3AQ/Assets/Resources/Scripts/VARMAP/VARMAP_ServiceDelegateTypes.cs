@@ -32,7 +32,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void IS_ITEM_OWNED_DELEGATE(GamePickableItem item, out CharacterType character);
     public delegate void INTERACT_PLAYER_ITEM_DELEGATE(in ItemUsage usage, WaypointClass wp);
     public delegate void TAKE_ITEM_DELEGATE(CharacterType character, GameItem item, out ItemInteractionType permitted);
-    public delegate void USE_ITEM_DELEGATE(in ItemUsage usage, out ItemInteractionType permitted);
+    public delegate void USE_ITEM_DELEGATE(in ItemUsage usage, out ItemInteractionType permitted, out CharacterAnimation animation);
     public delegate void GET_SCENARIO_ITEM_LIST_DELEGATE(out ReadOnlyList<ItemClass> list);
     public delegate void SELECT_PICKABLE_ITEM_DELEGATE(GameItem item);
     public delegate void CANCEL_PICKABLE_ITEM_DELEGATE();

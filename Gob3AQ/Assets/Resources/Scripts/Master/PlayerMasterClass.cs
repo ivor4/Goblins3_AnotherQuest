@@ -33,11 +33,6 @@ namespace Gob3AQ.PlayerMaster
             instance.ItemInteractRequest(in usage, itemwp);
         }
 
-        public static void SetPlayerAnimation(CharacterType character, CharacterAnimation animation)
-        {
-            PlayableCharScript instance = GetPlayerInstance(character);
-            instance.ActAnimationRequest(animation);
-        }
 
         private static PlayableCharScript GetPlayerInstance(CharacterType character)
         {

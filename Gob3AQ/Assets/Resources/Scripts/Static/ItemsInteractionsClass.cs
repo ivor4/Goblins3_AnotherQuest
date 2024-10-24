@@ -8,6 +8,8 @@ namespace Gob3AQ.Brain.ItemsInteraction
     {
         public static ReadOnlySpan<GamePickableItem> ITEM_TO_PICKABLE => _ItemToPickable;
 
+        public static ReadOnlySpan<bool> IS_PICKABLE_DISPOSABLE => _PickableDisposable;
+
 
         private static readonly GamePickableItem[] _ItemToPickable = new GamePickableItem[(int)GameItem.ITEM_TOTAL]
         {
@@ -16,8 +18,15 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GamePickableItem.ITEM_PICK_NONE     /* ITEM_FOUNTAIN */
         };
 
+        private static bool[] _PickableDisposable = new bool[(int)GamePickableItem.ITEM_PICK_TOTAL]
+        {
+            false,  /* ITEM_PICK_NONE */
+            true   /* ITEM_PICK_POTION */
+        };
+
         private static readonly ItemInteractionInfo _InvalidInteraction = 
-            new ItemInteractionInfo(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE, CharacterAnimation.ITEM_USE_ANIMATION_NONE);
+            new ItemInteractionInfo(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE,
+                CharacterAnimation.ITEM_USE_ANIMATION_NONE);
 
 
         private static readonly ItemInteractionInfo[,] _PlayerWithItemIteraction =
@@ -25,18 +34,24 @@ namespace Gob3AQ.Brain.ItemsInteraction
             {
                 /* CHARACTER_MAIN */
                 {
-                    new(ItemInteractionType.INTERACTION_TAKE, GameEvent.GEVENT_NONE, CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_POTION */
-                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE, CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_FOUNTAIN */
+                    new(ItemInteractionType.INTERACTION_TAKE, GameEvent.GEVENT_NONE,
+                        CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_POTION */
+                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE,
+                        CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_FOUNTAIN */
                 },
                 /* CHARACTER_PARROT */
                 {
-                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE, CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_POTION */
-                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE, CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_FOUNTAIN */
+                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE,
+                        CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_POTION */
+                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE,
+                        CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_FOUNTAIN */
                 },
                 /* CHARACTER_SNAKE */
                 {
-                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE, CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_POTION */
-                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE, CharacterAnimation.ITEM_USE_ANIMATION_NORMAL)    /* ITEM_FOUNTAIN */
+                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE,
+                        CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_POTION */
+                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE,
+                        CharacterAnimation.ITEM_USE_ANIMATION_NORMAL)    /* ITEM_FOUNTAIN */
                 }
             };
 
@@ -45,13 +60,17 @@ namespace Gob3AQ.Brain.ItemsInteraction
             {
                 /* ITEM_POTION */
                 {
-                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE, CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_POTION */
-                    new(ItemInteractionType.INTERACTION_USE, GameEvent.GEVENT_FOUNTAIN_FULL, CharacterAnimation.ITEM_USE_ANIMATION_POUR),    /* ITEM_FOUNTAIN */
+                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE,
+                        CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_POTION */
+                    new(ItemInteractionType.INTERACTION_USE, GameEvent.GEVENT_FOUNTAIN_FULL,
+                        CharacterAnimation.ITEM_USE_ANIMATION_POUR),    /* ITEM_FOUNTAIN */
                 },
                 /* ITEM_FOUNTAIN */
                 {
-                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE, CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_POTION */
-                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE, CharacterAnimation.ITEM_USE_ANIMATION_NORMAL)    /* ITEM_FOUNTAIN */
+                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE,
+                        CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_POTION */
+                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE,
+                        CharacterAnimation.ITEM_USE_ANIMATION_NORMAL)    /* ITEM_FOUNTAIN */
                 }
             };
 

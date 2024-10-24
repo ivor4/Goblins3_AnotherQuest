@@ -43,7 +43,7 @@ namespace Gob3AQ.GameElement.Item.Fountain
 
 
 
-        private void _Fountain_Filled()
+        private void _Fountain_Filled(bool _)
         {
             _sprRenderer.sprite = _sprite_full;
 

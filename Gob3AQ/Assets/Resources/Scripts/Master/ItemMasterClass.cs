@@ -116,9 +116,9 @@ namespace Gob3AQ.ItemMaster
                 {
                     CharacterType owner = VARMAP_ItemMaster.GET_ELEM_PICKABLE_ITEM_OWNER((int)pickable);
 
-                    if (owner == usage.playerSource)
+                    /* Lose item in case it is pickable and disposable */
+                    if ((owner == usage.playerSource) && ItemsInteractionsClass.IS_PICKABLE_DISPOSABLE[(int)pickable])
                     {
-                        /* Lose item */
                         VARMAP_ItemMaster.SET_ELEM_PICKABLE_ITEM_OWNER((int)pickable, CharacterType.CHARACTER_NONE);
                     }
                 }

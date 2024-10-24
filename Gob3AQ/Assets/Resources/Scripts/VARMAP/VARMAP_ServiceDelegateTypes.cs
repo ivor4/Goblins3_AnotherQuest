@@ -37,6 +37,6 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void SELECT_PICKABLE_ITEM_DELEGATE(GameItem item);
     public delegate void CANCEL_PICKABLE_ITEM_DELEGATE();
     public delegate void SET_PLAYER_ANIMATION_DELEGATE(CharacterType character, CharacterAnimation animation);
-    public delegate void EVENT_SUBSCRIPTION_DELEGATE(GameEvent gevent, SUBSCRIPTION_CALL_DELEGATE callable, bool add);
+    public delegate void EVENT_SUBSCRIPTION_DELEGATE(GameEvent gevent, EVENT_SUBSCRIPTION_CALL_DELEGATE callable, bool add);
 
 }

@@ -14,12 +14,12 @@ namespace Gob3AQ.GameEventMaster
     public class GameEventMasterClass : MonoBehaviour
     {
         private static GameEventMasterClass _singleton;
-        private static SUBSCRIPTION_CALL_DELEGATE[] _event_subscription;
+        private static EVENT_SUBSCRIPTION_CALL_DELEGATE[] _event_subscription;
 
         public static void IsEventOccurredService(GameEvent ev, out bool occurred)
         {
             int evIndex = (int)ev;
-            evIndex += (int)GamePickableItem.ITEM_PICK_TOTAL - 2;    /* Every item has 1 event, which is placed at the beginning */
+            evIndex += (int)(GamePickableItem.ITEM_PICK_TOTAL - 1) - 1;    /* Every item has 1 event, which is placed at the beginning */
 
             GetArrayIndexAndPos(evIndex, out int arraypos, out int itembit);
 
@@ -31,7 +31,7 @@ namespace Gob3AQ.GameEventMaster
         public static void CommitEventService(GameEvent ev, bool occurred)
         {
             int evIndex = (int)ev;
-            evIndex += (int)GamePickableItem.ITEM_PICK_TOTAL - 2;    /* Every item has 1 event, which is placed at the beginning */
+            evIndex += (int)(GamePickableItem.ITEM_PICK_TOTAL - 1) - 1;    /* Every item has 1 event, which is placed at the beginning */
 
             GetArrayIndexAndPos(evIndex, out int arraypos, out int itembit);
 
@@ -42,7 +42,7 @@ namespace Gob3AQ.GameEventMaster
             VARMAP_GameEventMaster.SET_ELEM_EVENTS_OCCURRED(arraypos, mbfs);
 
             /* Invoke subscribers of this event */
-            _event_subscription[(int)ev - 1]?.Invoke();
+            _event_subscription[(int)ev - 1]?.Invoke(occurred);
         }
 
         public static void TakeItemFromSceneEventService(GamePickableItem item)
@@ -68,7 +68,7 @@ namespace Gob3AQ.GameEventMaster
         }
 
 
-        public static void EventSubscriptionService(GameEvent gevent, SUBSCRIPTION_CALL_DELEGATE callable, bool add)
+        public static void EventSubscriptionService(GameEvent gevent, EVENT_SUBSCRIPTION_CALL_DELEGATE callable, bool add)
         {
             int evIndex = (int)gevent - 1;
 
@@ -106,7 +106,7 @@ namespace Gob3AQ.GameEventMaster
             else
             {
                 _singleton = this;
-                _event_subscription = new SUBSCRIPTION_CALL_DELEGATE[(int)GameEvent.GEVENT_TOTAL - 1];
+                _event_subscription = new EVENT_SUBSCRIPTION_CALL_DELEGATE[(int)GameEvent.GEVENT_TOTAL - 1];
             }
         }
 

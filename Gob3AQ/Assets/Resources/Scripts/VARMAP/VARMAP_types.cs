@@ -18,6 +18,7 @@ namespace Gob3AQ.VARMAP.Types
     public delegate ReadOnlySpan<T> GetVARMAPArrayDelegate<T>();
     public delegate void SetVARMAPArrayDelegate<T>(List<T> newvals);
     public delegate void SUBSCRIPTION_CALL_DELEGATE();
+    public delegate void EVENT_SUBSCRIPTION_CALL_DELEGATE(bool newStatus);
 
 
     public enum ChangedEventType

@@ -18,6 +18,9 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             GET_SIZE_EVENTS_OCCURRED = _GET_SIZE_EVENTS_OCCURRED;
             GET_ARRAY_EVENTS_OCCURRED = _GET_ARRAY_EVENTS_OCCURRED;
             SET_ARRAY_EVENTS_OCCURRED = _SET_ARRAY_EVENTS_OCCURRED;
+            GET_GAMESTATUS = _GET_GAMESTATUS;
+            REG_GAMESTATUS = _REG_GAMESTATUS;
+            UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             LATE_START_SUBSCRIPTION = _LATE_START_SUBSCRIPTION;
             IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
@@ -36,6 +39,9 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         public static GetVARMAPArraySizeDelegate GET_SIZE_EVENTS_OCCURRED;
         public static GetVARMAPArrayDelegate<MultiBitFieldStruct> GET_ARRAY_EVENTS_OCCURRED;
         public static SetVARMAPArrayDelegate<MultiBitFieldStruct> SET_ARRAY_EVENTS_OCCURRED;
+        public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
+        public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
+        public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
         /* > ATG 2 END */
 
         /* SERVICES */

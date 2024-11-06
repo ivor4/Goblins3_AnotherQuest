@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Gob3AQ.VARMAP.Types;
+using Gob3AQ.VARMAP.Types.Items;
 using Gob3AQ.VARMAP.LevelMaster;
 using System;
 using Gob3AQ.FixedConfig;

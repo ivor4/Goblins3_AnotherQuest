@@ -1,12 +1,8 @@
 using UnityEngine;
 using Gob3AQ.VARMAP.GameEventMaster;
 using Gob3AQ.VARMAP.Types;
+using Gob3AQ.VARMAP.Types.Items;
 using Gob3AQ.FixedConfig;
-using Gob3AQ.Libs.Arith;
-using Gob3AQ.GameElement.PlayableChar;
-using Gob3AQ.Waypoint;
-using Gob3AQ.Brain.ItemsInteraction;
-using System;
 using System.Collections.Generic;
 
 namespace Gob3AQ.GameEventMaster
@@ -32,8 +28,8 @@ namespace Gob3AQ.GameEventMaster
 
         public static void IsEventOccurredService(GameEvent ev, out bool occurred)
         {
-            int evIndex = (int)ev;
-            evIndex += (int)(GamePickableItem.ITEM_PICK_TOTAL - 1) - 1;    /* Every item has 1 event, which is placed at the beginning */
+            int evIndex = (int)ev - 1;
+            evIndex += (int)(GamePickableItem.ITEM_PICK_TOTAL - 1);    /* Every item has 1 event, which is placed at the beginning */
 
             GetArrayIndexAndPos(evIndex, out int arraypos, out int itembit);
 
@@ -44,8 +40,8 @@ namespace Gob3AQ.GameEventMaster
 
         public static void CommitEventService(GameEvent ev, bool occurred)
         {
-            int evIndex = (int)ev;
-            evIndex += (int)(GamePickableItem.ITEM_PICK_TOTAL - 1) - 1;    /* Every item has 1 event, which is placed at the beginning */
+            int evIndex = (int)ev - 1;
+            evIndex += (int)(GamePickableItem.ITEM_PICK_TOTAL - 1);    /* Every item has 1 event, which is placed at the beginning */
 
             BufferedEvent newEv = new BufferedEvent(evIndex, occurred);
 
@@ -73,8 +69,8 @@ namespace Gob3AQ.GameEventMaster
 
         public static void EventSubscriptionService(GameEvent gevent, EVENT_SUBSCRIPTION_CALL_DELEGATE callable, bool add)
         {
-            int evIndex = (int)gevent;
-            evIndex += (int)(GamePickableItem.ITEM_PICK_TOTAL - 1) - 1;    /* Every item has 1 event, which is placed at the beginning */
+            int evIndex = (int)gevent - 1;
+            evIndex += (int)(GamePickableItem.ITEM_PICK_TOTAL - 1);    /* Every item has 1 event, which is placed at the beginning */
 
             if (add)
             {
@@ -110,7 +106,7 @@ namespace Gob3AQ.GameEventMaster
             else
             {
                 _singleton = this;
-                _event_subscription = new EVENT_SUBSCRIPTION_CALL_DELEGATE[(int)GameEvent.GEVENT_TOTAL - 1];
+                _event_subscription = new EVENT_SUBSCRIPTION_CALL_DELEGATE[(int)(GamePickableItem.ITEM_PICK_TOTAL - 1) + (int)(GameEvent.GEVENT_TOTAL - 1)];
                 _bufferedEvents = new Queue<BufferedEvent>(GameFixedConfig.MAX_BUFFERED_EVENTS);
             }
         }

@@ -1,6 +1,7 @@
 ﻿using Gob3AQ.GameElement.PlayableChar;
 using Gob3AQ.GameElement.NPC;
 using Gob3AQ.GameElement.Item;
+using Gob3AQ.VARMAP.Types.Items;
 using UnityEngine;
 using Gob3AQ.Waypoint;
 using Gob3AQ.Libs.Arith;

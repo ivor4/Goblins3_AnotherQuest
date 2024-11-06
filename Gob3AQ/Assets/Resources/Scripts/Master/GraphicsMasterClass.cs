@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Gob3AQ.VARMAP.Types;
+using Gob3AQ.VARMAP.Types.Items;
 using Gob3AQ.VARMAP.GraphicsMaster;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.ResourceAtlas;

@@ -1,5 +1,6 @@
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.VARMAP.Types.Delegates;
+using Gob3AQ.VARMAP.Types.Items;
 using Gob3AQ.VARMAP.Variable;
 using UnityEngine;
 

@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Gob3AQ.VARMAP.Types.Items;
 using UnityEngine;
 using Gob3AQ.Libs.Arith;
 
@@ -86,24 +87,7 @@ namespace Gob3AQ.VARMAP.Types
 
     
 
-    public enum GameItem
-    {
-        ITEM_NONE,
-
-        ITEM_POTION,
-        ITEM_FOUNTAIN,
-
-        ITEM_TOTAL
-    }
-
-    public enum GamePickableItem
-    {
-        ITEM_PICK_NONE,
-
-        ITEM_PICK_POTION,
-
-        ITEM_PICK_TOTAL
-    }
+    
 
     public enum ItemUsageType
     {
@@ -165,6 +149,7 @@ namespace Gob3AQ.VARMAP.Types
             this.itemDest = itemDest;
         }
     }
+
 
     public struct MousePropertiesStruct : IStreamable
     {

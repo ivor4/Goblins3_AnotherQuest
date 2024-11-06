@@ -1,7 +1,7 @@
 using UnityEngine;
 using Gob3AQ.Libs.Arith;
 using System.Collections.Generic;
-using Gob3AQ.VARMAP.Types;
+using Gob3AQ.VARMAP.Types.Items;
 using Gob3AQ.Brain.ItemsInteraction;
 using System;
 
@@ -20,9 +20,8 @@ namespace Gob3AQ.ResourceAtlas
         SPRITE_NONE,
 
         SPRITE_POTION,
-
+        SPRITE_POTIONBLUE,
         SPRITE_FOUNTAIN_DRY,
-
         SPRITE_FOUNTAIN_FULL,
 
         SPRITE_TOTAL
@@ -54,7 +53,8 @@ namespace Gob3AQ.ResourceAtlas
         private static readonly SpriteEnum[] _PickableItemToSpriteId = new SpriteEnum[(int)GamePickableItem.ITEM_PICK_TOTAL]
         {
             SpriteEnum.SPRITE_NONE,      /* PICKABLE_NONE */
-            SpriteEnum.SPRITE_POTION     /* PICKABLE_POTION */
+            SpriteEnum.SPRITE_POTION,     /* PICKABLE_POTION */
+            SpriteEnum.SPRITE_POTIONBLUE    /* PICKABLE_POTION_BLUE */
         };
 
         private static readonly string[] _PrefabList = new string[(int)PrefabEnum.PREFAB_TOTAL]
@@ -67,6 +67,7 @@ namespace Gob3AQ.ResourceAtlas
         {
             "",
             "Sprites/potion_64",
+            "Sprites/potionblue_64",
             "Sprites/spr_fountain_256",
             "Sprites/spr_fountain_full_256",
         };

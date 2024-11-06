@@ -1,4 +1,5 @@
 using Gob3AQ.VARMAP.Types;
+using Gob3AQ.VARMAP.Types.Items;
 using Gob3AQ.VARMAP.Enum;
 using Gob3AQ.VARMAP.Variable;
 using System.IO;

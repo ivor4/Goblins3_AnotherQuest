@@ -1,27 +1,36 @@
 using UnityEngine;
 using Gob3AQ.VARMAP.Types;
+using Gob3AQ.VARMAP.Types.Items;
 using System;
 
 namespace Gob3AQ.Brain.ItemsInteraction
 {
+ 
     public static class ItemsInteractionsClass
     {
         public static ReadOnlySpan<GamePickableItem> ITEM_TO_PICKABLE => _ItemToPickable;
 
         public static ReadOnlySpan<bool> IS_PICKABLE_DISPOSABLE => _PickableDisposable;
 
+        
 
         private static readonly GamePickableItem[] _ItemToPickable = new GamePickableItem[(int)GameItem.ITEM_TOTAL]
         {
+            /* > ATG 1 START < */
             GamePickableItem.ITEM_PICK_NONE,    /* ITEM_NONE */
             GamePickableItem.ITEM_PICK_POTION,  /* ITEM_POTION */
+            GamePickableItem.ITEM_PICK_POTION_BLUE, /* ITEM_POTION_BLUE */
             GamePickableItem.ITEM_PICK_NONE     /* ITEM_FOUNTAIN */
+            /* > ATG 1 END < */
         };
 
         private static bool[] _PickableDisposable = new bool[(int)GamePickableItem.ITEM_PICK_TOTAL]
         {
+            /* > ATG 2 START < */
             false,  /* ITEM_PICK_NONE */
-            true   /* ITEM_PICK_POTION */
+            true,   /* ITEM_PICK_POTION */
+            true    /* ITEM_PICK_POTION_BLUE */
+            /* > ATG 2 END < */
         };
 
         private static readonly ItemInteractionInfo _InvalidInteraction = 
@@ -32,10 +41,13 @@ namespace Gob3AQ.Brain.ItemsInteraction
         private static readonly ItemInteractionInfo[,] _PlayerWithItemIteraction =
             new ItemInteractionInfo[(int)CharacterType.CHARACTER_TOTAL - 1, (int)GameItem.ITEM_TOTAL - 1]
             {
+                /* > ATG 3 START < */
                 /* CHARACTER_MAIN */
                 {
                     new(ItemInteractionType.INTERACTION_TAKE, GameEvent.GEVENT_NONE,
                         CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_POTION */
+                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE,
+                        CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_POTION_BLUE */
                     new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE,
                         CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_FOUNTAIN */
                 },
@@ -43,6 +55,8 @@ namespace Gob3AQ.Brain.ItemsInteraction
                 {
                     new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE,
                         CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_POTION */
+                    new(ItemInteractionType.INTERACTION_TAKE, GameEvent.GEVENT_NONE,
+                        CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_POTION_BLUE */
                     new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE,
                         CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_FOUNTAIN */
                 },
@@ -51,27 +65,45 @@ namespace Gob3AQ.Brain.ItemsInteraction
                     new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE,
                         CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_POTION */
                     new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE,
+                        CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_POTION_BLUE */
+                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE,
                         CharacterAnimation.ITEM_USE_ANIMATION_NORMAL)    /* ITEM_FOUNTAIN */
                 }
+                /* > ATG 3 END < */
             };
 
         private static readonly ItemInteractionInfo[,] _ItemWithItemIteraction =
             new ItemInteractionInfo[(int)GameItem.ITEM_TOTAL - 1, (int)GameItem.ITEM_TOTAL - 1]
             {
+                /* > ATG 4 START < */
                 /* ITEM_POTION */
                 {
                     new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE,
                         CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_POTION */
+                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE,
+                        CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_POTION_BLUE */
                     new(ItemInteractionType.INTERACTION_USE, GameEvent.GEVENT_FOUNTAIN_FULL,
-                        CharacterAnimation.ITEM_USE_ANIMATION_POUR),    /* ITEM_FOUNTAIN */
+                        CharacterAnimation.ITEM_USE_ANIMATION_POUR)    /* ITEM_FOUNTAIN */
+                },
+                /* ITEM_POTION_BLUE */
+                {
+                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE,
+                        CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_POTION */
+                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE,
+                        CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_POTION_BLUE */
+                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE,
+                        CharacterAnimation.ITEM_USE_ANIMATION_NORMAL)    /* ITEM_FOUNTAIN */
                 },
                 /* ITEM_FOUNTAIN */
                 {
                     new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE,
                         CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_POTION */
                     new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE,
+                        CharacterAnimation.ITEM_USE_ANIMATION_NORMAL),   /* ITEM_POTION_BLUE */
+                    new(ItemInteractionType.INTERACTION_NONE, GameEvent.GEVENT_NONE,
                         CharacterAnimation.ITEM_USE_ANIMATION_NORMAL)    /* ITEM_FOUNTAIN */
                 }
+                /* > ATG 4 END < */
             };
 
 

@@ -4,6 +4,8 @@ Spyder Editor
 
 This is not a temporary script file.
 """
+
+#Global part
 atg_path = "./../Gob3AQ/Assets/Resources/Scripts/VARMAP/"
 proto_path = atg_path+"VARMAP.cs"
 initialization_path = atg_path+"VARMAP_datasystem.cs"
@@ -12,8 +14,13 @@ enum_path = atg_path+"VARMAP_enum.cs"
 delegateupdate_path = atg_path+"VARMAP_UpdateDelegates.cs"
 savedata_path = atg_path+"VARMAP_savedata.cs"
 
+#This is Custom part
+items_types_path = atg_path + "VARMAP_types_items.cs"
+items_interaction_path = atg_path + "../Static/ItemsInteractionsClass.cs"
+
 MODULES_START_COLUMN = 8
 
+#ATG Class Definition
 class ATGFile:
     def __init__(self, pathString, maxATGZones):
         self.path = pathString
@@ -86,6 +93,8 @@ defaultvalues_lines = ATGFile(defaultvalues_path, 1)
 enum_lines = ATGFile(enum_path, 1)
 delegateupdate_lines = ATGFile(delegateupdate_path, 2)
 savedata_lines = ATGFile(savedata_path, 1)
+items_types_lines = ATGFile(items_types_path, 2)
+items_interaction_lines = ATGFile(items_interaction_path, 4)
 
 added_savedata_lines = 0
 
@@ -96,6 +105,7 @@ enumPrefix = "VARMAP_ID_"
 
 VARMAPinputFile = open("VARMAP.csv", "r")
 SERVICESinputFile = open("SERVICES.csv", "r")
+ITEMSinputFile = open("ITEMS.csv", "r")
 
 
 VARMAPPermissionFile = []
@@ -537,13 +547,74 @@ for line in SERVICESinputFile:
         
 
 
+print('\n\n------ITEMS (Custom GOB3) -------\n\n')
+
+pickable_prefix = 'GamePickableItem.'
+
+items_types_lines.InsertLineInATG(1, "ITEM_NONE,\n\n")
+items_types_lines.InsertLineInATG(2, "ITEM_PICK_NONE,\n\n")
+items_interaction_lines.InsertLineInATG(1, pickable_prefix + 'ITEM_PICK_NONE' + ',\t\t/* ITEM_NONE */ \n')
+
+linecount = -1
+Items = []
+for line in ITEMSinputFile:
+    ItemVar = {}
+    linecount += 1
+    
+    line = line.replace('\n','')
+    line = line.replace('\r','')
+    
+    columns = line.split(',')
+    print(columns)
+
+    if(linecount == 0):
+        continue
+    
+    ItemVar["name"] = columns[1]
+    ItemVar["pickable"] = int(columns[2])
+    
+    if(ItemVar["name"] == 'ITEM_LAST'):
+        continue
+    
+    ItemVar["c2i_main_use"] = columns[4]
+    ItemVar["c2i_main_anim"] = columns[5]
+    ItemVar["c2i_parrot_use"] = columns[6]
+    ItemVar["c2i_parrot_anim"] = columns[7]
+    
+    ItemVar["i2i_matrix"] = columns[9:]
+    
+    items_types_lines.InsertLineInATG(1, ItemVar["name"]+",\n")
+    
+    if(ItemVar["pickable"] == 1):
+        pickablename = ItemVar["name"].replace('ITEM_','ITEM_PICK_')
+        items_types_lines.InsertLineInATG(2, pickablename +",\n")
+        items_interaction_lines.InsertLineInATG(1, pickable_prefix + pickablename + ',\t\t/* ' + ItemVar["name"] + '*/ \n')
+    else:
+        items_interaction_lines.InsertLineInATG(1, pickable_prefix + 'ITEM_PICK_NONE' + ',\t\t/* ' + ItemVar["name"] + '*/ \n')
+    
+    Items.append(ItemVar)
+    
+items_types_lines.InsertLineInATG(1, "\n")
+items_types_lines.InsertLineInATG(1, "ITEM_TOTAL\n")
+items_types_lines.InsertLineInATG(2, "\n")
+items_types_lines.InsertLineInATG(2, "ITEM_PICK_TOTAL\n")
+    
+
+print('\n\n------ SAVE ATG FILES -------\n\n')
+
+#VARMAP Individual modules
 for i in range(0,len(Modulelines)):
     Modulelines[i].SaveFile()
 
+#VARMAP special classes
 proto_lines.SaveFile()
 initialization_lines.SaveFile()
 defaultvalues_lines.SaveFile()
 enum_lines.SaveFile()
 delegateupdate_lines.SaveFile()
 savedata_lines.SaveFile()
+
+#Custom classes
+items_types_lines.SaveFile()
+items_interaction_lines.SaveFile()
 

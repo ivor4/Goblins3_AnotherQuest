@@ -5,7 +5,7 @@ namespace Gob3AQ.VARMAP.Types.Items
     public enum GameItem
     {
         /* > ATG 1 START < */
-        ITEM_NONE,
+        ITEM_NONE = -1,
 
         ITEM_POTION,
         ITEM_POTION_BLUE,
@@ -18,7 +18,7 @@ namespace Gob3AQ.VARMAP.Types.Items
     public enum GamePickableItem
     {
         /* > ATG 2 START < */
-        ITEM_PICK_NONE,
+        ITEM_PICK_NONE = -1,
 
         ITEM_PICK_POTION,
         ITEM_PICK_POTION_BLUE,

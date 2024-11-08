@@ -82,22 +82,44 @@ namespace Gob3AQ.ItemMaster
             ref readonly ItemInteractionInfo interactionInfo = ref ItemsInteractionsClass.GetItemInteraction(in usage);
 
             permitted = interactionInfo.type;
+            bool valid;
 
             /* If interaction is take, remove item from scenario and trigger events, also add it to inventory */
-            if (interactionInfo.type == ItemInteractionType.INTERACTION_TAKE)
+            switch (interactionInfo.type)
             {
-                GamePickableItem pickable = ItemsInteractionsClass.ITEM_TO_PICKABLE[(int)usage.itemDest];
+                case ItemInteractionType.INTERACTION_TAKE:
+                    GamePickableItem pickable = ItemsInteractionsClass.ITEM_TO_PICKABLE[(int)usage.itemDest];
 
-                /* Get item on this scenario (physically) */
-                VARMAP_ItemMaster.ITEM_REMOVE_FROM_SCENE(usage.itemDest);
+                    /* Get item on this scenario (physically) */
+                    VARMAP_ItemMaster.ITEM_REMOVE_FROM_SCENE(usage.itemDest);
 
-                /* Officially take it and set corresponding events.
-                 * If it was not in scene, at least an event will be set (which could be useful) */
-                VARMAP_ItemMaster.TAKE_ITEM_FROM_SCENE_EVENT(pickable);
+                    /* Officially take it and set corresponding events.
+                     * If it was not in scene, at least an event will be set (which could be useful) */
+                    VARMAP_ItemMaster.TAKE_ITEM_FROM_SCENE_EVENT(pickable);
 
-                /* Set item owner in VARMAP */
-                VARMAP_ItemMaster.SET_ELEM_PICKABLE_ITEM_OWNER((int)pickable, usage.playerSource);
+                    /* Set item owner in VARMAP */
+                    VARMAP_ItemMaster.SET_ELEM_PICKABLE_ITEM_OWNER((int)pickable, usage.playerSource);
+
+                    valid = true;
+                    break;
+
+                case ItemInteractionType.INTERACTION_USE:
+                case ItemInteractionType.INTERACTION_RECEIVE:
+                case ItemInteractionType.INTERACTION_TAKE_AND_RECEIVE:
+                    valid = true;
+                    break;
+
+                default:
+                    valid = false;
+                    break;
             }
+
+            /* Unchain event (in case) */
+            if (valid && (interactionInfo.linkedEvent != GameEvent.EVENT_NONE))
+            {
+                VARMAP_ItemMaster.COMMIT_EVENT(interactionInfo.linkedEvent, true);
+            }
+            
 
             /* Pass animation */
             animation = interactionInfo.useAnimation;
@@ -125,7 +147,7 @@ namespace Gob3AQ.ItemMaster
                 }
 
                 /* Unchain event (in case) */
-                if (interactionInfo.linkedEvent != GameEvent.GEVENT_NONE)
+                if (interactionInfo.linkedEvent != GameEvent.EVENT_NONE)
                 {
                     VARMAP_ItemMaster.COMMIT_EVENT(interactionInfo.linkedEvent, true);
                 }

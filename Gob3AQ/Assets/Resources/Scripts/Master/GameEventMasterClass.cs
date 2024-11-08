@@ -28,8 +28,8 @@ namespace Gob3AQ.GameEventMaster
 
         public static void IsEventOccurredService(GameEvent ev, out bool occurred)
         {
-            int evIndex = (int)ev - 1;
-            evIndex += (int)(GamePickableItem.ITEM_PICK_TOTAL - 1);    /* Every item has 1 event, which is placed at the beginning */
+            int evIndex = (int)ev;
+            evIndex += (int)GamePickableItem.ITEM_PICK_TOTAL;    /* Every item has 1 event, which is placed at the beginning */
 
             GetArrayIndexAndPos(evIndex, out int arraypos, out int itembit);
 
@@ -40,8 +40,8 @@ namespace Gob3AQ.GameEventMaster
 
         public static void CommitEventService(GameEvent ev, bool occurred)
         {
-            int evIndex = (int)ev - 1;
-            evIndex += (int)(GamePickableItem.ITEM_PICK_TOTAL - 1);    /* Every item has 1 event, which is placed at the beginning */
+            int evIndex = (int)ev;
+            evIndex += (int)GamePickableItem.ITEM_PICK_TOTAL;    /* Every item has 1 event, which is placed at the beginning */
 
             BufferedEvent newEv = new BufferedEvent(evIndex, occurred);
 
@@ -50,7 +50,7 @@ namespace Gob3AQ.GameEventMaster
 
         public static void TakeItemFromSceneEventService(GamePickableItem item)
         {
-            int evIndex = (int)item - 1;
+            int evIndex = (int)item;
 
             BufferedEvent newEv = new BufferedEvent(evIndex, true);
 
@@ -60,7 +60,7 @@ namespace Gob3AQ.GameEventMaster
 
         public static void IsItemTakenFromSceneService(GamePickableItem item, out bool taken)
         {
-            int evIndex = (int)item - 1;
+            int evIndex = (int)item;
             GetArrayIndexAndPos(evIndex, out int arraypos, out int itembit);
             MultiBitFieldStruct mbfs = VARMAP_GameEventMaster.GET_ELEM_EVENTS_OCCURRED(arraypos);
             taken = mbfs.GetIndividualBool(itembit);
@@ -69,8 +69,8 @@ namespace Gob3AQ.GameEventMaster
 
         public static void EventSubscriptionService(GameEvent gevent, EVENT_SUBSCRIPTION_CALL_DELEGATE callable, bool add)
         {
-            int evIndex = (int)gevent - 1;
-            evIndex += (int)(GamePickableItem.ITEM_PICK_TOTAL - 1);    /* Every item has 1 event, which is placed at the beginning */
+            int evIndex = (int)gevent;
+            evIndex += (int)GamePickableItem.ITEM_PICK_TOTAL;    /* Every item has 1 event, which is placed at the beginning */
 
             if (add)
             {
@@ -106,7 +106,7 @@ namespace Gob3AQ.GameEventMaster
             else
             {
                 _singleton = this;
-                _event_subscription = new EVENT_SUBSCRIPTION_CALL_DELEGATE[(int)(GamePickableItem.ITEM_PICK_TOTAL - 1) + (int)(GameEvent.GEVENT_TOTAL - 1)];
+                _event_subscription = new EVENT_SUBSCRIPTION_CALL_DELEGATE[(int)GamePickableItem.ITEM_PICK_TOTAL + (int)GameEvent.EVENT_TOTAL];
                 _bufferedEvents = new Queue<BufferedEvent>(GameFixedConfig.MAX_BUFFERED_EVENTS);
             }
         }

@@ -40,7 +40,7 @@ namespace Gob3AQ.PlayerMaster
 
             VARMAP_PlayerMaster.GET_PLAYER_LIST(out ReadOnlySpan<PlayableCharScript> playerlist);
 
-            selectedPlayer = playerlist[(int)character - 1];
+            selectedPlayer = playerlist[(int)character];
 
             return selectedPlayer;
         }

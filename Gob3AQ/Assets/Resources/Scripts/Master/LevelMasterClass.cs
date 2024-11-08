@@ -155,14 +155,14 @@ namespace Gob3AQ.LevelMaster
         {
             if (add)
             {
-                _Player_List[(int)mono.CharType - 1] = mono;
+                _Player_List[(int)mono.CharType] = mono;
                 MouseActiveElems melems = new(mono);
                 _ColliderReference.Add(mono.Collider, melems);
             }
             else
             {
                 _ColliderReference.Remove(mono.Collider);
-                _Player_List[(int)mono.CharType - 1] = null;
+                _Player_List[(int)mono.CharType] = null;
             }
         }
 

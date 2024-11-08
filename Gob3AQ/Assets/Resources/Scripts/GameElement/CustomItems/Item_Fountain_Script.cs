@@ -18,7 +18,7 @@ namespace Gob3AQ.GameElement.Item.Fountain
             {
                 _sprite_full = ResourceAtlasClass.GetSprite(SpriteEnum.SPRITE_FOUNTAIN_FULL);
 
-                VARMAP_ItemMaster.IS_EVENT_OCCURRED(GameEvent.GEVENT_FOUNTAIN_FULL, out bool occurred);
+                VARMAP_ItemMaster.IS_EVENT_OCCURRED(GameEvent.EVENT_FOUNTAIN_FULL, out bool occurred);
 
                 if (occurred)
                 {
@@ -26,7 +26,7 @@ namespace Gob3AQ.GameElement.Item.Fountain
                 }
                 else
                 {
-                    VARMAP_ItemMaster.EVENT_SUBSCRIPTION(GameEvent.GEVENT_FOUNTAIN_FULL, _Fountain_Filled, true);
+                    VARMAP_ItemMaster.EVENT_SUBSCRIPTION(GameEvent.EVENT_FOUNTAIN_FULL, _Fountain_Filled, true);
                 }
             }
         }
@@ -37,7 +37,7 @@ namespace Gob3AQ.GameElement.Item.Fountain
 
             if (registered)
             {
-                VARMAP_ItemMaster.EVENT_SUBSCRIPTION(GameEvent.GEVENT_FOUNTAIN_FULL, _Fountain_Filled, false);
+                VARMAP_ItemMaster.EVENT_SUBSCRIPTION(GameEvent.EVENT_FOUNTAIN_FULL, _Fountain_Filled, false);
             }
         }
 
@@ -48,7 +48,7 @@ namespace Gob3AQ.GameElement.Item.Fountain
             _sprRenderer.sprite = _sprite_full;
 
             /* Unsubscribe */
-            VARMAP_ItemMaster.EVENT_SUBSCRIPTION(GameEvent.GEVENT_FOUNTAIN_FULL, _Fountain_Filled, false);
+            VARMAP_ItemMaster.EVENT_SUBSCRIPTION(GameEvent.EVENT_FOUNTAIN_FULL, _Fountain_Filled, false);
         }
         
     }

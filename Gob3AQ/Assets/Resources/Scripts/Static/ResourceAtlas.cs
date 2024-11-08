@@ -52,7 +52,6 @@ namespace Gob3AQ.ResourceAtlas
 
         private static readonly SpriteEnum[] _PickableItemToSpriteId = new SpriteEnum[(int)GamePickableItem.ITEM_PICK_TOTAL]
         {
-            SpriteEnum.SPRITE_NONE,      /* PICKABLE_NONE */
             SpriteEnum.SPRITE_POTION,     /* PICKABLE_POTION */
             SpriteEnum.SPRITE_POTIONBLUE    /* PICKABLE_POTION_BLUE */
         };

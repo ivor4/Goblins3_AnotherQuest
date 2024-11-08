@@ -72,12 +72,15 @@ namespace Gob3AQ.VARMAP.Types
     {
         INTERACTION_NONE,
         INTERACTION_TAKE,
-        INTERACTION_USE
+        INTERACTION_USE,
+        INTERACTION_RECEIVE,
+        INTERACTION_TAKE_AND_RECEIVE
     }
 
     public enum CharacterType
     {
-        CHARACTER_NONE,
+        CHARACTER_NONE = -1,
+
         CHARACTER_MAIN,
         CHARACTER_PARROT,
         CHARACTER_SNAKE,
@@ -99,12 +102,12 @@ namespace Gob3AQ.VARMAP.Types
 
     public enum GameEvent
     {
-        GEVENT_NONE,
+        EVENT_NONE = -1,
 
-        GEVENT_FOUNTAIN_FULL,
-        GEVENT_TALK_MAN,
+        EVENT_FOUNTAIN_FULL,
+        EVENT_TALK_MAN,
 
-        GEVENT_TOTAL
+        EVENT_TOTAL
     }
 
     public enum CharacterAnimation
@@ -112,20 +115,21 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_USE_ANIMATION_NONE,
 
         ITEM_USE_ANIMATION_NORMAL,
+        ITEM_USE_ANIMATION_TAKE,
         ITEM_USE_ANIMATION_POUR
     }
 
     public readonly struct ItemInteractionInfo
     {
         public readonly ItemInteractionType type;
-        public readonly GameEvent linkedEvent;
         public readonly CharacterAnimation useAnimation;
+        public readonly GameEvent linkedEvent;
 
-        public ItemInteractionInfo(ItemInteractionType type, GameEvent linkedEvent, CharacterAnimation useAnimation)
+        public ItemInteractionInfo(ItemInteractionType type, CharacterAnimation useAnimation, GameEvent linkedEvent)
         {
             this.type = type;
-            this.linkedEvent = linkedEvent;
             this.useAnimation = useAnimation;
+            this.linkedEvent = linkedEvent;
         }
     }
 

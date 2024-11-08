@@ -3244,7 +3244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbd07b84a35b7144eb5210fd33f1fc1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charType: 2
+  charType: 1
 --- !u!1 &3638331545708126237
 GameObject:
   m_ObjectHideFlags: 0
@@ -3580,7 +3580,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8050189458701888, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: itemID
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 927938798410201299, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3833,7 +3833,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6802121163492920705, guid: ddf3a02084a91ef4587db52f05a6b336, type: 3}
       propertyPath: charType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6802121163492920705, guid: ddf3a02084a91ef4587db52f05a6b336, type: 3}
       propertyPath: initialWaypoint
@@ -3856,7 +3856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27f97c08f41751545bdacace58b64097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 2
+  itemID: 1
 --- !u!212 &7615836468090090806
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3924,7 +3924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90b4d25f9108b5f48947fe39fb1b0a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
+  itemID: 2
 --- !u!4 &7637379985292407294
 Transform:
   m_ObjectHideFlags: 0

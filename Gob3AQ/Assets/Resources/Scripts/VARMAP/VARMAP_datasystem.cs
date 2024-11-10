@@ -23,12 +23,14 @@ namespace Gob3AQ.VARMAP.Initialization
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED] = new VARMAP_SafeArray<MultiBitFieldStruct>(VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED, 2, true, MultiBitFieldStruct.StaticParseFromBytes, MultiBitFieldStruct.StaticParseToBytes, null);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER] = new VARMAP_SafeArray<CharacterType>(VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER, 4, true, VARMAP_parsers.CharacterType_ParseFromBytes, VARMAP_parsers.CharacterType_ParseToBytes, null);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_ACTUAL_WAYPOINT] = new VARMAP_SafeArray<int>(VARMAP_Variable_ID.VARMAP_ID_PLAYER_ACTUAL_WAYPOINT, 3, true, VARMAP_parsers.int_ParseFromBytes, VARMAP_parsers.int_ParseToBytes, null);
+            DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MAP_EXCHANGE_DOOR] = new VARMAP_SafeVariable<int>(VARMAP_Variable_ID.VARMAP_ID_MAP_EXCHANGE_DOOR, true, VARMAP_parsers.int_ParseFromBytes, VARMAP_parsers.int_ParseToBytes, null);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_GAMESTATUS] = new VARMAP_Variable<Game_Status>(VARMAP_Variable_ID.VARMAP_ID_GAMESTATUS, VARMAP_parsers.Game_Status_ParseFromBytes, VARMAP_parsers.Game_Status_ParseToBytes, null);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PRESSED_KEYS] = new VARMAP_Variable<KeyStruct>(VARMAP_Variable_ID.VARMAP_ID_PRESSED_KEYS, KeyStruct.StaticParseFromBytes, KeyStruct.StaticParseToBytes, null);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MOUSE_PROPERTIES] = new VARMAP_Variable<MousePropertiesStruct>(VARMAP_Variable_ID.VARMAP_ID_MOUSE_PROPERTIES, MousePropertiesStruct.StaticParseFromBytes, MousePropertiesStruct.StaticParseToBytes, null);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_SELECTED] = new VARMAP_Variable<CharacterType>(VARMAP_Variable_ID.VARMAP_ID_PLAYER_SELECTED, VARMAP_parsers.CharacterType_ParseFromBytes, VARMAP_parsers.CharacterType_ParseToBytes, null);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_ACTIVE] = new VARMAP_Variable<bool>(VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_ACTIVE, VARMAP_parsers.bool_ParseFromBytes, VARMAP_parsers.bool_ParseToBytes, null);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_CHOSEN] = new VARMAP_SafeVariable<GameItem>(VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_CHOSEN, false, VARMAP_parsers.GameItem_ParseFromBytes, VARMAP_parsers.GameItem_ParseToBytes, null);
+            DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL] = new VARMAP_Variable<bool>(VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL, VARMAP_parsers.bool_ParseFromBytes, VARMAP_parsers.bool_ParseToBytes, null);
             /* > ATG 1 END < */
 
         }

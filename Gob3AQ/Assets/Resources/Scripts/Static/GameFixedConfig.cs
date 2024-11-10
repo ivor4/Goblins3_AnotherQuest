@@ -60,7 +60,7 @@ namespace Gob3AQ.FixedConfig
         {
             "",
             "SampleScene",
-            ""
+            "House1"
         };
 
         

@@ -16,6 +16,13 @@ namespace Gob3AQ.VARMAP.LevelMaster
             GET_ELEM_PICKABLE_ITEM_OWNER = _GET_ELEM_PICKABLE_ITEM_OWNER;
             GET_SIZE_PICKABLE_ITEM_OWNER = _GET_SIZE_PICKABLE_ITEM_OWNER;
             GET_ARRAY_PICKABLE_ITEM_OWNER = _GET_ARRAY_PICKABLE_ITEM_OWNER;
+            GET_ELEM_PLAYER_ACTUAL_WAYPOINT = _GET_ELEM_PLAYER_ACTUAL_WAYPOINT;
+            SET_ELEM_PLAYER_ACTUAL_WAYPOINT = _SET_ELEM_PLAYER_ACTUAL_WAYPOINT;
+            GET_SIZE_PLAYER_ACTUAL_WAYPOINT = _GET_SIZE_PLAYER_ACTUAL_WAYPOINT;
+            GET_ARRAY_PLAYER_ACTUAL_WAYPOINT = _GET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
+            SET_ARRAY_PLAYER_ACTUAL_WAYPOINT = _SET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
+            GET_MAP_EXCHANGE_DOOR = _GET_MAP_EXCHANGE_DOOR;
+            SET_MAP_EXCHANGE_DOOR = _SET_MAP_EXCHANGE_DOOR;
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
@@ -34,7 +41,9 @@ namespace Gob3AQ.VARMAP.LevelMaster
             ITEM_REMOVE_FROM_SCENE = _ITEM_REMOVE_FROM_SCENE;
             MONO_REGISTER = _MONO_REGISTER;
             WP_REGISTER = _WP_REGISTER;
+            DOOR_REGISTER = _DOOR_REGISTER;
             MOVE_PLAYER = _MOVE_PLAYER;
+            PLAYER_WAYPOINT_UPDATE = _PLAYER_WAYPOINT_UPDATE;
             SELECT_PLAYER = _SELECT_PLAYER;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
             GET_NEAREST_WP = _GET_NEAREST_WP;
@@ -45,6 +54,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
             GET_SCENARIO_ITEM_LIST = _GET_SCENARIO_ITEM_LIST;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             EVENT_SUBSCRIPTION = _EVENT_SUBSCRIPTION;
+            CROSS_DOOR = _CROSS_DOOR;
             /* > ATG 1 END */
         }
 
@@ -58,6 +68,13 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static GetVARMAPArrayElemValueDelegate<CharacterType> GET_ELEM_PICKABLE_ITEM_OWNER;
         public static GetVARMAPArraySizeDelegate GET_SIZE_PICKABLE_ITEM_OWNER;
         public static GetVARMAPArrayDelegate<CharacterType> GET_ARRAY_PICKABLE_ITEM_OWNER;
+        public static GetVARMAPArrayElemValueDelegate<int> GET_ELEM_PLAYER_ACTUAL_WAYPOINT;
+        public static SetVARMAPArrayElemValueDelegate<int> SET_ELEM_PLAYER_ACTUAL_WAYPOINT;
+        public static GetVARMAPArraySizeDelegate GET_SIZE_PLAYER_ACTUAL_WAYPOINT;
+        public static GetVARMAPArrayDelegate<int> GET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
+        public static SetVARMAPArrayDelegate<int> SET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
+        public static GetVARMAPValueDelegate<int> GET_MAP_EXCHANGE_DOOR;
+        public static SetVARMAPValueDelegate<int> SET_MAP_EXCHANGE_DOOR;
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
@@ -80,7 +97,9 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static ITEM_REMOVE_FROM_SCENE_DELEGATE ITEM_REMOVE_FROM_SCENE;
         public static MONO_REGISTER_DELEGATE MONO_REGISTER;
         public static WP_REGISTER_DELEGATE WP_REGISTER;
+        public static DOOR_REGISTER_DELEGATE DOOR_REGISTER;
         public static MOVE_PLAYER_DELEGATE MOVE_PLAYER;
+        public static PLAYER_WAYPOINT_UPDATE_DELEGATE PLAYER_WAYPOINT_UPDATE;
         public static SELECT_PLAYER_DELEGATE SELECT_PLAYER;
         public static GET_PLAYER_LIST_DELEGATE GET_PLAYER_LIST;
         public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
@@ -91,6 +110,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static GET_SCENARIO_ITEM_LIST_DELEGATE GET_SCENARIO_ITEM_LIST;
         public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
         public static EVENT_SUBSCRIPTION_DELEGATE EVENT_SUBSCRIPTION;
+        public static CROSS_DOOR_DELEGATE CROSS_DOOR;
         /* > ATG 3 END */
     }
 }

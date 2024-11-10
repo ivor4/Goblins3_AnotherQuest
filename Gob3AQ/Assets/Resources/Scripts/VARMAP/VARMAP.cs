@@ -46,6 +46,10 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPArrayDelegate<int> _SET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<int> _REG_PLAYER_ACTUAL_WAYPOINT;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<int> _UNREG_PLAYER_ACTUAL_WAYPOINT;
+        protected static GetVARMAPValueDelegate<int> _GET_MAP_EXCHANGE_DOOR;
+        protected static SetVARMAPValueDelegate<int> _SET_MAP_EXCHANGE_DOOR;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<int> _REG_MAP_EXCHANGE_DOOR;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<int> _UNREG_MAP_EXCHANGE_DOOR;
         protected static GetVARMAPValueDelegate<Game_Status> _GET_GAMESTATUS;
         protected static SetVARMAPValueDelegate<Game_Status> _SET_GAMESTATUS;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> _REG_GAMESTATUS;
@@ -70,6 +74,10 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPValueDelegate<GameItem> _SET_PICKABLE_ITEM_CHOSEN;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> _REG_PICKABLE_ITEM_CHOSEN;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> _UNREG_PICKABLE_ITEM_CHOSEN;
+        protected static GetVARMAPValueDelegate<bool> _GET_LAST_VARMAP_VAL;
+        protected static SetVARMAPValueDelegate<bool> _SET_LAST_VARMAP_VAL;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<bool> _REG_LAST_VARMAP_VAL;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<bool> _UNREG_LAST_VARMAP_VAL;
         /* > ATG 1 END < */
 
         /* All SERVICE Links */
@@ -87,7 +95,9 @@ namespace Gob3AQ.VARMAP
         protected static ITEM_REMOVE_FROM_SCENE_DELEGATE _ITEM_REMOVE_FROM_SCENE;
         protected static MONO_REGISTER_DELEGATE _MONO_REGISTER;
         protected static WP_REGISTER_DELEGATE _WP_REGISTER;
+        protected static DOOR_REGISTER_DELEGATE _DOOR_REGISTER;
         protected static MOVE_PLAYER_DELEGATE _MOVE_PLAYER;
+        protected static PLAYER_WAYPOINT_UPDATE_DELEGATE _PLAYER_WAYPOINT_UPDATE;
         protected static SELECT_PLAYER_DELEGATE _SELECT_PLAYER;
         protected static GET_PLAYER_LIST_DELEGATE _GET_PLAYER_LIST;
         protected static GET_NEAREST_WP_DELEGATE _GET_NEAREST_WP;
@@ -101,6 +111,7 @@ namespace Gob3AQ.VARMAP
         protected static SELECT_PICKABLE_ITEM_DELEGATE _SELECT_PICKABLE_ITEM;
         protected static CANCEL_PICKABLE_ITEM_DELEGATE _CANCEL_PICKABLE_ITEM;
         protected static EVENT_SUBSCRIPTION_DELEGATE _EVENT_SUBSCRIPTION;
+        protected static CROSS_DOOR_DELEGATE _CROSS_DOOR;
         protected static EXIT_GAME_DELEGATE _LAST_SERVICE;
         /* > ATG 2 END < */
         

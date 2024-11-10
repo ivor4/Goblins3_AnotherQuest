@@ -73,11 +73,39 @@ namespace Gob3AQ.GameElement.PlayableChar
         public void MoveRequest(WaypointClass wp)
         {
             /* Move only if not talking or doing an action and WP has a defined Network */
-            if((wp.Network != null) && ((physicalstate & (PhysicalState.PHYSICAL_STATE_TALKING | PhysicalState.PHYSICAL_STATE_ACTING)) == 0))
+            if((wp.Network != null) &&
+                ((physicalstate & (PhysicalState.PHYSICAL_STATE_TALKING | PhysicalState.PHYSICAL_STATE_ACTING)) == 0))
             {
-                WaypointSolution solution = wp.Network.GetWaypointSolution(actualWaypoint, wp, WaypointSkillType.WAYPOINT_SKILL_NORMAL, wpsolutionlist);
+                WaypointSolution solution = wp.Network.GetWaypointSolution(actualWaypoint, wp,
+                    WaypointSkillType.WAYPOINT_SKILL_NORMAL, wpsolutionlist);
 
                 if(solution.totalDistance == float.PositiveInfinity)
+                {
+                    Debug.LogError("Point is not reachable from actual waypoint");
+                    physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
+                }
+                else
+                {
+                    actualProgrammedPath = new WaypointProgrammedPath(solution);
+                    physicalstate = PhysicalState.PHYSICAL_STATE_WALKING;
+                    Walk_StartNextSegment(false);
+                }
+
+                /* Cancel interaction which could be ongoing */
+                bufferedData.pending = false;
+            }
+        }
+
+        public void MoveToDoorRequest(WaypointClass wp, int doorIndex)
+        {
+            /* Move only if not talking or doing an action and WP has a defined Network */
+            if ((wp.Network != null) &&
+                ((physicalstate & (PhysicalState.PHYSICAL_STATE_TALKING | PhysicalState.PHYSICAL_STATE_ACTING)) == 0))
+            {
+                WaypointSolution solution = wp.Network.GetWaypointSolution(actualWaypoint, wp,
+                    WaypointSkillType.WAYPOINT_SKILL_NORMAL, wpsolutionlist);
+
+                if (solution.totalDistance == float.PositiveInfinity)
                 {
                     Debug.LogError("Point is not reachable from actual waypoint");
                     physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
@@ -99,7 +127,8 @@ namespace Gob3AQ.GameElement.PlayableChar
             /* Interact only if not talking or doing an action */
             if ((physicalstate & (PhysicalState.PHYSICAL_STATE_TALKING | PhysicalState.PHYSICAL_STATE_ACTING)) == 0)
             {
-                WaypointSolution solution = itemwp.Network.GetWaypointSolution(actualWaypoint, itemwp, WaypointSkillType.WAYPOINT_SKILL_NORMAL, wpsolutionlist);
+                WaypointSolution solution = itemwp.Network.GetWaypointSolution(actualWaypoint, itemwp,
+                    WaypointSkillType.WAYPOINT_SKILL_NORMAL, wpsolutionlist);
 
                 if (solution.totalDistance == float.PositiveInfinity)
                 {
@@ -224,13 +253,14 @@ namespace Gob3AQ.GameElement.PlayableChar
             Vector3 target_pos = target_wp.transform.position;
             Vector2 deltaPos = target_pos - transform.position;
 
-            /* If delta vector of positions and original velocity vector lose their cos(0deg)=1, it means character crossed the point */
+            /* If delta vector of positions and original velocity vector lose their cos(0deg)=1,
+             * it means character crossed the point */
             float dot = Vector2.Dot(deltaPos, _rigidbody.linearVelocity);
 
             if(dot <= 0f)
             {
                 /* Store WP Index */
-                VARMAP_PlayerMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)charType, target_wp.IndexInNetwork);
+                VARMAP_PlayerMaster.PLAYER_WAYPOINT_UPDATE(charType, target_wp.IndexInNetwork);
 
                 /* If last segment */
                 if(actualProgrammedPath.crossedWaypointIndex == (wplist.Count - 1))
@@ -297,13 +327,29 @@ namespace Gob3AQ.GameElement.PlayableChar
             /* Now interact if buffered */
             if (bufferedData.pending)
             {
-                /* Use Item is also Take Item */
-                VARMAP_PlayerMaster.USE_ITEM(in bufferedData.usage, out ItemInteractionType permitted, out CharacterAnimation animation);
-
-                /* If action is valid */
-                if(permitted != ItemInteractionType.INTERACTION_NONE)
+                switch (bufferedData.usage.type)
                 {
-                    ActAnimationRequest(animation);
+                    case ItemUsageType.PLAYER_WITH_ITEM:
+                    case ItemUsageType.ITEM_WITH_ITEM:
+                    case ItemUsageType.ITEM_WITH_PLAYER:
+                        /* Use Item is also Take Item */
+                        VARMAP_PlayerMaster.USE_ITEM(in bufferedData.usage, out ItemInteractionType permitted,
+                            out CharacterAnimation animation);
+
+                        /* If action is valid */
+                        if (permitted != ItemInteractionType.INTERACTION_NONE)
+                        {
+                            ActAnimationRequest(animation);
+                        }
+                        break;
+
+                    case ItemUsageType.PLAYER_WITH_DOOR:
+                        VARMAP_PlayerMaster.CROSS_DOOR(charType, bufferedData.usage.doorIndex);
+                        break;
+
+                    default:
+                        break;
+                
                 }
 
                 /* Clear */

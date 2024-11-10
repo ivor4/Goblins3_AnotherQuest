@@ -4,10 +4,12 @@ N,ENUM_ID,TYPE,SAFE,ARRAY,DEFVALUE,SAVE,,GameMaster,InputMaster,LevelMaster,Grap
 2,ACTUAL_ROOM,Room,2,0,Room.NONE,Y,,W,-,R,R,R E,-,-,-,-
 3,EVENTS_OCCURRED,MultiBitFieldStruct,2,2,default(MultiBitFieldStruct),Y,,-,-,-,-,-,-,-,-,W
 4,PICKABLE_ITEM_OWNER,CharacterType,2,4,CharacterType.CHARACTER_NONE,Y,,-,-,R,-,R E,R,-,W,-
-5,PLAYER_ACTUAL_WAYPOINT,int,2,3,-1,Y,,-,-,-,-,-,W,-,-,-
-6,GAMESTATUS,Game_Status,0,0,Game_Status.GAME_STATUS_STOPPED,N,,W,-,R E,R E,R E,R E,R E,R E,R E
-7,PRESSED_KEYS,KeyStruct,0,0,KeyStruct_Default,N,,R,W,-,-,R,R,-,-,-
-8,MOUSE_PROPERTIES,MousePropertiesStruct,0,0,MouseProperties_Default,N,,R,W,R,R,R,-,-,-,-
-9,PLAYER_SELECTED,CharacterType,0,0,CharacterType.CHARACTER_NONE,N,,-,-,R,-,R,W E,-,R,-
-10,ITEM_MENU_ACTIVE,bool,0,0,false,N,,-,-,W,R,R,-,-,-,-
-11,PICKABLE_ITEM_CHOSEN,GameItem,1,0,GameItem.ITEM_NONE,N,,-,-,R,R E,R,R,R,W,-
+5,PLAYER_ACTUAL_WAYPOINT,int,2,3,-1,Y,,-,-,W,-,-,R,-,-,-
+6,MAP_EXCHANGE_DOOR,int,2,0,0,N,,-,-,W,-,-,-,-,-,-
+7,GAMESTATUS,Game_Status,0,0,Game_Status.GAME_STATUS_STOPPED,N,,W,-,R E,R E,R E,R E,R E,R E,R E
+8,PRESSED_KEYS,KeyStruct,0,0,KeyStruct_Default,N,,R,W,-,-,R,R,-,-,-
+9,MOUSE_PROPERTIES,MousePropertiesStruct,0,0,MouseProperties_Default,N,,R,W,R,R,R,-,-,-,-
+10,PLAYER_SELECTED,CharacterType,0,0,CharacterType.CHARACTER_NONE,N,,-,-,R,-,R,W E,-,R,-
+11,ITEM_MENU_ACTIVE,bool,0,0,false,N,,-,-,W,R,R,-,-,-,-
+12,PICKABLE_ITEM_CHOSEN,GameItem,1,0,GameItem.ITEM_NONE,N,,-,-,R,R E,R,R,R,W,-
+13,LAST_VARMAP_VAL,bool,0,0,false,N,,W,-,-,-,-,-,-,-,-

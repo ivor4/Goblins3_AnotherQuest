@@ -4,6 +4,7 @@ using Gob3AQ.VARMAP.Types;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.Libs.Arith;
 using Gob3AQ.GameElement.PlayableChar;
+using Gob3AQ.GameElement.Door;
 using Gob3AQ.Waypoint;
 using System;
 

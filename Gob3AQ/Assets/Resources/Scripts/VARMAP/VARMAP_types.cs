@@ -37,7 +37,7 @@ namespace Gob3AQ.VARMAP.Types
         NONE,
         ROOM_1_ORIGIN,
         
-        ROOM_SPACE_MAMA,
+        ROOM_1_HOUSE,
 
         TOTAL_ROOMS
     }
@@ -95,6 +95,7 @@ namespace Gob3AQ.VARMAP.Types
     public enum ItemUsageType
     {
         PLAYER_WITH_ITEM,
+        PLAYER_WITH_DOOR,
         ITEM_WITH_ITEM,
         ITEM_WITH_PLAYER,
         ITEM_WITH_NPC
@@ -141,9 +142,10 @@ namespace Gob3AQ.VARMAP.Types
         public readonly CharacterType playerDest;
         public readonly CharacterType npcDest;
         public readonly GameItem itemDest;
+        public readonly int doorIndex;
 
         public ItemUsage(ItemUsageType type, CharacterType playerSource, GameItem itemSource,
-            CharacterType playerDest, CharacterType npcDest, GameItem itemDest)
+            CharacterType playerDest, CharacterType npcDest, GameItem itemDest, int doorIndex)
         {
             this.type = type;
             this.playerSource = playerSource;
@@ -151,6 +153,7 @@ namespace Gob3AQ.VARMAP.Types
             this.playerDest = playerDest;
             this.npcDest = npcDest;
             this.itemDest = itemDest;
+            this.doorIndex = doorIndex;
         }
     }
 

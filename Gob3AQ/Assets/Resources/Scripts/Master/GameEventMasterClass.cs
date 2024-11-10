@@ -3,7 +3,9 @@ using Gob3AQ.VARMAP.GameEventMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.VARMAP.Types.Items;
 using Gob3AQ.FixedConfig;
+using Gob3AQ.Libs.Arith;
 using System.Collections.Generic;
+using System;
 
 namespace Gob3AQ.GameEventMaster
 {
@@ -24,7 +26,7 @@ namespace Gob3AQ.GameEventMaster
 
         private static GameEventMasterClass _singleton;
         private static EVENT_SUBSCRIPTION_CALL_DELEGATE[] _event_subscription;
-        private static Queue<BufferedEvent> _bufferedEvents;
+        private static GrowingStaticStackArray<BufferedEvent> _bufferedEvents;
 
         public static void IsEventOccurredService(GameEvent ev, out bool occurred)
         {
@@ -45,7 +47,7 @@ namespace Gob3AQ.GameEventMaster
 
             BufferedEvent newEv = new BufferedEvent(evIndex, occurred);
 
-            _bufferedEvents.Enqueue(newEv);
+            _bufferedEvents.Add(newEv);
         }
 
         public static void TakeItemFromSceneEventService(GamePickableItem item)
@@ -54,7 +56,7 @@ namespace Gob3AQ.GameEventMaster
 
             BufferedEvent newEv = new BufferedEvent(evIndex, true);
 
-            _bufferedEvents.Enqueue(newEv);
+            _bufferedEvents.Add(newEv);
         }
 
 
@@ -107,7 +109,7 @@ namespace Gob3AQ.GameEventMaster
             {
                 _singleton = this;
                 _event_subscription = new EVENT_SUBSCRIPTION_CALL_DELEGATE[(int)GamePickableItem.ITEM_PICK_TOTAL + (int)GameEvent.EVENT_TOTAL];
-                _bufferedEvents = new Queue<BufferedEvent>(GameFixedConfig.MAX_BUFFERED_EVENTS);
+                _bufferedEvents = new(GameFixedConfig.MAX_BUFFERED_EVENTS);
             }
         }
 
@@ -119,13 +121,20 @@ namespace Gob3AQ.GameEventMaster
             {
                 /* In this way, triggering of events would wait for next cycle in order not to overload previous one */
                 case Game_Status.GAME_STATUS_PLAY:
-                    bool newElem;
                     BufferedEvent be;
+                    int bufferedEventsCount = _bufferedEvents.Count;
 
-                    newElem = _bufferedEvents.TryDequeue(out be);
+                    /* Declare a copy in stack */
+                    Span<BufferedEvent> thisCycleEventsSpan = stackalloc BufferedEvent[_bufferedEvents.Length];
+                    _bufferedEvents.GetSpan.CopyTo(thisCycleEventsSpan);
 
-                    while(newElem)
+                    /* Officially set to 0, to be able to buffer even here from this point for next cycle */
+                    _bufferedEvents.ResetCount();
+
+                    for(int i=0;i<bufferedEventsCount;i++)
                     {
+                        be = thisCycleEventsSpan[i];
+
                         /* Set in VARMAP */
                         GetArrayIndexAndPos(be.evIndex, out int arraypos, out int itembit);
 
@@ -137,11 +146,7 @@ namespace Gob3AQ.GameEventMaster
 
                         /* Invoke subscribers of this event */
                         _event_subscription[be.evIndex]?.Invoke(be.active);
-
-                        /* Next elem */
-                        newElem = _bufferedEvents.TryDequeue(out be);
                     }
-
                     break;
 
                 default:

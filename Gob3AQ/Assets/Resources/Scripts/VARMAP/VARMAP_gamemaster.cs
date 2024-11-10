@@ -20,6 +20,8 @@ namespace Gob3AQ.VARMAP.GameMaster
             SET_GAMESTATUS = _SET_GAMESTATUS;
             GET_PRESSED_KEYS = _GET_PRESSED_KEYS;
             GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
+            GET_LAST_VARMAP_VAL = _GET_LAST_VARMAP_VAL;
+            SET_LAST_VARMAP_VAL = _SET_LAST_VARMAP_VAL;
             START_GAME = _START_GAME;
             SAVE_GAME = _SAVE_GAME;
             LOAD_GAME = _LOAD_GAME;
@@ -45,6 +47,8 @@ namespace Gob3AQ.VARMAP.GameMaster
         public static SetVARMAPValueDelegate<Game_Status> SET_GAMESTATUS;
         public static GetVARMAPValueDelegate<KeyStruct> GET_PRESSED_KEYS;
         public static GetVARMAPValueDelegate<MousePropertiesStruct> GET_MOUSE_PROPERTIES;
+        public static GetVARMAPValueDelegate<bool> GET_LAST_VARMAP_VAL;
+        public static SetVARMAPValueDelegate<bool> SET_LAST_VARMAP_VAL;
         /* > ATG 2 END */
 
         /* SERVICES */

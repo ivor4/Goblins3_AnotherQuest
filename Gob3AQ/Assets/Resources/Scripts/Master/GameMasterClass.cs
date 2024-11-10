@@ -122,31 +122,20 @@ namespace Gob3AQ.GameMaster
 
         public static void LoadRoomService(Room room, out bool error)
         {
-            string sceneName = "";
-            if (VARMAP_GameMaster.GET_GAMESTATUS() == Game_Status.GAME_STATUS_STOPPED)
+            if ((room > Room.NONE) && (room < Room.TOTAL_ROOMS))
             {
-                if ((room > Room.NONE) && (room < Room.TOTAL_ROOMS))
-                {
-                    sceneName = GameFixedConfig.ROOM_TO_SCENE_NAME[(int)room];
-                    error = false;
-                }
-                else
-                {
-                    error = true;
-                }
-            }
-            else
-            {
-                error = true;
-            }
+                error = false;
+                string sceneName = GameFixedConfig.ROOM_TO_SCENE_NAME[(int)room];
 
-            if (!error)
-            {
                 VARMAP_GameMaster.SET_ACTUAL_ROOM(room);
                 _SetGameStatus(Game_Status.GAME_STATUS_LOADING);
                 firstFrameOfScenePending = 1;
 
                 SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+            }
+            else
+            {
+                error = true;
             }
         }
 

@@ -175,6 +175,63 @@ namespace Gob3AQ.Libs.Arith
             }
         }
     }
+
+    public struct GrowingStaticStackArray<T>
+    {
+        private T[] array;
+        private int _spanAddedElems;
+        public T this[int index]
+        {
+            get
+            {
+                return array[index];
+            }
+            set
+            {
+                array[index] = value;
+            }
+        }
+
+        public ReadOnlySpan<T> GetReadOnlySpan => array;
+        public Span<T> GetSpan => array;
+
+        public int Length => array.Length;
+        public int Count => _spanAddedElems;
+
+        public GrowingStaticStackArray(int size)
+        {
+            array = new T[size];
+            _spanAddedElems = 0;
+        }
+
+        public GrowingStaticStackArray(T[] copyFrom)
+        {
+            array = new T[copyFrom.Length];
+            copyFrom.CopyTo(array, 0);
+            _spanAddedElems = 0;
+        }
+
+        public void Add(T value)
+        {
+            array[_spanAddedElems++] = value;
+        }
+
+        public void Clear(T value)
+        {
+            for(int i=0;i<array.Length;i++)
+            {
+                array[i] = value;
+            }
+            _spanAddedElems = 0;
+        }
+
+        public void ResetCount()
+        {
+            _spanAddedElems = 0;
+        }
+
+    }
+
     public ref struct GrowingStackArray<T>
     {
         public Span<T> span;

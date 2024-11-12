@@ -34,9 +34,9 @@ namespace Gob3AQ.VARMAP.Types
 
     public enum Room
     {
-        NONE,
+        ROOM_NONE = -1,
+
         ROOM_1_ORIGIN,
-        
         ROOM_1_HOUSE,
 
         TOTAL_ROOMS

@@ -4,7 +4,6 @@ using UnityEngine;
 using Gob3AQ.VARMAP.Enum;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.VARMAP.Types.Items;
-using Gob3AQ.LevelOptions;
 using Gob3AQ.GameMaster;
 using Gob3AQ.LevelMaster;
 using Gob3AQ.InputMaster;
@@ -58,10 +57,6 @@ namespace Gob3AQ.VARMAP.Initialization
             _SET_ARRAY_PLAYER_ACTUAL_WAYPOINT = ((VARMAP_Variable_Interface<int>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_ACTUAL_WAYPOINT]).SetListValues;
             _REG_PLAYER_ACTUAL_WAYPOINT = ((VARMAP_Variable_Interface<int>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_ACTUAL_WAYPOINT]).RegisterChangeEvent;
             _UNREG_PLAYER_ACTUAL_WAYPOINT = ((VARMAP_Variable_Interface<int>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_ACTUAL_WAYPOINT]).UnregisterChangeEvent;
-            _GET_MAP_EXCHANGE_DOOR = ((VARMAP_Variable_Interface<int>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MAP_EXCHANGE_DOOR]).GetValue;
-            _SET_MAP_EXCHANGE_DOOR = ((VARMAP_Variable_Interface<int>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MAP_EXCHANGE_DOOR]).SetValue;
-            _REG_MAP_EXCHANGE_DOOR = ((VARMAP_Variable_Interface<int>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MAP_EXCHANGE_DOOR]).RegisterChangeEvent;
-            _UNREG_MAP_EXCHANGE_DOOR = ((VARMAP_Variable_Interface<int>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MAP_EXCHANGE_DOOR]).UnregisterChangeEvent;
             _GET_GAMESTATUS = ((VARMAP_Variable_Interface<Game_Status>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_GAMESTATUS]).GetValue;
             _SET_GAMESTATUS = ((VARMAP_Variable_Interface<Game_Status>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_GAMESTATUS]).SetValue;
             _REG_GAMESTATUS = ((VARMAP_Variable_Interface<Game_Status>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_GAMESTATUS]).RegisterChangeEvent;

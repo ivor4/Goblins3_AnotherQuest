@@ -6,6 +6,7 @@ using Gob3AQ.VARMAP.Types.Items;
 using Gob3AQ.VARMAP.LevelMaster;
 using System;
 using Gob3AQ.FixedConfig;
+using Gob3AQ.Brain.LevelOptions;
 using Gob3AQ.GameElement.NPC;
 using Gob3AQ.GameElement.Item;
 using Gob3AQ.GameElement.Door;
@@ -225,12 +226,11 @@ namespace Gob3AQ.LevelMaster
 
             _ = character;  /* TODO: out animation? Or should have been done before calling Cross Door? */
 
-            /* TODO: New Room should have an array with positions depending on appear position */
-            VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT(0, -1);
-            VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT(1, -1);
-            VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT(2, -1);
+            int waypointIndex = LevelOptionsClass.GetLevelDoorToWaypoint(door.RoomLead, door.RoomAppearPosition);
+            VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)CharacterType.CHARACTER_MAIN, waypointIndex);
+            VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)CharacterType.CHARACTER_PARROT, waypointIndex);
+            VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)CharacterType.CHARACTER_SNAKE, waypointIndex);
 
-            VARMAP_LevelMaster.SET_MAP_EXCHANGE_DOOR(door.RoomAppearPosition);
             VARMAP_LevelMaster.LOAD_ROOM(door.RoomLead, out _);
         }
 

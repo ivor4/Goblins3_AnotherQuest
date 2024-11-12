@@ -46,10 +46,6 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPArrayDelegate<int> _SET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<int> _REG_PLAYER_ACTUAL_WAYPOINT;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<int> _UNREG_PLAYER_ACTUAL_WAYPOINT;
-        protected static GetVARMAPValueDelegate<int> _GET_MAP_EXCHANGE_DOOR;
-        protected static SetVARMAPValueDelegate<int> _SET_MAP_EXCHANGE_DOOR;
-        protected static ReUnRegisterVARMAPValueChangeEventDelegate<int> _REG_MAP_EXCHANGE_DOOR;
-        protected static ReUnRegisterVARMAPValueChangeEventDelegate<int> _UNREG_MAP_EXCHANGE_DOOR;
         protected static GetVARMAPValueDelegate<Game_Status> _GET_GAMESTATUS;
         protected static SetVARMAPValueDelegate<Game_Status> _SET_GAMESTATUS;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> _REG_GAMESTATUS;

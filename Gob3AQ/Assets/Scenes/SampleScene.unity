@@ -3580,7 +3580,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2079552102494834725, guid: 08828ae54c43cd6488c35f983404cb90, type: 3}
       propertyPath: _roomLead
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2079552102494834725, guid: 08828ae54c43cd6488c35f983404cb90, type: 3}
       propertyPath: _waypoint

@@ -21,8 +21,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
             GET_SIZE_PLAYER_ACTUAL_WAYPOINT = _GET_SIZE_PLAYER_ACTUAL_WAYPOINT;
             GET_ARRAY_PLAYER_ACTUAL_WAYPOINT = _GET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
             SET_ARRAY_PLAYER_ACTUAL_WAYPOINT = _SET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
-            GET_MAP_EXCHANGE_DOOR = _GET_MAP_EXCHANGE_DOOR;
-            SET_MAP_EXCHANGE_DOOR = _SET_MAP_EXCHANGE_DOOR;
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
@@ -73,8 +71,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static GetVARMAPArraySizeDelegate GET_SIZE_PLAYER_ACTUAL_WAYPOINT;
         public static GetVARMAPArrayDelegate<int> GET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
         public static SetVARMAPArrayDelegate<int> SET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
-        public static GetVARMAPValueDelegate<int> GET_MAP_EXCHANGE_DOOR;
-        public static SetVARMAPValueDelegate<int> SET_MAP_EXCHANGE_DOOR;
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;

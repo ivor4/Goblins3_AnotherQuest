@@ -122,7 +122,7 @@ namespace Gob3AQ.GameMaster
 
         public static void LoadRoomService(Room room, out bool error)
         {
-            if ((room > Room.NONE) && (room < Room.TOTAL_ROOMS))
+            if ((room > Room.ROOM_NONE) && (room < Room.TOTAL_ROOMS))
             {
                 error = false;
                 string sceneName = GameFixedConfig.ROOM_TO_SCENE_NAME[(int)room];

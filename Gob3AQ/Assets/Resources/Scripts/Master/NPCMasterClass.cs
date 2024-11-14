@@ -1,69 +1,67 @@
 ﻿using UnityEditor;
 using UnityEngine;
+using Gob3AQ.GameElement.NPC;
 using Gob3AQ.VARMAP.NPCMaster;
+using Gob3AQ.Libs.Arith;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.FixedConfig;
 using System.Collections.Generic;
+using System;
 
-namespace Gob3AQ.GameElement.NPC
+namespace Gob3AQ.NPCMaster
 {
     public class NPCMasterClass : MonoBehaviour
     {
 
-        private Rigidbody2D _rigidbody;
-        private Collider2D _collider;
+        private static NPCMasterClass _singleton;
 
-        public Collider2D Collider
+
+        public static void InteractPlayerNPCService(CharacterType character, int npcindex)
         {
-            get
+            NPCClass npc = GetNPCInstance(npcindex);
+
+            npc.InteractWithPlayer(character);
+        }
+
+
+        private static NPCClass GetNPCInstance(int index)
+        {
+            NPCClass selectedNPC;
+
+            VARMAP_NPCMaster.GET_NPC_LIST(out ReadOnlyList<NPCClass> npclist);
+
+            selectedNPC = npclist[index];
+
+            return selectedNPC;
+        }
+
+
+        private void Awake()
+        {
+            if (_singleton)
             {
-                return _collider;
+                Destroy(this);
+                return;
+            }
+            else
+            {
+                _singleton = this;
             }
         }
-
-
-        void Awake()
-        {
-            _rigidbody = GetComponent<Rigidbody2D>();
-            _collider = GetComponent<Collider2D>();
-        }
-
 
         void Start()
         {
-
-            VARMAP_NPCMaster.REG_GAMESTATUS(OnGameStatusChanged);
-
-            VARMAP_NPCMaster.NPC_REGISTER(true, this);
+            
         }
-
-
-        void Update()
-        {
-            Game_Status gstatus = VARMAP_NPCMaster.GET_GAMESTATUS();
-
-            switch(gstatus)
-            {
-                case Game_Status.GAME_STATUS_PLAY:
-                    
-                    break;
-            }
-        }
-
 
 
 
         private void OnDestroy()
         {
-            VARMAP_NPCMaster.UNREG_GAMESTATUS(OnGameStatusChanged);
-        }
-
-
-
-
-        private void OnGameStatusChanged(ChangedEventType evtype, ref Game_Status oldstatus, ref Game_Status newstatus)
-        {
-            
+            if (_singleton == this)
+            {
+                _singleton = null;
+            }
         }
     }
 }

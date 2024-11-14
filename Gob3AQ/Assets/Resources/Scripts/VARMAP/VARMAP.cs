@@ -96,6 +96,7 @@ namespace Gob3AQ.VARMAP
         protected static PLAYER_WAYPOINT_UPDATE_DELEGATE _PLAYER_WAYPOINT_UPDATE;
         protected static SELECT_PLAYER_DELEGATE _SELECT_PLAYER;
         protected static GET_PLAYER_LIST_DELEGATE _GET_PLAYER_LIST;
+        protected static GET_NPC_LIST_DELEGATE _GET_NPC_LIST;
         protected static GET_NEAREST_WP_DELEGATE _GET_NEAREST_WP;
         protected static IS_EVENT_OCCURRED_DELEGATE _IS_EVENT_OCCURRED;
         protected static COMMIT_EVENT_DELEGATE _COMMIT_EVENT;
@@ -108,6 +109,7 @@ namespace Gob3AQ.VARMAP
         protected static CANCEL_PICKABLE_ITEM_DELEGATE _CANCEL_PICKABLE_ITEM;
         protected static EVENT_SUBSCRIPTION_DELEGATE _EVENT_SUBSCRIPTION;
         protected static CROSS_DOOR_DELEGATE _CROSS_DOOR;
+        protected static INTERACT_PLAYER_NPC_DELEGATE _INTERACT_PLAYER_NPC;
         protected static EXIT_GAME_DELEGATE _LAST_SERVICE;
         /* > ATG 2 END < */
         

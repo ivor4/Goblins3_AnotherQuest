@@ -43,6 +43,7 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             EVENT_SUBSCRIPTION = _EVENT_SUBSCRIPTION;
             CROSS_DOOR = _CROSS_DOOR;
+            INTERACT_PLAYER_NPC = _INTERACT_PLAYER_NPC;
             /* > ATG 1 END */
         }
 
@@ -83,6 +84,7 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
         public static EVENT_SUBSCRIPTION_DELEGATE EVENT_SUBSCRIPTION;
         public static CROSS_DOOR_DELEGATE CROSS_DOOR;
+        public static INTERACT_PLAYER_NPC_DELEGATE INTERACT_PLAYER_NPC;
         /* > ATG 3 END */
     }
 }

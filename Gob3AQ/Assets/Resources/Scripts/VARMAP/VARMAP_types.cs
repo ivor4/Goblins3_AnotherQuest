@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using Gob3AQ.VARMAP.Types.Items;
+using Gob3AQ.VARMAP.Types;
 using UnityEngine;
 using Gob3AQ.Libs.Arith;
 
@@ -89,13 +90,21 @@ namespace Gob3AQ.VARMAP.Types
     }
 
     
+    public enum NPCType
+    {
+        NPC_NONE = -1,
 
+        NPC_FIRST,
+
+        NPC_TOTAL
+    }
     
 
     public enum ItemUsageType
     {
         PLAYER_WITH_ITEM,
         PLAYER_WITH_DOOR,
+        PLAYER_WITH_NPC,
         ITEM_WITH_ITEM,
         ITEM_WITH_PLAYER,
         ITEM_WITH_NPC
@@ -140,12 +149,12 @@ namespace Gob3AQ.VARMAP.Types
         public readonly CharacterType playerSource;
         public readonly GameItem itemSource;
         public readonly CharacterType playerDest;
-        public readonly CharacterType npcDest;
+        public readonly NPCType npcDest;
         public readonly GameItem itemDest;
-        public readonly int doorIndex;
+        public readonly int destListIndex;
 
         public ItemUsage(ItemUsageType type, CharacterType playerSource, GameItem itemSource,
-            CharacterType playerDest, CharacterType npcDest, GameItem itemDest, int doorIndex)
+            CharacterType playerDest, NPCType npcDest, GameItem itemDest, int doorIndex)
         {
             this.type = type;
             this.playerSource = playerSource;
@@ -153,7 +162,7 @@ namespace Gob3AQ.VARMAP.Types
             this.playerDest = playerDest;
             this.npcDest = npcDest;
             this.itemDest = itemDest;
-            this.doorIndex = doorIndex;
+            this.destListIndex = doorIndex;
         }
     }
 

@@ -332,6 +332,7 @@ namespace Gob3AQ.GameElement.PlayableChar
                     case ItemUsageType.PLAYER_WITH_ITEM:
                     case ItemUsageType.ITEM_WITH_ITEM:
                     case ItemUsageType.ITEM_WITH_PLAYER:
+                    case ItemUsageType.ITEM_WITH_NPC:
                         /* Use Item is also Take Item */
                         VARMAP_PlayerMaster.USE_ITEM(in bufferedData.usage, out ItemInteractionType permitted,
                             out CharacterAnimation animation);
@@ -343,8 +344,13 @@ namespace Gob3AQ.GameElement.PlayableChar
                         }
                         break;
 
+                    case ItemUsageType.PLAYER_WITH_NPC:
+                        /* Talk */
+                        VARMAP_PlayerMaster.INTERACT_PLAYER_NPC(charType, bufferedData.usage.destListIndex);
+                        break;
+
                     case ItemUsageType.PLAYER_WITH_DOOR:
-                        VARMAP_PlayerMaster.CROSS_DOOR(charType, bufferedData.usage.doorIndex);
+                        VARMAP_PlayerMaster.CROSS_DOOR(charType, bufferedData.usage.destListIndex);
                         break;
 
                     default:

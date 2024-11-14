@@ -18,7 +18,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void LATE_START_SUBSCRIPTION_DELEGATE(SUBSCRIPTION_CALL_DELEGATE callable, bool add);
     public delegate void LODING_COMPLETED_DELEGATE(out bool error);
     public delegate void FREEZE_PLAY_DELEGATE(bool freeze);
-    public delegate void NPC_REGISTER_DELEGATE(bool register, NPCMasterClass instance);
+    public delegate void NPC_REGISTER_DELEGATE(NPCClass instance, bool register);
     public delegate void ITEM_REGISTER_DELEGATE(bool register, ItemClass instance);
     public delegate void ITEM_REMOVE_FROM_SCENE_DELEGATE(GameItem item);
     public delegate void MONO_REGISTER_DELEGATE(PlayableCharScript mono, bool add);
@@ -28,6 +28,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void PLAYER_WAYPOINT_UPDATE_DELEGATE(CharacterType character, int wpIndex);
     public delegate void SELECT_PLAYER_DELEGATE(CharacterType character);
     public delegate void GET_PLAYER_LIST_DELEGATE(out ReadOnlySpan<PlayableCharScript> list);
+    public delegate void GET_NPC_LIST_DELEGATE(out ReadOnlyList<NPCClass> list);
     public delegate void GET_NEAREST_WP_DELEGATE(Vector2 pos, float maxradius, out WaypointClass wp);
     public delegate void IS_EVENT_OCCURRED_DELEGATE(GameEvent ev, out bool occurred);
     public delegate void COMMIT_EVENT_DELEGATE(GameEvent ev, bool occurred);
@@ -44,5 +45,6 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void SET_PLAYER_ANIMATION_DELEGATE(CharacterType character, CharacterAnimation animation);
     public delegate void EVENT_SUBSCRIPTION_DELEGATE(GameEvent gevent, EVENT_SUBSCRIPTION_CALL_DELEGATE callable, bool add);
     public delegate void CROSS_DOOR_DELEGATE(CharacterType character, int doorIndex);
+    public delegate void INTERACT_PLAYER_NPC_DELEGATE(CharacterType character, int npcindex);
 
 }

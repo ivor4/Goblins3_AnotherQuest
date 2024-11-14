@@ -30,7 +30,7 @@ namespace Gob3AQ.LevelMaster
         {
             public MouseActiveElemsType type;
             public PlayableCharScript player;
-            public NPCMasterClass npc;
+            public NPCClass npc;
             public ItemClass item;
             public DoorClass door;
             public int arrayIndex;
@@ -45,7 +45,7 @@ namespace Gob3AQ.LevelMaster
                 this.arrayIndex = index;
             }
 
-            public MouseActiveElems(NPCMasterClass npc, int index)
+            public MouseActiveElems(NPCClass npc, int index)
             {
                 type = MouseActiveElemsType.MELEMS_NPC;
                 this.player = null;
@@ -86,7 +86,7 @@ namespace Gob3AQ.LevelMaster
 
         private static List<WaypointClass> _WP_List;
         private static PlayableCharScript[] _Player_List;
-        private static List<NPCMasterClass> _NPC_List;
+        private static List<NPCClass> _NPC_List;
         private static List<ItemClass> _Item_List;
         private static List<DoorClass> _Door_List;
 
@@ -101,6 +101,11 @@ namespace Gob3AQ.LevelMaster
         public static void GetPlayerListService(out ReadOnlySpan<PlayableCharScript> rolist)
         {
             rolist = _Player_List;
+        }
+
+        public static void GetNPCListService(out ReadOnlyList<NPCClass> rolist)
+        {
+            rolist = new(_NPC_List);
         }
 
         public static void GetScenarioItemListService(out ReadOnlyList<ItemClass> rolist)
@@ -131,7 +136,7 @@ namespace Gob3AQ.LevelMaster
             }
         }
 
-        public static void NPCRegisterService(bool register, NPCMasterClass instance)
+        public static void NPCRegisterService(NPCClass instance, bool register)
         {
             if (register)
             {
@@ -305,7 +310,7 @@ namespace Gob3AQ.LevelMaster
 
         private void Initializations()
         {
-            _NPC_List = new List<NPCMasterClass>(GameFixedConfig.MAX_POOLED_ENEMIES);
+            _NPC_List = new List<NPCClass>(GameFixedConfig.MAX_POOLED_ENEMIES);
             _Player_List = new PlayableCharScript[GameFixedConfig.MAX_LEVEL_PLAYABLE_CHARACTERS];
             _WP_List = new List<WaypointClass>(GameFixedConfig.MAX_LEVEL_WAYPOINTS);
             _Item_List = new List<ItemClass>(GameFixedConfig.MAX_POOLED_ENEMIES);
@@ -453,14 +458,33 @@ namespace Gob3AQ.LevelMaster
                             }
 
                             usage = new(usageType, playerSelected, itemSource, CharacterType.CHARACTER_NONE,
-                                CharacterType.CHARACTER_NONE, candidateMelems.item.ItemID, -1);
+                                NPCType.NPC_NONE, candidateMelems.item.ItemID, -1);
 
                             VARMAP_LevelMaster.INTERACT_PLAYER_ITEM(in usage, candidateMelems.item.Waypoint);
                             break;
 
+                        case MouseActiveElemsType.MELEMS_NPC:
+
+                            if (chosenItem == GameItem.ITEM_NONE)
+                            {
+                                usageType = ItemUsageType.PLAYER_WITH_NPC;
+                                itemSource = GameItem.ITEM_NONE;
+                            }
+                            else
+                            {
+                                usageType = ItemUsageType.ITEM_WITH_NPC;
+                                itemSource = chosenItem;
+                            }
+
+                            usage = new(usageType, playerSelected, itemSource, CharacterType.CHARACTER_NONE,
+                                candidateMelems.npc.NPType, GameItem.ITEM_NONE, candidateMelems.arrayIndex);
+
+                            VARMAP_LevelMaster.INTERACT_PLAYER_ITEM(in usage, candidateMelems.npc.Waypoint);
+                            break;
+
                         case MouseActiveElemsType.MELEMS_DOOR:
                             usage = new(ItemUsageType.PLAYER_WITH_DOOR, playerSelected, GameItem.ITEM_NONE,
-                                CharacterType.CHARACTER_NONE, CharacterType.CHARACTER_NONE, GameItem.ITEM_NONE,
+                                CharacterType.CHARACTER_NONE, NPCType.NPC_NONE, GameItem.ITEM_NONE,
                                 candidateMelems.arrayIndex);
 
                             VARMAP_LevelMaster.INTERACT_PLAYER_ITEM(in usage, candidateMelems.door.Waypoint);

@@ -8,6 +8,7 @@ using Gob3AQ.GameMaster;
 using Gob3AQ.LevelMaster;
 using Gob3AQ.InputMaster;
 using Gob3AQ.GraphicsMaster;
+using Gob3AQ.NPCMaster;
 using Gob3AQ.VARMAP.Variable;
 using Gob3AQ.PlayerMaster;
 using Gob3AQ.GameEventMaster;
@@ -108,6 +109,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _PLAYER_WAYPOINT_UPDATE = LevelMasterClass.PlayerWaypointUpdateService;
             _SELECT_PLAYER = PlayerMasterClass.SelectPlayerService;
             _GET_PLAYER_LIST = LevelMasterClass.GetPlayerListService;
+            _GET_NPC_LIST = LevelMasterClass.GetNPCListService;
             _GET_NEAREST_WP = LevelMasterClass.GetNearestWPService;
             _IS_EVENT_OCCURRED = GameEventMasterClass.IsEventOccurredService;
             _COMMIT_EVENT = GameEventMasterClass.CommitEventService;
@@ -120,6 +122,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _CANCEL_PICKABLE_ITEM = ItemMasterClass.CancelPickableItemService;
             _EVENT_SUBSCRIPTION = GameEventMasterClass.EventSubscriptionService;
             _CROSS_DOOR = LevelMasterClass.CrossDoorService;
+            _INTERACT_PLAYER_NPC = NPCMasterClass.InteractPlayerNPCService;
             _LAST_SERVICE = GameMasterClass.ExitGameService;
             /* > ATG 2 END */
         }

@@ -7,7 +7,7 @@ namespace Gob3AQ.VARMAP.Types.Parsers
 {
     public static class VARMAP_parsers
     {
-        public static void CharacterType_ParseToBytes(ref CharacterType value, ref Span<byte> writer)
+        public static void CharacterType_ParseToBytes(in CharacterType value, ref Span<byte> writer)
         {
             BitConverter.TryWriteBytes(writer, (int)value);
         }
@@ -16,7 +16,7 @@ namespace Gob3AQ.VARMAP.Types.Parsers
             value = (CharacterType)BitConverter.ToInt32(reader);
         }
 
-        public static void GamePickableItem_ParseToBytes(ref GamePickableItem value, ref Span<byte> writer)
+        public static void GamePickableItem_ParseToBytes(in GamePickableItem value, ref Span<byte> writer)
         {
             BitConverter.TryWriteBytes(writer, (int)value);
         }
@@ -26,7 +26,7 @@ namespace Gob3AQ.VARMAP.Types.Parsers
             value = (GamePickableItem)BitConverter.ToInt32(reader);
         }
 
-        public static void GameItem_ParseToBytes(ref GameItem value, ref Span<byte> writer)
+        public static void GameItem_ParseToBytes(in GameItem value, ref Span<byte> writer)
         {
             BitConverter.TryWriteBytes(writer, (int)value);
         }
@@ -36,7 +36,7 @@ namespace Gob3AQ.VARMAP.Types.Parsers
             value = (GameItem)BitConverter.ToInt32(reader);
         }
 
-        public static void GameEvent_ParseToBytes(ref GameEvent value, ref Span<byte> writer)
+        public static void GameEvent_ParseToBytes(in GameEvent value, ref Span<byte> writer)
         {
             BitConverter.TryWriteBytes(writer, (int)value);
         }
@@ -46,7 +46,7 @@ namespace Gob3AQ.VARMAP.Types.Parsers
             value = (GameEvent)BitConverter.ToInt32(reader);
         }
 
-        public static void Game_Status_ParseToBytes(ref Game_Status value, ref Span<byte> writer)
+        public static void Game_Status_ParseToBytes(in Game_Status value, ref Span<byte> writer)
         {
             BitConverter.TryWriteBytes(writer, (int)value);
         }
@@ -57,7 +57,7 @@ namespace Gob3AQ.VARMAP.Types.Parsers
         }
 
 
-        public static void Room_ParseToBytes(ref Room value, ref Span<byte> writer)
+        public static void Room_ParseToBytes(in Room value, ref Span<byte> writer)
         {
             BitConverter.TryWriteBytes(writer, (int)value);
         }
@@ -68,7 +68,7 @@ namespace Gob3AQ.VARMAP.Types.Parsers
         }
 
 
-        public static void byte_ParseToBytes(ref byte value, ref Span<byte> writer)
+        public static void byte_ParseToBytes(in byte value, ref Span<byte> writer)
         {
             BitConverter.TryWriteBytes(writer, (char)value);
         }
@@ -78,7 +78,7 @@ namespace Gob3AQ.VARMAP.Types.Parsers
             value = (byte)BitConverter.ToChar(reader);
         }
 
-        public static void sbyte_ParseToBytes(ref sbyte value, ref Span<byte> writer)
+        public static void sbyte_ParseToBytes(in sbyte value, ref Span<byte> writer)
         {
             BitConverter.TryWriteBytes(writer, (char)value);
         }
@@ -88,7 +88,7 @@ namespace Gob3AQ.VARMAP.Types.Parsers
             value = (sbyte)BitConverter.ToChar(reader);
         }
 
-        public static void bool_ParseToBytes(ref bool value, ref Span<byte> writer)
+        public static void bool_ParseToBytes(in bool value, ref Span<byte> writer)
         {
             BitConverter.TryWriteBytes(writer, value);
         }
@@ -98,7 +98,7 @@ namespace Gob3AQ.VARMAP.Types.Parsers
             value = BitConverter.ToBoolean(reader);
         }
 
-        public static void ushort_ParseToBytes(ref ushort value, ref Span<byte> writer)
+        public static void ushort_ParseToBytes(in ushort value, ref Span<byte> writer)
         {
             BitConverter.TryWriteBytes(writer, value);
         }
@@ -108,7 +108,7 @@ namespace Gob3AQ.VARMAP.Types.Parsers
             value = BitConverter.ToUInt16(reader);
         }
 
-        public static void short_ParseToBytes(ref short value, ref Span<byte> writer)
+        public static void short_ParseToBytes(in short value, ref Span<byte> writer)
         {
             BitConverter.TryWriteBytes(writer, value);
         }
@@ -118,7 +118,7 @@ namespace Gob3AQ.VARMAP.Types.Parsers
             value = BitConverter.ToInt16(reader);
         }
 
-        public static void uint_ParseToBytes(ref uint value, ref Span<byte> writer)
+        public static void uint_ParseToBytes(in uint value, ref Span<byte> writer)
         {
             BitConverter.TryWriteBytes(writer, value);
         }
@@ -128,7 +128,7 @@ namespace Gob3AQ.VARMAP.Types.Parsers
             value = BitConverter.ToUInt32(reader);
         }
 
-        public static void int_ParseToBytes(ref int value, ref Span<byte> writer)
+        public static void int_ParseToBytes(in int value, ref Span<byte> writer)
         {
             BitConverter.TryWriteBytes(writer, value);
         }
@@ -139,7 +139,7 @@ namespace Gob3AQ.VARMAP.Types.Parsers
         }
 
 
-        public static void ulong_ParseToBytes(ref ulong value, ref Span<byte> writer)
+        public static void ulong_ParseToBytes(in ulong value, ref Span<byte> writer)
         {
             BitConverter.TryWriteBytes(writer, value);
         }
@@ -149,7 +149,7 @@ namespace Gob3AQ.VARMAP.Types.Parsers
             value = BitConverter.ToUInt64(reader);
         }
 
-        public static void long_ParseToBytes(ref long value, ref Span<byte> writer)
+        public static void long_ParseToBytes(in long value, ref Span<byte> writer)
         {
             BitConverter.TryWriteBytes(writer, value);
         }
@@ -159,7 +159,7 @@ namespace Gob3AQ.VARMAP.Types.Parsers
             value = BitConverter.ToInt64(reader);
         }
 
-        public static void float_ParseToBytes(ref float value, ref Span<byte> writer)
+        public static void float_ParseToBytes(in float value, ref Span<byte> writer)
         {
             BitConverter.TryWriteBytes(writer, value);
         }
@@ -169,7 +169,7 @@ namespace Gob3AQ.VARMAP.Types.Parsers
             value = BitConverter.ToSingle(reader);
         }
 
-        public static void double_ParseToBytes(ref double value, ref Span<byte> writer)
+        public static void double_ParseToBytes(in double value, ref Span<byte> writer)
         {
             BitConverter.TryWriteBytes(writer, value);
         }

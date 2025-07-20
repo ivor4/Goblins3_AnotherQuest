@@ -199,7 +199,7 @@ namespace Gob3AQ.VARMAP.Types
             gstruct.secondaryReleased = BitConverter.ToBoolean(readZone.ReadNext(sizeof(bool)));
         }
 
-        public static void StaticParseToBytes(ref MousePropertiesStruct gstruct, ref Span<byte> writer)
+        public static void StaticParseToBytes(in MousePropertiesStruct gstruct, ref Span<byte> writer)
         {
             WriteStreamSpan<byte> writeZone = new WriteStreamSpan<byte>(writer);
 
@@ -232,9 +232,9 @@ namespace Gob3AQ.VARMAP.Types
             StaticParseFromBytes(ref this, ref reader);
         }
 
-        public void ParseToBytes(ref Span<byte> writer)
+        public readonly void ParseToBytes(ref Span<byte> writer)
         {
-            StaticParseToBytes(ref this, ref writer);
+            StaticParseToBytes(in this, ref writer);
         }
     }
 
@@ -290,21 +290,21 @@ namespace Gob3AQ.VARMAP.Types
     public struct MultiBitFieldStruct : IStreamable
     {
         public const int STRUCT_SIZE = sizeof(ulong);
-        public ulong bitfield;
+        private ulong bitfield;
 
         public static void StaticParseFromBytes(ref MultiBitFieldStruct gstruct, ref ReadOnlySpan<byte> reader)
         {
             ReadStreamSpan<byte> readZone = new ReadStreamSpan<byte>(reader);
-            gstruct.bitfield = BitConverter.ToUInt64(readZone.ReadNext(sizeof(float)));
+            gstruct.bitfield = BitConverter.ToUInt64(readZone.ReadNext(sizeof(ulong)));
         }
 
-        public static void StaticParseToBytes(ref MultiBitFieldStruct gstruct, ref Span<byte> writer)
+        public static void StaticParseToBytes(in MultiBitFieldStruct gstruct, ref Span<byte> writer)
         {
             WriteStreamSpan<byte> writeZone = new WriteStreamSpan<byte>(writer);
             BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ulong)), gstruct.bitfield);
         }
 
-        public bool GetIndividualBool(int pos)
+        public readonly bool GetIndividualBool(int pos)
         {
             bool retVal;
             int pos_corrected;
@@ -317,7 +317,7 @@ namespace Gob3AQ.VARMAP.Types
             return retVal;
         }
 
-        public ulong GetValueFromOffset(int offset)
+        public readonly ulong GetValueFromOffset(int offset)
         {
             ulong retVal;
             int offset_corrected;
@@ -368,7 +368,7 @@ namespace Gob3AQ.VARMAP.Types
             return new MultiBitFieldStruct();
         }
 
-        public int GetElemSize()
+        public readonly int GetElemSize()
         {
             return STRUCT_SIZE;
         }
@@ -379,12 +379,12 @@ namespace Gob3AQ.VARMAP.Types
             StaticParseFromBytes(ref this, ref reader);
         }
 
-        public void ParseToBytes(ref Span<byte> writer)
+        public readonly void ParseToBytes(ref Span<byte> writer)
         {
-            StaticParseToBytes(ref this, ref writer);
+            StaticParseToBytes(in this, ref writer);
         }
 
-        public override string ToString()
+        public override readonly string ToString()
         {
             string str = bitfield.ToString("X16");
             return str;
@@ -414,11 +414,11 @@ namespace Gob3AQ.VARMAP.Types
             gstruct.rectangleSelectionColor.a = BitConverter.ToSingle(readZone.ReadNext(sizeof(float)));
         }
 
-        public static void StaticParseToBytes(ref GameOptionsStruct gstruct, ref Span<byte> writer)
+        public static void StaticParseToBytes(in GameOptionsStruct gstruct, ref Span<byte> writer)
         {
             WriteStreamSpan<byte> writeZone = new WriteStreamSpan<byte>(writer);
 
-            KeyOptions.StaticParseToBytes(ref gstruct.keyOptions, ref writer);
+            KeyOptions.StaticParseToBytes(in gstruct.keyOptions, ref writer);
 
             _ = writeZone.WriteNext(KeyOptions.STRUCT_SIZE);
 
@@ -449,9 +449,9 @@ namespace Gob3AQ.VARMAP.Types
             StaticParseFromBytes(ref this, ref reader);
         }
 
-        public void ParseToBytes(ref Span<byte> writer)
+        public readonly void ParseToBytes(ref Span<byte> writer)
         {
-            StaticParseToBytes(ref this, ref writer);
+            StaticParseToBytes(in this, ref writer);
         }
     }
 
@@ -497,7 +497,7 @@ namespace Gob3AQ.VARMAP.Types
             gstruct.pauseKey = (KeyCode)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
         }
 
-        public static void StaticParseToBytes(ref KeyOptions gstruct, ref Span<byte> writer)
+        public static void StaticParseToBytes(in KeyOptions gstruct, ref Span<byte> writer)
         {
             WriteStreamSpan<byte> writeZone = new WriteStreamSpan<byte>(writer);
 
@@ -516,9 +516,9 @@ namespace Gob3AQ.VARMAP.Types
             StaticParseFromBytes(ref this, ref reader);
         }
 
-        public void ParseToBytes(ref Span<byte> writer)
+        public readonly void ParseToBytes(ref Span<byte> writer)
         {
-            StaticParseToBytes(ref this, ref writer);
+            StaticParseToBytes(in this, ref writer);
         }
     }
     
@@ -547,7 +547,7 @@ namespace Gob3AQ.VARMAP.Types
             gstruct.cyclereleasedKeys = (KeyFunctions)BitConverter.ToUInt32(readZone.ReadNext(sizeof(uint)));
         }
 
-        public static void StaticParseToBytes(ref KeyStruct gstruct, ref Span<byte> writer)
+        public static void StaticParseToBytes(in KeyStruct gstruct, ref Span<byte> writer)
         {
             WriteStreamSpan<byte> writeZone = new WriteStreamSpan<byte>(writer);
 
@@ -561,9 +561,9 @@ namespace Gob3AQ.VARMAP.Types
             StaticParseFromBytes(ref this, ref reader);
         }
 
-        public void ParseToBytes(ref Span<byte> writer)
+        public readonly void ParseToBytes(ref Span<byte> writer)
         {
-            StaticParseToBytes(ref this, ref writer);
+            StaticParseToBytes(in this, ref writer);
         }
     }
 }

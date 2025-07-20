@@ -36,7 +36,7 @@ namespace Gob3AQ.VARMAP.Variable
 
     public abstract class VARMAP_Variable_Interface<T> : VARMAP_Variable_Indexable
     {
-        public delegate void ParseTypeToBytes(ref T refvalue, ref Span<byte> writer);
+        public delegate void ParseTypeToBytes(in T refvalue, ref Span<byte> writer);
         public delegate void ParseTypeFromBytes(ref T refvalue, ref ReadOnlySpan<byte> writer);
         public delegate T ConstructorOfType();
 
@@ -402,7 +402,7 @@ namespace Gob3AQ.VARMAP.Variable
             {
                 Span<byte> tempspan = writeZone.WriteNext(_elemSize);
                 T _exchange = _values[i];
-                ParseToBytesFunction(ref _exchange, ref tempspan);
+                ParseToBytesFunction(in _exchange, ref tempspan);
                 _values[i] = _exchange;
             }
         }
@@ -748,7 +748,7 @@ namespace Gob3AQ.VARMAP.Variable
 
         public override void ParseToBytes(ref Span<byte> streamwriter)
         {
-            ParseToBytesFunction(ref _value, ref streamwriter);
+            ParseToBytesFunction(in _value, ref streamwriter);
         }
 
         public override void ParseFromBytes(ref ReadOnlySpan<byte> streamreader)

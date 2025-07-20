@@ -39,6 +39,10 @@ namespace Gob3AQ.ItemMaster
                 case ItemUsageType.ITEM_WITH_ITEM:
                     UseItemWithItem(in usage, out permitted, out animation);
                     break;
+                case ItemUsageType.ITEM_WITH_PLAYER:
+                    permitted = ItemInteractionType.INTERACTION_NONE;
+                    animation = CharacterAnimation.ITEM_USE_ANIMATION_NONE;
+                    break;
                 default:
                     permitted = ItemInteractionType.INTERACTION_NONE;
                     animation = CharacterAnimation.ITEM_USE_ANIMATION_NONE;
@@ -137,12 +141,17 @@ namespace Gob3AQ.ItemMaster
                 /* Pickable items which are already stored in inventory */
                 if (pickable != GamePickableItem.ITEM_PICK_NONE)
                 {
-                    CharacterType owner = VARMAP_ItemMaster.GET_ELEM_PICKABLE_ITEM_OWNER((int)pickable);
-
                     /* Lose item in case it is pickable and disposable */
-                    if ((owner == usage.playerSource) && ItemsInteractionsClass.IS_PICKABLE_DISPOSABLE[(int)pickable])
+                    if (ItemsInteractionsClass.IS_PICKABLE_DISPOSABLE[(int)pickable])
                     {
                         VARMAP_ItemMaster.SET_ELEM_PICKABLE_ITEM_OWNER((int)pickable, CharacterType.CHARACTER_NONE);
+
+                        /* Diselect in case it was selected */
+                        GameItem choosenItem = VARMAP_ItemMaster.GET_PICKABLE_ITEM_CHOSEN();
+                        if (choosenItem == usage.itemSource)
+                        {
+                            VARMAP_ItemMaster.CANCEL_PICKABLE_ITEM();
+                        }
                     }
                 }
 
@@ -155,9 +164,7 @@ namespace Gob3AQ.ItemMaster
 
             /* Pass animation */
             animation = interactionInfo.useAnimation;
-
-            /* No more available */
-            VARMAP_ItemMaster.CANCEL_PICKABLE_ITEM();
+            
         }
 
     }

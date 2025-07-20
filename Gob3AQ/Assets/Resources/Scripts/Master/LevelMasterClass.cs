@@ -183,7 +183,7 @@ namespace Gob3AQ.LevelMaster
             if (add)
             {
                 _Player_List[(int)mono.CharType] = mono;
-                MouseActiveElems melems = new(mono, (int)mono.charType);
+                MouseActiveElems melems = new(mono, (int)mono.CharType);
                 _ColliderReference.Add(mono.Collider, melems);
             }
             else
@@ -357,9 +357,9 @@ namespace Gob3AQ.LevelMaster
         {
             MousePropertiesStruct mouse = VARMAP_LevelMaster.GET_MOUSE_PROPERTIES();
 
-            bool itemsActive = VARMAP_LevelMaster.GET_ITEM_MENU_ACTIVE();
+            bool itemMenuActive = VARMAP_LevelMaster.GET_ITEM_MENU_ACTIVE();
 
-            if(itemsActive)
+            if(itemMenuActive)
             {
                 if(mouse.secondaryReleased)
                 {
@@ -379,6 +379,9 @@ namespace Gob3AQ.LevelMaster
 
         private void UpdateCharItemMouseEvents(ref MousePropertiesStruct mouse)
         {
+            ItemUsageType usageType;
+            GameItem itemSource;
+
             GameItem chosenItem = VARMAP_LevelMaster.GET_PICKABLE_ITEM_CHOSEN();
             CharacterType playerSelected = VARMAP_LevelMaster.GET_PLAYER_SELECTED();
             ItemUsage usage;
@@ -438,28 +441,48 @@ namespace Gob3AQ.LevelMaster
                     switch(candidateMelems.type)
                     {
                         case MouseActiveElemsType.MELEMS_PLAYER:
-                            VARMAP_LevelMaster.SELECT_PLAYER(candidateMelems.player.CharType);
-                            break;
-
-                        case MouseActiveElemsType.MELEMS_ITEM:
-                            ItemUsageType usageType;
-                            GameItem itemSource;
-
-                            if (chosenItem == GameItem.ITEM_NONE)
+                            if((chosenItem != GameItem.ITEM_NONE)&&(playerSelected != CharacterType.CHARACTER_NONE))
                             {
-                                usageType = ItemUsageType.PLAYER_WITH_ITEM;
-                                itemSource = GameItem.ITEM_NONE;
+                                if (candidateMelems.player.IsSteady)
+                                {
+                                    usageType = ItemUsageType.ITEM_WITH_PLAYER;
+                                    itemSource = chosenItem;
+
+                                    usage = new(usageType, playerSelected, itemSource, candidateMelems.player.CharType,
+                                        NPCType.NPC_NONE, GameItem.ITEM_NONE, -1);
+
+                                    VARMAP_LevelMaster.INTERACT_PLAYER_ITEM(in usage, candidateMelems.player.Waypoint);
+                                }
                             }
                             else
                             {
-                                usageType = ItemUsageType.ITEM_WITH_ITEM;
-                                itemSource = chosenItem;
+                                VARMAP_LevelMaster.SELECT_PLAYER(candidateMelems.player.CharType);
                             }
 
-                            usage = new(usageType, playerSelected, itemSource, CharacterType.CHARACTER_NONE,
-                                NPCType.NPC_NONE, candidateMelems.item.ItemID, -1);
+                            VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
 
-                            VARMAP_LevelMaster.INTERACT_PLAYER_ITEM(in usage, candidateMelems.item.Waypoint);
+                            break;
+
+                        case MouseActiveElemsType.MELEMS_ITEM:
+                            if (playerSelected != CharacterType.CHARACTER_NONE)
+                            {
+                                if (chosenItem == GameItem.ITEM_NONE)
+                                {
+                                    usageType = ItemUsageType.PLAYER_WITH_ITEM;
+                                    itemSource = GameItem.ITEM_NONE;
+                                }
+                                else
+                                {
+                                    usageType = ItemUsageType.ITEM_WITH_ITEM;
+                                    itemSource = chosenItem;
+                                }
+
+                                usage = new(usageType, playerSelected, itemSource, CharacterType.CHARACTER_NONE,
+                                    NPCType.NPC_NONE, candidateMelems.item.ItemID, -1);
+
+                                VARMAP_LevelMaster.INTERACT_PLAYER_ITEM(in usage, candidateMelems.item.Waypoint);
+                                VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
+                            }
                             break;
 
                         case MouseActiveElemsType.MELEMS_NPC:
@@ -479,6 +502,7 @@ namespace Gob3AQ.LevelMaster
                                 candidateMelems.npc.NPType, GameItem.ITEM_NONE, candidateMelems.arrayIndex);
 
                             VARMAP_LevelMaster.INTERACT_PLAYER_ITEM(in usage, candidateMelems.npc.Waypoint);
+                            VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
                             break;
 
                         case MouseActiveElemsType.MELEMS_DOOR:
@@ -487,6 +511,7 @@ namespace Gob3AQ.LevelMaster
                                 candidateMelems.arrayIndex);
 
                             VARMAP_LevelMaster.INTERACT_PLAYER_ITEM(in usage, candidateMelems.door.Waypoint);
+                            VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
                             break;
 
                         default:

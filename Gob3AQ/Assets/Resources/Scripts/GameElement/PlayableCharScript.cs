@@ -35,17 +35,15 @@ namespace Gob3AQ.GameElement.PlayableChar
     {
         /* Fields */
         [SerializeField]
-        public CharacterType charType;
+        private CharacterType charType;
 
         public CharacterType CharType => charType;
 
-        public Collider2D Collider
-        {
-            get
-            {
-                return _collider;
-            }
-        }
+        public Collider2D Collider => _collider;
+
+        public bool IsSteady => (physicalstate == PhysicalState.PHYSICAL_STATE_STANDING);
+
+        public WaypointClass Waypoint => actualWaypoint;
 
         /* GameObject components */
         private SpriteRenderer _sprRenderer;

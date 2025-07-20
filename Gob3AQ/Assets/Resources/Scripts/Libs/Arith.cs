@@ -192,11 +192,11 @@ namespace Gob3AQ.Libs.Arith
             }
         }
 
-        public ReadOnlySpan<T> GetReadOnlySpan => array;
-        public Span<T> GetSpan => array;
+        public readonly ReadOnlySpan<T> GetReadOnlySpan => array;
+        public readonly Span<T> GetSpan => array;
 
-        public int Length => array.Length;
-        public int Count => _spanAddedElems;
+        public readonly int Length => array.Length;
+        public readonly int Count => _spanAddedElems;
 
         public GrowingStaticStackArray(int size)
         {

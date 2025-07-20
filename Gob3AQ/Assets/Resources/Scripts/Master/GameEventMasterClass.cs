@@ -124,9 +124,9 @@ namespace Gob3AQ.GameEventMaster
                     BufferedEvent be;
                     int bufferedEventsCount = _bufferedEvents.Count;
 
-                    /* Declare a copy in stack */
-                    Span<BufferedEvent> thisCycleEventsSpan = stackalloc BufferedEvent[_bufferedEvents.Length];
-                    _bufferedEvents.GetSpan.CopyTo(thisCycleEventsSpan);
+                    /* Declare a copy in stack - Some events could trigger other events. That explains why copying */
+                    Span<BufferedEvent> thisCycleEventsSpan = stackalloc BufferedEvent[bufferedEventsCount];
+                    _bufferedEvents.GetReadOnlySpan.Slice(0, bufferedEventsCount).CopyTo(thisCycleEventsSpan);
 
                     /* Officially set to 0, to be able to buffer even here from this point for next cycle */
                     _bufferedEvents.ResetCount();

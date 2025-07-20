@@ -302,7 +302,6 @@ namespace Gob3AQ.LevelMaster
             if (_singleton == this)
             {
                 _singleton = null;
-                _NPC_List = null;
                 VARMAP_LevelMaster.UNREG_GAMESTATUS(_OnGameStatusChanged);
             }
         }

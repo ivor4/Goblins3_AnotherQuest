@@ -102,6 +102,7 @@ namespace Gob3AQ.VARMAP.Types
 
     public enum ItemUsageType
     {
+        PLAYER_MOVE,
         PLAYER_WITH_ITEM,
         PLAYER_WITH_DOOR,
         PLAYER_WITH_NPC,

@@ -19,6 +19,7 @@ items_types_path = atg_path + "VARMAP_types_items.cs"
 items_interaction_path = atg_path + "../Static/ItemsInteractionsClass.cs"
 
 MODULES_START_COLUMN = 8
+SERVICE_MODULES_START_COLUMN = 6
 
 #ATG Class Definition
 class ATGFile:
@@ -507,12 +508,19 @@ for line in SERVICESinputFile:
     ServiceVar["name"] = columns[1]
     ServiceVar["delegate"] = columns[2]
     ServiceVar["route"] = columns[3]
+    ServiceVar["descr"] = columns[4]
     ServiceVar["writers"] = 0
 
     if(ServiceVar["delegate"] == ''):
         ServiceVar["delegate"] = ServiceVar["name"]+'_DELEGATE'
 
     #PROTO FILE
+    stringToWrite = "/// <summary> \n"
+    proto_lines.InsertLineInATG(2, stringToWrite)
+    stringToWrite = "/// "+ServiceVar["descr"] + "\n"
+    proto_lines.InsertLineInATG(2, stringToWrite)
+    stringToWrite = "/// </summary>\n"
+    proto_lines.InsertLineInATG(2, stringToWrite)
     stringToWrite = "protected static "+ServiceVar["delegate"]
     stringToWrite += " _"+ServiceVar["name"]+";\n"
     proto_lines.InsertLineInATG(2, stringToWrite)
@@ -521,8 +529,8 @@ for line in SERVICESinputFile:
     stringToWrite = "_"+ServiceVar["name"]+" = " + ServiceVar["route"]+";\n"    
     delegateupdate_lines.InsertLineInATG(2, stringToWrite)
 
-    for i in range(5,len(columns)):
-        indextouse = i-5
+    for i in range(SERVICE_MODULES_START_COLUMN,len(columns)):
+        indextouse = i-SERVICE_MODULES_START_COLUMN
         hasAccess = False
         if("W" in columns[i]):
             if(ServiceVar["writers"] == 0):
@@ -535,6 +543,12 @@ for line in SERVICESinputFile:
             hasAccess = True
 
         if(hasAccess):
+            stringToWrite = "/// <summary> \n"
+            Modulelines[indextouse].InsertLineInATG(3, stringToWrite)
+            stringToWrite = "/// "+ServiceVar["descr"] + "\n"
+            Modulelines[indextouse].InsertLineInATG(3, stringToWrite)
+            stringToWrite = "/// </summary>\n"
+            Modulelines[indextouse].InsertLineInATG(3, stringToWrite)
             stringToWrite = "public static "+ServiceVar["delegate"]
             stringToWrite += " "+ServiceVar["name"]+";\n"
             Modulelines[indextouse].InsertLineInATG(3, stringToWrite)

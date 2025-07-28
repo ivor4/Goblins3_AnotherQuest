@@ -78,38 +78,137 @@ namespace Gob3AQ.VARMAP
 
         /* All SERVICE Links */
         /* > ATG 2 START < */
+        /// <summary> 
+        /// Starts game from main menu
+        /// </summary>
         protected static START_GAME_DELEGATE _START_GAME;
+        /// <summary> 
+        /// Saves game at any moment
+        /// </summary>
         protected static SAVE_GAME_DELEGATE _SAVE_GAME;
+        /// <summary> 
+        /// Loads game from any moment
+        /// </summary>
         protected static LOAD_GAME_DELEGATE _LOAD_GAME;
+        /// <summary> 
+        /// Loads a room (for example when crossing a door)
+        /// </summary>
         protected static LOAD_ROOM_DELEGATE _LOAD_ROOM;
+        /// <summary> 
+        /// Exits games to OS
+        /// </summary>
         protected static EXIT_GAME_DELEGATE _EXIT_GAME;
+        /// <summary> 
+        /// This service subscribes for late start. This happens at some moment after Start event. when everything has been setup
+        /// </summary>
         protected static LATE_START_SUBSCRIPTION_DELEGATE _LATE_START_SUBSCRIPTION;
+        /// <summary> 
+        /// This service is called when whole room has been loaded
+        /// </summary>
         protected static LODING_COMPLETED_DELEGATE _LOADING_COMPLETED;
+        /// <summary> 
+        /// This service is called to pause game or enter cinematic
+        /// </summary>
         protected static FREEZE_PLAY_DELEGATE _FREEZE_PLAY;
+        /// <summary> 
+        /// Registers an NPC in system
+        /// </summary>
         protected static NPC_REGISTER_DELEGATE _NPC_REGISTER;
+        /// <summary> 
+        /// Registers an item in system
+        /// </summary>
         protected static ITEM_REGISTER_DELEGATE _ITEM_REGISTER;
-        protected static ITEM_REMOVE_FROM_SCENE_DELEGATE _ITEM_REMOVE_FROM_SCENE;
+        /// <summary> 
+        /// Removes an item from level
+        /// </summary>
+        protected static ITEM_OBTAIN_PICKABLE_DELEGATE _ITEM_OBTAIN_PICKABLE;
+        /// <summary> 
+        /// Takes an item from scene (triggering event)
+        /// </summary>
+        protected static ITEM_OBTAIN_PICKABLE_EVENT_DELEGATE _ITEM_OBTAIN_PICKABLE_EVENT;
+        /// <summary> 
+        /// Registers a player in scene
+        /// </summary>
         protected static MONO_REGISTER_DELEGATE _MONO_REGISTER;
+        /// <summary> 
+        /// Registers a Waypoint in level
+        /// </summary>
         protected static WP_REGISTER_DELEGATE _WP_REGISTER;
+        /// <summary> 
+        /// Registers a door in level
+        /// </summary>
         protected static DOOR_REGISTER_DELEGATE _DOOR_REGISTER;
-        protected static MOVE_PLAYER_DELEGATE _MOVE_PLAYER;
+        /// <summary> 
+        /// Updates actual player waypoint when crossing or stopping on it
+        /// </summary>
         protected static PLAYER_WAYPOINT_UPDATE_DELEGATE _PLAYER_WAYPOINT_UPDATE;
+        /// <summary> 
+        /// Selects player
+        /// </summary>
         protected static SELECT_PLAYER_DELEGATE _SELECT_PLAYER;
+        /// <summary> 
+        /// Gets a list of actual players
+        /// </summary>
         protected static GET_PLAYER_LIST_DELEGATE _GET_PLAYER_LIST;
+        /// <summary> 
+        /// Gets a list of actual NPCs 
+        /// </summary>
         protected static GET_NPC_LIST_DELEGATE _GET_NPC_LIST;
+        /// <summary> 
+        /// Gets nearest WP from a given coordinates of level
+        /// </summary>
         protected static GET_NEAREST_WP_DELEGATE _GET_NEAREST_WP;
+        /// <summary> 
+        /// Tells if an event is occurred
+        /// </summary>
         protected static IS_EVENT_OCCURRED_DELEGATE _IS_EVENT_OCCURRED;
+        /// <summary> 
+        /// Activates/Deactivates an event
+        /// </summary>
         protected static COMMIT_EVENT_DELEGATE _COMMIT_EVENT;
-        protected static TAKE_ITEM_FROM_SCENE_EVENT_DELEGATE _TAKE_ITEM_FROM_SCENE_EVENT;
+        /// <summary> 
+        /// Uses an item with something
+        /// </summary>
         protected static USE_ITEM_DELEGATE _USE_ITEM;
+        /// <summary> 
+        /// Tells if item is taken from scene
+        /// </summary>
         protected static IS_ITEM_TAKEN_FROM_SCENE_DELEGATE _IS_ITEM_TAKEN_FROM_SCENE;
-        protected static INTERACT_PLAYER_ITEM_DELEGATE _INTERACT_PLAYER_ITEM;
+        /// <summary> 
+        /// Interacts player with an item
+        /// </summary>
+        protected static INTERACT_PLAYER_DELEGATE _INTERACT_PLAYER;
+        /// <summary> 
+        /// Gets scenario item list
+        /// </summary>
         protected static GET_SCENARIO_ITEM_LIST_DELEGATE _GET_SCENARIO_ITEM_LIST;
+        /// <summary> 
+        /// Selects some pickable from inventory
+        /// </summary>
         protected static SELECT_PICKABLE_ITEM_DELEGATE _SELECT_PICKABLE_ITEM;
+        /// <summary> 
+        /// Cancels selected item
+        /// </summary>
         protected static CANCEL_PICKABLE_ITEM_DELEGATE _CANCEL_PICKABLE_ITEM;
+        /// <summary> 
+        /// Subscribe to an event. Invoke when event changes
+        /// </summary>
         protected static EVENT_SUBSCRIPTION_DELEGATE _EVENT_SUBSCRIPTION;
+        /// <summary> 
+        /// Trigger actions when crossing a door
+        /// </summary>
         protected static CROSS_DOOR_DELEGATE _CROSS_DOOR;
+        /// <summary> 
+        /// Interacts player with NPC
+        /// </summary>
         protected static INTERACT_PLAYER_NPC_DELEGATE _INTERACT_PLAYER_NPC;
+        /// <summary> 
+        /// Locks player so it cannot act until an action over it has been done (or removes lock)
+        /// </summary>
+        protected static LOCK_PLAYER_DELEGATE _LOCK_PLAYER;
+        /// <summary> 
+        /// Last service
+        /// </summary>
         protected static EXIT_GAME_DELEGATE _LAST_SERVICE;
         /* > ATG 2 END < */
         

@@ -20,7 +20,8 @@ namespace Gob3AQ.GameElement.PlayableChar
         PHYSICAL_STATE_STANDING = 0x0,
         PHYSICAL_STATE_TALKING = 0x1,
         PHYSICAL_STATE_ACTING = 0x2,
-        PHYSICAL_STATE_WALKING = 0x4
+        PHYSICAL_STATE_WALKING = 0x4,
+        PHYSICAL_STATE_LOCKED = 0x8,
     }
 
     public struct BufferedData
@@ -41,7 +42,7 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         public Collider2D Collider => _collider;
 
-        public bool IsSteady => (physicalstate == PhysicalState.PHYSICAL_STATE_STANDING);
+        public bool IsSteady => (physicalstate == PhysicalState.PHYSICAL_STATE_STANDING) && (!bufferedData.pending);
 
         public WaypointClass Waypoint => actualWaypoint;
 
@@ -68,11 +69,32 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         #region "Services"
 
+        public void LockRequest(bool enablelock)
+        {
+            if (enablelock)
+            {
+                if (IsSteady)
+                {
+                    /* Lock the character */
+                    physicalstate = PhysicalState.PHYSICAL_STATE_LOCKED;
+                }
+            }
+            else
+            {
+                if(physicalstate == PhysicalState.PHYSICAL_STATE_LOCKED)
+                {
+                    /* Unlock the character */
+                    physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
+                }
+            }
+        }
+
         public void MoveRequest(WaypointClass wp)
         {
             /* Move only if not talking or doing an action and WP has a defined Network */
             if((wp.Network != null) &&
-                ((physicalstate & (PhysicalState.PHYSICAL_STATE_TALKING | PhysicalState.PHYSICAL_STATE_ACTING)) == 0))
+                ((physicalstate &
+                (PhysicalState.PHYSICAL_STATE_LOCKED | PhysicalState.PHYSICAL_STATE_TALKING | PhysicalState.PHYSICAL_STATE_ACTING)) == 0))
             {
                 WaypointSolution solution = wp.Network.GetWaypointSolution(actualWaypoint, wp,
                     WaypointSkillType.WAYPOINT_SKILL_NORMAL, wpsolutionlist);
@@ -94,36 +116,12 @@ namespace Gob3AQ.GameElement.PlayableChar
             }
         }
 
-        public void MoveToDoorRequest(WaypointClass wp, int doorIndex)
-        {
-            /* Move only if not talking or doing an action and WP has a defined Network */
-            if ((wp.Network != null) &&
-                ((physicalstate & (PhysicalState.PHYSICAL_STATE_TALKING | PhysicalState.PHYSICAL_STATE_ACTING)) == 0))
-            {
-                WaypointSolution solution = wp.Network.GetWaypointSolution(actualWaypoint, wp,
-                    WaypointSkillType.WAYPOINT_SKILL_NORMAL, wpsolutionlist);
 
-                if (solution.totalDistance == float.PositiveInfinity)
-                {
-                    Debug.LogError("Point is not reachable from actual waypoint");
-                    physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
-                }
-                else
-                {
-                    actualProgrammedPath = new WaypointProgrammedPath(solution);
-                    physicalstate = PhysicalState.PHYSICAL_STATE_WALKING;
-                    Walk_StartNextSegment(false);
-                }
 
-                /* Cancel interaction which could be ongoing */
-                bufferedData.pending = false;
-            }
-        }
-
-        public void ItemInteractRequest(in ItemUsage usage, WaypointClass itemwp)
+        public void ActionRequest(in ItemUsage usage, WaypointClass itemwp)
         {
             /* Interact only if not talking or doing an action */
-            if ((physicalstate & (PhysicalState.PHYSICAL_STATE_TALKING | PhysicalState.PHYSICAL_STATE_ACTING)) == 0)
+            if ((physicalstate & (PhysicalState.PHYSICAL_STATE_LOCKED | PhysicalState.PHYSICAL_STATE_TALKING | PhysicalState.PHYSICAL_STATE_ACTING)) == 0)
             {
                 WaypointSolution solution = itemwp.Network.GetWaypointSolution(actualWaypoint, itemwp,
                     WaypointSkillType.WAYPOINT_SKILL_NORMAL, wpsolutionlist);

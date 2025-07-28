@@ -36,11 +36,10 @@ namespace Gob3AQ.VARMAP.LevelMaster
             FREEZE_PLAY = _FREEZE_PLAY;
             NPC_REGISTER = _NPC_REGISTER;
             ITEM_REGISTER = _ITEM_REGISTER;
-            ITEM_REMOVE_FROM_SCENE = _ITEM_REMOVE_FROM_SCENE;
+            ITEM_OBTAIN_PICKABLE = _ITEM_OBTAIN_PICKABLE;
             MONO_REGISTER = _MONO_REGISTER;
             WP_REGISTER = _WP_REGISTER;
             DOOR_REGISTER = _DOOR_REGISTER;
-            MOVE_PLAYER = _MOVE_PLAYER;
             PLAYER_WAYPOINT_UPDATE = _PLAYER_WAYPOINT_UPDATE;
             SELECT_PLAYER = _SELECT_PLAYER;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
@@ -49,11 +48,12 @@ namespace Gob3AQ.VARMAP.LevelMaster
             IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
             IS_ITEM_TAKEN_FROM_SCENE = _IS_ITEM_TAKEN_FROM_SCENE;
-            INTERACT_PLAYER_ITEM = _INTERACT_PLAYER_ITEM;
+            INTERACT_PLAYER = _INTERACT_PLAYER;
             GET_SCENARIO_ITEM_LIST = _GET_SCENARIO_ITEM_LIST;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             EVENT_SUBSCRIPTION = _EVENT_SUBSCRIPTION;
             CROSS_DOOR = _CROSS_DOOR;
+            LOCK_PLAYER = _LOCK_PLAYER;
             /* > ATG 1 END */
         }
 
@@ -84,31 +84,106 @@ namespace Gob3AQ.VARMAP.LevelMaster
 
         /* SERVICES */
         /* > ATG 3 START */
+        /// <summary> 
+        /// Saves game at any moment
+        /// </summary>
         public static SAVE_GAME_DELEGATE SAVE_GAME;
+        /// <summary> 
+        /// Loads a room (for example when crossing a door)
+        /// </summary>
         public static LOAD_ROOM_DELEGATE LOAD_ROOM;
+        /// <summary> 
+        /// This service subscribes for late start. This happens at some moment after Start event. when everything has been setup
+        /// </summary>
         public static LATE_START_SUBSCRIPTION_DELEGATE LATE_START_SUBSCRIPTION;
+        /// <summary> 
+        /// This service is called when whole room has been loaded
+        /// </summary>
         public static LODING_COMPLETED_DELEGATE LOADING_COMPLETED;
+        /// <summary> 
+        /// This service is called to pause game or enter cinematic
+        /// </summary>
         public static FREEZE_PLAY_DELEGATE FREEZE_PLAY;
+        /// <summary> 
+        /// Registers an NPC in system
+        /// </summary>
         public static NPC_REGISTER_DELEGATE NPC_REGISTER;
+        /// <summary> 
+        /// Registers an item in system
+        /// </summary>
         public static ITEM_REGISTER_DELEGATE ITEM_REGISTER;
-        public static ITEM_REMOVE_FROM_SCENE_DELEGATE ITEM_REMOVE_FROM_SCENE;
+        /// <summary> 
+        /// Removes an item from level
+        /// </summary>
+        public static ITEM_OBTAIN_PICKABLE_DELEGATE ITEM_OBTAIN_PICKABLE;
+        /// <summary> 
+        /// Registers a player in scene
+        /// </summary>
         public static MONO_REGISTER_DELEGATE MONO_REGISTER;
+        /// <summary> 
+        /// Registers a Waypoint in level
+        /// </summary>
         public static WP_REGISTER_DELEGATE WP_REGISTER;
+        /// <summary> 
+        /// Registers a door in level
+        /// </summary>
         public static DOOR_REGISTER_DELEGATE DOOR_REGISTER;
-        public static MOVE_PLAYER_DELEGATE MOVE_PLAYER;
+        /// <summary> 
+        /// Updates actual player waypoint when crossing or stopping on it
+        /// </summary>
         public static PLAYER_WAYPOINT_UPDATE_DELEGATE PLAYER_WAYPOINT_UPDATE;
+        /// <summary> 
+        /// Selects player
+        /// </summary>
         public static SELECT_PLAYER_DELEGATE SELECT_PLAYER;
+        /// <summary> 
+        /// Gets a list of actual players
+        /// </summary>
         public static GET_PLAYER_LIST_DELEGATE GET_PLAYER_LIST;
+        /// <summary> 
+        /// Gets a list of actual NPCs 
+        /// </summary>
         public static GET_NPC_LIST_DELEGATE GET_NPC_LIST;
+        /// <summary> 
+        /// Gets nearest WP from a given coordinates of level
+        /// </summary>
         public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
+        /// <summary> 
+        /// Tells if an event is occurred
+        /// </summary>
         public static IS_EVENT_OCCURRED_DELEGATE IS_EVENT_OCCURRED;
+        /// <summary> 
+        /// Activates/Deactivates an event
+        /// </summary>
         public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
+        /// <summary> 
+        /// Tells if item is taken from scene
+        /// </summary>
         public static IS_ITEM_TAKEN_FROM_SCENE_DELEGATE IS_ITEM_TAKEN_FROM_SCENE;
-        public static INTERACT_PLAYER_ITEM_DELEGATE INTERACT_PLAYER_ITEM;
+        /// <summary> 
+        /// Interacts player with an item
+        /// </summary>
+        public static INTERACT_PLAYER_DELEGATE INTERACT_PLAYER;
+        /// <summary> 
+        /// Gets scenario item list
+        /// </summary>
         public static GET_SCENARIO_ITEM_LIST_DELEGATE GET_SCENARIO_ITEM_LIST;
+        /// <summary> 
+        /// Cancels selected item
+        /// </summary>
         public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
+        /// <summary> 
+        /// Subscribe to an event. Invoke when event changes
+        /// </summary>
         public static EVENT_SUBSCRIPTION_DELEGATE EVENT_SUBSCRIPTION;
+        /// <summary> 
+        /// Trigger actions when crossing a door
+        /// </summary>
         public static CROSS_DOOR_DELEGATE CROSS_DOOR;
+        /// <summary> 
+        /// Locks player so it cannot act until an action over it has been done (or removes lock)
+        /// </summary>
+        public static LOCK_PLAYER_DELEGATE LOCK_PLAYER;
         /* > ATG 3 END */
     }
 }

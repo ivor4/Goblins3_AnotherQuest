@@ -50,7 +50,7 @@ namespace Gob3AQ.GameEventMaster
             _bufferedEvents.Add(newEv);
         }
 
-        public static void TakeItemFromSceneEventService(GamePickableItem item)
+        public static void ItemObtainPickableEventService(GamePickableItem item)
         {
             int evIndex = (int)item;
 

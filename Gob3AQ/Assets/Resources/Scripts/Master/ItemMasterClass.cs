@@ -95,11 +95,11 @@ namespace Gob3AQ.ItemMaster
                     GamePickableItem pickable = ItemsInteractionsClass.ITEM_TO_PICKABLE[(int)usage.itemDest];
 
                     /* Get item on this scenario (physically) */
-                    VARMAP_ItemMaster.ITEM_REMOVE_FROM_SCENE(usage.itemDest);
+                    VARMAP_ItemMaster.ITEM_OBTAIN_PICKABLE(usage.itemDest);
 
                     /* Officially take it and set corresponding events.
                      * If it was not in scene, at least an event will be set (which could be useful) */
-                    VARMAP_ItemMaster.TAKE_ITEM_FROM_SCENE_EVENT(pickable);
+                    VARMAP_ItemMaster.ITEM_OBTAIN_PICKABLE_EVENT(pickable);
 
                     /* Set item owner in VARMAP */
                     VARMAP_ItemMaster.SET_ELEM_PICKABLE_ITEM_OWNER((int)pickable, usage.playerSource);

@@ -22,9 +22,9 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             LATE_START_SUBSCRIPTION = _LATE_START_SUBSCRIPTION;
+            ITEM_OBTAIN_PICKABLE_EVENT = _ITEM_OBTAIN_PICKABLE_EVENT;
             IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
-            TAKE_ITEM_FROM_SCENE_EVENT = _TAKE_ITEM_FROM_SCENE_EVENT;
             IS_ITEM_TAKEN_FROM_SCENE = _IS_ITEM_TAKEN_FROM_SCENE;
             EVENT_SUBSCRIPTION = _EVENT_SUBSCRIPTION;
             /* > ATG 1 END */
@@ -46,11 +46,29 @@ namespace Gob3AQ.VARMAP.GameEventMaster
 
         /* SERVICES */
         /* > ATG 3 START */
+        /// <summary> 
+        /// This service subscribes for late start. This happens at some moment after Start event. when everything has been setup
+        /// </summary>
         public static LATE_START_SUBSCRIPTION_DELEGATE LATE_START_SUBSCRIPTION;
+        /// <summary> 
+        /// Takes an item from scene (triggering event)
+        /// </summary>
+        public static ITEM_OBTAIN_PICKABLE_EVENT_DELEGATE ITEM_OBTAIN_PICKABLE_EVENT;
+        /// <summary> 
+        /// Tells if an event is occurred
+        /// </summary>
         public static IS_EVENT_OCCURRED_DELEGATE IS_EVENT_OCCURRED;
+        /// <summary> 
+        /// Activates/Deactivates an event
+        /// </summary>
         public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
-        public static TAKE_ITEM_FROM_SCENE_EVENT_DELEGATE TAKE_ITEM_FROM_SCENE_EVENT;
+        /// <summary> 
+        /// Tells if item is taken from scene
+        /// </summary>
         public static IS_ITEM_TAKEN_FROM_SCENE_DELEGATE IS_ITEM_TAKEN_FROM_SCENE;
+        /// <summary> 
+        /// Subscribe to an event. Invoke when event changes
+        /// </summary>
         public static EVENT_SUBSCRIPTION_DELEGATE EVENT_SUBSCRIPTION;
         /* > ATG 3 END */
     }

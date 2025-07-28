@@ -166,7 +166,7 @@ namespace Gob3AQ.LevelMaster
             }
         }
 
-        public static void ItemRemoveFromSceneService(GameItem item)
+        public static void ItemObtainPickableService(GameItem item)
         {
             foreach(ItemClass itemclass in _Item_List)
             {
@@ -451,15 +451,16 @@ namespace Gob3AQ.LevelMaster
                                     usage = new(usageType, playerSelected, itemSource, candidateMelems.player.CharType,
                                         NPCType.NPC_NONE, GameItem.ITEM_NONE, -1);
 
-                                    VARMAP_LevelMaster.INTERACT_PLAYER_ITEM(in usage, candidateMelems.player.Waypoint);
+                                    VARMAP_LevelMaster.INTERACT_PLAYER(in usage, candidateMelems.player.Waypoint);
                                 }
                             }
                             else
                             {
                                 VARMAP_LevelMaster.SELECT_PLAYER(candidateMelems.player.CharType);
+                                VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
                             }
 
-                            VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
+                            
 
                             break;
 
@@ -480,8 +481,7 @@ namespace Gob3AQ.LevelMaster
                                 usage = new(usageType, playerSelected, itemSource, CharacterType.CHARACTER_NONE,
                                     NPCType.NPC_NONE, candidateMelems.item.ItemID, -1);
 
-                                VARMAP_LevelMaster.INTERACT_PLAYER_ITEM(in usage, candidateMelems.item.Waypoint);
-                                VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
+                                VARMAP_LevelMaster.INTERACT_PLAYER(in usage, candidateMelems.item.Waypoint);
                             }
                             break;
 
@@ -501,8 +501,7 @@ namespace Gob3AQ.LevelMaster
                             usage = new(usageType, playerSelected, itemSource, CharacterType.CHARACTER_NONE,
                                 candidateMelems.npc.NPType, GameItem.ITEM_NONE, candidateMelems.arrayIndex);
 
-                            VARMAP_LevelMaster.INTERACT_PLAYER_ITEM(in usage, candidateMelems.npc.Waypoint);
-                            VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
+                            VARMAP_LevelMaster.INTERACT_PLAYER(in usage, candidateMelems.npc.Waypoint);
                             break;
 
                         case MouseActiveElemsType.MELEMS_DOOR:
@@ -510,7 +509,7 @@ namespace Gob3AQ.LevelMaster
                                 CharacterType.CHARACTER_NONE, NPCType.NPC_NONE, GameItem.ITEM_NONE,
                                 candidateMelems.arrayIndex);
 
-                            VARMAP_LevelMaster.INTERACT_PLAYER_ITEM(in usage, candidateMelems.door.Waypoint);
+                            VARMAP_LevelMaster.INTERACT_PLAYER(in usage, candidateMelems.door.Waypoint);
                             VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
                             break;
 
@@ -539,7 +538,10 @@ namespace Gob3AQ.LevelMaster
 
             if (candidate)
             {
-                VARMAP_LevelMaster.MOVE_PLAYER(selectedCharacter, candidate);
+                ItemUsage usage = new(ItemUsageType.PLAYER_MOVE, selectedCharacter, GameItem.ITEM_NONE,
+                    CharacterType.CHARACTER_NONE, NPCType.NPC_NONE, GameItem.ITEM_NONE, -1);
+
+                VARMAP_LevelMaster.INTERACT_PLAYER(in usage, candidate);
             }
         }
 

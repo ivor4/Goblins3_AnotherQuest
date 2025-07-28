@@ -49,7 +49,13 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
 
         /* SERVICES */
         /* > ATG 3 START */
+        /// <summary> 
+        /// This service subscribes for late start. This happens at some moment after Start event. when everything has been setup
+        /// </summary>
         public static LATE_START_SUBSCRIPTION_DELEGATE LATE_START_SUBSCRIPTION;
+        /// <summary> 
+        /// Gets a list of actual players
+        /// </summary>
         public static GET_PLAYER_LIST_DELEGATE GET_PLAYER_LIST;
         /* > ATG 3 END */
     }

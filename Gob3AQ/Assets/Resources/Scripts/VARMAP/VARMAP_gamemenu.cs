@@ -69,12 +69,33 @@ namespace Gob3AQ.VARMAP.GameMenu
 
         /* SERVICES */
         /* > ATG 3 START */
+        /// <summary> 
+        /// Starts game from main menu
+        /// </summary>
         public static START_GAME_DELEGATE START_GAME;
+        /// <summary> 
+        /// Saves game at any moment
+        /// </summary>
         public static SAVE_GAME_DELEGATE SAVE_GAME;
+        /// <summary> 
+        /// Loads game from any moment
+        /// </summary>
         public static LOAD_GAME_DELEGATE LOAD_GAME;
+        /// <summary> 
+        /// Exits games to OS
+        /// </summary>
         public static EXIT_GAME_DELEGATE EXIT_GAME;
+        /// <summary> 
+        /// This service subscribes for late start. This happens at some moment after Start event. when everything has been setup
+        /// </summary>
         public static LATE_START_SUBSCRIPTION_DELEGATE LATE_START_SUBSCRIPTION;
+        /// <summary> 
+        /// Selects some pickable from inventory
+        /// </summary>
         public static SELECT_PICKABLE_ITEM_DELEGATE SELECT_PICKABLE_ITEM;
+        /// <summary> 
+        /// Cancels selected item
+        /// </summary>
         public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
         /* > ATG 3 END */
     }

@@ -53,14 +53,41 @@ namespace Gob3AQ.VARMAP.GameMaster
 
         /* SERVICES */
         /* > ATG 3 START */
+        /// <summary> 
+        /// Starts game from main menu
+        /// </summary>
         public static START_GAME_DELEGATE START_GAME;
+        /// <summary> 
+        /// Saves game at any moment
+        /// </summary>
         public static SAVE_GAME_DELEGATE SAVE_GAME;
+        /// <summary> 
+        /// Loads game from any moment
+        /// </summary>
         public static LOAD_GAME_DELEGATE LOAD_GAME;
+        /// <summary> 
+        /// Loads a room (for example when crossing a door)
+        /// </summary>
         public static LOAD_ROOM_DELEGATE LOAD_ROOM;
+        /// <summary> 
+        /// Exits games to OS
+        /// </summary>
         public static EXIT_GAME_DELEGATE EXIT_GAME;
+        /// <summary> 
+        /// This service subscribes for late start. This happens at some moment after Start event. when everything has been setup
+        /// </summary>
         public static LATE_START_SUBSCRIPTION_DELEGATE LATE_START_SUBSCRIPTION;
+        /// <summary> 
+        /// This service is called when whole room has been loaded
+        /// </summary>
         public static LODING_COMPLETED_DELEGATE LOADING_COMPLETED;
+        /// <summary> 
+        /// This service is called to pause game or enter cinematic
+        /// </summary>
         public static FREEZE_PLAY_DELEGATE FREEZE_PLAY;
+        /// <summary> 
+        /// Last service
+        /// </summary>
         public static EXIT_GAME_DELEGATE LAST_SERVICE;
         /* > ATG 3 END */
     }

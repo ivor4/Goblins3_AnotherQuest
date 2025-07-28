@@ -1,34 +1,34 @@
-N,SERVICE_ID,SPECIAL_DELEGATE,SERVICE_ROUTE,,GameMaster,InputMaster,LevelMaster,GraphicsMaster,GameMenu,PlayerMaster,NPCMaster,ItemMaster,GameEventMaster
-0,START_GAME,START_GAME_DELEGATE,GameMasterClass.StartGameService,,W,-,-,-,X,-,-,-,-
-1,SAVE_GAME,SAVE_GAME_DELEGATE,GameMasterClass.SaveGameService,,W,-,X,-,X,-,-,-,-
-2,LOAD_GAME,LOAD_GAME_DELEGATE,GameMasterClass.LoadGameService,,W,-,-,-,X,-,-,-,-
-3,LOAD_ROOM,LOAD_ROOM_DELEGATE,GameMasterClass.LoadRoomService,,W,-,X,-,-,-,-,-,-
-4,EXIT_GAME,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,,W,-,-,-,X,-,-,-,-
-5,LATE_START_SUBSCRIPTION,LATE_START_SUBSCRIPTION_DELEGATE,GameMasterClass.LateStartSubrsciptionService,,W,X,X,X,X,X,X,X,X
-6,LOADING_COMPLETED,LODING_COMPLETED_DELEGATE,GameMasterClass.LoadingCompletedService,,W,-,X,-,-,-,-,-,-
-7,FREEZE_PLAY,FREEZE_PLAY_DELEGATE,GameMasterClass.FreezePlayService,,W,-,X,-,-,-,-,-,-
-8,NPC_REGISTER,NPC_REGISTER_DELEGATE,LevelMasterClass.NPCRegisterService,,-,-,W,-,-,-,X,-,-
-9,ITEM_REGISTER,ITEM_REGISTER_DELEGATE,LevelMasterClass.ItemRegisterService,,-,-,W,-,-,-,-,X,-
-10,ITEM_REMOVE_FROM_SCENE,ITEM_REMOVE_FROM_SCENE_DELEGATE,LevelMasterClass.ItemRemoveFromSceneService,,-,-,W,-,-,-,-,X,-
-11,MONO_REGISTER,MONO_REGISTER_DELEGATE,LevelMasterClass.MonoRegisterService,,-,-,W,-,-,X,-,-,-
-12,WP_REGISTER,WP_REGISTER_DELEGATE,LevelMasterClass.WPRegisterService,,-,-,W,-,-,-,-,-,-
-13,DOOR_REGISTER,DOOR_REGISTER_DELEGATE,LevelMasterClass.DoorRegisterService,,-,-,W,-,-,-,-,-,-
-14,MOVE_PLAYER,MOVE_PLAYER_DELEGATE,PlayerMasterClass.MovePlayerService,,-,-,X,-,-,W,-,-,-
-15,PLAYER_WAYPOINT_UPDATE,PLAYER_WAYPOINT_UPDATE_DELEGATE,LevelMasterClass.PlayerWaypointUpdateService,,-,-,W,-,-,X,-,-,-
-16,SELECT_PLAYER,SELECT_PLAYER_DELEGATE,PlayerMasterClass.SelectPlayerService,,-,-,X,-,-,W,-,-,-
-17,GET_PLAYER_LIST,GET_PLAYER_LIST_DELEGATE,LevelMasterClass.GetPlayerListService,,-,-,W,X,-,X,-,-,-
-18,GET_NPC_LIST,GET_NPC_LIST_DELEGATE,LevelMasterClass.GetNPCListService,,-,-,W,-,-,-,X,-,-
-19,GET_NEAREST_WP,GET_NEAREST_WP_DELEGATE,LevelMasterClass.GetNearestWPService,,-,-,W,-,-,X,X,X,-
-20,IS_EVENT_OCCURRED,IS_EVENT_OCCURRED_DELEGATE,GameEventMasterClass.IsEventOccurredService,,-,-,X,-,-,X,X,X,W
-21,COMMIT_EVENT,COMMIT_EVENT_DELEGATE,GameEventMasterClass.CommitEventService,,-,-,X,-,-,X,X,X,W
-22,TAKE_ITEM_FROM_SCENE_EVENT,TAKE_ITEM_FROM_SCENE_EVENT_DELEGATE,GameEventMasterClass.TakeItemFromSceneEventService,,-,-,-,-,-,-,-,X,W
-23,USE_ITEM,USE_ITEM_DELEGATE,ItemMasterClass.UseItemService,,-,-,-,-,-,X,-,W,-
-24,IS_ITEM_TAKEN_FROM_SCENE,IS_ITEM_TAKEN_FROM_SCENE_DELEGATE,GameEventMasterClass.IsItemTakenFromSceneService,,-,-,X,-,-,-,-,X,W
-25,INTERACT_PLAYER_ITEM,INTERACT_PLAYER_ITEM_DELEGATE,PlayerMasterClass.InteractPlayerItemService,,-,-,X,-,-,W,-,-,-
-26,GET_SCENARIO_ITEM_LIST,GET_SCENARIO_ITEM_LIST_DELEGATE,LevelMasterClass.GetScenarioItemListService,,-,-,W,-,-,-,-,X,-
-27,SELECT_PICKABLE_ITEM,SELECT_PICKABLE_ITEM_DELEGATE,ItemMasterClass.SelectPickableItemService,,-,-,-,-,X,-,-,W,-
-28,CANCEL_PICKABLE_ITEM,CANCEL_PICKABLE_ITEM_DELEGATE,ItemMasterClass.CancelPickableItemService,,-,-,X,-,X,X,-,W,-
-29,EVENT_SUBSCRIPTION,EVENT_SUBSCRIPTION_DELEGATE,GameEventMasterClass.EventSubscriptionService,,-,-,X,-,-,X,X,X,W
-30,CROSS_DOOR,CROSS_DOOR_DELEGATE,LevelMasterClass.CrossDoorService,,-,-,W,-,-,X,-,-,-
-31,INTERACT_PLAYER_NPC,INTERACT_PLAYER_NPC_DELEGATE,NPCMasterClass.InteractPlayerNPCService,,-,-,-,-,-,X,W,-,-
-32,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,,W,-,-,-,-,-,-,-,-
+N,SERVICE_ID,SPECIAL_DELEGATE,SERVICE_ROUTE,Description,Separator,GameMaster,InputMaster,LevelMaster,GraphicsMaster,GameMenu,PlayerMaster,NPCMaster,ItemMaster,GameEventMaster
+0,START_GAME,START_GAME_DELEGATE,GameMasterClass.StartGameService,Starts game from main menu,,W,-,-,-,X,-,-,-,-
+1,SAVE_GAME,SAVE_GAME_DELEGATE,GameMasterClass.SaveGameService,Saves game at any moment,,W,-,X,-,X,-,-,-,-
+2,LOAD_GAME,LOAD_GAME_DELEGATE,GameMasterClass.LoadGameService,Loads game from any moment,,W,-,-,-,X,-,-,-,-
+3,LOAD_ROOM,LOAD_ROOM_DELEGATE,GameMasterClass.LoadRoomService,Loads a room (for example when crossing a door),,W,-,X,-,-,-,-,-,-
+4,EXIT_GAME,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Exits games to OS,,W,-,-,-,X,-,-,-,-
+5,LATE_START_SUBSCRIPTION,LATE_START_SUBSCRIPTION_DELEGATE,GameMasterClass.LateStartSubrsciptionService,This service subscribes for late start. This happens at some moment after Start event. when everything has been setup,,W,X,X,X,X,X,X,X,X
+6,LOADING_COMPLETED,LODING_COMPLETED_DELEGATE,GameMasterClass.LoadingCompletedService,This service is called when whole room has been loaded,,W,-,X,-,-,-,-,-,-
+7,FREEZE_PLAY,FREEZE_PLAY_DELEGATE,GameMasterClass.FreezePlayService,This service is called to pause game or enter cinematic,,W,-,X,-,-,-,-,-,-
+8,NPC_REGISTER,NPC_REGISTER_DELEGATE,LevelMasterClass.NPCRegisterService,Registers an NPC in system,,-,-,W,-,-,-,X,-,-
+9,ITEM_REGISTER,ITEM_REGISTER_DELEGATE,LevelMasterClass.ItemRegisterService,Registers an item in system,,-,-,W,-,-,-,-,X,-
+10,ITEM_OBTAIN_PICKABLE,ITEM_OBTAIN_PICKABLE_DELEGATE,LevelMasterClass.ItemObtainPickableService,Removes an item from level,,-,-,W,-,-,-,-,X,-
+11,ITEM_OBTAIN_PICKABLE_EVENT,ITEM_OBTAIN_PICKABLE_EVENT_DELEGATE,GameEventMasterClass.ItemObtainPickableEventService,Takes an item from scene (triggering event),,-,-,-,-,-,-,-,X,W
+12,MONO_REGISTER,MONO_REGISTER_DELEGATE,LevelMasterClass.MonoRegisterService,Registers a player in scene,,-,-,W,-,-,X,-,-,-
+13,WP_REGISTER,WP_REGISTER_DELEGATE,LevelMasterClass.WPRegisterService,Registers a Waypoint in level,,-,-,W,-,-,-,-,-,-
+14,DOOR_REGISTER,DOOR_REGISTER_DELEGATE,LevelMasterClass.DoorRegisterService,Registers a door in level,,-,-,W,-,-,-,-,-,-
+15,PLAYER_WAYPOINT_UPDATE,PLAYER_WAYPOINT_UPDATE_DELEGATE,LevelMasterClass.PlayerWaypointUpdateService,Updates actual player waypoint when crossing or stopping on it,,-,-,W,-,-,X,-,-,-
+16,SELECT_PLAYER,SELECT_PLAYER_DELEGATE,PlayerMasterClass.SelectPlayerService,Selects player,,-,-,X,-,-,W,-,-,-
+17,GET_PLAYER_LIST,GET_PLAYER_LIST_DELEGATE,LevelMasterClass.GetPlayerListService,Gets a list of actual players,,-,-,W,X,-,X,-,-,-
+18,GET_NPC_LIST,GET_NPC_LIST_DELEGATE,LevelMasterClass.GetNPCListService,Gets a list of actual NPCs ,,-,-,W,-,-,-,X,-,-
+19,GET_NEAREST_WP,GET_NEAREST_WP_DELEGATE,LevelMasterClass.GetNearestWPService,Gets nearest WP from a given coordinates of level,,-,-,W,-,-,X,X,X,-
+20,IS_EVENT_OCCURRED,IS_EVENT_OCCURRED_DELEGATE,GameEventMasterClass.IsEventOccurredService,Tells if an event is occurred,,-,-,X,-,-,X,X,X,W
+21,COMMIT_EVENT,COMMIT_EVENT_DELEGATE,GameEventMasterClass.CommitEventService,Activates/Deactivates an event,,-,-,X,-,-,X,X,X,W
+22,USE_ITEM,USE_ITEM_DELEGATE,ItemMasterClass.UseItemService,Uses an item with something,,-,-,-,-,-,X,-,W,-
+23,IS_ITEM_TAKEN_FROM_SCENE,IS_ITEM_TAKEN_FROM_SCENE_DELEGATE,GameEventMasterClass.IsItemTakenFromSceneService,Tells if item is taken from scene,,-,-,X,-,-,-,-,X,W
+24,INTERACT_PLAYER,INTERACT_PLAYER_DELEGATE,PlayerMasterClass.InteractPlayerService,Interacts player with an item,,-,-,X,-,-,W,-,-,-
+25,GET_SCENARIO_ITEM_LIST,GET_SCENARIO_ITEM_LIST_DELEGATE,LevelMasterClass.GetScenarioItemListService,Gets scenario item list,,-,-,W,-,-,-,-,X,-
+26,SELECT_PICKABLE_ITEM,SELECT_PICKABLE_ITEM_DELEGATE,ItemMasterClass.SelectPickableItemService,Selects some pickable from inventory,,-,-,-,-,X,-,-,W,-
+27,CANCEL_PICKABLE_ITEM,CANCEL_PICKABLE_ITEM_DELEGATE,ItemMasterClass.CancelPickableItemService,Cancels selected item,,-,-,X,-,X,X,-,W,-
+28,EVENT_SUBSCRIPTION,EVENT_SUBSCRIPTION_DELEGATE,GameEventMasterClass.EventSubscriptionService,Subscribe to an event. Invoke when event changes,,-,-,X,-,-,X,X,X,W
+29,CROSS_DOOR,CROSS_DOOR_DELEGATE,LevelMasterClass.CrossDoorService,Trigger actions when crossing a door,,-,-,W,-,-,X,-,-,-
+30,INTERACT_PLAYER_NPC,INTERACT_PLAYER_NPC_DELEGATE,NPCMasterClass.InteractPlayerNPCService,Interacts player with NPC,,-,-,-,-,-,X,W,-,-
+31,LOCK_PLAYER,LOCK_PLAYER_DELEGATE,PlayerMasterClass.LockPlayerService,Locks player so it cannot act until an action over it has been done (or removes lock),,-,-,X,-,-,W,-,-,-
+32,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-,-

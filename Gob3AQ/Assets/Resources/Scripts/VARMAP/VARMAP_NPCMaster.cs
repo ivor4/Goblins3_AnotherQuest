@@ -40,13 +40,37 @@ namespace Gob3AQ.VARMAP.NPCMaster
 
         /* SERVICES */
         /* > ATG 3 START */
+        /// <summary> 
+        /// This service subscribes for late start. This happens at some moment after Start event. when everything has been setup
+        /// </summary>
         public static LATE_START_SUBSCRIPTION_DELEGATE LATE_START_SUBSCRIPTION;
+        /// <summary> 
+        /// Registers an NPC in system
+        /// </summary>
         public static NPC_REGISTER_DELEGATE NPC_REGISTER;
+        /// <summary> 
+        /// Gets a list of actual NPCs 
+        /// </summary>
         public static GET_NPC_LIST_DELEGATE GET_NPC_LIST;
+        /// <summary> 
+        /// Gets nearest WP from a given coordinates of level
+        /// </summary>
         public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
+        /// <summary> 
+        /// Tells if an event is occurred
+        /// </summary>
         public static IS_EVENT_OCCURRED_DELEGATE IS_EVENT_OCCURRED;
+        /// <summary> 
+        /// Activates/Deactivates an event
+        /// </summary>
         public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
+        /// <summary> 
+        /// Subscribe to an event. Invoke when event changes
+        /// </summary>
         public static EVENT_SUBSCRIPTION_DELEGATE EVENT_SUBSCRIPTION;
+        /// <summary> 
+        /// Interacts player with NPC
+        /// </summary>
         public static INTERACT_PLAYER_NPC_DELEGATE INTERACT_PLAYER_NPC;
         /* > ATG 3 END */
     }

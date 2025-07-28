@@ -31,7 +31,6 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
             LATE_START_SUBSCRIPTION = _LATE_START_SUBSCRIPTION;
             MONO_REGISTER = _MONO_REGISTER;
-            MOVE_PLAYER = _MOVE_PLAYER;
             PLAYER_WAYPOINT_UPDATE = _PLAYER_WAYPOINT_UPDATE;
             SELECT_PLAYER = _SELECT_PLAYER;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
@@ -39,11 +38,12 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
             USE_ITEM = _USE_ITEM;
-            INTERACT_PLAYER_ITEM = _INTERACT_PLAYER_ITEM;
+            INTERACT_PLAYER = _INTERACT_PLAYER;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             EVENT_SUBSCRIPTION = _EVENT_SUBSCRIPTION;
             CROSS_DOOR = _CROSS_DOOR;
             INTERACT_PLAYER_NPC = _INTERACT_PLAYER_NPC;
+            LOCK_PLAYER = _LOCK_PLAYER;
             /* > ATG 1 END */
         }
 
@@ -70,21 +70,66 @@ namespace Gob3AQ.VARMAP.PlayerMaster
 
         /* SERVICES */
         /* > ATG 3 START */
+        /// <summary> 
+        /// This service subscribes for late start. This happens at some moment after Start event. when everything has been setup
+        /// </summary>
         public static LATE_START_SUBSCRIPTION_DELEGATE LATE_START_SUBSCRIPTION;
+        /// <summary> 
+        /// Registers a player in scene
+        /// </summary>
         public static MONO_REGISTER_DELEGATE MONO_REGISTER;
-        public static MOVE_PLAYER_DELEGATE MOVE_PLAYER;
+        /// <summary> 
+        /// Updates actual player waypoint when crossing or stopping on it
+        /// </summary>
         public static PLAYER_WAYPOINT_UPDATE_DELEGATE PLAYER_WAYPOINT_UPDATE;
+        /// <summary> 
+        /// Selects player
+        /// </summary>
         public static SELECT_PLAYER_DELEGATE SELECT_PLAYER;
+        /// <summary> 
+        /// Gets a list of actual players
+        /// </summary>
         public static GET_PLAYER_LIST_DELEGATE GET_PLAYER_LIST;
+        /// <summary> 
+        /// Gets nearest WP from a given coordinates of level
+        /// </summary>
         public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
+        /// <summary> 
+        /// Tells if an event is occurred
+        /// </summary>
         public static IS_EVENT_OCCURRED_DELEGATE IS_EVENT_OCCURRED;
+        /// <summary> 
+        /// Activates/Deactivates an event
+        /// </summary>
         public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
+        /// <summary> 
+        /// Uses an item with something
+        /// </summary>
         public static USE_ITEM_DELEGATE USE_ITEM;
-        public static INTERACT_PLAYER_ITEM_DELEGATE INTERACT_PLAYER_ITEM;
+        /// <summary> 
+        /// Interacts player with an item
+        /// </summary>
+        public static INTERACT_PLAYER_DELEGATE INTERACT_PLAYER;
+        /// <summary> 
+        /// Cancels selected item
+        /// </summary>
         public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
+        /// <summary> 
+        /// Subscribe to an event. Invoke when event changes
+        /// </summary>
         public static EVENT_SUBSCRIPTION_DELEGATE EVENT_SUBSCRIPTION;
+        /// <summary> 
+        /// Trigger actions when crossing a door
+        /// </summary>
         public static CROSS_DOOR_DELEGATE CROSS_DOOR;
+        /// <summary> 
+        /// Interacts player with NPC
+        /// </summary>
         public static INTERACT_PLAYER_NPC_DELEGATE INTERACT_PLAYER_NPC;
+        /// <summary> 
+        /// Locks player so it cannot act until an action over it has been done (or removes lock)
+        /// </summary>
+        public static LOCK_PLAYER_DELEGATE LOCK_PLAYER;
         /* > ATG 3 END */
     }
 }

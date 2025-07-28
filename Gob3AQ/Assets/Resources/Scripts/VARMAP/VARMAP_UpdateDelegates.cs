@@ -101,11 +101,11 @@ namespace Gob3AQ.VARMAP.Initialization
             _FREEZE_PLAY = GameMasterClass.FreezePlayService;
             _NPC_REGISTER = LevelMasterClass.NPCRegisterService;
             _ITEM_REGISTER = LevelMasterClass.ItemRegisterService;
-            _ITEM_REMOVE_FROM_SCENE = LevelMasterClass.ItemRemoveFromSceneService;
+            _ITEM_OBTAIN_PICKABLE = LevelMasterClass.ItemObtainPickableService;
+            _ITEM_OBTAIN_PICKABLE_EVENT = GameEventMasterClass.ItemObtainPickableEventService;
             _MONO_REGISTER = LevelMasterClass.MonoRegisterService;
             _WP_REGISTER = LevelMasterClass.WPRegisterService;
             _DOOR_REGISTER = LevelMasterClass.DoorRegisterService;
-            _MOVE_PLAYER = PlayerMasterClass.MovePlayerService;
             _PLAYER_WAYPOINT_UPDATE = LevelMasterClass.PlayerWaypointUpdateService;
             _SELECT_PLAYER = PlayerMasterClass.SelectPlayerService;
             _GET_PLAYER_LIST = LevelMasterClass.GetPlayerListService;
@@ -113,16 +113,16 @@ namespace Gob3AQ.VARMAP.Initialization
             _GET_NEAREST_WP = LevelMasterClass.GetNearestWPService;
             _IS_EVENT_OCCURRED = GameEventMasterClass.IsEventOccurredService;
             _COMMIT_EVENT = GameEventMasterClass.CommitEventService;
-            _TAKE_ITEM_FROM_SCENE_EVENT = GameEventMasterClass.TakeItemFromSceneEventService;
             _USE_ITEM = ItemMasterClass.UseItemService;
             _IS_ITEM_TAKEN_FROM_SCENE = GameEventMasterClass.IsItemTakenFromSceneService;
-            _INTERACT_PLAYER_ITEM = PlayerMasterClass.InteractPlayerItemService;
+            _INTERACT_PLAYER = PlayerMasterClass.InteractPlayerService;
             _GET_SCENARIO_ITEM_LIST = LevelMasterClass.GetScenarioItemListService;
             _SELECT_PICKABLE_ITEM = ItemMasterClass.SelectPickableItemService;
             _CANCEL_PICKABLE_ITEM = ItemMasterClass.CancelPickableItemService;
             _EVENT_SUBSCRIPTION = GameEventMasterClass.EventSubscriptionService;
             _CROSS_DOOR = LevelMasterClass.CrossDoorService;
             _INTERACT_PLAYER_NPC = NPCMasterClass.InteractPlayerNPCService;
+            _LOCK_PLAYER = PlayerMasterClass.LockPlayerService;
             _LAST_SERVICE = GameMasterClass.ExitGameService;
             /* > ATG 2 END */
         }

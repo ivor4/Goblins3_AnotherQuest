@@ -40,6 +40,9 @@ namespace Gob3AQ.VARMAP.InputMaster
 
         /* SERVICES */
         /* > ATG 3 START */
+        /// <summary> 
+        /// This service subscribes for late start. This happens at some moment after Start event. when everything has been setup
+        /// </summary>
         public static LATE_START_SUBSCRIPTION_DELEGATE LATE_START_SUBSCRIPTION;
         /* > ATG 3 END */
     }

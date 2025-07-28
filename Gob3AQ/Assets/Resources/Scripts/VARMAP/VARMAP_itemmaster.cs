@@ -26,11 +26,11 @@ namespace Gob3AQ.VARMAP.ItemMaster
             SET_PICKABLE_ITEM_CHOSEN = _SET_PICKABLE_ITEM_CHOSEN;
             LATE_START_SUBSCRIPTION = _LATE_START_SUBSCRIPTION;
             ITEM_REGISTER = _ITEM_REGISTER;
-            ITEM_REMOVE_FROM_SCENE = _ITEM_REMOVE_FROM_SCENE;
+            ITEM_OBTAIN_PICKABLE = _ITEM_OBTAIN_PICKABLE;
+            ITEM_OBTAIN_PICKABLE_EVENT = _ITEM_OBTAIN_PICKABLE_EVENT;
             GET_NEAREST_WP = _GET_NEAREST_WP;
             IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
-            TAKE_ITEM_FROM_SCENE_EVENT = _TAKE_ITEM_FROM_SCENE_EVENT;
             USE_ITEM = _USE_ITEM;
             IS_ITEM_TAKEN_FROM_SCENE = _IS_ITEM_TAKEN_FROM_SCENE;
             GET_SCENARIO_ITEM_LIST = _GET_SCENARIO_ITEM_LIST;
@@ -59,18 +59,57 @@ namespace Gob3AQ.VARMAP.ItemMaster
 
         /* SERVICES */
         /* > ATG 3 START */
+        /// <summary> 
+        /// This service subscribes for late start. This happens at some moment after Start event. when everything has been setup
+        /// </summary>
         public static LATE_START_SUBSCRIPTION_DELEGATE LATE_START_SUBSCRIPTION;
+        /// <summary> 
+        /// Registers an item in system
+        /// </summary>
         public static ITEM_REGISTER_DELEGATE ITEM_REGISTER;
-        public static ITEM_REMOVE_FROM_SCENE_DELEGATE ITEM_REMOVE_FROM_SCENE;
+        /// <summary> 
+        /// Removes an item from level
+        /// </summary>
+        public static ITEM_OBTAIN_PICKABLE_DELEGATE ITEM_OBTAIN_PICKABLE;
+        /// <summary> 
+        /// Takes an item from scene (triggering event)
+        /// </summary>
+        public static ITEM_OBTAIN_PICKABLE_EVENT_DELEGATE ITEM_OBTAIN_PICKABLE_EVENT;
+        /// <summary> 
+        /// Gets nearest WP from a given coordinates of level
+        /// </summary>
         public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
+        /// <summary> 
+        /// Tells if an event is occurred
+        /// </summary>
         public static IS_EVENT_OCCURRED_DELEGATE IS_EVENT_OCCURRED;
+        /// <summary> 
+        /// Activates/Deactivates an event
+        /// </summary>
         public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
-        public static TAKE_ITEM_FROM_SCENE_EVENT_DELEGATE TAKE_ITEM_FROM_SCENE_EVENT;
+        /// <summary> 
+        /// Uses an item with something
+        /// </summary>
         public static USE_ITEM_DELEGATE USE_ITEM;
+        /// <summary> 
+        /// Tells if item is taken from scene
+        /// </summary>
         public static IS_ITEM_TAKEN_FROM_SCENE_DELEGATE IS_ITEM_TAKEN_FROM_SCENE;
+        /// <summary> 
+        /// Gets scenario item list
+        /// </summary>
         public static GET_SCENARIO_ITEM_LIST_DELEGATE GET_SCENARIO_ITEM_LIST;
+        /// <summary> 
+        /// Selects some pickable from inventory
+        /// </summary>
         public static SELECT_PICKABLE_ITEM_DELEGATE SELECT_PICKABLE_ITEM;
+        /// <summary> 
+        /// Cancels selected item
+        /// </summary>
         public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
+        /// <summary> 
+        /// Subscribe to an event. Invoke when event changes
+        /// </summary>
         public static EVENT_SUBSCRIPTION_DELEGATE EVENT_SUBSCRIPTION;
         /* > ATG 3 END */
     }

@@ -35,10 +35,10 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void ITEM_OBTAIN_PICKABLE_EVENT_DELEGATE(GamePickableItem item);
     public delegate void IS_ITEM_TAKEN_FROM_SCENE_DELEGATE(GamePickableItem item, out bool taken);
     public delegate void IS_ITEM_OWNED_DELEGATE(GamePickableItem item, out CharacterType character);
-    public delegate void INTERACT_PLAYER_DELEGATE(in ItemUsage usage, WaypointClass wp);
+    public delegate void INTERACT_PLAYER_DELEGATE(in InteractionUsage usage);
     public delegate void INTERACT_PLAYER_DOOR_DELEGATE(CharacterType character, WaypointClass doorWaypoint, int doorIndex);
     public delegate void TAKE_ITEM_DELEGATE(CharacterType character, GameItem item, out ItemInteractionType permitted);
-    public delegate void USE_ITEM_DELEGATE(in ItemUsage usage, out ItemInteractionType permitted, out CharacterAnimation animation);
+    public delegate void USE_ITEM_DELEGATE(in InteractionUsage usage, out ItemInteractionType permitted, out CharacterAnimation animation);
     public delegate void GET_SCENARIO_ITEM_LIST_DELEGATE(out ReadOnlyList<ItemClass> list);
     public delegate void SELECT_PICKABLE_ITEM_DELEGATE(GameItem item);
     public delegate void CANCEL_PICKABLE_ITEM_DELEGATE();

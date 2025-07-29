@@ -29,6 +29,11 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             REG_PLAYER_SELECTED = _REG_PLAYER_SELECTED;
             UNREG_PLAYER_SELECTED = _UNREG_PLAYER_SELECTED;
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
+            GET_ELEM_PLAYER_TRANSACTION = _GET_ELEM_PLAYER_TRANSACTION;
+            SET_ELEM_PLAYER_TRANSACTION = _SET_ELEM_PLAYER_TRANSACTION;
+            GET_SIZE_PLAYER_TRANSACTION = _GET_SIZE_PLAYER_TRANSACTION;
+            GET_ARRAY_PLAYER_TRANSACTION = _GET_ARRAY_PLAYER_TRANSACTION;
+            SET_ARRAY_PLAYER_TRANSACTION = _SET_ARRAY_PLAYER_TRANSACTION;
             LATE_START_SUBSCRIPTION = _LATE_START_SUBSCRIPTION;
             MONO_REGISTER = _MONO_REGISTER;
             PLAYER_WAYPOINT_UPDATE = _PLAYER_WAYPOINT_UPDATE;
@@ -66,6 +71,11 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         public static ReUnRegisterVARMAPValueChangeEventDelegate<CharacterType> REG_PLAYER_SELECTED;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<CharacterType> UNREG_PLAYER_SELECTED;
         public static GetVARMAPValueDelegate<GameItem> GET_PICKABLE_ITEM_CHOSEN;
+        public static GetVARMAPArrayElemValueDelegate<ulong> GET_ELEM_PLAYER_TRANSACTION;
+        public static SetVARMAPArrayElemValueDelegate<ulong> SET_ELEM_PLAYER_TRANSACTION;
+        public static GetVARMAPArraySizeDelegate GET_SIZE_PLAYER_TRANSACTION;
+        public static GetVARMAPArrayDelegate<ulong> GET_ARRAY_PLAYER_TRANSACTION;
+        public static SetVARMAPArrayDelegate<ulong> SET_ARRAY_PLAYER_TRANSACTION;
         /* > ATG 2 END */
 
         /* SERVICES */

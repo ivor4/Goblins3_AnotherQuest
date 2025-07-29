@@ -29,17 +29,17 @@ namespace Gob3AQ.ItemMaster
         }
 
         
-        public static void UseItemService(in ItemUsage usage, out ItemInteractionType permitted, out CharacterAnimation animation)
+        public static void UseItemService(in InteractionUsage usage, out ItemInteractionType permitted, out CharacterAnimation animation)
         {
             switch(usage.type)
             {
-                case ItemUsageType.PLAYER_WITH_ITEM:
+                case InteractionType.PLAYER_WITH_ITEM:
                     TakePickableItem(in usage, out permitted, out animation);
                     break;
-                case ItemUsageType.ITEM_WITH_ITEM:
+                case InteractionType.ITEM_WITH_ITEM:
                     UseItemWithItem(in usage, out permitted, out animation);
                     break;
-                case ItemUsageType.ITEM_WITH_PLAYER:
+                case InteractionType.ITEM_WITH_PLAYER:
                     permitted = ItemInteractionType.INTERACTION_NONE;
                     animation = CharacterAnimation.ITEM_USE_ANIMATION_NONE;
                     break;
@@ -81,7 +81,7 @@ namespace Gob3AQ.ItemMaster
         /// </summary>
         /// <param name="item">involved labelled item</param>
         /// <param name="character">Character who took the item</param>
-        private static void TakePickableItem(in ItemUsage usage, out ItemInteractionType permitted, out CharacterAnimation animation)
+        private static void TakePickableItem(in InteractionUsage usage, out ItemInteractionType permitted, out CharacterAnimation animation)
         {
             ref readonly ItemInteractionInfo interactionInfo = ref ItemsInteractionsClass.GetItemInteraction(in usage);
 
@@ -129,7 +129,7 @@ namespace Gob3AQ.ItemMaster
             animation = interactionInfo.useAnimation;
         }
 
-        private static void UseItemWithItem(in ItemUsage usage, out ItemInteractionType permitted, out CharacterAnimation animation)
+        private static void UseItemWithItem(in InteractionUsage usage, out ItemInteractionType permitted, out CharacterAnimation animation)
         {
             GamePickableItem pickable = ItemsInteractionsClass.ITEM_TO_PICKABLE[(int)usage.itemSource];
             ref readonly ItemInteractionInfo interactionInfo = ref ItemsInteractionsClass.GetItemInteraction(in usage);

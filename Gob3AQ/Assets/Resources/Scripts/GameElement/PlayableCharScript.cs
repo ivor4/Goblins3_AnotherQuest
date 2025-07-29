@@ -27,7 +27,7 @@ namespace Gob3AQ.GameElement.PlayableChar
     public struct BufferedData
     {
         public bool pending;
-        public ItemUsage usage;
+        public InteractionUsage usage;
     }
 
 
@@ -89,41 +89,16 @@ namespace Gob3AQ.GameElement.PlayableChar
             }
         }
 
-        public void MoveRequest(WaypointClass wp)
-        {
-            /* Move only if not talking or doing an action and WP has a defined Network */
-            if((wp.Network != null) &&
-                ((physicalstate &
-                (PhysicalState.PHYSICAL_STATE_LOCKED | PhysicalState.PHYSICAL_STATE_TALKING | PhysicalState.PHYSICAL_STATE_ACTING)) == 0))
-            {
-                WaypointSolution solution = wp.Network.GetWaypointSolution(actualWaypoint, wp,
-                    WaypointSkillType.WAYPOINT_SKILL_NORMAL, wpsolutionlist);
-
-                if(solution.totalDistance == float.PositiveInfinity)
-                {
-                    Debug.LogError("Point is not reachable from actual waypoint");
-                    physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
-                }
-                else
-                {
-                    actualProgrammedPath = new WaypointProgrammedPath(solution);
-                    physicalstate = PhysicalState.PHYSICAL_STATE_WALKING;
-                    Walk_StartNextSegment(false);
-                }
-
-                /* Cancel interaction which could be ongoing */
-                bufferedData.pending = false;
-            }
-        }
 
 
 
-        public void ActionRequest(in ItemUsage usage, WaypointClass itemwp)
+
+        public void ActionRequest(in InteractionUsage usage)
         {
             /* Interact only if not talking or doing an action */
             if ((physicalstate & (PhysicalState.PHYSICAL_STATE_LOCKED | PhysicalState.PHYSICAL_STATE_TALKING | PhysicalState.PHYSICAL_STATE_ACTING)) == 0)
             {
-                WaypointSolution solution = itemwp.Network.GetWaypointSolution(actualWaypoint, itemwp,
+                WaypointSolution solution = usage.destWaypoint.Network.GetWaypointSolution(actualWaypoint, usage.destWaypoint,
                     WaypointSkillType.WAYPOINT_SKILL_NORMAL, wpsolutionlist);
 
                 if (solution.totalDistance == float.PositiveInfinity)
@@ -320,32 +295,51 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         private void StartBufferedInteraction()
         {
+            bool validTransaction;
+
             /* Now interact if buffered */
             if (bufferedData.pending)
             {
                 switch (bufferedData.usage.type)
                 {
-                    case ItemUsageType.PLAYER_WITH_ITEM:
-                    case ItemUsageType.ITEM_WITH_ITEM:
-                    case ItemUsageType.ITEM_WITH_PLAYER:
-                    case ItemUsageType.ITEM_WITH_NPC:
-                        /* Use Item is also Take Item */
-                        VARMAP_PlayerMaster.USE_ITEM(in bufferedData.usage, out ItemInteractionType permitted,
-                            out CharacterAnimation animation);
+                    case InteractionType.PLAYER_WITH_ITEM:
+                    case InteractionType.ITEM_WITH_ITEM:
+                    case InteractionType.ITEM_WITH_PLAYER:
+                    case InteractionType.ITEM_WITH_NPC:
 
-                        /* If action is valid */
-                        if (permitted != ItemInteractionType.INTERACTION_NONE)
+                        
+
+                        if(bufferedData.usage.type == InteractionType.ITEM_WITH_PLAYER)
                         {
-                            ActAnimationRequest(animation);
+                            validTransaction = PlayerMasterClass.IsPlayerInSameState(bufferedData.usage.playerDest,
+                                bufferedData.usage.playerTransactionId, actualWaypoint);
                         }
+                        else
+                        {
+                            validTransaction = true;
+                        }
+
+                        if (validTransaction)
+                        {
+                            /* Use Item is also Take Item */
+                            VARMAP_PlayerMaster.USE_ITEM(in bufferedData.usage, out ItemInteractionType permitted,
+                                out CharacterAnimation animation);
+
+                            /* If action is valid */
+                            if (permitted != ItemInteractionType.INTERACTION_NONE)
+                            {
+                                ActAnimationRequest(animation);
+                            }
+                        }
+
                         break;
 
-                    case ItemUsageType.PLAYER_WITH_NPC:
+                    case InteractionType.PLAYER_WITH_NPC:
                         /* Talk */
                         VARMAP_PlayerMaster.INTERACT_PLAYER_NPC(charType, bufferedData.usage.destListIndex);
                         break;
 
-                    case ItemUsageType.PLAYER_WITH_DOOR:
+                    case InteractionType.PLAYER_WITH_DOOR:
                         VARMAP_PlayerMaster.CROSS_DOOR(charType, bufferedData.usage.destListIndex);
                         break;
 

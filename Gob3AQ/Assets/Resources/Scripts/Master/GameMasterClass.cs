@@ -130,6 +130,7 @@ namespace Gob3AQ.GameMaster
                 VARMAP_GameMaster.SET_ACTUAL_ROOM(room);
                 _SetGameStatus(Game_Status.GAME_STATUS_LOADING);
                 firstFrameOfScenePending = 1;
+                _lateStartSubscibers = null;
 
                 SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
             }

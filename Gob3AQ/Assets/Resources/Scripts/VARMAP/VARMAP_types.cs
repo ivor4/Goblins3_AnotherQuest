@@ -7,6 +7,7 @@ using Gob3AQ.VARMAP.Types.Items;
 using Gob3AQ.VARMAP.Types;
 using UnityEngine;
 using Gob3AQ.Libs.Arith;
+using Gob3AQ.Waypoint;
 
 namespace Gob3AQ.VARMAP.Types
 {
@@ -100,7 +101,7 @@ namespace Gob3AQ.VARMAP.Types
     }
     
 
-    public enum ItemUsageType
+    public enum InteractionType
     {
         PLAYER_MOVE,
         PLAYER_WITH_ITEM,
@@ -144,18 +145,52 @@ namespace Gob3AQ.VARMAP.Types
         }
     }
 
-    public readonly struct ItemUsage
+    public readonly struct InteractionUsage
     {
-        public readonly ItemUsageType type;
+        public readonly InteractionType type;
         public readonly CharacterType playerSource;
         public readonly GameItem itemSource;
         public readonly CharacterType playerDest;
         public readonly NPCType npcDest;
         public readonly GameItem itemDest;
         public readonly int destListIndex;
+        public readonly WaypointClass destWaypoint;
+        public readonly ulong playerTransactionId;
 
-        public ItemUsage(ItemUsageType type, CharacterType playerSource, GameItem itemSource,
-            CharacterType playerDest, NPCType npcDest, GameItem itemDest, int doorIndex)
+        public static InteractionUsage CreatePlayerMove(CharacterType playerSource, WaypointClass destWp)
+        {
+            return new InteractionUsage(InteractionType.PLAYER_MOVE, playerSource, GameItem.ITEM_NONE,
+                CharacterType.CHARACTER_NONE, NPCType.NPC_NONE, GameItem.ITEM_NONE, -1, destWp, 0);
+        }
+
+        public static InteractionUsage CreatePlayerTakeItem(CharacterType playerSource, GameItem itemDest, WaypointClass destWp)
+        {
+            return new InteractionUsage(InteractionType.PLAYER_WITH_ITEM, playerSource, GameItem.ITEM_NONE,
+                CharacterType.CHARACTER_NONE, NPCType.NPC_NONE, itemDest, -1, destWp, 0);
+        }
+
+        public static InteractionUsage CreatePlayerUseItemWithItem(CharacterType playerSource, GameItem itemSource,
+            GameItem itemDest, WaypointClass destWp)
+        {
+            return new InteractionUsage(InteractionType.ITEM_WITH_ITEM, playerSource, itemSource,
+                CharacterType.CHARACTER_NONE, NPCType.NPC_NONE, itemDest, -1, destWp, 0);
+        }
+
+        public static InteractionUsage CreatePlayerUseItemWithPlayer(CharacterType playerSource, GameItem itemSource,
+            CharacterType playerDest, ulong playerDestTransactionId, WaypointClass destWp)
+        {
+            return new InteractionUsage(InteractionType.ITEM_WITH_PLAYER, playerSource, itemSource,
+                playerDest, NPCType.NPC_NONE, GameItem.ITEM_NONE, -1, destWp, playerDestTransactionId);
+        }
+
+        public static InteractionUsage CreatePlayerUseDoor(CharacterType playerSource, int doorIndex, WaypointClass destWp)
+        {
+            return new InteractionUsage(InteractionType.PLAYER_WITH_DOOR, playerSource, GameItem.ITEM_NONE,
+                CharacterType.CHARACTER_NONE, NPCType.NPC_NONE, GameItem.ITEM_NONE, doorIndex, destWp, 0);
+        }
+
+        public InteractionUsage(InteractionType type, CharacterType playerSource, GameItem itemSource,
+            CharacterType playerDest, NPCType npcDest, GameItem itemDest, int doorIndex, WaypointClass destWaypoint, ulong destPlayerTransaction)
         {
             this.type = type;
             this.playerSource = playerSource;
@@ -164,6 +199,8 @@ namespace Gob3AQ.VARMAP.Types
             this.npcDest = npcDest;
             this.itemDest = itemDest;
             this.destListIndex = doorIndex;
+            this.destWaypoint = destWaypoint;
+            this.playerTransactionId = destPlayerTransaction;
         }
     }
 

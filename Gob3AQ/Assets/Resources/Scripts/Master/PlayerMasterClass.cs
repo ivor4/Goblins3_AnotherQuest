@@ -16,30 +16,41 @@ namespace Gob3AQ.PlayerMaster
         private static PlayerMasterClass _singleton;
 
 
-        public static void MovePlayerService(CharacterType character, WaypointClass wp)
-        {
-            PlayableCharScript instance = GetPlayerInstance(character);
-
-            instance.MoveRequest(wp);
-        }
 
         public static void SelectPlayerService(CharacterType character)
         {
             VARMAP_PlayerMaster.SET_PLAYER_SELECTED(character);
         }
 
-        public static void InteractPlayerService(in ItemUsage usage, WaypointClass itemwp)
+        public static void InteractPlayerService(in InteractionUsage usage)
         {
+            IncrementPlayerTransactionId(usage.playerSource);
             PlayableCharScript instance = GetPlayerInstance(usage.playerSource);
-            instance.ActionRequest(in usage, itemwp);
+            instance.ActionRequest(in usage);
         }
 
         public static void LockPlayerService(CharacterType character, bool lockPlayer)
         {
+            IncrementPlayerTransactionId(character);
             PlayableCharScript instance = GetPlayerInstance(character);
             instance.LockRequest(lockPlayer);
         }
 
+        /// <summary>
+        /// Determines whether the specified player is in the same state based on their transaction ID and waypoint.
+        /// </summary>
+        /// <param name="character">The character type representing the player to check.</param>
+        /// <param name="transactionId">The transaction ID to compare against the player's current transaction ID.</param>
+        /// <param name="wp">The waypoint to compare against the player's current waypoint.</param>
+        /// <returns><see langword="true"/> if the player's transaction ID matches the specified transaction ID  and the player's
+        /// waypoint matches the specified waypoint; otherwise, <see langword="false"/>.</returns>
+        public static bool IsPlayerInSameState(CharacterType character, ulong transactionId, WaypointClass wp)
+        {
+            ulong playerTransactionId = VARMAP_PlayerMaster.GET_ELEM_PLAYER_TRANSACTION((int)character);
+            PlayableCharScript instance = GetPlayerInstance(character);
+
+            return (playerTransactionId == transactionId) && (instance.Waypoint == wp);
+        }
 
         private static PlayableCharScript GetPlayerInstance(CharacterType character)
         {
@@ -50,6 +61,20 @@ namespace Gob3AQ.PlayerMaster
             selectedPlayer = playerlist[(int)character];
 
             return selectedPlayer;
+        }
+
+        /// <summary>
+        /// Increments the transaction ID associated with the specified player character.
+        /// </summary>
+        /// <remarks>This method retrieves the current transaction ID for the specified character,
+        /// increments it by one,  and updates the stored value. The transaction ID is used to track player-related
+        /// operations.</remarks>
+        /// <param name="character">The character whose transaction ID is to be incremented.</param>
+        private static void IncrementPlayerTransactionId(CharacterType character)
+        {
+            ulong playerTransactionId = VARMAP_PlayerMaster.GET_ELEM_PLAYER_TRANSACTION((int)character);
+            ++playerTransactionId;
+            VARMAP_PlayerMaster.SET_ELEM_PLAYER_TRANSACTION((int)character, playerTransactionId);
         }
 
 

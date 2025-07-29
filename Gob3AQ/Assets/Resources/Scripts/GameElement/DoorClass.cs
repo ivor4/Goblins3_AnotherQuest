@@ -10,16 +10,16 @@ namespace Gob3AQ.GameElement.Door
     public class DoorClass : MonoBehaviour
     {
         [SerializeField]
-        public WaypointClass _waypoint;
+        private WaypointClass _waypoint;
 
         [SerializeField]
-        public GameEvent _neededEvent;
+        private GameEvent _neededEvent;
 
         [SerializeField]
-        public Room _roomLead;
+        private Room _roomLead;
 
         [SerializeField]
-        public int _roomAppearPosition;
+        private int _roomAppearPosition;
 
         private Collider2D _collider;
         
@@ -32,21 +32,9 @@ namespace Gob3AQ.GameElement.Door
         public Room RoomLead => _roomLead;
         public int RoomAppearPosition => _roomAppearPosition;
 
-        public Collider2D Collider
-        {
-            get
-            {
-                return _collider;
-            }
-        }
+        public Collider2D Collider => _collider;
 
-        public WaypointClass Waypoint
-        {
-            get
-            {
-                return _waypoint;
-            }
-        }
+        public WaypointClass Waypoint => _waypoint;
 
         private void Awake()
         {

@@ -70,6 +70,13 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPValueDelegate<GameItem> _SET_PICKABLE_ITEM_CHOSEN;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> _REG_PICKABLE_ITEM_CHOSEN;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> _UNREG_PICKABLE_ITEM_CHOSEN;
+        protected static GetVARMAPArrayElemValueDelegate<ulong> _GET_ELEM_PLAYER_TRANSACTION;
+        protected static SetVARMAPArrayElemValueDelegate<ulong> _SET_ELEM_PLAYER_TRANSACTION;
+        protected static GetVARMAPArraySizeDelegate _GET_SIZE_PLAYER_TRANSACTION;
+        protected static GetVARMAPArrayDelegate<ulong> _GET_ARRAY_PLAYER_TRANSACTION;
+        protected static SetVARMAPArrayDelegate<ulong> _SET_ARRAY_PLAYER_TRANSACTION;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<ulong> _REG_PLAYER_TRANSACTION;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<ulong> _UNREG_PLAYER_TRANSACTION;
         protected static GetVARMAPValueDelegate<bool> _GET_LAST_VARMAP_VAL;
         protected static SetVARMAPValueDelegate<bool> _SET_LAST_VARMAP_VAL;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<bool> _REG_LAST_VARMAP_VAL;

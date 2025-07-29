@@ -113,27 +113,27 @@ namespace Gob3AQ.Brain.ItemsInteraction
             };
 
 
-        public static ref readonly ItemInteractionInfo GetItemInteraction(in ItemUsage usage)
+        public static ref readonly ItemInteractionInfo GetItemInteraction(in InteractionUsage usage)
         {
             ref readonly ItemInteractionInfo interaction = ref _InvalidInteraction;
             switch (usage.type)
             {
-                case ItemUsageType.PLAYER_WITH_ITEM:
+                case InteractionType.PLAYER_WITH_ITEM:
                     if ((usage.playerSource != CharacterType.CHARACTER_NONE)&&(usage.itemDest != GameItem.ITEM_NONE))
                     {
                         interaction = ref _PlayerWithItemIteraction[(int)usage.playerSource, (int)usage.itemDest];
                     }
                     break;
 
-                case ItemUsageType.ITEM_WITH_ITEM:
+                case InteractionType.ITEM_WITH_ITEM:
                     if((usage.itemSource != GameItem.ITEM_NONE)&&(usage.itemDest != GameItem.ITEM_NONE))
                     {
                         interaction = ref _ItemWithItemIteraction[(int)usage.itemSource, (int)usage.itemDest];
                     }
                     break;
-                case ItemUsageType.ITEM_WITH_PLAYER:
+                case InteractionType.ITEM_WITH_PLAYER:
                     break;
-                case ItemUsageType.ITEM_WITH_NPC:
+                case InteractionType.ITEM_WITH_NPC:
                     break;
                 default:
                     break; 

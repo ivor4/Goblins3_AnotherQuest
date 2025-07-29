@@ -28,6 +28,7 @@ namespace Gob3AQ.VARMAP.DefaultValues
             ((VARMAP_Variable_Interface<CharacterType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_SELECTED]).SetValue(CharacterType.CHARACTER_NONE);
             ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_ACTIVE]).SetValue(false);
             ((VARMAP_Variable_Interface<GameItem>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_CHOSEN]).SetValue(GameItem.ITEM_NONE);
+            ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_TRANSACTION]).InitializeListElems(0UL);
             ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL]).SetValue(false);
             /* > ATG 1 END < */
         }

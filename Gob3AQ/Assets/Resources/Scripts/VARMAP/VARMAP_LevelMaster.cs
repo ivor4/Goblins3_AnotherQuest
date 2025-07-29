@@ -29,6 +29,9 @@ namespace Gob3AQ.VARMAP.LevelMaster
             GET_ITEM_MENU_ACTIVE = _GET_ITEM_MENU_ACTIVE;
             SET_ITEM_MENU_ACTIVE = _SET_ITEM_MENU_ACTIVE;
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
+            GET_ELEM_PLAYER_TRANSACTION = _GET_ELEM_PLAYER_TRANSACTION;
+            GET_SIZE_PLAYER_TRANSACTION = _GET_SIZE_PLAYER_TRANSACTION;
+            GET_ARRAY_PLAYER_TRANSACTION = _GET_ARRAY_PLAYER_TRANSACTION;
             SAVE_GAME = _SAVE_GAME;
             LOAD_ROOM = _LOAD_ROOM;
             LATE_START_SUBSCRIPTION = _LATE_START_SUBSCRIPTION;
@@ -80,6 +83,9 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static GetVARMAPValueDelegate<bool> GET_ITEM_MENU_ACTIVE;
         public static SetVARMAPValueDelegate<bool> SET_ITEM_MENU_ACTIVE;
         public static GetVARMAPValueDelegate<GameItem> GET_PICKABLE_ITEM_CHOSEN;
+        public static GetVARMAPArrayElemValueDelegate<ulong> GET_ELEM_PLAYER_TRANSACTION;
+        public static GetVARMAPArraySizeDelegate GET_SIZE_PLAYER_TRANSACTION;
+        public static GetVARMAPArrayDelegate<ulong> GET_ARRAY_PLAYER_TRANSACTION;
         /* > ATG 2 END */
 
         /* SERVICES */

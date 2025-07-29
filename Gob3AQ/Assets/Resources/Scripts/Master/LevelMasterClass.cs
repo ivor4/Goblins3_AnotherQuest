@@ -28,12 +28,12 @@ namespace Gob3AQ.LevelMaster
 
         private class MouseActiveElems
         {
-            public MouseActiveElemsType type;
-            public PlayableCharScript player;
-            public NPCClass npc;
-            public ItemClass item;
-            public DoorClass door;
-            public int arrayIndex;
+            public readonly MouseActiveElemsType type;
+            public readonly PlayableCharScript player;
+            public readonly NPCClass npc;
+            public readonly ItemClass item;
+            public readonly DoorClass door;
+            public readonly int arrayIndex;
 
             public MouseActiveElems(PlayableCharScript player, int index)
             {
@@ -379,12 +379,12 @@ namespace Gob3AQ.LevelMaster
 
         private void UpdateCharItemMouseEvents(ref MousePropertiesStruct mouse)
         {
-            ItemUsageType usageType;
+            InteractionType usageType;
             GameItem itemSource;
 
             GameItem chosenItem = VARMAP_LevelMaster.GET_PICKABLE_ITEM_CHOSEN();
             CharacterType playerSelected = VARMAP_LevelMaster.GET_PLAYER_SELECTED();
-            ItemUsage usage;
+            InteractionUsage usage;
 
             /* If no items menu or just a menu opened */
             if (mouse.secondaryReleased)
@@ -445,13 +445,13 @@ namespace Gob3AQ.LevelMaster
                             {
                                 if (candidateMelems.player.IsSteady)
                                 {
-                                    usageType = ItemUsageType.ITEM_WITH_PLAYER;
-                                    itemSource = chosenItem;
+                                    /* Transaction is used to ensure player is in the same state as when intended to use item */
+                                    ulong playerTransactionState = VARMAP_LevelMaster.GET_ELEM_PLAYER_TRANSACTION((int)candidateMelems.player.CharType);
+                                    usage = InteractionUsage.CreatePlayerUseItemWithPlayer(playerSelected, chosenItem,
+                                        candidateMelems.player.CharType, playerTransactionState, candidateMelems.player.Waypoint);
 
-                                    usage = new(usageType, playerSelected, itemSource, candidateMelems.player.CharType,
-                                        NPCType.NPC_NONE, GameItem.ITEM_NONE, -1);
 
-                                    VARMAP_LevelMaster.INTERACT_PLAYER(in usage, candidateMelems.player.Waypoint);
+                                    VARMAP_LevelMaster.INTERACT_PLAYER(in usage);
                                 }
                             }
                             else
@@ -469,19 +469,16 @@ namespace Gob3AQ.LevelMaster
                             {
                                 if (chosenItem == GameItem.ITEM_NONE)
                                 {
-                                    usageType = ItemUsageType.PLAYER_WITH_ITEM;
-                                    itemSource = GameItem.ITEM_NONE;
+                                    usage = InteractionUsage.CreatePlayerTakeItem(playerSelected, candidateMelems.item.ItemID,
+                                        candidateMelems.item.Waypoint);
                                 }
                                 else
                                 {
-                                    usageType = ItemUsageType.ITEM_WITH_ITEM;
-                                    itemSource = chosenItem;
+                                    usage = InteractionUsage.CreatePlayerUseItemWithItem(playerSelected, chosenItem,
+                                        candidateMelems.item.ItemID, candidateMelems.item.Waypoint);
                                 }
 
-                                usage = new(usageType, playerSelected, itemSource, CharacterType.CHARACTER_NONE,
-                                    NPCType.NPC_NONE, candidateMelems.item.ItemID, -1);
-
-                                VARMAP_LevelMaster.INTERACT_PLAYER(in usage, candidateMelems.item.Waypoint);
+                                VARMAP_LevelMaster.INTERACT_PLAYER(in usage);
                             }
                             break;
 
@@ -489,27 +486,27 @@ namespace Gob3AQ.LevelMaster
 
                             if (chosenItem == GameItem.ITEM_NONE)
                             {
-                                usageType = ItemUsageType.PLAYER_WITH_NPC;
+                                usageType = InteractionType.PLAYER_WITH_NPC;
                                 itemSource = GameItem.ITEM_NONE;
                             }
                             else
                             {
-                                usageType = ItemUsageType.ITEM_WITH_NPC;
+                                usageType = InteractionType.ITEM_WITH_NPC;
                                 itemSource = chosenItem;
                             }
 
                             usage = new(usageType, playerSelected, itemSource, CharacterType.CHARACTER_NONE,
-                                candidateMelems.npc.NPType, GameItem.ITEM_NONE, candidateMelems.arrayIndex);
+                                candidateMelems.npc.NPType, GameItem.ITEM_NONE, candidateMelems.arrayIndex,
+                                candidateMelems.npc.Waypoint, 0);
 
-                            VARMAP_LevelMaster.INTERACT_PLAYER(in usage, candidateMelems.npc.Waypoint);
+                            VARMAP_LevelMaster.INTERACT_PLAYER(in usage);
                             break;
 
                         case MouseActiveElemsType.MELEMS_DOOR:
-                            usage = new(ItemUsageType.PLAYER_WITH_DOOR, playerSelected, GameItem.ITEM_NONE,
-                                CharacterType.CHARACTER_NONE, NPCType.NPC_NONE, GameItem.ITEM_NONE,
-                                candidateMelems.arrayIndex);
+                            usage = InteractionUsage.CreatePlayerUseDoor(playerSelected, candidateMelems.arrayIndex,
+                                candidateMelems.door.Waypoint);
 
-                            VARMAP_LevelMaster.INTERACT_PLAYER(in usage, candidateMelems.door.Waypoint);
+                            VARMAP_LevelMaster.INTERACT_PLAYER(in usage);
                             VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
                             break;
 
@@ -538,10 +535,8 @@ namespace Gob3AQ.LevelMaster
 
             if (candidate)
             {
-                ItemUsage usage = new(ItemUsageType.PLAYER_MOVE, selectedCharacter, GameItem.ITEM_NONE,
-                    CharacterType.CHARACTER_NONE, NPCType.NPC_NONE, GameItem.ITEM_NONE, -1);
-
-                VARMAP_LevelMaster.INTERACT_PLAYER(in usage, candidate);
+                InteractionUsage usage = InteractionUsage.CreatePlayerMove(selectedCharacter, candidate);
+                VARMAP_LevelMaster.INTERACT_PLAYER(in usage);
             }
         }
 

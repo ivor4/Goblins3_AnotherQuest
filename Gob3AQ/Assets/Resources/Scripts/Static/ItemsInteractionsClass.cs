@@ -1,6 +1,5 @@
 using UnityEngine;
 using Gob3AQ.VARMAP.Types;
-using Gob3AQ.VARMAP.Types.Items;
 using System;
 
 namespace Gob3AQ.Brain.ItemsInteraction

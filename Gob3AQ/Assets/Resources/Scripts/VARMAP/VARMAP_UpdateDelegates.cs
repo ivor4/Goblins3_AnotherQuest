@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Gob3AQ.VARMAP.Enum;
 using Gob3AQ.VARMAP.Types;
-using Gob3AQ.VARMAP.Types.Items;
 using Gob3AQ.GameMaster;
 using Gob3AQ.LevelMaster;
 using Gob3AQ.InputMaster;

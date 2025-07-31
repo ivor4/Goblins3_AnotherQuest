@@ -2,7 +2,6 @@ using UnityEditor;
 using UnityEngine;
 using Gob3AQ.VARMAP.ItemMaster;
 using Gob3AQ.VARMAP.Types;
-using Gob3AQ.VARMAP.Types.Items;
 using Gob3AQ.FixedConfig;
 using System.Collections.Generic;
 using Gob3AQ.Libs.Arith;

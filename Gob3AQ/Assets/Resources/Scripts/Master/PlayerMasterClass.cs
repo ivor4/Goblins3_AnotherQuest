@@ -48,8 +48,9 @@ namespace Gob3AQ.PlayerMaster
         {
             ulong playerTransactionId = VARMAP_PlayerMaster.GET_ELEM_PLAYER_TRANSACTION((int)character);
             PlayableCharScript instance = GetPlayerInstance(character);
+            bool inSameState = (playerTransactionId == transactionId) && (instance.Waypoint == wp);
 
-            return (playerTransactionId == transactionId) && (instance.Waypoint == wp);
+            return inSameState;
         }
 
         private static PlayableCharScript GetPlayerInstance(CharacterType character)
@@ -82,8 +83,7 @@ namespace Gob3AQ.PlayerMaster
         {
             if(_singleton)
             {
-                Destroy(this);
-                return;
+                Destroy(gameObject);
             }
             else
             {

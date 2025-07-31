@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gob3AQ.VARMAP.Types.Items
+namespace Gob3AQ.VARMAP.Types
 {
     public enum GameItem
     {

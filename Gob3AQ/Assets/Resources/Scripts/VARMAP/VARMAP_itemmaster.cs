@@ -1,5 +1,4 @@
 using Gob3AQ.VARMAP.Types;
-using Gob3AQ.VARMAP.Types.Items;
 using Gob3AQ.VARMAP.Types.Delegates;
 
 namespace Gob3AQ.VARMAP.ItemMaster

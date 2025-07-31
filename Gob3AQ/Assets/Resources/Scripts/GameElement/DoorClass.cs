@@ -1,6 +1,5 @@
 using UnityEngine;
 using Gob3AQ.VARMAP.Types;
-using Gob3AQ.VARMAP.Types.Items;
 using Gob3AQ.Waypoint;
 using Gob3AQ.VARMAP.LevelMaster;
 

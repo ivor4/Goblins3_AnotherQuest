@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using Gob3AQ.VARMAP.GameMenu;
 using Gob3AQ.VARMAP.Types;
-using Gob3AQ.VARMAP.Types.Items;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameMenu.PickableItemDisplay;

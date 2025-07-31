@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using Gob3AQ.VARMAP.Types.Items;
 using Gob3AQ.VARMAP.Types;
 using UnityEngine;
 using Gob3AQ.Libs.Arith;
@@ -79,27 +78,9 @@ namespace Gob3AQ.VARMAP.Types
         INTERACTION_TAKE_AND_RECEIVE
     }
 
-    public enum CharacterType
-    {
-        CHARACTER_NONE = -1,
-
-        CHARACTER_MAIN,
-        CHARACTER_PARROT,
-        CHARACTER_SNAKE,
-
-        CHARACTER_TOTAL
-    }
-
     
-    public enum NPCType
-    {
-        NPC_NONE = -1,
 
-        NPC_FIRST,
-
-        NPC_TOTAL
-    }
-    
+ 
 
     public enum InteractionType
     {

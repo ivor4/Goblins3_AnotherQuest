@@ -60,54 +60,93 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /* > ATG 3 START */
         /// <summary> 
         /// This service subscribes for late start. This happens at some moment after Start event. when everything has been setup
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster, GameEventMaster,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.LateStartSubrsciptionService"/> </para> 
         /// </summary>
         public static LATE_START_SUBSCRIPTION_DELEGATE LATE_START_SUBSCRIPTION;
         /// <summary> 
         /// Registers an item in system
+        /// <para> Owner: LevelMaster </para> 
+        /// <para> Accessors: ItemMaster,  </para> 
+        /// <para> Method: <see cref="LevelMasterClass.ItemRegisterService"/> </para> 
         /// </summary>
         public static ITEM_REGISTER_DELEGATE ITEM_REGISTER;
         /// <summary> 
         /// Removes an item from level
+        /// <para> Owner: LevelMaster </para> 
+        /// <para> Accessors: ItemMaster,  </para> 
+        /// <para> Method: <see cref="LevelMasterClass.ItemObtainPickableService"/> </para> 
         /// </summary>
         public static ITEM_OBTAIN_PICKABLE_DELEGATE ITEM_OBTAIN_PICKABLE;
         /// <summary> 
         /// Takes an item from scene (triggering event)
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: ItemMaster,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.ItemObtainPickableEventService"/> </para> 
         /// </summary>
         public static ITEM_OBTAIN_PICKABLE_EVENT_DELEGATE ITEM_OBTAIN_PICKABLE_EVENT;
         /// <summary> 
         /// Gets nearest WP from a given coordinates of level
+        /// <para> Owner: LevelMaster </para> 
+        /// <para> Accessors: PlayerMaster, NPCMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="LevelMasterClass.GetNearestWPService"/> </para> 
         /// </summary>
         public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
         /// <summary> 
         /// Tells if an event is occurred
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: LevelMaster, PlayerMaster, NPCMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.IsEventOccurredService"/> </para> 
         /// </summary>
         public static IS_EVENT_OCCURRED_DELEGATE IS_EVENT_OCCURRED;
         /// <summary> 
         /// Activates/Deactivates an event
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: LevelMaster, PlayerMaster, NPCMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.CommitEventService"/> </para> 
         /// </summary>
         public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
         /// <summary> 
         /// Uses an item with something
+        /// <para> Owner: ItemMaster </para> 
+        /// <para> Accessors: PlayerMaster,  </para> 
+        /// <para> Method: <see cref="ItemMasterClass.UseItemService"/> </para> 
         /// </summary>
         public static USE_ITEM_DELEGATE USE_ITEM;
         /// <summary> 
         /// Tells if item is taken from scene
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: LevelMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.IsItemTakenFromSceneService"/> </para> 
         /// </summary>
         public static IS_ITEM_TAKEN_FROM_SCENE_DELEGATE IS_ITEM_TAKEN_FROM_SCENE;
         /// <summary> 
         /// Gets scenario item list
+        /// <para> Owner: LevelMaster </para> 
+        /// <para> Accessors: ItemMaster,  </para> 
+        /// <para> Method: <see cref="LevelMasterClass.GetScenarioItemListService"/> </para> 
         /// </summary>
         public static GET_SCENARIO_ITEM_LIST_DELEGATE GET_SCENARIO_ITEM_LIST;
         /// <summary> 
         /// Selects some pickable from inventory
+        /// <para> Owner: ItemMaster </para> 
+        /// <para> Accessors: GameMenu,  </para> 
+        /// <para> Method: <see cref="ItemMasterClass.SelectPickableItemService"/> </para> 
         /// </summary>
         public static SELECT_PICKABLE_ITEM_DELEGATE SELECT_PICKABLE_ITEM;
         /// <summary> 
         /// Cancels selected item
+        /// <para> Owner: ItemMaster </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster,  </para> 
+        /// <para> Method: <see cref="ItemMasterClass.CancelPickableItemService"/> </para> 
         /// </summary>
         public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
         /// <summary> 
         /// Subscribe to an event. Invoke when event changes
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: LevelMaster, PlayerMaster, NPCMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.EventSubscriptionService"/> </para> 
         /// </summary>
         public static EVENT_SUBSCRIPTION_DELEGATE EVENT_SUBSCRIPTION;
         /* > ATG 3 END */

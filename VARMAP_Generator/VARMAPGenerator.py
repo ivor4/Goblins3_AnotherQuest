@@ -491,6 +491,7 @@ print('\n\n------SERVICES-------\n\n')
 linecount = -1
 
 ServiceVars = []
+SrvModules = []
 for line in SERVICESinputFile:
     ServiceVar = {}
     linecount += 1
@@ -503,6 +504,7 @@ for line in SERVICESinputFile:
     print(columns)
 
     if(linecount == 0):
+        SrvModules = columns[SERVICE_MODULES_START_COLUMN:len(columns)]
         continue
 
     ServiceVar["name"] = columns[1]
@@ -518,6 +520,22 @@ for line in SERVICESinputFile:
     stringToWrite = "/// <summary> \n"
     proto_lines.InsertLineInATG(2, stringToWrite)
     stringToWrite = "/// "+ServiceVar["descr"] + "\n"
+    proto_lines.InsertLineInATG(2, stringToWrite)
+    _str_accessors = ""
+    _str_owner = ""
+    
+    _perms = columns[SERVICE_MODULES_START_COLUMN:len(columns)]
+    for i in range(0,len(_perms)):
+        if(_perms[i] == 'X'):
+            _str_accessors += SrvModules[i] + ", "
+        elif(_perms[i] == 'W'):
+            _str_owner =  SrvModules[i]
+    
+    stringToWrite = "/// <para> Owner: " + _str_owner + " </para> \n"
+    proto_lines.InsertLineInATG(2, stringToWrite)
+    stringToWrite = "/// <para> Accessors: " + _str_accessors + " </para> \n"
+    proto_lines.InsertLineInATG(2, stringToWrite)
+    stringToWrite = "/// <para> Method: <see cref=\"" + ServiceVar["route"] + "\"/> </para> \n"
     proto_lines.InsertLineInATG(2, stringToWrite)
     stringToWrite = "/// </summary>\n"
     proto_lines.InsertLineInATG(2, stringToWrite)
@@ -547,6 +565,12 @@ for line in SERVICESinputFile:
             Modulelines[indextouse].InsertLineInATG(3, stringToWrite)
             stringToWrite = "/// "+ServiceVar["descr"] + "\n"
             Modulelines[indextouse].InsertLineInATG(3, stringToWrite)
+            stringToWrite = "/// <para> Owner: " + _str_owner + " </para> \n"
+            Modulelines[indextouse].InsertLineInATG(3, stringToWrite)
+            stringToWrite = "/// <para> Accessors: " + _str_accessors + " </para> \n"
+            Modulelines[indextouse].InsertLineInATG(3, stringToWrite)
+            stringToWrite = "/// <para> Method: <see cref=\"" + ServiceVar["route"] + "\"/> </para> \n"
+            Modulelines[indextouse].InsertLineInATG(3, stringToWrite)
             stringToWrite = "/// </summary>\n"
             Modulelines[indextouse].InsertLineInATG(3, stringToWrite)
             stringToWrite = "public static "+ServiceVar["delegate"]
@@ -560,112 +584,112 @@ for line in SERVICESinputFile:
         exit()
         
 
-
-print('\n\n------ITEMS (Custom GOB3) -------\n\n')
-
-CHARACTERS = ['MAIN','PARROT','SNAKE']
-
-totalcharacters = len(CHARACTERS)
-
-pickable_prefix = 'GamePickableItem.'
-interaction_prefix = 'ItemInteractionType.'
-animation_prefix = 'CharacterAnimation.'
-event_prefix = 'GameEvent.'
-
-items_types_lines.InsertLineInATG(1, "ITEM_NONE = -1,\n\n")
-items_types_lines.InsertLineInATG(2, "ITEM_PICK_NONE = -1,\n\n")
-
-linecount = -1
-Items = []
-for line in ITEMSinputFile:
-    ItemVar = {}
-    linecount += 1
+if(False):
+    print('\n\n------ITEMS (Custom GOB3) -------\n\n')
     
-    line = line.replace('\n','')
-    line = line.replace('\r','')
+    CHARACTERS = ['MAIN','PARROT','SNAKE']
     
-    columns = line.split(',')
-    print(columns)
-
-    if(linecount == 0):
-        continue
+    totalcharacters = len(CHARACTERS)
     
-    ItemVar["name"] = columns[1]
-    ItemVar["pickable"] = int(columns[2])
-    ItemVar["disposable"] = int(columns[3])
+    pickable_prefix = 'GamePickableItem.'
+    interaction_prefix = 'ItemInteractionType.'
+    animation_prefix = 'CharacterAnimation.'
+    event_prefix = 'GameEvent.'
     
-    if(ItemVar["name"] == 'ITEM_LAST'):
-        continue
+    items_types_lines.InsertLineInATG(1, "ITEM_NONE = -1,\n\n")
+    items_types_lines.InsertLineInATG(2, "ITEM_PICK_NONE = -1,\n\n")
     
-    ItemVar["c2i"] = []
-    for ch in range(0,totalcharacters):
-        c2iVar = {}
-        c2iVar["use"] = columns[5+(ch*3)]
-        c2iVar["anim"] = columns[5+(ch*3)+1]
-        c2iVar["event"] = columns[5+(ch*3)+2]
-        ItemVar["c2i"].append(c2iVar)
-    
-
-    ItemVar["i2i_matrix"] = columns[(6 + totalcharacters*3):]
-    
-    items_types_lines.InsertLineInATG(1, ItemVar["name"]+",\n")
-    
-    if(ItemVar["pickable"] == 1):
-        pickablename = ItemVar["name"].replace('ITEM_','ITEM_PICK_')
-        items_types_lines.InsertLineInATG(2, pickablename +",\n")
-        items_interaction_lines.InsertLineInATG(1, pickable_prefix + pickablename + ',\t\t/* ' + ItemVar["name"] + ' */ \n')
+    linecount = -1
+    Items = []
+    for line in ITEMSinputFile:
+        ItemVar = {}
+        linecount += 1
         
-        if(ItemVar["disposable"] == 1):
-            boolstr = 'true'
+        line = line.replace('\n','')
+        line = line.replace('\r','')
+        
+        columns = line.split(',')
+        print(columns)
+    
+        if(linecount == 0):
+            continue
+        
+        ItemVar["name"] = columns[1]
+        ItemVar["pickable"] = int(columns[2])
+        ItemVar["disposable"] = int(columns[3])
+        
+        if(ItemVar["name"] == 'ITEM_LAST'):
+            continue
+        
+        ItemVar["c2i"] = []
+        for ch in range(0,totalcharacters):
+            c2iVar = {}
+            c2iVar["use"] = columns[5+(ch*3)]
+            c2iVar["anim"] = columns[5+(ch*3)+1]
+            c2iVar["event"] = columns[5+(ch*3)+2]
+            ItemVar["c2i"].append(c2iVar)
+        
+    
+        ItemVar["i2i_matrix"] = columns[(6 + totalcharacters*3):]
+        
+        items_types_lines.InsertLineInATG(1, ItemVar["name"]+",\n")
+        
+        if(ItemVar["pickable"] == 1):
+            pickablename = ItemVar["name"].replace('ITEM_','ITEM_PICK_')
+            items_types_lines.InsertLineInATG(2, pickablename +",\n")
+            items_interaction_lines.InsertLineInATG(1, pickable_prefix + pickablename + ',\t\t/* ' + ItemVar["name"] + ' */ \n')
+            
+            if(ItemVar["disposable"] == 1):
+                boolstr = 'true'
+            else:
+                boolstr = 'false'
+            
+            items_interaction_lines.InsertLineInATG(2, boolstr + ',\t\t/* ' + pickablename + ' */ \n')
+            
         else:
-            boolstr = 'false'
+            items_interaction_lines.InsertLineInATG(1, pickable_prefix + 'ITEM_PICK_NONE' + ',\t\t/* ' + ItemVar["name"] + ' */ \n')
         
-        items_interaction_lines.InsertLineInATG(2, boolstr + ',\t\t/* ' + pickablename + ' */ \n')
+        Items.append(ItemVar)
         
-    else:
-        items_interaction_lines.InsertLineInATG(1, pickable_prefix + 'ITEM_PICK_NONE' + ',\t\t/* ' + ItemVar["name"] + ' */ \n')
+    # Now total items are known, matrix can be explored
+    totalitems = len(Items)
     
-    Items.append(ItemVar)
-    
-# Now total items are known, matrix can be explored
-totalitems = len(Items)
-
-#Character to Item (c2i matrix)
-for ch in range(0,totalcharacters):    
-    items_interaction_lines.InsertLineInATG(3, '/* CHARACTER_' + CHARACTERS[ch] + ' */\n')
-    items_interaction_lines.InsertLineInATG(3, '{\n')
-    
-    #Iterate through items
-    for it in range(0, totalitems):
-        #Player with item interaction (c2i)
-        c2iVar = Items[it]["c2i"][ch]
-                
-        items_interaction_lines.InsertLineInATG(3, '\tnew(' + interaction_prefix + c2iVar["use"] + ', ' + animation_prefix + c2iVar["anim"] + ',\n')
-        items_interaction_lines.InsertLineInATG(3, '\t' + event_prefix + c2iVar["event"] + '),\t/* ' + Items[it]["name"] + ' */ \n')
+    #Character to Item (c2i matrix)
+    for ch in range(0,totalcharacters):    
+        items_interaction_lines.InsertLineInATG(3, '/* CHARACTER_' + CHARACTERS[ch] + ' */\n')
+        items_interaction_lines.InsertLineInATG(3, '{\n')
         
-    items_interaction_lines.InsertLineInATG(3, '},\n')
-
-#Item to Item (i2i matrix)
-for it_src in range(0, totalitems):
-    ItemVar = Items[it_src]
-    i2iVar = ItemVar["i2i_matrix"]
+        #Iterate through items
+        for it in range(0, totalitems):
+            #Player with item interaction (c2i)
+            c2iVar = Items[it]["c2i"][ch]
+                    
+            items_interaction_lines.InsertLineInATG(3, '\tnew(' + interaction_prefix + c2iVar["use"] + ', ' + animation_prefix + c2iVar["anim"] + ',\n')
+            items_interaction_lines.InsertLineInATG(3, '\t' + event_prefix + c2iVar["event"] + '),\t/* ' + Items[it]["name"] + ' */ \n')
+            
+        items_interaction_lines.InsertLineInATG(3, '},\n')
     
-    items_interaction_lines.InsertLineInATG(4, '/* ' + ItemVar["name"] + ' */\n')
-    items_interaction_lines.InsertLineInATG(4, '{\n')
-    
-    for it_dst in range(0, totalitems):      
-        items_interaction_lines.InsertLineInATG(4, '\tnew(' + interaction_prefix + i2iVar[it_dst*3] + ', ' + 
-                animation_prefix + i2iVar[it_dst*3 + 1] + ',\n')
-        items_interaction_lines.InsertLineInATG(4, '\t' + event_prefix + i2iVar[it_dst*3 + 2] + '),\t/* ' + Items[it_dst]["name"] + ' */\n')
-    
-    items_interaction_lines.InsertLineInATG(4, '},\n')
-    
-    
-    
-items_types_lines.InsertLineInATG(1, "\n")
-items_types_lines.InsertLineInATG(1, "ITEM_TOTAL\n")
-items_types_lines.InsertLineInATG(2, "\n")
-items_types_lines.InsertLineInATG(2, "ITEM_PICK_TOTAL\n")
+    #Item to Item (i2i matrix)
+    for it_src in range(0, totalitems):
+        ItemVar = Items[it_src]
+        i2iVar = ItemVar["i2i_matrix"]
+        
+        items_interaction_lines.InsertLineInATG(4, '/* ' + ItemVar["name"] + ' */\n')
+        items_interaction_lines.InsertLineInATG(4, '{\n')
+        
+        for it_dst in range(0, totalitems):      
+            items_interaction_lines.InsertLineInATG(4, '\tnew(' + interaction_prefix + i2iVar[it_dst*3] + ', ' + 
+                    animation_prefix + i2iVar[it_dst*3 + 1] + ',\n')
+            items_interaction_lines.InsertLineInATG(4, '\t' + event_prefix + i2iVar[it_dst*3 + 2] + '),\t/* ' + Items[it_dst]["name"] + ' */\n')
+        
+        items_interaction_lines.InsertLineInATG(4, '},\n')
+        
+        
+        
+    items_types_lines.InsertLineInATG(1, "\n")
+    items_types_lines.InsertLineInATG(1, "ITEM_TOTAL\n")
+    items_types_lines.InsertLineInATG(2, "\n")
+    items_types_lines.InsertLineInATG(2, "ITEM_PICK_TOTAL\n")
     
 
 print('\n\n------ SAVE ATG FILES -------\n\n')

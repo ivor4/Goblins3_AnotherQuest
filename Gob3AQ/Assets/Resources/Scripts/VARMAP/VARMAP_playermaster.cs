@@ -81,62 +81,107 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         /* > ATG 3 START */
         /// <summary> 
         /// This service subscribes for late start. This happens at some moment after Start event. when everything has been setup
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster, GameEventMaster,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.LateStartSubrsciptionService"/> </para> 
         /// </summary>
         public static LATE_START_SUBSCRIPTION_DELEGATE LATE_START_SUBSCRIPTION;
         /// <summary> 
         /// Registers a player in scene
+        /// <para> Owner: LevelMaster </para> 
+        /// <para> Accessors: PlayerMaster,  </para> 
+        /// <para> Method: <see cref="LevelMasterClass.MonoRegisterService"/> </para> 
         /// </summary>
         public static MONO_REGISTER_DELEGATE MONO_REGISTER;
         /// <summary> 
         /// Updates actual player waypoint when crossing or stopping on it
+        /// <para> Owner: LevelMaster </para> 
+        /// <para> Accessors: PlayerMaster,  </para> 
+        /// <para> Method: <see cref="LevelMasterClass.PlayerWaypointUpdateService"/> </para> 
         /// </summary>
         public static PLAYER_WAYPOINT_UPDATE_DELEGATE PLAYER_WAYPOINT_UPDATE;
         /// <summary> 
         /// Selects player
+        /// <para> Owner: PlayerMaster </para> 
+        /// <para> Accessors: LevelMaster,  </para> 
+        /// <para> Method: <see cref="PlayerMasterClass.SelectPlayerService"/> </para> 
         /// </summary>
         public static SELECT_PLAYER_DELEGATE SELECT_PLAYER;
         /// <summary> 
         /// Gets a list of actual players
+        /// <para> Owner: LevelMaster </para> 
+        /// <para> Accessors: GraphicsMaster, PlayerMaster,  </para> 
+        /// <para> Method: <see cref="LevelMasterClass.GetPlayerListService"/> </para> 
         /// </summary>
         public static GET_PLAYER_LIST_DELEGATE GET_PLAYER_LIST;
         /// <summary> 
         /// Gets nearest WP from a given coordinates of level
+        /// <para> Owner: LevelMaster </para> 
+        /// <para> Accessors: PlayerMaster, NPCMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="LevelMasterClass.GetNearestWPService"/> </para> 
         /// </summary>
         public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
         /// <summary> 
         /// Tells if an event is occurred
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: LevelMaster, PlayerMaster, NPCMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.IsEventOccurredService"/> </para> 
         /// </summary>
         public static IS_EVENT_OCCURRED_DELEGATE IS_EVENT_OCCURRED;
         /// <summary> 
         /// Activates/Deactivates an event
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: LevelMaster, PlayerMaster, NPCMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.CommitEventService"/> </para> 
         /// </summary>
         public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
         /// <summary> 
         /// Uses an item with something
+        /// <para> Owner: ItemMaster </para> 
+        /// <para> Accessors: PlayerMaster,  </para> 
+        /// <para> Method: <see cref="ItemMasterClass.UseItemService"/> </para> 
         /// </summary>
         public static USE_ITEM_DELEGATE USE_ITEM;
         /// <summary> 
         /// Interacts player with an item
+        /// <para> Owner: PlayerMaster </para> 
+        /// <para> Accessors: LevelMaster,  </para> 
+        /// <para> Method: <see cref="PlayerMasterClass.InteractPlayerService"/> </para> 
         /// </summary>
         public static INTERACT_PLAYER_DELEGATE INTERACT_PLAYER;
         /// <summary> 
         /// Cancels selected item
+        /// <para> Owner: ItemMaster </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster,  </para> 
+        /// <para> Method: <see cref="ItemMasterClass.CancelPickableItemService"/> </para> 
         /// </summary>
         public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
         /// <summary> 
         /// Subscribe to an event. Invoke when event changes
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: LevelMaster, PlayerMaster, NPCMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.EventSubscriptionService"/> </para> 
         /// </summary>
         public static EVENT_SUBSCRIPTION_DELEGATE EVENT_SUBSCRIPTION;
         /// <summary> 
         /// Trigger actions when crossing a door
+        /// <para> Owner: LevelMaster </para> 
+        /// <para> Accessors: PlayerMaster,  </para> 
+        /// <para> Method: <see cref="LevelMasterClass.CrossDoorService"/> </para> 
         /// </summary>
         public static CROSS_DOOR_DELEGATE CROSS_DOOR;
         /// <summary> 
         /// Interacts player with NPC
+        /// <para> Owner: NPCMaster </para> 
+        /// <para> Accessors: PlayerMaster,  </para> 
+        /// <para> Method: <see cref="NPCMasterClass.InteractPlayerNPCService"/> </para> 
         /// </summary>
         public static INTERACT_PLAYER_NPC_DELEGATE INTERACT_PLAYER_NPC;
         /// <summary> 
         /// Locks player so it cannot act until an action over it has been done (or removes lock)
+        /// <para> Owner: PlayerMaster </para> 
+        /// <para> Accessors: LevelMaster,  </para> 
+        /// <para> Method: <see cref="PlayerMasterClass.LockPlayerService"/> </para> 
         /// </summary>
         public static LOCK_PLAYER_DELEGATE LOCK_PLAYER;
         /* > ATG 3 END */

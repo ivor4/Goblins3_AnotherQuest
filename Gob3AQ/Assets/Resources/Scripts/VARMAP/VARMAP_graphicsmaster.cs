@@ -50,10 +50,16 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
         /* > ATG 3 START */
         /// <summary> 
         /// This service subscribes for late start. This happens at some moment after Start event. when everything has been setup
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster, GameEventMaster,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.LateStartSubrsciptionService"/> </para> 
         /// </summary>
         public static LATE_START_SUBSCRIPTION_DELEGATE LATE_START_SUBSCRIPTION;
         /// <summary> 
         /// Gets a list of actual players
+        /// <para> Owner: LevelMaster </para> 
+        /// <para> Accessors: GraphicsMaster, PlayerMaster,  </para> 
+        /// <para> Method: <see cref="LevelMasterClass.GetPlayerListService"/> </para> 
         /// </summary>
         public static GET_PLAYER_LIST_DELEGATE GET_PLAYER_LIST;
         /* > ATG 3 END */

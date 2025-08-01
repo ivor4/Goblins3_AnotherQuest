@@ -70,30 +70,51 @@ namespace Gob3AQ.VARMAP.GameMenu
         /* > ATG 3 START */
         /// <summary> 
         /// Starts game from main menu
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: GameMenu,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.StartGameService"/> </para> 
         /// </summary>
         public static START_GAME_DELEGATE START_GAME;
         /// <summary> 
         /// Saves game at any moment
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: LevelMaster, GameMenu,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.SaveGameService"/> </para> 
         /// </summary>
         public static SAVE_GAME_DELEGATE SAVE_GAME;
         /// <summary> 
         /// Loads game from any moment
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: GameMenu,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.LoadGameService"/> </para> 
         /// </summary>
         public static LOAD_GAME_DELEGATE LOAD_GAME;
         /// <summary> 
         /// Exits games to OS
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: GameMenu,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.ExitGameService"/> </para> 
         /// </summary>
         public static EXIT_GAME_DELEGATE EXIT_GAME;
         /// <summary> 
         /// This service subscribes for late start. This happens at some moment after Start event. when everything has been setup
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster, GameEventMaster,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.LateStartSubrsciptionService"/> </para> 
         /// </summary>
         public static LATE_START_SUBSCRIPTION_DELEGATE LATE_START_SUBSCRIPTION;
         /// <summary> 
         /// Selects some pickable from inventory
+        /// <para> Owner: ItemMaster </para> 
+        /// <para> Accessors: GameMenu,  </para> 
+        /// <para> Method: <see cref="ItemMasterClass.SelectPickableItemService"/> </para> 
         /// </summary>
         public static SELECT_PICKABLE_ITEM_DELEGATE SELECT_PICKABLE_ITEM;
         /// <summary> 
         /// Cancels selected item
+        /// <para> Owner: ItemMaster </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster,  </para> 
+        /// <para> Method: <see cref="ItemMasterClass.CancelPickableItemService"/> </para> 
         /// </summary>
         public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
         /* > ATG 3 END */

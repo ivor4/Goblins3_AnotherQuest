@@ -19,14 +19,18 @@ namespace Gob3AQ.VARMAP.GameMaster
             /* > ATG 1 START */
             GET_GAME_OPTIONS = _GET_GAME_OPTIONS;
             GET_ELAPSED_TIME_MS = _GET_ELAPSED_TIME_MS;
+            GET_SHADOW_ELAPSED_TIME_MS = _GET_SHADOW_ELAPSED_TIME_MS;
             SET_ELAPSED_TIME_MS = _SET_ELAPSED_TIME_MS;
             GET_ACTUAL_ROOM = _GET_ACTUAL_ROOM;
+            GET_SHADOW_ACTUAL_ROOM = _GET_SHADOW_ACTUAL_ROOM;
             SET_ACTUAL_ROOM = _SET_ACTUAL_ROOM;
             GET_GAMESTATUS = _GET_GAMESTATUS;
+            GET_SHADOW_GAMESTATUS = _GET_SHADOW_GAMESTATUS;
             SET_GAMESTATUS = _SET_GAMESTATUS;
             GET_PRESSED_KEYS = _GET_PRESSED_KEYS;
             GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
             GET_LAST_VARMAP_VAL = _GET_LAST_VARMAP_VAL;
+            GET_SHADOW_LAST_VARMAP_VAL = _GET_SHADOW_LAST_VARMAP_VAL;
             SET_LAST_VARMAP_VAL = _SET_LAST_VARMAP_VAL;
             START_GAME = _START_GAME;
             SAVE_GAME = _SAVE_GAME;
@@ -46,14 +50,18 @@ namespace Gob3AQ.VARMAP.GameMaster
         /* > ATG 2 START */
         public static GetVARMAPValueDelegate<GameOptionsStruct> GET_GAME_OPTIONS;
         public static GetVARMAPValueDelegate<ulong> GET_ELAPSED_TIME_MS;
+        public static GetVARMAPValueDelegate<ulong> GET_SHADOW_ELAPSED_TIME_MS;
         public static SetVARMAPValueDelegate<ulong> SET_ELAPSED_TIME_MS;
         public static GetVARMAPValueDelegate<Room> GET_ACTUAL_ROOM;
+        public static GetVARMAPValueDelegate<Room> GET_SHADOW_ACTUAL_ROOM;
         public static SetVARMAPValueDelegate<Room> SET_ACTUAL_ROOM;
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
+        public static GetVARMAPValueDelegate<Game_Status> GET_SHADOW_GAMESTATUS;
         public static SetVARMAPValueDelegate<Game_Status> SET_GAMESTATUS;
         public static GetVARMAPValueDelegate<KeyStruct> GET_PRESSED_KEYS;
         public static GetVARMAPValueDelegate<MousePropertiesStruct> GET_MOUSE_PROPERTIES;
         public static GetVARMAPValueDelegate<bool> GET_LAST_VARMAP_VAL;
+        public static GetVARMAPValueDelegate<bool> GET_SHADOW_LAST_VARMAP_VAL;
         public static SetVARMAPValueDelegate<bool> SET_LAST_VARMAP_VAL;
         /* > ATG 2 END */
 

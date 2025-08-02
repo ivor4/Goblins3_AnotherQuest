@@ -24,9 +24,11 @@ namespace Gob3AQ.VARMAP.LevelMaster
             GET_SIZE_PICKABLE_ITEM_OWNER = _GET_SIZE_PICKABLE_ITEM_OWNER;
             GET_ARRAY_PICKABLE_ITEM_OWNER = _GET_ARRAY_PICKABLE_ITEM_OWNER;
             GET_ELEM_PLAYER_ACTUAL_WAYPOINT = _GET_ELEM_PLAYER_ACTUAL_WAYPOINT;
+            GET_SHADOW_ELEM_PLAYER_ACTUAL_WAYPOINT = _GET_SHADOW_ELEM_PLAYER_ACTUAL_WAYPOINT;
             SET_ELEM_PLAYER_ACTUAL_WAYPOINT = _SET_ELEM_PLAYER_ACTUAL_WAYPOINT;
             GET_SIZE_PLAYER_ACTUAL_WAYPOINT = _GET_SIZE_PLAYER_ACTUAL_WAYPOINT;
             GET_ARRAY_PLAYER_ACTUAL_WAYPOINT = _GET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
+            GET_SHADOW_ARRAY_PLAYER_ACTUAL_WAYPOINT = _GET_SHADOW_ARRAY_PLAYER_ACTUAL_WAYPOINT;
             SET_ARRAY_PLAYER_ACTUAL_WAYPOINT = _SET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
@@ -34,6 +36,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
             GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
             GET_PLAYER_SELECTED = _GET_PLAYER_SELECTED;
             GET_ITEM_MENU_ACTIVE = _GET_ITEM_MENU_ACTIVE;
+            GET_SHADOW_ITEM_MENU_ACTIVE = _GET_SHADOW_ITEM_MENU_ACTIVE;
             SET_ITEM_MENU_ACTIVE = _SET_ITEM_MENU_ACTIVE;
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
             GET_ELEM_PLAYER_TRANSACTION = _GET_ELEM_PLAYER_TRANSACTION;
@@ -78,9 +81,11 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static GetVARMAPArraySizeDelegate GET_SIZE_PICKABLE_ITEM_OWNER;
         public static GetVARMAPArrayDelegate<CharacterType> GET_ARRAY_PICKABLE_ITEM_OWNER;
         public static GetVARMAPArrayElemValueDelegate<int> GET_ELEM_PLAYER_ACTUAL_WAYPOINT;
+        public static GetVARMAPArrayElemValueDelegate<int> GET_SHADOW_ELEM_PLAYER_ACTUAL_WAYPOINT;
         public static SetVARMAPArrayElemValueDelegate<int> SET_ELEM_PLAYER_ACTUAL_WAYPOINT;
         public static GetVARMAPArraySizeDelegate GET_SIZE_PLAYER_ACTUAL_WAYPOINT;
         public static GetVARMAPArrayDelegate<int> GET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
+        public static GetVARMAPArrayDelegate<int> GET_SHADOW_ARRAY_PLAYER_ACTUAL_WAYPOINT;
         public static SetVARMAPArrayDelegate<int> SET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
@@ -88,6 +93,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static GetVARMAPValueDelegate<MousePropertiesStruct> GET_MOUSE_PROPERTIES;
         public static GetVARMAPValueDelegate<CharacterType> GET_PLAYER_SELECTED;
         public static GetVARMAPValueDelegate<bool> GET_ITEM_MENU_ACTIVE;
+        public static GetVARMAPValueDelegate<bool> GET_SHADOW_ITEM_MENU_ACTIVE;
         public static SetVARMAPValueDelegate<bool> SET_ITEM_MENU_ACTIVE;
         public static GetVARMAPValueDelegate<GameItem> GET_PICKABLE_ITEM_CHOSEN;
         public static GetVARMAPArrayElemValueDelegate<ulong> GET_ELEM_PLAYER_TRANSACTION;

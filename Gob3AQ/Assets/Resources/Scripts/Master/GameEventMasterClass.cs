@@ -25,7 +25,12 @@ namespace Gob3AQ.GameEventMaster
 
         private static GameEventMasterClass _singleton;
         private static EVENT_SUBSCRIPTION_CALL_DELEGATE[] _event_subscription;
-        private static GrowingStaticStackArray<BufferedEvent> _bufferedEvents;
+
+        /// <summary>
+        /// Will be used for subscriptions only
+        /// </summary>
+        private static Queue<int> _bufferedEvents;
+
 
         public static void IsEventOccurredService(GameEvent ev, out bool occurred)
         {
@@ -34,7 +39,7 @@ namespace Gob3AQ.GameEventMaster
 
             GetArrayIndexAndPos(evIndex, out int arraypos, out int itembit);
 
-            MultiBitFieldStruct mbfs = VARMAP_GameEventMaster.GET_ELEM_EVENTS_OCCURRED(arraypos);
+            ref readonly MultiBitFieldStruct mbfs = ref VARMAP_GameEventMaster.GET_ELEM_EVENTS_OCCURRED(arraypos);
 
             occurred = mbfs.GetIndividualBool(itembit);
         }
@@ -44,18 +49,38 @@ namespace Gob3AQ.GameEventMaster
             int evIndex = (int)ev;
             evIndex += (int)GamePickableItem.ITEM_PICK_TOTAL;    /* Every item has 1 event, which is placed at the beginning */
 
-            BufferedEvent newEv = new BufferedEvent(evIndex, occurred);
+            /* Set in VARMAP */
+            GetArrayIndexAndPos(evIndex, out int arraypos, out int itembit);
 
-            _bufferedEvents.Add(newEv);
+            MultiBitFieldStruct mbfs = VARMAP_GameEventMaster.GET_SHADOW_ELEM_EVENTS_OCCURRED(arraypos);
+
+            mbfs.SetIndividualBool(itembit, occurred);
+
+            VARMAP_GameEventMaster.SET_ELEM_EVENTS_OCCURRED(arraypos, mbfs);
+
+            if (!_bufferedEvents.Contains(evIndex))
+            {
+                _bufferedEvents.Enqueue(evIndex);
+            }
         }
 
         public static void ItemObtainPickableEventService(GamePickableItem item)
         {
             int evIndex = (int)item;
 
-            BufferedEvent newEv = new(evIndex, true);
+            /* Set in VARMAP */
+            GetArrayIndexAndPos(evIndex, out int arraypos, out int itembit);
 
-            _bufferedEvents.Add(newEv);
+            MultiBitFieldStruct mbfs = VARMAP_GameEventMaster.GET_SHADOW_ELEM_EVENTS_OCCURRED(arraypos);
+
+            mbfs.SetIndividualBool(itembit, true);
+
+            VARMAP_GameEventMaster.SET_ELEM_EVENTS_OCCURRED(arraypos, mbfs);
+
+            if (!_bufferedEvents.Contains(evIndex))
+            {
+                _bufferedEvents.Enqueue(evIndex);
+            }
         }
 
 
@@ -63,7 +88,7 @@ namespace Gob3AQ.GameEventMaster
         {
             int evIndex = (int)item;
             GetArrayIndexAndPos(evIndex, out int arraypos, out int itembit);
-            MultiBitFieldStruct mbfs = VARMAP_GameEventMaster.GET_ELEM_EVENTS_OCCURRED(arraypos);
+            ref readonly MultiBitFieldStruct mbfs = ref VARMAP_GameEventMaster.GET_ELEM_EVENTS_OCCURRED(arraypos);
             taken = mbfs.GetIndividualBool(itembit);
         }
 
@@ -120,31 +145,17 @@ namespace Gob3AQ.GameEventMaster
             {
                 /* In this way, triggering of events would wait for next cycle in order not to overload previous one */
                 case Game_Status.GAME_STATUS_PLAY:
-                    BufferedEvent be;
-                    int bufferedEventsCount = _bufferedEvents.Count;
-
-                    /* Declare a copy in stack - Some events could trigger other events. That explains why copying */
-                    Span<BufferedEvent> thisCycleEventsSpan = stackalloc BufferedEvent[bufferedEventsCount];
-                    _bufferedEvents.GetReadOnlySpan.Slice(0, bufferedEventsCount).CopyTo(thisCycleEventsSpan);
-
-                    /* Officially set to 0, to be able to buffer even here from this point for next cycle */
-                    _bufferedEvents.ResetCount();
-
-                    for(int i=0;i<bufferedEventsCount;i++)
+                    while(_bufferedEvents.Count > 0)
                     {
-                        be = thisCycleEventsSpan[i];
-
-                        /* Set in VARMAP */
-                        GetArrayIndexAndPos(be.evIndex, out int arraypos, out int itembit);
-
-                        MultiBitFieldStruct mbfs = VARMAP_GameEventMaster.GET_ELEM_EVENTS_OCCURRED(arraypos);
-
-                        mbfs.SetIndividualBool(itembit, be.active);
-
-                        VARMAP_GameEventMaster.SET_ELEM_EVENTS_OCCURRED(arraypos, mbfs);
-
+                        /* Get first event */
+                        int evIndex = _bufferedEvents.Dequeue();
+                        /* Get from VARMAP */
+                        GetArrayIndexAndPos(evIndex, out int arraypos, out int itembit);
+                        ref readonly MultiBitFieldStruct mbfs = ref VARMAP_GameEventMaster.GET_ELEM_EVENTS_OCCURRED(arraypos);
+                        /* Get individual bit */
+                        bool active = mbfs.GetIndividualBool(itembit);
                         /* Invoke subscribers of this event */
-                        _event_subscription[be.evIndex]?.Invoke(be.active);
+                        _event_subscription[evIndex]?.Invoke(active);
                     }
                     break;
 

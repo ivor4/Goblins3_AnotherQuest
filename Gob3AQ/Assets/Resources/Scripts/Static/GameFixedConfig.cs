@@ -43,7 +43,7 @@ namespace Gob3AQ.FixedConfig
         /* Performance */
         public const int MAX_POOLED_ENEMIES = 50;
         public const int MAX_LEVEL_PLAYABLE_CHARACTERS = 3;
-        public const int MAX_BUFFERED_EVENTS = 4;
+        public const int MAX_BUFFERED_EVENTS = 16;
         public const int MAX_LEVEL_WAYPOINTS = 128;
         public const int MAX_PICKED_ITEMS = 64;
         public const int MAX_DISPLAYED_PICKED_ITEMS = 16;

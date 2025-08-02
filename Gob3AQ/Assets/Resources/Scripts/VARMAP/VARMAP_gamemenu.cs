@@ -19,6 +19,7 @@ namespace Gob3AQ.VARMAP.GameMenu
         {
             /* > ATG 1 START */
             GET_GAME_OPTIONS = _GET_GAME_OPTIONS;
+            GET_SHADOW_GAME_OPTIONS = _GET_SHADOW_GAME_OPTIONS;
             SET_GAME_OPTIONS = _SET_GAME_OPTIONS;
             GET_ELAPSED_TIME_MS = _GET_ELAPSED_TIME_MS;
             GET_ACTUAL_ROOM = _GET_ACTUAL_ROOM;
@@ -52,6 +53,7 @@ namespace Gob3AQ.VARMAP.GameMenu
         /* GET/SET */
         /* > ATG 2 START */
         public static GetVARMAPValueDelegate<GameOptionsStruct> GET_GAME_OPTIONS;
+        public static GetVARMAPValueDelegate<GameOptionsStruct> GET_SHADOW_GAME_OPTIONS;
         public static SetVARMAPValueDelegate<GameOptionsStruct> SET_GAME_OPTIONS;
         public static GetVARMAPValueDelegate<ulong> GET_ELAPSED_TIME_MS;
         public static GetVARMAPValueDelegate<Room> GET_ACTUAL_ROOM;

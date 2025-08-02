@@ -55,12 +55,15 @@ namespace Gob3AQ.VARMAP.Variable
         
 
         public abstract ref readonly T GetValue();
+        public abstract ref readonly T GetShadowValue();
         public abstract void SetValue(in T newvalue);
         public abstract ReadOnlySpan<T> GetListCopy();
+        public abstract ReadOnlySpan<T> GetShadowListCopy();
         public abstract void SetListValues(List<T> newList);
         public abstract int GetListSize();
         public abstract void SetListElem(int pos, in T newvalue);
         public abstract ref readonly T GetListElem(int pos);
+        public abstract ref readonly T GetShadowListElem(int pos);
 
         public abstract void InitializeListElems(in T defaultValue);
         public abstract void RegisterChangeEvent(VARMAPValueChangedEvent<T> callback);
@@ -214,6 +217,15 @@ namespace Gob3AQ.VARMAP.Variable
             return ref base.GetListElem(pos);
         }
 
+        public override ref readonly T GetShadowListElem(int pos)
+        {
+            if (!CheckValue(true))
+            {
+                base.SetListElem(pos, default);
+            }
+            return ref base.GetShadowListElem(pos);
+        }
+
         public override void SetListElem(int pos, in T newvalue)
         {
             base.SetListElem(pos, newvalue);
@@ -225,6 +237,18 @@ namespace Gob3AQ.VARMAP.Variable
             if (CheckValue(false))
             {
                 return base.GetListCopy();
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public override ReadOnlySpan<T> GetShadowListCopy()
+        {
+            if (CheckValue(true))
+            {
+                return base.GetShadowListCopy();
             }
             else
             {
@@ -421,6 +445,10 @@ namespace Gob3AQ.VARMAP.Variable
         {
             throw new Exception("Not single element VARMAP Variable");
         }
+        public override ref readonly T GetShadowValue()
+        {
+            throw new Exception("Not single element VARMAP Variable");
+        }
         public override void SetValue(in T newval)
         {
             throw new Exception("Not single element VARMAP Variable");
@@ -449,6 +477,11 @@ namespace Gob3AQ.VARMAP.Variable
         public override ReadOnlySpan<T> GetListCopy()
         {
             return _values;
+        }
+
+        public override ReadOnlySpan<T> GetShadowListCopy()
+        {
+            return _shadowValues;
         }
 
         public override int GetListSize()
@@ -481,7 +514,19 @@ namespace Gob3AQ.VARMAP.Variable
             }
         }
 
-        
+        public override ref readonly T GetShadowListElem(int pos)
+        {
+            if ((pos >= 0) && (pos < _elems))
+            {
+                return ref _shadowValues[pos];
+            }
+            else
+            {
+                throw new Exception("Pos " + pos + " is not reachable in array");
+            }
+        }
+
+
 
         public override void ParseToBytes(ref Span<byte> streamwriter)
         {
@@ -602,6 +647,15 @@ namespace Gob3AQ.VARMAP.Variable
             }
 
             return ref _value;
+        }
+
+        public override ref readonly T GetShadowValue()
+        {
+            if (!CheckValue(true))
+            {
+                _shadowValue = default(T);
+            }
+            return ref _shadowValue;
         }
 
         public override void SetValue(in T newval)
@@ -881,7 +935,9 @@ namespace Gob3AQ.VARMAP.Variable
 
         
         public override ref readonly T GetValue() => ref _value;
-  
+
+        public override ref readonly T GetShadowValue() => ref _shadowValue;
+
         public override void SetValue(in T newval)
         {
             _shadowValue = newval;
@@ -911,6 +967,11 @@ namespace Gob3AQ.VARMAP.Variable
         }
 
         public override ReadOnlySpan<T> GetListCopy()
+        {
+            throw new Exception("Not array VARMAP variable");
+        }
+
+        public override ReadOnlySpan<T> GetShadowListCopy()
         {
             throw new Exception("Not array VARMAP variable");
         }
@@ -952,6 +1013,11 @@ namespace Gob3AQ.VARMAP.Variable
         }
 
         public override ref readonly T GetListElem(int pos)
+        {
+            throw new Exception("Not array VARMAP variable");
+        }
+
+        public override ref readonly T GetShadowListElem(int pos)
         {
             throw new Exception("Not array VARMAP variable");
         }

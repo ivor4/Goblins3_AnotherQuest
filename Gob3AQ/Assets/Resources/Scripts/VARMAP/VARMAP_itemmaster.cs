@@ -20,15 +20,18 @@ namespace Gob3AQ.VARMAP.ItemMaster
         {
             /* > ATG 1 START */
             GET_ELEM_PICKABLE_ITEM_OWNER = _GET_ELEM_PICKABLE_ITEM_OWNER;
+            GET_SHADOW_ELEM_PICKABLE_ITEM_OWNER = _GET_SHADOW_ELEM_PICKABLE_ITEM_OWNER;
             SET_ELEM_PICKABLE_ITEM_OWNER = _SET_ELEM_PICKABLE_ITEM_OWNER;
             GET_SIZE_PICKABLE_ITEM_OWNER = _GET_SIZE_PICKABLE_ITEM_OWNER;
             GET_ARRAY_PICKABLE_ITEM_OWNER = _GET_ARRAY_PICKABLE_ITEM_OWNER;
+            GET_SHADOW_ARRAY_PICKABLE_ITEM_OWNER = _GET_SHADOW_ARRAY_PICKABLE_ITEM_OWNER;
             SET_ARRAY_PICKABLE_ITEM_OWNER = _SET_ARRAY_PICKABLE_ITEM_OWNER;
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             GET_PLAYER_SELECTED = _GET_PLAYER_SELECTED;
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
+            GET_SHADOW_PICKABLE_ITEM_CHOSEN = _GET_SHADOW_PICKABLE_ITEM_CHOSEN;
             SET_PICKABLE_ITEM_CHOSEN = _SET_PICKABLE_ITEM_CHOSEN;
             LATE_START_SUBSCRIPTION = _LATE_START_SUBSCRIPTION;
             ITEM_REGISTER = _ITEM_REGISTER;
@@ -51,15 +54,18 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /* GET/SET */
         /* > ATG 2 START */
         public static GetVARMAPArrayElemValueDelegate<CharacterType> GET_ELEM_PICKABLE_ITEM_OWNER;
+        public static GetVARMAPArrayElemValueDelegate<CharacterType> GET_SHADOW_ELEM_PICKABLE_ITEM_OWNER;
         public static SetVARMAPArrayElemValueDelegate<CharacterType> SET_ELEM_PICKABLE_ITEM_OWNER;
         public static GetVARMAPArraySizeDelegate GET_SIZE_PICKABLE_ITEM_OWNER;
         public static GetVARMAPArrayDelegate<CharacterType> GET_ARRAY_PICKABLE_ITEM_OWNER;
+        public static GetVARMAPArrayDelegate<CharacterType> GET_SHADOW_ARRAY_PICKABLE_ITEM_OWNER;
         public static SetVARMAPArrayDelegate<CharacterType> SET_ARRAY_PICKABLE_ITEM_OWNER;
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
         public static GetVARMAPValueDelegate<CharacterType> GET_PLAYER_SELECTED;
         public static GetVARMAPValueDelegate<GameItem> GET_PICKABLE_ITEM_CHOSEN;
+        public static GetVARMAPValueDelegate<GameItem> GET_SHADOW_PICKABLE_ITEM_CHOSEN;
         public static SetVARMAPValueDelegate<GameItem> SET_PICKABLE_ITEM_CHOSEN;
         /* > ATG 2 END */
 

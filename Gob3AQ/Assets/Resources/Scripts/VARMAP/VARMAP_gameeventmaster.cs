@@ -20,9 +20,11 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         {
             /* > ATG 1 START */
             GET_ELEM_EVENTS_OCCURRED = _GET_ELEM_EVENTS_OCCURRED;
+            GET_SHADOW_ELEM_EVENTS_OCCURRED = _GET_SHADOW_ELEM_EVENTS_OCCURRED;
             SET_ELEM_EVENTS_OCCURRED = _SET_ELEM_EVENTS_OCCURRED;
             GET_SIZE_EVENTS_OCCURRED = _GET_SIZE_EVENTS_OCCURRED;
             GET_ARRAY_EVENTS_OCCURRED = _GET_ARRAY_EVENTS_OCCURRED;
+            GET_SHADOW_ARRAY_EVENTS_OCCURRED = _GET_SHADOW_ARRAY_EVENTS_OCCURRED;
             SET_ARRAY_EVENTS_OCCURRED = _SET_ARRAY_EVENTS_OCCURRED;
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
@@ -41,9 +43,11 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         /* GET/SET */
         /* > ATG 2 START */
         public static GetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> GET_ELEM_EVENTS_OCCURRED;
+        public static GetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> GET_SHADOW_ELEM_EVENTS_OCCURRED;
         public static SetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> SET_ELEM_EVENTS_OCCURRED;
         public static GetVARMAPArraySizeDelegate GET_SIZE_EVENTS_OCCURRED;
         public static GetVARMAPArrayDelegate<MultiBitFieldStruct> GET_ARRAY_EVENTS_OCCURRED;
+        public static GetVARMAPArrayDelegate<MultiBitFieldStruct> GET_SHADOW_ARRAY_EVENTS_OCCURRED;
         public static SetVARMAPArrayDelegate<MultiBitFieldStruct> SET_ARRAY_EVENTS_OCCURRED;
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;

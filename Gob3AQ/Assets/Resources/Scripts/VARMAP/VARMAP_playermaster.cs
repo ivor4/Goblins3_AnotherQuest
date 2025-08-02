@@ -31,14 +31,17 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             GET_PRESSED_KEYS = _GET_PRESSED_KEYS;
             GET_PLAYER_SELECTED = _GET_PLAYER_SELECTED;
+            GET_SHADOW_PLAYER_SELECTED = _GET_SHADOW_PLAYER_SELECTED;
             SET_PLAYER_SELECTED = _SET_PLAYER_SELECTED;
             REG_PLAYER_SELECTED = _REG_PLAYER_SELECTED;
             UNREG_PLAYER_SELECTED = _UNREG_PLAYER_SELECTED;
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
             GET_ELEM_PLAYER_TRANSACTION = _GET_ELEM_PLAYER_TRANSACTION;
+            GET_SHADOW_ELEM_PLAYER_TRANSACTION = _GET_SHADOW_ELEM_PLAYER_TRANSACTION;
             SET_ELEM_PLAYER_TRANSACTION = _SET_ELEM_PLAYER_TRANSACTION;
             GET_SIZE_PLAYER_TRANSACTION = _GET_SIZE_PLAYER_TRANSACTION;
             GET_ARRAY_PLAYER_TRANSACTION = _GET_ARRAY_PLAYER_TRANSACTION;
+            GET_SHADOW_ARRAY_PLAYER_TRANSACTION = _GET_SHADOW_ARRAY_PLAYER_TRANSACTION;
             SET_ARRAY_PLAYER_TRANSACTION = _SET_ARRAY_PLAYER_TRANSACTION;
             LATE_START_SUBSCRIPTION = _LATE_START_SUBSCRIPTION;
             MONO_REGISTER = _MONO_REGISTER;
@@ -73,14 +76,17 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
         public static GetVARMAPValueDelegate<KeyStruct> GET_PRESSED_KEYS;
         public static GetVARMAPValueDelegate<CharacterType> GET_PLAYER_SELECTED;
+        public static GetVARMAPValueDelegate<CharacterType> GET_SHADOW_PLAYER_SELECTED;
         public static SetVARMAPValueDelegate<CharacterType> SET_PLAYER_SELECTED;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<CharacterType> REG_PLAYER_SELECTED;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<CharacterType> UNREG_PLAYER_SELECTED;
         public static GetVARMAPValueDelegate<GameItem> GET_PICKABLE_ITEM_CHOSEN;
         public static GetVARMAPArrayElemValueDelegate<ulong> GET_ELEM_PLAYER_TRANSACTION;
+        public static GetVARMAPArrayElemValueDelegate<ulong> GET_SHADOW_ELEM_PLAYER_TRANSACTION;
         public static SetVARMAPArrayElemValueDelegate<ulong> SET_ELEM_PLAYER_TRANSACTION;
         public static GetVARMAPArraySizeDelegate GET_SIZE_PLAYER_TRANSACTION;
         public static GetVARMAPArrayDelegate<ulong> GET_ARRAY_PLAYER_TRANSACTION;
+        public static GetVARMAPArrayDelegate<ulong> GET_SHADOW_ARRAY_PLAYER_TRANSACTION;
         public static SetVARMAPArrayDelegate<ulong> SET_ARRAY_PLAYER_TRANSACTION;
         /* > ATG 2 END */
 

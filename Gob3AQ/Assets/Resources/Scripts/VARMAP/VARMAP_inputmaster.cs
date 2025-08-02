@@ -24,8 +24,10 @@ namespace Gob3AQ.VARMAP.InputMaster
             UNREG_GAME_OPTIONS = _UNREG_GAME_OPTIONS;
             GET_ELAPSED_TIME_MS = _GET_ELAPSED_TIME_MS;
             GET_PRESSED_KEYS = _GET_PRESSED_KEYS;
+            GET_SHADOW_PRESSED_KEYS = _GET_SHADOW_PRESSED_KEYS;
             SET_PRESSED_KEYS = _SET_PRESSED_KEYS;
             GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
+            GET_SHADOW_MOUSE_PROPERTIES = _GET_SHADOW_MOUSE_PROPERTIES;
             SET_MOUSE_PROPERTIES = _SET_MOUSE_PROPERTIES;
             LATE_START_SUBSCRIPTION = _LATE_START_SUBSCRIPTION;
             /* > ATG 1 END */
@@ -40,8 +42,10 @@ namespace Gob3AQ.VARMAP.InputMaster
         public static ReUnRegisterVARMAPValueChangeEventDelegate<GameOptionsStruct> UNREG_GAME_OPTIONS;
         public static GetVARMAPValueDelegate<ulong> GET_ELAPSED_TIME_MS;
         public static GetVARMAPValueDelegate<KeyStruct> GET_PRESSED_KEYS;
+        public static GetVARMAPValueDelegate<KeyStruct> GET_SHADOW_PRESSED_KEYS;
         public static SetVARMAPValueDelegate<KeyStruct> SET_PRESSED_KEYS;
         public static GetVARMAPValueDelegate<MousePropertiesStruct> GET_MOUSE_PROPERTIES;
+        public static GetVARMAPValueDelegate<MousePropertiesStruct> GET_SHADOW_MOUSE_PROPERTIES;
         public static SetVARMAPValueDelegate<MousePropertiesStruct> SET_MOUSE_PROPERTIES;
         /* > ATG 2 END */
 

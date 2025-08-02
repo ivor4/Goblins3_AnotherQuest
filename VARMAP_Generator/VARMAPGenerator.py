@@ -231,6 +231,11 @@ for line in VARMAPinputFile:
 
         proto_lines.InsertLineInATG(1, stringToWrite)
         
+        stringToWrite = "protected static GetVARMAPValueDelegate<"
+        stringToWrite += VARMAPVar["type"]+"> _GET_SHADOW_"+VARMAPVar["name"]+";\n"
+
+        proto_lines.InsertLineInATG(1, stringToWrite)
+        
         stringToWrite = "protected static SetVARMAPValueDelegate<"
         stringToWrite += VARMAPVar["type"]+"> _SET_"+VARMAPVar["name"]+";\n"
 
@@ -239,6 +244,11 @@ for line in VARMAPinputFile:
     else:
         stringToWrite = "protected static GetVARMAPArrayElemValueDelegate<"
         stringToWrite += VARMAPVar["type"]+"> _GET_ELEM_"+VARMAPVar["name"]+";\n"
+        
+        proto_lines.InsertLineInATG(1, stringToWrite)
+        
+        stringToWrite = "protected static GetVARMAPArrayElemValueDelegate<"
+        stringToWrite += VARMAPVar["type"]+"> _GET_SHADOW_ELEM_"+VARMAPVar["name"]+";\n"
         
         proto_lines.InsertLineInATG(1, stringToWrite)
         
@@ -254,6 +264,11 @@ for line in VARMAPinputFile:
         
         stringToWrite = "protected static GetVARMAPArrayDelegate<"
         stringToWrite += VARMAPVar["type"]+"> _GET_ARRAY_"+VARMAPVar["name"]+";\n"
+        
+        proto_lines.InsertLineInATG(1, stringToWrite)
+        
+        stringToWrite = "protected static GetVARMAPArrayDelegate<"
+        stringToWrite += VARMAPVar["type"]+"> _GET_SHADOW_ARRAY_"+VARMAPVar["name"]+";\n"
         
         proto_lines.InsertLineInATG(1, stringToWrite)
         
@@ -283,12 +298,20 @@ for line in VARMAPinputFile:
         
         delegateupdate_lines.InsertLineInATG(1, stringToWrite)
         
+        stringToWrite = "_GET_SHADOW_"+VARMAPVar["name"]+" = " + variableinarray + ".GetShadowValue;\n"
+        
+        delegateupdate_lines.InsertLineInATG(1, stringToWrite)
+        
         stringToWrite = "_SET_"+VARMAPVar["name"]+" = " + variableinarray + ".SetValue;\n"
         
         delegateupdate_lines.InsertLineInATG(1, stringToWrite)
         
     else:
         stringToWrite = "_GET_ELEM_"+VARMAPVar["name"]+" = " + variableinarray + ".GetListElem;\n"
+        
+        delegateupdate_lines.InsertLineInATG(1, stringToWrite)
+        
+        stringToWrite = "_GET_SHADOW_ELEM_"+VARMAPVar["name"]+" = " + variableinarray + ".GetShadowListElem;\n"
         
         delegateupdate_lines.InsertLineInATG(1, stringToWrite)
         
@@ -301,6 +324,10 @@ for line in VARMAPinputFile:
         delegateupdate_lines.InsertLineInATG(1, stringToWrite)
         
         stringToWrite = "_GET_ARRAY_"+VARMAPVar["name"]+" = " + variableinarray + ".GetListCopy;\n"
+        
+        delegateupdate_lines.InsertLineInATG(1, stringToWrite)
+        
+        stringToWrite = "_GET_SHADOW_ARRAY_"+VARMAPVar["name"]+" = " + variableinarray + ".GetShadowListCopy;\n"
         
         delegateupdate_lines.InsertLineInATG(1, stringToWrite)
         
@@ -337,6 +364,17 @@ for line in VARMAPinputFile:
                 
                 Modulelines[indextouse].InsertLineInATG(1, stringToWrite)
                 
+                stringToWrite = "public static GetVARMAPValueDelegate<"
+                stringToWrite += VARMAPVar["type"]+"> GET_SHADOW_"+VARMAPVar["name"]
+                stringToWrite += ";\n"
+                
+                Modulelines[indextouse].InsertLineInATG(2, stringToWrite)
+                
+                stringToWrite = "GET_SHADOW_"+VARMAPVar["name"]
+                stringToWrite += " = _GET_SHADOW_"+VARMAPVar["name"]+";\n"
+                
+                Modulelines[indextouse].InsertLineInATG(1, stringToWrite)
+                
                 stringToWrite = "public static SetVARMAPValueDelegate<"
                 stringToWrite += VARMAPVar["type"]+"> SET_"+VARMAPVar["name"]
                 stringToWrite += ";\n"
@@ -358,6 +396,17 @@ for line in VARMAPinputFile:
 
                 stringToWrite = "GET_ELEM_"+VARMAPVar["name"]
                 stringToWrite += " = _GET_ELEM_"+VARMAPVar["name"]+";\n"
+                
+                Modulelines[indextouse].InsertLineInATG(1, stringToWrite)
+                
+                stringToWrite = "public static GetVARMAPArrayElemValueDelegate<"
+                stringToWrite += VARMAPVar["type"]+"> GET_SHADOW_ELEM_"+VARMAPVar["name"]
+                stringToWrite += ";\n"
+                
+                Modulelines[indextouse].InsertLineInATG(2, stringToWrite)
+
+                stringToWrite = "GET_SHADOW_ELEM_"+VARMAPVar["name"]
+                stringToWrite += " = _GET_SHADOW_ELEM_"+VARMAPVar["name"]+";\n"
                 
                 Modulelines[indextouse].InsertLineInATG(1, stringToWrite)
                 
@@ -391,6 +440,17 @@ for line in VARMAPinputFile:
 
                 stringToWrite = "GET_ARRAY_"+VARMAPVar["name"]
                 stringToWrite += " = _GET_ARRAY_"+VARMAPVar["name"]+";\n"
+                
+                Modulelines[indextouse].InsertLineInATG(1, stringToWrite)
+                
+                stringToWrite = "public static GetVARMAPArrayDelegate<"
+                stringToWrite += VARMAPVar["type"]+"> GET_SHADOW_ARRAY_"+VARMAPVar["name"]
+                stringToWrite += ";\n"
+                
+                Modulelines[indextouse].InsertLineInATG(2, stringToWrite)
+
+                stringToWrite = "GET_SHADOW_ARRAY_"+VARMAPVar["name"]
+                stringToWrite += " = _GET_SHADOW_ARRAY_"+VARMAPVar["name"]+";\n"
                 
                 Modulelines[indextouse].InsertLineInATG(1, stringToWrite)
                 

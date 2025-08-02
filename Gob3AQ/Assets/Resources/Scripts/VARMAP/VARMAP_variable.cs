@@ -16,6 +16,11 @@ namespace Gob3AQ.VARMAP.Variable
 
     public abstract class VARMAP_Variable_Indexable
     {
+        /// <summary>
+        /// Commits shadow values into official ones. Should be done by GameMaster at the end/beginning of a tick.
+        /// </summary>
+        public abstract void Commit();
+
         public abstract void ClearChangeEvent();
 
         public abstract uint CalcCRC32();
@@ -26,9 +31,11 @@ namespace Gob3AQ.VARMAP.Variable
 
         public abstract int GetElemSize();
 
+#if UNITY_EDITOR
+
         public abstract VARMAP_Variable_ID GetID();
 
-#if UNITY_EDITOR
+
         public abstract string[] GetDebugValues();
 #endif
 
@@ -66,17 +73,18 @@ namespace Gob3AQ.VARMAP.Variable
     {
         private bool _highSec;
         private uint _IDSec;
-        public VARMAP_SafeArray(VARMAP_Variable_ID id, int elems, bool highSecurity, ParseTypeFromBytes parseFromBytesDelegate, ParseTypeToBytes parseToBytesDelegate, ConstructorOfType constructor = null) : base(id, elems, parseFromBytesDelegate, parseToBytesDelegate, constructor)
-        {
-            Common_Constructor(highSecurity);
-        }
+        private uint _IDSecShadow;
 
-        private void Common_Constructor(bool highSecurity)
+        public VARMAP_SafeArray(VARMAP_Variable_ID id, int elems, bool highSecurity, ParseTypeFromBytes parseFromBytesDelegate, ParseTypeToBytes parseToBytesDelegate, ConstructorOfType constructor = null) : base(id, elems, parseFromBytesDelegate, parseToBytesDelegate, constructor)
         {
             _highSec = highSecurity;
             _IDSec = VARMAP_Safe.RegisterSecureVariable();
-            SecureNewValue();
+            _IDSecShadow = VARMAP_Safe.RegisterSecureVariable();
+            SecureNewValue(false);
+            SecureNewValue(true);
         }
+
+ 
 
         public override uint CalcCRC32()
         {
@@ -90,48 +98,108 @@ namespace Gob3AQ.VARMAP.Variable
             return crc;
         }
 
-        private void SecureNewValue()
+        private uint CalcCRC32Shadow()
         {
-            VARMAP_Safe.SecureNewValue(_IDSec, CalcCRC32(), _highSec);
+            int crclength = GetElemSize();
+            Span<byte> writeZone = stackalloc byte[crclength];
+            ReadOnlySpan<byte> readZone = writeZone;
+
+            ParseToBytesShadow(ref writeZone);
+            uint crc = CRC32.ComputeHash(ref readZone, crclength);
+            return crc;
         }
 
-        private void SecureNewValue(ref ReadOnlySpan<byte> stream)
+        private void SecureNewValue(bool shadow)
         {
-            uint crc = CRC32.ComputeHash(ref stream, GetElemSize());
-            VARMAP_Safe.SecureNewValue(_IDSec, crc, _highSec);
-        }
-
-        private bool CheckValue()
-        {
-            bool retVal;
-
-            if(VARMAP_Safe.IsSafeVariableCheckedInTick(_IDSec))
+            if (shadow)
             {
-                retVal = true;
+                VARMAP_Safe.SecureNewValue(_IDSecShadow, CalcCRC32Shadow(), _highSec);
             }
             else
             {
-                uint crc;
-                crc = CalcCRC32();
-                retVal = VARMAP_Safe.CheckSafeValue(_IDSec, crc);
+                VARMAP_Safe.SecureNewValue(_IDSec, CalcCRC32(), _highSec);
+            }
+        }
+
+
+        private void SecureNewValue(ref ReadOnlySpan<byte> stream, bool shadow)
+        {
+            uint crc = CRC32.ComputeHash(ref stream, GetElemSize());
+
+            if (shadow)
+            {
+                VARMAP_Safe.SecureNewValue(_IDSecShadow, crc, _highSec);
+            }
+            else
+            {
+                VARMAP_Safe.SecureNewValue(_IDSec, crc, _highSec);
+            }
+                
+        }
+
+        private bool CheckValue(bool shadow)
+        {
+            bool retVal;
+
+            if (shadow)
+            {
+                if (VARMAP_Safe.IsSafeVariableCheckedInTick(_IDSecShadow))
+                {
+                    retVal = true;
+                }
+                else
+                {
+                    uint crc;
+                    crc = CalcCRC32Shadow();
+                    retVal = VARMAP_Safe.CheckSafeValue(_IDSecShadow, crc);
+                }
+            }
+            else
+            {
+                if (VARMAP_Safe.IsSafeVariableCheckedInTick(_IDSec))
+                {
+                    retVal = true;
+                }
+                else
+                {
+                    uint crc;
+                    crc = CalcCRC32();
+                    retVal = VARMAP_Safe.CheckSafeValue(_IDSec, crc);
+                }
             }
 
             return retVal;
         }
 
-        private bool CheckValue(ref ReadOnlySpan<byte> stream)
+        private bool CheckValue(ref ReadOnlySpan<byte> stream, bool shadow)
         {
             bool retVal;
 
-            if (VARMAP_Safe.IsSafeVariableCheckedInTick(_IDSec))
+            if (shadow)
             {
-                retVal = true;
+                if (VARMAP_Safe.IsSafeVariableCheckedInTick(_IDSecShadow))
+                {
+                    retVal = true;
+                }
+                else
+                {
+                    uint crc;
+                    crc = CRC32.ComputeHash(ref stream, GetElemSize());
+                    retVal = VARMAP_Safe.CheckSafeValue(_IDSecShadow, crc);
+                }
             }
             else
             {
-                uint crc;
-                crc = CRC32.ComputeHash(ref stream, GetElemSize());
-                retVal = VARMAP_Safe.CheckSafeValue(_IDSec, crc);
+                if (VARMAP_Safe.IsSafeVariableCheckedInTick(_IDSec))
+                {
+                    retVal = true;
+                }
+                else
+                {
+                    uint crc;
+                    crc = CRC32.ComputeHash(ref stream, GetElemSize());
+                    retVal = VARMAP_Safe.CheckSafeValue(_IDSec, crc);
+                }
             }
 
             return retVal;
@@ -139,7 +207,7 @@ namespace Gob3AQ.VARMAP.Variable
 
         public override ref readonly T GetListElem(int pos)
         {
-            if(!CheckValue())
+            if(!CheckValue(false))
             {
                 base.SetListElem(pos, default);
             }
@@ -149,12 +217,12 @@ namespace Gob3AQ.VARMAP.Variable
         public override void SetListElem(int pos, in T newvalue)
         {
             base.SetListElem(pos, newvalue);
-            SecureNewValue();
+            SecureNewValue(true);
         }
 
         public override ReadOnlySpan<T> GetListCopy()
         {
-            if (CheckValue())
+            if (CheckValue(false))
             {
                 return base.GetListCopy();
             }
@@ -167,13 +235,14 @@ namespace Gob3AQ.VARMAP.Variable
         public override void SetListValues(List<T> newList)
         {
             base.SetListValues(newList);
-            SecureNewValue();
+            SecureNewValue(true);
         }
 
         public override void InitializeListElems(in T defaultValue)
         {
             base.InitializeListElems(defaultValue);
-            SecureNewValue();
+            SecureNewValue(false);
+            SecureNewValue(true);
         }
 
         public override void ParseToBytes(ref Span<byte> streamwriter)
@@ -181,13 +250,36 @@ namespace Gob3AQ.VARMAP.Variable
             base.ParseToBytes(ref streamwriter);
             ReadOnlySpan<byte> streamreader = streamwriter;
 
-            CheckValue(ref streamreader);
+            CheckValue(ref streamreader, false);
         }
 
         public override void ParseFromBytes(ref ReadOnlySpan<byte> streamreader)
         {
             base.ParseFromBytes(ref streamreader);
-            SecureNewValue(ref streamreader);
+            SecureNewValue(ref streamreader, true);
+        }
+
+        private void ParseToBytesShadow(ref Span<byte> streamwriter)
+        {
+            WriteStreamSpan<byte> writeZone = new WriteStreamSpan<byte>(streamwriter);
+
+            for (int i = 0; i < _elems; i++)
+            {
+                Span<byte> tempspan = writeZone.WriteNext(_elemSize);
+                ParseToBytesFunction(in _shadowValues[i], ref tempspan);
+            }
+        }
+
+        public override void Commit()
+        {
+            if (_dirty)
+            {
+                if(CheckValue(true))
+                {
+                    base.Commit();
+                    SecureNewValue(false);
+                }
+            }
         }
     }
    
@@ -199,9 +291,11 @@ namespace Gob3AQ.VARMAP.Variable
         protected Type _type;
         protected int _elems;
         protected T[] _values;
+        protected T[] _shadowValues;
         protected VARMAP_Variable_ID _ID;
         protected bool _streamable;
         protected bool _isIStreamable;
+        protected bool _dirty;
         protected int _elemSize;
         protected VARMAPValueChangedEvent<T> _changedevents;
 
@@ -224,20 +318,17 @@ namespace Gob3AQ.VARMAP.Variable
             ParseToBytesFunction = parseToBytesDelegate;
             ConstructorFunction = constructor;
 
-            Constructor(id);
-        }
-
-        
-        private void Constructor(VARMAP_Variable_ID id)
-        {
             _ID = id;
-
 
             _isIStreamable = typeof(IStreamable).IsAssignableFrom(typeof(T));
 
             _values = new T[_elems];
 
+            _shadowValues = new T[_elems];
+
             _type = typeof(T);
+
+            _dirty = false;
 
             if (typeof(VARMAP_Variable_Indexable).IsAssignableFrom(_type))
             {
@@ -323,7 +414,9 @@ namespace Gob3AQ.VARMAP.Variable
             _changedevents = null;
         }
 
-        public override VARMAP_Variable_ID GetID() => _ID;
+
+
+        
         public override ref readonly T GetValue()
         {
             throw new Exception("Not single element VARMAP Variable");
@@ -367,8 +460,8 @@ namespace Gob3AQ.VARMAP.Variable
         {
             if((pos >= 0) && (pos < _elems))
             {
-                _changedevents?.Invoke(ChangedEventType.CHANGED_EVENT_SET_LIST_ELEM, in _values[pos], in newvalue);
-                _values[pos] = newvalue;
+                _shadowValues[pos] = newvalue;
+                _dirty = true;
             }
             else
             {
@@ -387,6 +480,8 @@ namespace Gob3AQ.VARMAP.Variable
                 throw new Exception("Pos " + pos + " is not reachable in array");
             }
         }
+
+        
 
         public override void ParseToBytes(ref Span<byte> streamwriter)
         {
@@ -411,15 +506,16 @@ namespace Gob3AQ.VARMAP.Variable
 
                 if(ConstructorFunction != null)
                 {
-                    _values[i] = ConstructorFunction();
+                    _shadowValues[i] = ConstructorFunction();
                 }
                 else
                 {
-                    _values[i] = default;
+                    _shadowValues[i] = default;
                 }
 
-                ParseFromBytesFunction(ref _values[i], ref tempspan);
+                ParseFromBytesFunction(ref _shadowValues[i], ref tempspan);
 
+                _dirty = true;
             }
         }
 
@@ -435,12 +531,12 @@ namespace Gob3AQ.VARMAP.Variable
             return crc;
         }
 
+        
+
         public override void SetListValues(List<T> newList)
         {
-            newList.CopyTo(0, _values, 0, _elems);
-            
-            T defval = default;
-            _changedevents?.Invoke(ChangedEventType.CHANGED_EVENT_SET, in defval, in defval);
+            newList.CopyTo(0, _shadowValues, 0, _elems);
+            _dirty = true;
         }
 
         public override void InitializeListElems(in T defaultValue)
@@ -448,10 +544,25 @@ namespace Gob3AQ.VARMAP.Variable
             for(int i=0;i<_elems;i++)
             {
                 _values[i] = defaultValue;
+                _shadowValues[i] = defaultValue;
             }
+
+            _dirty = false;
+        }
+
+        public override void Commit()
+        {
+            if(_dirty)
+            {
+                _changedevents?.Invoke(ChangedEventType.CHANGED_EVENT_SET_LIST_ELEM, in _shadowValues[0], in _values[0]);
+                _shadowValues.CopyTo(_values, 0);
+            }
+
+            _dirty = false;
         }
 
 #if UNITY_EDITOR
+        public override VARMAP_Variable_ID GetID() => _ID;
         public override string[] GetDebugValues()
         {
             string[] retVal = new string[_elems];
@@ -471,24 +582,21 @@ namespace Gob3AQ.VARMAP.Variable
     {
         private bool _highSec;
         private uint _IDSec;
+        private uint _IDSecShadow;
 
         public VARMAP_SafeVariable(VARMAP_Variable_ID id, bool highSecurity, ParseTypeFromBytes parseFromBytesDelegate, ParseTypeToBytes parseToBytesDelegate, ConstructorOfType constructor = null) : base (id, parseFromBytesDelegate, parseToBytesDelegate, constructor)
         {
-            _IDSec = Common_Constructor(highSecurity);
-        }
-
-        private uint Common_Constructor(bool highSecurity)
-        {
             _highSec = highSecurity;
-            uint secid = VARMAP_Safe.RegisterSecureVariable();
-            SecureNewValue();
-
-            return secid;
+            _IDSec = VARMAP_Safe.RegisterSecureVariable();
+            _IDSecShadow = VARMAP_Safe.RegisterSecureVariable();
+            SecureNewValue(false);
+            SecureNewValue(true);
         }
+
 
         public override ref readonly T GetValue()
         {
-            if(!CheckValue())
+            if(!CheckValue(false))
             {
                 _value = default(T);
             }
@@ -500,7 +608,7 @@ namespace Gob3AQ.VARMAP.Variable
         {
             base.SetValue(in newval);
 
-            SecureNewValue();
+            SecureNewValue(true);
         }
 
         public override void ParseToBytes(ref Span<byte> streamwriter)
@@ -508,13 +616,18 @@ namespace Gob3AQ.VARMAP.Variable
             base.ParseToBytes(ref streamwriter);
             ReadOnlySpan<byte> streamreader = streamwriter;
 
-            CheckValue(ref streamreader);
+            CheckValue(ref streamreader, false);
         }
 
         public override void ParseFromBytes(ref ReadOnlySpan<byte> streamreader)
         {
             base.ParseFromBytes(ref streamreader);
-            SecureNewValue(ref streamreader);
+            SecureNewValue(ref streamreader, true);
+        }
+
+        private void ParseToBytesShadow(ref Span<byte> streamwriter)
+        {
+            ParseToBytesFunction(in _shadowValue, ref streamwriter);
         }
 
         public override uint CalcCRC32()
@@ -528,49 +641,117 @@ namespace Gob3AQ.VARMAP.Variable
             return crc;
         }
 
-        private void SecureNewValue()
+        private uint CalcCRC32Shadow()
         {
-            VARMAP_Safe.SecureNewValue(_IDSec, CalcCRC32(), _highSec);
+            Span<byte> writeZone = stackalloc byte[_elemSize];
+            ReadOnlySpan<byte> readZone = writeZone;
+
+            ParseToBytesShadow(ref writeZone);
+            uint crc = CRC32.ComputeHash(ref readZone, _elemSize);
+
+            return crc;
         }
 
-        private void SecureNewValue(ref ReadOnlySpan<byte> stream)
+        private void SecureNewValue(bool shadow)
+        {
+            if (shadow)
+            {
+                VARMAP_Safe.SecureNewValue(_IDSecShadow, CalcCRC32Shadow(), _highSec);
+            }
+            else
+            {
+                VARMAP_Safe.SecureNewValue(_IDSec, CalcCRC32(), _highSec);
+            }
+        }
+
+        private void SecureNewValue(ref ReadOnlySpan<byte> stream, bool shadow)
         {
             uint crc = CRC32.ComputeHash(ref stream, _elemSize);
-            VARMAP_Safe.SecureNewValue(_IDSec, crc, _highSec);
-        }
 
-        private bool CheckValue()
-        {
-            bool retVal;
-
-            if (VARMAP_Safe.IsSafeVariableCheckedInTick(_IDSec))
+            if (shadow)
             {
-                retVal = true;
+                VARMAP_Safe.SecureNewValue(_IDSecShadow, crc, _highSec);
             }
             else
             {
-                retVal = VARMAP_Safe.CheckSafeValue(_IDSec, CalcCRC32());
+                VARMAP_Safe.SecureNewValue(_IDSec, crc, _highSec);
+            }
+        }
+
+        private bool CheckValue(bool shadow)
+        {
+            bool retVal;
+
+            if (shadow)
+            {
+                if (VARMAP_Safe.IsSafeVariableCheckedInTick(_IDSecShadow))
+                {
+                    retVal = true;
+                }
+                else
+                {
+                    retVal = VARMAP_Safe.CheckSafeValue(_IDSecShadow, CalcCRC32Shadow());
+                }
+            }
+            else
+            {
+                if (VARMAP_Safe.IsSafeVariableCheckedInTick(_IDSec))
+                {
+                    retVal = true;
+                }
+                else
+                {
+                    retVal = VARMAP_Safe.CheckSafeValue(_IDSec, CalcCRC32());
+                }
             }
 
             return retVal;
         }
 
-        private bool CheckValue(ref ReadOnlySpan<byte> stream)
+        private bool CheckValue(ref ReadOnlySpan<byte> stream, bool shadow)
         {
             bool retVal;
 
-            if (VARMAP_Safe.IsSafeVariableCheckedInTick(_IDSec))
+            if (shadow)
             {
-                retVal = true;
+                if (VARMAP_Safe.IsSafeVariableCheckedInTick(_IDSecShadow))
+                {
+                    retVal = true;
+                }
+                else
+                {
+                    uint crc;
+                    crc = CRC32.ComputeHash(ref stream, _elemSize);
+                    retVal = VARMAP_Safe.CheckSafeValue(_IDSecShadow, crc);
+                }
             }
             else
             {
-                uint crc;
-                crc = CRC32.ComputeHash(ref stream, _elemSize);
-                retVal = VARMAP_Safe.CheckSafeValue(_IDSec, crc);
+                if (VARMAP_Safe.IsSafeVariableCheckedInTick(_IDSec))
+                {
+                    retVal = true;
+                }
+                else
+                {
+                    uint crc;
+                    crc = CRC32.ComputeHash(ref stream, _elemSize);
+                    retVal = VARMAP_Safe.CheckSafeValue(_IDSec, crc);
+                }
             }
 
             return retVal;
+        }
+
+        public override void Commit()
+        {
+            if (_dirty)
+            {
+                if (CheckValue(true))
+                {
+                    base.Commit();
+                    SecureNewValue(false);
+                }
+            }
         }
     }
 
@@ -580,10 +761,12 @@ namespace Gob3AQ.VARMAP.Variable
     {
         protected Type _type;
         protected T _value;
+        protected T _shadowValue;
 
         protected VARMAP_Variable_ID _ID;
         protected bool _streamable;
         protected bool _isIStreamable;
+        protected bool _dirty;
         protected int _elemSize;
         protected VARMAPValueChangedEvent<T> _changedevents;
 
@@ -609,8 +792,10 @@ namespace Gob3AQ.VARMAP.Variable
 
             _isIStreamable = typeof(IStreamable).IsAssignableFrom(_type);
 
+            _dirty = false;
 
-            if(typeof(VARMAP_Variable_Indexable).IsAssignableFrom(_type))
+
+            if (typeof(VARMAP_Variable_Indexable).IsAssignableFrom(_type))
             {
                 throw new Exception("A VARMAP Variable cannot contain another VARMAP Variable");
             }
@@ -694,15 +879,13 @@ namespace Gob3AQ.VARMAP.Variable
             _changedevents = null;
         }
 
-        public override VARMAP_Variable_ID GetID() => _ID;
+        
         public override ref readonly T GetValue() => ref _value;
   
         public override void SetValue(in T newval)
         {
-            /* Trigger Changed Event (before updating Varmap value) */
-            _changedevents?.Invoke(ChangedEventType.CHANGED_EVENT_SET, in _value, in newval);
-
-            _value = newval;
+            _shadowValue = newval;
+            _dirty = true;
         }
 
 
@@ -739,10 +922,7 @@ namespace Gob3AQ.VARMAP.Variable
 
         public override void ParseFromBytes(ref ReadOnlySpan<byte> streamreader)
         {
-            T oldval = _value;
-            ParseFromBytesFunction(ref _value, ref streamreader);
-
-            _changedevents?.Invoke(ChangedEventType.CHANGED_EVENT_SET, in oldval, in _value);
+            ParseFromBytesFunction(ref _shadowValue, ref streamreader);
         }
 
         public override uint CalcCRC32()
@@ -781,7 +961,21 @@ namespace Gob3AQ.VARMAP.Variable
             throw new Exception("Not array VARMAP variable");
         }
 
+        public override void Commit()
+        {
+            if (_dirty)
+            {
+                /* Trigger Changed Event (before updating Varmap value) */
+                _changedevents?.Invoke(ChangedEventType.CHANGED_EVENT_SET, in _value, in _shadowValue);
+
+                _value = _shadowValue;
+            }
+
+            _dirty = false;
+        }
+
 #if UNITY_EDITOR
+        public override VARMAP_Variable_ID GetID() => _ID;
         public override string[] GetDebugValues()
         {
             string[] retVal = new string[1];

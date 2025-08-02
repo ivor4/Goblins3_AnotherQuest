@@ -8,6 +8,7 @@ using Gob3AQ.VARMAP.Initialization;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.VARMAP.Safe;
 using UnityEditor;
+using Gob3AQ.VARMAP;
 
 namespace Gob3AQ.GameMaster
 {
@@ -40,7 +41,11 @@ namespace Gob3AQ.GameMaster
 
         void Update()
         {
+            VARMAP_Safe.IncrementTick();
+            VARMAP_Initialization.CommitVARMAP();
+
             bool pausePressed;
+
             Game_Status gstatus = VARMAP_GameMaster.GET_GAMESTATUS();
             KeyStruct kstruct = VARMAP_GameMaster.GET_PRESSED_KEYS();
 
@@ -81,7 +86,7 @@ namespace Gob3AQ.GameMaster
                     break;
             }
 
-            VARMAP_Safe.IncrementTick();
+            
 
         }
 

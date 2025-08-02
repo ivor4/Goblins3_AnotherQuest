@@ -61,6 +61,18 @@ namespace Gob3AQ.VARMAP.Initialization
         }
 
         /// <summary>
+        /// Should be called at init/end of each cycle
+        /// </summary>
+        public static void CommitVARMAP()
+        {
+            for (int i = (int)VARMAP_Variable_ID.VARMAP_ID_NONE + 1; i < (int)VARMAP_Variable_ID.VARMAP_ID_TOTAL; i++)
+            {
+                VARMAP_Variable_Indexable indexable = DATA[i];
+                indexable.Commit();
+            }
+        }
+
+        /// <summary>
         /// Resets Events and VARMAP Data to defaults
         /// </summary>
         public static void ResetVARMAP()

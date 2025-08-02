@@ -43,18 +43,14 @@ namespace Gob3AQ.VARMAP.Safe
         public static void InitializeSafety()
         {
             FATALERROR = false;
-            int totalIds = (int)VARMAP_Config.VARMAP_SAFE_VARIABLES;
+            int totalIds = (int)VARMAP_Config.VARMAP_SAFE_SLOTS;
   
             Random.InitState(System.DateTime.Now.Millisecond);
 
             actualTick = (uint)Random.Range(1, int.MaxValue);
 
-            if ((VARMAP_Config.VARMAP_SAFE_RUBISH_BIN_SIZE & (VARMAP_Config.VARMAP_SAFE_RUBISH_BIN_SIZE - 1U)) != 0U)
-            {
-                throw new System.Exception("Total Bin size is not power of 2");
-            }
 
-            if (VARMAP_Config.VARMAP_SAFE_RUBISH_BIN_SIZE > (VARMAP_Config.VARMAP_SAFE_VARIABLES + 1))
+            if (VARMAP_Config.VARMAP_SAFE_RUBISH_BIN_SIZE > (VARMAP_Config.VARMAP_SAFE_SLOTS + 1))
             {
                 id_to_slot = new uint[totalIds];
                 id_checked_in_tick = new uint[totalIds];
@@ -76,7 +72,7 @@ namespace Gob3AQ.VARMAP.Safe
             }
             else
             {
-                throw new System.Exception("Configured Safe bin size is <= Safe variables + 1");
+                throw new System.Exception("Configured Safe bin size is <= (2 * Safe variables) + 1");
             }
 
 
@@ -90,7 +86,7 @@ namespace Gob3AQ.VARMAP.Safe
 
             if (id_to_slot.Length > 0)
             {
-                if (usedBinSlots < VARMAP_Config.VARMAP_SAFE_VARIABLES)
+                if (usedBinSlots < VARMAP_Config.VARMAP_SAFE_SLOTS)
                 {
                     uint randomnum = (uint)Random.Range(int.MinValue, int.MaxValue);
 

@@ -354,7 +354,7 @@ namespace Gob3AQ.LevelMaster
 
         private void UpdateMouseEvents()
         {
-            MousePropertiesStruct mouse = VARMAP_LevelMaster.GET_MOUSE_PROPERTIES();
+            ref readonly MousePropertiesStruct mouse = ref VARMAP_LevelMaster.GET_MOUSE_PROPERTIES();
 
             bool itemMenuActive = VARMAP_LevelMaster.GET_ITEM_MENU_ACTIVE();
 
@@ -367,7 +367,7 @@ namespace Gob3AQ.LevelMaster
             }
             else if(_playMouseArea.Contains(mouse.posPixels))
             {
-                UpdateCharItemMouseEvents(ref mouse);
+                UpdateCharItemMouseEvents(in mouse);
             }
             else
             {
@@ -376,7 +376,7 @@ namespace Gob3AQ.LevelMaster
           
         }
 
-        private void UpdateCharItemMouseEvents(ref MousePropertiesStruct mouse)
+        private void UpdateCharItemMouseEvents(in MousePropertiesStruct mouse)
         {
             InteractionType usageType;
             GameItem itemSource;
@@ -515,7 +515,7 @@ namespace Gob3AQ.LevelMaster
                 }
                 else if(playerSelected != CharacterType.CHARACTER_NONE)
                 {
-                    CheckPlayerMovementOrder(ref mouse, playerSelected);
+                    CheckPlayerMovementOrder(in mouse, playerSelected);
                 }
                 else
                 {
@@ -528,7 +528,7 @@ namespace Gob3AQ.LevelMaster
             }
         }
 
-        private void CheckPlayerMovementOrder(ref MousePropertiesStruct mouse, CharacterType selectedCharacter)
+        private void CheckPlayerMovementOrder(in MousePropertiesStruct mouse, CharacterType selectedCharacter)
         {
             GetNearestWPService(mouse.pos1, GameFixedConfig.DISTANCE_MOUSE_FURTHEST_WP, out WaypointClass candidate);
 
@@ -542,7 +542,7 @@ namespace Gob3AQ.LevelMaster
 
 
         #region "Events"
-        private void _OnGameStatusChanged(ChangedEventType evType, ref Game_Status oldval, ref Game_Status newval)
+        private void _OnGameStatusChanged(ChangedEventType evType, in Game_Status oldval, in Game_Status newval)
         {
             bool use;
             bool activate;

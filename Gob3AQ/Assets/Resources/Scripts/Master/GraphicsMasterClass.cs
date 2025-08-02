@@ -201,7 +201,7 @@ namespace Gob3AQ.GraphicsMaster
             mainCameraTransform.position = cameraNewPosition;
         }
 
-        private static void _OnPickedItemChanged(ChangedEventType evtype, ref GameItem oldval, ref GameItem newval)
+        private static void _OnPickedItemChanged(ChangedEventType evtype, in GameItem oldval, in GameItem newval)
         {
             _ = evtype;
 
@@ -218,7 +218,7 @@ namespace Gob3AQ.GraphicsMaster
             }
         }
 
-        private void _GameStatusChanged(ChangedEventType evtype, ref Game_Status oldval, ref Game_Status newval)
+        private void _GameStatusChanged(ChangedEventType evtype, in Game_Status oldval, in Game_Status newval)
         {
             if(newval == Game_Status.GAME_STATUS_PAUSE)
             {

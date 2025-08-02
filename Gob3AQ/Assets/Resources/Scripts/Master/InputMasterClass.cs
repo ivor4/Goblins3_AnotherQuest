@@ -130,7 +130,7 @@ namespace Gob3AQ.InputMaster
             return count;
         }
 
-        private static void _GameOptionsChanged(ChangedEventType evtype, ref GameOptionsStruct oldval, ref GameOptionsStruct newval)
+        private static void _GameOptionsChanged(ChangedEventType evtype, in GameOptionsStruct oldval, in GameOptionsStruct newval)
         {
             if (evtype == ChangedEventType.CHANGED_EVENT_SET)
             {

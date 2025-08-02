@@ -366,7 +366,7 @@ namespace Gob3AQ.GameElement.PlayableChar
 
 
         #region "Events"
-        private void ChangedSelectedPlayerEvent(ChangedEventType eventType, ref CharacterType oldval, ref CharacterType newval)
+        private void ChangedSelectedPlayerEvent(ChangedEventType eventType, in CharacterType oldval, in CharacterType newval)
         {
             if(newval == charType)
             {

@@ -47,15 +47,15 @@ namespace Gob3AQ.VARMAP.Variable
 
         
 
-        public abstract T GetValue();
-        public abstract void SetValue(T newvalue);
+        public abstract ref readonly T GetValue();
+        public abstract void SetValue(in T newvalue);
         public abstract ReadOnlySpan<T> GetListCopy();
         public abstract void SetListValues(List<T> newList);
         public abstract int GetListSize();
-        public abstract void SetListElem(int pos, T newvalue);
-        public abstract T GetListElem(int pos);
+        public abstract void SetListElem(int pos, in T newvalue);
+        public abstract ref readonly T GetListElem(int pos);
 
-        public abstract void InitializeListElems(T defaultValue);
+        public abstract void InitializeListElems(in T defaultValue);
         public abstract void RegisterChangeEvent(VARMAPValueChangedEvent<T> callback);
         public abstract void UnregisterChangeEvent(VARMAPValueChangedEvent<T> callback);
     }
@@ -137,17 +137,16 @@ namespace Gob3AQ.VARMAP.Variable
             return retVal;
         }
 
-        public override T GetListElem(int pos)
+        public override ref readonly T GetListElem(int pos)
         {
-            T newVal = base.GetListElem(pos);
             if(!CheckValue())
             {
-                newVal = default;
+                base.SetListElem(pos, default);
             }
-            return newVal;
+            return ref base.GetListElem(pos);
         }
 
-        public override void SetListElem(int pos, T newvalue)
+        public override void SetListElem(int pos, in T newvalue)
         {
             base.SetListElem(pos, newvalue);
             SecureNewValue();
@@ -171,7 +170,7 @@ namespace Gob3AQ.VARMAP.Variable
             SecureNewValue();
         }
 
-        public override void InitializeListElems(T defaultValue)
+        public override void InitializeListElems(in T defaultValue)
         {
             base.InitializeListElems(defaultValue);
             SecureNewValue();
@@ -325,11 +324,11 @@ namespace Gob3AQ.VARMAP.Variable
         }
 
         public override VARMAP_Variable_ID GetID() => _ID;
-        public override T GetValue()
+        public override ref readonly T GetValue()
         {
             throw new Exception("Not single element VARMAP Variable");
         }
-        public override void SetValue(T newval)
+        public override void SetValue(in T newval)
         {
             throw new Exception("Not single element VARMAP Variable");
         }
@@ -364,17 +363,12 @@ namespace Gob3AQ.VARMAP.Variable
             return _elems;
         }
 
-        public override void SetListElem(int pos, T newvalue)
+        public override void SetListElem(int pos, in T newvalue)
         {
             if((pos >= 0) && (pos < _elems))
             {
-                T oldval = _values[pos];
-
+                _changedevents?.Invoke(ChangedEventType.CHANGED_EVENT_SET_LIST_ELEM, in _values[pos], in newvalue);
                 _values[pos] = newvalue;
-
-                T newval = _values[pos];
-
-                _changedevents?.Invoke(ChangedEventType.CHANGED_EVENT_SET_LIST_ELEM, ref oldval, ref newval);
             }
             else
             {
@@ -382,11 +376,11 @@ namespace Gob3AQ.VARMAP.Variable
             }
         }
 
-        public override T GetListElem(int pos)
+        public override ref readonly T GetListElem(int pos)
         {
             if((pos >= 0) && (pos < _elems))
             {
-                return _values[pos];
+                return ref _values[pos];
             }
             else
             {
@@ -401,9 +395,7 @@ namespace Gob3AQ.VARMAP.Variable
             for (int i = 0; i < _elems; i++)
             {
                 Span<byte> tempspan = writeZone.WriteNext(_elemSize);
-                T _exchange = _values[i];
-                ParseToBytesFunction(in _exchange, ref tempspan);
-                _values[i] = _exchange;
+                ParseToBytesFunction(in _values[i], ref tempspan);
             }
         }
 
@@ -448,10 +440,10 @@ namespace Gob3AQ.VARMAP.Variable
             newList.CopyTo(0, _values, 0, _elems);
             
             T defval = default;
-            _changedevents?.Invoke(ChangedEventType.CHANGED_EVENT_SET, ref defval, ref defval);
+            _changedevents?.Invoke(ChangedEventType.CHANGED_EVENT_SET, in defval, in defval);
         }
 
-        public override void InitializeListElems(T defaultValue)
+        public override void InitializeListElems(in T defaultValue)
         {
             for(int i=0;i<_elems;i++)
             {
@@ -494,21 +486,19 @@ namespace Gob3AQ.VARMAP.Variable
             return secid;
         }
 
-        public override T GetValue()
+        public override ref readonly T GetValue()
         {
-            T baseValue = _value;
-
             if(!CheckValue())
             {
-                baseValue = default(T);
+                _value = default(T);
             }
 
-            return baseValue;
+            return ref _value;
         }
 
-        public override void SetValue(T newval)
+        public override void SetValue(in T newval)
         {
-            base.SetValue(newval);
+            base.SetValue(in newval);
 
             SecureNewValue();
         }
@@ -705,18 +695,14 @@ namespace Gob3AQ.VARMAP.Variable
         }
 
         public override VARMAP_Variable_ID GetID() => _ID;
-        public override T GetValue() => _value;
-        public override void SetValue(T newval)
+        public override ref readonly T GetValue() => ref _value;
+  
+        public override void SetValue(in T newval)
         {
-            /* Keep track of old and new values for event */
-            T oldvalT = _value;
+            /* Trigger Changed Event (before updating Varmap value) */
+            _changedevents?.Invoke(ChangedEventType.CHANGED_EVENT_SET, in _value, in newval);
 
             _value = newval;
-
-            T newvalT = _value;
-
-            /* Trigger Changed Event */
-            _changedevents?.Invoke(ChangedEventType.CHANGED_EVENT_SET, ref oldvalT, ref newvalT);
         }
 
 
@@ -755,9 +741,8 @@ namespace Gob3AQ.VARMAP.Variable
         {
             T oldval = _value;
             ParseFromBytesFunction(ref _value, ref streamreader);
-            T newval = _value;
 
-            _changedevents?.Invoke(ChangedEventType.CHANGED_EVENT_SET, ref oldval, ref newval);
+            _changedevents?.Invoke(ChangedEventType.CHANGED_EVENT_SET, in oldval, in _value);
         }
 
         public override uint CalcCRC32()
@@ -781,17 +766,17 @@ namespace Gob3AQ.VARMAP.Variable
             throw new Exception("Not array VARMAP variable");
         }
 
-        public override void SetListElem(int pos, T newvalue)
+        public override void SetListElem(int pos, in T newvalue)
         {
             throw new Exception("Not array VARMAP variable");
         }
 
-        public override T GetListElem(int pos)
+        public override ref readonly T GetListElem(int pos)
         {
             throw new Exception("Not array VARMAP variable");
         }
 
-        public override void InitializeListElems(T defaultValue)
+        public override void InitializeListElems(in T defaultValue)
         {
             throw new Exception("Not array VARMAP variable");
         }

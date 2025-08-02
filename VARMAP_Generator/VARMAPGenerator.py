@@ -490,8 +490,6 @@ enum_lines.InsertLineInATG(1, "VARMAP_ID_TOTAL\n")
 print('\n\n------SERVICES-------\n\n')
 linecount = -1
 
-ServiceVars = []
-SrvModules = []
 for line in SERVICESinputFile:
     ServiceVar = {}
     linecount += 1
@@ -504,7 +502,6 @@ for line in SERVICESinputFile:
     print(columns)
 
     if(linecount == 0):
-        SrvModules = columns[SERVICE_MODULES_START_COLUMN:len(columns)]
         continue
 
     ServiceVar["name"] = columns[1]
@@ -527,9 +524,9 @@ for line in SERVICESinputFile:
     _perms = columns[SERVICE_MODULES_START_COLUMN:len(columns)]
     for i in range(0,len(_perms)):
         if(_perms[i] == 'X'):
-            _str_accessors += SrvModules[i] + ", "
+            _str_accessors += Modules[i] + ", "
         elif(_perms[i] == 'W'):
-            _str_owner =  SrvModules[i]
+            _str_owner =  Modules[i]
     
     stringToWrite = "/// <para> Owner: " + _str_owner + " </para> \n"
     proto_lines.InsertLineInATG(2, stringToWrite)

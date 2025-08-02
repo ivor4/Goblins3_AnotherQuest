@@ -234,7 +234,7 @@ namespace Gob3AQ.GameMenu
         }
 
 
-        private static void _OnItemOwnerChanged(ChangedEventType evtype, ref CharacterType oldVal, ref CharacterType newVal)
+        private static void _OnItemOwnerChanged(ChangedEventType evtype, in CharacterType oldVal, in CharacterType newVal)
         {
             _ = evtype;
             _ = oldVal;

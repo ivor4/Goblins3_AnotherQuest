@@ -10,12 +10,12 @@ using Gob3AQ.Waypoint;
 
 namespace Gob3AQ.VARMAP.Types
 {
-    public delegate void VARMAPValueChangedEvent<T>(ChangedEventType eventType, ref T oldval, ref T newval);
-    public delegate T GetVARMAPValueDelegate<T>();
-    public delegate void SetVARMAPValueDelegate<T>(T newValue);
+    public delegate void VARMAPValueChangedEvent<T>(ChangedEventType eventType, in T oldval, in T newval);
+    public delegate ref readonly T GetVARMAPValueDelegate<T>();
+    public delegate void SetVARMAPValueDelegate<T>(in T newValue);
     public delegate void ReUnRegisterVARMAPValueChangeEventDelegate<T>(VARMAPValueChangedEvent<T> callback);
-    public delegate T GetVARMAPArrayElemValueDelegate<T>(int pos);
-    public delegate void SetVARMAPArrayElemValueDelegate<T>(int pos, T newval);
+    public delegate ref readonly T GetVARMAPArrayElemValueDelegate<T>(int pos);
+    public delegate void SetVARMAPArrayElemValueDelegate<T>(int pos, in T newval);
     public delegate int GetVARMAPArraySizeDelegate();
     public delegate ReadOnlySpan<T> GetVARMAPArrayDelegate<T>();
     public delegate void SetVARMAPArrayDelegate<T>(List<T> newvals);

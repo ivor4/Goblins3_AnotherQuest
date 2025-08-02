@@ -1,5 +1,11 @@
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.VARMAP.Types.Delegates;
+using Gob3AQ.GameMaster;
+using Gob3AQ.LevelMaster;
+using Gob3AQ.PlayerMaster;
+using Gob3AQ.NPCMaster;
+using Gob3AQ.ItemMaster;
+using Gob3AQ.GameEventMaster;
 
 
 namespace Gob3AQ.VARMAP.GameMaster

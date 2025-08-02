@@ -53,7 +53,7 @@ namespace Gob3AQ.GameEventMaster
         {
             int evIndex = (int)item;
 
-            BufferedEvent newEv = new BufferedEvent(evIndex, true);
+            BufferedEvent newEv = new(evIndex, true);
 
             _bufferedEvents.Add(newEv);
         }

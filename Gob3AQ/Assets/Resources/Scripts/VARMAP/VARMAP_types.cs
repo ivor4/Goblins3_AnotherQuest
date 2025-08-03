@@ -69,15 +69,7 @@ namespace Gob3AQ.VARMAP.Types
         GAME_STATUS_LOADING
     }
 
-    public enum ItemInteractionType
-    {
-        INTERACTION_NONE,
-        INTERACTION_TAKE,
-        INTERACTION_USE,
-        INTERACTION_RECEIVE,
-        INTERACTION_TAKE_AND_RECEIVE
-    }
-
+    
     
 
  
@@ -103,26 +95,44 @@ namespace Gob3AQ.VARMAP.Types
         EVENT_TOTAL
     }
 
-    public enum CharacterAnimation
+    public readonly struct ItemConditions
     {
-        ITEM_USE_ANIMATION_NONE,
+        public readonly GameEvent eventType;
+        public readonly CharacterAnimation animationOK;
+        public readonly CharacterAnimation animationNOK_Event;
+        public readonly DialogType dialogOK;
+        public readonly DialogType dialogNOK_Event;
 
-        ITEM_USE_ANIMATION_NORMAL,
-        ITEM_USE_ANIMATION_TAKE,
-        ITEM_USE_ANIMATION_POUR
+        public ItemConditions(GameEvent eventType, CharacterAnimation animationOK,
+            CharacterAnimation animationNOK_Event,
+            DialogType dialogOK, DialogType dialogNOK_Event)
+        {
+            this.eventType = eventType;
+            this.animationOK = animationOK;
+            this.animationNOK_Event = animationNOK_Event;
+            this.dialogOK = dialogOK;
+            this.dialogNOK_Event = dialogNOK_Event;
+        }
     }
+
+
 
     public readonly struct ItemInteractionInfo
     {
-        public readonly ItemInteractionType type;
-        public readonly CharacterAnimation useAnimation;
-        public readonly GameEvent linkedEvent;
+        public readonly CharacterType srcChar;
+        public readonly ItemInteractionType interaction;
+        public readonly GameItem srcItem;
+        public readonly ItemConditionsType conditions;
+        public readonly GameEvent outEvent;
 
-        public ItemInteractionInfo(ItemInteractionType type, CharacterAnimation useAnimation, GameEvent linkedEvent)
+        public ItemInteractionInfo(CharacterType srcChar, ItemInteractionType interaction,
+            GameItem srcItem, ItemConditionsType conditions, GameEvent outEvent)
         {
-            this.type = type;
-            this.useAnimation = useAnimation;
-            this.linkedEvent = linkedEvent;
+            this.srcChar = srcChar;
+            this.interaction = interaction;
+            this.srcItem = srcItem;
+            this.conditions = conditions;
+            this.outEvent = outEvent;
         }
     }
 

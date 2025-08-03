@@ -15,11 +15,14 @@ delegateupdate_path = atg_path+"VARMAP_UpdateDelegates.cs"
 savedata_path = atg_path+"VARMAP_savedata.cs"
 
 #This is Custom part
+characters_types_path = atg_path + "VARMAP_types_chars.cs"
+dialog_types_path = atg_path + "VARMAP_types_dialogs.cs"
 items_types_path = atg_path + "VARMAP_types_items.cs"
 items_interaction_path = atg_path + "../Static/ItemsInteractionsClass.cs"
 
 MODULES_START_COLUMN = 8
 SERVICE_MODULES_START_COLUMN = 6
+ITEMS_ACTION_START_COLUMN = 5
 
 #ATG Class Definition
 class ATGFile:
@@ -94,7 +97,9 @@ defaultvalues_lines = ATGFile(defaultvalues_path, 1)
 enum_lines = ATGFile(enum_path, 1)
 delegateupdate_lines = ATGFile(delegateupdate_path, 2)
 savedata_lines = ATGFile(savedata_path, 1)
-items_types_lines = ATGFile(items_types_path, 2)
+characters_lines = ATGFile(characters_types_path, 3)
+dialogs_types_lines = ATGFile(dialog_types_path, 1)
+items_types_lines = ATGFile(items_types_path, 3)
 items_interaction_lines = ATGFile(items_interaction_path, 4)
 
 added_savedata_lines = 0
@@ -107,15 +112,12 @@ enumPrefix = "VARMAP_ID_"
 VARMAPinputFile = open("VARMAP.csv", "r")
 SERVICESinputFile = open("SERVICES.csv", "r")
 ITEMSinputFile = open("ITEMS.csv", "r")
-
+ITEMSCONDSinputFile = open("ITEMS_CONDS.csv", "r")
+CHARSinputFile = open("CHARACTERS.csv", "r")
+DIALOGSinputFile = open("DIALOGS.csv", "r")
 
 VARMAPPermissionFile = []
 
-#ENUM PRE-VALUES
-enum_lines.InsertLineInATG(1, "VARMAP_ID_NONE,\n")
-
-#INITIALIZATION PRE-VALUES
-initialization_lines.InsertLineInATG(1, "DATA[(int)VARMAP_Variable_ID.VARMAP_ID_NONE] = null;\n")
 
 
 VARMAPVars = []
@@ -641,112 +643,216 @@ for line in SERVICESinputFile:
         exit()
         
 
-if(False):
-    print('\n\n------ITEMS (Custom GOB3) -------\n\n')
+print('\n\n------DIALOGS (Custom GOB3) -------\n\n')
+linecount = -1
+zone = 1
+for line in DIALOGSinputFile:
+    linecount += 1
     
-    CHARACTERS = ['MAIN','PARROT','SNAKE']
+    line = line.replace('\n','')
+    line = line.replace('\r','')
     
-    totalcharacters = len(CHARACTERS)
     
-    pickable_prefix = 'GamePickableItem.'
-    interaction_prefix = 'ItemInteractionType.'
-    animation_prefix = 'CharacterAnimation.'
-    event_prefix = 'GameEvent.'
+    columns = line.split(',')
+    print(columns)
+
+    if(linecount == 0):
+        continue
     
-    items_types_lines.InsertLineInATG(1, "ITEM_NONE = -1,\n\n")
-    items_types_lines.InsertLineInATG(2, "ITEM_PICK_NONE = -1,\n\n")
+    stringToWrite = columns[1]
+    if('NONE' in columns[1]):
+        stringToWrite += ' = -1'
+    stringToWrite += ', \n'
+    dialogs_types_lines.InsertLineInATG(1, stringToWrite)
     
-    linecount = -1
-    Items = []
-    for line in ITEMSinputFile:
-        ItemVar = {}
-        linecount += 1
-        
-        line = line.replace('\n','')
-        line = line.replace('\r','')
-        
-        columns = line.split(',')
-        print(columns)
+stringToWrite = '\n'
+dialogs_types_lines.InsertLineInATG(1, stringToWrite)
+stringToWrite = 'DIALOG_TOTAL \n'
+dialogs_types_lines.InsertLineInATG(1, stringToWrite)
     
-        if(linecount == 0):
-            continue
-        
-        ItemVar["name"] = columns[1]
-        ItemVar["pickable"] = int(columns[2])
-        ItemVar["disposable"] = int(columns[3])
-        
-        if(ItemVar["name"] == 'ITEM_LAST'):
-            continue
-        
-        ItemVar["c2i"] = []
-        for ch in range(0,totalcharacters):
-            c2iVar = {}
-            c2iVar["use"] = columns[5+(ch*3)]
-            c2iVar["anim"] = columns[5+(ch*3)+1]
-            c2iVar["event"] = columns[5+(ch*3)+2]
-            ItemVar["c2i"].append(c2iVar)
-        
+
+print('\n\n------CHARS (Custom GOB3) -------\n\n')
+linecount = -1
+zone = 1
+for line in CHARSinputFile:
+    linecount += 1
     
-        ItemVar["i2i_matrix"] = columns[(6 + totalcharacters*3):]
+    line = line.replace('\n','')
+    line = line.replace('\r','')
+    
+    
+    columns = line.split(',')
+    print(columns)
+
+    if(linecount == 0):
+        continue
+    
+    if(columns[0] == ''):
+        stringToWrite = '\n'
+        characters_lines.InsertLineInATG(zone, stringToWrite)
+        if(zone == 1):
+            stringToWrite = 'CHARACTER_TOTAL\n'
+        elif(zone == 2):
+            stringToWrite = 'ITEM_USE_ANIMATION_TOTAL\n'
+        characters_lines.InsertLineInATG(zone, stringToWrite)
         
-        items_types_lines.InsertLineInATG(1, ItemVar["name"]+",\n")
+        zone +=1
+        linecount = -1
+        continue
+    
+    stringToWrite = columns[1]
+    if('NONE' in columns[1]):
+        stringToWrite += ' = -1'
+    stringToWrite += ', \n'
+    characters_lines.InsertLineInATG(zone, stringToWrite)
+    
+stringToWrite = '\n'
+characters_lines.InsertLineInATG(3, stringToWrite)
+stringToWrite = 'INTERACTION_TOTAL\n'
+characters_lines.InsertLineInATG(3, stringToWrite)
+    
+   
+print('\n\n------ITEMS CONDITIONS (Custom GOB3) -------\n\n')
+
+character_prefix = 'CharacterType.'
+pickable_prefix = 'GamePickableItem.'
+interaction_prefix = 'ItemInteractionType.'
+animation_prefix = 'CharacterAnimation.'
+event_prefix = 'GameEvent.'
+condition_prefix = 'ItemConditions.'
+conditiontype_prefix = 'ItemConditionsType.'
+dialog_prefix = 'DialogType.'
+item_prefix = 'GameItem.'
+
+linecount = -1
+for line in ITEMSCONDSinputFile:
+    ItemVar = {}
+    linecount += 1
+    
+    line = line.replace('\n','')
+    line = line.replace('\r','')
+    
+    columns : list[str] = line.split(',')
+    print(columns)
+
+    if(linecount == 0):
+        continue 
+    
+    ItemVar["name"] = str(columns[1])
+    ItemVar["event"] = str(columns[2])
+    ItemVar["animationOK"] = str(columns[3])
+    ItemVar["animationNOK_event"] = str(columns[4])
+    ItemVar["dialogOK"] = str(columns[5])
+    ItemVar["dialogNOK_event"] = str(columns[6])
+    
+    # Write in item enum
+    stringToWrite = ItemVar["name"]
+    stringToWrite += ', \n'
+    
+    items_types_lines.InsertLineInATG(3, stringToWrite)
+    
+    # Write in conditions struct
+    stringToWrite = "new("+event_prefix+ItemVar["event"]+","+\
+        animation_prefix+ItemVar["animationOK"]+","+\
+        animation_prefix+ItemVar["animationNOK_event"]+",\n"
+    items_interaction_lines.InsertLineInATG(1, stringToWrite)
+    stringToWrite = dialog_prefix+ItemVar["dialogOK"]+","+\
+        dialog_prefix+ItemVar["dialogNOK_event"]+"), /* "+\
+        ItemVar["name"]+" */\n"
+    items_interaction_lines.InsertLineInATG(1, stringToWrite)
+    
+stringToWrite = '\n'
+items_types_lines.InsertLineInATG(3, stringToWrite)
+stringToWrite = 'COND_TOTAL\n'
+items_types_lines.InsertLineInATG(3, stringToWrite)
+
+
+
+print('\n\n------ITEMS (Custom GOB3) -------\n\n')
+
+
+
+linecount = -1
+for line in ITEMSinputFile:
+    ItemVar = {}
+    linecount += 1
+    
+    line = line.replace('\n','')
+    line = line.replace('\r','')
+    
+    columns : list[str] = line.split(',')
+    print(columns)
+
+    if(linecount == 0):
+        continue
+    
+    ItemVar["name"] = columns[1]
+    ItemVar["pickable"] = 'true' in columns[2].lower()
+    ItemVar["disposable"] = columns[3].lower()
+    ItemVar["actioncount"] = int(columns[4])
+    ItemActions = []
+    ItemVar["actions"] = ItemActions
+    
+    
+    # Write in item enum
+    stringToWrite = ItemVar["name"]
+    if('NONE' in ItemVar["name"]):
+        stringToWrite += ' = -1'
+    stringToWrite += ', \n'
+    
+    items_types_lines.InsertLineInATG(1, stringToWrite)
+    
+    if(ItemVar["pickable"]):
+        pickname = ItemVar["name"].replace('ITEM_', 'ITEM_PICK_')
+        stringToWrite = pickname
+        if('NONE' in ItemVar["name"]):
+            stringToWrite += ' = -1'
+        stringToWrite += ', \n'
+        items_types_lines.InsertLineInATG(2, stringToWrite)
         
-        if(ItemVar["pickable"] == 1):
-            pickablename = ItemVar["name"].replace('ITEM_','ITEM_PICK_')
-            items_types_lines.InsertLineInATG(2, pickablename +",\n")
-            items_interaction_lines.InsertLineInATG(1, pickable_prefix + pickablename + ',\t\t/* ' + ItemVar["name"] + ' */ \n')
+        if('NONE' not in ItemVar["name"]):
+            items_interaction_lines.InsertLineInATG(2, pickable_prefix+pickname+', /* '+\
+               ItemVar["name"] + ' */\n')
+            items_interaction_lines.InsertLineInATG(3, ItemVar["disposable"]+', /* '+\
+               pickname + ' */\n')
+    else:
+        if('NONE' not in ItemVar["name"]):
+            stringToWrite = pickable_prefix+'ITEM_PICK_NONE, /* '+ItemVar["name"]+' */\n'
+            items_interaction_lines.InsertLineInATG(2, stringToWrite)
             
-            if(ItemVar["disposable"] == 1):
-                boolstr = 'true'
-            else:
-                boolstr = 'false'
-            
-            items_interaction_lines.InsertLineInATG(2, boolstr + ',\t\t/* ' + pickablename + ' */ \n')
-            
-        else:
-            items_interaction_lines.InsertLineInATG(1, pickable_prefix + 'ITEM_PICK_NONE' + ',\t\t/* ' + ItemVar["name"] + ' */ \n')
+    if('NONE' not in ItemVar["name"]):
+        stringToWrite = 'new ItemInteractionInfo['+str(ItemVar["actioncount"])+'] \n'
+        items_interaction_lines.InsertLineInATG(4, stringToWrite)
+        stringToWrite = '{ /* '+ItemVar["name"]+' */\n'
+        items_interaction_lines.InsertLineInATG(4, stringToWrite)
         
-        Items.append(ItemVar)
+        for i in range(0, ItemVar["actioncount"]):
+            ItemAction = {}
+            ItemActions.append(ItemAction)
+            ItemAction["active"] = str(columns[ITEMS_ACTION_START_COLUMN + 0 + (i*6)])
+            ItemAction["srcChar"] = str(columns[ITEMS_ACTION_START_COLUMN + 1 + (i*6)])
+            ItemAction["action"] = str(columns[ITEMS_ACTION_START_COLUMN + 2 + (i*6)])
+            ItemAction["srcItem"] = str(columns[ITEMS_ACTION_START_COLUMN + 3 + (i*6)])
+            ItemAction["condition"] = str(columns[ITEMS_ACTION_START_COLUMN + 4 + (i*6)])
+            ItemAction["outEvent"] = str(columns[ITEMS_ACTION_START_COLUMN + 5 + (i*6)])
+            
+            stringToWrite = 'new('+character_prefix+ItemAction["srcChar"]+','+\
+                interaction_prefix + ItemAction["action"]+','+item_prefix+ItemAction["srcItem"]+','+\
+                conditiontype_prefix + ItemAction["condition"]+','+event_prefix+ItemAction["outEvent"]+'),\n'
+            items_interaction_lines.InsertLineInATG(4, stringToWrite)
+            
+        stringToWrite = '}, \n'
+        items_interaction_lines.InsertLineInATG(4, stringToWrite)
         
-    # Now total items are known, matrix can be explored
-    totalitems = len(Items)
+
     
-    #Character to Item (c2i matrix)
-    for ch in range(0,totalcharacters):    
-        items_interaction_lines.InsertLineInATG(3, '/* CHARACTER_' + CHARACTERS[ch] + ' */\n')
-        items_interaction_lines.InsertLineInATG(3, '{\n')
-        
-        #Iterate through items
-        for it in range(0, totalitems):
-            #Player with item interaction (c2i)
-            c2iVar = Items[it]["c2i"][ch]
-                    
-            items_interaction_lines.InsertLineInATG(3, '\tnew(' + interaction_prefix + c2iVar["use"] + ', ' + animation_prefix + c2iVar["anim"] + ',\n')
-            items_interaction_lines.InsertLineInATG(3, '\t' + event_prefix + c2iVar["event"] + '),\t/* ' + Items[it]["name"] + ' */ \n')
-            
-        items_interaction_lines.InsertLineInATG(3, '},\n')
     
-    #Item to Item (i2i matrix)
-    for it_src in range(0, totalitems):
-        ItemVar = Items[it_src]
-        i2iVar = ItemVar["i2i_matrix"]
-        
-        items_interaction_lines.InsertLineInATG(4, '/* ' + ItemVar["name"] + ' */\n')
-        items_interaction_lines.InsertLineInATG(4, '{\n')
-        
-        for it_dst in range(0, totalitems):      
-            items_interaction_lines.InsertLineInATG(4, '\tnew(' + interaction_prefix + i2iVar[it_dst*3] + ', ' + 
-                    animation_prefix + i2iVar[it_dst*3 + 1] + ',\n')
-            items_interaction_lines.InsertLineInATG(4, '\t' + event_prefix + i2iVar[it_dst*3 + 2] + '),\t/* ' + Items[it_dst]["name"] + ' */\n')
-        
-        items_interaction_lines.InsertLineInATG(4, '},\n')
-        
-        
-        
-    items_types_lines.InsertLineInATG(1, "\n")
-    items_types_lines.InsertLineInATG(1, "ITEM_TOTAL\n")
-    items_types_lines.InsertLineInATG(2, "\n")
-    items_types_lines.InsertLineInATG(2, "ITEM_PICK_TOTAL\n")
+    
+    
+items_types_lines.InsertLineInATG(1, "\n")
+items_types_lines.InsertLineInATG(1, "ITEM_TOTAL\n")
+items_types_lines.InsertLineInATG(2, "\n")
+items_types_lines.InsertLineInATG(2, "ITEM_PICK_TOTAL\n")
     
 
 print('\n\n------ SAVE ATG FILES -------\n\n')
@@ -764,6 +870,8 @@ delegateupdate_lines.SaveFile()
 savedata_lines.SaveFile()
 
 #Custom classes
+characters_lines.SaveFile()
+dialogs_types_lines.SaveFile()
 items_types_lines.SaveFile()
 items_interaction_lines.SaveFile()
 

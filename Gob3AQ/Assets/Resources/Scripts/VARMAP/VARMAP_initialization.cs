@@ -65,7 +65,7 @@ namespace Gob3AQ.VARMAP.Initialization
         /// </summary>
         public static void CommitVARMAP()
         {
-            for (int i = (int)VARMAP_Variable_ID.VARMAP_ID_NONE + 1; i < (int)VARMAP_Variable_ID.VARMAP_ID_TOTAL; i++)
+            for (int i = 0; i < (int)VARMAP_Variable_ID.VARMAP_ID_TOTAL; i++)
             {
                 VARMAP_Variable_Indexable indexable = DATA[i];
                 indexable.Commit();
@@ -169,7 +169,7 @@ namespace Gob3AQ.VARMAP.Initialization
 
         private static void ClearVARMAPChangeEvents()
         {
-            for (int i = (int)VARMAP_Variable_ID.VARMAP_ID_NONE+1; i < (int)VARMAP_Variable_ID.VARMAP_ID_TOTAL; i++)
+            for (int i = 0; i < (int)VARMAP_Variable_ID.VARMAP_ID_TOTAL; i++)
             {
                 DATA[i].ClearChangeEvent();
             }

@@ -11,18 +11,6 @@ namespace Gob3AQ.GameEventMaster
     
     public class GameEventMasterClass : MonoBehaviour
     {
-        private readonly struct BufferedEvent
-        {
-            public readonly int evIndex;
-            public readonly bool active;
-
-            public BufferedEvent(int evIndex, bool active)
-            {
-                this.evIndex = evIndex;
-                this.active = active;
-            }
-        }
-
         private static GameEventMasterClass _singleton;
         private static EVENT_SUBSCRIPTION_CALL_DELEGATE[] _event_subscription;
 

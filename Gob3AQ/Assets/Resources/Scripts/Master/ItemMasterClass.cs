@@ -73,34 +73,50 @@ namespace Gob3AQ.ItemMaster
             }
         }
 
+        /// <summary>
+        /// Determines whether a specific item interaction is permitted based on the provided interaction type and usage
+        /// context.
+        /// </summary>
+        /// <remarks>This method evaluates the interaction based on predefined conditions, including the
+        /// source and destination items,  the initiating player, and any associated game events. If the interaction is
+        /// permitted, it may trigger additional  events and return the appropriate animation for the
+        /// interaction.</remarks>
+        /// <param name="interactionType">The type of interaction being attempted, such as use, equip, or inspect.</param>
+        /// <param name="usage">The context of the interaction, including the source and destination items and the player initiating the
+        /// interaction.</param>
+        /// <param name="permitted">When the method returns, contains the permitted interaction type if the interaction is allowed; otherwise, 
+        /// <see cref="ItemInteractionType.INTERACTION_NONE"/>.</param>
+        /// <param name="animation">When the method returns, contains the animation to be played for the interaction if it is allowed;
+        /// otherwise,  contains the animation to be played for a failed interaction.</param>
+        /// <returns><see langword="true"/> if the interaction is permitted and consumes the item; otherwise, <see
+        /// langword="false"/>.</returns>
         private static bool ItemInteractionCommon(ItemInteractionType interactionType,
             in InteractionUsage usage, out ItemInteractionType permitted, out CharacterAnimation animation)
         {
-            bool isOK;
+            bool consumeItem;
             ReadOnlySpan<ItemInteractionInfo> infoArray = ItemsInteractionsClass.GetItemInteractions(usage.itemDest);
 
             /* If item is not defined, it is not possible to process it */
             permitted = ItemInteractionType.INTERACTION_NONE;
             animation = CharacterAnimation.ITEM_USE_ANIMATION_NONE;
-            isOK = false;
+            consumeItem = false;
 
             for (int i = 0; i < infoArray.Length; i++)
             {
                 ref readonly ItemInteractionInfo interactionInfo = ref infoArray[i];
-
-                if ((usage.playerSource == interactionInfo.srcChar) && (interactionInfo.interaction == interactionType))
+                
+                /* Validation if, check if interaction slot is the one which fits actual conditions */
+                if ((usage.playerSource == interactionInfo.srcChar) && (interactionInfo.interaction == interactionType) &&
+                    ((interactionType != ItemInteractionType.INTERACTION_USE) || (usage.itemSource == interactionInfo.srcItem)))
                 {
                     ref readonly ItemConditions conditions = ref ItemsInteractionsClass.ITEM_CONDITIONS[(int)interactionInfo.conditions];
 
-                    bool occurred;
+                    bool occurred = true;
 
                     if (conditions.eventType != GameEvent.EVENT_NONE)
                     {
-                        VARMAP_ItemMaster.IS_EVENT_OCCURRED(conditions.eventType, out occurred);
-                    }
-                    else
-                    {
-                        occurred = true;
+                        VARMAP_ItemMaster.IS_EVENT_OCCURRED(conditions.eventType, out bool evOccurred);
+                        occurred &= evOccurred;
                     }
 
                     if (occurred)
@@ -116,7 +132,7 @@ namespace Gob3AQ.ItemMaster
 
                         /* Dialog OK */
 
-                        isOK = true;
+                        consumeItem = interactionInfo.consumes;
                     }
                     else
                     {
@@ -129,7 +145,7 @@ namespace Gob3AQ.ItemMaster
                 }
             }
 
-            return isOK;
+            return consumeItem;
         }
 
 
@@ -140,9 +156,9 @@ namespace Gob3AQ.ItemMaster
         /// <param name="character">Character who took the item</param>
         private static void TakePickableItem(in InteractionUsage usage, out ItemInteractionType permitted, out CharacterAnimation animation)
         {
-            bool isOk = ItemInteractionCommon(ItemInteractionType.INTERACTION_TAKE, in usage, out permitted, out animation);
+            bool consumeItem = ItemInteractionCommon(ItemInteractionType.INTERACTION_TAKE, in usage, out permitted, out animation);
 
-            if (isOk)
+            if (consumeItem)
             {
                 /* If interaction is take, remove item from scenario and trigger events, also add it to inventory */
                 GamePickableItem pickable = ItemsInteractionsClass.ITEM_TO_PICKABLE[(int)usage.itemDest];
@@ -158,9 +174,9 @@ namespace Gob3AQ.ItemMaster
 
         private static void UseItemWithItem(in InteractionUsage usage, out ItemInteractionType permitted, out CharacterAnimation animation)
         {
-            bool isOk = ItemInteractionCommon(ItemInteractionType.INTERACTION_USE, in usage, out permitted, out animation);
+            bool consumeItem = ItemInteractionCommon(ItemInteractionType.INTERACTION_USE, in usage, out permitted, out animation);
 
-            if(isOk)
+            if (consumeItem)
             {
                 GamePickableItem pickable = ItemsInteractionsClass.ITEM_TO_PICKABLE[(int)usage.itemSource];
 

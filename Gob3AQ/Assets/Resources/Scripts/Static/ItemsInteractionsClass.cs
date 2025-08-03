@@ -68,16 +68,16 @@ namespace Gob3AQ.Brain.ItemsInteraction
             /* > ATG 4 START < */
             new ItemInteractionInfo[1] 
             { /* ITEM_POTION */
-            new(CharacterType.CHARACTER_MAIN,ItemInteractionType.INTERACTION_TAKE,GameItem.ITEM_NONE,ItemConditionsType.COND_OK,GameEvent.EVENT_NONE),
+            new(CharacterType.CHARACTER_MAIN,ItemInteractionType.INTERACTION_TAKE,GameItem.ITEM_NONE,ItemConditionsType.COND_OK,GameEvent.EVENT_NONE,true),
             }, 
             new ItemInteractionInfo[1] 
             { /* ITEM_POTION_BLUE */
-            new(CharacterType.CHARACTER_PARROT,ItemInteractionType.INTERACTION_TAKE,GameItem.ITEM_NONE,ItemConditionsType.COND_OK,GameEvent.EVENT_NONE),
+            new(CharacterType.CHARACTER_PARROT,ItemInteractionType.INTERACTION_TAKE,GameItem.ITEM_NONE,ItemConditionsType.COND_OK,GameEvent.EVENT_NONE,true),
             }, 
             new ItemInteractionInfo[2] 
             { /* ITEM_FOUNTAIN */
-            new(CharacterType.CHARACTER_MAIN,ItemInteractionType.INTERACTION_USE,GameItem.ITEM_POTION,ItemConditionsType.COND_FOUNTAIN,GameEvent.EVENT_FOUNTAIN_FULL),
-            new(CharacterType.CHARACTER_PARROT,ItemInteractionType.INTERACTION_USE,GameItem.ITEM_POTION_BLUE,ItemConditionsType.COND_FOUNTAIN2,GameEvent.EVENT_NONE),
+            new(CharacterType.CHARACTER_MAIN,ItemInteractionType.INTERACTION_USE,GameItem.ITEM_POTION,ItemConditionsType.COND_FOUNTAIN,GameEvent.EVENT_FOUNTAIN_FULL,true),
+            new(CharacterType.CHARACTER_PARROT,ItemInteractionType.INTERACTION_USE,GameItem.ITEM_POTION_BLUE,ItemConditionsType.COND_FOUNTAIN2,GameEvent.EVENT_NONE,false),
             }, 
             new ItemInteractionInfo[0] 
             { /* ITEM_LAST */

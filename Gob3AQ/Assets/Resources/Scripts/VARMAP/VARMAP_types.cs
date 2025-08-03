@@ -124,15 +124,17 @@ namespace Gob3AQ.VARMAP.Types
         public readonly GameItem srcItem;
         public readonly ItemConditionsType conditions;
         public readonly GameEvent outEvent;
+        public readonly bool consumes;
 
         public ItemInteractionInfo(CharacterType srcChar, ItemInteractionType interaction,
-            GameItem srcItem, ItemConditionsType conditions, GameEvent outEvent)
+            GameItem srcItem, ItemConditionsType conditions, GameEvent outEvent, bool consumes)
         {
             this.srcChar = srcChar;
             this.interaction = interaction;
             this.srcItem = srcItem;
             this.conditions = conditions;
             this.outEvent = outEvent;
+            this.consumes = consumes;
         }
     }
 

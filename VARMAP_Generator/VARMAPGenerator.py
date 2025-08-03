@@ -829,16 +829,18 @@ for line in ITEMSinputFile:
         for i in range(0, ItemVar["actioncount"]):
             ItemAction = {}
             ItemActions.append(ItemAction)
-            ItemAction["active"] = str(columns[ITEMS_ACTION_START_COLUMN + 0 + (i*6)])
-            ItemAction["srcChar"] = str(columns[ITEMS_ACTION_START_COLUMN + 1 + (i*6)])
-            ItemAction["action"] = str(columns[ITEMS_ACTION_START_COLUMN + 2 + (i*6)])
-            ItemAction["srcItem"] = str(columns[ITEMS_ACTION_START_COLUMN + 3 + (i*6)])
-            ItemAction["condition"] = str(columns[ITEMS_ACTION_START_COLUMN + 4 + (i*6)])
-            ItemAction["outEvent"] = str(columns[ITEMS_ACTION_START_COLUMN + 5 + (i*6)])
+            ItemAction["active"] = str(columns[ITEMS_ACTION_START_COLUMN + 0 + (i*7)]).lower()
+            ItemAction["srcChar"] = str(columns[ITEMS_ACTION_START_COLUMN + 1 + (i*7)])
+            ItemAction["action"] = str(columns[ITEMS_ACTION_START_COLUMN + 2 + (i*7)])
+            ItemAction["srcItem"] = str(columns[ITEMS_ACTION_START_COLUMN + 3 + (i*7)])
+            ItemAction["condition"] = str(columns[ITEMS_ACTION_START_COLUMN + 4 + (i*7)])
+            ItemAction["outEvent"] = str(columns[ITEMS_ACTION_START_COLUMN + 5 + (i*7)])
+            ItemAction["consume"] = str(columns[ITEMS_ACTION_START_COLUMN + 6 + (i*7)]).lower()
             
             stringToWrite = 'new('+character_prefix+ItemAction["srcChar"]+','+\
                 interaction_prefix + ItemAction["action"]+','+item_prefix+ItemAction["srcItem"]+','+\
-                conditiontype_prefix + ItemAction["condition"]+','+event_prefix+ItemAction["outEvent"]+'),\n'
+                conditiontype_prefix + ItemAction["condition"]+','+event_prefix+ItemAction["outEvent"]+','+\
+                ItemAction["consume"]+'),\n'
             items_interaction_lines.InsertLineInATG(4, stringToWrite)
             
         stringToWrite = '}, \n'

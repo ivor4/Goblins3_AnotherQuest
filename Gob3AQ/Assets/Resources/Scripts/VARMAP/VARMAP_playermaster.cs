@@ -53,11 +53,11 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             COMMIT_EVENT = _COMMIT_EVENT;
             USE_ITEM = _USE_ITEM;
             INTERACT_PLAYER = _INTERACT_PLAYER;
-            CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             EVENT_SUBSCRIPTION = _EVENT_SUBSCRIPTION;
             CROSS_DOOR = _CROSS_DOOR;
             INTERACT_PLAYER_NPC = _INTERACT_PLAYER_NPC;
             LOCK_PLAYER = _LOCK_PLAYER;
+            START_DIALOGUE = _START_DIALOGUE;
             /* > ATG 1 END */
         }
 
@@ -163,13 +163,6 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         /// </summary>
         public static INTERACT_PLAYER_DELEGATE INTERACT_PLAYER;
         /// <summary> 
-        /// Cancels selected item
-        /// <para> Owner: ItemMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster,  </para> 
-        /// <para> Method: <see cref="ItemMasterClass.CancelPickableItemService"/> </para> 
-        /// </summary>
-        public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
-        /// <summary> 
         /// Subscribe to an event. Invoke when event changes
         /// <para> Owner: GameEventMaster </para> 
         /// <para> Accessors: LevelMaster, PlayerMaster, NPCMaster, ItemMaster,  </para> 
@@ -197,6 +190,13 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         /// <para> Method: <see cref="PlayerMasterClass.LockPlayerService"/> </para> 
         /// </summary>
         public static LOCK_PLAYER_DELEGATE LOCK_PLAYER;
+        /// <summary> 
+        /// Starts a dialogue with given text and sound
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: PlayerMaster,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.StartDialogueService"/> </para> 
+        /// </summary>
+        public static START_DIALOGUE_DELEGATE START_DIALOGUE;
         /* > ATG 3 END */
     }
 }

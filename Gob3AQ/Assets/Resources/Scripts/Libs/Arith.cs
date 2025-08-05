@@ -26,19 +26,13 @@ namespace Gob3AQ.Libs.Arith
         }
     }
 
-    public ref struct ReadOnlyList<T>
+    public readonly ref struct ReadOnlyList<T>
     {
-        private List<T> _list;
+        private readonly List<T> _list;
 
-        public int Count
-        {
-            get
-            {
-                return _list.Count;
-            }
-        }
+        public readonly int Count => _list.Count;
 
-        public int IndexOf(T searchVal)
+        public readonly int IndexOf(T searchVal)
         {
             return _list.IndexOf(searchVal);
         }
@@ -48,13 +42,7 @@ namespace Gob3AQ.Libs.Arith
             _list = list;
         }
 
-        public readonly T this[int index]
-        {
-            get
-            {
-                return _list[index];
-            }
-        }
+        public readonly T this[int index] => _list[index];
     }
 
 

@@ -22,7 +22,7 @@ items_interaction_path = atg_path + "../Static/ItemsInteractionsClass.cs"
 
 MODULES_START_COLUMN = 8
 SERVICE_MODULES_START_COLUMN = 6
-ITEMS_ACTION_START_COLUMN = 5
+ITEMS_ACTION_START_COLUMN = 4
 
 #ATG Class Definition
 class ATGFile:
@@ -100,7 +100,7 @@ savedata_lines = ATGFile(savedata_path, 1)
 characters_lines = ATGFile(characters_types_path, 3)
 dialogs_types_lines = ATGFile(dialog_types_path, 1)
 items_types_lines = ATGFile(items_types_path, 3)
-items_interaction_lines = ATGFile(items_interaction_path, 4)
+items_interaction_lines = ATGFile(items_interaction_path, 3)
 
 added_savedata_lines = 0
 
@@ -788,8 +788,7 @@ for line in ITEMSinputFile:
     
     ItemVar["name"] = columns[1]
     ItemVar["pickable"] = 'true' in columns[2].lower()
-    ItemVar["disposable"] = columns[3].lower()
-    ItemVar["actioncount"] = int(columns[4])
+    ItemVar["actioncount"] = int(columns[3])
     ItemActions = []
     ItemVar["actions"] = ItemActions
     
@@ -813,8 +812,6 @@ for line in ITEMSinputFile:
         if('NONE' not in ItemVar["name"]):
             items_interaction_lines.InsertLineInATG(2, pickable_prefix+pickname+', /* '+\
                ItemVar["name"] + ' */\n')
-            items_interaction_lines.InsertLineInATG(3, ItemVar["disposable"]+', /* '+\
-               pickname + ' */\n')
     else:
         if('NONE' not in ItemVar["name"]):
             stringToWrite = pickable_prefix+'ITEM_PICK_NONE, /* '+ItemVar["name"]+' */\n'
@@ -822,9 +819,9 @@ for line in ITEMSinputFile:
             
     if('NONE' not in ItemVar["name"]):
         stringToWrite = 'new ItemInteractionInfo['+str(ItemVar["actioncount"])+'] \n'
-        items_interaction_lines.InsertLineInATG(4, stringToWrite)
+        items_interaction_lines.InsertLineInATG(3, stringToWrite)
         stringToWrite = '{ /* '+ItemVar["name"]+' */\n'
-        items_interaction_lines.InsertLineInATG(4, stringToWrite)
+        items_interaction_lines.InsertLineInATG(3, stringToWrite)
         
         for i in range(0, ItemVar["actioncount"]):
             ItemAction = {}
@@ -841,10 +838,10 @@ for line in ITEMSinputFile:
                 interaction_prefix + ItemAction["action"]+','+item_prefix+ItemAction["srcItem"]+','+\
                 conditiontype_prefix + ItemAction["condition"]+','+event_prefix+ItemAction["outEvent"]+','+\
                 ItemAction["consume"]+'),\n'
-            items_interaction_lines.InsertLineInATG(4, stringToWrite)
+            items_interaction_lines.InsertLineInATG(3, stringToWrite)
             
         stringToWrite = '}, \n'
-        items_interaction_lines.InsertLineInATG(4, stringToWrite)
+        items_interaction_lines.InsertLineInATG(3, stringToWrite)
         
 
     

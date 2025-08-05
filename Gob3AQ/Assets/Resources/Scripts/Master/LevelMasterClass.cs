@@ -102,6 +102,11 @@ namespace Gob3AQ.LevelMaster
             rolist = _Player_List;
         }
 
+        /// <summary>
+        /// Retrieves a read-only list of NPCs (non-player characters).
+        /// </summary>
+        /// <param name="rolist">When this method returns, contains a read-only list of <see cref="NPCClass"/> objects representing the
+        /// current NPCs. This parameter is passed uninitialized.</param>
         public static void GetNPCListService(out ReadOnlyList<NPCClass> rolist)
         {
             rolist = new(_NPC_List);
@@ -109,7 +114,7 @@ namespace Gob3AQ.LevelMaster
 
         public static void GetScenarioItemListService(out ReadOnlyList<ItemClass> rolist)
         {
-            rolist = new ReadOnlyList<ItemClass>(_Item_List);
+            rolist = new(_Item_List);
         }
 
         public static void GetNearestWPService(Vector2 position, float maxRadius, out WaypointClass candidate)

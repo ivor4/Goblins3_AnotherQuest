@@ -28,23 +28,23 @@ namespace Gob3AQ.ItemMaster
         }
 
         
-        public static void UseItemService(in InteractionUsage usage, out ItemInteractionType permitted, out CharacterAnimation animation)
+        public static void UseItemService(in InteractionUsage usage, out CharacterAnimation animation, out DialogType dialog)
         {
             switch(usage.type)
             {
                 case InteractionType.PLAYER_WITH_ITEM:
-                    TakePickableItem(in usage, out permitted, out animation);
+                    TakePickableItem(in usage, out animation, out dialog);
                     break;
                 case InteractionType.ITEM_WITH_ITEM:
-                    UseItemWithItem(in usage, out permitted, out animation);
+                    UseItemWithItem(in usage, out animation, out dialog);
                     break;
                 case InteractionType.ITEM_WITH_PLAYER:
-                    permitted = ItemInteractionType.INTERACTION_NONE;
                     animation = CharacterAnimation.ITEM_USE_ANIMATION_NONE;
+                    dialog = DialogType.DIALOG_NONE;
                     break;
                 default:
-                    permitted = ItemInteractionType.INTERACTION_NONE;
                     animation = CharacterAnimation.ITEM_USE_ANIMATION_NONE;
+                    dialog = DialogType.DIALOG_NONE;
                     break;
             }
         }
@@ -88,18 +88,19 @@ namespace Gob3AQ.ItemMaster
         /// <see cref="ItemInteractionType.INTERACTION_NONE"/>.</param>
         /// <param name="animation">When the method returns, contains the animation to be played for the interaction if it is allowed;
         /// otherwise,  contains the animation to be played for a failed interaction.</param>
+        /// <param name="dialog">When the method returns, contains the dialog type to be displayed for the interaction if it is allowed;
         /// <returns><see langword="true"/> if the interaction is permitted and consumes the item; otherwise, <see
         /// langword="false"/>.</returns>
         private static bool ItemInteractionCommon(ItemInteractionType interactionType,
-            in InteractionUsage usage, out ItemInteractionType permitted, out CharacterAnimation animation)
+            in InteractionUsage usage, out CharacterAnimation animation, out DialogType dialog)
         {
             bool consumeItem;
             ReadOnlySpan<ItemInteractionInfo> infoArray = ItemsInteractionsClass.GetItemInteractions(usage.itemDest);
 
             /* If item is not defined, it is not possible to process it */
-            permitted = ItemInteractionType.INTERACTION_NONE;
             animation = CharacterAnimation.ITEM_USE_ANIMATION_NONE;
             consumeItem = false;
+            dialog = DialogType.DIALOG_NONE;
 
             for (int i = 0; i < infoArray.Length; i++)
             {
@@ -111,17 +112,19 @@ namespace Gob3AQ.ItemMaster
                 {
                     ref readonly ItemConditions conditions = ref ItemsInteractionsClass.ITEM_CONDITIONS[(int)interactionInfo.conditions];
 
-                    bool occurred = true;
+                    bool occurred;
 
                     if (conditions.eventType != GameEvent.EVENT_NONE)
                     {
-                        VARMAP_ItemMaster.IS_EVENT_OCCURRED(conditions.eventType, out bool evOccurred);
-                        occurred &= evOccurred;
+                        VARMAP_ItemMaster.IS_EVENT_OCCURRED(conditions.eventType, out occurred);
+                    }
+                    else
+                    {
+                        occurred = true; // If no event is defined, it is considered as occurred
                     }
 
                     if (occurred)
                     {
-                        permitted = interactionInfo.interaction;
                         animation = conditions.animationOK;
 
                         /* Trigger additional event (in case) */
@@ -130,16 +133,13 @@ namespace Gob3AQ.ItemMaster
                             VARMAP_ItemMaster.COMMIT_EVENT(interactionInfo.outEvent, true);
                         }
 
-                        /* Dialog OK */
-
+                        dialog = conditions.dialogOK;
                         consumeItem = interactionInfo.consumes;
                     }
                     else
                     {
-                        permitted = ItemInteractionType.INTERACTION_NONE;
                         animation = conditions.animationNOK_Event;
-
-                        /* Dialog NOK */
+                        dialog = conditions.dialogNOK_Event;
                     }
                     break;
                 }
@@ -154,9 +154,9 @@ namespace Gob3AQ.ItemMaster
         /// </summary>
         /// <param name="item">involved labelled item</param>
         /// <param name="character">Character who took the item</param>
-        private static void TakePickableItem(in InteractionUsage usage, out ItemInteractionType permitted, out CharacterAnimation animation)
+        private static void TakePickableItem(in InteractionUsage usage, out CharacterAnimation animation, out DialogType dialog)
         {
-            bool consumeItem = ItemInteractionCommon(ItemInteractionType.INTERACTION_TAKE, in usage, out permitted, out animation);
+            bool consumeItem = ItemInteractionCommon(ItemInteractionType.INTERACTION_TAKE, in usage, out animation, out dialog);
 
             if (consumeItem)
             {
@@ -172,9 +172,9 @@ namespace Gob3AQ.ItemMaster
             }
         }
 
-        private static void UseItemWithItem(in InteractionUsage usage, out ItemInteractionType permitted, out CharacterAnimation animation)
+        private static void UseItemWithItem(in InteractionUsage usage, out CharacterAnimation animation, out DialogType dialog)
         {
-            bool consumeItem = ItemInteractionCommon(ItemInteractionType.INTERACTION_USE, in usage, out permitted, out animation);
+            bool consumeItem = ItemInteractionCommon(ItemInteractionType.INTERACTION_USE, in usage, out animation, out dialog);
 
             if (consumeItem)
             {
@@ -183,17 +183,13 @@ namespace Gob3AQ.ItemMaster
                 /* Pickable items which are already stored in inventory */
                 if (pickable != GamePickableItem.ITEM_PICK_NONE)
                 {
-                    /* Lose item in case it is pickable and disposable */
-                    if (ItemsInteractionsClass.IS_PICKABLE_DISPOSABLE[(int)pickable])
-                    {
-                        VARMAP_ItemMaster.SET_ELEM_PICKABLE_ITEM_OWNER((int)pickable, CharacterType.CHARACTER_NONE);
+                    VARMAP_ItemMaster.SET_ELEM_PICKABLE_ITEM_OWNER((int)pickable, CharacterType.CHARACTER_NONE);
 
-                        /* Diselect in case it was selected */
-                        GameItem choosenItem = VARMAP_ItemMaster.GET_PICKABLE_ITEM_CHOSEN();
-                        if (choosenItem == usage.itemSource)
-                        {
-                            VARMAP_ItemMaster.CANCEL_PICKABLE_ITEM();
-                        }
+                    /* Diselect in case it was selected */
+                    GameItem choosenItem = VARMAP_ItemMaster.GET_PICKABLE_ITEM_CHOSEN();
+                    if (choosenItem == usage.itemSource)
+                    {
+                        VARMAP_ItemMaster.CANCEL_PICKABLE_ITEM();
                     }
                 }
             }

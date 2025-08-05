@@ -65,9 +65,10 @@ namespace Gob3AQ.GameMaster
             switch(gstatus)
             {
                 case Game_Status.GAME_STATUS_PLAY:
+                case Game_Status.GAME_STATUS_PLAY_DIALOG:
                     if (pausePressed)
                     {
-                        PauseGameService(true);
+                        PauseGame(true);
                     }
                     else
                     {
@@ -78,7 +79,7 @@ namespace Gob3AQ.GameMaster
                 case Game_Status.GAME_STATUS_PAUSE:
                     if(pausePressed)
                     {
-                        PauseGameService(false);
+                        PauseGame(false);
                     }
                     break;
 
@@ -110,17 +111,26 @@ namespace Gob3AQ.GameMaster
             VARMAP_GameMaster.SET_ELAPSED_TIME_MS((ulong)elapsed_millis);
         }
 
-        public static void PauseGameService(bool pause)
+        private static void PauseGame(bool pause)
         {
+            Game_Status status = VARMAP_GameMaster.GET_GAMESTATUS();
+
             if (pause)
             {
-                VARMAP_GameMaster.SET_GAMESTATUS(Game_Status.GAME_STATUS_PAUSE);
-                Physics2D.simulationMode = SimulationMode2D.Script;
+                if ((status == Game_Status.GAME_STATUS_PLAY)||(status == Game_Status.GAME_STATUS_PLAY_DIALOG))
+                {
+                    VARMAP_GameMaster.SET_GAMESTATUS(Game_Status.GAME_STATUS_PAUSE);
+                    Physics2D.simulationMode = SimulationMode2D.Script;
+                    prevPauseStatus = status;
+                }
             }
             else
             {
-                _SetGameStatus(prevPauseStatus);
-                Physics2D.simulationMode = SimulationMode2D.FixedUpdate;
+                if (status == Game_Status.GAME_STATUS_PAUSE)
+                {
+                    _SetGameStatus(prevPauseStatus);
+                    Physics2D.simulationMode = SimulationMode2D.FixedUpdate;
+                }
             }
         }
 
@@ -197,6 +207,15 @@ namespace Gob3AQ.GameMaster
 
         }
 
+        public static void StartDialogueService(DialogType dialog)
+        {
+            if (VARMAP_GameMaster.GET_SHADOW_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY)
+            {
+                VARMAP_GameMaster.SET_GAMESTATUS(Game_Status.GAME_STATUS_PLAY_DIALOG);
+                VARMAP_GameMaster.CANCEL_PICKABLE_ITEM();
+            }
+        }
+
         public static void ExitGameService(out bool error)
         {
             if (VARMAP_GameMaster.GET_GAMESTATUS() != Game_Status.GAME_STATUS_STOPPED)
@@ -226,7 +245,6 @@ namespace Gob3AQ.GameMaster
         private static void _SetGameStatus(Game_Status status)
         {
             VARMAP_GameMaster.SET_GAMESTATUS(status);
-            prevPauseStatus = status;
         }
 
 

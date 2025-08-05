@@ -296,7 +296,7 @@ namespace Gob3AQ.VARMAP
         /// <summary> 
         /// Cancels selected item
         /// <para> Owner: ItemMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster,  </para> 
+        /// <para> Accessors: GameMaster, LevelMaster, GameMenu,  </para> 
         /// <para> Method: <see cref="ItemMasterClass.CancelPickableItemService"/> </para> 
         /// </summary>
         protected static CANCEL_PICKABLE_ITEM_DELEGATE _CANCEL_PICKABLE_ITEM;
@@ -328,6 +328,13 @@ namespace Gob3AQ.VARMAP
         /// <para> Method: <see cref="PlayerMasterClass.LockPlayerService"/> </para> 
         /// </summary>
         protected static LOCK_PLAYER_DELEGATE _LOCK_PLAYER;
+        /// <summary> 
+        /// Starts a dialogue with given text and sound
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: PlayerMaster,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.StartDialogueService"/> </para> 
+        /// </summary>
+        protected static START_DIALOGUE_DELEGATE _START_DIALOGUE;
         /// <summary> 
         /// Last service
         /// <para> Owner: GameMaster </para> 

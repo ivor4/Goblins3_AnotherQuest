@@ -32,6 +32,7 @@ namespace Gob3AQ.GraphicsMaster
         private static SpriteRenderer cursor_spr;
         private static Sprite cursor_orig_spr;
         private static bool loaded;
+        private static Game_Status cachedGameStatus;
 
 
         private void Awake()
@@ -66,6 +67,7 @@ namespace Gob3AQ.GraphicsMaster
             _cameraCenterLimitBounds = _levelBounds;
             _cameraCenterLimitBounds.extents -= _cameraBounds.extents;
 
+            cachedGameStatus = VARMAP_GraphicsMaster.GET_GAMESTATUS();
 
             VARMAP_GraphicsMaster.REG_GAMESTATUS(_GameStatusChanged);
             VARMAP_GraphicsMaster.REG_PICKABLE_ITEM_CHOSEN(_OnPickedItemChanged);
@@ -75,13 +77,11 @@ namespace Gob3AQ.GraphicsMaster
         // Update is called once per frame
         void Update()
         {
-            Game_Status gstatus = VARMAP_GraphicsMaster.GET_GAMESTATUS();
+            ref readonly MousePropertiesStruct mouse = ref VARMAP_GraphicsMaster.GET_MOUSE_PROPERTIES();
 
-            MousePropertiesStruct mouse = VARMAP_GraphicsMaster.GET_MOUSE_PROPERTIES();
+            Vector2 screenzone = new Vector2(mouse.posPixels.x / Screen.safeArea.width, mouse.posPixels.y / Screen.safeArea.height);
 
-            Vector2 screenzone = new Vector2((float)mouse.posPixels.x / Screen.safeArea.width, (float)mouse.posPixels.y / Screen.safeArea.height);
-
-            switch (gstatus)
+            switch (cachedGameStatus)
             {
                 case Game_Status.GAME_STATUS_LOADING:
                     if(!loaded)
@@ -100,14 +100,17 @@ namespace Gob3AQ.GraphicsMaster
 
                         candidatePos.z = mainCameraTransform.position.z;
 
-                        MoveCameraToPosition(candidatePos);
+                        MoveCameraToPosition(in candidatePos);
 
                         loaded = true;
                     }
                     break;
                 case Game_Status.GAME_STATUS_PLAY:
-                    MoveCursor(ref mouse.pos1);
-                    FollowMouseWithCamera(ref screenzone);
+                    MoveCursor(in mouse.pos1);
+                    FollowMouseWithCamera(in screenzone);
+                    break;
+                case Game_Status.GAME_STATUS_PLAY_DIALOG:
+                    MoveCursor(in mouse.pos1);
                     break;
                 default:
                     break;
@@ -128,12 +131,12 @@ namespace Gob3AQ.GraphicsMaster
         }
 
 
-        private void MoveCursor(ref Vector2 mousePos)
+        private void MoveCursor(in Vector2 mousePos)
         {
             cursor.transform.position = mousePos;
         }
 
-        private void FollowMouseWithCamera(ref Vector2 screenzone)
+        private void FollowMouseWithCamera(in Vector2 screenzone)
         {
             bool itemMenuOpened = VARMAP_GraphicsMaster.GET_ITEM_MENU_ACTIVE();
 
@@ -180,11 +183,11 @@ namespace Gob3AQ.GraphicsMaster
                 moveCameraDelta *= Time.deltaTime;
                 cameraNewPosition = mainCameraTransform.position + moveCameraDelta;
 
-                MoveCameraToPosition(cameraNewPosition);
+                MoveCameraToPosition(in cameraNewPosition);
             }
         }
 
-        private static void MoveCameraToPosition(Vector3 position)
+        private static void MoveCameraToPosition(in Vector3 position)
         {
             Vector3 cameraNewPosition = position;
 
@@ -228,6 +231,8 @@ namespace Gob3AQ.GraphicsMaster
             {
                 //paused_text.gameObject.SetActive(false);
             }
+
+            cachedGameStatus = newval;
         }
     }
 }

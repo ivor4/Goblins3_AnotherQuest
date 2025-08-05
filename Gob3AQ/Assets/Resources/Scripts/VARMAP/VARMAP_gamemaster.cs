@@ -40,6 +40,8 @@ namespace Gob3AQ.VARMAP.GameMaster
             LATE_START_SUBSCRIPTION = _LATE_START_SUBSCRIPTION;
             LOADING_COMPLETED = _LOADING_COMPLETED;
             FREEZE_PLAY = _FREEZE_PLAY;
+            CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
+            START_DIALOGUE = _START_DIALOGUE;
             LAST_SERVICE = _LAST_SERVICE;
             /* > ATG 1 END */
         }
@@ -123,6 +125,20 @@ namespace Gob3AQ.VARMAP.GameMaster
         /// <para> Method: <see cref="GameMasterClass.FreezePlayService"/> </para> 
         /// </summary>
         public static FREEZE_PLAY_DELEGATE FREEZE_PLAY;
+        /// <summary> 
+        /// Cancels selected item
+        /// <para> Owner: ItemMaster </para> 
+        /// <para> Accessors: GameMaster, LevelMaster, GameMenu,  </para> 
+        /// <para> Method: <see cref="ItemMasterClass.CancelPickableItemService"/> </para> 
+        /// </summary>
+        public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
+        /// <summary> 
+        /// Starts a dialogue with given text and sound
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: PlayerMaster,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.StartDialogueService"/> </para> 
+        /// </summary>
+        public static START_DIALOGUE_DELEGATE START_DIALOGUE;
         /// <summary> 
         /// Last service
         /// <para> Owner: GameMaster </para> 

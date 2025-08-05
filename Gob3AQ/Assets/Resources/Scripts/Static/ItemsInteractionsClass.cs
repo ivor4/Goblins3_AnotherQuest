@@ -7,7 +7,6 @@ namespace Gob3AQ.Brain.ItemsInteraction
     public static class ItemsInteractionsClass
     {
         public static ReadOnlySpan<GamePickableItem> ITEM_TO_PICKABLE => _ItemToPickable;
-        public static ReadOnlySpan<bool> IS_PICKABLE_DISPOSABLE => _PickableDisposable;
         public static ReadOnlySpan<ItemConditions> ITEM_CONDITIONS => _ItemConditions;
 
         private static readonly ItemInteractionInfo[] _FailedInteractionInfo = new ItemInteractionInfo[0];
@@ -51,21 +50,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
             /* > ATG 2 END < */
         };
 
-        /// <summary>
-        /// If pickable is disposed once it has been used
-        /// </summary>
-        private static readonly bool[] _PickableDisposable = new bool[(int)GamePickableItem.ITEM_PICK_TOTAL]
-        {
-            /* > ATG 3 START < */
-            true, /* ITEM_PICK_POTION */
-            true, /* ITEM_PICK_POTION_BLUE */
-            /* > ATG 3 END < */
-        };
 
 
         private static readonly ItemInteractionInfo[][] _ItemInteractions = new ItemInteractionInfo[(int)GameItem.ITEM_TOTAL][]
         {
-            /* > ATG 4 START < */
+            /* > ATG 3 START < */
             new ItemInteractionInfo[1] 
             { /* ITEM_POTION */
             new(CharacterType.CHARACTER_MAIN,ItemInteractionType.INTERACTION_TAKE,GameItem.ITEM_NONE,ItemConditionsType.COND_OK,GameEvent.EVENT_NONE,true),
@@ -82,7 +71,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ItemInteractionInfo[0] 
             { /* ITEM_LAST */
             }, 
-            /* > ATG 4 END < */
+            /* > ATG 3 END < */
         };
 
     }

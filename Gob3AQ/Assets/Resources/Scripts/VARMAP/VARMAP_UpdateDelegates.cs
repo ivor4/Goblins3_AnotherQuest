@@ -147,6 +147,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _CROSS_DOOR = LevelMasterClass.CrossDoorService;
             _INTERACT_PLAYER_NPC = NPCMasterClass.InteractPlayerNPCService;
             _LOCK_PLAYER = PlayerMasterClass.LockPlayerService;
+            _START_DIALOGUE = GameMasterClass.StartDialogueService;
             _LAST_SERVICE = GameMasterClass.ExitGameService;
             /* > ATG 2 END */
         }

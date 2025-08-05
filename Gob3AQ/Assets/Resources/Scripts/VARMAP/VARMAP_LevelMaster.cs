@@ -253,7 +253,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// <summary> 
         /// Cancels selected item
         /// <para> Owner: ItemMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster,  </para> 
+        /// <para> Accessors: GameMaster, LevelMaster, GameMenu,  </para> 
         /// <para> Method: <see cref="ItemMasterClass.CancelPickableItemService"/> </para> 
         /// </summary>
         public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;

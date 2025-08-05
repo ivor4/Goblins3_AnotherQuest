@@ -1,8 +1,8 @@
 using Gob3AQ.VARMAP.Types;
 
-namespace Gob3AQ.Dialogs
+namespace Gob3AQ.ResourceDialogs
 {
-    public class DialogsClass
+    public class ResourceDialogs
     {
         public static string GetDialogName(DialogType dialogType)
         {

@@ -13,7 +13,7 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
     /// <summary>
     /// VARMAP inheritance with permissions for MainMenu module
     /// </summary>
-    public abstract class VARMAP_GraphicsMaster : VARMAP
+    public sealed class VARMAP_GraphicsMaster : VARMAP
     {
         /* All delegate update */
         public static void UpdateDelegates()

@@ -12,7 +12,7 @@ namespace Gob3AQ.VARMAP.GameMenu
     /// <summary>
     /// VARMAP inheritance with permissions for MainMenu module
     /// </summary>
-    public abstract class VARMAP_GameMenu : VARMAP
+    public sealed class VARMAP_GameMenu : VARMAP
     {
         /* All delegate update */
         public static void UpdateDelegates()

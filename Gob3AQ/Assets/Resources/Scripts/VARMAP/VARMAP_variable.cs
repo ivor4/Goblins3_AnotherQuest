@@ -72,7 +72,7 @@ namespace Gob3AQ.VARMAP.Variable
 
 
 
-    public class VARMAP_SafeArray<T> : VARMAP_Array<T>
+    public sealed class VARMAP_SafeArray<T> : VARMAP_Array<T>
     {
         private bool _highSec;
         private uint _IDSec;
@@ -623,7 +623,7 @@ namespace Gob3AQ.VARMAP.Variable
     }
 
 
-    public class VARMAP_SafeVariable<T> : VARMAP_Variable<T>
+    public sealed class VARMAP_SafeVariable<T> : VARMAP_Variable<T>
     {
         private bool _highSec;
         private uint _IDSec;

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Gob3AQ.ResourceDialogs
 {
-    public static class ResourceDialogs
+    public static class ResourceDialogsClass
     {
         private const string DIALOGS_PATH = "Dialogs/DIALOGS_CSV";
 
@@ -16,6 +16,9 @@ namespace Gob3AQ.ResourceDialogs
         public static void Initialize(DialogLanguages language)
         {
             _language = language;
+            _cachedDialogs = new Dictionary<DialogType, string>();
+
+            // Preload dialogs for the default room
             PreloadRoomDialogs(Room.ROOM_NONE);
         }
 
@@ -24,21 +27,23 @@ namespace Gob3AQ.ResourceDialogs
             /* Empty cached dialogs */
             _cachedDialogs.Clear();
 
-            // Preload logic for room dialogs
-            // This could involve loading dialog data from resources or initializing dialog states
-            TextAsset textAsset = Resources.Load<TextAsset>(DIALOGS_PATH);
-            
 
-            string[] rows = textAsset.text.Split(new[] { '\n', '\r' }, System.StringSplitOptions.RemoveEmptyEntries);
+            TextAsset textAsset = Resources.Load<TextAsset>(DIALOGS_PATH);
+
+            Span<string> rows = textAsset.text.Split(new[] { '\n', '\r' }, System.StringSplitOptions.RemoveEmptyEntries);
+            rows = rows[1..]; /* Skip header row */
 
             DialogType iteratedDialog = DialogType.DIALOG_NONE;
+
 
             foreach (string row in rows)
             {
                 Span<string> columns = row.Split(',');
                 columns = columns[3..];
-                
-                if((int)room == int.Parse(columns[0]))
+
+                int parsedRoom = int.Parse(columns[0]);
+
+                if (((int)room == parsedRoom) || (parsedRoom == (int)Room.ROOM_NONE))
                 {
                     _cachedDialogs[iteratedDialog] = columns[(int)_language + 1];
                 }
@@ -49,7 +54,7 @@ namespace Gob3AQ.ResourceDialogs
             Resources.UnloadAsset(textAsset);
         }
 
-        public static string GetDialogName(DialogType dialogType)
+        public static string GetDialogText(DialogType dialogType)
         {
             if (_cachedDialogs.ContainsKey(dialogType))
             {

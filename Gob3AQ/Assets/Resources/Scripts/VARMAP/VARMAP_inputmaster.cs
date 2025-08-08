@@ -13,7 +13,7 @@ namespace Gob3AQ.VARMAP.InputMaster
     /// <summary>
     /// VARMAP inheritance with permissions for MainMenu module
     /// </summary>
-    public abstract class VARMAP_InputMaster : VARMAP
+    public sealed class VARMAP_InputMaster : VARMAP
     {
         /* All delegate update */
         public static void UpdateDelegates()

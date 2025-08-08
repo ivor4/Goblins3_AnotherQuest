@@ -5,7 +5,7 @@ using Gob3AQ.VARMAP.Config;
 namespace Gob3AQ.VARMAP.Safe
 {
 
-    public abstract class VARMAP_Safe : VARMAP
+    public sealed class VARMAP_Safe : VARMAP
     {
         /// <summary>
         /// Total allocated variables
@@ -189,14 +189,7 @@ namespace Gob3AQ.VARMAP.Safe
         {
             bool retVal;
 
-            if(id_checked_in_tick[safeID] == actualTick)
-            {
-                retVal = true;
-            }
-            else
-            {
-                retVal = false;
-            }
+            retVal = id_checked_in_tick[safeID] == actualTick;
 
             return retVal;
         }

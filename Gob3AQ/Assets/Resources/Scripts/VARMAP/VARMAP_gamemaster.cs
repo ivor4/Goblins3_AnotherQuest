@@ -11,7 +11,7 @@ using Gob3AQ.GameEventMaster;
 namespace Gob3AQ.VARMAP.GameMaster
 {
 
-    public abstract class VARMAP_GameMaster : VARMAP
+    public sealed class VARMAP_GameMaster : VARMAP
     {
         /* All delegate update */
         public static void UpdateDelegates()

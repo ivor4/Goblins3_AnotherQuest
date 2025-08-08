@@ -6,7 +6,7 @@ using Gob3AQ.VARMAP.Variable;
 
 namespace Gob3AQ.VARMAP.Debug
 {
-    public abstract class VARMAP_Debug_Master : VARMAP
+    public sealed class VARMAP_Debug_Master : VARMAP
     {
 #if UNITY_EDITOR
 

@@ -13,7 +13,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
     /// <summary>
     /// VARMAP inheritance with permissions for MainMenu module
     /// </summary>
-    public abstract class VARMAP_GameEventMaster : VARMAP
+    public sealed class VARMAP_GameEventMaster : VARMAP
     {
         /* All delegate update */
         public static void UpdateDelegates()

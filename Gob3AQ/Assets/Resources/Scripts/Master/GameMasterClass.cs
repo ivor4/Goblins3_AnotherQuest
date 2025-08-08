@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using Gob3AQ.VARMAP.Initialization;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.VARMAP.Safe;
+using Gob3AQ.ResourceDialogs;
 using UnityEditor;
 using Gob3AQ.VARMAP;
 
@@ -19,6 +20,7 @@ namespace Gob3AQ.GameMaster
         private static Game_Status prevPauseStatus;
         private static SUBSCRIPTION_CALL_DELEGATE _lateStartSubscibers;
         private static int firstFrameOfScenePending;
+        private static bool loadResourcesDone;
 
         void Awake()
         {
@@ -29,7 +31,6 @@ namespace Gob3AQ.GameMaster
             else
             {
                 _singleton = this;
-                firstFrameOfScenePending = -1;
                 DontDestroyOnLoad(gameObject);
 
                 /* Initialize VARMAP once for all the game */
@@ -80,6 +81,14 @@ namespace Gob3AQ.GameMaster
                     if(pausePressed)
                     {
                         PauseGame(false);
+                    }
+                    break;
+
+                case Game_Status.GAME_STATUS_LOADING:
+                    if(!loadResourcesDone)
+                    {
+                        ResourceDialogsClass.PreloadRoomDialogs(VARMAP_GameMaster.GET_ACTUAL_ROOM());
+                        loadResourcesDone = true;
                     }
                     break;
 
@@ -146,6 +155,7 @@ namespace Gob3AQ.GameMaster
                 _SetGameStatus(Game_Status.GAME_STATUS_LOADING);
                 firstFrameOfScenePending = 1;
                 _lateStartSubscibers = null;
+                loadResourcesDone = false;
 
                 SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
             }
@@ -158,6 +168,9 @@ namespace Gob3AQ.GameMaster
         public static void StartGameService(out bool error)
         {
             VARMAP_Initialization.ResetVARMAP();
+
+            LaunchResourcesInitializations();
+
             LoadRoomService(Room.ROOM_FIRST, out error);
         }
 
@@ -170,6 +183,8 @@ namespace Gob3AQ.GameMaster
         {
             VARMAP_Initialization.ResetVARMAP();
             VARMAP_Initialization.LoadVARMAPData();
+
+            LaunchResourcesInitializations();
 
             LoadRoomService(VARMAP_GameMaster.GET_ACTUAL_ROOM(), out _);
         }
@@ -247,7 +262,10 @@ namespace Gob3AQ.GameMaster
             VARMAP_GameMaster.SET_GAMESTATUS(status);
         }
 
-
+        private static void LaunchResourcesInitializations()
+        {
+            ResourceDialogsClass.Initialize(DialogLanguages.DIALOG_LANG_ENGLISH);
+        }
         
     }
 }

@@ -13,7 +13,7 @@ namespace Gob3AQ.VARMAP.NPCMaster
     /// <summary>
     /// VARMAP inheritance with permissions for MainMenu module
     /// </summary>
-    public abstract class VARMAP_NPCMaster : VARMAP
+    public sealed class VARMAP_NPCMaster : VARMAP
     {
         /* All delegate update */
         public static void UpdateDelegates()

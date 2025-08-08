@@ -11,7 +11,7 @@ using Gob3AQ.InputMaster;
 
 namespace Gob3AQ.VARMAP.LevelMaster
 {
-    public abstract class VARMAP_LevelMaster : VARMAP
+    public sealed class VARMAP_LevelMaster : VARMAP
     {
         /* All delegate update */
         public static void UpdateDelegates()

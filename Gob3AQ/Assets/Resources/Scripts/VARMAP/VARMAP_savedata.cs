@@ -4,7 +4,7 @@ using Gob3AQ.VARMAP.Enum;
 
 namespace Gob3AQ.VARMAP.SaveData
 {
-    public abstract class VARMAP_savedata : VARMAP
+    public sealed class VARMAP_savedata : VARMAP
     {
         /// <summary>
         /// This array contains IDs of VARMAP which should be stored into savegame data and loaded

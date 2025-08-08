@@ -13,7 +13,7 @@ namespace Gob3AQ.VARMAP.ItemMaster
     /// <summary>
     /// VARMAP inheritance with permissions for MainMenu module
     /// </summary>
-    public abstract class VARMAP_ItemMaster : VARMAP
+    public sealed class VARMAP_ItemMaster : VARMAP
     {
         /* All delegate update */
         public static void UpdateDelegates()

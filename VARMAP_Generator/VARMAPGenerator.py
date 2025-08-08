@@ -17,6 +17,7 @@ savedata_path = atg_path+"VARMAP_savedata.cs"
 #This is Custom part
 characters_types_path = atg_path + "VARMAP_types_chars.cs"
 dialog_types_path = atg_path + "VARMAP_types_dialogs.cs"
+rooms_types_path = atg_path + "VARMAP_types_rooms.cs"
 items_types_path = atg_path + "VARMAP_types_items.cs"
 items_interaction_path = atg_path + "../Static/ItemsInteractionsClass.cs"
 
@@ -99,6 +100,7 @@ delegateupdate_lines = ATGFile(delegateupdate_path, 2)
 savedata_lines = ATGFile(savedata_path, 1)
 characters_lines = ATGFile(characters_types_path, 3)
 dialogs_types_lines = ATGFile(dialog_types_path, 1)
+rooms_types_lines = ATGFile(rooms_types_path, 1)
 items_types_lines = ATGFile(items_types_path, 3)
 items_interaction_lines = ATGFile(items_interaction_path, 3)
 
@@ -115,6 +117,7 @@ ITEMSinputFile = open("ITEMS.csv", "r")
 ITEMSCONDSinputFile = open("ITEMS_CONDS.csv", "r")
 CHARSinputFile = open("CHARACTERS.csv", "r")
 DIALOGSinputFile = open("DIALOGS.csv", "r")
+ROOMSinputFile = open("ROOMS.csv", "r")
 
 VARMAPPermissionFile = []
 
@@ -645,7 +648,6 @@ for line in SERVICESinputFile:
 
 print('\n\n------DIALOGS (Custom GOB3) -------\n\n')
 linecount = -1
-zone = 1
 for line in DIALOGSinputFile:
     linecount += 1
     
@@ -669,6 +671,33 @@ stringToWrite = '\n'
 dialogs_types_lines.InsertLineInATG(1, stringToWrite)
 stringToWrite = 'DIALOG_TOTAL \n'
 dialogs_types_lines.InsertLineInATG(1, stringToWrite)
+
+
+print('\n\n------ROOMS (Custom GOB3) -------\n\n')
+linecount = -1
+for line in ROOMSinputFile:
+    linecount += 1
+    
+    line = line.replace('\n','')
+    line = line.replace('\r','')
+    
+    
+    columns = line.split(',')
+    print(columns)
+
+    if(linecount == 0):
+        continue
+    
+    stringToWrite = columns[1]
+    if('NONE' in columns[1]):
+        stringToWrite += ' = -1'
+    stringToWrite += ', \n'
+    rooms_types_lines.InsertLineInATG(1, stringToWrite)
+    
+stringToWrite = '\n'
+rooms_types_lines.InsertLineInATG(1, stringToWrite)
+stringToWrite = 'ROOMS_TOTAL \n'
+rooms_types_lines.InsertLineInATG(1, stringToWrite)
     
 
 print('\n\n------CHARS (Custom GOB3) -------\n\n')
@@ -871,6 +900,7 @@ savedata_lines.SaveFile()
 #Custom classes
 characters_lines.SaveFile()
 dialogs_types_lines.SaveFile()
+rooms_types_lines.SaveFile()
 items_types_lines.SaveFile()
 items_interaction_lines.SaveFile()
 

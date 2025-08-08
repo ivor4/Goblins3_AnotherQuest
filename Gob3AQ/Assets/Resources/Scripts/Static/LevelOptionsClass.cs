@@ -9,20 +9,22 @@ namespace Gob3AQ.Brain.LevelOptions
     {
         public static int GetLevelDoorToWaypoint(Room room, int doorIndex)
         {
-            int waypointIndex = _Level_Door2WaypointIndex[(int)room, doorIndex];
+            int waypointIndex = _Level_Door2WaypointIndex[(int)room][doorIndex];
             return waypointIndex;
         }
 
         /// <summary>
         /// Use -1 for default appear position
         /// </summary>
-        private static readonly int[,] _Level_Door2WaypointIndex = new int[(int)Room.TOTAL_ROOMS, GameFixedConfig.MAX_SCENE_DOORS]
+        private static readonly int[][] _Level_Door2WaypointIndex = new int[(int)Room.ROOMS_TOTAL][]
         {
             /* LEVEL 0 */
+            new int[GameFixedConfig.MAX_SCENE_DOORS]
             {
                 -1, -1
             },
             /* LEVEL 1 */
+            new int[GameFixedConfig.MAX_SCENE_DOORS]
             {
                 -1, -1
             }

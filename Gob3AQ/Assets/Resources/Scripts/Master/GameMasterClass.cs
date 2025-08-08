@@ -137,7 +137,7 @@ namespace Gob3AQ.GameMaster
 
         public static void LoadRoomService(Room room, out bool error)
         {
-            if ((room > Room.ROOM_NONE) && (room < Room.TOTAL_ROOMS))
+            if ((room > Room.ROOM_NONE) && (room < Room.ROOMS_TOTAL))
             {
                 error = false;
                 string sceneName = GameFixedConfig.ROOM_TO_SCENE_NAME[(int)room];
@@ -158,7 +158,7 @@ namespace Gob3AQ.GameMaster
         public static void StartGameService(out bool error)
         {
             VARMAP_Initialization.ResetVARMAP();
-            LoadRoomService(Room.ROOM_1_ORIGIN, out error);
+            LoadRoomService(Room.ROOM_FIRST, out error);
         }
 
         public static void SaveGameService()

@@ -31,20 +31,6 @@ namespace Gob3AQ.VARMAP.Types
     }
 
 
-
-
-    public enum Room
-    {
-        ROOM_NONE = -1,
-
-        ROOM_1_ORIGIN,
-        ROOM_1_HOUSE,
-
-        TOTAL_ROOMS
-    }
-
-
-
      public enum KeyFunctions
     {
         KEYFUNC_NONE = 0,

@@ -95,8 +95,6 @@ namespace Gob3AQ.GameMaster
                     }
                     break;
 
-                case Game_Status.GAME_STATUS_STOPPED:
-                    break;
             }
 
             
@@ -155,7 +153,7 @@ namespace Gob3AQ.GameMaster
                 
 
                 VARMAP_GameMaster.SET_ACTUAL_ROOM(room);
-                _SetGameStatus(Game_Status.GAME_STATUS_LOADING);
+                _SetGameStatus(Game_Status.GAME_STATUS_CHANGING_ROOM);
 
                 /* Operations prepared for next level */
                 firstFrameOfScenePending = 1;
@@ -271,6 +269,9 @@ namespace Gob3AQ.GameMaster
             string sceneName = GameFixedConfig.ROOM_TO_SCENE_NAME[(int)room];
 
             await SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+
+            _SetGameStatus(Game_Status.GAME_STATUS_LOADING);
+
             await Resources.UnloadUnusedAssets();
             await ResourceDialogsClass.PreloadRoomDialogsAsync(room);
 

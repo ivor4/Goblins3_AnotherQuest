@@ -290,22 +290,12 @@ namespace Gob3AQ.LevelMaster
 
             switch (gstatus)
             {
-                case Game_Status.GAME_STATUS_STOPPED:
-                    break;
-
                 case Game_Status.GAME_STATUS_LOADING:
                     Update_Loading();
                     break;
 
-                case Game_Status.GAME_STATUS_PAUSE:
-                    break;
-
                 case Game_Status.GAME_STATUS_PLAY:
                     Update_Play();
-                    break;
-
-                case Game_Status.GAME_STATUS_PLAY_FREEZE:
-                    Update_Play_Freeze();
                     break;
 
                 default:
@@ -365,11 +355,7 @@ namespace Gob3AQ.LevelMaster
             UpdateMouseEvents();
         }
 
-        
-        private void Update_Play_Freeze()
-        {
-
-        }
+       
 
 
         private void UpdateMouseEvents()

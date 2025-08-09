@@ -5,6 +5,8 @@ using UnityEngine;
 using Gob3AQ.Waypoint.Types;
 using Gob3AQ.Waypoint.Network;
 using Gob3AQ.VARMAP.LevelMaster;
+using System.Threading.Tasks;
+using Gob3AQ.LevelMaster;
 
 namespace Gob3AQ.Waypoint
 {
@@ -75,11 +77,8 @@ namespace Gob3AQ.Waypoint
             VARMAP_LevelMaster.WP_REGISTER(this, true);
         }
 
-        /// <summary>
-        /// This function could be executed cyclic until all conditions are given
-        /// </summary>
-        /// <returns>TRUE if ended</returns>
-        public void LateStart()
+
+        public async void LateStart()
         {
             if (network == null)
             {
@@ -88,17 +87,22 @@ namespace Gob3AQ.Waypoint
                 wpnet.AddWaypointAndItsBranch(this);
             }
 
-            /* This could also be valid just after above assign */
-            if (network != null)
+            await Task.Run(() =>
             {
-                DateTime before = DateTime.Now;
-                network.CalculatePaths();
-                DateTime after = DateTime.Now;
+                /* This could also be valid just after above assign */
+                if (network != null)
+                {
+                    DateTime before = DateTime.Now;
+                    network.CalculatePaths();
+                    DateTime after = DateTime.Now;
 
-                TimeSpan duration = after.Subtract(before);
+                    TimeSpan duration = after.Subtract(before);
 
-                Debug.LogWarning("Dijkstra operation lasted: " + duration.Milliseconds + "ms");
-            }
+                    Debug.LogWarning("Dijkstra operation lasted: " + duration.Milliseconds + "ms");
+                }
+            });
+
+            LevelMasterClass.DeclareAllWaypointsLoaded();
         }
 
 

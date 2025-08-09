@@ -179,25 +179,31 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         private void Execute_Loading()
         {
-            if(!loaded)
+            if (!loaded)
             {
                 int wpStartIndex = VARMAP_PlayerMaster.GET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)charType);
                 VARMAP_PlayerMaster.GET_NEAREST_WP(transform.position, float.MaxValue, out WaypointClass nearestWp);
 
-                if (wpStartIndex == -1)
+                /* Wait until Waypoints have loaded their network */
+                if ((nearestWp != null) && (nearestWp.Network != null) && (nearestWp.Network.IsCalculated))
                 {
-                    actualWaypoint = nearestWp;
-                }
-                else
-                {
-                    actualWaypoint = nearestWp.Network.WaypointList[wpStartIndex];
-                }
+                    if (wpStartIndex == -1)
+                    {
+                        actualWaypoint = nearestWp;
+                    }
+                    else
+                    {
+                        actualWaypoint = nearestWp.Network.WaypointList[wpStartIndex];
+                    }
+     
+                    transform.position = actualWaypoint.transform.position;
+                    _sprRenderer.enabled = true;
+                    VARMAP_PlayerMaster.PLAYER_WAYPOINT_UPDATE(charType, nearestWp.IndexInNetwork);
 
-                transform.position = actualWaypoint.transform.position;
-                _sprRenderer.enabled = true;
+                    loaded = true;
+                }
             }
-
-            loaded = true;
+          
         }
 
         private void Execute_Play()

@@ -1,6 +1,8 @@
+using Gob3AQ.FixedConfig;
 using Gob3AQ.VARMAP.Types;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Gob3AQ.ResourceDialogs
@@ -9,6 +11,7 @@ namespace Gob3AQ.ResourceDialogs
     {
         private const string DIALOGS_PATH = "Dialogs/DIALOGS_CSV";
 
+
         private static Dictionary<DialogType, string> _cachedDialogs;
         private static DialogLanguages _language;
 
@@ -16,21 +19,32 @@ namespace Gob3AQ.ResourceDialogs
         public static void Initialize(DialogLanguages language)
         {
             _language = language;
-            _cachedDialogs = new Dictionary<DialogType, string>();
+            _cachedDialogs = new Dictionary<DialogType, string>(GameFixedConfig.MAX_CACHED_DIALOGS);
 
             // Preload dialogs for the default room
-            PreloadRoomDialogs(Room.ROOM_NONE);
+            TextAsset textAsset = Resources.Load<TextAsset>(DIALOGS_PATH);
+            PreloadRoomDialogs(Room.ROOM_NONE, textAsset);
         }
 
-        public static void PreloadRoomDialogs(Room room)
+        public static async Task PreloadRoomDialogsAsync(Room room)
+        {
+            TextAsset textAsset;
+
+            ResourceRequest resrq = Resources.LoadAsync<TextAsset>(DIALOGS_PATH);
+
+            await resrq;
+
+            textAsset = resrq.asset as TextAsset;
+
+            PreloadRoomDialogs(room, textAsset);
+        }
+
+        private static void PreloadRoomDialogs(Room room, TextAsset textAsset)
         {
             /* Empty cached dialogs */
             _cachedDialogs.Clear();
 
-
-            TextAsset textAsset = Resources.Load<TextAsset>(DIALOGS_PATH);
-
-            Span<string> rows = textAsset.text.Split(new[] { '\n', '\r' }, System.StringSplitOptions.RemoveEmptyEntries);
+            ReadOnlySpan<string> rows = textAsset.text.Split(new[] { '\n', '\r' }, System.StringSplitOptions.RemoveEmptyEntries);
             rows = rows[1..]; /* Skip header row */
 
             DialogType iteratedDialog = DialogType.DIALOG_NONE;
@@ -38,7 +52,7 @@ namespace Gob3AQ.ResourceDialogs
 
             foreach (string row in rows)
             {
-                Span<string> columns = row.Split(',');
+                ReadOnlySpan<string> columns = row.Split(',');
                 columns = columns[3..];
 
                 int parsedRoom = int.Parse(columns[0]);

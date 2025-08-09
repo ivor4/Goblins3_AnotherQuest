@@ -24,8 +24,11 @@ namespace Gob3AQ.Waypoint.Network
         private Dictionary<WaypointSkillType, List<WaypointSolutions>> resolvedSolutionsByType;
 
         private bool dirty;
+        private bool isCalculated;
 
         public bool IsDirty => dirty;
+
+        public bool IsCalculated => isCalculated;
 
         public WaypointNetwork()
         {
@@ -37,6 +40,7 @@ namespace Gob3AQ.Waypoint.Network
             resolvedSolutionsByType[WaypointSkillType.WAYPOINT_SKILL_NORMAL] = resolvedSolutions_normal;
 
             dirty = false;
+            isCalculated = false;
         }
 
 
@@ -223,6 +227,7 @@ namespace Gob3AQ.Waypoint.Network
             }
 
             dirty = false;
+            isCalculated = true;
         }
 
         /// <summary>

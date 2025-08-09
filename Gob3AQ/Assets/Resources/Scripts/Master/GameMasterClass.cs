@@ -10,6 +10,8 @@ using Gob3AQ.VARMAP.Safe;
 using Gob3AQ.ResourceDialogs;
 using UnityEditor;
 using Gob3AQ.VARMAP;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace Gob3AQ.GameMaster
 {
@@ -21,6 +23,7 @@ namespace Gob3AQ.GameMaster
         private static SUBSCRIPTION_CALL_DELEGATE _lateStartSubscibers;
         private static int firstFrameOfScenePending;
         private static bool loadResourcesDone;
+        private static bool levelMasterLoadedCompleted;
 
         void Awake()
         {
@@ -50,16 +53,7 @@ namespace Gob3AQ.GameMaster
             Game_Status gstatus = VARMAP_GameMaster.GET_GAMESTATUS();
             KeyStruct kstruct = VARMAP_GameMaster.GET_PRESSED_KEYS();
 
-            /* Call late update subscribers */
-            if(firstFrameOfScenePending >= 0)
-            {
-                if (firstFrameOfScenePending == 0)
-                {
-                    _lateStartSubscibers?.Invoke();
-                }
-                --firstFrameOfScenePending;
-            }
-            
+                       
 
             pausePressed = (kstruct.cyclepressedKeys & KeyFunctions.KEYFUNC_PAUSE) != KeyFunctions.KEYFUNC_NONE;
 
@@ -85,10 +79,19 @@ namespace Gob3AQ.GameMaster
                     break;
 
                 case Game_Status.GAME_STATUS_LOADING:
-                    if(!loadResourcesDone)
+                    /* Call late update subscribers */
+                    if (loadResourcesDone && (firstFrameOfScenePending >= 0))
                     {
-                        ResourceDialogsClass.PreloadRoomDialogs(VARMAP_GameMaster.GET_ACTUAL_ROOM());
-                        loadResourcesDone = true;
+                        if (firstFrameOfScenePending == 0)
+                        {
+                            _lateStartSubscibers?.Invoke();
+                        }
+                        --firstFrameOfScenePending;
+                    }
+
+                    if (loadResourcesDone && levelMasterLoadedCompleted && (firstFrameOfScenePending < 0))
+                    {
+                        _SetGameStatus(Game_Status.GAME_STATUS_PLAY);
                     }
                     break;
 
@@ -149,15 +152,18 @@ namespace Gob3AQ.GameMaster
             if ((room > Room.ROOM_NONE) && (room < Room.ROOMS_TOTAL))
             {
                 error = false;
-                string sceneName = GameFixedConfig.ROOM_TO_SCENE_NAME[(int)room];
+                
 
                 VARMAP_GameMaster.SET_ACTUAL_ROOM(room);
                 _SetGameStatus(Game_Status.GAME_STATUS_LOADING);
+
+                /* Operations prepared for next level */
                 firstFrameOfScenePending = 1;
                 _lateStartSubscibers = null;
+                levelMasterLoadedCompleted = false;
                 loadResourcesDone = false;
 
-                SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+                UnloadAndLoadRoomAsync(room);
             }
             else
             {
@@ -192,20 +198,13 @@ namespace Gob3AQ.GameMaster
 
         public static void LoadingCompletedService(out bool error)
         {
-            if (VARMAP_GameMaster.GET_GAMESTATUS() == Game_Status.GAME_STATUS_LOADING)
-            {
-                _SetGameStatus(Game_Status.GAME_STATUS_PLAY);
-                error = false;
-            }
-            else
-            {
-                error = true;
-            }
+            levelMasterLoadedCompleted = true;
+            error = false;
         }
 
         public static void FreezePlayService(bool freeze)
         {
-            Game_Status status = VARMAP_GameMaster.GET_GAMESTATUS();
+            Game_Status status = VARMAP_GameMaster.GET_SHADOW_GAMESTATUS();
 
             if (freeze && (status == Game_Status.GAME_STATUS_PLAY))
             {
@@ -233,7 +232,7 @@ namespace Gob3AQ.GameMaster
 
         public static void ExitGameService(out bool error)
         {
-            if (VARMAP_GameMaster.GET_GAMESTATUS() != Game_Status.GAME_STATUS_STOPPED)
+            if (VARMAP_GameMaster.GET_SHADOW_GAMESTATUS() != Game_Status.GAME_STATUS_STOPPED)
             {
                 _SetGameStatus(Game_Status.GAME_STATUS_STOPPED);
                 SceneManager.LoadScene(GameFixedConfig.ROOM_MAINMENU, LoadSceneMode.Single);
@@ -265,6 +264,17 @@ namespace Gob3AQ.GameMaster
         private static void LaunchResourcesInitializations()
         {
             ResourceDialogsClass.Initialize(DialogLanguages.DIALOG_LANG_ENGLISH);
+        }
+
+        private static async void UnloadAndLoadRoomAsync(Room room)
+        {
+            string sceneName = GameFixedConfig.ROOM_TO_SCENE_NAME[(int)room];
+
+            await SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+            await Resources.UnloadUnusedAssets();
+            await ResourceDialogsClass.PreloadRoomDialogsAsync(room);
+
+            loadResourcesDone = true;
         }
         
     }

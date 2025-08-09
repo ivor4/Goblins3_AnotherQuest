@@ -560,8 +560,9 @@ namespace Gob3AQ.VARMAP.Variable
 
                 ParseFromBytesFunction(ref _shadowValues[i], ref tempspan);
 
-                _dirty = true;
             }
+
+            _dirty = true;
         }
 
         public override uint CalcCRC32()
@@ -644,6 +645,7 @@ namespace Gob3AQ.VARMAP.Variable
             if(!CheckValue(false))
             {
                 _value = default(T);
+                throw new Exception("Value is not secure, CRC32 check failed");
             }
 
             return ref _value;
@@ -984,6 +986,7 @@ namespace Gob3AQ.VARMAP.Variable
         public override void ParseFromBytes(ref ReadOnlySpan<byte> streamreader)
         {
             ParseFromBytesFunction(ref _shadowValue, ref streamreader);
+            _dirty = true;
         }
 
         public override uint CalcCRC32()

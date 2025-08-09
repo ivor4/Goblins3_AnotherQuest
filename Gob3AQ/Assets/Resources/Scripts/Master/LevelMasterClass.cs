@@ -80,6 +80,7 @@ namespace Gob3AQ.LevelMaster
         private static RaycastHit2D[] _HitArray;
         private static int _LayerOnlyPlayers;
         private static int _LayerPlayersAndItemsNPC;
+        private static bool _waypointsCalculated;
 
         private static LevelMasterClass _singleton;
 
@@ -247,6 +248,16 @@ namespace Gob3AQ.LevelMaster
         #endregion
 
 
+        #region "Internal Services"
+        public static void DeclareAllWaypointsLoaded()
+        {
+            _waypointsCalculated = true;
+        }
+
+
+        #endregion
+
+
 
         private void Awake()
         {
@@ -267,6 +278,7 @@ namespace Gob3AQ.LevelMaster
         private void Start()
         {
             loadpercentage = 0;
+            _waypointsCalculated = false;
 
             VARMAP_LevelMaster.REG_GAMESTATUS(_OnGameStatusChanged);
         }
@@ -335,7 +347,10 @@ namespace Gob3AQ.LevelMaster
         {
             if (loadpercentage == 0)
             {
-                loadpercentage = 99;
+                if (_waypointsCalculated)
+                {
+                    loadpercentage = 99;
+                }
             }
             else
             {

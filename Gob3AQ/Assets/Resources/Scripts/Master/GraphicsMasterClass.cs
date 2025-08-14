@@ -91,17 +91,15 @@ namespace Gob3AQ.GraphicsMaster
 
             Vector2 screenzone = new Vector2(mouse.posPixels.x / Screen.safeArea.width, mouse.posPixels.y / Screen.safeArea.height);
 
+            MoveCursor(in mouse.pos1);
+
             switch (cachedGameStatus)
             {
                 case Game_Status.GAME_STATUS_LOADING:
                     Execute_Loading();
                     break;
                 case Game_Status.GAME_STATUS_PLAY:
-                    MoveCursor(in mouse.pos1);
                     FollowMouseWithCamera(in screenzone);
-                    break;
-                case Game_Status.GAME_STATUS_PLAY_DIALOG:
-                    MoveCursor(in mouse.pos1);
                     break;
                 default:
                     break;

@@ -40,6 +40,9 @@ namespace Gob3AQ.VARMAP.Initialization
             /* Initialize safety system (before InitializeDataSystem) */
             VARMAP_Safe.InitializeSafety();
 
+            /* Initialize commit queue */
+            VARMAP_Variable_Indexable.Initialize();
+
             /* Initialize DATA System by creating every VARMAP Variable of its purpose type */
             InitializeDataSystem();
 
@@ -60,17 +63,7 @@ namespace Gob3AQ.VARMAP.Initialization
             VARMAP_DefaultValues.SetDefaultValues();
         }
 
-        /// <summary>
-        /// Should be called at init/end of each cycle
-        /// </summary>
-        public static void CommitVARMAP()
-        {
-            for (int i = 0; i < (int)VARMAP_Variable_ID.VARMAP_ID_TOTAL; i++)
-            {
-                VARMAP_Variable_Indexable indexable = DATA[i];
-                indexable.Commit();
-            }
-        }
+
 
         /// <summary>
         /// Resets Events and VARMAP Data to defaults
@@ -79,7 +72,8 @@ namespace Gob3AQ.VARMAP.Initialization
         {
             ClearVARMAPChangeEvents();
             VARMAP_DefaultValues.SetDefaultValues();
-            CommitVARMAP();
+
+            VARMAP_Variable_Indexable.CommitPending();
         }
 
 
@@ -87,7 +81,7 @@ namespace Gob3AQ.VARMAP.Initialization
         {
             Digest digest = CRC32.CreateDigest;
 
-            CommitVARMAP();
+            VARMAP_Variable_Indexable.CommitPending();
 
             using (FileStream fstream = File.Open(GameFixedConfig.LOADSAVE_FILEPATH, FileMode.Create))
             {
@@ -158,7 +152,7 @@ namespace Gob3AQ.VARMAP.Initialization
                 }
             }
 
-            CommitVARMAP();
+            VARMAP_Variable_Indexable.CommitPending();
         }
 
         /// <summary>

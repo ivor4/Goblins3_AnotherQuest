@@ -16,6 +16,31 @@ namespace Gob3AQ.VARMAP.Variable
 
     public abstract class VARMAP_Variable_Indexable
     {
+        private static Queue<VARMAP_Variable_Indexable> _CommitPendingQueue;
+
+        public static void Initialize()
+        {
+            _CommitPendingQueue = new Queue<VARMAP_Variable_Indexable>((int)VARMAP_Variable_ID.VARMAP_ID_TOTAL);
+        }
+
+
+        public static void CommitPending()
+        {
+            while (_CommitPendingQueue.Count > 0)
+            {
+                VARMAP_Variable_Indexable indexable = _CommitPendingQueue.Dequeue();
+                indexable.Commit();
+            }
+        }
+
+        protected static void AddPendingCommit(VARMAP_Variable_Indexable vardata)
+        {
+            if(!_CommitPendingQueue.Contains(vardata))
+            {
+                _CommitPendingQueue.Enqueue(vardata);
+            }
+        }
+
         /// <summary>
         /// Commits shadow values into official ones. Should be done by GameMaster at the end/beginning of a tick.
         /// </summary>
@@ -495,6 +520,7 @@ namespace Gob3AQ.VARMAP.Variable
             {
                 _shadowValues[pos] = newvalue;
                 _dirty = true;
+                AddPendingCommit(this);
             }
             else
             {
@@ -563,6 +589,7 @@ namespace Gob3AQ.VARMAP.Variable
             }
 
             _dirty = true;
+            AddPendingCommit(this);
         }
 
         public override uint CalcCRC32()
@@ -583,6 +610,7 @@ namespace Gob3AQ.VARMAP.Variable
         {
             newList.CopyTo(0, _shadowValues, 0, _elems);
             _dirty = true;
+            AddPendingCommit(this);
         }
 
         public override void InitializeListElems(in T defaultValue)
@@ -598,11 +626,8 @@ namespace Gob3AQ.VARMAP.Variable
 
         public override void Commit()
         {
-            if(_dirty)
-            {
-                _changedevents?.Invoke(ChangedEventType.CHANGED_EVENT_SET_LIST_ELEM, in _shadowValues[0], in _values[0]);
-                _shadowValues.CopyTo(_values, 0);
-            }
+            _changedevents?.Invoke(ChangedEventType.CHANGED_EVENT_SET_LIST_ELEM, in _shadowValues[0], in _values[0]);
+            _shadowValues.CopyTo(_values, 0);
 
             _dirty = false;
         }
@@ -944,6 +969,7 @@ namespace Gob3AQ.VARMAP.Variable
         {
             _shadowValue = newval;
             _dirty = true;
+            AddPendingCommit(this);
         }
 
 
@@ -987,6 +1013,7 @@ namespace Gob3AQ.VARMAP.Variable
         {
             ParseFromBytesFunction(ref _shadowValue, ref streamreader);
             _dirty = true;
+            AddPendingCommit(this);
         }
 
         public override uint CalcCRC32()
@@ -1032,13 +1059,10 @@ namespace Gob3AQ.VARMAP.Variable
 
         public override void Commit()
         {
-            if (_dirty)
-            {
-                /* Trigger Changed Event (before updating Varmap value) */
-                _changedevents?.Invoke(ChangedEventType.CHANGED_EVENT_SET, in _value, in _shadowValue);
+            /* Trigger Changed Event (before updating Varmap value) */
+            _changedevents?.Invoke(ChangedEventType.CHANGED_EVENT_SET, in _value, in _shadowValue);
 
-                _value = _shadowValue;
-            }
+            _value = _shadowValue;
 
             _dirty = false;
         }

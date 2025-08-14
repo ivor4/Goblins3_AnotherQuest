@@ -12,13 +12,14 @@ using UnityEditor;
 using Gob3AQ.VARMAP;
 using System.Threading.Tasks;
 using System.Threading;
+using Gob3AQ.VARMAP.Variable;
 
 namespace Gob3AQ.GameMaster
 {
 
     public class GameMasterClass : MonoBehaviour
     {
-        private const uint ALL_MODULES_LOADED_MASK = (1<<(int)GameModules.MODULE_TOTAL)-1;
+        private const uint ALL_MODULES_LOADED_MASK = (1 << (int)GameModules.MODULE_TOTAL) - 1;
 
         private static GameMasterClass _singleton;
         private static Game_Status prevPauseStatus;
@@ -47,7 +48,7 @@ namespace Gob3AQ.GameMaster
         void Update()
         {
             VARMAP_Safe.IncrementTick();
-            VARMAP_Initialization.CommitVARMAP();
+            VARMAP_Variable_Indexable.CommitPending();
 
             bool pausePressed;
 

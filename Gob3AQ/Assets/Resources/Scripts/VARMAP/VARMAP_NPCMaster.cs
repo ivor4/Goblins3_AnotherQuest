@@ -24,6 +24,8 @@ namespace Gob3AQ.VARMAP.NPCMaster
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
             LATE_START_SUBSCRIPTION = _LATE_START_SUBSCRIPTION;
+            MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
+            IS_MODULE_LOADED = _IS_MODULE_LOADED;
             NPC_REGISTER = _NPC_REGISTER;
             GET_NPC_LIST = _GET_NPC_LIST;
             GET_NEAREST_WP = _GET_NEAREST_WP;
@@ -53,6 +55,20 @@ namespace Gob3AQ.VARMAP.NPCMaster
         /// <para> Method: <see cref="GameMasterClass.LateStartSubrsciptionService"/> </para> 
         /// </summary>
         public static LATE_START_SUBSCRIPTION_DELEGATE LATE_START_SUBSCRIPTION;
+        /// <summary> 
+        /// This service is called when whole room has been loaded
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster, GameEventMaster,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.LoadingCompletedService"/> </para> 
+        /// </summary>
+        public static LODING_COMPLETED_DELEGATE MODULE_LOADING_COMPLETED;
+        /// <summary> 
+        /// This service returns a bool which tells if given module has been loaded in Room Loading Process
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster, GameEventMaster,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
+        /// </summary>
+        public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
         /// <summary> 
         /// Registers an NPC in system
         /// <para> Owner: LevelMaster </para> 

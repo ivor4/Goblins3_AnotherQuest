@@ -56,7 +56,7 @@ namespace Gob3AQ.GameElement.PlayableChar
         private float actTimeout;
 
         private bool selected;
-        private bool loaded;
+        private bool _loaded;
         private WaypointClass actualWaypoint;
         private WaypointProgrammedPath actualProgrammedPath;
         private BufferedData bufferedData;
@@ -140,9 +140,11 @@ namespace Gob3AQ.GameElement.PlayableChar
         {
             physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
             selected = false;
-            loaded = false;
+            _loaded = false;
             bufferedData.pending = false;
             actTimeout = 0f;
+
+            PlayerMasterClass.SetPlayerAvailable(CharType);
 
             VARMAP_PlayerMaster.MONO_REGISTER(this, true);
             VARMAP_PlayerMaster.REG_PLAYER_SELECTED(ChangedSelectedPlayerEvent);
@@ -179,7 +181,7 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         private void Execute_Loading()
         {
-            if (!loaded)
+            if (!_loaded)
             {
                 int wpStartIndex = VARMAP_PlayerMaster.GET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)charType);
                 VARMAP_PlayerMaster.GET_NEAREST_WP(transform.position, float.MaxValue, out WaypointClass nearestWp);
@@ -200,7 +202,9 @@ namespace Gob3AQ.GameElement.PlayableChar
                     _sprRenderer.enabled = true;
                     VARMAP_PlayerMaster.PLAYER_WAYPOINT_UPDATE(charType, nearestWp.IndexInNetwork);
 
-                    loaded = true;
+                    _loaded = true;
+
+                    PlayerMasterClass.SetPlayerLoaded(CharType);
                 }
             }
           

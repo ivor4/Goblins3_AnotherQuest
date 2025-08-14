@@ -18,12 +18,13 @@ namespace Gob3AQ.GameMaster
 
     public class GameMasterClass : MonoBehaviour
     {
+        private const uint ALL_MODULES_LOADED_MASK = (1<<(int)GameModules.MODULE_TOTAL)-1;
+
         private static GameMasterClass _singleton;
         private static Game_Status prevPauseStatus;
         private static SUBSCRIPTION_CALL_DELEGATE _lateStartSubscibers;
         private static int firstFrameOfScenePending;
-        private static bool loadResourcesDone;
-        private static bool levelMasterLoadedCompleted;
+        private static uint moduleLoadingDone;
 
         void Awake()
         {
@@ -80,7 +81,7 @@ namespace Gob3AQ.GameMaster
 
                 case Game_Status.GAME_STATUS_LOADING:
                     /* Call late update subscribers */
-                    if (loadResourcesDone && (firstFrameOfScenePending >= 0))
+                    if (firstFrameOfScenePending >= 0)
                     {
                         if (firstFrameOfScenePending == 0)
                         {
@@ -89,7 +90,7 @@ namespace Gob3AQ.GameMaster
                         --firstFrameOfScenePending;
                     }
 
-                    if (loadResourcesDone && levelMasterLoadedCompleted && (firstFrameOfScenePending < 0))
+                    if ((moduleLoadingDone == ALL_MODULES_LOADED_MASK) && (firstFrameOfScenePending < 0))
                     {
                         _SetGameStatus(Game_Status.GAME_STATUS_PLAY);
                     }
@@ -158,8 +159,7 @@ namespace Gob3AQ.GameMaster
                 /* Operations prepared for next level */
                 firstFrameOfScenePending = 1;
                 _lateStartSubscibers = null;
-                levelMasterLoadedCompleted = false;
-                loadResourcesDone = false;
+                moduleLoadingDone = 0;
 
                 UnloadAndLoadRoomAsync(room);
             }
@@ -194,10 +194,14 @@ namespace Gob3AQ.GameMaster
         }
 
 
-        public static void LoadingCompletedService(out bool error)
+        public static void LoadingCompletedService(GameModules module)
         {
-            levelMasterLoadedCompleted = true;
-            error = false;
+            moduleLoadingDone |= (uint)(1 << (int)module);
+        }
+
+        public static void IsModuleLoadedService(GameModules module, out bool loaded)
+        {
+            loaded = (moduleLoadingDone & (1 << (int)module)) != 0;
         }
 
         public static void FreezePlayService(bool freeze)
@@ -275,7 +279,7 @@ namespace Gob3AQ.GameMaster
             await Resources.UnloadUnusedAssets();
             await ResourceDialogsClass.PreloadRoomDialogsAsync(room);
 
-            loadResourcesDone = true;
+            VARMAP_GameMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameMaster);
         }
         
     }

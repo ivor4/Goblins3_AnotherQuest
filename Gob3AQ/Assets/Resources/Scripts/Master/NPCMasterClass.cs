@@ -51,7 +51,7 @@ namespace Gob3AQ.NPCMaster
 
         void Start()
         {
-            
+            VARMAP_NPCMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_NPCMaster);
         }
 
 

@@ -16,8 +16,6 @@ namespace Gob3AQ.GameMenu
         private static GameMenuClass _singleton;
         private static GameObject _itemMenu;
         private static bool _prevItemMenuOpened;
-        private static bool _loaded;
-        private static bool _levelLoaded;
         private static bool _pendingRefresh;
         private static PickableItemDisplayClass[] _displayItemArray;
         private static Camera _mainCamera;
@@ -43,8 +41,6 @@ namespace Gob3AQ.GameMenu
 
                 _displayItemArray = new PickableItemDisplayClass[GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS];
 
-                _loaded = false;
-                _levelLoaded = false;
                 _pendingRefresh = false;
 
                 float menuHeight = Screen.safeArea.height * GameFixedConfig.MENU_TOP_SCREEN_HEIGHT_PERCENT;
@@ -59,6 +55,8 @@ namespace Gob3AQ.GameMenu
             _prevItemMenuOpened = false;
 
             VARMAP_GameMenu.REG_PICKABLE_ITEM_OWNER(_OnItemOwnerChanged);
+
+            Execute_Load_Async();
         }
 
         
@@ -69,10 +67,6 @@ namespace Gob3AQ.GameMenu
 
             switch(gstatus)
             {
-                case Game_Status.GAME_STATUS_LOADING:
-                    Execute_Load();
-                    break;
-
                 case Game_Status.GAME_STATUS_PLAY:
                     Execute_Play();
                     break;
@@ -130,35 +124,32 @@ namespace Gob3AQ.GameMenu
             }
         }
 
-        private static void Execute_Load()
+        private static async void Execute_Load_Async()
         {
-            if(!_loaded)
+            for(int i=0;i<GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS;++i)
             {
-                for(int i=0;i<GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS;++i)
-                {
-                    GameObject newObj = Instantiate(ResourceAtlasClass.GetPrefab(PrefabEnum.PREFAB_MENU_PICKABLE_ITEM));
-                    Transform newTrns = newObj.transform;
+                AsyncInstantiateOperation asyncop = InstantiateAsync(ResourceAtlasClass.GetPrefab(PrefabEnum.PREFAB_MENU_PICKABLE_ITEM));
+                await asyncop;
 
-                    newObj.name = "PickableItemDisplay" + i;
-                    newTrns.SetParent(_itemMenu.transform, false);
+                GameObject newObj = asyncop.Result[0] as GameObject;
+                Transform newTrns = newObj.transform;
 
-                    float x = -0.825f + 0.333f * (i % GameFixedConfig.MAX_DISPLAYED_HOR_PICKED_ITEMS);
-                    float y = 0.825f - 0.333f * (i / GameFixedConfig.MAX_DISPLAYED_HOR_PICKED_ITEMS);
+                newObj.name = "PickableItemDisplay" + i;
+                newTrns.SetParent(_itemMenu.transform, false);
 
-                    newTrns.localPosition = new Vector3(x, y);
+                float x = -0.825f + 0.333f * (i % GameFixedConfig.MAX_DISPLAYED_HOR_PICKED_ITEMS);
+                float y = 0.825f - 0.333f * (i / GameFixedConfig.MAX_DISPLAYED_HOR_PICKED_ITEMS);
 
-                    _displayItemArray[i] = newObj.GetComponent<PickableItemDisplayClass>();
-                    _displayItemArray[i].SetCallFunction(OnItemDisplayClick);
-                }
+                newTrns.localPosition = new Vector3(x, y);
 
-                _loaded = true;
+                _displayItemArray[i] = newObj.GetComponent<PickableItemDisplayClass>();
+                _displayItemArray[i].SetCallFunction(OnItemDisplayClick);
             }
 
-            if(!_levelLoaded)
-            {
-                _mainCamera = Camera.main;
-                _levelLoaded = true;
-            }
+            _mainCamera = Camera.main;
+
+
+            VARMAP_GameMenu.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameMenu);
         }
 
         private static void Execute_Play()

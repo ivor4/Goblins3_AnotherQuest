@@ -18,6 +18,7 @@ savedata_path = atg_path+"VARMAP_savedata.cs"
 characters_types_path = atg_path + "VARMAP_types_chars.cs"
 dialog_types_path = atg_path + "VARMAP_types_dialogs.cs"
 rooms_types_path = atg_path + "VARMAP_types_rooms.cs"
+modules_types_path = atg_path + "VARMAP_types_modules.cs"
 items_types_path = atg_path + "VARMAP_types_items.cs"
 items_interaction_path = atg_path + "../Static/ItemsInteractionsClass.cs"
 
@@ -101,6 +102,7 @@ savedata_lines = ATGFile(savedata_path, 1)
 characters_lines = ATGFile(characters_types_path, 3)
 dialogs_types_lines = ATGFile(dialog_types_path, 1)
 rooms_types_lines = ATGFile(rooms_types_path, 1)
+modules_types_lines = ATGFile(modules_types_path, 1)
 items_types_lines = ATGFile(items_types_path, 3)
 items_interaction_lines = ATGFile(items_interaction_path, 3)
 
@@ -698,6 +700,19 @@ stringToWrite = '\n'
 rooms_types_lines.InsertLineInATG(1, stringToWrite)
 stringToWrite = 'ROOMS_TOTAL \n'
 rooms_types_lines.InsertLineInATG(1, stringToWrite)
+
+
+print('\n\n------MODULES (Custom GOB3) -------\n\n')
+for mod in Modules:
+    print(mod)
+    stringToWrite = 'MODULE_' + mod + ',\n'
+    modules_types_lines.InsertLineInATG(1, stringToWrite)
+    
+    
+stringToWrite = '\n'
+modules_types_lines.InsertLineInATG(1, stringToWrite)
+stringToWrite = 'MODULE_TOTAL \n'
+modules_types_lines.InsertLineInATG(1, stringToWrite)
     
 
 print('\n\n------CHARS (Custom GOB3) -------\n\n')
@@ -901,6 +916,7 @@ savedata_lines.SaveFile()
 characters_lines.SaveFile()
 dialogs_types_lines.SaveFile()
 rooms_types_lines.SaveFile()
+modules_types_lines.SaveFile()
 items_types_lines.SaveFile()
 items_interaction_lines.SaveFile()
 

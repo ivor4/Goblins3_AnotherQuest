@@ -44,6 +44,8 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             GET_SHADOW_ARRAY_PLAYER_TRANSACTION = _GET_SHADOW_ARRAY_PLAYER_TRANSACTION;
             SET_ARRAY_PLAYER_TRANSACTION = _SET_ARRAY_PLAYER_TRANSACTION;
             LATE_START_SUBSCRIPTION = _LATE_START_SUBSCRIPTION;
+            MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
+            IS_MODULE_LOADED = _IS_MODULE_LOADED;
             MONO_REGISTER = _MONO_REGISTER;
             PLAYER_WAYPOINT_UPDATE = _PLAYER_WAYPOINT_UPDATE;
             SELECT_PLAYER = _SELECT_PLAYER;
@@ -99,6 +101,20 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         /// <para> Method: <see cref="GameMasterClass.LateStartSubrsciptionService"/> </para> 
         /// </summary>
         public static LATE_START_SUBSCRIPTION_DELEGATE LATE_START_SUBSCRIPTION;
+        /// <summary> 
+        /// This service is called when whole room has been loaded
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster, GameEventMaster,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.LoadingCompletedService"/> </para> 
+        /// </summary>
+        public static LODING_COMPLETED_DELEGATE MODULE_LOADING_COMPLETED;
+        /// <summary> 
+        /// This service returns a bool which tells if given module has been loaded in Room Loading Process
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster, GameEventMaster,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
+        /// </summary>
+        public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
         /// <summary> 
         /// Registers a player in scene
         /// <para> Owner: LevelMaster </para> 

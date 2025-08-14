@@ -47,6 +47,7 @@ namespace Gob3AQ.InputMaster
 
             VARMAP_InputMaster.REG_GAME_OPTIONS(_GameOptionsChanged);
             VARMAP_InputMaster.SET_PRESSED_KEYS(new KeyStruct() { pressedKeys = 0 });
+            VARMAP_InputMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_InputMaster);
         }
 
         private void Update()

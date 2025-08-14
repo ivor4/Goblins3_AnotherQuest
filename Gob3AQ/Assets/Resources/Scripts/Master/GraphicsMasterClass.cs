@@ -38,6 +38,8 @@ namespace Gob3AQ.GraphicsMaster
         private static GameObject UICanvas_loadingObj;
         private static GameObject UICanvas_dialogObj;
 
+        private static bool _loaded;
+
 
 
         private void Awake()
@@ -74,11 +76,12 @@ namespace Gob3AQ.GraphicsMaster
             _cameraCenterLimitBounds = _levelBounds;
             _cameraCenterLimitBounds.extents -= _cameraBounds.extents;
 
-            cachedGameStatus = VARMAP_GraphicsMaster.GET_GAMESTATUS();
-
             VARMAP_GraphicsMaster.REG_GAMESTATUS(_GameStatusChanged);
             VARMAP_GraphicsMaster.REG_PICKABLE_ITEM_CHOSEN(_OnPickedItemChanged);
 
+            cachedGameStatus = VARMAP_GraphicsMaster.GET_GAMESTATUS();
+
+            _loaded = false;
         }
 
         // Update is called once per frame
@@ -90,6 +93,9 @@ namespace Gob3AQ.GraphicsMaster
 
             switch (cachedGameStatus)
             {
+                case Game_Status.GAME_STATUS_LOADING:
+                    Execute_Loading();
+                    break;
                 case Game_Status.GAME_STATUS_PLAY:
                     MoveCursor(in mouse.pos1);
                     FollowMouseWithCamera(in screenzone);
@@ -115,6 +121,36 @@ namespace Gob3AQ.GraphicsMaster
             }
         }
 
+        private static void Execute_Loading()
+        {
+            if (!_loaded)
+            {
+                VARMAP_GraphicsMaster.IS_MODULE_LOADED(GameModules.MODULE_LevelMaster, out bool levelmasterLoaded);
+                VARMAP_GraphicsMaster.IS_MODULE_LOADED(GameModules.MODULE_PlayerMaster, out bool playermasterLoaded);
+
+                if (levelmasterLoaded && playermasterLoaded)
+                {
+                    VARMAP_GraphicsMaster.GET_PLAYER_LIST(out ReadOnlySpan<PlayableCharScript> playerlist);
+                    Vector3 candidatePos = mainCameraTransform.position;
+
+                    for (int i = 0; i < playerlist.Length; i++)
+                    {
+                        if (playerlist[i] != null)
+                        {
+                            candidatePos = playerlist[i].transform.position;
+                            break;
+                        }
+                    }
+
+                    candidatePos.z = mainCameraTransform.position.z;
+
+                    MoveCameraToPosition(in candidatePos);
+
+                    VARMAP_GraphicsMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GraphicsMaster);
+                    _loaded = true;
+                }
+            }
+        }
 
         private void MoveCursor(in Vector2 mousePos)
         {
@@ -208,24 +244,8 @@ namespace Gob3AQ.GraphicsMaster
 
         private void _GameStatusChanged(ChangedEventType evtype, in Game_Status oldval, in Game_Status newval)
         {
-            if(oldval == Game_Status.GAME_STATUS_LOADING)
+            if((oldval == Game_Status.GAME_STATUS_LOADING) || (oldval == Game_Status.GAME_STATUS_PLAY_DIALOG))
             {
-                VARMAP_GraphicsMaster.GET_PLAYER_LIST(out ReadOnlySpan<PlayableCharScript> playerlist);
-                Vector3 candidatePos = mainCameraTransform.position;
-
-                for (int i = 0; i < playerlist.Length; i++)
-                {
-                    if (playerlist[i] != null)
-                    {
-                        candidatePos = playerlist[i].transform.position;
-                        break;
-                    }
-                }
-
-                candidatePos.z = mainCameraTransform.position.z;
-
-                MoveCameraToPosition(in candidatePos);
-
                 UICanvas.SetActive(false);
             }
             else if ((newval == Game_Status.GAME_STATUS_LOADING) || (newval == Game_Status.GAME_STATUS_CHANGING_ROOM))
@@ -234,23 +254,13 @@ namespace Gob3AQ.GraphicsMaster
                 UICanvas_loadingObj.SetActive(true);
                 UICanvas_dialogObj.SetActive(false);
             }
-            else
-            {
-                /**/
-            }
-
-            if(newval == Game_Status.GAME_STATUS_PLAY_DIALOG)
+            else if (newval == Game_Status.GAME_STATUS_PLAY_DIALOG)
             {
                 UICanvas.SetActive(true);
                 UICanvas_dialogObj.SetActive(true);
                 UICanvas_loadingObj.SetActive(false);
             }
-            else if(oldval == Game_Status.GAME_STATUS_PLAY_DIALOG)
-            {
-                UICanvas_dialogObj.SetActive(false);
-            }
-
-            if (newval == Game_Status.GAME_STATUS_PAUSE)
+            else if (newval == Game_Status.GAME_STATUS_PAUSE)
             {
                 //paused_text.gameObject.SetActive(true);
             }

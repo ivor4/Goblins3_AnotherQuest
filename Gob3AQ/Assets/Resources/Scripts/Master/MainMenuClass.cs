@@ -20,6 +20,7 @@ namespace Gob3AQ.MainMenu
             }
         }
 
+
         private void OnGUI()
         {
             GUILayout.BeginArea(Screen.safeArea);

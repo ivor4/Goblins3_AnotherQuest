@@ -14,6 +14,8 @@ namespace Gob3AQ.PlayerMaster
     public class PlayerMasterClass : MonoBehaviour
     {
         private static PlayerMasterClass _singleton;
+        private static byte playersLoaded;
+        private static byte playersToLoad;
 
 
 
@@ -36,6 +38,7 @@ namespace Gob3AQ.PlayerMaster
             instance.LockRequest(lockPlayer);
         }
 
+        #region "Internal Services"
         /// <summary>
         /// Determines whether the specified player is in the same state based on their transaction ID and waypoint.
         /// </summary>
@@ -52,6 +55,23 @@ namespace Gob3AQ.PlayerMaster
 
             return inSameState;
         }
+
+        public static void SetPlayerAvailable(CharacterType character)
+        {
+            playersToLoad |= (byte)(1 << (int)character);
+        }
+
+        public static void SetPlayerLoaded(CharacterType character)
+        {
+            playersLoaded |= (byte)(1 << (int)character);
+
+            if (playersLoaded == playersToLoad)
+            {
+                VARMAP_PlayerMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_PlayerMaster);
+            }
+        }
+
+        #endregion
 
         private static PlayableCharScript GetPlayerInstance(CharacterType character)
         {
@@ -94,6 +114,8 @@ namespace Gob3AQ.PlayerMaster
         void Start()
         {
             VARMAP_PlayerMaster.SELECT_PLAYER(CharacterType.CHARACTER_NONE);
+            playersLoaded = 0;
+            playersToLoad = 0;
         }
 
 

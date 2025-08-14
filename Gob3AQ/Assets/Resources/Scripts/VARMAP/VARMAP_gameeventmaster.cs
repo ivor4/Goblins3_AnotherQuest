@@ -30,6 +30,8 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             LATE_START_SUBSCRIPTION = _LATE_START_SUBSCRIPTION;
+            MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
+            IS_MODULE_LOADED = _IS_MODULE_LOADED;
             ITEM_OBTAIN_PICKABLE_EVENT = _ITEM_OBTAIN_PICKABLE_EVENT;
             IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
@@ -63,6 +65,20 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         /// <para> Method: <see cref="GameMasterClass.LateStartSubrsciptionService"/> </para> 
         /// </summary>
         public static LATE_START_SUBSCRIPTION_DELEGATE LATE_START_SUBSCRIPTION;
+        /// <summary> 
+        /// This service is called when whole room has been loaded
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster, GameEventMaster,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.LoadingCompletedService"/> </para> 
+        /// </summary>
+        public static LODING_COMPLETED_DELEGATE MODULE_LOADING_COMPLETED;
+        /// <summary> 
+        /// This service returns a bool which tells if given module has been loaded in Room Loading Process
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster, GameEventMaster,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
+        /// </summary>
+        public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
         /// <summary> 
         /// Takes an item from scene (triggering event)
         /// <para> Owner: GameEventMaster </para> 

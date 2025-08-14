@@ -45,7 +45,8 @@ namespace Gob3AQ.VARMAP.LevelMaster
             SAVE_GAME = _SAVE_GAME;
             LOAD_ROOM = _LOAD_ROOM;
             LATE_START_SUBSCRIPTION = _LATE_START_SUBSCRIPTION;
-            LOADING_COMPLETED = _LOADING_COMPLETED;
+            MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
+            IS_MODULE_LOADED = _IS_MODULE_LOADED;
             FREEZE_PLAY = _FREEZE_PLAY;
             NPC_REGISTER = _NPC_REGISTER;
             ITEM_REGISTER = _ITEM_REGISTER;
@@ -127,10 +128,17 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// <summary> 
         /// This service is called when whole room has been loaded
         /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: LevelMaster,  </para> 
+        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster, GameEventMaster,  </para> 
         /// <para> Method: <see cref="GameMasterClass.LoadingCompletedService"/> </para> 
         /// </summary>
-        public static LODING_COMPLETED_DELEGATE LOADING_COMPLETED;
+        public static LODING_COMPLETED_DELEGATE MODULE_LOADING_COMPLETED;
+        /// <summary> 
+        /// This service returns a bool which tells if given module has been loaded in Room Loading Process
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster, GameEventMaster,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
+        /// </summary>
+        public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
         /// <summary> 
         /// This service is called to pause game or enter cinematic
         /// <para> Owner: GameMaster </para> 

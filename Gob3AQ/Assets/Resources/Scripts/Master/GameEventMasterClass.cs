@@ -125,6 +125,11 @@ namespace Gob3AQ.GameEventMaster
             }
         }
 
+        void Start()
+        {
+            VARMAP_GameEventMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameEventMaster);
+        }
+
         void Update()
         {
             Game_Status gstatus = VARMAP_GameEventMaster.GET_GAMESTATUS();

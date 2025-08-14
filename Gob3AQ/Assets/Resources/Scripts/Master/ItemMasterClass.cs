@@ -63,6 +63,11 @@ namespace Gob3AQ.ItemMaster
             }
         }
 
+        void Start()
+        {
+            VARMAP_ItemMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_ItemMaster);
+        }
+
 
 
         private void OnDestroy()

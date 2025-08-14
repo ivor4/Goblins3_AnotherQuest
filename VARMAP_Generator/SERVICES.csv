@@ -33,4 +33,5 @@ N,SERVICE_ID,SPECIAL_DELEGATE,SERVICE_ROUTE,Description,Separator,GameMaster,Inp
 31,INTERACT_PLAYER_NPC,INTERACT_PLAYER_NPC_DELEGATE,NPCMasterClass.InteractPlayerNPCService,Interacts player with NPC,,-,-,-,-,-,X,W,-,-
 32,LOCK_PLAYER,LOCK_PLAYER_DELEGATE,PlayerMasterClass.LockPlayerService,Locks player so it cannot act until an action over it has been done (or removes lock),,-,-,X,-,-,W,-,-,-
 33,START_DIALOGUE,START_DIALOGUE_DELEGATE,GameMasterClass.StartDialogueService,Starts a dialogue with given text and sound,,W,-,-,-,-,X,-,-,-
-34,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-,-
+34,SHOW_DIALOGUE,SHOW_DIALOGUE_DELEGATE,GraphicsMasterClass.ShowDialogueService,Tell Graphics Maste which dialogue to show,,X,-,-,W,-,-,-,-,-
+35,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-,-

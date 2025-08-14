@@ -42,11 +42,13 @@ namespace Gob3AQ.GameEventMaster
 
             MultiBitFieldStruct mbfs = VARMAP_GameEventMaster.GET_SHADOW_ELEM_EVENTS_OCCURRED(arraypos);
 
+            bool prevValue = mbfs.GetIndividualBool(itembit);
+
             mbfs.SetIndividualBool(itembit, occurred);
 
             VARMAP_GameEventMaster.SET_ELEM_EVENTS_OCCURRED(arraypos, mbfs);
 
-            if (!_bufferedEvents.Contains(evIndex))
+            if (occurred != prevValue)
             {
                 _bufferedEvents.Enqueue(evIndex);
             }
@@ -61,11 +63,13 @@ namespace Gob3AQ.GameEventMaster
 
             MultiBitFieldStruct mbfs = VARMAP_GameEventMaster.GET_SHADOW_ELEM_EVENTS_OCCURRED(arraypos);
 
+            bool prevValue = mbfs.GetIndividualBool(itembit);
+
             mbfs.SetIndividualBool(itembit, true);
 
             VARMAP_GameEventMaster.SET_ELEM_EVENTS_OCCURRED(arraypos, mbfs);
 
-            if (!_bufferedEvents.Contains(evIndex))
+            if (!prevValue)
             {
                 _bufferedEvents.Enqueue(evIndex);
             }
@@ -138,10 +142,8 @@ namespace Gob3AQ.GameEventMaster
             {
                 /* In this way, triggering of events would wait for next cycle in order not to overload previous one */
                 case Game_Status.GAME_STATUS_PLAY:
-                    while(_bufferedEvents.Count > 0)
+                    while (_bufferedEvents.TryDequeue(out int evIndex))
                     {
-                        /* Get first event */
-                        int evIndex = _bufferedEvents.Dequeue();
                         /* Get from VARMAP */
                         GetArrayIndexAndPos(evIndex, out int arraypos, out int itembit);
                         ref readonly MultiBitFieldStruct mbfs = ref VARMAP_GameEventMaster.GET_ELEM_EVENTS_OCCURRED(arraypos);

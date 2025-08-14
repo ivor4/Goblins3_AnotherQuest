@@ -83,6 +83,20 @@ namespace Gob3AQ.VARMAP.Types
         EVENT_TOTAL
     }
 
+    public readonly struct DialogSenderAndMsg
+    {
+        public readonly string senderName;
+        public readonly string message;
+
+        public static readonly DialogSenderAndMsg EMPTY = new DialogSenderAndMsg(string.Empty, string.Empty);
+
+        public DialogSenderAndMsg(string senderName, string message)
+        {
+            this.senderName = senderName;
+            this.message = message;
+        }
+    }
+
     public readonly struct ItemConditions
     {
         public readonly GameEvent eventType;

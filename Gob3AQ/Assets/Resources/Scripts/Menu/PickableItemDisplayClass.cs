@@ -51,10 +51,7 @@ namespace Gob3AQ.GameMenu.PickableItemDisplay
 
         void OnMouseDown()
         {
-            if(_call != null)
-            {
-                _call(_item);
-            }
+            _call?.Invoke(_item);
         }
     }
 }

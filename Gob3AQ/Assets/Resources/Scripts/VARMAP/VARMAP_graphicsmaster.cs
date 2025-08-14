@@ -34,6 +34,7 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
+            SHOW_DIALOGUE = _SHOW_DIALOGUE;
             /* > ATG 1 END */
         }
 
@@ -84,6 +85,13 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
         /// <para> Method: <see cref="LevelMasterClass.GetPlayerListService"/> </para> 
         /// </summary>
         public static GET_PLAYER_LIST_DELEGATE GET_PLAYER_LIST;
+        /// <summary> 
+        /// Tell Graphics Maste which dialogue to show
+        /// <para> Owner: GraphicsMaster </para> 
+        /// <para> Accessors: GameMaster,  </para> 
+        /// <para> Method: <see cref="GraphicsMasterClass.ShowDialogueService"/> </para> 
+        /// </summary>
+        public static SHOW_DIALOGUE_DELEGATE SHOW_DIALOGUE;
         /* > ATG 3 END */
     }
 }

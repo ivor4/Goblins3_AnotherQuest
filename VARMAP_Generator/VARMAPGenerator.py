@@ -99,7 +99,7 @@ defaultvalues_lines = ATGFile(defaultvalues_path, 1)
 enum_lines = ATGFile(enum_path, 1)
 delegateupdate_lines = ATGFile(delegateupdate_path, 2)
 savedata_lines = ATGFile(savedata_path, 1)
-characters_lines = ATGFile(characters_types_path, 3)
+characters_lines = ATGFile(characters_types_path, 4)
 dialogs_types_lines = ATGFile(dialog_types_path, 1)
 rooms_types_lines = ATGFile(rooms_types_path, 1)
 modules_types_lines = ATGFile(modules_types_path, 1)
@@ -734,6 +734,7 @@ for line in CHARSinputFile:
     if(columns[0] == ''):
         stringToWrite = '\n'
         characters_lines.InsertLineInATG(zone, stringToWrite)
+        
         if(zone == 1):
             stringToWrite = 'CHARACTER_TOTAL\n'
         elif(zone == 2):
@@ -745,6 +746,8 @@ for line in CHARSinputFile:
         continue
     
     stringToWrite = columns[1]
+    if(zone == 4):
+        stringToWrite = "\"" + stringToWrite + "\""
     if('NONE' in columns[1]):
         stringToWrite += ' = -1'
     stringToWrite += ', \n'

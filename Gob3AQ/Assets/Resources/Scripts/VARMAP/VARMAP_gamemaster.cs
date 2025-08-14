@@ -6,6 +6,7 @@ using Gob3AQ.PlayerMaster;
 using Gob3AQ.NPCMaster;
 using Gob3AQ.ItemMaster;
 using Gob3AQ.GameEventMaster;
+using Gob3AQ.GraphicsMaster;
 
 
 namespace Gob3AQ.VARMAP.GameMaster
@@ -43,6 +44,7 @@ namespace Gob3AQ.VARMAP.GameMaster
             FREEZE_PLAY = _FREEZE_PLAY;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             START_DIALOGUE = _START_DIALOGUE;
+            SHOW_DIALOGUE = _SHOW_DIALOGUE;
             LAST_SERVICE = _LAST_SERVICE;
             /* > ATG 1 END */
         }
@@ -147,6 +149,13 @@ namespace Gob3AQ.VARMAP.GameMaster
         /// <para> Method: <see cref="GameMasterClass.StartDialogueService"/> </para> 
         /// </summary>
         public static START_DIALOGUE_DELEGATE START_DIALOGUE;
+        /// <summary> 
+        /// Tell Graphics Maste which dialogue to show
+        /// <para> Owner: GraphicsMaster </para> 
+        /// <para> Accessors: GameMaster,  </para> 
+        /// <para> Method: <see cref="GraphicsMasterClass.ShowDialogueService"/> </para> 
+        /// </summary>
+        public static SHOW_DIALOGUE_DELEGATE SHOW_DIALOGUE;
         /// <summary> 
         /// Last service
         /// <para> Owner: GameMaster </para> 

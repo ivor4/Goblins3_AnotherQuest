@@ -20,22 +20,21 @@ namespace Gob3AQ.VARMAP.Variable
 
         public static void Initialize()
         {
-            _CommitPendingQueue = new Queue<VARMAP_Variable_Indexable>((int)VARMAP_Variable_ID.VARMAP_ID_TOTAL);
+            _CommitPendingQueue = new ((int)VARMAP_Variable_ID.VARMAP_ID_TOTAL);
         }
 
 
         public static void CommitPending()
         {
-            while (_CommitPendingQueue.Count > 0)
+            while (_CommitPendingQueue.TryDequeue(out VARMAP_Variable_Indexable indexable))
             {
-                VARMAP_Variable_Indexable indexable = _CommitPendingQueue.Dequeue();
                 indexable.Commit();
             }
         }
 
-        protected static void AddPendingCommit(VARMAP_Variable_Indexable vardata)
+        protected static void AddPendingCommit(VARMAP_Variable_Indexable vardata, bool prevDirty)
         {
-            if(!_CommitPendingQueue.Contains(vardata))
+            if(!prevDirty)
             {
                 _CommitPendingQueue.Enqueue(vardata);
             }
@@ -519,8 +518,8 @@ namespace Gob3AQ.VARMAP.Variable
             if((pos >= 0) && (pos < _elems))
             {
                 _shadowValues[pos] = newvalue;
+                AddPendingCommit(this, _dirty);
                 _dirty = true;
-                AddPendingCommit(this);
             }
             else
             {
@@ -588,8 +587,8 @@ namespace Gob3AQ.VARMAP.Variable
 
             }
 
+            AddPendingCommit(this, _dirty);
             _dirty = true;
-            AddPendingCommit(this);
         }
 
         public override uint CalcCRC32()
@@ -609,8 +608,8 @@ namespace Gob3AQ.VARMAP.Variable
         public override void SetListValues(List<T> newList)
         {
             newList.CopyTo(0, _shadowValues, 0, _elems);
+            AddPendingCommit(this, _dirty);
             _dirty = true;
-            AddPendingCommit(this);
         }
 
         public override void InitializeListElems(in T defaultValue)
@@ -968,8 +967,8 @@ namespace Gob3AQ.VARMAP.Variable
         public override void SetValue(in T newval)
         {
             _shadowValue = newval;
+            AddPendingCommit(this, _dirty);
             _dirty = true;
-            AddPendingCommit(this);
         }
 
 
@@ -1012,8 +1011,8 @@ namespace Gob3AQ.VARMAP.Variable
         public override void ParseFromBytes(ref ReadOnlySpan<byte> streamreader)
         {
             ParseFromBytesFunction(ref _shadowValue, ref streamreader);
+            AddPendingCommit(this, _dirty);
             _dirty = true;
-            AddPendingCommit(this);
         }
 
         public override uint CalcCRC32()

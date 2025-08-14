@@ -1,3 +1,3 @@
-N,DIALOG_ID,Room_used,Room_Code,Text_English,Text_Spanish,Sound
-0,DIALOG_NONE,ROOM_NONE,-1,,,0
-1,DIALOG_NONSENSE,ROOM_NONE,-1,That has no sense!,¡Eso no tiene sentido!,0
+N,DIALOG_ID,Room_used,Room_Code,Sender,Text_English,Text_Spanish,Sound
+0,DIALOG_NONE,ROOM_NONE,-1,,,,0
+1,DIALOG_NONSENSE,ROOM_NONE,-1,*,That has no sense!,¡Eso no tiene sentido!,0

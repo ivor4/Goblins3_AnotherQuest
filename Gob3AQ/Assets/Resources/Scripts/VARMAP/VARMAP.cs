@@ -343,6 +343,13 @@ namespace Gob3AQ.VARMAP
         /// </summary>
         protected static START_DIALOGUE_DELEGATE _START_DIALOGUE;
         /// <summary> 
+        /// Tell Graphics Maste which dialogue to show
+        /// <para> Owner: GraphicsMaster </para> 
+        /// <para> Accessors: GameMaster,  </para> 
+        /// <para> Method: <see cref="GraphicsMasterClass.ShowDialogueService"/> </para> 
+        /// </summary>
+        protected static SHOW_DIALOGUE_DELEGATE _SHOW_DIALOGUE;
+        /// <summary> 
         /// Last service
         /// <para> Owner: GameMaster </para> 
         /// <para> Accessors:  </para> 

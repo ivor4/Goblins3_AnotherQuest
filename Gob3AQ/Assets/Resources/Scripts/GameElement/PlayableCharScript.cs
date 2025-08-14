@@ -343,7 +343,7 @@ namespace Gob3AQ.GameElement.PlayableChar
 
                             if(dialog != DialogType.DIALOG_NONE)
                             {
-                                VARMAP_PlayerMaster.START_DIALOGUE(dialog);
+                                VARMAP_PlayerMaster.START_DIALOGUE(CharType, dialog);
                             }
                         }
 

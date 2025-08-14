@@ -15,6 +15,8 @@ namespace Gob3AQ.VARMAP.Types
         /* > ATG 1 END < */
     }
 
+
+
     public enum CharacterAnimation
     {
         /* > ATG 2 START < */
@@ -38,11 +40,30 @@ namespace Gob3AQ.VARMAP.Types
         INTERACTION_RECEIVE, 
         INTERACTION_TAKE_AND_RECEIVE, 
         
+        
+        
         INTERACTION_TOTAL
         /* > ATG 3 END < */
     }
 
+    public static class CharacterNames
+    {
+        public static ref readonly string GetCharacterName(CharacterType charType)
+        {
+            return ref _characterName[(int)charType];
+        }
 
-    
+        private static readonly string[] _characterName = new string[(int)CharacterType.CHARACTER_TOTAL]
+        {
+            /* > ATG 4 START < */
+            "Main Character", 
+            "Parrot Character", 
+            "Snake Character", 
+            /* > ATG 4 END < */
+        };
+    }
+
+
+
 
 }

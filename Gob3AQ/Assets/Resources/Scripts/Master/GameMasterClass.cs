@@ -13,6 +13,7 @@ using Gob3AQ.VARMAP;
 using System.Threading.Tasks;
 using System.Threading;
 using Gob3AQ.VARMAP.Variable;
+using System;
 
 namespace Gob3AQ.GameMaster
 {
@@ -39,7 +40,7 @@ namespace Gob3AQ.GameMaster
                 DontDestroyOnLoad(gameObject);
 
                 /* Initialize VARMAP once for all the game */
-                VARMAP_Initialization.InitializeVARMAP();
+                VARMAP_DataSystem.InitializeVARMAP();
             }
         }
 
@@ -93,6 +94,7 @@ namespace Gob3AQ.GameMaster
 
                     if ((moduleLoadingDone == ALL_MODULES_LOADED_MASK) && (firstFrameOfScenePending < 0))
                     {
+                        GC.Collect();
                         _SetGameStatus(Game_Status.GAME_STATUS_PLAY);
                     }
                     break;
@@ -172,7 +174,7 @@ namespace Gob3AQ.GameMaster
 
         public static void StartGameService(out bool error)
         {
-            VARMAP_Initialization.ResetVARMAP();
+            VARMAP_DataSystem.ResetVARMAP();
 
             LaunchResourcesInitializations();
 
@@ -181,13 +183,13 @@ namespace Gob3AQ.GameMaster
 
         public static void SaveGameService()
         {
-            VARMAP_Initialization.SaveVARMAPData();
+            VARMAP_DataSystem.SaveVARMAPData();
         }
 
         public static void LoadGameService()
         {
-            VARMAP_Initialization.ResetVARMAP();
-            VARMAP_Initialization.LoadVARMAPData();
+            VARMAP_DataSystem.ResetVARMAP();
+            VARMAP_DataSystem.LoadVARMAPData();
 
             LaunchResourcesInitializations();
 
@@ -224,12 +226,24 @@ namespace Gob3AQ.GameMaster
 
         }
 
-        public static void StartDialogueService(DialogType dialog)
+        public static void StartDialogueService(CharacterType charType, DialogType dialog)
         {
             if (VARMAP_GameMaster.GET_SHADOW_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY)
             {
                 VARMAP_GameMaster.SET_GAMESTATUS(Game_Status.GAME_STATUS_PLAY_DIALOG);
                 VARMAP_GameMaster.CANCEL_PICKABLE_ITEM();
+
+                ref readonly DialogSenderAndMsg dialogInfo = ref ResourceDialogsClass.GetDialogText(dialog);
+
+                if (dialogInfo.senderName.Length == 1)
+                {
+                    ref readonly string correctedSender = ref CharacterNames.GetCharacterName(charType);
+                    VARMAP_GameMaster.SHOW_DIALOGUE(in correctedSender, in dialogInfo.message);
+                }
+                else
+                {
+                    VARMAP_GameMaster.SHOW_DIALOGUE(in dialogInfo.senderName, in dialogInfo.message);
+                }
             }
         }
 

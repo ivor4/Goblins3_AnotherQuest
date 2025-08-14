@@ -15,7 +15,7 @@ using Gob3AQ.ItemMaster;
 
 namespace Gob3AQ.VARMAP.Initialization
 {
-    public abstract partial class VARMAP_Initialization : VARMAP
+    public sealed class VARMAP_Initialization : VARMAP
     {
         /// <summary>
         /// Updates delegates according to recently created instances of VARMAP Data. Must be called with Initialization process
@@ -149,6 +149,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _INTERACT_PLAYER_NPC = NPCMasterClass.InteractPlayerNPCService;
             _LOCK_PLAYER = PlayerMasterClass.LockPlayerService;
             _START_DIALOGUE = GameMasterClass.StartDialogueService;
+            _SHOW_DIALOGUE = GraphicsMasterClass.ShowDialogueService;
             _LAST_SERVICE = GameMasterClass.ExitGameService;
             /* > ATG 2 END */
         }

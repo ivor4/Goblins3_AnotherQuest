@@ -8,6 +8,7 @@ using Gob3AQ.FixedConfig;
 using Gob3AQ.ResourceAtlas;
 using System;
 using Gob3AQ.GameElement.PlayableChar;
+using TMPro;
 
 namespace Gob3AQ.GraphicsMaster
 {
@@ -35,12 +36,24 @@ namespace Gob3AQ.GraphicsMaster
         private static Sprite cursor_orig_spr;
         private static Game_Status cachedGameStatus;
 
+        private static string dialog_sender;
+        private static string dialog_msg;
+
         private static GameObject UICanvas_loadingObj;
         private static GameObject UICanvas_dialogObj;
+        private static TMP_Text UICanvas_dialogObj_sender;
+        private static TMP_Text UICanvas_dialogObj_msg;
 
         private static bool _loaded;
 
 
+
+
+        public static void ShowDialogueService(in string sender, in string message)
+        {
+            dialog_sender = sender;
+            dialog_msg = message;
+        }
 
         private void Awake()
         {
@@ -59,6 +72,9 @@ namespace Gob3AQ.GraphicsMaster
 
                 UICanvas_loadingObj = UICanvas.transform.Find("LoadingObj").gameObject;
                 UICanvas_dialogObj = UICanvas.transform.Find("DialogObj").gameObject;
+                
+                UICanvas_dialogObj_sender = UICanvas_dialogObj.transform.Find("DialogSender").GetComponent<TMP_Text>();
+                UICanvas_dialogObj_msg = UICanvas_dialogObj.transform.Find("DialogMsg").GetComponent<TMP_Text>();
             }
 
         }
@@ -257,6 +273,9 @@ namespace Gob3AQ.GraphicsMaster
                 UICanvas.SetActive(true);
                 UICanvas_dialogObj.SetActive(true);
                 UICanvas_loadingObj.SetActive(false);
+
+                UICanvas_dialogObj_sender.text = dialog_sender;
+                UICanvas_dialogObj_msg.text = dialog_msg;
             }
             else if (newval == Game_Status.GAME_STATUS_PAUSE)
             {

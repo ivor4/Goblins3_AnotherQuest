@@ -226,23 +226,33 @@ namespace Gob3AQ.GameMaster
 
         }
 
-        public static void StartDialogueService(CharacterType charType, DialogType dialog)
+        public static void StartDialogueService(CharacterType charType, DialogType dialog, DialogPhrase phrase)
         {
             if (VARMAP_GameMaster.GET_SHADOW_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY)
             {
                 VARMAP_GameMaster.SET_GAMESTATUS(Game_Status.GAME_STATUS_PLAY_DIALOG);
                 VARMAP_GameMaster.CANCEL_PICKABLE_ITEM();
 
-                ref readonly DialogSenderAndMsg dialogInfo = ref ResourceDialogsClass.GetDialogText(dialog);
+                ref readonly PhraseInfo phraseInfo = ref PhraseInfo.EMPTY;
 
-                if (dialogInfo.senderName.Length == 1)
+                if (dialog == DialogType.DIALOG_SIMPLE)
                 {
-                    ref readonly string correctedSender = ref CharacterNames.GetCharacterName(charType);
-                    VARMAP_GameMaster.SHOW_DIALOGUE(in correctedSender, in dialogInfo.message);
+                    phraseInfo = ref ResourceDialogsClass.GetPhraseInfo(phrase);
                 }
                 else
                 {
-                    VARMAP_GameMaster.SHOW_DIALOGUE(in dialogInfo.senderName, in dialogInfo.message);
+                    /* TODO: State machine for dialogs */
+                }
+
+
+                if (phraseInfo.senderName.Length == 1)
+                {
+                    ref readonly string correctedSender = ref CharacterNames.GetCharacterName(charType);
+                    VARMAP_GameMaster.SHOW_DIALOGUE(in correctedSender, in phraseInfo.message);
+                }
+                else
+                {
+                    VARMAP_GameMaster.SHOW_DIALOGUE(in phraseInfo.senderName, in phraseInfo.message);
                 }
             }
         }
@@ -292,7 +302,7 @@ namespace Gob3AQ.GameMaster
             _SetGameStatus(Game_Status.GAME_STATUS_LOADING);
 
             await Resources.UnloadUnusedAssets();
-            await ResourceDialogsClass.PreloadRoomDialogsAsync(room);
+            await ResourceDialogsClass.PreloadRoomPhrasesAsync(room);
 
             VARMAP_GameMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameMaster);
         }

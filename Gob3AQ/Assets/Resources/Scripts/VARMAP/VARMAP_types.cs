@@ -83,17 +83,21 @@ namespace Gob3AQ.VARMAP.Types
         EVENT_TOTAL
     }
 
-    public readonly struct DialogSenderAndMsg
+    public readonly struct PhraseInfo
     {
         public readonly string senderName;
         public readonly string message;
+        public readonly int sound;
+        public readonly DialogAnimation animation;
 
-        public static readonly DialogSenderAndMsg EMPTY = new DialogSenderAndMsg(string.Empty, string.Empty);
+        public static readonly PhraseInfo EMPTY = new(string.Empty, string.Empty, 0, DialogAnimation.DIALOG_ANIMATION_NONE);
 
-        public DialogSenderAndMsg(string senderName, string message)
+        public PhraseInfo(string senderName, string message, int sound, DialogAnimation animation)
         {
             this.senderName = senderName;
             this.message = message;
+            this.sound = sound;
+            this.animation = animation;
         }
     }
 
@@ -103,17 +107,21 @@ namespace Gob3AQ.VARMAP.Types
         public readonly CharacterAnimation animationOK;
         public readonly CharacterAnimation animationNOK_Event;
         public readonly DialogType dialogOK;
+        public readonly DialogPhrase phraseOK;
         public readonly DialogType dialogNOK_Event;
+        public readonly DialogPhrase phraseNOK_Event;
 
         public ItemConditions(GameEvent eventType, CharacterAnimation animationOK,
             CharacterAnimation animationNOK_Event,
-            DialogType dialogOK, DialogType dialogNOK_Event)
+            DialogType dialogOK, DialogPhrase phraseOK, DialogType dialogNOK_Event, DialogPhrase phraseNOK_Event)
         {
             this.eventType = eventType;
             this.animationOK = animationOK;
             this.animationNOK_Event = animationNOK_Event;
             this.dialogOK = dialogOK;
+            this.phraseOK = phraseOK;
             this.dialogNOK_Event = dialogNOK_Event;
+            this.phraseNOK_Event = phraseNOK_Event;
         }
     }
 
@@ -135,6 +143,24 @@ namespace Gob3AQ.VARMAP.Types
             this.interaction = interaction;
             this.srcItem = srcItem;
             this.conditions = conditions;
+            this.outEvent = outEvent;
+            this.consumes = consumes;
+        }
+    }
+
+    public readonly ref struct InteractionUsageOutcome
+    {
+        public readonly CharacterAnimation animation;
+        public readonly DialogType dialogType;
+        public readonly DialogPhrase dialogPhrase;
+        public readonly GameEvent outEvent;
+        public readonly bool consumes;
+        public InteractionUsageOutcome(CharacterAnimation animation, DialogType dialogType, DialogPhrase dialogPhrase,
+            GameEvent outEvent, bool consumes)
+        {
+            this.animation = animation;
+            this.dialogType = dialogType;
+            this.dialogPhrase = dialogPhrase;
             this.outEvent = outEvent;
             this.consumes = consumes;
         }

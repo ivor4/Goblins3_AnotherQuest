@@ -18,7 +18,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void LODING_COMPLETED_DELEGATE(GameModules module);
     public delegate void IS_MODULE_LOADED_DELEGATE(GameModules module, out bool loaded);
     public delegate void FREEZE_PLAY_DELEGATE(bool freeze);
-    public delegate void START_DIALOGUE_DELEGATE(CharacterType charType, DialogType dialog);
+    public delegate void START_DIALOGUE_DELEGATE(CharacterType charType, DialogType dialog, DialogPhrase phrase);
     public delegate void SHOW_DIALOGUE_DELEGATE(in string sender, in string message);
     public delegate void NPC_REGISTER_DELEGATE(NPCClass instance, bool register);
     public delegate void ITEM_REGISTER_DELEGATE(bool register, ItemClass instance);
@@ -40,7 +40,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void INTERACT_PLAYER_DELEGATE(in InteractionUsage usage);
     public delegate void INTERACT_PLAYER_DOOR_DELEGATE(CharacterType character, WaypointClass doorWaypoint, int doorIndex);
     public delegate void TAKE_ITEM_DELEGATE(CharacterType character, GameItem item, out ItemInteractionType permitted);
-    public delegate void USE_ITEM_DELEGATE(in InteractionUsage usage, out CharacterAnimation animation, out DialogType dialog);
+    public delegate void USE_ITEM_DELEGATE(in InteractionUsage usage, out InteractionUsageOutcome outcome);
     public delegate void GET_SCENARIO_ITEM_LIST_DELEGATE(out ReadOnlyList<ItemClass> list);
     public delegate void SELECT_PICKABLE_ITEM_DELEGATE(GameItem item);
     public delegate void CANCEL_PICKABLE_ITEM_DELEGATE();

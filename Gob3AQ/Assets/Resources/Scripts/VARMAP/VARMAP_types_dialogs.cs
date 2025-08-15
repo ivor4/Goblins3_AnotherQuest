@@ -6,10 +6,34 @@ namespace Gob3AQ.VARMAP.Types
     {
         /* > ATG 1 START < */
         DIALOG_NONE = -1, 
-        DIALOG_NONSENSE, 
+        DIALOG_SIMPLE, 
+        DIALOG_FOUNTAIN, 
+        DIALOG_LAST, 
         
-        DIALOG_TOTAL 
+        DIALOG_TOTAL
         /* > ATG 1 END < */
+    }
+
+    public enum DialogOption
+    {
+        /* > ATG 2 START < */
+        DIALOG_OPTION_NONE = -1, 
+        DIALOG_OPTION_SIMPLE, 
+        DIALOG_OPTION_ASK_FOUNTAIN_1, 
+        DIALOG_OPTION_ASK_FOUNTAIN_2, 
+        DIALOG_OPTION_LAST, 
+        /* > ATG 2 END < */
+    }
+
+    public enum DialogPhrase
+    {
+        /* > ATG 3 START < */
+        PHRASE_NONE = -1, 
+        PHRASE_NONSENSE, 
+        PHRASE_ASK_FOUNTAIN1_1, 
+        PHRASE_ASK_FOUNTAIN1_2, 
+        PHRASE_ASK_FOUNTAIN2_1, 
+        /* > ATG 3 END < */
     }
 
     public enum DialogLanguages

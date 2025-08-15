@@ -29,13 +29,17 @@ namespace Gob3AQ.Brain.ItemsInteraction
         {
             /* > ATG 1 START < */
             new(GameEvent.EVENT_NONE,CharacterAnimation.ITEM_USE_ANIMATION_TAKE,CharacterAnimation.ITEM_USE_ANIMATION_CONFUSE,
-            DialogType.DIALOG_NONE,DialogType.DIALOG_NONE), /* COND_OK */
+            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
+            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE), /* COND_OK */
             new(GameEvent.EVENT_NONE,CharacterAnimation.ITEM_USE_ANIMATION_POUR,CharacterAnimation.ITEM_USE_ANIMATION_CONFUSE,
-            DialogType.DIALOG_NONE,DialogType.DIALOG_NONE), /* COND_FOUNTAIN */
+            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
+            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE), /* COND_FOUNTAIN */
             new(GameEvent.EVENT_NONE,CharacterAnimation.ITEM_USE_ANIMATION_STARE_SCREEN,CharacterAnimation.ITEM_USE_ANIMATION_CONFUSE,
-            DialogType.DIALOG_NONSENSE,DialogType.DIALOG_NONE), /* COND_FOUNTAIN2 */
+            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NONSENSE,
+            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE), /* COND_FOUNTAIN2 */
             new(GameEvent.EVENT_NONE,CharacterAnimation.ITEM_USE_ANIMATION_TAKE,CharacterAnimation.ITEM_USE_ANIMATION_CONFUSE,
-            DialogType.DIALOG_NONE,DialogType.DIALOG_NONE), /* COND_LAST */
+            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
+            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE), /* COND_LAST */
             /* > ATG 1 END < */
         };
 

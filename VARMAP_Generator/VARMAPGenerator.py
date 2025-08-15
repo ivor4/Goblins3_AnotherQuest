@@ -99,8 +99,8 @@ defaultvalues_lines = ATGFile(defaultvalues_path, 1)
 enum_lines = ATGFile(enum_path, 1)
 delegateupdate_lines = ATGFile(delegateupdate_path, 2)
 savedata_lines = ATGFile(savedata_path, 1)
-characters_lines = ATGFile(characters_types_path, 4)
-dialogs_types_lines = ATGFile(dialog_types_path, 1)
+characters_lines = ATGFile(characters_types_path, 5)
+dialogs_types_lines = ATGFile(dialog_types_path, 3)
 rooms_types_lines = ATGFile(rooms_types_path, 1)
 modules_types_lines = ATGFile(modules_types_path, 1)
 items_types_lines = ATGFile(items_types_path, 3)
@@ -119,6 +119,7 @@ ITEMSinputFile = open("ITEMS.csv", "r")
 ITEMSCONDSinputFile = open("ITEMS_CONDS.csv", "r")
 CHARSinputFile = open("CHARACTERS.csv", "r")
 DIALOGSinputFile = open("DIALOGS.csv", "r")
+PHRASESinputFile = open("PHRASES.csv", "r")
 ROOMSinputFile = open("ROOMS.csv", "r")
 
 VARMAPPermissionFile = []
@@ -650,7 +651,46 @@ for line in SERVICESinputFile:
 
 print('\n\n------DIALOGS (Custom GOB3) -------\n\n')
 linecount = -1
+zone = 1
 for line in DIALOGSinputFile:
+    linecount += 1
+    
+    line = line.replace('\n','')
+    line = line.replace('\r','')
+    
+    
+    columns = line.split(',')
+    print(columns)
+
+    if(linecount == 0):
+        continue
+    
+    if(columns[0] == ''):
+        stringToWrite = '\n'
+        dialogs_types_lines.InsertLineInATG(zone, stringToWrite)
+        
+        if(zone == 1):
+            stringToWrite = 'DIALOG_TOTAL\n'
+        elif(zone == 2):
+            stringToWrite = 'DIALOG_OPTION_TOTAL\n'
+        
+        dialogs_types_lines.InsertLineInATG(zone, stringToWrite)
+        
+        zone +=1
+        linecount = -1
+        continue
+    
+    stringToWrite = columns[1]
+    if('NONE' in columns[1]):
+        stringToWrite += ' = -1'
+    stringToWrite += ', \n'
+    dialogs_types_lines.InsertLineInATG(zone, stringToWrite)
+
+
+print('\n\n------PHRASES (Custom GOB3) -------\n\n')
+linecount = -1
+zone = 1
+for line in PHRASESinputFile:
     linecount += 1
     
     line = line.replace('\n','')
@@ -667,12 +707,8 @@ for line in DIALOGSinputFile:
     if('NONE' in columns[1]):
         stringToWrite += ' = -1'
     stringToWrite += ', \n'
-    dialogs_types_lines.InsertLineInATG(1, stringToWrite)
-    
-stringToWrite = '\n'
-dialogs_types_lines.InsertLineInATG(1, stringToWrite)
-stringToWrite = 'DIALOG_TOTAL \n'
-dialogs_types_lines.InsertLineInATG(1, stringToWrite)
+    dialogs_types_lines.InsertLineInATG(3, stringToWrite)
+
 
 
 print('\n\n------ROOMS (Custom GOB3) -------\n\n')
@@ -732,14 +768,18 @@ for line in CHARSinputFile:
         continue
     
     if(columns[0] == ''):
-        stringToWrite = '\n'
-        characters_lines.InsertLineInATG(zone, stringToWrite)
-        
-        if(zone == 1):
-            stringToWrite = 'CHARACTER_TOTAL\n'
-        elif(zone == 2):
-            stringToWrite = 'ITEM_USE_ANIMATION_TOTAL\n'
-        characters_lines.InsertLineInATG(zone, stringToWrite)
+        if(zone != 4):
+            stringToWrite = '\n'
+            characters_lines.InsertLineInATG(zone, stringToWrite)
+            
+            if(zone == 1):
+                stringToWrite = 'CHARACTER_TOTAL\n'
+            elif(zone == 2):
+                stringToWrite = 'ITEM_USE_ANIMATION_TOTAL\n'
+            elif(zone == 3):
+                stringToWrite = 'INTERACTION_TOTAL\n'
+            
+            characters_lines.InsertLineInATG(zone, stringToWrite)
         
         zone +=1
         linecount = -1
@@ -754,9 +794,11 @@ for line in CHARSinputFile:
     characters_lines.InsertLineInATG(zone, stringToWrite)
     
 stringToWrite = '\n'
-characters_lines.InsertLineInATG(3, stringToWrite)
-stringToWrite = 'INTERACTION_TOTAL\n'
-characters_lines.InsertLineInATG(3, stringToWrite)
+characters_lines.InsertLineInATG(5, stringToWrite)
+stringToWrite = 'DIALOG_ANIMATION_TOTAL\n'
+characters_lines.InsertLineInATG(5, stringToWrite)
+    
+    
     
    
 print('\n\n------ITEMS CONDITIONS (Custom GOB3) -------\n\n')
@@ -769,6 +811,7 @@ event_prefix = 'GameEvent.'
 condition_prefix = 'ItemConditions.'
 conditiontype_prefix = 'ItemConditionsType.'
 dialog_prefix = 'DialogType.'
+phrase_prefix = 'DialogPhrase.'
 item_prefix = 'GameItem.'
 
 linecount = -1
@@ -790,7 +833,9 @@ for line in ITEMSCONDSinputFile:
     ItemVar["animationOK"] = str(columns[3])
     ItemVar["animationNOK_event"] = str(columns[4])
     ItemVar["dialogOK"] = str(columns[5])
-    ItemVar["dialogNOK_event"] = str(columns[6])
+    ItemVar["phraseOK"] = str(columns[6])
+    ItemVar["dialogNOK_event"] = str(columns[7])
+    ItemVar["phraseNOK_event"] = str(columns[8])
     
     # Write in item enum
     stringToWrite = ItemVar["name"]
@@ -804,7 +849,10 @@ for line in ITEMSCONDSinputFile:
         animation_prefix+ItemVar["animationNOK_event"]+",\n"
     items_interaction_lines.InsertLineInATG(1, stringToWrite)
     stringToWrite = dialog_prefix+ItemVar["dialogOK"]+","+\
-        dialog_prefix+ItemVar["dialogNOK_event"]+"), /* "+\
+        phrase_prefix+ItemVar["phraseOK"]+",\n"
+    items_interaction_lines.InsertLineInATG(1, stringToWrite)
+    stringToWrite = dialog_prefix+ItemVar["dialogNOK_event"]+","+\
+        phrase_prefix+ItemVar["phraseNOK_event"]+"), /* "+\
         ItemVar["name"]+" */\n"
     items_interaction_lines.InsertLineInATG(1, stringToWrite)
     

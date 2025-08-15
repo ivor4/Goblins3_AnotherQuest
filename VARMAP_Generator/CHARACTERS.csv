@@ -23,3 +23,7 @@ N,CharName
 0,Main Character
 1,Parrot Character
 2,Snake Character
+,
+N,DIALOG_ANIMATION_ID
+0,DIALOG_ANIMATION_NONE
+1,DIALOG_ANIMATION_TALK

@@ -332,18 +332,19 @@ namespace Gob3AQ.GameElement.PlayableChar
                         if (validTransaction)
                         {
                             /* Use Item is also Take Item */
-                            VARMAP_PlayerMaster.USE_ITEM(in bufferedData.usage,
-                                out CharacterAnimation animation, out DialogType dialog);
+                            VARMAP_PlayerMaster.USE_ITEM(in bufferedData.usage, out InteractionUsageOutcome outcome);
 
-                            /* If action is valid */
-                            if (animation != CharacterAnimation.ITEM_USE_ANIMATION_NONE)
+                            if(outcome.dialogType != DialogType.DIALOG_NONE)
                             {
-                                ActAnimationRequest(animation);
+                                VARMAP_PlayerMaster.START_DIALOGUE(CharType, outcome.dialogType, outcome.dialogPhrase);
                             }
-
-                            if(dialog != DialogType.DIALOG_NONE)
+                            else if (outcome.animation != CharacterAnimation.ITEM_USE_ANIMATION_NONE)
                             {
-                                VARMAP_PlayerMaster.START_DIALOGUE(CharType, dialog);
+                                ActAnimationRequest(outcome.animation);
+                            }
+                            else
+                            {
+                                /**/
                             }
                         }
 

@@ -10,80 +10,82 @@ namespace Gob3AQ.ResourceDialogs
 {
     public static class ResourceDialogsClass
     {
-        private const string DIALOGS_PATH = "Dialogs/DIALOGS_CSV";
+        private const string PHRASES_PATH = "Dialogs/PHRASES_CSV";
 
 
-        private static DialogSenderAndMsg[] _cachedDialogs;
-        private static Dictionary<DialogType, int> _cachedDialogsFinder;
+        private static PhraseInfo[] _cachedPhrases;
+        private static Dictionary<DialogPhrase, int> _cachedPhrasesFinder;
         private static DialogLanguages _language;
 
 
         public static void Initialize(DialogLanguages language)
         {
             _language = language;
-            _cachedDialogs = new DialogSenderAndMsg[GameFixedConfig.MAX_CACHED_DIALOGS];
-            _cachedDialogsFinder = new(GameFixedConfig.MAX_CACHED_DIALOGS);
+            _cachedPhrases = new PhraseInfo[GameFixedConfig.MAX_CACHED_PHRASES];
+            _cachedPhrasesFinder = new(GameFixedConfig.MAX_CACHED_PHRASES);
 
             // Preload dialogs for the default room
-            TextAsset textAsset = Resources.Load<TextAsset>(DIALOGS_PATH);
-            PreloadRoomDialogs(Room.ROOM_NONE, textAsset);
+            TextAsset textAsset = Resources.Load<TextAsset>(PHRASES_PATH);
+            PreloadRoomPhrases(Room.ROOM_NONE, textAsset);
         }
 
-        public static async Task PreloadRoomDialogsAsync(Room room)
+        public static async Task PreloadRoomPhrasesAsync(Room room)
         {
             TextAsset textAsset;
 
-            ResourceRequest resrq = Resources.LoadAsync<TextAsset>(DIALOGS_PATH);
+            ResourceRequest resrq = Resources.LoadAsync<TextAsset>(PHRASES_PATH);
 
             await resrq;
 
             textAsset = resrq.asset as TextAsset;
 
-            PreloadRoomDialogs(room, textAsset);
+            PreloadRoomPhrases(room, textAsset);
         }
 
-        private static void PreloadRoomDialogs(Room room, TextAsset textAsset)
+        private static void PreloadRoomPhrases(Room room, TextAsset textAsset)
         {
             /* Empty cached dialogs */
-            _cachedDialogsFinder.Clear();
+            _cachedPhrasesFinder.Clear();
 
             ReadOnlySpan<string> rows = textAsset.text.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
             rows = rows[1..]; /* Skip header row */
 
-            DialogType iteratedDialog = DialogType.DIALOG_NONE;
+            DialogPhrase iteratedPhrase = DialogPhrase.PHRASE_NONE;
             int storedIndex = 0;
 
 
             foreach (string row in rows)
             {
                 ReadOnlySpan<string> columns = row.Split(',');
-                columns = columns[3..];
+                columns = columns[2..];
 
-                int parsedRoom = int.Parse(columns[0]);
+                bool useAlways = columns[0][0] == 'T';
+                int sound = int.Parse(columns[2]);
+                DialogAnimation animation = (DialogAnimation)int.Parse(columns[4]);
 
-                if (((int)room == parsedRoom) || (parsedRoom == (int)Room.ROOM_NONE))
+                if (useAlways)
                 {
-                    _cachedDialogs[storedIndex] = new(columns[1], columns[(int)_language + 2]);
-                    _cachedDialogsFinder[iteratedDialog] = storedIndex++;
+                    _cachedPhrases[storedIndex] = new(columns[1], columns[(int)_language + 5], sound, animation);
+                    _cachedPhrasesFinder[iteratedPhrase] = storedIndex++;
                 }
 
-                ++iteratedDialog;
+                ++iteratedPhrase;
             }
 
             Resources.UnloadAsset(textAsset);
         }
 
-        public static ref readonly DialogSenderAndMsg GetDialogText(DialogType dialogType)
+        public static ref readonly PhraseInfo GetPhraseInfo(DialogPhrase phraseType)
         {
 
-            if(_cachedDialogsFinder.TryGetValue(dialogType, out int storedIndex))
+            if(_cachedPhrasesFinder.TryGetValue(phraseType, out int storedIndex))
             {
-                return ref _cachedDialogs[storedIndex];
+                return ref _cachedPhrases[storedIndex];
             }
             else
             {
-                Debug.LogWarning($"Dialog type {dialogType} not found in cached dialogs.");
-                return ref DialogSenderAndMsg.EMPTY;
+                Debug.LogWarning($"Phrase type {phraseType} not found in cached phrases.");
+                return ref PhraseInfo.EMPTY;
             }
         }
     }

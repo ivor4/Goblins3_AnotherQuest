@@ -40,8 +40,6 @@ namespace Gob3AQ.VARMAP.Types
         INTERACTION_RECEIVE, 
         INTERACTION_TAKE_AND_RECEIVE, 
         
-        
-        
         INTERACTION_TOTAL
         /* > ATG 3 END < */
     }
@@ -61,6 +59,16 @@ namespace Gob3AQ.VARMAP.Types
             "Snake Character", 
             /* > ATG 4 END < */
         };
+    }
+
+    public enum DialogAnimation
+    {
+        /* > ATG 5 START < */
+        DIALOG_ANIMATION_NONE = -1, 
+        DIALOG_ANIMATION_TALK, 
+        
+        DIALOG_ANIMATION_TOTAL
+        /* > ATG 5 END < */
     }
 
 

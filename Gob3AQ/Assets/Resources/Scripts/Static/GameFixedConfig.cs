@@ -38,7 +38,7 @@ namespace Gob3AQ.FixedConfig
         
 
         /* Performance */
-        public const int MAX_CACHED_DIALOGS = 64;
+        public const int MAX_CACHED_PHRASES = 64;
         public const int MAX_POOLED_ENEMIES = 50;
         public const int MAX_LEVEL_PLAYABLE_CHARACTERS = 3;
         public const int MAX_BUFFERED_EVENTS = 16;

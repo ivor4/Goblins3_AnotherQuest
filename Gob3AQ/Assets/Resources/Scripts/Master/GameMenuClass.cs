@@ -1,17 +1,23 @@
-﻿using UnityEngine;
+﻿using Gob3AQ.FixedConfig;
+using Gob3AQ.GameMenu.Dialog;
+using Gob3AQ.GameMenu.PickableItemDisplay;
+using Gob3AQ.ResourceAtlas;
+using Gob3AQ.ResourceDialogs;
+using Gob3AQ.ResourceDialogsAtlas;
 using Gob3AQ.VARMAP.GameMenu;
 using Gob3AQ.VARMAP.Types;
-using Gob3AQ.ResourceAtlas;
-using Gob3AQ.FixedConfig;
-using Gob3AQ.GameMenu.PickableItemDisplay;
-using Gob3AQ.Libs.Arith;
 using System;
+using TMPro;
+using UnityEngine;
 
 namespace Gob3AQ.GameMenu
 {
 
+    [System.Serializable]
     public class GameMenuClass : MonoBehaviour
     {
+        [SerializeField]
+        private GameObject UICanvas;
 
         private static GameMenuClass _singleton;
         private static GameObject _itemMenu;
@@ -23,6 +29,121 @@ namespace Gob3AQ.GameMenu
         
         private static string[] _gameMenuToolbarStrings;
 
+        private static string dialog_sender;
+        private static string dialog_msg;
+
+        private static GameObject UICanvas_dialogObj;
+        private static TMP_Text UICanvas_dialogObj_sender;
+        private static TMP_Text UICanvas_dialogObj_msg;
+        private static GameObject UICanvas_dialogOptions;
+        private static DialogOptionButtonClass[] UICanvas_dialogOptionButtons;
+
+
+        public static void ShowDialogueService(CharacterType charType, DialogType dialog, DialogPhrase phrase)
+        {
+            ref readonly PhraseContent phraseContent = ref PhraseContent.EMPTY;
+            int selectableOptions = 0;
+
+            Span<DialogPhrase> phraseOptions = stackalloc DialogPhrase[GameFixedConfig.MAX_DIALOG_OPTIONS];
+
+            if (dialog == DialogType.DIALOG_SIMPLE)
+            {
+                phraseOptions[selectableOptions] = phrase;
+                selectableOptions = 1;
+            }
+            else
+            {
+                selectableOptions = 0;
+
+                ReadOnlySpan<DialogOptionConfig> dialogOptionConfigs = ResourceDialogsAtlasClass.DialogOptionConfigs;
+                ref readonly DialogConfig dialogConfig = ref ResourceDialogsAtlasClass.DialogConfigs[(int)dialog];
+                ReadOnlySpan<DialogOption> dialogOptions = dialogConfig.options;
+
+                /* Iterate through dialog available options */
+                for (int i = 0; i < dialogOptions.Length; i++)
+                {
+                    ref readonly DialogOptionConfig dialogOptionConfig = ref dialogOptionConfigs[(int)dialogOptions[i]];
+                    bool valid;
+
+                    if (dialogOptionConfig.conditionEvent == GameEvent.EVENT_NONE)
+                    {
+                        valid = true;
+                    }
+                    else
+                    {
+                        VARMAP_GameMenu.IS_EVENT_OCCURRED(dialogOptionConfig.conditionEvent, out valid);
+                    }
+
+                    if (valid)
+                    {
+                        phraseOptions[selectableOptions] = dialogOptionConfig.phrases[0];
+                        ++selectableOptions;
+                    }
+                }
+            }
+
+            /* Enshorten only up to total selectableOptions */
+            phraseOptions = phraseOptions[..selectableOptions];
+
+
+
+            /* If it is multichoice, enable selectors. If only 1 say it directly */
+            if (selectableOptions > 1)
+            {
+                UICanvas_dialogObj_msg.gameObject.SetActive(false);
+                UICanvas_dialogObj_sender.gameObject.SetActive(false);
+                UICanvas_dialogOptions.SetActive(true);
+
+                for (int i = 0; i < GameFixedConfig.MAX_DIALOG_OPTIONS; ++i)
+                {
+                    if (i < selectableOptions)
+                    {
+                        Debug.Log(UICanvas_dialogOptionButtons[i]);
+                        Debug.Log(UICanvas_dialogOptionButtons[i].gameObject);
+                        UICanvas_dialogOptionButtons[i].gameObject.SetActive(true);
+                        ref readonly PhraseContent optionPhraseContent = ref ResourceDialogsClass.GetPhraseContent(phraseOptions[i]);
+                        UICanvas_dialogOptionButtons[i].SetOptionText(optionPhraseContent.message);
+                    }
+                    else
+                    {
+                        UICanvas_dialogOptionButtons[i].gameObject.SetActive(false);
+                    }
+                }
+                
+            }
+            else if (selectableOptions == 1)
+            {
+                UICanvas_dialogObj_msg.gameObject.SetActive(true);
+                UICanvas_dialogObj_sender.gameObject.SetActive(true);
+                UICanvas_dialogOptions.SetActive(false);
+
+
+                if (phraseContent.senderName.Length == 1)
+                {
+                    UICanvas_dialogObj_sender.text = CharacterNames.GetCharacterName(charType);
+                }
+                else
+                {
+                    UICanvas_dialogObj_sender.text = phraseContent.senderName;
+                }
+                
+                UICanvas_dialogObj_msg.text = phraseContent.message;
+            }
+            else
+            {
+                Debug.LogError("GraphicsMasterClass.ShowDialogueService: No valid dialog options found for dialog " + dialog.ToString());
+                return;
+            }
+
+
+            
+
+
+
+
+            //dialog_sender = sender;
+            //dialog_msg = message;
+        }
 
 
 
@@ -47,6 +168,21 @@ namespace Gob3AQ.GameMenu
                 _upperGameMenuRect = new Rect(0, 0, Screen.safeArea.width, menuHeight);
 
                 _gameMenuToolbarStrings = new string[] { "Save Game", "Exit Game" };
+
+                UICanvas_dialogObj = UICanvas.transform.Find("DialogObj").gameObject;
+                UICanvas_dialogObj_sender = UICanvas_dialogObj.transform.Find("DialogSender").GetComponent<TMP_Text>();
+                UICanvas_dialogObj_msg = UICanvas_dialogObj.transform.Find("DialogMsg").GetComponent<TMP_Text>();
+                UICanvas_dialogOptions = UICanvas_dialogObj.transform.Find("DialogOptions").gameObject;
+
+                UICanvas_dialogOptionButtons = new DialogOptionButtonClass[GameFixedConfig.MAX_DIALOG_OPTIONS];
+
+                for(int i=0;i<GameFixedConfig.MAX_DIALOG_OPTIONS;++i)
+                {
+                    Transform btnTransf = UICanvas_dialogOptions.transform.Find("DialogOption" + (i + 1).ToString());
+                    UICanvas_dialogOptionButtons[i] = btnTransf.Find("ActiveArea").gameObject.GetComponent<DialogOptionButtonClass>();
+                    Debug.Log(UICanvas_dialogOptionButtons[i]);
+                }
+
             }
         }
 

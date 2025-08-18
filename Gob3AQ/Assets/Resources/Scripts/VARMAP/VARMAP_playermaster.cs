@@ -153,7 +153,7 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         /// <summary> 
         /// Tells if an event is occurred
         /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, PlayerMaster, NPCMaster, ItemMaster,  </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster,  </para> 
         /// <para> Method: <see cref="GameEventMasterClass.IsEventOccurredService"/> </para> 
         /// </summary>
         public static IS_EVENT_OCCURRED_DELEGATE IS_EVENT_OCCURRED;

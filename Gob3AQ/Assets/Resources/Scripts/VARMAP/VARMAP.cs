@@ -254,7 +254,7 @@ namespace Gob3AQ.VARMAP
         /// <summary> 
         /// Tells if an event is occurred
         /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, PlayerMaster, NPCMaster, ItemMaster,  </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster,  </para> 
         /// <para> Method: <see cref="GameEventMasterClass.IsEventOccurredService"/> </para> 
         /// </summary>
         protected static IS_EVENT_OCCURRED_DELEGATE _IS_EVENT_OCCURRED;
@@ -343,10 +343,10 @@ namespace Gob3AQ.VARMAP
         /// </summary>
         protected static START_DIALOGUE_DELEGATE _START_DIALOGUE;
         /// <summary> 
-        /// Tell Graphics Maste which dialogue to show
-        /// <para> Owner: GraphicsMaster </para> 
+        /// Second part of start dialogue. Tells Game Menu to prepare menu elements
+        /// <para> Owner: GameMenu </para> 
         /// <para> Accessors: GameMaster,  </para> 
-        /// <para> Method: <see cref="GraphicsMasterClass.ShowDialogueService"/> </para> 
+        /// <para> Method: <see cref="GameMenuClass.ShowDialogueService"/> </para> 
         /// </summary>
         protected static SHOW_DIALOGUE_DELEGATE _SHOW_DIALOGUE;
         /// <summary> 

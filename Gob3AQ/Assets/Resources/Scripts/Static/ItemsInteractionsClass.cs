@@ -35,7 +35,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
             DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE), /* COND_FOUNTAIN */
             new(GameEvent.EVENT_NONE,CharacterAnimation.ITEM_USE_ANIMATION_STARE_SCREEN,CharacterAnimation.ITEM_USE_ANIMATION_CONFUSE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NONSENSE,
+            DialogType.DIALOG_FOUNTAIN,DialogPhrase.PHRASE_NONE,
             DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE), /* COND_FOUNTAIN2 */
             new(GameEvent.EVENT_NONE,CharacterAnimation.ITEM_USE_ANIMATION_TAKE,CharacterAnimation.ITEM_USE_ANIMATION_CONFUSE,
             DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,

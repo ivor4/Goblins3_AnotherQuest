@@ -150,10 +150,10 @@ namespace Gob3AQ.VARMAP.GameMaster
         /// </summary>
         public static START_DIALOGUE_DELEGATE START_DIALOGUE;
         /// <summary> 
-        /// Tell Graphics Maste which dialogue to show
-        /// <para> Owner: GraphicsMaster </para> 
+        /// Second part of start dialogue. Tells Game Menu to prepare menu elements
+        /// <para> Owner: GameMenu </para> 
         /// <para> Accessors: GameMaster,  </para> 
-        /// <para> Method: <see cref="GraphicsMasterClass.ShowDialogueService"/> </para> 
+        /// <para> Method: <see cref="GameMenuClass.ShowDialogueService"/> </para> 
         /// </summary>
         public static SHOW_DIALOGUE_DELEGATE SHOW_DIALOGUE;
         /// <summary> 

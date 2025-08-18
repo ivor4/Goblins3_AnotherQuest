@@ -80,6 +80,14 @@ namespace Gob3AQ.Waypoint
 
         public async void LateStart()
         {
+            await Task.Run(ThreadedCalculatePaths);
+            LevelMasterClass.DeclareAllWaypointsLoaded();
+        }
+
+        private void ThreadedCalculatePaths()
+        {
+            DateTime before = DateTime.Now;
+
             if (network == null)
             {
                 /* This will set network variable */
@@ -87,22 +95,14 @@ namespace Gob3AQ.Waypoint
                 wpnet.AddWaypointAndItsBranch(this);
             }
 
-            await Task.Run(() =>
-            {
-                /* This could also be valid just after above assign */
-                if (network != null)
-                {
-                    DateTime before = DateTime.Now;
-                    network.CalculatePaths();
-                    DateTime after = DateTime.Now;
+            /* This could also be valid just after above assign */
+            network?.CalculatePaths();
 
-                    TimeSpan duration = after.Subtract(before);
+            DateTime after = DateTime.Now;
 
-                    Debug.LogWarning("Dijkstra operation lasted: " + duration.Milliseconds + "ms");
-                }
-            });
+            TimeSpan duration = after.Subtract(before);
 
-            LevelMasterClass.DeclareAllWaypointsLoaded();
+            Debug.LogWarning("Dijkstra operation lasted: " + duration.Milliseconds + "ms");
         }
 
 

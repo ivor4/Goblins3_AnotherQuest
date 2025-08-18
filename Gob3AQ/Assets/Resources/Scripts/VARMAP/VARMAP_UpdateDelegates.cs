@@ -12,6 +12,7 @@ using Gob3AQ.VARMAP.Variable;
 using Gob3AQ.PlayerMaster;
 using Gob3AQ.GameEventMaster;
 using Gob3AQ.ItemMaster;
+using Gob3AQ.GameMenu;
 
 namespace Gob3AQ.VARMAP.Initialization
 {
@@ -149,7 +150,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _INTERACT_PLAYER_NPC = NPCMasterClass.InteractPlayerNPCService;
             _LOCK_PLAYER = PlayerMasterClass.LockPlayerService;
             _START_DIALOGUE = GameMasterClass.StartDialogueService;
-            _SHOW_DIALOGUE = GraphicsMasterClass.ShowDialogueService;
+            _SHOW_DIALOGUE = GameMenuClass.ShowDialogueService;
             _LAST_SERVICE = GameMasterClass.ExitGameService;
             /* > ATG 2 END */
         }

@@ -3181,6 +3181,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1184066848}
     m_Modifications:
+    - target: {fileID: 2171650550733276401, guid: 730fabbb80c79f34e89566e3d9ac9f21, type: 3}
+      propertyPath: UICanvas
+      value: 
+      objectReference: {fileID: 4799653550463977370}
     - target: {fileID: 3672116640308181837, guid: 730fabbb80c79f34e89566e3d9ac9f21, type: 3}
       propertyPath: m_Name
       value: GameMenu

@@ -1,6 +1,5 @@
-N,PHRASE_ID,Always_used,Sender,Sound,CharAnimation,CharAnimation_Num,Text_English,Text_Spanish
-0,PHRASE_NONE,TRUE,*,0,DIALOG_ANIMATION_NONE,-1,,
-1,PHRASE_NONSENSE,TRUE,*,0,DIALOG_ANIMATION_TALK,0,That has no sense!,¡Eso no tiene sentido!
-2,PHRASE_ASK_FOUNTAIN1_1,FALSE,*,0,DIALOG_ANIMATION_TALK,0,Are you the fountain?,¿Eres tú la fuente?
-3,PHRASE_ASK_FOUNTAIN1_2,FALSE,*,0,DIALOG_ANIMATION_TALK,0,Sure?,¿De verdad?
-4,PHRASE_ASK_FOUNTAIN2_1,FALSE,*,0,DIALOG_ANIMATION_TALK,0,Why are you red?,¿Por qué estás roja?
+*,That has no sense!,¡Eso no tiene sentido!
+*,Are you the fountain?,¿Eres tú la fuente?
+*,Sure?,¿De verdad?
+*,Are you kidding me?,¿Me estás troleando?
+*,Why are you red?,¿Por qué estás roja?

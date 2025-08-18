@@ -20,7 +20,7 @@ N,SERVICE_ID,SPECIAL_DELEGATE,SERVICE_ROUTE,Description,Separator,GameMaster,Inp
 18,GET_PLAYER_LIST,GET_PLAYER_LIST_DELEGATE,LevelMasterClass.GetPlayerListService,Gets a list of actual players,,-,-,W,X,-,X,-,-,-
 19,GET_NPC_LIST,GET_NPC_LIST_DELEGATE,LevelMasterClass.GetNPCListService,Gets a list of actual NPCs ,,-,-,W,-,-,-,X,-,-
 20,GET_NEAREST_WP,GET_NEAREST_WP_DELEGATE,LevelMasterClass.GetNearestWPService,Gets nearest WP from a given coordinates of level,,-,-,W,-,-,X,X,X,-
-21,IS_EVENT_OCCURRED,IS_EVENT_OCCURRED_DELEGATE,GameEventMasterClass.IsEventOccurredService,Tells if an event is occurred,,-,-,X,-,-,X,X,X,W
+21,IS_EVENT_OCCURRED,IS_EVENT_OCCURRED_DELEGATE,GameEventMasterClass.IsEventOccurredService,Tells if an event is occurred,,-,-,X,-,X,X,X,X,W
 22,COMMIT_EVENT,COMMIT_EVENT_DELEGATE,GameEventMasterClass.CommitEventService,Activates/Deactivates an event,,-,-,X,-,-,X,X,X,W
 23,USE_ITEM,USE_ITEM_DELEGATE,ItemMasterClass.UseItemService,Uses an item with something,,-,-,-,-,-,X,-,W,-
 24,IS_ITEM_TAKEN_FROM_SCENE,IS_ITEM_TAKEN_FROM_SCENE_DELEGATE,GameEventMasterClass.IsItemTakenFromSceneService,Tells if item is taken from scene,,-,-,X,-,-,-,-,X,W
@@ -33,5 +33,5 @@ N,SERVICE_ID,SPECIAL_DELEGATE,SERVICE_ROUTE,Description,Separator,GameMaster,Inp
 31,INTERACT_PLAYER_NPC,INTERACT_PLAYER_NPC_DELEGATE,NPCMasterClass.InteractPlayerNPCService,Interacts player with NPC,,-,-,-,-,-,X,W,-,-
 32,LOCK_PLAYER,LOCK_PLAYER_DELEGATE,PlayerMasterClass.LockPlayerService,Locks player so it cannot act until an action over it has been done (or removes lock),,-,-,X,-,-,W,-,-,-
 33,START_DIALOGUE,START_DIALOGUE_DELEGATE,GameMasterClass.StartDialogueService,Starts a dialogue with given text and sound,,W,-,-,-,-,X,-,-,-
-34,SHOW_DIALOGUE,SHOW_DIALOGUE_DELEGATE,GraphicsMasterClass.ShowDialogueService,Tell Graphics Maste which dialogue to show,,X,-,-,W,-,-,-,-,-
+34,SHOW_DIALOGUE,SHOW_DIALOGUE_DELEGATE,GameMenuClass.ShowDialogueService,Second part of start dialogue. Tells Game Menu to prepare menu elements,,X,-,-,-,W,-,-,-,-
 35,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-,-

@@ -13,6 +13,7 @@ defaultvalues_path = atg_path+"VARMAP_defaultvalues.cs"
 enum_path = atg_path+"VARMAP_enum.cs"
 delegateupdate_path = atg_path+"VARMAP_UpdateDelegates.cs"
 savedata_path = atg_path+"VARMAP_savedata.cs"
+phrases_text_path = "./../Gob3AQ/Assets/Resources/Dialogs/PHRASES_CSV.csv"
 
 #This is Custom part
 characters_types_path = atg_path + "VARMAP_types_chars.cs"
@@ -21,6 +22,7 @@ rooms_types_path = atg_path + "VARMAP_types_rooms.cs"
 modules_types_path = atg_path + "VARMAP_types_modules.cs"
 items_types_path = atg_path + "VARMAP_types_items.cs"
 items_interaction_path = atg_path + "../Static/ItemsInteractionsClass.cs"
+dialog_atlas_path = atg_path + "../Static/ResourceDialogsAtlas.cs"
 
 MODULES_START_COLUMN = 8
 SERVICE_MODULES_START_COLUMN = 6
@@ -33,12 +35,14 @@ class ATGFile:
         self.maxATGZones = maxATGZones
         self.ATGWritingLine = []
         self.ATGIndent = []
-
-        readfile = open(self.path)
-        self.filelines = readfile.readlines()
-        readfile.close()
         
-        self.DetectAndClearATGZones()
+        if(maxATGZones != 0):
+            readfile = open(self.path)
+            self.filelines = readfile.readlines()
+            readfile.close()
+            self.DetectAndClearATGZones()
+        else:
+            self.filelines = []
 
     def DetectAndClearATGZones(self):
         lastInspectedLine = 0
@@ -80,9 +84,12 @@ class ATGFile:
             self.ATGIndent.append(indent)
 
     def InsertLineInATG(self, atg_index, line_str):
-        self.filelines.insert(self.ATGWritingLine[atg_index-1], self.ATGIndent[atg_index-1] + line_str)
-        for i in range(atg_index-1, self.maxATGZones):
-            self.ATGWritingLine[i] += 1
+        if(self.maxATGZones != 0):
+            self.filelines.insert(self.ATGWritingLine[atg_index-1], self.ATGIndent[atg_index-1] + line_str)
+            for i in range(atg_index-1, self.maxATGZones):
+                self.ATGWritingLine[i] += 1
+        else:
+            self.filelines.append(line_str)
 
     def SaveFile(self):
         writefile = open(self.path,"w")
@@ -101,10 +108,13 @@ delegateupdate_lines = ATGFile(delegateupdate_path, 2)
 savedata_lines = ATGFile(savedata_path, 1)
 characters_lines = ATGFile(characters_types_path, 5)
 dialogs_types_lines = ATGFile(dialog_types_path, 3)
+phrases_lines = ATGFile(phrases_text_path, 0)
 rooms_types_lines = ATGFile(rooms_types_path, 1)
 modules_types_lines = ATGFile(modules_types_path, 1)
 items_types_lines = ATGFile(items_types_path, 3)
 items_interaction_lines = ATGFile(items_interaction_path, 3)
+dialog_atlas_lines = ATGFile(dialog_atlas_path, 3)
+
 
 added_savedata_lines = 0
 
@@ -648,6 +658,21 @@ for line in SERVICESinputFile:
         print("Service "+str(linecount)+" has no writer")
         exit()
         
+        
+character_prefix = 'CharacterType.'
+pickable_prefix = 'GamePickableItem.'
+interaction_prefix = 'ItemInteractionType.'
+animation_prefix = 'CharacterAnimation.'
+dialoganim_prefix = 'DialogAnimation.'
+event_prefix = 'GameEvent.'
+condition_prefix = 'ItemConditions.'
+conditiontype_prefix = 'ItemConditionsType.'
+dialog_prefix = 'DialogType.'
+dialog_option_prefix = 'DialogOption.'
+phrase_prefix = 'DialogPhrase.'
+item_prefix = 'GameItem.'
+room_prefix = 'Room.'
+
 
 print('\n\n------DIALOGS (Custom GOB3) -------\n\n')
 linecount = -1
@@ -671,8 +696,6 @@ for line in DIALOGSinputFile:
         
         if(zone == 1):
             stringToWrite = 'DIALOG_TOTAL\n'
-        elif(zone == 2):
-            stringToWrite = 'DIALOG_OPTION_TOTAL\n'
         
         dialogs_types_lines.InsertLineInATG(zone, stringToWrite)
         
@@ -685,11 +708,45 @@ for line in DIALOGSinputFile:
         stringToWrite += ' = -1'
     stringToWrite += ', \n'
     dialogs_types_lines.InsertLineInATG(zone, stringToWrite)
+    
+    if(not 'NONE' in columns[1]):
+        if(zone == 1):
+            stringToWrite = 'new('
+            num_options = int(columns[2])
+            if(num_options == 0):
+                stringToWrite += 'null), /* ' + columns[1] + ' */\n'
+            else:
+                stringToWrite += 'new DialogOption['+str(num_options)+']{'
+                for _option in columns[3:3+num_options]:
+                    stringToWrite += dialog_option_prefix + _option + ', '
+                stringToWrite += '}), /* ' + columns[1] + ' */\n'
+            dialog_atlas_lines.InsertLineInATG(1, stringToWrite)
+        elif(zone == 2):
+            stringToWrite = 'new('+event_prefix+columns[2]+', '
+            stringToWrite += event_prefix+columns[3]+', '
+            stringToWrite += dialog_prefix+columns[4]+', '
+            num_options = int(columns[5])
+            if(num_options == 0):
+                stringToWrite += 'null), /* ' + columns[1] + ' */\n'
+            else:
+                stringToWrite += 'new DialogPhrase['+str(num_options)+']{'
+                for _option in columns[6:6+num_options]:
+                    stringToWrite += phrase_prefix + _option + ', '
+                stringToWrite += '}), /* ' + columns[1] + ' */\n'
+            dialog_atlas_lines.InsertLineInATG(2, stringToWrite)
+        
+        
+    
+stringToWrite = '\n'
+dialogs_types_lines.InsertLineInATG(2, stringToWrite)
+stringToWrite = 'DIALOG_OPTION_TOTAL\n'
+dialogs_types_lines.InsertLineInATG(2, stringToWrite)
 
 
 print('\n\n------PHRASES (Custom GOB3) -------\n\n')
 linecount = -1
 zone = 1
+
 for line in PHRASESinputFile:
     linecount += 1
     
@@ -703,11 +760,26 @@ for line in PHRASESinputFile:
     if(linecount == 0):
         continue
     
+    
     stringToWrite = columns[1]
     if('NONE' in columns[1]):
         stringToWrite += ' = -1'
     stringToWrite += ', \n'
     dialogs_types_lines.InsertLineInATG(3, stringToWrite)
+    
+    if(not 'NONE' in columns[1]):
+        selectedColumns = [columns[2]] + columns[6:]
+        stringToWrite = ",".join(selectedColumns)+'\n'
+        phrases_lines.InsertLineInATG(0, stringToWrite)
+        
+        stringToWrite = 'new('+room_prefix+columns[3]+', '+columns[4]+', '+\
+            dialoganim_prefix + columns[5]+'), /* '+columns[1]+' */ \n'
+        dialog_atlas_lines.InsertLineInATG(3, stringToWrite)
+    
+stringToWrite = '\n'
+dialogs_types_lines.InsertLineInATG(3, stringToWrite)
+stringToWrite = 'PHRASE_TOTAL\n'
+dialogs_types_lines.InsertLineInATG(3, stringToWrite)
 
 
 
@@ -803,16 +875,7 @@ characters_lines.InsertLineInATG(5, stringToWrite)
    
 print('\n\n------ITEMS CONDITIONS (Custom GOB3) -------\n\n')
 
-character_prefix = 'CharacterType.'
-pickable_prefix = 'GamePickableItem.'
-interaction_prefix = 'ItemInteractionType.'
-animation_prefix = 'CharacterAnimation.'
-event_prefix = 'GameEvent.'
-condition_prefix = 'ItemConditions.'
-conditiontype_prefix = 'ItemConditionsType.'
-dialog_prefix = 'DialogType.'
-phrase_prefix = 'DialogPhrase.'
-item_prefix = 'GameItem.'
+
 
 linecount = -1
 for line in ITEMSCONDSinputFile:
@@ -966,8 +1029,10 @@ savedata_lines.SaveFile()
 #Custom classes
 characters_lines.SaveFile()
 dialogs_types_lines.SaveFile()
+phrases_lines.SaveFile()
 rooms_types_lines.SaveFile()
 modules_types_lines.SaveFile()
 items_types_lines.SaveFile()
 items_interaction_lines.SaveFile()
+dialog_atlas_lines.SaveFile()
 

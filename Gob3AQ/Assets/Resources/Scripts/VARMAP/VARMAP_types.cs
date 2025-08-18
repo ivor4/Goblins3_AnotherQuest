@@ -31,17 +31,17 @@ namespace Gob3AQ.VARMAP.Types
     }
 
 
-     public enum KeyFunctions
+    public enum KeyFunctions
     {
         KEYFUNC_NONE = 0,
-        KEYFUNC_UP = 1<<0,
-        KEYFUNC_DOWN = 1<<1,
-        KEYFUNC_LEFT = 1<<2,
-        KEYFUNC_RIGHT = 1<<3,
-        KEYFUNC_JUMP = 1<<4,
-        KEYFUNC_ATTACK = 1<<5,
-        KEYFUNC_SPELL = 1<<6,
-        KEYFUNC_PAUSE = 1<<7
+        KEYFUNC_UP = 1 << 0,
+        KEYFUNC_DOWN = 1 << 1,
+        KEYFUNC_LEFT = 1 << 2,
+        KEYFUNC_RIGHT = 1 << 3,
+        KEYFUNC_JUMP = 1 << 4,
+        KEYFUNC_ATTACK = 1 << 5,
+        KEYFUNC_SPELL = 1 << 6,
+        KEYFUNC_PAUSE = 1 << 7
     }
 
 
@@ -57,10 +57,7 @@ namespace Gob3AQ.VARMAP.Types
         GAME_STATUS_LOADING
     }
 
-    
-    
 
- 
 
     public enum InteractionType
     {
@@ -83,21 +80,66 @@ namespace Gob3AQ.VARMAP.Types
         EVENT_TOTAL
     }
 
-    public readonly struct PhraseInfo
+    public readonly struct DialogConfig
     {
-        public readonly string senderName;
-        public readonly string message;
+        public readonly DialogOption[] options;
+
+        public static readonly DialogConfig EMPTY = new(new DialogOption[0]);
+
+        public DialogConfig(DialogOption[] options)
+        {
+            this.options = options;
+        }
+    }
+
+    public readonly struct DialogOptionConfig
+    {
+        public readonly GameEvent conditionEvent;
+        public readonly GameEvent triggeredEvent;
+        public readonly DialogType dialogTriggered;
+        public readonly DialogPhrase[] phrases;
+
+        public static readonly DialogOptionConfig EMPTY = new(GameEvent.EVENT_NONE, GameEvent.EVENT_NONE, DialogType.DIALOG_NONE, new DialogPhrase[0]);
+
+        public DialogOptionConfig(GameEvent conditionEvent, GameEvent triggeredEvent, DialogType dialogTriggered, DialogPhrase[] phrases)
+        {
+            this.conditionEvent = conditionEvent;
+            this.triggeredEvent = triggeredEvent;
+            this.dialogTriggered = dialogTriggered;
+            this.phrases = phrases;
+        }
+    }
+
+
+    public readonly struct PhraseConfig
+    {
+        public readonly Room room;
         public readonly int sound;
         public readonly DialogAnimation animation;
 
-        public static readonly PhraseInfo EMPTY = new(string.Empty, string.Empty, 0, DialogAnimation.DIALOG_ANIMATION_NONE);
+        public static readonly PhraseConfig EMPTY = new(Room.ROOM_NONE, 0, DialogAnimation.DIALOG_ANIMATION_NONE);
 
-        public PhraseInfo(string senderName, string message, int sound, DialogAnimation animation)
+        public PhraseConfig(Room room, int sound, DialogAnimation animation)
         {
-            this.senderName = senderName;
-            this.message = message;
+            this.room = room;
             this.sound = sound;
             this.animation = animation;
+        }
+    }
+
+    public readonly struct PhraseContent
+    {
+        public readonly PhraseConfig config;
+        public readonly string senderName;
+        public readonly string message;
+
+        public static readonly PhraseContent EMPTY = new(in PhraseConfig.EMPTY, string.Empty, string.Empty);
+
+        public PhraseContent(in PhraseConfig config, string senderName, string message)
+        {
+            this.config = config;
+            this.senderName = senderName;
+            this.message = message;
         }
     }
 

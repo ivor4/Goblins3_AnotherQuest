@@ -45,8 +45,10 @@ namespace Gob3AQ.VARMAP.GameMenu
             LATE_START_SUBSCRIPTION = _LATE_START_SUBSCRIPTION;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
+            IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
             SELECT_PICKABLE_ITEM = _SELECT_PICKABLE_ITEM;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
+            SHOW_DIALOGUE = _SHOW_DIALOGUE;
             /* > ATG 1 END */
         }
 
@@ -128,6 +130,13 @@ namespace Gob3AQ.VARMAP.GameMenu
         /// </summary>
         public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
         /// <summary> 
+        /// Tells if an event is occurred
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.IsEventOccurredService"/> </para> 
+        /// </summary>
+        public static IS_EVENT_OCCURRED_DELEGATE IS_EVENT_OCCURRED;
+        /// <summary> 
         /// Selects some pickable from inventory
         /// <para> Owner: ItemMaster </para> 
         /// <para> Accessors: GameMenu,  </para> 
@@ -141,6 +150,13 @@ namespace Gob3AQ.VARMAP.GameMenu
         /// <para> Method: <see cref="ItemMasterClass.CancelPickableItemService"/> </para> 
         /// </summary>
         public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
+        /// <summary> 
+        /// Second part of start dialogue. Tells Game Menu to prepare menu elements
+        /// <para> Owner: GameMenu </para> 
+        /// <para> Accessors: GameMaster,  </para> 
+        /// <para> Method: <see cref="GameMenuClass.ShowDialogueService"/> </para> 
+        /// </summary>
+        public static SHOW_DIALOGUE_DELEGATE SHOW_DIALOGUE;
         /* > ATG 3 END */
     }
 }

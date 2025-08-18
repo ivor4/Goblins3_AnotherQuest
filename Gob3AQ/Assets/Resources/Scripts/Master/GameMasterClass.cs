@@ -8,10 +8,6 @@ using Gob3AQ.VARMAP.Initialization;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.VARMAP.Safe;
 using Gob3AQ.ResourceDialogs;
-using UnityEditor;
-using Gob3AQ.VARMAP;
-using System.Threading.Tasks;
-using System.Threading;
 using Gob3AQ.VARMAP.Variable;
 using System;
 
@@ -233,27 +229,7 @@ namespace Gob3AQ.GameMaster
                 VARMAP_GameMaster.SET_GAMESTATUS(Game_Status.GAME_STATUS_PLAY_DIALOG);
                 VARMAP_GameMaster.CANCEL_PICKABLE_ITEM();
 
-                ref readonly PhraseInfo phraseInfo = ref PhraseInfo.EMPTY;
-
-                if (dialog == DialogType.DIALOG_SIMPLE)
-                {
-                    phraseInfo = ref ResourceDialogsClass.GetPhraseInfo(phrase);
-                }
-                else
-                {
-                    /* TODO: State machine for dialogs */
-                }
-
-
-                if (phraseInfo.senderName.Length == 1)
-                {
-                    ref readonly string correctedSender = ref CharacterNames.GetCharacterName(charType);
-                    VARMAP_GameMaster.SHOW_DIALOGUE(in correctedSender, in phraseInfo.message);
-                }
-                else
-                {
-                    VARMAP_GameMaster.SHOW_DIALOGUE(in phraseInfo.senderName, in phraseInfo.message);
-                }
+                VARMAP_GameMaster.SHOW_DIALOGUE(charType, dialog, phrase);
             }
         }
 

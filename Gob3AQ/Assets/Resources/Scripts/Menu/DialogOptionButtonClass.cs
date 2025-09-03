@@ -1,3 +1,4 @@
+using Gob3AQ.VARMAP.Types;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -6,19 +7,19 @@ using UnityEngine.EventSystems;
 namespace Gob3AQ.GameMenu.Dialog
 {
 
-    [System.Serializable]
     public class DialogOptionButtonClass : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
-        public delegate void DIALOG_OPTION_CLICK_DELEGATE(int optionIndex);
+        public delegate void DIALOG_OPTION_CLICK_DELEGATE(DialogOption option);
 
-        [SerializeField]
-        private int optionIndex;
-
+        private DialogOption dialogOption;
         private TMP_Text optionText;
         private GameObject optionParent;
         private DIALOG_OPTION_CLICK_DELEGATE clickDelegate;
 
-
+        public void SetDialogOption(DialogOption option)
+        {
+            dialogOption = option;
+        }
 
         public void SetOptionText(in string text)
         {
@@ -38,7 +39,7 @@ namespace Gob3AQ.GameMenu.Dialog
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            clickDelegate?.Invoke(optionIndex);
+            clickDelegate?.Invoke(dialogOption);
         }
 
         public void OnPointerEnter(PointerEventData eventData)

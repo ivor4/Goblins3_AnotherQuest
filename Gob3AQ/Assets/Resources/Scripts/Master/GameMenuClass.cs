@@ -7,7 +7,9 @@ using Gob3AQ.ResourceDialogsAtlas;
 using Gob3AQ.VARMAP.GameMenu;
 using Gob3AQ.VARMAP.Types;
 using System;
+using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Gob3AQ.GameMenu
@@ -30,9 +32,10 @@ namespace Gob3AQ.GameMenu
         private static string[] _gameMenuToolbarStrings;
 
         private static CharacterType dialog_sender;
-        private static DialogType dialog_currentDialog;
         private static int dialog_currentPhraseIndex;
         private static bool dialog_optionPending;
+        private static bool dialog_tellingInProgress;
+        private static Coroutine dialog_coroutine;
 
 
         private static GameObject UICanvas_dialogObj;
@@ -41,21 +44,30 @@ namespace Gob3AQ.GameMenu
         private static GameObject UICanvas_dialogOptions;
         private static DialogOptionButtonClass[] UICanvas_dialogOptionButtons;
 
-
+        /// <summary>
+        /// Displays a dialogue interface based on the specified character type, dialogue type, and initial phrase.
+        /// </summary>
+        /// <remarks>This method configures and displays a dialogue interface based on the provided
+        /// parameters. For simple dialogues,  the specified phrase is displayed directly. For multi-choice dialogues,
+        /// the available options are dynamically  populated based on the active dialogue configurations. If no valid
+        /// options are found, an error is logged.</remarks>
+        /// <param name="charType">The type of the character initiating the dialogue.</param>
+        /// <param name="dialog">The type of dialogue to display, which determines the structure and options available.</param>
+        /// <param name="phrase">The initial phrase to display if the dialogue type is simple.</param>
         public static void ShowDialogueService(CharacterType charType, DialogType dialog, DialogPhrase phrase)
         {
-            int selectableOptions;
+            int selectablePhrases;
 
-            Span<DialogPhrase> phraseOptions = stackalloc DialogPhrase[GameFixedConfig.MAX_DIALOG_OPTIONS];
+            DialogPhrase uniquePhrase = DialogPhrase.PHRASE_NONE;
 
             if (dialog == DialogType.DIALOG_SIMPLE)
             {
-                phraseOptions[0] = phrase;
-                selectableOptions = 1;
+                uniquePhrase = phrase;
+                selectablePhrases = 1;
             }
             else
             {
-                selectableOptions = 0;
+                selectablePhrases = 0;
 
                 ReadOnlySpan<DialogOptionConfig> dialogOptionConfigs = ResourceDialogsAtlasClass.DialogOptionConfigs;
                 ref readonly DialogConfig dialogConfig = ref ResourceDialogsAtlasClass.DialogConfigs[(int)dialog];
@@ -65,80 +77,72 @@ namespace Gob3AQ.GameMenu
                 for (int i = 0; i < dialogOptions.Length; i++)
                 {
                     ref readonly DialogOptionConfig dialogOptionConfig = ref dialogOptionConfigs[(int)dialogOptions[i]];
-                    bool valid;
 
-                    if (dialogOptionConfig.conditionEvent == GameEvent.EVENT_NONE)
+                    if (IsDialogOptionActive(in dialogOptionConfig))
                     {
-                        valid = true;
-                    }
-                    else
-                    {
-                        VARMAP_GameMenu.IS_EVENT_OCCURRED(dialogOptionConfig.conditionEvent, out valid);
-                    }
+                        ref readonly PhraseContent optionPhraseContent = ref ResourceDialogsClass.GetPhraseContent(dialogOptionConfig.phrases[0]);
 
-                    if (valid)
-                    {
-                        phraseOptions[selectableOptions] = dialogOptionConfig.phrases[0];
-                        ++selectableOptions;
+                        UICanvas_dialogOptionButtons[selectablePhrases].SetOptionText(in optionPhraseContent.message);
+                        UICanvas_dialogOptionButtons[selectablePhrases].SetDialogOption(dialogOptions[i]);
+                        UICanvas_dialogOptionButtons[selectablePhrases].SetActive(true);
+
+                        uniquePhrase = dialogOptionConfig.phrases[0];
+                        ++selectablePhrases;
                     }
+                }
+
+                /* Clear previous usage data and deactivate */
+                for (int i=selectablePhrases;i<GameFixedConfig.MAX_DIALOG_OPTIONS;++i)
+                {
+                    UICanvas_dialogOptionButtons[i].SetOptionText(in string.Empty);
+                    UICanvas_dialogOptionButtons[i].SetDialogOption(DialogOption.DIALOG_OPTION_NONE);
+                    UICanvas_dialogOptionButtons[i].SetActive(false);
                 }
             }
 
-            /* Enshorten only up to total selectableOptions */
-            phraseOptions = phraseOptions[..selectableOptions];
-
-
 
             /* If it is multichoice, enable selectors. If only 1 say it directly */
-            if (selectableOptions > 1)
+            if (selectablePhrases > 1)
             {
                 UICanvas_dialogObj_msg.gameObject.SetActive(false);
                 UICanvas_dialogObj_sender.gameObject.SetActive(false);
                 UICanvas_dialogOptions.SetActive(true);
 
                 dialog_sender = charType;
-                dialog_currentDialog = dialog;
                 dialog_optionPending = true;
-
-                for (int i = 0; i < GameFixedConfig.MAX_DIALOG_OPTIONS; ++i)
-                {
-                    if (i < selectableOptions)
-                    {
-                        ref readonly PhraseContent optionPhraseContent = ref ResourceDialogsClass.GetPhraseContent(phraseOptions[i]);
-
-                        UICanvas_dialogOptionButtons[i].SetOptionText(in optionPhraseContent.message);
-                        UICanvas_dialogOptionButtons[i].SetActive(true);
-                    }
-                    else
-                    {
-                        UICanvas_dialogOptionButtons[i].SetActive(false);
-                    }
-                }
-                
+                dialog_tellingInProgress = false;
             }
-            else if (selectableOptions == 1)
+            else if (selectablePhrases == 1)
             {
                 dialog_optionPending = false;
-                StartPhrase(charType, phraseOptions[0]);
+                StartPhrase(charType, uniquePhrase);
             }
             else
             {
                 dialog_optionPending = false;
+                dialog_tellingInProgress = false;
                 Debug.LogError("GraphicsMasterClass.ShowDialogueService: No valid dialog options found for dialog " + dialog.ToString());
             }
+
+            /* Initialize phrase index */
+            dialog_currentPhraseIndex = 0;
         }
 
-        private static void _DialogOptionSelected(int optionIndex)
+        private static void _DialogOptionSelected(DialogOption option)
         {
             if ((VARMAP_GameMenu.GET_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY_DIALOG) && dialog_optionPending)
             {
-                ref readonly DialogConfig dialogConfig = ref ResourceDialogsAtlasClass.DialogConfigs[(int)dialog_currentDialog];
-                ReadOnlySpan<DialogOption> dialogOptions = dialogConfig.Options;
                 ReadOnlySpan<DialogOptionConfig> dialogOptionConfigs = ResourceDialogsAtlasClass.DialogOptionConfigs;
+                ref readonly DialogOptionConfig dialogOptionConfig = ref dialogOptionConfigs[(int)option];
 
-                StartPhrase(dialog_sender, dialogOptionConfigs[(int)dialogOptions[optionIndex]].phrases[dialog_currentPhraseIndex]);
-                dialog_optionPending = false;
+                /* If option is permitted, show it */
+                if (IsDialogOptionActive(in dialogOptionConfig))
+                {
+                    StartPhrase(dialog_sender, dialogOptionConfigs[(int)option].phrases[0]);
+                }
             }
+
+            dialog_optionPending = false;
         }
 
         private static void StartPhrase(CharacterType charType, DialogPhrase phrase)
@@ -147,9 +151,12 @@ namespace Gob3AQ.GameMenu
             UICanvas_dialogObj_sender.gameObject.SetActive(true);
             UICanvas_dialogOptions.SetActive(false);
 
+            /* Get current timestamp */
+            dialog_tellingInProgress = true;
+
             ref readonly PhraseContent content = ref ResourceDialogsClass.GetPhraseContent(phrase);
 
-
+            /* Set sender name */
             if (content.senderName.Length == 1)
             {
                 UICanvas_dialogObj_sender.text = CharacterNames.GetCharacterName(charType);
@@ -160,6 +167,35 @@ namespace Gob3AQ.GameMenu
             }
 
             UICanvas_dialogObj_msg.text = content.message;
+
+            dialog_coroutine = _singleton.StartCoroutine(EndPhrase(2f));
+        }
+
+        private static bool IsDialogOptionActive(in DialogOptionConfig config)
+        {
+            bool valid;
+
+            if (config.conditionEvent == GameEvent.EVENT_NONE)
+            {
+                valid = true;
+            }
+            else
+            {
+                VARMAP_GameMenu.IS_EVENT_OCCURRED(config.conditionEvent, out valid);
+                valid ^= config.conditionNotOccurred;
+            }
+
+            return valid;
+        }
+
+        private static IEnumerator EndPhrase(float waitSeconds)
+        {
+            yield return new WaitForSeconds(waitSeconds);
+
+            
+
+            Debug.Log("EndPhrase coroutine finished");
+            dialog_tellingInProgress = false;
         }
 
 

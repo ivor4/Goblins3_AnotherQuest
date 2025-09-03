@@ -5,3 +5,4 @@ N,PHRASE_ID,Sender,Room,Sound,CharAnimation,Text_English,Text_Spanish
 3,PHRASE_ASK_FOUNTAIN1_2,*,ROOM_FIRST,0,DIALOG_ANIMATION_TALK,Sure?,¿De verdad?
 4,PHRASE_ASK_FOUNTAIN2_1,*,ROOM_FIRST,0,DIALOG_ANIMATION_TALK,Are you kidding me?,¿Me estás troleando?
 5,PHRASE_ASK_FOUNTAIN3_1,*,ROOM_FIRST,0,DIALOG_ANIMATION_TALK,Why are you red?,¿Por qué estás roja?
+6,PHRASE_ASK_FOUNTAIN4_1,*,ROOM_FIRST,0,DIALOG_ANIMATION_TALK,Why are you not red yet?,¿Por qué aún no estás roja?

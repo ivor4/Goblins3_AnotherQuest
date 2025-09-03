@@ -723,14 +723,15 @@ for line in DIALOGSinputFile:
             dialog_atlas_lines.InsertLineInATG(1, stringToWrite)
         elif(zone == 2):
             stringToWrite = 'new('+event_prefix+columns[2]+', '
-            stringToWrite += event_prefix+columns[3]+', '
-            stringToWrite += dialog_prefix+columns[4]+', '
-            num_options = int(columns[5])
+            stringToWrite += columns[3].lower()+', '
+            stringToWrite += event_prefix+columns[4]+', '
+            stringToWrite += dialog_prefix+columns[5]+', '
+            num_options = int(columns[6])
             if(num_options == 0):
                 stringToWrite += 'null), /* ' + columns[1] + ' */\n'
             else:
                 stringToWrite += 'new DialogPhrase['+str(num_options)+']{'
-                for _option in columns[6:6+num_options]:
+                for _option in columns[7:7+num_options]:
                     stringToWrite += phrase_prefix + _option + ', '
                 stringToWrite += '}), /* ' + columns[1] + ' */\n'
             dialog_atlas_lines.InsertLineInATG(2, stringToWrite)

@@ -22,6 +22,7 @@ namespace Gob3AQ.VARMAP.Types
         DIALOG_OPTION_ASK_FOUNTAIN_1, 
         DIALOG_OPTION_ASK_FOUNTAIN_2, 
         DIALOG_OPTION_ASK_FOUNTAIN_3, 
+        DIALOG_OPTION_ASK_FOUNTAIN_4, 
         DIALOG_OPTION_LAST, 
         
         DIALOG_OPTION_TOTAL
@@ -37,6 +38,7 @@ namespace Gob3AQ.VARMAP.Types
         PHRASE_ASK_FOUNTAIN1_2, 
         PHRASE_ASK_FOUNTAIN2_1, 
         PHRASE_ASK_FOUNTAIN3_1, 
+        PHRASE_ASK_FOUNTAIN4_1, 
         
         PHRASE_TOTAL
         /* > ATG 3 END < */

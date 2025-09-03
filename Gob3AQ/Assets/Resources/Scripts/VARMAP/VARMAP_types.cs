@@ -97,15 +97,17 @@ namespace Gob3AQ.VARMAP.Types
     public readonly struct DialogOptionConfig
     {
         public readonly GameEvent conditionEvent;
+        public readonly bool conditionNotOccurred;
         public readonly GameEvent triggeredEvent;
         public readonly DialogType dialogTriggered;
         public readonly DialogPhrase[] phrases;
 
-        public static readonly DialogOptionConfig EMPTY = new(GameEvent.EVENT_NONE, GameEvent.EVENT_NONE, DialogType.DIALOG_NONE, new DialogPhrase[0]);
+        public static readonly DialogOptionConfig EMPTY = new(GameEvent.EVENT_NONE, false, GameEvent.EVENT_NONE, DialogType.DIALOG_NONE, new DialogPhrase[0]);
 
-        public DialogOptionConfig(GameEvent conditionEvent, GameEvent triggeredEvent, DialogType dialogTriggered, DialogPhrase[] phrases)
+        public DialogOptionConfig(GameEvent conditionEvent, bool conditionNotOccurred, GameEvent triggeredEvent, DialogType dialogTriggered, DialogPhrase[] phrases)
         {
             this.conditionEvent = conditionEvent;
+            this.conditionNotOccurred = conditionNotOccurred;
             this.triggeredEvent = triggeredEvent;
             this.dialogTriggered = dialogTriggered;
             this.phrases = phrases;

@@ -82,7 +82,9 @@ namespace Gob3AQ.VARMAP.Types
 
     public readonly struct DialogConfig
     {
-        public readonly DialogOption[] options;
+        public ReadOnlySpan<DialogOption> Options => options;
+
+        private readonly DialogOption[] options;
 
         public static readonly DialogConfig EMPTY = new(new DialogOption[0]);
 

@@ -248,7 +248,7 @@ namespace Gob3AQ.GraphicsMaster
 
         private void _GameStatusChanged(ChangedEventType evtype, in Game_Status oldval, in Game_Status newval)
         {
-            if((oldval == Game_Status.GAME_STATUS_LOADING) || (oldval == Game_Status.GAME_STATUS_PLAY_DIALOG))
+            if(newval == Game_Status.GAME_STATUS_PLAY)
             {
                 UICanvas.SetActive(false);
             }

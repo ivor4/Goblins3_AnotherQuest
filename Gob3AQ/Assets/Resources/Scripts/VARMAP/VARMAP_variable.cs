@@ -324,8 +324,12 @@ namespace Gob3AQ.VARMAP.Variable
             {
                 if(CheckValue(true))
                 {
-                    base.Commit();
+                    _shadowValues.CopyTo(_values, 0);
                     SecureNewValue(false);
+
+                    _changedevents?.Invoke(ChangedEventType.CHANGED_EVENT_SET_LIST_ELEM, in _values[0], in _values[0]);
+
+                    _dirty = false;
                 }
             }
         }
@@ -625,8 +629,8 @@ namespace Gob3AQ.VARMAP.Variable
 
         public override void Commit()
         {
-            _changedevents?.Invoke(ChangedEventType.CHANGED_EVENT_SET_LIST_ELEM, in _shadowValues[0], in _values[0]);
             _shadowValues.CopyTo(_values, 0);
+            _changedevents?.Invoke(ChangedEventType.CHANGED_EVENT_SET_LIST_ELEM, in _values[0], in _values[0]);
 
             _dirty = false;
         }

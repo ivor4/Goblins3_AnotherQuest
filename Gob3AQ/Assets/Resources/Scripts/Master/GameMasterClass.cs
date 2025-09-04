@@ -20,8 +20,6 @@ namespace Gob3AQ.GameMaster
 
         private static GameMasterClass _singleton;
         private static Game_Status prevPauseStatus;
-        private static SUBSCRIPTION_CALL_DELEGATE _lateStartSubscibers;
-        private static int firstFrameOfScenePending;
         private static uint moduleLoadingDone;
 
         void Awake()
@@ -78,17 +76,7 @@ namespace Gob3AQ.GameMaster
                     break;
 
                 case Game_Status.GAME_STATUS_LOADING:
-                    /* Call late update subscribers */
-                    if (firstFrameOfScenePending >= 0)
-                    {
-                        if (firstFrameOfScenePending == 0)
-                        {
-                            _lateStartSubscibers?.Invoke();
-                        }
-                        --firstFrameOfScenePending;
-                    }
-
-                    if ((moduleLoadingDone == ALL_MODULES_LOADED_MASK) && (firstFrameOfScenePending < 0))
+                    if (moduleLoadingDone == ALL_MODULES_LOADED_MASK)
                     {
                         GC.Collect();
                         _SetGameStatus(Game_Status.GAME_STATUS_PLAY);
@@ -156,8 +144,6 @@ namespace Gob3AQ.GameMaster
                 _SetGameStatus(Game_Status.GAME_STATUS_CHANGING_ROOM);
 
                 /* Operations prepared for next level */
-                firstFrameOfScenePending = 1;
-                _lateStartSubscibers = null;
                 moduleLoadingDone = 0;
 
                 UnloadAndLoadRoomAsync(room);
@@ -233,6 +219,14 @@ namespace Gob3AQ.GameMaster
             }
         }
 
+        public static void EndDialogueService()
+        {
+            if (VARMAP_GameMaster.GET_SHADOW_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY_DIALOG)
+            {
+                VARMAP_GameMaster.SET_GAMESTATUS(Game_Status.GAME_STATUS_PLAY);
+            }
+        }
+
         public static void ExitGameService(out bool error)
         {
             if (VARMAP_GameMaster.GET_SHADOW_GAMESTATUS() != Game_Status.GAME_STATUS_STOPPED)
@@ -247,17 +241,6 @@ namespace Gob3AQ.GameMaster
             }
         }
 
-        public static void LateStartSubrsciptionService(SUBSCRIPTION_CALL_DELEGATE callable, bool add)
-        {
-            if (add)
-            {
-                _lateStartSubscibers += callable;
-            }
-            else
-            {
-                _lateStartSubscibers -= callable;
-            }
-        }
 
         private static void _SetGameStatus(Game_Status status)
         {

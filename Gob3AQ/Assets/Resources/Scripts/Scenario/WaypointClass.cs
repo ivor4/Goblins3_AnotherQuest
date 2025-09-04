@@ -7,6 +7,7 @@ using Gob3AQ.Waypoint.Network;
 using Gob3AQ.VARMAP.LevelMaster;
 using System.Threading.Tasks;
 using Gob3AQ.LevelMaster;
+using Unity.VisualScripting;
 
 namespace Gob3AQ.Waypoint
 {
@@ -68,7 +69,7 @@ namespace Gob3AQ.Waypoint
             /* Subscribe only if this WP will create the whole Network */
             if (CreateNetwork)
             {
-                VARMAP_LevelMaster.LATE_START_SUBSCRIPTION(LateStart, true);
+                StartCoroutine(LateStart());
             }
 
 
@@ -77,8 +78,13 @@ namespace Gob3AQ.Waypoint
             VARMAP_LevelMaster.WP_REGISTER(this, true);
         }
 
+        private IEnumerator LateStart()
+        {
+            yield return new WaitForNextFrameUnit();
+            AsyncLoad();
+        }
 
-        public async void LateStart()
+        private async void AsyncLoad()
         {
             await Task.Run(ThreadedCalculatePaths);
             LevelMasterClass.DeclareAllWaypointsLoaded();
@@ -106,10 +112,6 @@ namespace Gob3AQ.Waypoint
         }
 
 
-        void OnDestroy()
-        {
-            VARMAP_LevelMaster.LATE_START_SUBSCRIPTION(LateStart, false);
-        }
 
         public void ResetNetoworkAndConnections()
         {

@@ -30,7 +30,6 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
             REG_PICKABLE_ITEM_CHOSEN = _REG_PICKABLE_ITEM_CHOSEN;
             UNREG_PICKABLE_ITEM_CHOSEN = _UNREG_PICKABLE_ITEM_CHOSEN;
-            LATE_START_SUBSCRIPTION = _LATE_START_SUBSCRIPTION;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
@@ -56,13 +55,6 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
 
         /* SERVICES */
         /* > ATG 3 START */
-        /// <summary> 
-        /// This service subscribes for late start. This happens at some moment after Start event. when everything has been setup
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster, GameEventMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.LateStartSubrsciptionService"/> </para> 
-        /// </summary>
-        public static LATE_START_SUBSCRIPTION_DELEGATE LATE_START_SUBSCRIPTION;
         /// <summary> 
         /// This service is called when whole room has been loaded
         /// <para> Owner: GameMaster </para> 

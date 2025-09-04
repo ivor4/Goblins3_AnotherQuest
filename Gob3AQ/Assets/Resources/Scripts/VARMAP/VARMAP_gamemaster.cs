@@ -38,12 +38,12 @@ namespace Gob3AQ.VARMAP.GameMaster
             LOAD_GAME = _LOAD_GAME;
             LOAD_ROOM = _LOAD_ROOM;
             EXIT_GAME = _EXIT_GAME;
-            LATE_START_SUBSCRIPTION = _LATE_START_SUBSCRIPTION;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             FREEZE_PLAY = _FREEZE_PLAY;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             START_DIALOGUE = _START_DIALOGUE;
+            END_DIALOGUE = _END_DIALOGUE;
             SHOW_DIALOGUE = _SHOW_DIALOGUE;
             LAST_SERVICE = _LAST_SERVICE;
             /* > ATG 1 END */
@@ -108,13 +108,6 @@ namespace Gob3AQ.VARMAP.GameMaster
         /// </summary>
         public static EXIT_GAME_DELEGATE EXIT_GAME;
         /// <summary> 
-        /// This service subscribes for late start. This happens at some moment after Start event. when everything has been setup
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster, GameEventMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.LateStartSubrsciptionService"/> </para> 
-        /// </summary>
-        public static LATE_START_SUBSCRIPTION_DELEGATE LATE_START_SUBSCRIPTION;
-        /// <summary> 
         /// This service is called when whole room has been loaded
         /// <para> Owner: GameMaster </para> 
         /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster, GameEventMaster,  </para> 
@@ -149,6 +142,13 @@ namespace Gob3AQ.VARMAP.GameMaster
         /// <para> Method: <see cref="GameMasterClass.StartDialogueService"/> </para> 
         /// </summary>
         public static START_DIALOGUE_DELEGATE START_DIALOGUE;
+        /// <summary> 
+        /// Ends a dialogue
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: GameMenu,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.EndDialogueService"/> </para> 
+        /// </summary>
+        public static END_DIALOGUE_DELEGATE END_DIALOGUE;
         /// <summary> 
         /// Second part of start dialogue. Tells Game Menu to prepare menu elements
         /// <para> Owner: GameMenu </para> 

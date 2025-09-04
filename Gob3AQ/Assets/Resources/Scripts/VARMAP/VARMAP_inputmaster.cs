@@ -29,7 +29,6 @@ namespace Gob3AQ.VARMAP.InputMaster
             GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
             GET_SHADOW_MOUSE_PROPERTIES = _GET_SHADOW_MOUSE_PROPERTIES;
             SET_MOUSE_PROPERTIES = _SET_MOUSE_PROPERTIES;
-            LATE_START_SUBSCRIPTION = _LATE_START_SUBSCRIPTION;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             /* > ATG 1 END */
@@ -53,13 +52,6 @@ namespace Gob3AQ.VARMAP.InputMaster
 
         /* SERVICES */
         /* > ATG 3 START */
-        /// <summary> 
-        /// This service subscribes for late start. This happens at some moment after Start event. when everything has been setup
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster, GameEventMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.LateStartSubrsciptionService"/> </para> 
-        /// </summary>
-        public static LATE_START_SUBSCRIPTION_DELEGATE LATE_START_SUBSCRIPTION;
         /// <summary> 
         /// This service is called when whole room has been loaded
         /// <para> Owner: GameMaster </para> 

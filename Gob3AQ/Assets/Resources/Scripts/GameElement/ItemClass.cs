@@ -3,6 +3,8 @@ using Gob3AQ.VARMAP.ItemMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.Waypoint;
 using Gob3AQ.Brain.ItemsInteraction;
+using System.Collections;
+using Unity.VisualScripting;
 
 
 
@@ -90,7 +92,8 @@ namespace Gob3AQ.GameElement.Item
                 _sprRenderer.enabled = true;
                 registered = true;
 
-                VARMAP_ItemMaster.LATE_START_SUBSCRIPTION(Execute_Loading, true);
+                /* Execute on next Update */
+                _ = StartCoroutine(Execute_Loading());
             }
             else
             {
@@ -104,13 +107,13 @@ namespace Gob3AQ.GameElement.Item
             if(registered)
             {
                 VARMAP_ItemMaster.ITEM_REGISTER(false, this);
-                VARMAP_ItemMaster.LATE_START_SUBSCRIPTION(Execute_Loading, false);
             }
         }
 
 
-        protected virtual void Execute_Loading()
+        protected virtual IEnumerator Execute_Loading()
         {
+            yield return new WaitForNextFrameUnit();
             VARMAP_ItemMaster.GET_NEAREST_WP(transform.position, float.MaxValue, out actualWaypoint);
         }
     }

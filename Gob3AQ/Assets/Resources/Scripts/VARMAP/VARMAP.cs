@@ -140,13 +140,6 @@ namespace Gob3AQ.VARMAP
         /// </summary>
         protected static EXIT_GAME_DELEGATE _EXIT_GAME;
         /// <summary> 
-        /// This service subscribes for late start. This happens at some moment after Start event. when everything has been setup
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster, GameEventMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.LateStartSubrsciptionService"/> </para> 
-        /// </summary>
-        protected static LATE_START_SUBSCRIPTION_DELEGATE _LATE_START_SUBSCRIPTION;
-        /// <summary> 
         /// This service is called when whole room has been loaded
         /// <para> Owner: GameMaster </para> 
         /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster, GameEventMaster,  </para> 
@@ -342,6 +335,13 @@ namespace Gob3AQ.VARMAP
         /// <para> Method: <see cref="GameMasterClass.StartDialogueService"/> </para> 
         /// </summary>
         protected static START_DIALOGUE_DELEGATE _START_DIALOGUE;
+        /// <summary> 
+        /// Ends a dialogue
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: GameMenu,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.EndDialogueService"/> </para> 
+        /// </summary>
+        protected static END_DIALOGUE_DELEGATE _END_DIALOGUE;
         /// <summary> 
         /// Second part of start dialogue. Tells Game Menu to prepare menu elements
         /// <para> Owner: GameMenu </para> 

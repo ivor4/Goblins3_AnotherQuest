@@ -9,7 +9,6 @@ using Gob3AQ.VARMAP.Types;
 using System;
 using System.Collections;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Gob3AQ.GameMenu
@@ -23,8 +22,7 @@ namespace Gob3AQ.GameMenu
 
         private static GameMenuClass _singleton;
         private static GameObject _itemMenu;
-        private static bool _prevItemMenuOpened;
-        private static bool _pendingRefresh;
+        private static bool _menuOpened;
         private static PickableItemDisplayClass[] _displayItemArray;
         private static Camera _mainCamera;
         private static Rect _upperGameMenuRect;
@@ -33,6 +31,8 @@ namespace Gob3AQ.GameMenu
 
         private static CharacterType dialog_sender;
         private static int dialog_currentPhraseIndex;
+        private static int dialog_totalPhrases;
+        private static DialogOption dialog_optionPhrases;
         private static bool dialog_optionPending;
         private static bool dialog_tellingInProgress;
         private static Coroutine dialog_coroutine;
@@ -114,7 +114,12 @@ namespace Gob3AQ.GameMenu
             }
             else if (selectablePhrases == 1)
             {
+                /* Initialize phrase index */
                 dialog_optionPending = false;
+                dialog_currentPhraseIndex = 0;
+                dialog_totalPhrases = 1;
+                dialog_optionPhrases = DialogOption.DIALOG_OPTION_NONE;
+
                 StartPhrase(charType, uniquePhrase);
             }
             else
@@ -123,9 +128,6 @@ namespace Gob3AQ.GameMenu
                 dialog_tellingInProgress = false;
                 Debug.LogError("GraphicsMasterClass.ShowDialogueService: No valid dialog options found for dialog " + dialog.ToString());
             }
-
-            /* Initialize phrase index */
-            dialog_currentPhraseIndex = 0;
         }
 
         private static void _DialogOptionSelected(DialogOption option)
@@ -138,6 +140,10 @@ namespace Gob3AQ.GameMenu
                 /* If option is permitted, show it */
                 if (IsDialogOptionActive(in dialogOptionConfig))
                 {
+                    dialog_currentPhraseIndex = 0;
+                    dialog_totalPhrases = dialogOptionConfig.phrases.Length;
+                    dialog_optionPhrases = option;
+
                     StartPhrase(dialog_sender, dialogOptionConfigs[(int)option].phrases[0]);
                 }
             }
@@ -192,10 +198,27 @@ namespace Gob3AQ.GameMenu
         {
             yield return new WaitForSeconds(waitSeconds);
 
-            
+            if (dialog_tellingInProgress)
+            {
+                dialog_tellingInProgress = false;
+                ++dialog_currentPhraseIndex;
 
-            Debug.Log("EndPhrase coroutine finished");
-            dialog_tellingInProgress = false;
+                if(dialog_totalPhrases > dialog_currentPhraseIndex)
+                {
+                    /* More phrases to say, wait for user interaction */
+                    ReadOnlySpan<DialogOptionConfig> dialogOptionConfigs = ResourceDialogsAtlasClass.DialogOptionConfigs;
+                    StartPhrase(dialog_sender, dialogOptionConfigs[(int)dialog_optionPhrases].phrases[dialog_currentPhraseIndex]);
+                }
+                else
+                {
+                    /* End of dialog */
+                    UICanvas_dialogObj_msg.gameObject.SetActive(false);
+                    UICanvas_dialogObj_sender.gameObject.SetActive(false);
+                    UICanvas_dialogOptions.SetActive(false);
+
+                    VARMAP_GameMenu.END_DIALOGUE();
+                }
+            }
         }
 
 
@@ -213,8 +236,6 @@ namespace Gob3AQ.GameMenu
                 _itemMenu = child.gameObject;
 
                 _displayItemArray = new PickableItemDisplayClass[GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS];
-
-                _pendingRefresh = false;
 
                 float menuHeight = Screen.safeArea.height * GameFixedConfig.MENU_TOP_SCREEN_HEIGHT_PERCENT;
                 _upperGameMenuRect = new Rect(0, 0, Screen.safeArea.width, menuHeight);
@@ -242,31 +263,15 @@ namespace Gob3AQ.GameMenu
 
         void Start()
         {
-            _prevItemMenuOpened = false;
-
             VARMAP_GameMenu.REG_PICKABLE_ITEM_OWNER(_OnItemOwnerChanged);
+            VARMAP_GameMenu.REG_ITEM_MENU_ACTIVE(_OnItemMenuActiveChanged);
+            VARMAP_GameMenu.REG_GAMESTATUS(_OnGameStatusChanged);
 
             Execute_Load_Async();
         }
 
         
 
-        void Update()
-        {
-            Game_Status gstatus = VARMAP_GameMenu.GET_GAMESTATUS();
-
-            switch(gstatus)
-            {
-                case Game_Status.GAME_STATUS_PLAY:
-                    Execute_Play();
-                    break;
-
-                default:
-                    break;
-            }
-
- 
-        }
 
         void OnGUI()
         {
@@ -311,6 +316,8 @@ namespace Gob3AQ.GameMenu
             {
                 _singleton = null;
                 VARMAP_GameMenu.UNREG_PICKABLE_ITEM_OWNER(_OnItemOwnerChanged);
+                VARMAP_GameMenu.UNREG_ITEM_MENU_ACTIVE(_OnItemMenuActiveChanged);
+                VARMAP_GameMenu.UNREG_GAMESTATUS(_OnGameStatusChanged);
             }
         }
 
@@ -342,38 +349,8 @@ namespace Gob3AQ.GameMenu
             VARMAP_GameMenu.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameMenu);
         }
 
-        private static void Execute_Play()
-        {
-            bool itemMenuOpened = VARMAP_GameMenu.GET_ITEM_MENU_ACTIVE();
-
-            if (itemMenuOpened)
-            {
-                if ((!_prevItemMenuOpened)||_pendingRefresh)
-                {
-                    /* Activate family */
-                    _itemMenu.SetActive(true);
-
-                    /* Place Item Menu just in center of camera (World coordinates) */
-                    _itemMenu.transform.position = (Vector2)_mainCamera.transform.position;
-
-                    /* Populate menu */
-                    RefreshItemMenuElements();
-                }
-            }
-            else if (_prevItemMenuOpened)
-            {
-                /* Deactivate family */
-                _itemMenu.SetActive(false);
-            }
-            else
-            {
-                /**/
-            }
 
 
-
-            _prevItemMenuOpened = itemMenuOpened;
-        }
 
         private static void RefreshItemMenuElements()
         {
@@ -410,8 +387,6 @@ namespace Gob3AQ.GameMenu
                 }
                 
             }
-
-            _pendingRefresh = false;
         }
 
 
@@ -421,24 +396,83 @@ namespace Gob3AQ.GameMenu
             _ = oldVal;
             _ = newVal;
 
-            _pendingRefresh = true;
+            /* Populate menu */
+
+            if (_menuOpened)
+            {
+                RefreshItemMenuElements();
+            }
+        }
+
+        private static void _OnItemMenuActiveChanged(ChangedEventType evtype, in bool oldVal, in bool newVal)
+        {
+            _ = evtype;
+
+            if(newVal && !oldVal)
+            {
+                /* Activate family */
+                _itemMenu.SetActive(true);
+
+                /* Place Item Menu just in center of camera (World coordinates) */
+                _itemMenu.transform.position = (Vector2)_mainCamera.transform.position;
+
+                /* Populate menu */
+                RefreshItemMenuElements();
+            }
+            else if(!newVal && oldVal)
+            {
+                /* Deactivate family */
+                _itemMenu.SetActive(false);
+            }
+            else
+            {
+                /**/
+            }
+
+            _menuOpened = newVal;
+        }   
+
+        private static void _OnGameStatusChanged(ChangedEventType evtype, in Game_Status oldVal, in Game_Status newVal)
+        {
+            _ = evtype;
+            _ = newVal;
+
+            /* If game status changed from pause to play, restore previous status */
+            if ((oldVal == Game_Status.GAME_STATUS_PLAY_DIALOG) && (newVal != Game_Status.GAME_STATUS_PAUSE))
+            {
+                /* If dialog was in progress, stop it */
+                if (dialog_coroutine != null)
+                {
+                    _singleton.StopCoroutine(dialog_coroutine);
+                    dialog_coroutine = null;
+                }
+
+                dialog_tellingInProgress = false;
+                dialog_optionPending = false;
+                UICanvas_dialogObj_msg.gameObject.SetActive(false);
+                UICanvas_dialogObj_sender.gameObject.SetActive(false);
+                UICanvas_dialogOptions.SetActive(false);
+            }
         }
 
         private static void OnItemDisplayClick(GameItem item)
         {
-            GameItem prevChoosen = VARMAP_GameMenu.GET_PICKABLE_ITEM_CHOSEN();
-
-            
-            if (prevChoosen == item)
+            if (_menuOpened)
             {
-                VARMAP_GameMenu.CANCEL_PICKABLE_ITEM();
-            }
-            else
-            {
-                /* Possible interaction of item combine ? */
-                _ = prevChoosen;
+                GameItem prevChoosen = VARMAP_GameMenu.GET_PICKABLE_ITEM_CHOSEN();
 
-                VARMAP_GameMenu.SELECT_PICKABLE_ITEM(item);
+
+                if (prevChoosen == item)
+                {
+                    VARMAP_GameMenu.CANCEL_PICKABLE_ITEM();
+                }
+                else
+                {
+                    /* Possible interaction of item combine ? */
+                    _ = prevChoosen;
+
+                    VARMAP_GameMenu.SELECT_PICKABLE_ITEM(item);
+                }
             }
         }
 

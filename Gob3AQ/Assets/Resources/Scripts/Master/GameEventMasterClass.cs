@@ -132,32 +132,9 @@ namespace Gob3AQ.GameEventMaster
         void Start()
         {
             VARMAP_GameEventMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameEventMaster);
+            VARMAP_GameEventMaster.REG_EVENTS_OCCURRED(_OnEventsChanged);
         }
 
-        void Update()
-        {
-            Game_Status gstatus = VARMAP_GameEventMaster.GET_GAMESTATUS();
-            
-            switch(gstatus)
-            {
-                /* In this way, triggering of events would wait for next cycle in order not to overload previous one */
-                case Game_Status.GAME_STATUS_PLAY:
-                    while (_bufferedEvents.TryDequeue(out int evIndex))
-                    {
-                        /* Get from VARMAP */
-                        GetArrayIndexAndPos(evIndex, out int arraypos, out int itembit);
-                        ref readonly MultiBitFieldStruct mbfs = ref VARMAP_GameEventMaster.GET_ELEM_EVENTS_OCCURRED(arraypos);
-                        /* Get individual bit */
-                        bool active = mbfs.GetIndividualBool(itembit);
-                        /* Invoke subscribers of this event */
-                        _event_subscription[evIndex]?.Invoke(active);
-                    }
-                    break;
-
-                default:
-                    break;
-            }
-        }
 
 
         void OnDestroy()
@@ -165,6 +142,26 @@ namespace Gob3AQ.GameEventMaster
             if (_singleton == this)
             {
                 _singleton = null;
+                VARMAP_GameEventMaster.UNREG_EVENTS_OCCURRED(_OnEventsChanged);
+            }
+        }
+
+        private static void _OnEventsChanged(ChangedEventType eventType, in MultiBitFieldStruct oldval, in MultiBitFieldStruct newval)
+        {
+            _ = eventType;
+            _ = oldval;
+            _ = newval;
+
+            /* Process all buffered events */
+            while (_bufferedEvents.TryDequeue(out int evIndex))
+            {
+                /* Get from VARMAP */
+                GetArrayIndexAndPos(evIndex, out int arraypos, out int itembit);
+                ref readonly MultiBitFieldStruct mbfs = ref VARMAP_GameEventMaster.GET_ELEM_EVENTS_OCCURRED(arraypos);
+                /* Get individual bit */
+                bool active = mbfs.GetIndividualBool(itembit);
+                /* Invoke subscribers of this event */
+                _event_subscription[evIndex]?.Invoke(active);
             }
         }
     }

@@ -121,7 +121,6 @@ namespace Gob3AQ.VARMAP.Initialization
             _LOAD_GAME = GameMasterClass.LoadGameService;
             _LOAD_ROOM = GameMasterClass.LoadRoomService;
             _EXIT_GAME = GameMasterClass.ExitGameService;
-            _LATE_START_SUBSCRIPTION = GameMasterClass.LateStartSubrsciptionService;
             _MODULE_LOADING_COMPLETED = GameMasterClass.LoadingCompletedService;
             _IS_MODULE_LOADED = GameMasterClass.IsModuleLoadedService;
             _FREEZE_PLAY = GameMasterClass.FreezePlayService;
@@ -150,6 +149,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _INTERACT_PLAYER_NPC = NPCMasterClass.InteractPlayerNPCService;
             _LOCK_PLAYER = PlayerMasterClass.LockPlayerService;
             _START_DIALOGUE = GameMasterClass.StartDialogueService;
+            _END_DIALOGUE = GameMasterClass.EndDialogueService;
             _SHOW_DIALOGUE = GameMenuClass.ShowDialogueService;
             _LAST_SERVICE = GameMasterClass.ExitGameService;
             /* > ATG 2 END */

@@ -44,7 +44,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
             GET_ARRAY_PLAYER_TRANSACTION = _GET_ARRAY_PLAYER_TRANSACTION;
             SAVE_GAME = _SAVE_GAME;
             LOAD_ROOM = _LOAD_ROOM;
-            LATE_START_SUBSCRIPTION = _LATE_START_SUBSCRIPTION;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             FREEZE_PLAY = _FREEZE_PLAY;
@@ -118,13 +117,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// <para> Method: <see cref="GameMasterClass.LoadRoomService"/> </para> 
         /// </summary>
         public static LOAD_ROOM_DELEGATE LOAD_ROOM;
-        /// <summary> 
-        /// This service subscribes for late start. This happens at some moment after Start event. when everything has been setup
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster, GameEventMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.LateStartSubrsciptionService"/> </para> 
-        /// </summary>
-        public static LATE_START_SUBSCRIPTION_DELEGATE LATE_START_SUBSCRIPTION;
         /// <summary> 
         /// This service is called when whole room has been loaded
         /// <para> Owner: GameMaster </para> 

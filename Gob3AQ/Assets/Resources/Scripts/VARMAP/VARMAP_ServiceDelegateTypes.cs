@@ -14,11 +14,11 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void LOAD_GAME_DELEGATE();
     public delegate void LOAD_ROOM_DELEGATE(Room room, out bool error);
     public delegate void EXIT_GAME_DELEGATE(out bool error);
-    public delegate void LATE_START_SUBSCRIPTION_DELEGATE(SUBSCRIPTION_CALL_DELEGATE callable, bool add);
     public delegate void LODING_COMPLETED_DELEGATE(GameModules module);
     public delegate void IS_MODULE_LOADED_DELEGATE(GameModules module, out bool loaded);
     public delegate void FREEZE_PLAY_DELEGATE(bool freeze);
     public delegate void START_DIALOGUE_DELEGATE(CharacterType charType, DialogType dialog, DialogPhrase phrase);
+    public delegate void END_DIALOGUE_DELEGATE();
     public delegate void SHOW_DIALOGUE_DELEGATE(CharacterType charType, DialogType dialog, DialogPhrase phrase);
     public delegate void NPC_REGISTER_DELEGATE(NPCClass instance, bool register);
     public delegate void ITEM_REGISTER_DELEGATE(bool register, ItemClass instance);

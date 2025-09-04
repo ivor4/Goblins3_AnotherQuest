@@ -2,6 +2,8 @@ using UnityEngine;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.VARMAP.NPCMaster;
 using Gob3AQ.Waypoint;
+using System.Collections;
+using Unity.VisualScripting;
 
 
 namespace Gob3AQ.GameElement.NPC
@@ -38,18 +40,18 @@ namespace Gob3AQ.GameElement.NPC
         void Start()
         {
             VARMAP_NPCMaster.NPC_REGISTER(this, true);
-            VARMAP_NPCMaster.LATE_START_SUBSCRIPTION(_Execute_Loading, true);
+            StartCoroutine(_Execute_Loading());
         }
 
 
         void OnDestroy()
         {
-            VARMAP_NPCMaster.LATE_START_SUBSCRIPTION(_Execute_Loading, false);
             VARMAP_NPCMaster.NPC_REGISTER(this, false);
         }
 
-        private void _Execute_Loading()
+        private IEnumerator _Execute_Loading()
         {
+            yield return new WaitForNextFrameUnit();
             VARMAP_NPCMaster.GET_NEAREST_WP(transform.position, float.MaxValue, out _waypoint);
         }
     }

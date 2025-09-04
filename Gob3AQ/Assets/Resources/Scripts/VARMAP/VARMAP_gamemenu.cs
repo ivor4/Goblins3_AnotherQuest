@@ -37,17 +37,19 @@ namespace Gob3AQ.VARMAP.GameMenu
             GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
             GET_PLAYER_SELECTED = _GET_PLAYER_SELECTED;
             GET_ITEM_MENU_ACTIVE = _GET_ITEM_MENU_ACTIVE;
+            REG_ITEM_MENU_ACTIVE = _REG_ITEM_MENU_ACTIVE;
+            UNREG_ITEM_MENU_ACTIVE = _UNREG_ITEM_MENU_ACTIVE;
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
             START_GAME = _START_GAME;
             SAVE_GAME = _SAVE_GAME;
             LOAD_GAME = _LOAD_GAME;
             EXIT_GAME = _EXIT_GAME;
-            LATE_START_SUBSCRIPTION = _LATE_START_SUBSCRIPTION;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
             SELECT_PICKABLE_ITEM = _SELECT_PICKABLE_ITEM;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
+            END_DIALOGUE = _END_DIALOGUE;
             SHOW_DIALOGUE = _SHOW_DIALOGUE;
             /* > ATG 1 END */
         }
@@ -75,6 +77,8 @@ namespace Gob3AQ.VARMAP.GameMenu
         public static GetVARMAPValueDelegate<MousePropertiesStruct> GET_MOUSE_PROPERTIES;
         public static GetVARMAPValueDelegate<CharacterType> GET_PLAYER_SELECTED;
         public static GetVARMAPValueDelegate<bool> GET_ITEM_MENU_ACTIVE;
+        public static ReUnRegisterVARMAPValueChangeEventDelegate<bool> REG_ITEM_MENU_ACTIVE;
+        public static ReUnRegisterVARMAPValueChangeEventDelegate<bool> UNREG_ITEM_MENU_ACTIVE;
         public static GetVARMAPValueDelegate<GameItem> GET_PICKABLE_ITEM_CHOSEN;
         /* > ATG 2 END */
 
@@ -108,13 +112,6 @@ namespace Gob3AQ.VARMAP.GameMenu
         /// <para> Method: <see cref="GameMasterClass.ExitGameService"/> </para> 
         /// </summary>
         public static EXIT_GAME_DELEGATE EXIT_GAME;
-        /// <summary> 
-        /// This service subscribes for late start. This happens at some moment after Start event. when everything has been setup
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster, GameEventMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.LateStartSubrsciptionService"/> </para> 
-        /// </summary>
-        public static LATE_START_SUBSCRIPTION_DELEGATE LATE_START_SUBSCRIPTION;
         /// <summary> 
         /// This service is called when whole room has been loaded
         /// <para> Owner: GameMaster </para> 
@@ -150,6 +147,13 @@ namespace Gob3AQ.VARMAP.GameMenu
         /// <para> Method: <see cref="ItemMasterClass.CancelPickableItemService"/> </para> 
         /// </summary>
         public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
+        /// <summary> 
+        /// Ends a dialogue
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: GameMenu,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.EndDialogueService"/> </para> 
+        /// </summary>
+        public static END_DIALOGUE_DELEGATE END_DIALOGUE;
         /// <summary> 
         /// Second part of start dialogue. Tells Game Menu to prepare menu elements
         /// <para> Owner: GameMenu </para> 

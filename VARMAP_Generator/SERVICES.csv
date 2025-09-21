@@ -20,7 +20,7 @@ N,SERVICE_ID,SPECIAL_DELEGATE,SERVICE_ROUTE,Description,Separator,GameMaster,Inp
 18,GET_NPC_LIST,GET_NPC_LIST_DELEGATE,LevelMasterClass.GetNPCListService,Gets a list of actual NPCs ,,-,-,W,-,-,-,X,-,-
 19,GET_NEAREST_WP,GET_NEAREST_WP_DELEGATE,LevelMasterClass.GetNearestWPService,Gets nearest WP from a given coordinates of level,,-,-,W,-,-,X,X,X,-
 20,IS_EVENT_OCCURRED,IS_EVENT_OCCURRED_DELEGATE,GameEventMasterClass.IsEventOccurredService,Tells if an event is occurred,,-,-,X,-,X,X,X,X,W
-21,COMMIT_EVENT,COMMIT_EVENT_DELEGATE,GameEventMasterClass.CommitEventService,Activates/Deactivates an event,,-,-,X,-,-,X,X,X,W
+21,COMMIT_EVENT,COMMIT_EVENT_DELEGATE,GameEventMasterClass.CommitEventService,Activates/Deactivates an event,,-,-,X,-,X,X,X,X,W
 22,USE_ITEM,USE_ITEM_DELEGATE,ItemMasterClass.UseItemService,Uses an item with something,,-,-,-,-,-,X,-,W,-
 23,IS_ITEM_TAKEN_FROM_SCENE,IS_ITEM_TAKEN_FROM_SCENE_DELEGATE,GameEventMasterClass.IsItemTakenFromSceneService,Tells if item is taken from scene,,-,-,X,-,-,-,-,X,W
 24,INTERACT_PLAYER,INTERACT_PLAYER_DELEGATE,PlayerMasterClass.InteractPlayerService,Interacts player with an item,,-,-,X,-,-,W,-,-,-

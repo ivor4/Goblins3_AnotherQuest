@@ -59,10 +59,12 @@ namespace Gob3AQ.GameMenu
             int selectablePhrases;
 
             DialogPhrase uniquePhrase = DialogPhrase.PHRASE_NONE;
+            DialogOption uniqueOption = DialogOption.DIALOG_OPTION_NONE;
 
             if (dialog == DialogType.DIALOG_SIMPLE)
             {
                 uniquePhrase = phrase;
+                uniqueOption = DialogOption.DIALOG_OPTION_SIMPLE;
                 selectablePhrases = 1;
             }
             else
@@ -87,6 +89,7 @@ namespace Gob3AQ.GameMenu
                         UICanvas_dialogOptionButtons[selectablePhrases].SetActive(true);
 
                         uniquePhrase = dialogOptionConfig.phrases[0];
+                        uniqueOption = dialogOptions[i];
                         ++selectablePhrases;
                     }
                 }
@@ -116,10 +119,7 @@ namespace Gob3AQ.GameMenu
             {
                 /* Initialize phrase index */
                 dialog_optionPending = false;
-                dialog_currentPhraseIndex = 0;
-                dialog_totalPhrases = 1;
-                dialog_optionPhrases = DialogOption.DIALOG_OPTION_NONE;
-
+                StartDialogue(uniqueOption, 1);
                 StartPhrase(charType, uniquePhrase);
             }
             else
@@ -137,18 +137,22 @@ namespace Gob3AQ.GameMenu
                 ReadOnlySpan<DialogOptionConfig> dialogOptionConfigs = ResourceDialogsAtlasClass.DialogOptionConfigs;
                 ref readonly DialogOptionConfig dialogOptionConfig = ref dialogOptionConfigs[(int)option];
 
+                dialog_optionPending = false;
+
                 /* If option is permitted, show it */
                 if (IsDialogOptionActive(in dialogOptionConfig))
                 {
-                    dialog_currentPhraseIndex = 0;
-                    dialog_totalPhrases = dialogOptionConfig.phrases.Length;
-                    dialog_optionPhrases = option;
-
+                    StartDialogue(option, dialogOptionConfig.phrases.Length);
                     StartPhrase(dialog_sender, dialogOptionConfigs[(int)option].phrases[0]);
                 }
             }
+        }
 
-            dialog_optionPending = false;
+        private static void StartDialogue(DialogOption option, int totalPhrases)
+        {
+            dialog_optionPhrases = option;
+            dialog_totalPhrases = totalPhrases;
+            dialog_currentPhraseIndex = 0;
         }
 
         private static void StartPhrase(CharacterType charType, DialogPhrase phrase)
@@ -157,8 +161,9 @@ namespace Gob3AQ.GameMenu
             UICanvas_dialogObj_sender.gameObject.SetActive(true);
             UICanvas_dialogOptions.SetActive(false);
 
-            /* Get current timestamp */
+            /* Preset */
             dialog_tellingInProgress = true;
+            
 
             ref readonly PhraseContent content = ref ResourceDialogsClass.GetPhraseContent(phrase);
 
@@ -198,16 +203,25 @@ namespace Gob3AQ.GameMenu
         {
             yield return new WaitForSeconds(waitSeconds);
 
+            /* Erase this coroutine reference */
+            dialog_coroutine = null;
+
+            EndPhrase_Action();
+        }
+
+        private static void EndPhrase_Action()
+        {
             if (dialog_tellingInProgress)
             {
                 dialog_tellingInProgress = false;
                 ++dialog_currentPhraseIndex;
+                ReadOnlySpan<DialogOptionConfig> dialogOptionConfigs = ResourceDialogsAtlasClass.DialogOptionConfigs;
+                ref readonly DialogOptionConfig dialogConfig = ref dialogOptionConfigs[(int)dialog_optionPhrases];
 
-                if(dialog_totalPhrases > dialog_currentPhraseIndex)
+                if (dialog_totalPhrases > dialog_currentPhraseIndex)
                 {
                     /* More phrases to say, wait for user interaction */
-                    ReadOnlySpan<DialogOptionConfig> dialogOptionConfigs = ResourceDialogsAtlasClass.DialogOptionConfigs;
-                    StartPhrase(dialog_sender, dialogOptionConfigs[(int)dialog_optionPhrases].phrases[dialog_currentPhraseIndex]);
+                    StartPhrase(dialog_sender, dialogConfig.phrases[dialog_currentPhraseIndex]);
                 }
                 else
                 {
@@ -215,6 +229,12 @@ namespace Gob3AQ.GameMenu
                     UICanvas_dialogObj_msg.gameObject.SetActive(false);
                     UICanvas_dialogObj_sender.gameObject.SetActive(false);
                     UICanvas_dialogOptions.SetActive(false);
+
+                    /* If end of conversation triggers an event */
+                    if (dialogConfig.triggeredEvent != GameEvent.EVENT_NONE)
+                    {
+                        VARMAP_GameMenu.COMMIT_EVENT(dialogConfig.triggeredEvent, true);
+                    }
 
                     VARMAP_GameMenu.END_DIALOGUE();
                 }

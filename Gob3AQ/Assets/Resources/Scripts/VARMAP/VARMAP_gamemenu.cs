@@ -47,6 +47,7 @@ namespace Gob3AQ.VARMAP.GameMenu
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
+            COMMIT_EVENT = _COMMIT_EVENT;
             SELECT_PICKABLE_ITEM = _SELECT_PICKABLE_ITEM;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             END_DIALOGUE = _END_DIALOGUE;
@@ -133,6 +134,13 @@ namespace Gob3AQ.VARMAP.GameMenu
         /// <para> Method: <see cref="GameEventMasterClass.IsEventOccurredService"/> </para> 
         /// </summary>
         public static IS_EVENT_OCCURRED_DELEGATE IS_EVENT_OCCURRED;
+        /// <summary> 
+        /// Activates/Deactivates an event
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.CommitEventService"/> </para> 
+        /// </summary>
+        public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
         /// <summary> 
         /// Selects some pickable from inventory
         /// <para> Owner: ItemMaster </para> 

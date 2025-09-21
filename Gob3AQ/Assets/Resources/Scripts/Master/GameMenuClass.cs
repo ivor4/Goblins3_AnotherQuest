@@ -9,6 +9,7 @@ using Gob3AQ.VARMAP.Types;
 using System;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Gob3AQ.GameMenu
@@ -20,8 +21,9 @@ namespace Gob3AQ.GameMenu
         [SerializeField]
         private GameObject UICanvas;
 
+        private static GameObject _UICanvas;
+
         private static GameMenuClass _singleton;
-        private static GameObject _itemMenu;
         private static bool _menuOpened;
         private static PickableItemDisplayClass[] _displayItemArray;
         private static Camera _mainCamera;
@@ -43,6 +45,8 @@ namespace Gob3AQ.GameMenu
         private static TMP_Text UICanvas_dialogObj_msg;
         private static GameObject UICanvas_dialogOptions;
         private static DialogOptionButtonClass[] UICanvas_dialogOptionButtons;
+
+        private static GameObject UICanvas_itemMenuObj;
 
         /// <summary>
         /// Displays a dialogue interface based on the specified character type, dialogue type, and initial phrase.
@@ -118,6 +122,7 @@ namespace Gob3AQ.GameMenu
             else if (selectablePhrases == 1)
             {
                 /* Initialize phrase index */
+                dialog_sender = charType;
                 dialog_optionPending = false;
                 StartDialogue(uniqueOption, 1);
                 StartPhrase(charType, uniquePhrase);
@@ -236,7 +241,7 @@ namespace Gob3AQ.GameMenu
                         VARMAP_GameMenu.COMMIT_EVENT(dialogConfig.triggeredEvent, true);
                     }
 
-                    VARMAP_GameMenu.END_DIALOGUE();
+                    VARMAP_GameMenu.ENABLE_DIALOGUE(false, CharacterType.CHARACTER_NONE, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE);
                 }
             }
         }
@@ -251,31 +256,14 @@ namespace Gob3AQ.GameMenu
             else
             {
                 _singleton = this;
-
-                Transform child = transform.Find("ItemMenu");
-                _itemMenu = child.gameObject;
-
-                _displayItemArray = new PickableItemDisplayClass[GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS];
+                _UICanvas = UICanvas;
 
                 float menuHeight = Screen.safeArea.height * GameFixedConfig.MENU_TOP_SCREEN_HEIGHT_PERCENT;
                 _upperGameMenuRect = new Rect(0, 0, Screen.safeArea.width, menuHeight);
-
                 _gameMenuToolbarStrings = new string[] { "Save Game", "Exit Game" };
 
-                UICanvas_dialogObj = UICanvas.transform.Find("DialogObj").gameObject;
-                UICanvas_dialogObj_sender = UICanvas_dialogObj.transform.Find("DialogSender").GetComponent<TMP_Text>();
-                UICanvas_dialogObj_msg = UICanvas_dialogObj.transform.Find("DialogMsg").GetComponent<TMP_Text>();
-                UICanvas_dialogOptions = UICanvas_dialogObj.transform.Find("DialogOptions").gameObject;
-
                 UICanvas_dialogOptionButtons = new DialogOptionButtonClass[GameFixedConfig.MAX_DIALOG_OPTIONS];
-
-                for(int i=0;i<GameFixedConfig.MAX_DIALOG_OPTIONS;++i)
-                {
-                    Transform btnTransf = UICanvas_dialogOptions.transform.Find("DialogOption" + (i + 1).ToString());
-                    UICanvas_dialogOptionButtons[i] = btnTransf.Find("ActiveArea").gameObject.GetComponent<DialogOptionButtonClass>();
-                    UICanvas_dialogOptionButtons[i].SetClickDelegate(_DialogOptionSelected);
-                }
-
+                _displayItemArray = new PickableItemDisplayClass[GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS];
             }
         }
 
@@ -284,10 +272,11 @@ namespace Gob3AQ.GameMenu
         void Start()
         {
             VARMAP_GameMenu.REG_PICKABLE_ITEM_OWNER(_OnItemOwnerChanged);
-            VARMAP_GameMenu.REG_ITEM_MENU_ACTIVE(_OnItemMenuActiveChanged);
             VARMAP_GameMenu.REG_GAMESTATUS(_OnGameStatusChanged);
 
-            Execute_Load_Async();
+            _mainCamera = Camera.main;
+
+            _ = StartCoroutine(Execute_Load_Coroutine());
         }
 
         
@@ -336,35 +325,37 @@ namespace Gob3AQ.GameMenu
             {
                 _singleton = null;
                 VARMAP_GameMenu.UNREG_PICKABLE_ITEM_OWNER(_OnItemOwnerChanged);
-                VARMAP_GameMenu.UNREG_ITEM_MENU_ACTIVE(_OnItemMenuActiveChanged);
                 VARMAP_GameMenu.UNREG_GAMESTATUS(_OnGameStatusChanged);
             }
         }
 
-        private static async void Execute_Load_Async()
+        private static IEnumerator Execute_Load_Coroutine()
         {
-            for(int i=0;i<GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS;++i)
+            UICanvas_dialogObj = _UICanvas.transform.Find("DialogObj").gameObject;
+            UICanvas_dialogObj_sender = UICanvas_dialogObj.transform.Find("DialogSender").GetComponent<TMP_Text>();
+            UICanvas_dialogObj_msg = UICanvas_dialogObj.transform.Find("DialogMsg").GetComponent<TMP_Text>();
+            UICanvas_dialogOptions = UICanvas_dialogObj.transform.Find("DialogOptions").gameObject;
+
+            yield return new WaitForNextFrameUnit();
+
+            for (int i = 0; i < GameFixedConfig.MAX_DIALOG_OPTIONS; ++i)
             {
-                AsyncInstantiateOperation asyncop = InstantiateAsync(ResourceAtlasClass.GetPrefab(PrefabEnum.PREFAB_MENU_PICKABLE_ITEM));
-                await asyncop;
-
-                GameObject newObj = asyncop.Result[0] as GameObject;
-                Transform newTrns = newObj.transform;
-
-                newObj.name = "PickableItemDisplay" + i;
-                newTrns.SetParent(_itemMenu.transform, false);
-
-                float x = -0.825f + 0.333f * (i % GameFixedConfig.MAX_DISPLAYED_HOR_PICKED_ITEMS);
-                float y = 0.825f - 0.333f * (i / GameFixedConfig.MAX_DISPLAYED_HOR_PICKED_ITEMS);
-
-                newTrns.localPosition = new Vector3(x, y);
-
-                _displayItemArray[i] = newObj.GetComponent<PickableItemDisplayClass>();
-                _displayItemArray[i].SetCallFunction(OnItemDisplayClick);
+                Transform btnTransf = UICanvas_dialogOptions.transform.Find("DialogOption" + (i + 1).ToString());
+                UICanvas_dialogOptionButtons[i] = btnTransf.Find("ActiveArea").gameObject.GetComponent<DialogOptionButtonClass>();
+                UICanvas_dialogOptionButtons[i].SetClickDelegate(_DialogOptionSelected);
+                yield return new WaitForNextFrameUnit();
             }
 
-            _mainCamera = Camera.main;
 
+            UICanvas_itemMenuObj = _UICanvas.transform.Find("ItemMenuObj").gameObject;
+
+            for (int i = 0; i < GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS; ++i)
+            {
+                GameObject itemObj = UICanvas_itemMenuObj.transform.Find("Item" + (i + 1)).Find("Item").gameObject;
+                _displayItemArray[i] = itemObj.GetComponent<PickableItemDisplayClass>();
+                _displayItemArray[i].SetCallFunction(OnItemDisplayClick);
+                yield return new WaitForNextFrameUnit();
+            }
 
             VARMAP_GameMenu.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameMenu);
         }
@@ -393,7 +384,7 @@ namespace Gob3AQ.GameMenu
                         /* If this element has to show a picked item */
                         if (item_owner[lastFoundItemIndex] == selectedChar)
                         {
-                            _displayItemArray[i].gameObject.SetActive(true);
+                            _displayItemArray[i].Enable(true);
                             _displayItemArray[i].SetDisplayedItem((GameItem)lastFoundItemIndex);
                             found = true;
                         }
@@ -403,7 +394,7 @@ namespace Gob3AQ.GameMenu
                 if(!found)
                 {
                     /* Otherwise keep hidden */
-                    _displayItemArray[i].gameObject.SetActive(false);
+                    _displayItemArray[i].Enable(false);
                 }
                 
             }
@@ -423,55 +414,42 @@ namespace Gob3AQ.GameMenu
                 RefreshItemMenuElements();
             }
         }
-
-        private static void _OnItemMenuActiveChanged(ChangedEventType evtype, in bool oldVal, in bool newVal)
-        {
-            _ = evtype;
-
-            if(newVal && !oldVal)
-            {
-                /* Activate family */
-                _itemMenu.SetActive(true);
-
-                /* Place Item Menu just in center of camera (World coordinates) */
-                _itemMenu.transform.position = (Vector2)_mainCamera.transform.position;
-
-                /* Populate menu */
-                RefreshItemMenuElements();
-            }
-            else if(!newVal && oldVal)
-            {
-                /* Deactivate family */
-                _itemMenu.SetActive(false);
-            }
-            else
-            {
-                /**/
-            }
-
-            _menuOpened = newVal;
-        }   
+  
 
         private static void _OnGameStatusChanged(ChangedEventType evtype, in Game_Status oldVal, in Game_Status newVal)
         {
             _ = evtype;
-            _ = newVal;
 
-            /* If game status changed from pause to play, restore previous status */
-            if ((oldVal == Game_Status.GAME_STATUS_PLAY_DIALOG) && (newVal != Game_Status.GAME_STATUS_PAUSE))
+            if (newVal != oldVal)
             {
-                /* If dialog was in progress, stop it */
-                if (dialog_coroutine != null)
+                switch(newVal)
                 {
-                    _singleton.StopCoroutine(dialog_coroutine);
-                    dialog_coroutine = null;
+                    case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
+                        /* Populate menu */
+                        RefreshItemMenuElements();
+                        _menuOpened = true;
+                        break;
+                    default:
+                        break;
                 }
 
-                dialog_tellingInProgress = false;
-                dialog_optionPending = false;
-                UICanvas_dialogObj_msg.gameObject.SetActive(false);
-                UICanvas_dialogObj_sender.gameObject.SetActive(false);
-                UICanvas_dialogOptions.SetActive(false);
+                switch(oldVal)
+                {
+                    case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
+                        _menuOpened = false;
+                        break;
+                    case Game_Status.GAME_STATUS_PLAY_DIALOG:
+                        /* If dialog was in progress, stop it */
+                        if (dialog_coroutine != null)
+                        {
+                            _singleton.StopCoroutine(dialog_coroutine);    
+                        }
+
+                        dialog_coroutine = null;
+                        dialog_tellingInProgress = false;
+                        dialog_optionPending = false;
+                        break;
+                }
             }
         }
 

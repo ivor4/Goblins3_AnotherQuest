@@ -7,6 +7,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -40,6 +41,7 @@ namespace Gob3AQ.GraphicsMaster
 
         private static GameObject UICanvas_loadingObj;
         private static GameObject UICanvas_dialogObj;
+        private static GameObject UICanvas_itemMenuObj;
 
         private static bool _loaded;
 
@@ -65,6 +67,7 @@ namespace Gob3AQ.GraphicsMaster
 
                 UICanvas_loadingObj = UICanvas.transform.Find("LoadingObj").gameObject;
                 UICanvas_dialogObj = UICanvas.transform.Find("DialogObj").gameObject;
+                UICanvas_itemMenuObj = UICanvas.transform.Find("ItemMenuObj").gameObject;
             }
 
         }
@@ -163,10 +166,7 @@ namespace Gob3AQ.GraphicsMaster
 
         private void FollowMouseWithCamera(in Vector2 screenzone)
         {
-            bool itemMenuOpened = VARMAP_GraphicsMaster.GET_ITEM_MENU_ACTIVE();
-
-            /* If not in menu zone */
-            if((screenzone.y < GameFixedConfig.GAME_ZONE_HEIGHT_PERCENT)&&(!itemMenuOpened))
+            if(screenzone.y < GameFixedConfig.GAME_ZONE_HEIGHT_PERCENT)
             {
                 /* Expand Y of game zone to 100% */
                 Vector2 szone = new Vector2(screenzone.x, screenzone.y * GameFixedConfig.GAME_ZONE_HEIGHT_FACTOR);
@@ -248,29 +248,38 @@ namespace Gob3AQ.GraphicsMaster
 
         private void _GameStatusChanged(ChangedEventType evtype, in Game_Status oldval, in Game_Status newval)
         {
-            if(newval == Game_Status.GAME_STATUS_PLAY)
+            _ = evtype;
+            _ = oldval;
+
+            switch (newval)
             {
-                UICanvas.SetActive(false);
-            }
-            else if ((newval == Game_Status.GAME_STATUS_LOADING) || (newval == Game_Status.GAME_STATUS_CHANGING_ROOM))
-            {
-                UICanvas.SetActive(true);
-                UICanvas_loadingObj.SetActive(true);
-                UICanvas_dialogObj.SetActive(false);
-            }
-            else if (newval == Game_Status.GAME_STATUS_PLAY_DIALOG)
-            {
-                UICanvas.SetActive(true);
-                UICanvas_dialogObj.SetActive(true);
-                UICanvas_loadingObj.SetActive(false);
-            }
-            else if (newval == Game_Status.GAME_STATUS_PAUSE)
-            {
-                //paused_text.gameObject.SetActive(true);
-            }
-            else
-            {
-                //paused_text.gameObject.SetActive(false);
+                case Game_Status.GAME_STATUS_PLAY:
+                    UICanvas.SetActive(false);
+                    break;
+                case Game_Status.GAME_STATUS_LOADING:
+                case Game_Status.GAME_STATUS_CHANGING_ROOM:
+                    UICanvas.SetActive(true);
+                    UICanvas_loadingObj.SetActive(true);
+                    UICanvas_dialogObj.SetActive(false);
+                    UICanvas_itemMenuObj.SetActive(false);
+                    break;
+                case Game_Status.GAME_STATUS_PLAY_DIALOG:
+                    UICanvas.SetActive(true);
+                    UICanvas_dialogObj.SetActive(true);
+                    UICanvas_loadingObj.SetActive(false);
+                    UICanvas_itemMenuObj.SetActive(false);
+                    break;
+                case Game_Status.GAME_STATUS_PAUSE:
+                    //paused_text.gameObject.SetActive(true);
+                    break;
+                case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
+                    UICanvas.SetActive(true);
+                    UICanvas_itemMenuObj.SetActive(true);
+                    UICanvas_loadingObj.SetActive(false);
+                    UICanvas_dialogObj.SetActive(false);
+                    break;
+                default:
+                    break;
             }
 
             cachedGameStatus = newval;

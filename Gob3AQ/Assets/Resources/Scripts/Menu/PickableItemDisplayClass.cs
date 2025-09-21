@@ -1,22 +1,30 @@
 using UnityEngine;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.ResourceAtlas;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace Gob3AQ.GameMenu.PickableItemDisplay
 {
     public delegate void DISPLAYED_ITEM_CLICK(GameItem item);
 
-    public class PickableItemDisplayClass : MonoBehaviour
+    public class PickableItemDisplayClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
     {
-        private SpriteRenderer _spr;
+        private Image _spr;
         private GameItem _item;
         private DISPLAYED_ITEM_CLICK _call;
         private GameObject _glow;
-        private SpriteRenderer _sprglow;
+        private Image _sprglow;
+        private GameObject _parent;
 
         public void SetCallFunction(DISPLAYED_ITEM_CLICK fn)
         {
             _call = fn;
+        }
+
+        public void Enable(bool enable)
+        {
+            _parent.SetActive(enable);
         }
 
         public void SetDisplayedItem(GameItem item)
@@ -29,27 +37,30 @@ namespace Gob3AQ.GameMenu.PickableItemDisplay
         void Awake()
         {
             _item = GameItem.ITEM_NONE;
-            _spr = GetComponent<SpriteRenderer>();
-            _glow = transform.Find("Glow").gameObject;
-            _sprglow = _glow.GetComponent<SpriteRenderer>();
+            _spr = GetComponent<Image>();
+            _glow = transform.parent.Find("Glow").gameObject;
+            _sprglow = _glow.GetComponent<Image>();
+            _parent = transform.parent.gameObject;
         }
 
-        void OnMouseEnter()
-        {
-            _glow.SetActive(true);
-        }
 
-        void OnMouseExit()
-        {
-            _glow.SetActive(false);    
-        }
 
         void OnDisable()
         {
             _glow.SetActive(false);
         }
 
-        void OnMouseDown()
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            _glow.SetActive(true);
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            _glow.SetActive(false);
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
         {
             _call?.Invoke(_item);
         }

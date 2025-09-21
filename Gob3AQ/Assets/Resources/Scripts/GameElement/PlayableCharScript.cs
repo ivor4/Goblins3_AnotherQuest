@@ -11,6 +11,8 @@ using Gob3AQ.Waypoint.ProgrammedPath;
 using Gob3AQ.Libs.Arith;
 using Gob3AQ.Brain.ItemsInteraction;
 using System.Collections.Generic;
+using System.Collections;
+using Unity.VisualScripting;
 
 
 namespace Gob3AQ.GameElement.PlayableChar
@@ -56,10 +58,10 @@ namespace Gob3AQ.GameElement.PlayableChar
         private float actTimeout;
 
         private bool selected;
-        private bool _loaded;
         private WaypointClass actualWaypoint;
         private WaypointProgrammedPath actualProgrammedPath;
         private BufferedData bufferedData;
+        private Coroutine _playCoroutine;
 
         /// <summary>
         /// This is a preallocated list to avoid unnecessary allocs when asking for a calculated solution
@@ -116,6 +118,12 @@ namespace Gob3AQ.GameElement.PlayableChar
                     physicalstate = PhysicalState.PHYSICAL_STATE_WALKING; 
 
                     Walk_StartNextSegment(false);
+
+                    /* Activate coroutine if not yet active */
+                    if (_playCoroutine == null)
+                    {
+                        _playCoroutine = StartCoroutine(Execute_Play_Coroutine());
+                    }
                 }
             }
         }
@@ -140,7 +148,6 @@ namespace Gob3AQ.GameElement.PlayableChar
         {
             physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
             selected = false;
-            _loaded = false;
             bufferedData.pending = false;
             actTimeout = 0f;
 
@@ -148,86 +155,110 @@ namespace Gob3AQ.GameElement.PlayableChar
 
             VARMAP_PlayerMaster.MONO_REGISTER(this, true);
             VARMAP_PlayerMaster.REG_PLAYER_SELECTED(ChangedSelectedPlayerEvent);
+            VARMAP_PlayerMaster.REG_GAMESTATUS(ChangedGameStatus);
+
+            /* Start loading coroutine */
+            _ = StartCoroutine(Execute_Loading_Coroutine());
         }
 
 
-        private void Update()
-        {
-            Game_Status gstatus = VARMAP_PlayerMaster.GET_GAMESTATUS();
 
-            switch(gstatus)
-            {
-                case Game_Status.GAME_STATUS_LOADING:
-                    Execute_Loading();
-                    break;
-
-                case Game_Status.GAME_STATUS_PLAY:
-                    Execute_Play();
-                    break;
-
-                default:
-                    break;
-            }
-            
-        }
 
         private void OnDestroy()
         {
             VARMAP_PlayerMaster.MONO_REGISTER(this, false);
             VARMAP_PlayerMaster.UNREG_PLAYER_SELECTED(ChangedSelectedPlayerEvent);
+            VARMAP_PlayerMaster.UNREG_GAMESTATUS(ChangedGameStatus);
+
+            if(_playCoroutine != null)
+            {
+                StopCoroutine(_playCoroutine);
+                _playCoroutine = null;
+            }
         }
 
         #region "Private Methods "
 
-        private void Execute_Loading()
+        private IEnumerator Execute_Loading_Coroutine()
         {
-            if (!_loaded)
-            {
-                int wpStartIndex = VARMAP_PlayerMaster.GET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)charType);
-                VARMAP_PlayerMaster.GET_NEAREST_WP(transform.position, float.MaxValue, out WaypointClass nearestWp);
+            bool loadOk = false;
 
-                /* Wait until Waypoints have loaded their network */
-                if ((nearestWp != null) && (nearestWp.Network != null) && (nearestWp.Network.IsCalculated))
+            while (!loadOk)
+            {
+                loadOk = Execute_Loading_Action();
+                yield return new WaitForNextFrameUnit();
+            }
+        }
+
+        private bool Execute_Loading_Action()
+        {
+            bool loadOk;
+            int wpStartIndex = VARMAP_PlayerMaster.GET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)charType);
+            VARMAP_PlayerMaster.GET_NEAREST_WP(transform.position, float.MaxValue, out WaypointClass nearestWp);
+
+            /* Wait until Waypoints have loaded their network */
+            if ((nearestWp != null) && (nearestWp.Network != null) && (nearestWp.Network.IsCalculated))
+            {
+                if (wpStartIndex == -1)
                 {
-                    if (wpStartIndex == -1)
-                    {
-                        actualWaypoint = nearestWp;
-                    }
-                    else
-                    {
-                        actualWaypoint = nearestWp.Network.WaypointList[wpStartIndex];
-                    }
-     
-                    transform.position = actualWaypoint.transform.position;
-                    _sprRenderer.enabled = true;
-                    VARMAP_PlayerMaster.PLAYER_WAYPOINT_UPDATE(charType, nearestWp.IndexInNetwork);
-
-                    _loaded = true;
-
-                    PlayerMasterClass.SetPlayerLoaded(CharType);
+                    actualWaypoint = nearestWp;
                 }
-            }
-          
-        }
+                else
+                {
+                    actualWaypoint = nearestWp.Network.WaypointList[wpStartIndex];
+                }
 
-        private void Execute_Play()
-        {
-            switch(physicalstate)
+                transform.position = actualWaypoint.transform.position;
+                _sprRenderer.enabled = true;
+                VARMAP_PlayerMaster.PLAYER_WAYPOINT_UPDATE(charType, actualWaypoint.IndexInNetwork);
+
+                PlayerMasterClass.SetPlayerLoaded(CharType);
+                loadOk = true;
+            }
+            else
             {
-                case PhysicalState.PHYSICAL_STATE_WALKING:
-                    Execute_Walk();
-                    break;
-                case PhysicalState.PHYSICAL_STATE_ACTING:
-                    Execute_Act();
-                    break;
-
-                default:
-                    break;
+                loadOk = false;
             }
+
+            return loadOk;
         }
 
-        private void Execute_Walk()
+        private IEnumerator Execute_Play_Coroutine()
         {
+            bool continueLoop = true;
+
+            while (continueLoop)
+            {
+                Game_Status gstatus = VARMAP_PlayerMaster.GET_GAMESTATUS();
+                if (gstatus == Game_Status.GAME_STATUS_PLAY)
+                {
+                    switch (physicalstate)
+                    {
+                        case PhysicalState.PHYSICAL_STATE_WALKING:
+                            continueLoop = Execute_Walk();
+                            break;
+                        case PhysicalState.PHYSICAL_STATE_ACTING:
+                            continueLoop = Execute_Act();
+                            break;
+                        default:
+                            continueLoop = false;
+                            break;
+                    }
+                }
+                else
+                {
+                    continueLoop = true;
+                }
+
+                yield return new WaitForNextFrameUnit();
+            }
+
+            _playCoroutine = null;
+        }
+
+        private bool Execute_Walk()
+        {
+            bool continueOp;
             List<WaypointClass> wplist = actualProgrammedPath.originalSolution.waypointTrace;
             int seg_index = actualProgrammedPath.crossedWaypointIndex;
             WaypointClass target_wp = wplist[seg_index];
@@ -250,23 +281,32 @@ namespace Gob3AQ.GameElement.PlayableChar
                     transform.position = target_pos;
                     _rigidbody.linearVelocity = Vector2.zero;
 
-                    StartBufferedInteraction();
+                    continueOp = StartBufferedInteraction();
                 }
                 else
                 {
                     Walk_StartNextSegment(true);
+                    continueOp = true;
                 }
             }
+            else
+            {
+                continueOp = true;
+            }
+
+            return continueOp;
         }
 
-        private void Execute_Act()
+        private bool Execute_Act()
         {
+            bool continueOp;
             actTimeout -= Time.deltaTime;
 
             if(actTimeout <= 0f)
             {
                 actTimeout = 0f;
                 physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
+                continueOp = false;
 
                 if(selected)
                 {
@@ -277,6 +317,12 @@ namespace Gob3AQ.GameElement.PlayableChar
                     _sprRenderer.color = Color.white;
                 }
             }
+            else
+            {
+                continueOp = true;
+            }
+
+            return continueOp;
         }
 
         private void Walk_StartNextSegment(bool reached)
@@ -303,9 +349,10 @@ namespace Gob3AQ.GameElement.PlayableChar
             actualWaypoint = target_wp;
         }
 
-        private void StartBufferedInteraction()
+        private bool StartBufferedInteraction()
         {
             bool validTransaction;
+            bool continueOp = false;
 
             /* Now interact if buffered */
             if (bufferedData.pending)
@@ -336,11 +383,12 @@ namespace Gob3AQ.GameElement.PlayableChar
 
                             if(outcome.dialogType != DialogType.DIALOG_NONE)
                             {
-                                VARMAP_PlayerMaster.START_DIALOGUE(CharType, outcome.dialogType, outcome.dialogPhrase);
+                                VARMAP_PlayerMaster.ENABLE_DIALOGUE(true, CharType, outcome.dialogType, outcome.dialogPhrase);
                             }
                             else if (outcome.animation != CharacterAnimation.ITEM_USE_ANIMATION_NONE)
                             {
                                 ActAnimationRequest(outcome.animation);
+                                continueOp = true;
                             }
                             else
                             {
@@ -367,6 +415,8 @@ namespace Gob3AQ.GameElement.PlayableChar
                 /* Clear */
                 bufferedData.pending = false;
             }
+
+            return continueOp;
         }
 
         private void ActAnimationRequest(CharacterAnimation animation)
@@ -393,6 +443,26 @@ namespace Gob3AQ.GameElement.PlayableChar
             {
                 _sprRenderer.color = Color.white;
                 selected = false;
+            }
+        }
+
+        private void ChangedGameStatus(ChangedEventType eventType, in Game_Status oldval, in Game_Status newval)
+        {
+            if(oldval != newval)
+            {
+                switch(newval)
+                {
+                    case Game_Status.GAME_STATUS_PLAY:
+                        _rigidbody.simulated = true;
+                        break;
+                }
+
+                switch(oldval)
+                {
+                    case Game_Status.GAME_STATUS_PLAY:
+                        _rigidbody.simulated = false;
+                        break;
+                }
             }
         }
 

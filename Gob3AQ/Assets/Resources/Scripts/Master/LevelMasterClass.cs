@@ -285,7 +285,8 @@ namespace Gob3AQ.LevelMaster
             switch (gstatus)
             {
                 case Game_Status.GAME_STATUS_PLAY:
-                    Update_Play();
+                case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
+                    Update_Play(gstatus);
                     break;
 
                 default:
@@ -325,25 +326,23 @@ namespace Gob3AQ.LevelMaster
 
 
 
-        private void Update_Play()
+        private void Update_Play(Game_Status gstatus)
         {
-            UpdateMouseEvents();
+            UpdateMouseEvents(gstatus);
         }
 
        
 
 
-        private void UpdateMouseEvents()
+        private void UpdateMouseEvents(Game_Status gstatus)
         {
             ref readonly MousePropertiesStruct mouse = ref VARMAP_LevelMaster.GET_MOUSE_PROPERTIES();
 
-            bool itemMenuActive = VARMAP_LevelMaster.GET_ITEM_MENU_ACTIVE();
-
-            if(itemMenuActive)
+            if(gstatus == Game_Status.GAME_STATUS_PLAY_ITEM_MENU)
             {
                 if(mouse.secondaryReleased)
                 {
-                    VARMAP_LevelMaster.SET_ITEM_MENU_ACTIVE(false);
+                    VARMAP_LevelMaster.ENABLE_ITEM_MENU(false);
                 }
             }
             else if(_playMouseArea.Contains(mouse.posPixels))
@@ -371,7 +370,7 @@ namespace Gob3AQ.LevelMaster
             {
                 if ((chosenItem == GameItem.ITEM_NONE)&&(playerSelected != CharacterType.CHARACTER_NONE))
                 {
-                    VARMAP_LevelMaster.SET_ITEM_MENU_ACTIVE(true);
+                    VARMAP_LevelMaster.ENABLE_ITEM_MENU(true);
                 }
                 else
                 {

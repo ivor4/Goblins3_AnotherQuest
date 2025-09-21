@@ -41,9 +41,9 @@ namespace Gob3AQ.VARMAP.GameMaster
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             FREEZE_PLAY = _FREEZE_PLAY;
+            ENABLE_ITEM_MENU = _ENABLE_ITEM_MENU;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
-            START_DIALOGUE = _START_DIALOGUE;
-            END_DIALOGUE = _END_DIALOGUE;
+            ENABLE_DIALOGUE = _ENABLE_DIALOGUE;
             SHOW_DIALOGUE = _SHOW_DIALOGUE;
             LAST_SERVICE = _LAST_SERVICE;
             /* > ATG 1 END */
@@ -129,6 +129,13 @@ namespace Gob3AQ.VARMAP.GameMaster
         /// </summary>
         public static FREEZE_PLAY_DELEGATE FREEZE_PLAY;
         /// <summary> 
+        /// Enables or disables item menu (from Play State)
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: LevelMaster,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.EnableItemMenu"/> </para> 
+        /// </summary>
+        public static ENABLE_ITEM_MENU_DELEGATE ENABLE_ITEM_MENU;
+        /// <summary> 
         /// Cancels selected item
         /// <para> Owner: ItemMaster </para> 
         /// <para> Accessors: GameMaster, LevelMaster, GameMenu,  </para> 
@@ -138,17 +145,10 @@ namespace Gob3AQ.VARMAP.GameMaster
         /// <summary> 
         /// Starts a dialogue with given text and sound
         /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: PlayerMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.StartDialogueService"/> </para> 
+        /// <para> Accessors: GameMenu, PlayerMaster,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.EnableDialogueService"/> </para> 
         /// </summary>
-        public static START_DIALOGUE_DELEGATE START_DIALOGUE;
-        /// <summary> 
-        /// Ends a dialogue
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: GameMenu,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.EndDialogueService"/> </para> 
-        /// </summary>
-        public static END_DIALOGUE_DELEGATE END_DIALOGUE;
+        public static ENABLE_DIALOGUE_DELEGATE ENABLE_DIALOGUE;
         /// <summary> 
         /// Second part of start dialogue. Tells Game Menu to prepare menu elements
         /// <para> Owner: GameMenu </para> 

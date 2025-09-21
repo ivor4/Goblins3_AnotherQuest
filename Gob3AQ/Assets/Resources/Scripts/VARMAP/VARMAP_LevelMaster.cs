@@ -35,9 +35,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
             GET_PLAYER_SELECTED = _GET_PLAYER_SELECTED;
-            GET_ITEM_MENU_ACTIVE = _GET_ITEM_MENU_ACTIVE;
-            GET_SHADOW_ITEM_MENU_ACTIVE = _GET_SHADOW_ITEM_MENU_ACTIVE;
-            SET_ITEM_MENU_ACTIVE = _SET_ITEM_MENU_ACTIVE;
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
             GET_ELEM_PLAYER_TRANSACTION = _GET_ELEM_PLAYER_TRANSACTION;
             GET_SIZE_PLAYER_TRANSACTION = _GET_SIZE_PLAYER_TRANSACTION;
@@ -63,6 +60,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
             IS_ITEM_TAKEN_FROM_SCENE = _IS_ITEM_TAKEN_FROM_SCENE;
             INTERACT_PLAYER = _INTERACT_PLAYER;
             GET_SCENARIO_ITEM_LIST = _GET_SCENARIO_ITEM_LIST;
+            ENABLE_ITEM_MENU = _ENABLE_ITEM_MENU;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             EVENT_SUBSCRIPTION = _EVENT_SUBSCRIPTION;
             CROSS_DOOR = _CROSS_DOOR;
@@ -92,9 +90,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
         public static GetVARMAPValueDelegate<MousePropertiesStruct> GET_MOUSE_PROPERTIES;
         public static GetVARMAPValueDelegate<CharacterType> GET_PLAYER_SELECTED;
-        public static GetVARMAPValueDelegate<bool> GET_ITEM_MENU_ACTIVE;
-        public static GetVARMAPValueDelegate<bool> GET_SHADOW_ITEM_MENU_ACTIVE;
-        public static SetVARMAPValueDelegate<bool> SET_ITEM_MENU_ACTIVE;
         public static GetVARMAPValueDelegate<GameItem> GET_PICKABLE_ITEM_CHOSEN;
         public static GetVARMAPArrayElemValueDelegate<ulong> GET_ELEM_PLAYER_TRANSACTION;
         public static GetVARMAPArraySizeDelegate GET_SIZE_PLAYER_TRANSACTION;
@@ -250,6 +245,13 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// <para> Method: <see cref="LevelMasterClass.GetScenarioItemListService"/> </para> 
         /// </summary>
         public static GET_SCENARIO_ITEM_LIST_DELEGATE GET_SCENARIO_ITEM_LIST;
+        /// <summary> 
+        /// Enables or disables item menu (from Play State)
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: LevelMaster,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.EnableItemMenu"/> </para> 
+        /// </summary>
+        public static ENABLE_ITEM_MENU_DELEGATE ENABLE_ITEM_MENU;
         /// <summary> 
         /// Cancels selected item
         /// <para> Owner: ItemMaster </para> 

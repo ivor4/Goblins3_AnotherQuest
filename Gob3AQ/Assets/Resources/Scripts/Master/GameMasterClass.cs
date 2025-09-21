@@ -208,14 +208,46 @@ namespace Gob3AQ.GameMaster
 
         }
 
-        public static void StartDialogueService(CharacterType charType, DialogType dialog, DialogPhrase phrase)
+        public static void EnableDialogueService(bool enable, CharacterType charType, DialogType dialog, DialogPhrase phrase)
         {
-            if (VARMAP_GameMaster.GET_SHADOW_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY)
-            {
-                VARMAP_GameMaster.SET_GAMESTATUS(Game_Status.GAME_STATUS_PLAY_DIALOG);
-                VARMAP_GameMaster.CANCEL_PICKABLE_ITEM();
+            Game_Status status = VARMAP_GameMaster.GET_SHADOW_GAMESTATUS();
 
-                VARMAP_GameMaster.SHOW_DIALOGUE(charType, dialog, phrase);
+            if (enable)
+            {
+                if (status == Game_Status.GAME_STATUS_PLAY)
+                {
+                    _SetGameStatus(Game_Status.GAME_STATUS_PLAY_DIALOG);
+                    VARMAP_GameMaster.CANCEL_PICKABLE_ITEM();
+
+                    VARMAP_GameMaster.SHOW_DIALOGUE(charType, dialog, phrase);
+                }
+            }
+            else
+            {
+                if (status == Game_Status.GAME_STATUS_PLAY_DIALOG)
+                {
+                    _SetGameStatus(Game_Status.GAME_STATUS_PLAY);
+                }
+            }
+        }
+
+        public static void EnableItemMenu(bool enable)
+        {
+            Game_Status status = VARMAP_GameMaster.GET_SHADOW_GAMESTATUS();
+
+            if (enable)
+            {
+                if(status == Game_Status.GAME_STATUS_PLAY)
+                {
+                    _SetGameStatus(Game_Status.GAME_STATUS_PLAY_ITEM_MENU);
+                }
+            }
+            else
+            {
+                if (status == Game_Status.GAME_STATUS_PLAY_ITEM_MENU)
+                {
+                    _SetGameStatus(Game_Status.GAME_STATUS_PLAY);
+                }
             }
         }
 

@@ -25,13 +25,13 @@ N,SERVICE_ID,SPECIAL_DELEGATE,SERVICE_ROUTE,Description,Separator,GameMaster,Inp
 23,IS_ITEM_TAKEN_FROM_SCENE,IS_ITEM_TAKEN_FROM_SCENE_DELEGATE,GameEventMasterClass.IsItemTakenFromSceneService,Tells if item is taken from scene,,-,-,X,-,-,-,-,X,W
 24,INTERACT_PLAYER,INTERACT_PLAYER_DELEGATE,PlayerMasterClass.InteractPlayerService,Interacts player with an item,,-,-,X,-,-,W,-,-,-
 25,GET_SCENARIO_ITEM_LIST,GET_SCENARIO_ITEM_LIST_DELEGATE,LevelMasterClass.GetScenarioItemListService,Gets scenario item list,,-,-,W,-,-,-,-,X,-
-26,SELECT_PICKABLE_ITEM,SELECT_PICKABLE_ITEM_DELEGATE,ItemMasterClass.SelectPickableItemService,Selects some pickable from inventory,,-,-,-,-,X,-,-,W,-
-27,CANCEL_PICKABLE_ITEM,CANCEL_PICKABLE_ITEM_DELEGATE,ItemMasterClass.CancelPickableItemService,Cancels selected item,,X,-,X,-,X,-,-,W,-
-28,EVENT_SUBSCRIPTION,EVENT_SUBSCRIPTION_DELEGATE,GameEventMasterClass.EventSubscriptionService,Subscribe to an event. Invoke when event changes,,-,-,X,-,-,X,X,X,W
-29,CROSS_DOOR,CROSS_DOOR_DELEGATE,LevelMasterClass.CrossDoorService,Trigger actions when crossing a door,,-,-,W,-,-,X,-,-,-
-30,INTERACT_PLAYER_NPC,INTERACT_PLAYER_NPC_DELEGATE,NPCMasterClass.InteractPlayerNPCService,Interacts player with NPC,,-,-,-,-,-,X,W,-,-
-31,LOCK_PLAYER,LOCK_PLAYER_DELEGATE,PlayerMasterClass.LockPlayerService,Locks player so it cannot act until an action over it has been done (or removes lock),,-,-,X,-,-,W,-,-,-
-32,START_DIALOGUE,START_DIALOGUE_DELEGATE,GameMasterClass.StartDialogueService,Starts a dialogue with given text and sound,,W,-,-,-,-,X,-,-,-
-33,END_DIALOGUE,END_DIALOGUE_DELEGATE,GameMasterClass.EndDialogueService,Ends a dialogue,,W,-,-,-,X,-,-,-,-
+26,ENABLE_ITEM_MENU,ENABLE_ITEM_MENU_DELEGATE,GameMasterClass.EnableItemMenu,Enables or disables item menu (from Play State),,W,-,X,-,-,-,-,-,-
+27,SELECT_PICKABLE_ITEM,SELECT_PICKABLE_ITEM_DELEGATE,ItemMasterClass.SelectPickableItemService,Selects some pickable from inventory,,-,-,-,-,X,-,-,W,-
+28,CANCEL_PICKABLE_ITEM,CANCEL_PICKABLE_ITEM_DELEGATE,ItemMasterClass.CancelPickableItemService,Cancels selected item,,X,-,X,-,X,-,-,W,-
+29,EVENT_SUBSCRIPTION,EVENT_SUBSCRIPTION_DELEGATE,GameEventMasterClass.EventSubscriptionService,Subscribe to an event. Invoke when event changes,,-,-,X,-,-,X,X,X,W
+30,CROSS_DOOR,CROSS_DOOR_DELEGATE,LevelMasterClass.CrossDoorService,Trigger actions when crossing a door,,-,-,W,-,-,X,-,-,-
+31,INTERACT_PLAYER_NPC,INTERACT_PLAYER_NPC_DELEGATE,NPCMasterClass.InteractPlayerNPCService,Interacts player with NPC,,-,-,-,-,-,X,W,-,-
+32,LOCK_PLAYER,LOCK_PLAYER_DELEGATE,PlayerMasterClass.LockPlayerService,Locks player so it cannot act until an action over it has been done (or removes lock),,-,-,X,-,-,W,-,-,-
+33,ENABLE_DIALOGUE,ENABLE_DIALOGUE_DELEGATE,GameMasterClass.EnableDialogueService,Starts a dialogue with given text and sound,,W,-,-,-,X,X,-,-,-
 34,SHOW_DIALOGUE,SHOW_DIALOGUE_DELEGATE,GameMenuClass.ShowDialogueService,Second part of start dialogue. Tells Game Menu to prepare menu elements,,X,-,-,-,W,-,-,-,-
 35,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-,-

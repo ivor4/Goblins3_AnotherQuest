@@ -180,7 +180,7 @@ namespace Gob3AQ.ItemMaster
                     VARMAP_ItemMaster.SET_ELEM_PICKABLE_ITEM_OWNER((int)pickable, CharacterType.CHARACTER_NONE);
 
                     /* Diselect in case it was selected */
-                    GameItem choosenItem = VARMAP_ItemMaster.GET_PICKABLE_ITEM_CHOSEN();
+                    GameItem choosenItem = VARMAP_ItemMaster.GET_SHADOW_PICKABLE_ITEM_CHOSEN();
                     if (choosenItem == usage.itemSource)
                     {
                         VARMAP_ItemMaster.CANCEL_PICKABLE_ITEM();

@@ -76,11 +76,6 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPValueDelegate<CharacterType> _SET_PLAYER_SELECTED;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<CharacterType> _REG_PLAYER_SELECTED;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<CharacterType> _UNREG_PLAYER_SELECTED;
-        protected static GetVARMAPValueDelegate<bool> _GET_ITEM_MENU_ACTIVE;
-        protected static GetVARMAPValueDelegate<bool> _GET_SHADOW_ITEM_MENU_ACTIVE;
-        protected static SetVARMAPValueDelegate<bool> _SET_ITEM_MENU_ACTIVE;
-        protected static ReUnRegisterVARMAPValueChangeEventDelegate<bool> _REG_ITEM_MENU_ACTIVE;
-        protected static ReUnRegisterVARMAPValueChangeEventDelegate<bool> _UNREG_ITEM_MENU_ACTIVE;
         protected static GetVARMAPValueDelegate<GameItem> _GET_PICKABLE_ITEM_CHOSEN;
         protected static GetVARMAPValueDelegate<GameItem> _GET_SHADOW_PICKABLE_ITEM_CHOSEN;
         protected static SetVARMAPValueDelegate<GameItem> _SET_PICKABLE_ITEM_CHOSEN;
@@ -287,6 +282,13 @@ namespace Gob3AQ.VARMAP
         /// </summary>
         protected static GET_SCENARIO_ITEM_LIST_DELEGATE _GET_SCENARIO_ITEM_LIST;
         /// <summary> 
+        /// Enables or disables item menu (from Play State)
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: LevelMaster,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.EnableItemMenu"/> </para> 
+        /// </summary>
+        protected static ENABLE_ITEM_MENU_DELEGATE _ENABLE_ITEM_MENU;
+        /// <summary> 
         /// Selects some pickable from inventory
         /// <para> Owner: ItemMaster </para> 
         /// <para> Accessors: GameMenu,  </para> 
@@ -331,17 +333,10 @@ namespace Gob3AQ.VARMAP
         /// <summary> 
         /// Starts a dialogue with given text and sound
         /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: PlayerMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.StartDialogueService"/> </para> 
+        /// <para> Accessors: GameMenu, PlayerMaster,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.EnableDialogueService"/> </para> 
         /// </summary>
-        protected static START_DIALOGUE_DELEGATE _START_DIALOGUE;
-        /// <summary> 
-        /// Ends a dialogue
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: GameMenu,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.EndDialogueService"/> </para> 
-        /// </summary>
-        protected static END_DIALOGUE_DELEGATE _END_DIALOGUE;
+        protected static ENABLE_DIALOGUE_DELEGATE _ENABLE_DIALOGUE;
         /// <summary> 
         /// Second part of start dialogue. Tells Game Menu to prepare menu elements
         /// <para> Owner: GameMenu </para> 

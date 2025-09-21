@@ -58,7 +58,7 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             CROSS_DOOR = _CROSS_DOOR;
             INTERACT_PLAYER_NPC = _INTERACT_PLAYER_NPC;
             LOCK_PLAYER = _LOCK_PLAYER;
-            START_DIALOGUE = _START_DIALOGUE;
+            ENABLE_DIALOGUE = _ENABLE_DIALOGUE;
             /* > ATG 1 END */
         }
 
@@ -201,10 +201,10 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         /// <summary> 
         /// Starts a dialogue with given text and sound
         /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: PlayerMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.StartDialogueService"/> </para> 
+        /// <para> Accessors: GameMenu, PlayerMaster,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.EnableDialogueService"/> </para> 
         /// </summary>
-        public static START_DIALOGUE_DELEGATE START_DIALOGUE;
+        public static ENABLE_DIALOGUE_DELEGATE ENABLE_DIALOGUE;
         /* > ATG 3 END */
     }
 }

@@ -4,12 +4,9 @@ using Gob3AQ.PlayerMaster;
 using Gob3AQ.VARMAP.PlayerMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.FixedConfig;
-using System;
 using Gob3AQ.Waypoint;
 using Gob3AQ.Waypoint.Types;
 using Gob3AQ.Waypoint.ProgrammedPath;
-using Gob3AQ.Libs.Arith;
-using Gob3AQ.Brain.ItemsInteraction;
 using System.Collections.Generic;
 using System.Collections;
 using Unity.VisualScripting;
@@ -49,6 +46,8 @@ namespace Gob3AQ.GameElement.PlayableChar
         public WaypointClass Waypoint => actualWaypoint;
 
         /* GameObject components */
+        private GameObject _parent;
+        private Transform _parentTransform;
         private SpriteRenderer _sprRenderer;
         private Collider2D _collider;
         private Rigidbody2D _rigidbody;
@@ -135,9 +134,11 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         private void Awake()
         {
-            _sprRenderer = GetComponent<SpriteRenderer>();
-            _collider = GetComponent<Collider2D>();
-            _rigidbody = GetComponent<Rigidbody2D>();
+            _parent = transform.parent.gameObject;
+            _parentTransform = _parent.transform;
+            _sprRenderer = _parent.GetComponent<SpriteRenderer>();
+            _collider = _parent.GetComponent<Collider2D>();
+            _rigidbody = _parent.GetComponent<Rigidbody2D>();
 
             _sprRenderer.enabled = false;
 

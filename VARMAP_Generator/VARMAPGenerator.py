@@ -14,6 +14,7 @@ enum_path = atg_path+"VARMAP_enum.cs"
 delegateupdate_path = atg_path+"VARMAP_UpdateDelegates.cs"
 savedata_path = atg_path+"VARMAP_savedata.cs"
 phrases_text_path = "./../Gob3AQ/Assets/Resources/Dialogs/PHRASES_CSV.csv"
+names_text_path = "./../Gob3AQ/Assets/Resources/Dialogs/NAMES_CSV.csv"
 
 #This is Custom part
 characters_types_path = atg_path + "VARMAP_types_chars.cs"
@@ -21,6 +22,8 @@ dialog_types_path = atg_path + "VARMAP_types_dialogs.cs"
 rooms_types_path = atg_path + "VARMAP_types_rooms.cs"
 modules_types_path = atg_path + "VARMAP_types_modules.cs"
 items_types_path = atg_path + "VARMAP_types_items.cs"
+npcs_types_path = atg_path + "VARMAP_types_npcs.cs"
+names_types_path = atg_path + "VARMAP_types_names.cs"
 sprite_types_path = atg_path + "VARMAP_types_sprites.cs"
 items_interaction_path = atg_path + "../Static/ItemsInteractionsClass.cs"
 dialog_atlas_path = atg_path + "../Static/ResourceDialogsAtlas.cs"
@@ -29,6 +32,7 @@ sprite_atlas_path = atg_path + "../Static/ResourceSpritesAtlas.cs"
 MODULES_START_COLUMN = 8
 SERVICE_MODULES_START_COLUMN = 6
 ITEMS_ACTION_START_COLUMN = 4
+NPCS_ACTION_START_COLUMN = 5
 
 #ATG Class Definition
 class ATGFile:
@@ -111,12 +115,16 @@ savedata_lines = ATGFile(savedata_path, 1)
 characters_lines = ATGFile(characters_types_path, 5)
 dialogs_types_lines = ATGFile(dialog_types_path, 3)
 phrases_lines = ATGFile(phrases_text_path, 0)
+names_lines = ATGFile(names_text_path, 0)
 rooms_types_lines = ATGFile(rooms_types_path, 1)
+npcs_types_lines = ATGFile(npcs_types_path, 1)
+names_types_lines = ATGFile(names_types_path, 1)
 sprite_types_lines = ATGFile(sprite_types_path, 1)
 modules_types_lines = ATGFile(modules_types_path, 1)
 items_types_lines = ATGFile(items_types_path, 3)
-items_interaction_lines = ATGFile(items_interaction_path, 3)
+items_interaction_lines = ATGFile(items_interaction_path, 5)
 dialog_atlas_lines = ATGFile(dialog_atlas_path, 3)
+
 sprite_atlas_lines = ATGFile(sprite_atlas_path, 2)
 
 
@@ -135,6 +143,8 @@ CHARSinputFile = open("CHARACTERS.csv", "r")
 DIALOGSinputFile = open("DIALOGS.csv", "r")
 PHRASESinputFile = open("PHRASES.csv", "r")
 ROOMSinputFile = open("ROOMS.csv", "r")
+NPCSinputFile = open("NPCs.csv", "r")
+NAMESinputFile = open("NAMES.csv", "r")
 SPRITESinputFile = open("SPRITES.csv", "r")
 
 VARMAPPermissionFile = []
@@ -678,6 +688,7 @@ phrase_prefix = 'DialogPhrase.'
 item_prefix = 'GameItem.'
 room_prefix = 'Room.'
 sprite_prefix = 'GameSprite.'
+name_prefix = 'NameType.'
 
 
 print('\n\n------DIALOGS (Custom GOB3) -------\n\n')
@@ -775,11 +786,11 @@ for line in PHRASESinputFile:
     dialogs_types_lines.InsertLineInATG(3, stringToWrite)
     
     if(not 'NONE' in columns[1]):
-        selectedColumns = [columns[2]] + columns[6:]
+        selectedColumns = columns[6:]
         stringToWrite = ",".join(selectedColumns)+'\n'
         phrases_lines.InsertLineInATG(0, stringToWrite)
         
-        stringToWrite = 'new('+room_prefix+columns[3]+', '+columns[4]+', '+\
+        stringToWrite = 'new('+name_prefix+columns[2]+', '+room_prefix+columns[3]+', '+columns[4]+', '+\
             dialoganim_prefix + columns[5]+'), /* '+columns[1]+' */ \n'
         dialog_atlas_lines.InsertLineInATG(3, stringToWrite)
     
@@ -867,7 +878,7 @@ for line in CHARSinputFile:
     
     stringToWrite = columns[1]
     if(zone == 4):
-        stringToWrite = "\"" + stringToWrite + "\""
+        stringToWrite = name_prefix + stringToWrite
     if('NONE' in columns[1]):
         stringToWrite += ' = -1'
     stringToWrite += ', \n'
@@ -901,12 +912,13 @@ for line in ITEMSCONDSinputFile:
     
     ItemVar["name"] = str(columns[1])
     ItemVar["event"] = str(columns[2])
-    ItemVar["animationOK"] = str(columns[3])
-    ItemVar["animationNOK_event"] = str(columns[4])
-    ItemVar["dialogOK"] = str(columns[5])
-    ItemVar["phraseOK"] = str(columns[6])
-    ItemVar["dialogNOK_event"] = str(columns[7])
-    ItemVar["phraseNOK_event"] = str(columns[8])
+    ItemVar["eventNOT"] = str(columns[3]).lower()
+    ItemVar["animationOK"] = str(columns[4])
+    ItemVar["animationNOK_event"] = str(columns[5])
+    ItemVar["dialogOK"] = str(columns[6])
+    ItemVar["phraseOK"] = str(columns[7])
+    ItemVar["dialogNOK_event"] = str(columns[8])
+    ItemVar["phraseNOK_event"] = str(columns[9])
     
     # Write in item enum
     stringToWrite = ItemVar["name"]
@@ -916,6 +928,7 @@ for line in ITEMSCONDSinputFile:
     
     # Write in conditions struct
     stringToWrite = "new("+event_prefix+ItemVar["event"]+","+\
+        ItemVar["eventNOT"]+","+\
         animation_prefix+ItemVar["animationOK"]+","+\
         animation_prefix+ItemVar["animationNOK_event"]+",\n"
     items_interaction_lines.InsertLineInATG(1, stringToWrite)
@@ -1023,6 +1036,110 @@ items_types_lines.InsertLineInATG(2, "\n")
 items_types_lines.InsertLineInATG(2, "ITEM_PICK_TOTAL\n")
 
 
+print('\n\n------NAMES (Custom GOB3) -------\n\n')
+linecount = -1
+zone = 1
+
+for line in NAMESinputFile:
+    linecount += 1
+    
+    line = line.replace('\n','')
+    line = line.replace('\r','')
+    
+    
+    columns = line.split(',')
+    print(columns)
+
+    if(linecount == 0):
+        continue
+    
+    
+    stringToWrite = columns[1]
+    if('NONE' in columns[1]):
+        stringToWrite += ' = -1'
+    stringToWrite += ', \n'
+    names_types_lines.InsertLineInATG(1, stringToWrite)
+    
+    if('NONE' not in columns[1]):
+        stringToWrite = columns[2] + ',' + columns[3] + '\n'
+        names_lines.InsertLineInATG(0, stringToWrite)
+    
+
+
+    
+stringToWrite = '\n'
+names_types_lines.InsertLineInATG(1, stringToWrite)
+
+stringToWrite = 'NAME_TOTAL\n'
+names_types_lines.InsertLineInATG(1, stringToWrite)
+
+
+print('\n\n------NPCs (Custom GOB3) -------\n\n')
+linecount = -1
+zone = 1
+
+for line in NPCSinputFile:
+    linecount += 1
+    
+    line = line.replace('\n','')
+    line = line.replace('\r','')
+    
+    
+    columns = line.split(',')
+    print(columns)
+
+    if(linecount == 0):
+        continue
+    
+    
+    stringToWrite = columns[1]
+    if('NONE' in columns[1]):
+        stringToWrite += ' = -1'
+    stringToWrite += ', \n'
+    npcs_types_lines.InsertLineInATG(1, stringToWrite)
+    
+    if(not 'NONE' in columns[1]):
+        stringToWrite = 'new('+name_prefix+columns[2]+','+\
+            room_prefix + columns[3]+'), \t/* '+columns[1] + ' */\n'
+        items_interaction_lines.InsertLineInATG(4, stringToWrite)
+        
+        actioncount = int(columns[4])
+        stringToWrite = 'new NPCInteractionInfo['+str(actioncount)+'] \n'
+        items_interaction_lines.InsertLineInATG(5, stringToWrite)
+        stringToWrite = '{ /* '+columns[1]+' */\n'
+        items_interaction_lines.InsertLineInATG(5, stringToWrite)
+        
+        for i in range(0, actioncount):
+            ItemAction = {}
+            ItemAction["active"] = str(columns[NPCS_ACTION_START_COLUMN + 0 + (i*8)]).lower()
+            ItemAction["srcChar"] = str(columns[NPCS_ACTION_START_COLUMN + 1 + (i*8)])
+            ItemAction["action"] = str(columns[NPCS_ACTION_START_COLUMN + 2 + (i*8)])
+            ItemAction["srcItem"] = str(columns[NPCS_ACTION_START_COLUMN + 3 + (i*8)])
+            ItemAction["condition"] = str(columns[NPCS_ACTION_START_COLUMN + 4 + (i*8)])
+            ItemAction["dialog"] = str(columns[NPCS_ACTION_START_COLUMN + 5 + (i*8)])
+            ItemAction["outEvent"] = str(columns[NPCS_ACTION_START_COLUMN + 6 + (i*8)])
+            ItemAction["consume"] = str(columns[NPCS_ACTION_START_COLUMN + 7 + (i*8)]).lower()
+            
+            stringToWrite = 'new('+character_prefix+ItemAction["srcChar"]+','+\
+                interaction_prefix + ItemAction["action"]+','+item_prefix+ItemAction["srcItem"]+',\n'
+            items_interaction_lines.InsertLineInATG(5, stringToWrite)
+                
+            stringToWrite = conditiontype_prefix + ItemAction["condition"]+','+\
+                dialog_prefix+ItemAction["dialog"]+','+event_prefix+ItemAction["outEvent"]+','+\
+                ItemAction["consume"]+'),\n'
+            items_interaction_lines.InsertLineInATG(5, stringToWrite)
+            
+        stringToWrite = '}, \n'
+        items_interaction_lines.InsertLineInATG(5, stringToWrite)
+
+    
+stringToWrite = '\n'
+npcs_types_lines.InsertLineInATG(1, stringToWrite)
+
+stringToWrite = 'NPC_TOTAL\n'
+npcs_types_lines.InsertLineInATG(1, stringToWrite)
+
+
 print('\n\n------SPRITES (Custom GOB3) -------\n\n')
 linecount = -1
 zone = 1
@@ -1064,6 +1181,23 @@ stringToWrite = 'SPRITE_TOTAL\n'
 sprite_types_lines.InsertLineInATG(1, stringToWrite)
     
 
+
+# Close files
+VARMAPinputFile.close()
+SERVICESinputFile.close()
+ITEMSinputFile.close()
+ITEMSCONDSinputFile.close()
+CHARSinputFile.close()
+DIALOGSinputFile.close()
+PHRASESinputFile.close()
+ROOMSinputFile.close()
+NPCSinputFile.close()
+NAMESinputFile.close()
+SPRITESinputFile.close()
+
+
+
+
 print('\n\n------ SAVE ATG FILES -------\n\n')
 
 #VARMAP Individual modules
@@ -1082,11 +1216,14 @@ savedata_lines.SaveFile()
 characters_lines.SaveFile()
 dialogs_types_lines.SaveFile()
 phrases_lines.SaveFile()
+names_lines.SaveFile()
 rooms_types_lines.SaveFile()
 modules_types_lines.SaveFile()
 items_types_lines.SaveFile()
 items_interaction_lines.SaveFile()
 dialog_atlas_lines.SaveFile()
+npcs_types_lines.SaveFile()
+names_types_lines.SaveFile()
 sprite_types_lines.SaveFile()
 sprite_atlas_lines.SaveFile()
 

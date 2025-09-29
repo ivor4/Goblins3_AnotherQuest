@@ -133,14 +133,16 @@ namespace Gob3AQ.VARMAP.Types
 
     public readonly struct PhraseConfig
     {
+        public readonly NameType name;
         public readonly Room room;
         public readonly int sound;
         public readonly DialogAnimation animation;
 
-        public static readonly PhraseConfig EMPTY = new(Room.ROOM_NONE, 0, DialogAnimation.DIALOG_ANIMATION_NONE);
+        public static readonly PhraseConfig EMPTY = new(NameType.NAME_NONE, Room.ROOM_NONE, 0, DialogAnimation.DIALOG_ANIMATION_NONE);
 
-        public PhraseConfig(Room room, int sound, DialogAnimation animation)
+        public PhraseConfig(NameType name, Room room, int sound, DialogAnimation animation)
         {
+            this.name = name;
             this.room = room;
             this.sound = sound;
             this.animation = animation;
@@ -150,15 +152,13 @@ namespace Gob3AQ.VARMAP.Types
     public readonly struct PhraseContent
     {
         public readonly PhraseConfig config;
-        public readonly string senderName;
         public readonly string message;
 
-        public static readonly PhraseContent EMPTY = new(in PhraseConfig.EMPTY, string.Empty, string.Empty);
+        public static readonly PhraseContent EMPTY = new(in PhraseConfig.EMPTY, string.Empty);
 
-        public PhraseContent(in PhraseConfig config, string senderName, string message)
+        public PhraseContent(in PhraseConfig config, string message)
         {
             this.config = config;
-            this.senderName = senderName;
             this.message = message;
         }
     }
@@ -166,6 +166,7 @@ namespace Gob3AQ.VARMAP.Types
     public readonly struct ItemConditions
     {
         public readonly GameEvent eventType;
+        public readonly bool eventNOT;
         public readonly CharacterAnimation animationOK;
         public readonly CharacterAnimation animationNOK_Event;
         public readonly DialogType dialogOK;
@@ -173,11 +174,12 @@ namespace Gob3AQ.VARMAP.Types
         public readonly DialogType dialogNOK_Event;
         public readonly DialogPhrase phraseNOK_Event;
 
-        public ItemConditions(GameEvent eventType, CharacterAnimation animationOK,
+        public ItemConditions(GameEvent eventType, bool eventNOT, CharacterAnimation animationOK,
             CharacterAnimation animationNOK_Event,
             DialogType dialogOK, DialogPhrase phraseOK, DialogType dialogNOK_Event, DialogPhrase phraseNOK_Event)
         {
             this.eventType = eventType;
+            this.eventNOT = eventNOT;
             this.animationOK = animationOK;
             this.animationNOK_Event = animationNOK_Event;
             this.dialogOK = dialogOK;
@@ -187,6 +189,42 @@ namespace Gob3AQ.VARMAP.Types
         }
     }
 
+    public readonly struct NPCInfo
+    {
+        public readonly NameType name;
+        public readonly Room room;
+
+        public static readonly NPCInfo EMPTY = new(NameType.NAME_NONE, Room.ROOM_NONE);
+
+        public NPCInfo(NameType name, Room room)
+        {
+            this.name = name;
+            this.room = room;
+        }
+
+    }
+    public readonly struct NPCInteractionInfo
+    {
+        public readonly CharacterType srcChar;
+        public readonly ItemInteractionType interaction;
+        public readonly GameItem srcItem;
+        public readonly ItemConditionsType conditions;
+        public readonly DialogType dialog;
+        public readonly GameEvent outEvent;
+        public readonly bool consumes;
+
+        public NPCInteractionInfo(CharacterType srcChar, ItemInteractionType interaction,
+            GameItem srcItem, ItemConditionsType conditions, DialogType dialog, GameEvent outEvent, bool consumes)
+        {
+            this.srcChar = srcChar;
+            this.interaction = interaction;
+            this.srcItem = srcItem;
+            this.conditions = conditions;
+            this.dialog = dialog;
+            this.outEvent = outEvent;
+            this.consumes = consumes;
+        }
+    }
 
 
     public readonly struct ItemInteractionInfo

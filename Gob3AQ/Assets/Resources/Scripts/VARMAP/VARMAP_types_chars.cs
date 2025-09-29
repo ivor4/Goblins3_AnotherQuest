@@ -1,5 +1,7 @@
 
 
+using System;
+
 namespace Gob3AQ.VARMAP.Types
 {
 
@@ -39,6 +41,7 @@ namespace Gob3AQ.VARMAP.Types
         INTERACTION_USE, 
         INTERACTION_RECEIVE, 
         INTERACTION_TAKE_AND_RECEIVE, 
+        INTERACTION_TALK, 
         
         INTERACTION_TOTAL
         /* > ATG 3 END < */
@@ -46,17 +49,14 @@ namespace Gob3AQ.VARMAP.Types
 
     public static class CharacterNames
     {
-        public static ref readonly string GetCharacterName(CharacterType charType)
-        {
-            return ref _characterName[(int)charType];
-        }
+        public static ReadOnlySpan<NameType> CHARACTERNAME => _characterName;
 
-        private static readonly string[] _characterName = new string[(int)CharacterType.CHARACTER_TOTAL]
+        private static readonly NameType[] _characterName = new NameType[(int)CharacterType.CHARACTER_TOTAL]
         {
             /* > ATG 4 START < */
-            "Main Character", 
-            "Parrot Character", 
-            "Snake Character", 
+            NameType.NAME_CHAR_MAIN, 
+            NameType.NAME_CHAR_PARROT, 
+            NameType.NAME_CHAR_SNAKE, 
             /* > ATG 4 END < */
         };
     }

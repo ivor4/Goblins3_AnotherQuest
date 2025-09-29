@@ -145,6 +145,7 @@ namespace Gob3AQ.ItemMaster
                     if (conditions.eventType != GameEvent.EVENT_NONE)
                     {
                         VARMAP_ItemMaster.IS_EVENT_OCCURRED(conditions.eventType, out occurred);
+                        occurred ^= conditions.eventNOT; // If condition is NOT, invert result
                     }
                     else
                     {

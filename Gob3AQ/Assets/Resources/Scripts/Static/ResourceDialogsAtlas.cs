@@ -38,12 +38,12 @@ namespace Gob3AQ.ResourceDialogsAtlas
         private static readonly PhraseConfig[] _PhraseConfig = new PhraseConfig[(int)DialogPhrase.PHRASE_TOTAL]
         {
             /* > ATG 3 START < */
-            new(Room.ROOM_NONE, 0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_NONSENSE */ 
-            new(Room.ROOM_FIRST, 0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_FOUNTAIN1_1 */ 
-            new(Room.ROOM_FIRST, 0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_FOUNTAIN1_2 */ 
-            new(Room.ROOM_FIRST, 0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_FOUNTAIN2_1 */ 
-            new(Room.ROOM_FIRST, 0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_FOUNTAIN3_1 */ 
-            new(Room.ROOM_FIRST, 0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_FOUNTAIN4_1 */ 
+            new(NameType.NAME_NONE, Room.ROOM_NONE, 0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_NONSENSE */ 
+            new(NameType.NAME_NONE, Room.ROOM_FIRST, 0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_FOUNTAIN1_1 */ 
+            new(NameType.NAME_NONE, Room.ROOM_FIRST, 0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_FOUNTAIN1_2 */ 
+            new(NameType.NAME_NONE, Room.ROOM_FIRST, 0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_FOUNTAIN2_1 */ 
+            new(NameType.NAME_NONE, Room.ROOM_FIRST, 0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_FOUNTAIN3_1 */ 
+            new(NameType.NAME_NONE, Room.ROOM_FIRST, 0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_FOUNTAIN4_1 */ 
             /* > ATG 3 END < */
         };
     }

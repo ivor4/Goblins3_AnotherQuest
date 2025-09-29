@@ -26,6 +26,7 @@ namespace Gob3AQ.ResourceSprites
             int loadedCount = 0;
 
             _cachedSpritesFinder.Clear();
+            Array.Clear(_cachedSprites, 0, _cachedSprites.Length);
 
 
             for (GameSprite sprite = 0; sprite < GameSprite.SPRITE_TOTAL; ++sprite)
@@ -62,18 +63,17 @@ namespace Gob3AQ.ResourceSprites
 
         private static ResourceRequest PreloadSprite(Room room, GameSprite sprite)
         {
-            ResourceRequest request = null;
+            ResourceRequest request;
             ref readonly SpriteConfig spriteConfig = ref ResourceSpritesAtlasClass.SpriteConfigs[(int)sprite];
 
             if ((spriteConfig.item != GameItem.ITEM_NONE) || (spriteConfig.room == room))
             {
                 request = Resources.LoadAsync<Sprite>(spriteConfig.path);
-
-                if (request.asset == null)
-                {
-                    Debug.LogError($"Failed to load sprite at path: {spriteConfig.path}");
-                }
-            }   
+            }
+            else
+            {
+                request = null;
+            }
 
 
             return request;

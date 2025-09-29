@@ -1,0 +1,9 @@
+N,NAME_ID,Name_English,Name_Spanish
+0,NAME_NONE,,
+1,NAME_CHAR_MAIN,Blount,Blount
+2,NAME_CHAR_PARROT,Parrot,Loro
+3,NAME_CHAR_SNAKE,Snake,Serpiente
+4,NAME_NPC_MILITO,Militer,Milito
+5,NAME_ITEM_POTION,Red Potion,Pocion Roja
+6,NAME_ITEM_BLUE_POTION,Blue Potion,Pocion Azul
+7,NAME_NPC_LAST,Last,Ultimo

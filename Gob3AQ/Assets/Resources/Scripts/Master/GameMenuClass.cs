@@ -173,13 +173,14 @@ namespace Gob3AQ.GameMenu
             ref readonly PhraseContent content = ref ResourceDialogsClass.GetPhraseContent(phrase);
 
             /* Set sender name */
-            if (content.senderName.Length == 1)
+            if (content.config.name == NameType.NAME_NONE)
             {
-                UICanvas_dialogObj_sender.text = CharacterNames.GetCharacterName(charType);
+                NameType charName = CharacterNames.CHARACTERNAME[(int)charType];
+                UICanvas_dialogObj_sender.text = ResourceDialogsClass.GetName(charName);
             }
             else
             {
-                UICanvas_dialogObj_sender.text = content.senderName;
+                UICanvas_dialogObj_sender.text = ResourceDialogsClass.GetName(content.config.name);
             }
 
             UICanvas_dialogObj_msg.text = content.message;

@@ -10,6 +10,7 @@ using Gob3AQ.VARMAP.Safe;
 using Gob3AQ.ResourceDialogs;
 using Gob3AQ.VARMAP.Variable;
 using System;
+using Gob3AQ.ResourceSprites;
 
 namespace Gob3AQ.GameMaster
 {
@@ -146,7 +147,7 @@ namespace Gob3AQ.GameMaster
                 /* Operations prepared for next level */
                 moduleLoadingDone = 0;
 
-                UnloadAndLoadRoomAsync(room);
+                _singleton.StartCoroutine(UnloadAndLoadRoomAsync(room));
             }
             else
             {
@@ -282,18 +283,21 @@ namespace Gob3AQ.GameMaster
         private static void LaunchResourcesInitializations()
         {
             ResourceDialogsClass.Initialize(DialogLanguages.DIALOG_LANG_ENGLISH);
+            ResourceSpritesClass.Initialize();
         }
 
-        private static async void UnloadAndLoadRoomAsync(Room room)
+        private static IEnumerator UnloadAndLoadRoomAsync(Room room)
         {
             string sceneName = GameFixedConfig.ROOM_TO_SCENE_NAME[(int)room];
 
-            await SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+            yield return SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
 
             _SetGameStatus(Game_Status.GAME_STATUS_LOADING);
 
-            await Resources.UnloadUnusedAssets();
-            await ResourceDialogsClass.PreloadRoomPhrasesAsync(room);
+            yield return ResourceDialogsClass.PreloadRoomPhrasesAsync(room);
+            yield return ResourceSpritesClass.PreloadRoomSpritesCoroutine(room);
+
+            yield return Resources.UnloadUnusedAssets();
 
             VARMAP_GameMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameMaster);
         }

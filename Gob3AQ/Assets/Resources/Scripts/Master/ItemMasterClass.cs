@@ -1,19 +1,24 @@
+using Gob3AQ.Brain.ItemsInteraction;
+using Gob3AQ.FixedConfig;
+using Gob3AQ.GameElement.Item;
+using Gob3AQ.Libs.Arith;
+using Gob3AQ.VARMAP.ItemMaster;
+using Gob3AQ.VARMAP.PlayerMaster;
+using Gob3AQ.VARMAP.Types;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
-using Gob3AQ.VARMAP.ItemMaster;
-using Gob3AQ.VARMAP.Types;
-using Gob3AQ.FixedConfig;
-using System.Collections.Generic;
-using Gob3AQ.Libs.Arith;
-using Gob3AQ.GameElement.Item;
-using Gob3AQ.Brain.ItemsInteraction;
-using System;
 
 namespace Gob3AQ.ItemMaster
 {
     public class ItemMasterClass : MonoBehaviour
     {
         private static ItemMasterClass _singleton;
+        private static uint _itemsAvailableToLoad;
+        private static uint _itemsLoaded;
 
 
 
@@ -48,6 +53,22 @@ namespace Gob3AQ.ItemMaster
         }
 
 
+        public static void SetItemAvailableForLoad(GameItem item)
+        {
+            _itemsAvailableToLoad |= (uint)(1 << (int)item);
+        }
+
+        public static void SetItemLoaded(GameItem item)
+        {
+            _itemsLoaded |= (uint)(1 << (int)item);
+
+            if (_itemsLoaded == _itemsAvailableToLoad)
+            {
+                VARMAP_PlayerMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_ItemMaster);
+            }
+        }
+
+
 
         void Awake()
         {
@@ -63,7 +84,22 @@ namespace Gob3AQ.ItemMaster
 
         void Start()
         {
-            VARMAP_ItemMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_ItemMaster);
+            _itemsAvailableToLoad = 0;
+            _itemsLoaded = 0;
+            
+
+            _ = StartCoroutine(LoadCoroutine());
+        }
+
+        private IEnumerator LoadCoroutine()
+        {
+            yield return new WaitForNextFrameUnit();
+
+            if(_itemsAvailableToLoad == 0)
+            {
+                // No items to load, just notify
+                VARMAP_ItemMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_ItemMaster);
+            }
         }
 
 

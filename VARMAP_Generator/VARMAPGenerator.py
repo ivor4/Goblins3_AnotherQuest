@@ -21,8 +21,10 @@ dialog_types_path = atg_path + "VARMAP_types_dialogs.cs"
 rooms_types_path = atg_path + "VARMAP_types_rooms.cs"
 modules_types_path = atg_path + "VARMAP_types_modules.cs"
 items_types_path = atg_path + "VARMAP_types_items.cs"
+sprite_types_path = atg_path + "VARMAP_types_sprites.cs"
 items_interaction_path = atg_path + "../Static/ItemsInteractionsClass.cs"
 dialog_atlas_path = atg_path + "../Static/ResourceDialogsAtlas.cs"
+sprite_atlas_path = atg_path + "../Static/ResourceSpritesAtlas.cs"
 
 MODULES_START_COLUMN = 8
 SERVICE_MODULES_START_COLUMN = 6
@@ -110,10 +112,12 @@ characters_lines = ATGFile(characters_types_path, 5)
 dialogs_types_lines = ATGFile(dialog_types_path, 3)
 phrases_lines = ATGFile(phrases_text_path, 0)
 rooms_types_lines = ATGFile(rooms_types_path, 1)
+sprite_types_lines = ATGFile(sprite_types_path, 1)
 modules_types_lines = ATGFile(modules_types_path, 1)
 items_types_lines = ATGFile(items_types_path, 3)
 items_interaction_lines = ATGFile(items_interaction_path, 3)
 dialog_atlas_lines = ATGFile(dialog_atlas_path, 3)
+sprite_atlas_lines = ATGFile(sprite_atlas_path, 2)
 
 
 added_savedata_lines = 0
@@ -131,6 +135,7 @@ CHARSinputFile = open("CHARACTERS.csv", "r")
 DIALOGSinputFile = open("DIALOGS.csv", "r")
 PHRASESinputFile = open("PHRASES.csv", "r")
 ROOMSinputFile = open("ROOMS.csv", "r")
+SPRITESinputFile = open("SPRITES.csv", "r")
 
 VARMAPPermissionFile = []
 
@@ -672,6 +677,7 @@ dialog_option_prefix = 'DialogOption.'
 phrase_prefix = 'DialogPhrase.'
 item_prefix = 'GameItem.'
 room_prefix = 'Room.'
+sprite_prefix = 'GameSprite.'
 
 
 print('\n\n------DIALOGS (Custom GOB3) -------\n\n')
@@ -781,6 +787,7 @@ stringToWrite = '\n'
 dialogs_types_lines.InsertLineInATG(3, stringToWrite)
 stringToWrite = 'PHRASE_TOTAL\n'
 dialogs_types_lines.InsertLineInATG(3, stringToWrite)
+
 
 
 
@@ -929,7 +936,7 @@ items_types_lines.InsertLineInATG(3, stringToWrite)
 
 print('\n\n------ITEMS (Custom GOB3) -------\n\n')
 
-
+pickable_items = []
 
 linecount = -1
 for line in ITEMSinputFile:
@@ -961,10 +968,13 @@ for line in ITEMSinputFile:
     items_types_lines.InsertLineInATG(1, stringToWrite)
     
     if(ItemVar["pickable"]):
+        
         pickname = ItemVar["name"].replace('ITEM_', 'ITEM_PICK_')
         stringToWrite = pickname
         if('NONE' in ItemVar["name"]):
             stringToWrite += ' = -1'
+        else:
+            pickable_items.append(ItemVar["name"])
         stringToWrite += ', \n'
         items_types_lines.InsertLineInATG(2, stringToWrite)
         
@@ -1011,6 +1021,47 @@ items_types_lines.InsertLineInATG(1, "\n")
 items_types_lines.InsertLineInATG(1, "ITEM_TOTAL\n")
 items_types_lines.InsertLineInATG(2, "\n")
 items_types_lines.InsertLineInATG(2, "ITEM_PICK_TOTAL\n")
+
+
+print('\n\n------SPRITES (Custom GOB3) -------\n\n')
+linecount = -1
+zone = 1
+pickitem_to_avatar_spr = []*len(pickable_items)
+
+for line in SPRITESinputFile:
+    linecount += 1
+    
+    line = line.replace('\n','')
+    line = line.replace('\r','')
+    
+    
+    columns = line.split(',')
+    print(columns)
+
+    if(linecount == 0):
+        continue
+    
+    
+    stringToWrite = columns[1]
+    if('NONE' in columns[1]):
+        stringToWrite += ' = -1'
+    stringToWrite += ', \n'
+    sprite_types_lines.InsertLineInATG(1, stringToWrite)
+    
+    if(not 'NONE' in columns[1]):        
+        stringToWrite = 'new("'+columns[2]+'", '+item_prefix+columns[3]+', '+\
+            room_prefix + columns[4]+'), /* '+columns[1]+' */ \n'
+        sprite_atlas_lines.InsertLineInATG(1, stringToWrite)
+        if(columns[3] in pickable_items):
+            pickindex = pickable_items.index(columns[3])
+            pickname = columns[3].replace('ITEM_','ITEM_PICK_')
+            stringToWrite = sprite_prefix + columns[1] + ',\t /* ' + pickname + ' */ \n'
+            sprite_atlas_lines.InsertLineInATG(2, stringToWrite)
+    
+stringToWrite = '\n'
+sprite_types_lines.InsertLineInATG(1, stringToWrite)
+stringToWrite = 'SPRITE_TOTAL\n'
+sprite_types_lines.InsertLineInATG(1, stringToWrite)
     
 
 print('\n\n------ SAVE ATG FILES -------\n\n')
@@ -1036,4 +1087,6 @@ modules_types_lines.SaveFile()
 items_types_lines.SaveFile()
 items_interaction_lines.SaveFile()
 dialog_atlas_lines.SaveFile()
+sprite_types_lines.SaveFile()
+sprite_atlas_lines.SaveFile()
 

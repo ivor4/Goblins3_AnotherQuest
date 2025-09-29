@@ -3,6 +3,9 @@ using Gob3AQ.VARMAP.Types;
 using Gob3AQ.ResourceAtlas;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Gob3AQ.ResourceSprites;
+using Gob3AQ.ResourceSpritesAtlas;
+using Gob3AQ.Brain.ItemsInteraction;
 
 namespace Gob3AQ.GameMenu.PickableItemDisplay
 {
@@ -29,8 +32,13 @@ namespace Gob3AQ.GameMenu.PickableItemDisplay
 
         public void SetDisplayedItem(GameItem item)
         {
+            GamePickableItem pickable;
+            GameSprite sprID;
+
             _item = item;
-            _spr.sprite = ResourceAtlasClass.GetPickableAvatarSpriteFromItem(item);
+            pickable = ItemsInteractionsClass.ITEM_TO_PICKABLE[(int)item];
+            sprID = ResourceSpritesAtlasClass.PickableItemToSpriteAvatar[(int)pickable];
+            _spr.sprite = ResourceSpritesClass.GetSprite(sprID);
             _sprglow.sprite = _spr.sprite;
         }
 
@@ -53,16 +61,22 @@ namespace Gob3AQ.GameMenu.PickableItemDisplay
         public void OnPointerEnter(PointerEventData eventData)
         {
             _glow.SetActive(true);
+            eventData.Use();
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
             _glow.SetActive(false);
+            eventData.Use();
         }
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            _call?.Invoke(_item);
+            if (eventData.button == PointerEventData.InputButton.Left)
+            {
+                _call?.Invoke(_item);
+                eventData.Use();
+            }
         }
     }
 }

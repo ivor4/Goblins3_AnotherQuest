@@ -80,6 +80,22 @@ namespace Gob3AQ.VARMAP.Types
         EVENT_TOTAL
     }
 
+    public readonly struct SpriteConfig
+    {
+        public readonly string path;
+        public readonly GameItem item;
+        public readonly Room room;
+
+        public static readonly SpriteConfig EMPTY = new(string.Empty, GameItem.ITEM_NONE, Room.ROOM_NONE);
+
+        public SpriteConfig(string path, GameItem item, Room room)
+        {
+            this.path = path;
+            this.item = item;
+            this.room = room;
+        }
+    }
+
     public readonly struct DialogConfig
     {
         public ReadOnlySpan<DialogOption> Options => options;

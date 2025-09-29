@@ -1,6 +1,9 @@
+using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameElement.PlayableChar;
 using Gob3AQ.ResourceAtlas;
+using Gob3AQ.ResourceSprites;
+using Gob3AQ.ResourceSpritesAtlas;
 using Gob3AQ.VARMAP.GraphicsMaster;
 using Gob3AQ.VARMAP.Types;
 using System;
@@ -241,7 +244,10 @@ namespace Gob3AQ.GraphicsMaster
                 }
                 else
                 {
-                    cursor_spr.sprite = ResourceAtlasClass.GetPickableAvatarSpriteFromItem(newval);
+                    GameSprite sprID;
+                    GamePickableItem pickable = ItemsInteractionsClass.ITEM_TO_PICKABLE[(int)newval];
+                    sprID = ResourceSpritesAtlasClass.PickableItemToSpriteAvatar[(int)pickable];
+                    cursor_spr.sprite = ResourceSpritesClass.GetSprite(sprID);
                 }
             }
         }

@@ -60,7 +60,6 @@ namespace Gob3AQ.GameElement.PlayableChar
         private WaypointClass actualWaypoint;
         private WaypointProgrammedPath actualProgrammedPath;
         private BufferedData bufferedData;
-        private Coroutine _playCoroutine;
 
         /// <summary>
         /// This is a preallocated list to avoid unnecessary allocs when asking for a calculated solution
@@ -117,12 +116,7 @@ namespace Gob3AQ.GameElement.PlayableChar
                     physicalstate = PhysicalState.PHYSICAL_STATE_WALKING; 
 
                     Walk_StartNextSegment(false);
-
-                    /* Activate coroutine if not yet active */
-                    if (_playCoroutine == null)
-                    {
-                        _playCoroutine = StartCoroutine(Execute_Play_Coroutine());
-                    }
+                    gameObject.SetActive(true);
                 }
             }
         }
@@ -162,6 +156,11 @@ namespace Gob3AQ.GameElement.PlayableChar
             _ = StartCoroutine(Execute_Loading_Coroutine());
         }
 
+        private void Update()
+        {
+            /* Script will only be enabled in play mode */
+            Execute_Play();
+        }
 
 
 
@@ -170,12 +169,6 @@ namespace Gob3AQ.GameElement.PlayableChar
             VARMAP_PlayerMaster.MONO_REGISTER(this, false);
             VARMAP_PlayerMaster.UNREG_PLAYER_SELECTED(ChangedSelectedPlayerEvent);
             VARMAP_PlayerMaster.UNREG_GAMESTATUS(ChangedGameStatus);
-
-            if(_playCoroutine != null)
-            {
-                StopCoroutine(_playCoroutine);
-                _playCoroutine = null;
-            }
         }
 
         #region "Private Methods "
@@ -195,7 +188,7 @@ namespace Gob3AQ.GameElement.PlayableChar
         {
             bool loadOk;
             int wpStartIndex = VARMAP_PlayerMaster.GET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)charType);
-            VARMAP_PlayerMaster.GET_NEAREST_WP(transform.position, float.MaxValue, out WaypointClass nearestWp);
+            VARMAP_PlayerMaster.GET_NEAREST_WP(_parentTransform.position, float.MaxValue, out WaypointClass nearestWp);
 
             /* Wait until Waypoints have loaded their network */
             if ((nearestWp != null) && (nearestWp.Network != null) && (nearestWp.Network.IsCalculated))
@@ -209,7 +202,7 @@ namespace Gob3AQ.GameElement.PlayableChar
                     actualWaypoint = nearestWp.Network.WaypointList[wpStartIndex];
                 }
 
-                transform.position = actualWaypoint.transform.position;
+                _parentTransform.position = actualWaypoint.transform.position;
                 _sprRenderer.enabled = true;
                 VARMAP_PlayerMaster.PLAYER_WAYPOINT_UPDATE(charType, actualWaypoint.IndexInNetwork);
 
@@ -224,37 +217,35 @@ namespace Gob3AQ.GameElement.PlayableChar
             return loadOk;
         }
 
-        private IEnumerator Execute_Play_Coroutine()
+        private void Execute_Play()
         {
             bool continueLoop = true;
 
-            while (continueLoop)
+            Game_Status gstatus = VARMAP_PlayerMaster.GET_GAMESTATUS();
+            if (gstatus == Game_Status.GAME_STATUS_PLAY)
             {
-                Game_Status gstatus = VARMAP_PlayerMaster.GET_GAMESTATUS();
-                if (gstatus == Game_Status.GAME_STATUS_PLAY)
+                switch (physicalstate)
                 {
-                    switch (physicalstate)
-                    {
-                        case PhysicalState.PHYSICAL_STATE_WALKING:
-                            continueLoop = Execute_Walk();
-                            break;
-                        case PhysicalState.PHYSICAL_STATE_ACTING:
-                            continueLoop = Execute_Act();
-                            break;
-                        default:
-                            continueLoop = false;
-                            break;
-                    }
+                    case PhysicalState.PHYSICAL_STATE_WALKING:
+                        continueLoop = Execute_Walk();
+                        break;
+                    case PhysicalState.PHYSICAL_STATE_ACTING:
+                        continueLoop = Execute_Act();
+                        break;
+                    default:
+                        continueLoop = false;
+                        break;
                 }
-                else
-                {
-                    continueLoop = true;
-                }
-
-                yield return new WaitForNextFrameUnit();
+            }
+            else
+            {
+                continueLoop = true;
             }
 
-            _playCoroutine = null;
+            if (!continueLoop)
+            {
+                gameObject.SetActive(false);
+            }
         }
 
         private bool Execute_Walk()
@@ -264,7 +255,7 @@ namespace Gob3AQ.GameElement.PlayableChar
             int seg_index = actualProgrammedPath.crossedWaypointIndex;
             WaypointClass target_wp = wplist[seg_index];
             Vector3 target_pos = target_wp.transform.position;
-            Vector2 deltaPos = target_pos - transform.position;
+            Vector2 deltaPos = target_pos - _parentTransform.position;
 
             /* If delta vector of positions and original velocity vector lose their cos(0deg)=1,
              * it means character crossed the point */
@@ -279,7 +270,7 @@ namespace Gob3AQ.GameElement.PlayableChar
                 if(actualProgrammedPath.crossedWaypointIndex == (wplist.Count - 1))
                 {
                     physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
-                    transform.position = target_pos;
+                    _parentTransform.position = target_pos;
                     _rigidbody.linearVelocity = Vector2.zero;
 
                     continueOp = StartBufferedInteraction();
@@ -337,12 +328,12 @@ namespace Gob3AQ.GameElement.PlayableChar
                 actualProgrammedPath.crossedWaypointIndex++;
                 target_wp = wplist[actualProgrammedPath.crossedWaypointIndex];
                 delta = (target_wp.transform.position - actualWaypoint.transform.position).normalized;
-                transform.position = actualWaypoint.transform.position;
+                _parentTransform.position = actualWaypoint.transform.position;
             }
             else
             {
                 target_wp = wplist[actualProgrammedPath.crossedWaypointIndex];
-                delta = (target_wp.transform.position - transform.position).normalized;
+                delta = (target_wp.transform.position - _parentTransform.position).normalized;
             }
 
             _rigidbody.linearVelocity = GameFixedConfig.CHARACTER_NORMAL_SPEED * delta;
@@ -449,12 +440,17 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         private void ChangedGameStatus(ChangedEventType eventType, in Game_Status oldval, in Game_Status newval)
         {
-            if(oldval != newval)
+            _ = eventType;
+
+            if (oldval != newval)
             {
                 switch(newval)
                 {
                     case Game_Status.GAME_STATUS_PLAY:
                         _rigidbody.simulated = true;
+
+                        /* Activate script only if there is pending action */
+                        gameObject.SetActive(physicalstate != PhysicalState.PHYSICAL_STATE_STANDING);
                         break;
                 }
 
@@ -462,6 +458,7 @@ namespace Gob3AQ.GameElement.PlayableChar
                 {
                     case Game_Status.GAME_STATUS_PLAY:
                         _rigidbody.simulated = false;
+                        gameObject.SetActive(false);
                         break;
                 }
             }

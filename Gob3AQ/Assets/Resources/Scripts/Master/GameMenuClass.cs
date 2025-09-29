@@ -379,7 +379,7 @@ namespace Gob3AQ.GameMenu
                 bool found = false;
                 if (selectedChar != CharacterType.CHARACTER_NONE)
                 {
-                    for (; (lastFoundItemIndex < totalarrayItems)&&(!found); lastFoundItemIndex++)
+                    for (; (lastFoundItemIndex < totalarrayItems) && (!found); lastFoundItemIndex++)
                     {
                         /* If this element has to show a picked item */
                         if (item_owner[lastFoundItemIndex] == selectedChar)

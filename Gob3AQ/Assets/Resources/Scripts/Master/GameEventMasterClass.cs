@@ -32,6 +32,21 @@ namespace Gob3AQ.GameEventMaster
             occurred = mbfs.GetIndividualBool(itembit);
         }
 
+        public static void IsEventCombiOccurredService(ReadOnlySpan<GameEventCombi> combi, out bool occurred)
+        {
+            occurred = true;
+
+            if ((combi.Length > 1) || (combi[0].eventType != GameEvent.EVENT_NONE))
+            {
+                for (int i = 0; i < combi.Length && occurred; i++)
+                {
+                    IsEventOccurredService(combi[i].eventType, out bool evOccurred);
+                    evOccurred ^= combi[i].eventNOT; // If condition is NOT, invert result
+                    occurred &= evOccurred;
+                }
+            }
+        }
+
         public static void CommitEventService(GameEvent ev, bool occurred)
         {
             int evIndex = (int)ev;

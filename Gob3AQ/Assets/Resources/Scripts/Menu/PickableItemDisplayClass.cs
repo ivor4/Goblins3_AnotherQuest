@@ -36,8 +36,9 @@ namespace Gob3AQ.GameMenu.PickableItemDisplay
             GameSprite sprID;
 
             _item = item;
-            pickable = ItemsInteractionsClass.ITEM_TO_PICKABLE[(int)item];
-            sprID = ResourceSpritesAtlasClass.PickableItemToSpriteAvatar[(int)pickable];
+            ref readonly ItemInfo info = ref ItemsInteractionsClass.GetItemInfo(item);
+            pickable = info.pickableItem;
+            sprID = info.pickableSprite;
             _spr.sprite = ResourceSpritesClass.GetSprite(sprID);
             _sprglow.sprite = _spr.sprite;
         }

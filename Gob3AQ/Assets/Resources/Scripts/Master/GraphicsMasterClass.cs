@@ -244,9 +244,10 @@ namespace Gob3AQ.GraphicsMaster
                 }
                 else
                 {
+                    ref readonly ItemInfo info = ref ItemsInteractionsClass.GetItemInfo(newval);
                     GameSprite sprID;
-                    GamePickableItem pickable = ItemsInteractionsClass.ITEM_TO_PICKABLE[(int)newval];
-                    sprID = ResourceSpritesAtlasClass.PickableItemToSpriteAvatar[(int)pickable];
+                    GamePickableItem pickable = info.pickableItem;
+                    sprID = info.pickableSprite;
                     cursor_spr.sprite = ResourceSpritesClass.GetSprite(sprID);
                 }
             }

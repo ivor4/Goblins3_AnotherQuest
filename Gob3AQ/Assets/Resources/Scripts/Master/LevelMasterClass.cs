@@ -6,7 +6,6 @@ using Gob3AQ.VARMAP.LevelMaster;
 using System;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.Brain.LevelOptions;
-using Gob3AQ.GameElement.NPC;
 using Gob3AQ.GameElement.Item;
 using Gob3AQ.GameElement.Door;
 using Gob3AQ.Waypoint;
@@ -21,7 +20,6 @@ namespace Gob3AQ.LevelMaster
         {
             MELEMS_PLAYER,
             MELEMS_ITEM,
-            MELEMS_NPC,
             MELEMS_DOOR
         }
 
@@ -29,7 +27,6 @@ namespace Gob3AQ.LevelMaster
         {
             public readonly MouseActiveElemsType type;
             public readonly PlayableCharScript player;
-            public readonly NPCClass npc;
             public readonly ItemClass item;
             public readonly DoorClass door;
             public readonly int arrayIndex;
@@ -38,27 +35,16 @@ namespace Gob3AQ.LevelMaster
             {
                 type = MouseActiveElemsType.MELEMS_PLAYER;
                 this.player = player;
-                this.npc = null;
                 this.item = null;
                 this.door = null;
                 this.arrayIndex = index;
             }
 
-            public MouseActiveElems(NPCClass npc, int index)
-            {
-                type = MouseActiveElemsType.MELEMS_NPC;
-                this.player = null;
-                this.npc = npc;
-                this.item = null;
-                this.door = null;
-                this.arrayIndex = index;
-            }
 
             public MouseActiveElems(ItemClass item, int index)
             {
                 type = MouseActiveElemsType.MELEMS_ITEM;
                 this.player = null;
-                this.npc = null;
                 this.item = item;
                 this.door = null;
                 this.arrayIndex = index;
@@ -68,7 +54,6 @@ namespace Gob3AQ.LevelMaster
             {
                 type = MouseActiveElemsType.MELEMS_DOOR;
                 this.player = null;
-                this.npc = null;
                 this.item = null;
                 this.door = door;
                 this.arrayIndex = index;
@@ -85,7 +70,6 @@ namespace Gob3AQ.LevelMaster
 
         private static List<WaypointClass> _WP_List;
         private static PlayableCharScript[] _Player_List;
-        private static List<NPCClass> _NPC_List;
         private static List<ItemClass> _Item_List;
         private static List<DoorClass> _Door_List;
 
@@ -100,15 +84,6 @@ namespace Gob3AQ.LevelMaster
             rolist = _Player_List;
         }
 
-        /// <summary>
-        /// Retrieves a read-only list of NPCs (non-player characters).
-        /// </summary>
-        /// <param name="rolist">When this method returns, contains a read-only list of <see cref="NPCClass"/> objects representing the
-        /// current NPCs. This parameter is passed uninitialized.</param>
-        public static void GetNPCListService(out ReadOnlyList<NPCClass> rolist)
-        {
-            rolist = new(_NPC_List);
-        }
 
         public static void GetScenarioItemListService(out ReadOnlyList<ItemClass> rolist)
         {
@@ -138,20 +113,6 @@ namespace Gob3AQ.LevelMaster
             }
         }
 
-        public static void NPCRegisterService(NPCClass instance, bool register)
-        {
-            if (register)
-            {
-                _NPC_List.Add(instance);
-                MouseActiveElems melems = new(instance, _NPC_List.Count - 1);
-                _ColliderReference.Add(instance.Collider, melems);
-            }
-            else
-            {
-                _ColliderReference.Remove(instance.Collider);
-                _NPC_List.Remove(instance);
-            }
-        }
 
         public static void ItemRegisterService(bool register, ItemClass instance)
         {
@@ -306,7 +267,6 @@ namespace Gob3AQ.LevelMaster
 
         private void Initializations()
         {
-            _NPC_List = new List<NPCClass>(GameFixedConfig.MAX_POOLED_ENEMIES);
             _Player_List = new PlayableCharScript[GameFixedConfig.MAX_LEVEL_PLAYABLE_CHARACTERS];
             _WP_List = new List<WaypointClass>(GameFixedConfig.MAX_LEVEL_WAYPOINTS);
             _Item_List = new List<ItemClass>(GameFixedConfig.MAX_POOLED_ENEMIES);
@@ -317,7 +277,7 @@ namespace Gob3AQ.LevelMaster
 
 
             _LayerOnlyPlayers = 0x1 << LayerMask.NameToLayer("PlayerLayer");
-            _LayerPlayersAndItemsNPC = _LayerOnlyPlayers | (0x1 << LayerMask.NameToLayer("ItemLayer")) | (0x1 << LayerMask.NameToLayer("NPCLayer"));
+            _LayerPlayersAndItemsNPC = _LayerOnlyPlayers | (0x1 << LayerMask.NameToLayer("ItemLayer"));
 
             _playMouseArea = new Rect(0, 0, Screen.width, Screen.height * GameFixedConfig.GAME_ZONE_HEIGHT_PERCENT);
         }
@@ -358,9 +318,6 @@ namespace Gob3AQ.LevelMaster
 
         private void UpdateCharItemMouseEvents(in MousePropertiesStruct mouse)
         {
-            InteractionType usageType;
-            GameItem itemSource;
-
             GameItem chosenItem = VARMAP_LevelMaster.GET_PICKABLE_ITEM_CHOSEN();
             CharacterType playerSelected = VARMAP_LevelMaster.GET_PLAYER_SELECTED();
             InteractionUsage usage;
@@ -461,25 +418,6 @@ namespace Gob3AQ.LevelMaster
                             }
                             break;
 
-                        case MouseActiveElemsType.MELEMS_NPC:
-
-                            if (chosenItem == GameItem.ITEM_NONE)
-                            {
-                                usageType = InteractionType.PLAYER_WITH_NPC;
-                                itemSource = GameItem.ITEM_NONE;
-                            }
-                            else
-                            {
-                                usageType = InteractionType.ITEM_WITH_NPC;
-                                itemSource = chosenItem;
-                            }
-
-                            usage = new(usageType, playerSelected, itemSource, CharacterType.CHARACTER_NONE,
-                                candidateMelems.npc.NPType, GameItem.ITEM_NONE, candidateMelems.arrayIndex,
-                                candidateMelems.npc.Waypoint, 0);
-
-                            VARMAP_LevelMaster.INTERACT_PLAYER(in usage);
-                            break;
 
                         case MouseActiveElemsType.MELEMS_DOOR:
                             usage = InteractionUsage.CreatePlayerUseDoor(playerSelected, candidateMelems.arrayIndex,

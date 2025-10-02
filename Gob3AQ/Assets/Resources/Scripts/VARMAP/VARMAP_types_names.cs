@@ -14,6 +14,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_NPC_MILITO, 
         NAME_ITEM_POTION, 
         NAME_ITEM_BLUE_POTION, 
+        NAME_ITEM_FOUNTAIN, 
         NAME_NPC_LAST, 
         
         NAME_TOTAL

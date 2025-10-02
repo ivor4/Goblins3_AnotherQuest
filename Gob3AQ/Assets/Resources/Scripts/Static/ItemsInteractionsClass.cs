@@ -6,112 +6,113 @@ namespace Gob3AQ.Brain.ItemsInteraction
 { 
     public static class ItemsInteractionsClass
     {
-        public static ReadOnlySpan<NPCInfo> NPC_INFO => _NPCInfo;
-        public static ReadOnlySpan<GamePickableItem> ITEM_TO_PICKABLE => _ItemToPickable;
-        public static ReadOnlySpan<ItemConditions> ITEM_CONDITIONS => _ItemConditions;
-
-        private static readonly ItemInteractionInfo[] _FailedInteractionInfo = new ItemInteractionInfo[0];
-
-        private static readonly NPCInteractionInfo[] _FailedNPCInteractionInfo = new NPCInteractionInfo[0];
-
-        public static ReadOnlySpan<NPCInteractionInfo> GetNPCInteractions(NPCType npc)
+        public static ref readonly ItemInfo GetItemInfo(GameItem item)
         {
-            if ((uint)npc < (uint)NPCType.NPC_TOTAL)
+            if((uint)item >= (uint)GameItem.ITEM_TOTAL)
             {
-                return _NPCInteractions[(int)npc];
+                Debug.LogError($"[ItemsInteractionsClass] GetItemInfo: Invalid item {item}");
+                return ref ItemInfo.EMPTY;
             }
             else
             {
-                return _FailedNPCInteractionInfo;
+                return ref _ItemInfo[(int)item];
             }
         }
 
-        public static ReadOnlySpan<ItemInteractionInfo> GetItemInteractions(GameItem item)
+        public static ref readonly ActionConditionsInfo GetActionConditionsInfo(ActionConditions conditions)
         {
-            if ((uint)item < (uint)GameItem.ITEM_TOTAL)
+            if ((uint)conditions >= (uint)ActionConditions.COND_TOTAL)
             {
-                return _ItemInteractions[(int)item];
+                Debug.LogError($"[ItemsInteractionsClass] GetItemInfo: Invalid item {conditions}");
+                return ref ActionConditionsInfo.EMPTY;
             }
             else
             {
-                return _FailedInteractionInfo;
+                return ref _ActionConditions[(int)conditions];
             }
         }
 
 
-        private static readonly ItemConditions[] _ItemConditions = new ItemConditions[(int)ItemConditionsType.COND_TOTAL]
+        private static readonly ActionConditionsInfo[] _ActionConditions = new ActionConditionsInfo[(int)ActionConditions.COND_TOTAL]
         {
             /* > ATG 1 START < */
-            new(GameEvent.EVENT_NONE,false,CharacterAnimation.ITEM_USE_ANIMATION_TAKE,CharacterAnimation.ITEM_USE_ANIMATION_CONFUSE,
+            new( /* COND_OK */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,
+            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,CharacterAnimation.ITEM_USE_ANIMATION_CONFUSE,
             DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
-            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE), /* COND_OK */
-            new(GameEvent.EVENT_NONE,false,CharacterAnimation.ITEM_USE_ANIMATION_POUR,CharacterAnimation.ITEM_USE_ANIMATION_CONFUSE,
+            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameEvent.EVENT_NONE,false),
+            
+            new( /* COND_TAKE_POTION */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
+            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,CharacterAnimation.ITEM_USE_ANIMATION_NONE,
             DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
-            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE), /* COND_FOUNTAIN */
-            new(GameEvent.EVENT_NONE,false,CharacterAnimation.ITEM_USE_ANIMATION_STARE_SCREEN,CharacterAnimation.ITEM_USE_ANIMATION_CONFUSE,
+            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameEvent.EVENT_NONE,false),
+            
+            new( /* COND_TAKE_POTION_BLUE */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            CharacterType.CHARACTER_PARROT,GameItem.ITEM_POTION_BLUE,ItemInteractionType.INTERACTION_TAKE,
+            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,CharacterAnimation.ITEM_USE_ANIMATION_NONE,
+            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
+            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameEvent.EVENT_NONE,false),
+            
+            new( /* COND_FOUNTAIN */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            CharacterType.CHARACTER_MAIN,GameItem.ITEM_POTION,ItemInteractionType.INTERACTION_USE,
+            CharacterAnimation.ITEM_USE_ANIMATION_POUR,CharacterAnimation.ITEM_USE_ANIMATION_CONFUSE,
+            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
+            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameEvent.EVENT_FOUNTAIN_FULL,true),
+            
+            new( /* COND_FOUNTAIN2 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            CharacterType.CHARACTER_PARROT,GameItem.ITEM_POTION_BLUE,ItemInteractionType.INTERACTION_USE,
+            CharacterAnimation.ITEM_USE_ANIMATION_STARE_SCREEN,CharacterAnimation.ITEM_USE_ANIMATION_CONFUSE,
             DialogType.DIALOG_FOUNTAIN,DialogPhrase.PHRASE_NONE,
-            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE), /* COND_FOUNTAIN2 */
-            new(GameEvent.EVENT_NONE,false,CharacterAnimation.ITEM_USE_ANIMATION_TAKE,CharacterAnimation.ITEM_USE_ANIMATION_CONFUSE,
+            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameEvent.EVENT_NONE,false),
+            
+            new( /* COND_LAST */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,
+            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,CharacterAnimation.ITEM_USE_ANIMATION_CONFUSE,
             DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
-            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE), /* COND_LAST */
+            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameEvent.EVENT_NONE,false),
+            
             /* > ATG 1 END < */
         };
 
 
-        private static readonly GamePickableItem[] _ItemToPickable = new GamePickableItem[(int)GameItem.ITEM_TOTAL]
+
+
+        private static readonly ItemInfo[] _ItemInfo = new ItemInfo[(int)GameItem.ITEM_TOTAL]
         {
             /* > ATG 2 START < */
-            GamePickableItem.ITEM_PICK_POTION, /* ITEM_POTION */
-            GamePickableItem.ITEM_PICK_POTION_BLUE, /* ITEM_POTION_BLUE */
-            GamePickableItem.ITEM_PICK_NONE, /* ITEM_FOUNTAIN */
-            GamePickableItem.ITEM_PICK_NONE, /* ITEM_LAST */
+            new ( /* ITEM_POTION */
+            NameType.NAME_ITEM_POTION,new GameSprite[1]{GameSprite.SPRITE_POTION_RED,},
+            true,false,GameSprite.SPRITE_POTION_RED,GamePickableItem.ITEM_PICK_POTION,
+            new ActionConditions[1]{ActionConditions.COND_TAKE_POTION,}),
+            
+            new ( /* ITEM_POTION_BLUE */
+            NameType.NAME_ITEM_BLUE_POTION,new GameSprite[1]{GameSprite.SPRITE_POTION_BLUE,},
+            true,false,GameSprite.SPRITE_POTION_BLUE,GamePickableItem.ITEM_PICK_POTION_BLUE,
+            new ActionConditions[1]{ActionConditions.COND_TAKE_POTION_BLUE,}),
+            
+            new ( /* ITEM_FOUNTAIN */
+            NameType.NAME_ITEM_FOUNTAIN,new GameSprite[2]{GameSprite.SPRITE_FOUNTAIN,GameSprite.SPRITE_FOUNTAIN_FULL,},
+            false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[2]{ActionConditions.COND_FOUNTAIN,ActionConditions.COND_FOUNTAIN2,}),
+            
+            new ( /* ITEM_NPC_MILITO */
+            NameType.NAME_NPC_MILITO,new GameSprite[1]{GameSprite.SPRITE_NPC_MILITO,},
+            false,true,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_OK,}),
+            
+            new ( /* ITEM_LAST */
+            NameType.NAME_NPC_LAST,new GameSprite[1]{GameSprite.SPRITE_LAST,},
+            false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_OK,}),
+            
             /* > ATG 2 END < */
-        };
-
-
-
-        private static readonly ItemInteractionInfo[][] _ItemInteractions = new ItemInteractionInfo[(int)GameItem.ITEM_TOTAL][]
-        {
-            /* > ATG 3 START < */
-            new ItemInteractionInfo[1] 
-            { /* ITEM_POTION */
-            new(CharacterType.CHARACTER_MAIN,ItemInteractionType.INTERACTION_TAKE,GameItem.ITEM_NONE,ItemConditionsType.COND_OK,GameEvent.EVENT_NONE,true),
-            }, 
-            new ItemInteractionInfo[1] 
-            { /* ITEM_POTION_BLUE */
-            new(CharacterType.CHARACTER_PARROT,ItemInteractionType.INTERACTION_TAKE,GameItem.ITEM_NONE,ItemConditionsType.COND_OK,GameEvent.EVENT_NONE,true),
-            }, 
-            new ItemInteractionInfo[2] 
-            { /* ITEM_FOUNTAIN */
-            new(CharacterType.CHARACTER_MAIN,ItemInteractionType.INTERACTION_USE,GameItem.ITEM_POTION,ItemConditionsType.COND_FOUNTAIN,GameEvent.EVENT_FOUNTAIN_FULL,true),
-            new(CharacterType.CHARACTER_PARROT,ItemInteractionType.INTERACTION_USE,GameItem.ITEM_POTION_BLUE,ItemConditionsType.COND_FOUNTAIN2,GameEvent.EVENT_NONE,false),
-            }, 
-            new ItemInteractionInfo[0] 
-            { /* ITEM_LAST */
-            }, 
-            /* > ATG 3 END < */
-        };
-
-        private static readonly NPCInfo[] _NPCInfo = new NPCInfo[(int)NPCType.NPC_TOTAL]
-        {
-            /* > ATG 4 START < */
-            new(NameType.NAME_NPC_MILITO,Room.ROOM_FIRST), 	/* NPC_FIRST */
-            new(NameType.NAME_NONE,Room.ROOM_NONE), 	/* NPC_LAST */
-            /* > ATG 4 END < */
-        };
-
-        private static readonly NPCInteractionInfo[][] _NPCInteractions = new NPCInteractionInfo[(int)NPCType.NPC_TOTAL][]
-        {
-            /* > ATG 5 START < */
-            new NPCInteractionInfo[1] 
-            { /* NPC_FIRST */
-            new(CharacterType.CHARACTER_MAIN,ItemInteractionType.INTERACTION_TALK,GameItem.ITEM_NONE,
-            ItemConditionsType.COND_OK,DialogType.DIALOG_FOUNTAIN,GameEvent.EVENT_NONE,false),
-            }, 
-            new NPCInteractionInfo[0] 
-            { /* NPC_LAST */
-            }, 
-            /* > ATG 5 END < */
         };
 
     }

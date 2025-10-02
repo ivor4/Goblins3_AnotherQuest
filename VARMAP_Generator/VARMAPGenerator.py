@@ -22,17 +22,15 @@ dialog_types_path = atg_path + "VARMAP_types_dialogs.cs"
 rooms_types_path = atg_path + "VARMAP_types_rooms.cs"
 modules_types_path = atg_path + "VARMAP_types_modules.cs"
 items_types_path = atg_path + "VARMAP_types_items.cs"
-npcs_types_path = atg_path + "VARMAP_types_npcs.cs"
 names_types_path = atg_path + "VARMAP_types_names.cs"
 sprite_types_path = atg_path + "VARMAP_types_sprites.cs"
 items_interaction_path = atg_path + "../Static/ItemsInteractionsClass.cs"
 dialog_atlas_path = atg_path + "../Static/ResourceDialogsAtlas.cs"
 sprite_atlas_path = atg_path + "../Static/ResourceSpritesAtlas.cs"
+room_atlas_path = atg_path + "../Static/ResourceAtlas.cs"
 
 MODULES_START_COLUMN = 8
 SERVICE_MODULES_START_COLUMN = 6
-ITEMS_ACTION_START_COLUMN = 4
-NPCS_ACTION_START_COLUMN = 5
 
 #ATG Class Definition
 class ATGFile:
@@ -117,15 +115,14 @@ dialogs_types_lines = ATGFile(dialog_types_path, 3)
 phrases_lines = ATGFile(phrases_text_path, 0)
 names_lines = ATGFile(names_text_path, 0)
 rooms_types_lines = ATGFile(rooms_types_path, 1)
-npcs_types_lines = ATGFile(npcs_types_path, 1)
 names_types_lines = ATGFile(names_types_path, 1)
 sprite_types_lines = ATGFile(sprite_types_path, 1)
 modules_types_lines = ATGFile(modules_types_path, 1)
 items_types_lines = ATGFile(items_types_path, 3)
-items_interaction_lines = ATGFile(items_interaction_path, 5)
+items_interaction_lines = ATGFile(items_interaction_path, 2)
 dialog_atlas_lines = ATGFile(dialog_atlas_path, 3)
-
-sprite_atlas_lines = ATGFile(sprite_atlas_path, 2)
+sprite_atlas_lines = ATGFile(sprite_atlas_path, 1)
+room_atlas_lines = ATGFile(room_atlas_path, 1)
 
 
 added_savedata_lines = 0
@@ -138,12 +135,11 @@ enumPrefix = "VARMAP_ID_"
 VARMAPinputFile = open("VARMAP.csv", "r")
 SERVICESinputFile = open("SERVICES.csv", "r")
 ITEMSinputFile = open("ITEMS.csv", "r")
-ITEMSCONDSinputFile = open("ITEMS_CONDS.csv", "r")
+ACTIONCONDSinputFile = open("ACTION_CONDS.csv", "r")
 CHARSinputFile = open("CHARACTERS.csv", "r")
 DIALOGSinputFile = open("DIALOGS.csv", "r")
 PHRASESinputFile = open("PHRASES.csv", "r")
 ROOMSinputFile = open("ROOMS.csv", "r")
-NPCSinputFile = open("NPCs.csv", "r")
 NAMESinputFile = open("NAMES.csv", "r")
 SPRITESinputFile = open("SPRITES.csv", "r")
 
@@ -680,8 +676,7 @@ interaction_prefix = 'ItemInteractionType.'
 animation_prefix = 'CharacterAnimation.'
 dialoganim_prefix = 'DialogAnimation.'
 event_prefix = 'GameEvent.'
-condition_prefix = 'ItemConditions.'
-conditiontype_prefix = 'ItemConditionsType.'
+conditiontype_prefix = 'ActionConditions.'
 dialog_prefix = 'DialogType.'
 dialog_option_prefix = 'DialogOption.'
 phrase_prefix = 'DialogPhrase.'
@@ -699,8 +694,9 @@ for line in DIALOGSinputFile:
     
     line = line.replace('\n','')
     line = line.replace('\r','')
+    line = line.replace('"','')
     
-    
+    line = line.replace(', ','|')
     columns = line.split(',')
     print(columns)
 
@@ -729,28 +725,47 @@ for line in DIALOGSinputFile:
     if(not 'NONE' in columns[1]):
         if(zone == 1):
             stringToWrite = 'new('
-            num_options = int(columns[2])
-            if(num_options == 0):
-                stringToWrite += 'null), /* ' + columns[1] + ' */\n'
-            else:
-                stringToWrite += 'new DialogOption['+str(num_options)+']{'
-                for _option in columns[3:3+num_options]:
-                    stringToWrite += dialog_option_prefix + _option + ', '
-                stringToWrite += '}), /* ' + columns[1] + ' */\n'
+            options = columns[2].split('|')
+            num_options = len(options)
+                
+            stringToWrite += 'new DialogOption['+str(num_options)+']{'
+            for _option in options:
+                stringToWrite += dialog_option_prefix + _option + ', '
+            stringToWrite += '}), /* ' + columns[1] + ' */\n'
             dialog_atlas_lines.InsertLineInATG(1, stringToWrite)
         elif(zone == 2):
-            stringToWrite = 'new('+event_prefix+columns[2]+', '
-            stringToWrite += columns[3].lower()+', '
-            stringToWrite += event_prefix+columns[4]+', '
-            stringToWrite += dialog_prefix+columns[5]+', '
-            num_options = int(columns[6])
-            if(num_options == 0):
-                stringToWrite += 'null), /* ' + columns[1] + ' */\n'
-            else:
-                stringToWrite += 'new DialogPhrase['+str(num_options)+']{'
-                for _option in columns[7:7+num_options]:
-                    stringToWrite += phrase_prefix + _option + ', '
-                stringToWrite += '}), /* ' + columns[1] + ' */\n'
+            options = columns[2].split('|')
+            num_options = len(options)
+            
+            stringToWrite = 'new( /* '+columns[1]+' */\n'
+            dialog_atlas_lines.InsertLineInATG(2, stringToWrite)
+            
+            stringToWrite = 'new GameEventCombi['+str(num_options)+']{'
+            
+            for _option in options:
+                _not = str('(NOT)' in _option).lower()
+                _option = _option.replace('(NOT)','')
+                stringToWrite += 'new('+event_prefix+_option+', '+_not+'), '
+                
+            stringToWrite += '},\n'
+            dialog_atlas_lines.InsertLineInATG(2, stringToWrite)
+            
+            
+            stringToWrite = event_prefix+columns[3]+', '
+            stringToWrite += dialog_prefix+columns[4]+',\n'
+            dialog_atlas_lines.InsertLineInATG(2, stringToWrite)
+            
+            options = columns[5].split('|')
+            num_options = len(options)
+            
+            stringToWrite = 'new DialogPhrase['+str(num_options)+']{'
+
+            for _option in options:
+                stringToWrite += phrase_prefix+_option+', '
+                
+            stringToWrite += '}\n'
+            dialog_atlas_lines.InsertLineInATG(2, stringToWrite)
+            stringToWrite = '),\n'
             dialog_atlas_lines.InsertLineInATG(2, stringToWrite)
         
         
@@ -770,7 +785,7 @@ for line in PHRASESinputFile:
     
     line = line.replace('\n','')
     line = line.replace('\r','')
-    
+        
     
     columns = line.split(',')
     print(columns)
@@ -786,12 +801,12 @@ for line in PHRASESinputFile:
     dialogs_types_lines.InsertLineInATG(3, stringToWrite)
     
     if(not 'NONE' in columns[1]):
-        selectedColumns = columns[6:]
+        selectedColumns = columns[5:]
         stringToWrite = ",".join(selectedColumns)+'\n'
         phrases_lines.InsertLineInATG(0, stringToWrite)
         
-        stringToWrite = 'new('+name_prefix+columns[2]+', '+room_prefix+columns[3]+', '+columns[4]+', '+\
-            dialoganim_prefix + columns[5]+'), /* '+columns[1]+' */ \n'
+        stringToWrite = 'new('+name_prefix+columns[2]+', '+columns[3]+', '+\
+            dialoganim_prefix + columns[4]+'), /* '+columns[1]+' */ \n'
         dialog_atlas_lines.InsertLineInATG(3, stringToWrite)
     
 stringToWrite = '\n'
@@ -809,8 +824,10 @@ for line in ROOMSinputFile:
     
     line = line.replace('\n','')
     line = line.replace('\r','')
+    line = line.replace('"','')
     
     
+    line = line.replace(', ','|')
     columns = line.split(',')
     print(columns)
 
@@ -822,6 +839,41 @@ for line in ROOMSinputFile:
         stringToWrite += ' = -1'
     stringToWrite += ', \n'
     rooms_types_lines.InsertLineInATG(1, stringToWrite)
+    
+    if('NONE' not in columns[1]):
+        stringToWrite = 'new( /* '+columns[1] + ' */\n'
+        room_atlas_lines.InsertLineInATG(1, stringToWrite)
+        
+        options = columns[2].split('|')
+        num_options = len(options)
+            
+        stringToWrite = 'new GameSprite['+str(num_options)+']{'
+        for _option in options:
+            stringToWrite += sprite_prefix + _option + ', '
+        stringToWrite += '}, \n'
+        room_atlas_lines.InsertLineInATG(1, stringToWrite)
+        
+        options = columns[3].split('|')
+        num_options = len(options)
+            
+        stringToWrite = 'new DialogPhrase['+str(num_options)+']{'
+        for _option in options:
+            stringToWrite += phrase_prefix + _option + ', '
+        stringToWrite += '}, \n'
+        room_atlas_lines.InsertLineInATG(1, stringToWrite)
+        
+        options = columns[4].split('|')
+        num_options = len(options)
+            
+        stringToWrite = 'new NameType['+str(num_options)+']{'
+        for _option in options:
+            stringToWrite += name_prefix + _option + ', '
+        stringToWrite += '} \n'
+        room_atlas_lines.InsertLineInATG(1, stringToWrite)
+        
+        stringToWrite = '),\n'
+        room_atlas_lines.InsertLineInATG(1, stringToWrite)
+        room_atlas_lines.InsertLineInATG(1, '\n')
     
 stringToWrite = '\n'
 rooms_types_lines.InsertLineInATG(1, stringToWrite)
@@ -892,18 +944,20 @@ characters_lines.InsertLineInATG(5, stringToWrite)
     
     
    
-print('\n\n------ITEMS CONDITIONS (Custom GOB3) -------\n\n')
+print('\n\n------ACTION CONDITIONS (Custom GOB3) -------\n\n')
 
 
 
 linecount = -1
-for line in ITEMSCONDSinputFile:
+for line in ACTIONCONDSinputFile:
     ItemVar = {}
     linecount += 1
     
     line = line.replace('\n','')
     line = line.replace('\r','')
+    line = line.replace('"','')
     
+    line = line.replace(', ', '|')
     columns : list[str] = line.split(',')
     print(columns)
 
@@ -911,14 +965,18 @@ for line in ITEMSCONDSinputFile:
         continue 
     
     ItemVar["name"] = str(columns[1])
-    ItemVar["event"] = str(columns[2])
-    ItemVar["eventNOT"] = str(columns[3]).lower()
-    ItemVar["animationOK"] = str(columns[4])
-    ItemVar["animationNOK_event"] = str(columns[5])
-    ItemVar["dialogOK"] = str(columns[6])
-    ItemVar["phraseOK"] = str(columns[7])
-    ItemVar["dialogNOK_event"] = str(columns[8])
-    ItemVar["phraseNOK_event"] = str(columns[9])
+    ItemVar["events"] = str(columns[2])
+    ItemVar["srcChar"] = character_prefix+str(columns[3])
+    ItemVar["srcItem"] = item_prefix+str(columns[4])
+    ItemVar["actionOK"] = interaction_prefix+str(columns[5])
+    ItemVar["animationOK"] = animation_prefix+str(columns[6])
+    ItemVar["animationNOK_event"] = animation_prefix+str(columns[7])
+    ItemVar["dialogOK"] = dialog_prefix+str(columns[8])
+    ItemVar["phraseOK"] = phrase_prefix+str(columns[9])
+    ItemVar["dialogNOK_event"] = dialog_prefix+str(columns[10])
+    ItemVar["phraseNOK_event"] = phrase_prefix+str(columns[11])
+    ItemVar["unchain_event"] = event_prefix + str(columns[12])
+    ItemVar["consume_item"] = str(columns[13]).lower()
     
     # Write in item enum
     stringToWrite = ItemVar["name"]
@@ -927,18 +985,38 @@ for line in ITEMSCONDSinputFile:
     items_types_lines.InsertLineInATG(3, stringToWrite)
     
     # Write in conditions struct
-    stringToWrite = "new("+event_prefix+ItemVar["event"]+","+\
-        ItemVar["eventNOT"]+","+\
-        animation_prefix+ItemVar["animationOK"]+","+\
-        animation_prefix+ItemVar["animationNOK_event"]+",\n"
+    stringToWrite = 'new( /* '+ ItemVar["name"] + ' */\n'
     items_interaction_lines.InsertLineInATG(1, stringToWrite)
-    stringToWrite = dialog_prefix+ItemVar["dialogOK"]+","+\
-        phrase_prefix+ItemVar["phraseOK"]+",\n"
+    
+    
+    options = columns[2].split('|')
+    num_options = len(options)
+        
+    stringToWrite = 'new GameEventCombi['+str(num_options)+']{'
+
+    for _option in options:
+        _not_ = str('(NOT)' in _option).lower()
+        _option = _option.replace('(NOT)','')
+        stringToWrite += 'new('+event_prefix + _option + ', ' + _not_ + '),'
+        
+    stringToWrite += '}, \n'
     items_interaction_lines.InsertLineInATG(1, stringToWrite)
-    stringToWrite = dialog_prefix+ItemVar["dialogNOK_event"]+","+\
-        phrase_prefix+ItemVar["phraseNOK_event"]+"), /* "+\
-        ItemVar["name"]+" */\n"
+    
+    
+    stringToWrite = ItemVar["srcChar"]+','+ItemVar["srcItem"]+','+\
+        ItemVar["actionOK"]+',\n'
     items_interaction_lines.InsertLineInATG(1, stringToWrite)
+    stringToWrite = ItemVar["animationOK"]+','+\
+    ItemVar["animationNOK_event"]+",\n"
+    items_interaction_lines.InsertLineInATG(1, stringToWrite)
+    stringToWrite = ItemVar["dialogOK"]+","+\
+        ItemVar["phraseOK"]+",\n"
+    items_interaction_lines.InsertLineInATG(1, stringToWrite)
+    stringToWrite = ItemVar["dialogNOK_event"]+","+\
+        ItemVar["phraseNOK_event"]+','+ItemVar["unchain_event"]+','+\
+        ItemVar["consume_item"]+"),\n"
+    items_interaction_lines.InsertLineInATG(1, stringToWrite)
+    items_interaction_lines.InsertLineInATG(1, '\n')
     
 stringToWrite = '\n'
 items_types_lines.InsertLineInATG(3, stringToWrite)
@@ -949,7 +1027,9 @@ items_types_lines.InsertLineInATG(3, stringToWrite)
 
 print('\n\n------ITEMS (Custom GOB3) -------\n\n')
 
-pickable_items = []
+
+items_types_lines.InsertLineInATG(2, 'ITEM_PICK_NONE = -1,\n')
+
 
 linecount = -1
 for line in ITEMSinputFile:
@@ -958,7 +1038,9 @@ for line in ITEMSinputFile:
     
     line = line.replace('\n','')
     line = line.replace('\r','')
+    line = line.replace('"','')
     
+    line = line.replace(', ','|')
     columns : list[str] = line.split(',')
     print(columns)
 
@@ -966,10 +1048,12 @@ for line in ITEMSinputFile:
         continue
     
     ItemVar["name"] = columns[1]
-    ItemVar["pickable"] = 'true' in columns[2].lower()
-    ItemVar["actioncount"] = int(columns[3])
-    ItemActions = []
-    ItemVar["actions"] = ItemActions
+    ItemVar["res_name"] = columns[2]
+    ItemVar["sprites"] = columns[3]
+    ItemVar["pickable"] = 'true' in columns[4].lower()
+    ItemVar["npc"] = 'true' in columns[5].lower()
+    ItemVar["pickablesprite"] = columns[6]
+    ItemVar["conditions"] = columns[7]
     
     
     # Write in item enum
@@ -980,50 +1064,46 @@ for line in ITEMSinputFile:
     
     items_types_lines.InsertLineInATG(1, stringToWrite)
     
-    if(ItemVar["pickable"]):
-        
-        pickname = ItemVar["name"].replace('ITEM_', 'ITEM_PICK_')
-        stringToWrite = pickname
-        if('NONE' in ItemVar["name"]):
-            stringToWrite += ' = -1'
-        else:
-            pickable_items.append(ItemVar["name"])
-        stringToWrite += ', \n'
-        items_types_lines.InsertLineInATG(2, stringToWrite)
-        
-        if('NONE' not in ItemVar["name"]):
-            items_interaction_lines.InsertLineInATG(2, pickable_prefix+pickname+', /* '+\
-               ItemVar["name"] + ' */\n')
-    else:
-        if('NONE' not in ItemVar["name"]):
-            stringToWrite = pickable_prefix+'ITEM_PICK_NONE, /* '+ItemVar["name"]+' */\n'
-            items_interaction_lines.InsertLineInATG(2, stringToWrite)
-            
+    
     if('NONE' not in ItemVar["name"]):
-        stringToWrite = 'new ItemInteractionInfo['+str(ItemVar["actioncount"])+'] \n'
-        items_interaction_lines.InsertLineInATG(3, stringToWrite)
-        stringToWrite = '{ /* '+ItemVar["name"]+' */\n'
-        items_interaction_lines.InsertLineInATG(3, stringToWrite)
+        if(ItemVar["pickable"]):
+            pickname = ItemVar["name"].replace('ITEM_', 'ITEM_PICK_')
+            stringToWrite = pickname
+            stringToWrite += ', \n'
+            items_types_lines.InsertLineInATG(2, stringToWrite)
+        else:
+            pickname = 'ITEM_PICK_NONE'
+
+                
+        stringToWrite = 'new ( /* '+ItemVar["name"] + ' */\n'
+        items_interaction_lines.InsertLineInATG(2, stringToWrite)
         
-        for i in range(0, ItemVar["actioncount"]):
-            ItemAction = {}
-            ItemActions.append(ItemAction)
-            ItemAction["active"] = str(columns[ITEMS_ACTION_START_COLUMN + 0 + (i*7)]).lower()
-            ItemAction["srcChar"] = str(columns[ITEMS_ACTION_START_COLUMN + 1 + (i*7)])
-            ItemAction["action"] = str(columns[ITEMS_ACTION_START_COLUMN + 2 + (i*7)])
-            ItemAction["srcItem"] = str(columns[ITEMS_ACTION_START_COLUMN + 3 + (i*7)])
-            ItemAction["condition"] = str(columns[ITEMS_ACTION_START_COLUMN + 4 + (i*7)])
-            ItemAction["outEvent"] = str(columns[ITEMS_ACTION_START_COLUMN + 5 + (i*7)])
-            ItemAction["consume"] = str(columns[ITEMS_ACTION_START_COLUMN + 6 + (i*7)]).lower()
-            
-            stringToWrite = 'new('+character_prefix+ItemAction["srcChar"]+','+\
-                interaction_prefix + ItemAction["action"]+','+item_prefix+ItemAction["srcItem"]+','+\
-                conditiontype_prefix + ItemAction["condition"]+','+event_prefix+ItemAction["outEvent"]+','+\
-                ItemAction["consume"]+'),\n'
-            items_interaction_lines.InsertLineInATG(3, stringToWrite)
-            
-        stringToWrite = '}, \n'
-        items_interaction_lines.InsertLineInATG(3, stringToWrite)
+        stringToWrite = name_prefix+ItemVar["res_name"]+','+'new GameSprite['
+        options = ItemVar["sprites"].split('|')
+        num_options = len(options)
+        stringToWrite += str(num_options)+']{'
+        
+        for _option in options:
+            stringToWrite += sprite_prefix+_option+','
+        stringToWrite += '},\n'
+        items_interaction_lines.InsertLineInATG(2, stringToWrite)
+        
+        stringToWrite = str(ItemVar["pickable"]).lower()+','+\
+            str(ItemVar["npc"]).lower()+','+sprite_prefix+ItemVar["pickablesprite"]+','+\
+            pickable_prefix+pickname+',\n'
+        items_interaction_lines.InsertLineInATG(2, stringToWrite)
+        
+        stringToWrite = 'new ActionConditions['
+        options = ItemVar["conditions"].split('|')
+        num_options = len(options)
+        stringToWrite += str(num_options)+']{'
+        
+        for _option in options:
+            stringToWrite += conditiontype_prefix+_option+','
+        stringToWrite += '}),\n'
+        items_interaction_lines.InsertLineInATG(2, stringToWrite)
+        items_interaction_lines.InsertLineInATG(2, '\n')
+        
         
 
     
@@ -1074,76 +1154,11 @@ stringToWrite = 'NAME_TOTAL\n'
 names_types_lines.InsertLineInATG(1, stringToWrite)
 
 
-print('\n\n------NPCs (Custom GOB3) -------\n\n')
-linecount = -1
-zone = 1
-
-for line in NPCSinputFile:
-    linecount += 1
-    
-    line = line.replace('\n','')
-    line = line.replace('\r','')
-    
-    
-    columns = line.split(',')
-    print(columns)
-
-    if(linecount == 0):
-        continue
-    
-    
-    stringToWrite = columns[1]
-    if('NONE' in columns[1]):
-        stringToWrite += ' = -1'
-    stringToWrite += ', \n'
-    npcs_types_lines.InsertLineInATG(1, stringToWrite)
-    
-    if(not 'NONE' in columns[1]):
-        stringToWrite = 'new('+name_prefix+columns[2]+','+\
-            room_prefix + columns[3]+'), \t/* '+columns[1] + ' */\n'
-        items_interaction_lines.InsertLineInATG(4, stringToWrite)
-        
-        actioncount = int(columns[4])
-        stringToWrite = 'new NPCInteractionInfo['+str(actioncount)+'] \n'
-        items_interaction_lines.InsertLineInATG(5, stringToWrite)
-        stringToWrite = '{ /* '+columns[1]+' */\n'
-        items_interaction_lines.InsertLineInATG(5, stringToWrite)
-        
-        for i in range(0, actioncount):
-            ItemAction = {}
-            ItemAction["active"] = str(columns[NPCS_ACTION_START_COLUMN + 0 + (i*8)]).lower()
-            ItemAction["srcChar"] = str(columns[NPCS_ACTION_START_COLUMN + 1 + (i*8)])
-            ItemAction["action"] = str(columns[NPCS_ACTION_START_COLUMN + 2 + (i*8)])
-            ItemAction["srcItem"] = str(columns[NPCS_ACTION_START_COLUMN + 3 + (i*8)])
-            ItemAction["condition"] = str(columns[NPCS_ACTION_START_COLUMN + 4 + (i*8)])
-            ItemAction["dialog"] = str(columns[NPCS_ACTION_START_COLUMN + 5 + (i*8)])
-            ItemAction["outEvent"] = str(columns[NPCS_ACTION_START_COLUMN + 6 + (i*8)])
-            ItemAction["consume"] = str(columns[NPCS_ACTION_START_COLUMN + 7 + (i*8)]).lower()
-            
-            stringToWrite = 'new('+character_prefix+ItemAction["srcChar"]+','+\
-                interaction_prefix + ItemAction["action"]+','+item_prefix+ItemAction["srcItem"]+',\n'
-            items_interaction_lines.InsertLineInATG(5, stringToWrite)
-                
-            stringToWrite = conditiontype_prefix + ItemAction["condition"]+','+\
-                dialog_prefix+ItemAction["dialog"]+','+event_prefix+ItemAction["outEvent"]+','+\
-                ItemAction["consume"]+'),\n'
-            items_interaction_lines.InsertLineInATG(5, stringToWrite)
-            
-        stringToWrite = '}, \n'
-        items_interaction_lines.InsertLineInATG(5, stringToWrite)
-
-    
-stringToWrite = '\n'
-npcs_types_lines.InsertLineInATG(1, stringToWrite)
-
-stringToWrite = 'NPC_TOTAL\n'
-npcs_types_lines.InsertLineInATG(1, stringToWrite)
 
 
 print('\n\n------SPRITES (Custom GOB3) -------\n\n')
 linecount = -1
 zone = 1
-pickitem_to_avatar_spr = []*len(pickable_items)
 
 for line in SPRITESinputFile:
     linecount += 1
@@ -1166,14 +1181,9 @@ for line in SPRITESinputFile:
     sprite_types_lines.InsertLineInATG(1, stringToWrite)
     
     if(not 'NONE' in columns[1]):        
-        stringToWrite = 'new("'+columns[2]+'", '+item_prefix+columns[3]+', '+\
-            room_prefix + columns[4]+'), /* '+columns[1]+' */ \n'
+        stringToWrite = 'new("'+columns[2]+'"), /* '+columns[1]+' */ \n'
         sprite_atlas_lines.InsertLineInATG(1, stringToWrite)
-        if(columns[3] in pickable_items):
-            pickindex = pickable_items.index(columns[3])
-            pickname = columns[3].replace('ITEM_','ITEM_PICK_')
-            stringToWrite = sprite_prefix + columns[1] + ',\t /* ' + pickname + ' */ \n'
-            sprite_atlas_lines.InsertLineInATG(2, stringToWrite)
+
     
 stringToWrite = '\n'
 sprite_types_lines.InsertLineInATG(1, stringToWrite)
@@ -1186,12 +1196,11 @@ sprite_types_lines.InsertLineInATG(1, stringToWrite)
 VARMAPinputFile.close()
 SERVICESinputFile.close()
 ITEMSinputFile.close()
-ITEMSCONDSinputFile.close()
+ACTIONCONDSinputFile.close()
 CHARSinputFile.close()
 DIALOGSinputFile.close()
 PHRASESinputFile.close()
 ROOMSinputFile.close()
-NPCSinputFile.close()
 NAMESinputFile.close()
 SPRITESinputFile.close()
 
@@ -1222,8 +1231,8 @@ modules_types_lines.SaveFile()
 items_types_lines.SaveFile()
 items_interaction_lines.SaveFile()
 dialog_atlas_lines.SaveFile()
-npcs_types_lines.SaveFile()
 names_types_lines.SaveFile()
 sprite_types_lines.SaveFile()
 sprite_atlas_lines.SaveFile()
+room_atlas_lines.SaveFile()
 

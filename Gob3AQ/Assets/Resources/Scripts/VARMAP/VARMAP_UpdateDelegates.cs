@@ -7,7 +7,6 @@ using Gob3AQ.GameMaster;
 using Gob3AQ.LevelMaster;
 using Gob3AQ.InputMaster;
 using Gob3AQ.GraphicsMaster;
-using Gob3AQ.NPCMaster;
 using Gob3AQ.VARMAP.Variable;
 using Gob3AQ.PlayerMaster;
 using Gob3AQ.GameEventMaster;
@@ -119,7 +118,6 @@ namespace Gob3AQ.VARMAP.Initialization
             _MODULE_LOADING_COMPLETED = GameMasterClass.LoadingCompletedService;
             _IS_MODULE_LOADED = GameMasterClass.IsModuleLoadedService;
             _FREEZE_PLAY = GameMasterClass.FreezePlayService;
-            _NPC_REGISTER = LevelMasterClass.NPCRegisterService;
             _ITEM_REGISTER = LevelMasterClass.ItemRegisterService;
             _ITEM_OBTAIN_PICKABLE = LevelMasterClass.ItemObtainPickableService;
             _ITEM_OBTAIN_PICKABLE_EVENT = GameEventMasterClass.ItemObtainPickableEventService;
@@ -129,9 +127,9 @@ namespace Gob3AQ.VARMAP.Initialization
             _PLAYER_WAYPOINT_UPDATE = LevelMasterClass.PlayerWaypointUpdateService;
             _SELECT_PLAYER = PlayerMasterClass.SelectPlayerService;
             _GET_PLAYER_LIST = LevelMasterClass.GetPlayerListService;
-            _GET_NPC_LIST = LevelMasterClass.GetNPCListService;
             _GET_NEAREST_WP = LevelMasterClass.GetNearestWPService;
             _IS_EVENT_OCCURRED = GameEventMasterClass.IsEventOccurredService;
+            _IS_EVENT_COMBI_OCCURRED = GameEventMasterClass.IsEventCombiOccurredService;
             _COMMIT_EVENT = GameEventMasterClass.CommitEventService;
             _USE_ITEM = ItemMasterClass.UseItemService;
             _IS_ITEM_TAKEN_FROM_SCENE = GameEventMasterClass.IsItemTakenFromSceneService;
@@ -142,7 +140,6 @@ namespace Gob3AQ.VARMAP.Initialization
             _CANCEL_PICKABLE_ITEM = ItemMasterClass.CancelPickableItemService;
             _EVENT_SUBSCRIPTION = GameEventMasterClass.EventSubscriptionService;
             _CROSS_DOOR = LevelMasterClass.CrossDoorService;
-            _INTERACT_PLAYER_NPC = NPCMasterClass.InteractPlayerNPCService;
             _LOCK_PLAYER = PlayerMasterClass.LockPlayerService;
             _ENABLE_DIALOGUE = GameMasterClass.EnableDialogueService;
             _SHOW_DIALOGUE = GameMenuClass.ShowDialogueService;

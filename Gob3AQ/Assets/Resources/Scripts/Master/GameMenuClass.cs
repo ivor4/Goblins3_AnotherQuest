@@ -84,15 +84,19 @@ namespace Gob3AQ.GameMenu
                 {
                     ref readonly DialogOptionConfig dialogOptionConfig = ref dialogOptionConfigs[(int)dialogOptions[i]];
 
-                    if (IsDialogOptionActive(in dialogOptionConfig))
+                    VARMAP_GameMenu.IS_EVENT_COMBI_OCCURRED(dialogOptionConfig.ConditionEvents, out bool valid);
+
+                    if (valid)
                     {
-                        ref readonly PhraseContent optionPhraseContent = ref ResourceDialogsClass.GetPhraseContent(dialogOptionConfig.phrases[0]);
+                        ReadOnlySpan<DialogPhrase> dialogPhrases = dialogOptionConfig.Phrases;
+
+                        ref readonly PhraseContent optionPhraseContent = ref ResourceDialogsClass.GetPhraseContent(dialogPhrases[0]);
 
                         UICanvas_dialogOptionButtons[selectablePhrases].SetOptionText(in optionPhraseContent.message);
                         UICanvas_dialogOptionButtons[selectablePhrases].SetDialogOption(dialogOptions[i]);
                         UICanvas_dialogOptionButtons[selectablePhrases].SetActive(true);
 
-                        uniquePhrase = dialogOptionConfig.phrases[0];
+                        uniquePhrase = dialogPhrases[0];
                         uniqueOption = dialogOptions[i];
                         ++selectablePhrases;
                     }
@@ -145,10 +149,12 @@ namespace Gob3AQ.GameMenu
                 dialog_optionPending = false;
 
                 /* If option is permitted, show it */
-                if (IsDialogOptionActive(in dialogOptionConfig))
+                VARMAP_GameMenu.IS_EVENT_COMBI_OCCURRED(dialogOptionConfig.ConditionEvents, out bool valid);
+                if (valid)
                 {
-                    StartDialogue(option, dialogOptionConfig.phrases.Length);
-                    StartPhrase(dialog_sender, dialogOptionConfigs[(int)option].phrases[0]);
+                    ReadOnlySpan<DialogPhrase> dialogPhrases = dialogOptionConfig.Phrases;
+                    StartDialogue(option, dialogPhrases.Length);
+                    StartPhrase(dialog_sender, dialogPhrases[0]);
                 }
             }
         }
@@ -188,22 +194,6 @@ namespace Gob3AQ.GameMenu
             dialog_coroutine = _singleton.StartCoroutine(EndPhrase(2f));
         }
 
-        private static bool IsDialogOptionActive(in DialogOptionConfig config)
-        {
-            bool valid;
-
-            if (config.conditionEvent == GameEvent.EVENT_NONE)
-            {
-                valid = true;
-            }
-            else
-            {
-                VARMAP_GameMenu.IS_EVENT_OCCURRED(config.conditionEvent, out valid);
-                valid ^= config.conditionNotOccurred;
-            }
-
-            return valid;
-        }
 
         private static IEnumerator EndPhrase(float waitSeconds)
         {
@@ -227,7 +217,7 @@ namespace Gob3AQ.GameMenu
                 if (dialog_totalPhrases > dialog_currentPhraseIndex)
                 {
                     /* More phrases to say, wait for user interaction */
-                    StartPhrase(dialog_sender, dialogConfig.phrases[dialog_currentPhraseIndex]);
+                    StartPhrase(dialog_sender, dialogConfig.Phrases[dialog_currentPhraseIndex]);
                 }
                 else
                 {

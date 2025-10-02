@@ -4,7 +4,6 @@ using UnityEngine;
 using Gob3AQ.GameMaster;
 using Gob3AQ.LevelMaster;
 using Gob3AQ.PlayerMaster;
-using Gob3AQ.NPCMaster;
 using Gob3AQ.ItemMaster;
 using Gob3AQ.GameEventMaster;
 
@@ -56,14 +55,14 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
         /// <summary> 
         /// This service is called when whole room has been loaded
         /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster, GameEventMaster,  </para> 
+        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, ItemMaster, GameEventMaster,  </para> 
         /// <para> Method: <see cref="GameMasterClass.LoadingCompletedService"/> </para> 
         /// </summary>
         public static LODING_COMPLETED_DELEGATE MODULE_LOADING_COMPLETED;
         /// <summary> 
         /// This service returns a bool which tells if given module has been loaded in Room Loading Process
         /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster, GameEventMaster,  </para> 
+        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, ItemMaster, GameEventMaster,  </para> 
         /// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
         /// </summary>
         public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;

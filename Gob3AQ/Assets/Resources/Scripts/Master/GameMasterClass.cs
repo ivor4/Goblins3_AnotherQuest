@@ -147,7 +147,7 @@ namespace Gob3AQ.GameMaster
                 /* Operations prepared for next level */
                 moduleLoadingDone = 0;
 
-                _singleton.StartCoroutine(UnloadAndLoadRoomAsync(room));
+                _singleton.StartCoroutine(UnloadAndLoadRoomCoroutine(room));
             }
             else
             {
@@ -286,7 +286,7 @@ namespace Gob3AQ.GameMaster
             ResourceSpritesClass.Initialize();
         }
 
-        private static IEnumerator UnloadAndLoadRoomAsync(Room room)
+        private static IEnumerator UnloadAndLoadRoomCoroutine(Room room)
         {
             string sceneName = GameFixedConfig.ROOM_TO_SCENE_NAME[(int)room];
 
@@ -294,14 +294,14 @@ namespace Gob3AQ.GameMaster
 
             _SetGameStatus(Game_Status.GAME_STATUS_LOADING);
 
-            yield return ResourceDialogsClass.PreloadRoomPhrasesAsync(room);
+            yield return ResourceDialogsClass.PreloadRoomPhrasesCoroutine(room);
             yield return ResourceSpritesClass.PreloadRoomSpritesCoroutine(room);
 
             yield return Resources.UnloadUnusedAssets();
 
             VARMAP_GameMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameMaster);
         }
-        
+
     }
 }
 

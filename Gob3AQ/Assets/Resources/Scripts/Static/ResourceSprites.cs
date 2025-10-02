@@ -1,9 +1,12 @@
 using Gob3AQ.FixedConfig;
+using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceSpritesAtlas;
 using Gob3AQ.VARMAP.Types;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -23,61 +26,50 @@ namespace Gob3AQ.ResourceSprites
 
         public static IEnumerator PreloadRoomSpritesCoroutine(Room room)
         {
-            int loadedCount = 0;
+            int processedSprites = 0;
+            bool keepProcessing = true;
 
             _cachedSpritesFinder.Clear();
             Array.Clear(_cachedSprites, 0, _cachedSprites.Length);
 
-
-            for (GameSprite sprite = 0; sprite < GameSprite.SPRITE_TOTAL; ++sprite)
+            while (keepProcessing)
             {
-                ResourceRequest request = PreloadSprite(room, sprite);
-                
-                /* If we don't have a valid request, just skip it */
-                if (request == null)
+                ResourceRequest request = PreloadRoomSpritesCycle(room, processedSprites, out GameSprite sprite);
+
+                if(request != null)
                 {
-                    yield return null;
+                    yield return request;
+                    Sprite spriteRes = (Sprite)request.asset;
+                    _cachedSprites[processedSprites] = spriteRes;
+                    _cachedSpritesFinder[sprite] = processedSprites++;
                 }
-                /* If we have a valid request, wait for it to finish */
                 else
                 {
-                    /* Wait for the request to finish */
-                    yield return request;
-
-                    /* If we have a valid sprite, store it */
-                    if (request.asset != null)
-                    {
-                        _cachedSprites[loadedCount] = (Sprite)request.asset;
-                        _cachedSpritesFinder[sprite] = loadedCount;
-                        ++loadedCount;
-                    }
-                    else
-                    {
-                        Debug.LogError($"Failed to load sprite {sprite} for room {room}");
-                    }
-                }   
+                    keepProcessing = false;
+                }
             }
         }
 
-
-
-        private static ResourceRequest PreloadSprite(Room room, GameSprite sprite)
+        private static ResourceRequest PreloadRoomSpritesCycle(Room room, int index, out GameSprite sprite)
         {
-            ResourceRequest request;
-            ref readonly SpriteConfig spriteConfig = ref ResourceSpritesAtlasClass.SpriteConfigs[(int)sprite];
+            ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(room);
 
-            if ((spriteConfig.item != GameItem.ITEM_NONE) || (spriteConfig.room == room))
+            ReadOnlySpan<GameSprite> roomSprites = roomInfo.Sprites;
+
+            if (index < roomSprites.Length)
             {
-                request = Resources.LoadAsync<Sprite>(spriteConfig.path);
+                ref readonly SpriteConfig config = ref ResourceSpritesAtlasClass.GetSpriteConfig(roomSprites[index]);
+                ResourceRequest request = Resources.LoadAsync<Sprite>(config.path);
+                sprite = roomSprites[index];
+                return request;
             }
             else
             {
-                request = null;
+                sprite = GameSprite.SPRITE_NONE;
+                return null;
             }
-
-
-            return request;
         }
+
 
         public static Sprite GetSprite(GameSprite sprite)
         {

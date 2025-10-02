@@ -9,6 +9,7 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_POTION, 
         ITEM_POTION_BLUE, 
         ITEM_FOUNTAIN, 
+        ITEM_NPC_MILITO, 
         ITEM_LAST, 
         
         ITEM_TOTAL
@@ -18,7 +19,7 @@ namespace Gob3AQ.VARMAP.Types
     public enum GamePickableItem
     {
         /* > ATG 2 START < */
-        ITEM_PICK_NONE = -1, 
+        ITEM_PICK_NONE = -1,
         ITEM_PICK_POTION, 
         ITEM_PICK_POTION_BLUE, 
         
@@ -26,10 +27,12 @@ namespace Gob3AQ.VARMAP.Types
         /* > ATG 2 END < */
     }
 
-    public enum ItemConditionsType
+    public enum ActionConditions
     {
         /* > ATG 3 START < */
         COND_OK, 
+        COND_TAKE_POTION, 
+        COND_TAKE_POTION_BLUE, 
         COND_FOUNTAIN, 
         COND_FOUNTAIN2, 
         COND_LAST, 

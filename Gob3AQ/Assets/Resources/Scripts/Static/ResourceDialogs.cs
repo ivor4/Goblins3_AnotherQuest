@@ -1,8 +1,10 @@
 using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.FixedConfig;
+using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceDialogsAtlas;
 using Gob3AQ.VARMAP.Types;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -30,60 +32,57 @@ namespace Gob3AQ.ResourceDialogs
             _cachedPhrasesFinder = new(GameFixedConfig.MAX_CACHED_PHRASES);
             _cachedNames = new string[GameFixedConfig.MAX_CACHED_PHRASES];
             _cachedNamesFinder = new(GameFixedConfig.MAX_CACHED_PHRASES);
-
-            // Preload dialogs for the default room
-            TextAsset textAsset = Resources.Load<TextAsset>(PHRASES_PATH);
-            string[] lines = textAsset.text.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
-
-            PreloadRoomPhrases(Room.ROOM_NONE, lines);
         }
 
-        public static async Task PreloadRoomPhrasesAsync(Room room)
+        public static IEnumerator PreloadRoomPhrasesCoroutine(Room room)
         {
             TextAsset textAsset;
 
             ResourceRequest resrq = Resources.LoadAsync<TextAsset>(PHRASES_PATH);
 
-            await resrq;
+            yield return resrq;
 
             textAsset = resrq.asset as TextAsset;
             string[] phrases = textAsset.text.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
 
             resrq = Resources.LoadAsync<TextAsset>(NAMES_PATH);
 
-            await resrq;
+            yield return resrq;
 
             textAsset = resrq.asset as TextAsset;
             string[] names = textAsset.text.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
 
-            await Task.Run(() => PreloadRoomPhrases(room, phrases));
-            await Task.Run(() => PreloadRoomNames(room, names));
+            yield return Task.Run(() => PreloadRoomPhrases(room, phrases));
+            yield return Task.Run(() => PreloadRoomNames(room, names));
         }
 
         private static void PreloadRoomPhrases(Room room, string[] lines)
         {
             /* Empty cached dialogs */
             _cachedPhrasesFinder.Clear();
+            Array.Clear(_cachedPhrases, 0, _cachedPhrases.Length);
 
             int storedIndex = 0;
 
             /* Get phrases which use actual Room or Room.NONE */
             ReadOnlySpan<PhraseConfig> phraseConfigs = ResourceDialogsAtlasClass.PhraseConfigs;
 
-            for (int i = 0; i < phraseConfigs.Length; i++)
+            /* Get room info and its linked phrases */
+            ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(room);
+            ReadOnlySpan<DialogPhrase> roomPhrases = roomInfo.Phrases;
+
+
+            for (int i = 0; i < roomPhrases.Length; i++)
             {
-                ref readonly PhraseConfig phraseConfig = ref phraseConfigs[i];
-                if ((phraseConfig.room == room) || (phraseConfig.room == Room.ROOM_NONE))
-                {
-                    DialogPhrase actualPhrase = (DialogPhrase)i;
+                DialogPhrase phrase = roomPhrases[i];
+                ref readonly PhraseConfig phraseConfig = ref phraseConfigs[(int)phrase];
 
-                    /* Retrieve configuration for given phrase */
-                    ref readonly string row = ref lines[i];
-                    ReadOnlySpan<string> columns = row.Split(',');
+                /* Retrieve configuration for given phrase */
+                ref readonly string row = ref lines[(int)phrase];
+                ReadOnlySpan<string> columns = row.Split(',');
 
-                    _cachedPhrases[storedIndex] = new(phraseConfig, columns[(int)_language]);
-                    _cachedPhrasesFinder[actualPhrase] = storedIndex++;
-                }
+                _cachedPhrases[storedIndex] = new(phraseConfig, columns[(int)_language]);
+                _cachedPhrasesFinder[phrase] = storedIndex++;
             }
         }
 
@@ -91,24 +90,19 @@ namespace Gob3AQ.ResourceDialogs
         {
             /* Empty cached dialogs */
             _cachedNamesFinder.Clear();
+            Array.Clear(_cachedNames, 0, _cachedNames.Length);
 
             int storedIndex = 0;
 
-            /* Preload Characters names */
-            PreloadRoomNames_AddName(NameType.NAME_CHAR_MAIN, lines, ref storedIndex);
-            PreloadRoomNames_AddName(NameType.NAME_CHAR_PARROT, lines, ref storedIndex);
-            PreloadRoomNames_AddName(NameType.NAME_CHAR_SNAKE, lines, ref storedIndex);
+            /* Get room info and its linked phrases */
+            ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(room);
+            ReadOnlySpan<NameType> roomNames = roomInfo.Names;
 
-            /* Get names used by this room NPCs */
-            ReadOnlySpan<NPCInfo> npcinfos = ItemsInteractionsClass.NPC_INFO;
 
-            for (int i = 0; i < npcinfos.Length; i++)
+            for (int i = 0; i < roomNames.Length; i++)
             {
-                ref readonly NPCInfo npcinfo = ref npcinfos[i];
-                if ((npcinfo.room == room) || (npcinfo.room == Room.ROOM_NONE))
-                {
-                    PreloadRoomNames_AddName(npcinfo.name, lines, ref storedIndex);
-                }
+                NameType nameType = roomNames[i];
+                PreloadRoomNames_AddName(nameType, lines, ref storedIndex);
             }
         }
 

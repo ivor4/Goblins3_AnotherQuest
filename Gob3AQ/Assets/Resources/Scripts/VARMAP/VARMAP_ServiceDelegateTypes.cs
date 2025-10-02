@@ -1,5 +1,4 @@
 ﻿using Gob3AQ.GameElement.PlayableChar;
-using Gob3AQ.GameElement.NPC;
 using Gob3AQ.GameElement.Item;
 using Gob3AQ.GameElement.Door;
 using UnityEngine;
@@ -19,7 +18,6 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void FREEZE_PLAY_DELEGATE(bool freeze);
     public delegate void ENABLE_DIALOGUE_DELEGATE(bool enable, CharacterType charType, DialogType dialog, DialogPhrase phrase);
     public delegate void SHOW_DIALOGUE_DELEGATE(CharacterType charType, DialogType dialog, DialogPhrase phrase);
-    public delegate void NPC_REGISTER_DELEGATE(NPCClass instance, bool register);
     public delegate void ITEM_REGISTER_DELEGATE(bool register, ItemClass instance);
     public delegate void ITEM_OBTAIN_PICKABLE_DELEGATE(GameItem item);
     public delegate void MONO_REGISTER_DELEGATE(PlayableCharScript mono, bool add);
@@ -29,10 +27,10 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void PLAYER_WAYPOINT_UPDATE_DELEGATE(CharacterType character, int wpIndex);
     public delegate void SELECT_PLAYER_DELEGATE(CharacterType character);
     public delegate void GET_PLAYER_LIST_DELEGATE(out ReadOnlySpan<PlayableCharScript> list);
-    public delegate void GET_NPC_LIST_DELEGATE(out ReadOnlyList<NPCClass> list);
     public delegate void GET_NEAREST_WP_DELEGATE(Vector2 pos, float maxradius, out WaypointClass wp);
     public delegate void IS_EVENT_OCCURRED_DELEGATE(GameEvent ev, out bool occurred);
     public delegate void COMMIT_EVENT_DELEGATE(GameEvent ev, bool occurred);
+    public delegate void IS_EVENT_COMBI_OCCURRED_DELEGATE(ReadOnlySpan<GameEventCombi> combi, out bool occurred);
     public delegate void ITEM_OBTAIN_PICKABLE_EVENT_DELEGATE(GamePickableItem item);
     public delegate void IS_ITEM_TAKEN_FROM_SCENE_DELEGATE(GamePickableItem item, out bool taken);
     public delegate void IS_ITEM_OWNED_DELEGATE(GamePickableItem item, out CharacterType character);

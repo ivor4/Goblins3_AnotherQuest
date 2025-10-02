@@ -3,7 +3,6 @@ using Gob3AQ.VARMAP.Types.Delegates;
 using Gob3AQ.GameMaster;
 using Gob3AQ.LevelMaster;
 using Gob3AQ.PlayerMaster;
-using Gob3AQ.NPCMaster;
 using Gob3AQ.ItemMaster;
 using Gob3AQ.GameEventMaster;
 
@@ -44,6 +43,7 @@ namespace Gob3AQ.VARMAP.GameMenu
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
+            IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
             SELECT_PICKABLE_ITEM = _SELECT_PICKABLE_ITEM;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
@@ -110,28 +110,35 @@ namespace Gob3AQ.VARMAP.GameMenu
         /// <summary> 
         /// This service is called when whole room has been loaded
         /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster, GameEventMaster,  </para> 
+        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, ItemMaster, GameEventMaster,  </para> 
         /// <para> Method: <see cref="GameMasterClass.LoadingCompletedService"/> </para> 
         /// </summary>
         public static LODING_COMPLETED_DELEGATE MODULE_LOADING_COMPLETED;
         /// <summary> 
         /// This service returns a bool which tells if given module has been loaded in Room Loading Process
         /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster, GameEventMaster,  </para> 
+        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, ItemMaster, GameEventMaster,  </para> 
         /// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
         /// </summary>
         public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
         /// <summary> 
         /// Tells if an event is occurred
         /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster,  </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, ItemMaster,  </para> 
         /// <para> Method: <see cref="GameEventMasterClass.IsEventOccurredService"/> </para> 
         /// </summary>
         public static IS_EVENT_OCCURRED_DELEGATE IS_EVENT_OCCURRED;
         /// <summary> 
+        /// Same as IsEventOccurredService but for array of combos with possible negation
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.IsEventCombiOccurredService"/> </para> 
+        /// </summary>
+        public static IS_EVENT_COMBI_OCCURRED_DELEGATE IS_EVENT_COMBI_OCCURRED;
+        /// <summary> 
         /// Activates/Deactivates an event
         /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster,  </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, ItemMaster,  </para> 
         /// <para> Method: <see cref="GameEventMasterClass.CommitEventService"/> </para> 
         /// </summary>
         public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;

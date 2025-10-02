@@ -3,7 +3,6 @@ using Gob3AQ.VARMAP.Types.Delegates;
 using Gob3AQ.GameMaster;
 using Gob3AQ.LevelMaster;
 using Gob3AQ.PlayerMaster;
-using Gob3AQ.NPCMaster;
 using Gob3AQ.ItemMaster;
 using Gob3AQ.GameEventMaster;
 using Gob3AQ.InputMaster;
@@ -40,6 +39,7 @@ namespace Gob3AQ.VARMAP.ItemMaster
             ITEM_OBTAIN_PICKABLE_EVENT = _ITEM_OBTAIN_PICKABLE_EVENT;
             GET_NEAREST_WP = _GET_NEAREST_WP;
             IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
+            IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
             USE_ITEM = _USE_ITEM;
             IS_ITEM_TAKEN_FROM_SCENE = _IS_ITEM_TAKEN_FROM_SCENE;
@@ -75,14 +75,14 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /// <summary> 
         /// This service is called when whole room has been loaded
         /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster, GameEventMaster,  </para> 
+        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, ItemMaster, GameEventMaster,  </para> 
         /// <para> Method: <see cref="GameMasterClass.LoadingCompletedService"/> </para> 
         /// </summary>
         public static LODING_COMPLETED_DELEGATE MODULE_LOADING_COMPLETED;
         /// <summary> 
         /// This service returns a bool which tells if given module has been loaded in Room Loading Process
         /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster, GameEventMaster,  </para> 
+        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, ItemMaster, GameEventMaster,  </para> 
         /// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
         /// </summary>
         public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
@@ -110,21 +110,28 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /// <summary> 
         /// Gets nearest WP from a given coordinates of level
         /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: PlayerMaster, NPCMaster, ItemMaster,  </para> 
+        /// <para> Accessors: PlayerMaster, ItemMaster,  </para> 
         /// <para> Method: <see cref="LevelMasterClass.GetNearestWPService"/> </para> 
         /// </summary>
         public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
         /// <summary> 
         /// Tells if an event is occurred
         /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster,  </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, ItemMaster,  </para> 
         /// <para> Method: <see cref="GameEventMasterClass.IsEventOccurredService"/> </para> 
         /// </summary>
         public static IS_EVENT_OCCURRED_DELEGATE IS_EVENT_OCCURRED;
         /// <summary> 
+        /// Same as IsEventOccurredService but for array of combos with possible negation
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.IsEventCombiOccurredService"/> </para> 
+        /// </summary>
+        public static IS_EVENT_COMBI_OCCURRED_DELEGATE IS_EVENT_COMBI_OCCURRED;
+        /// <summary> 
         /// Activates/Deactivates an event
         /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, NPCMaster, ItemMaster,  </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, ItemMaster,  </para> 
         /// <para> Method: <see cref="GameEventMasterClass.CommitEventService"/> </para> 
         /// </summary>
         public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
@@ -166,7 +173,7 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /// <summary> 
         /// Subscribe to an event. Invoke when event changes
         /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, PlayerMaster, NPCMaster, ItemMaster,  </para> 
+        /// <para> Accessors: LevelMaster, PlayerMaster, ItemMaster,  </para> 
         /// <para> Method: <see cref="GameEventMasterClass.EventSubscriptionService"/> </para> 
         /// </summary>
         public static EVENT_SUBSCRIPTION_DELEGATE EVENT_SUBSCRIPTION;

@@ -113,7 +113,7 @@ namespace Gob3AQ.ItemMaster
         }
 
 
-        private static void ItemInteractionCommon(ItemInteractionType interactionType,
+        private static ref readonly ItemInfo ItemInteractionCommon(ItemInteractionType interactionType,
             in InteractionUsage usage, out InteractionUsageOutcome outcome)
         {
             bool consumeItem;
@@ -121,7 +121,6 @@ namespace Gob3AQ.ItemMaster
             DialogType dialog;
             DialogPhrase phrase;
             GameEvent outEvent;
-            ReadOnlySpan<ItemInteractionInfo> infoArray = ItemsInteractionsClass.GetItemInteractions(usage.itemDest);
 
             /* If item is not defined, it is not possible to process it */
             animation = CharacterAnimation.ITEM_USE_ANIMATION_NONE;
@@ -130,53 +129,49 @@ namespace Gob3AQ.ItemMaster
             phrase = DialogPhrase.PHRASE_NONE;
             outEvent = GameEvent.EVENT_NONE;
 
-            for (int i = 0; i < infoArray.Length; i++)
+            /* Retrieve item info and conditions */
+            ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(usage.itemDest);
+            ReadOnlySpan<ActionConditions> conditionsEnumArray = itemInfo.Conditions;
+
+            /* Search for the first condition which matches (char and/or srcItem) */
+            for (int i = 0; i < conditionsEnumArray.Length; i++)
             {
-                ref readonly ItemInteractionInfo interactionInfo = ref infoArray[i];
+                ref readonly ActionConditionsInfo condition = ref ItemsInteractionsClass.GetActionConditionsInfo(conditionsEnumArray[i]);
                 
                 /* Validation if, check if interaction slot is the one which fits actual conditions */
-                if ((usage.playerSource == interactionInfo.srcChar) && (interactionInfo.interaction == interactionType) &&
-                    ((interactionType != ItemInteractionType.INTERACTION_USE) || (usage.itemSource == interactionInfo.srcItem)))
+                if ((usage.playerSource == condition.srcChar) && (condition.actionOK == interactionType) &&
+                    ((interactionType != ItemInteractionType.INTERACTION_USE) || (usage.itemSource == condition.srcItem)))
                 {
-                    ref readonly ItemConditions conditions = ref ItemsInteractionsClass.ITEM_CONDITIONS[(int)interactionInfo.conditions];
 
-                    bool occurred;
-
-                    if (conditions.eventType != GameEvent.EVENT_NONE)
-                    {
-                        VARMAP_ItemMaster.IS_EVENT_OCCURRED(conditions.eventType, out occurred);
-                        occurred ^= conditions.eventNOT; // If condition is NOT, invert result
-                    }
-                    else
-                    {
-                        occurred = true; // If no event is defined, it is considered as occurred
-                    }
+                    VARMAP_ItemMaster.IS_EVENT_COMBI_OCCURRED(condition.Events, out bool occurred);
 
                     if (occurred)
                     {
                         /* Trigger additional event (in case) */
-                        if (interactionInfo.outEvent != GameEvent.EVENT_NONE)
+                        if (condition.unchainEvent != GameEvent.EVENT_NONE)
                         {
-                            VARMAP_ItemMaster.COMMIT_EVENT(interactionInfo.outEvent, true);
+                            VARMAP_ItemMaster.COMMIT_EVENT(condition.unchainEvent, true);
                         }
 
-                        outEvent = interactionInfo.outEvent;
-                        animation = conditions.animationOK;
-                        dialog = conditions.dialogOK;
-                        phrase = conditions.phraseOK;
-                        consumeItem = interactionInfo.consumes;
+                        outEvent = condition.unchainEvent;
+                        animation = condition.animationOK;
+                        dialog = condition.dialogOK;
+                        phrase = condition.phraseOK;
+                        consumeItem = condition.consumes;
                     }
                     else
                     {
-                        phrase = conditions.phraseNOK_Event;
-                        dialog = conditions.dialogNOK_Event;
-                        animation = conditions.animationNOK_Event;
+                        phrase = condition.phraseNOK_Event;
+                        dialog = condition.dialogNOK_Event;
+                        animation = condition.animationNOK_Event;
                     }
                     break;
                 }
             }
 
             outcome = new(animation, dialog, phrase, outEvent, consumeItem);
+
+            return ref itemInfo;
         }
 
 
@@ -187,12 +182,13 @@ namespace Gob3AQ.ItemMaster
         /// <param name="character">Character who took the item</param>
         private static void TakePickableItem(in InteractionUsage usage, out InteractionUsageOutcome outcome)
         {
-            ItemInteractionCommon(ItemInteractionType.INTERACTION_TAKE, in usage, out outcome);
+            ref readonly ItemInfo dstItemInfo = ref ItemInteractionCommon(ItemInteractionType.INTERACTION_TAKE, in usage, out outcome);
 
-            if (outcome.consumes)
+
+            if (dstItemInfo.isPickable)
             {
                 /* If interaction is take, remove item from scenario and trigger events, also add it to inventory */
-                GamePickableItem pickable = ItemsInteractionsClass.ITEM_TO_PICKABLE[(int)usage.itemDest];
+                GamePickableItem pickable = dstItemInfo.pickableItem;
                 /* Get item on this scenario (physically) */
                 VARMAP_ItemMaster.ITEM_OBTAIN_PICKABLE(usage.itemDest);
                 /* Officially take it and set corresponding events.
@@ -205,11 +201,12 @@ namespace Gob3AQ.ItemMaster
 
         private static void UseItemWithItem(in InteractionUsage usage, out InteractionUsageOutcome outcome)
         {
-            ItemInteractionCommon(ItemInteractionType.INTERACTION_USE, in usage, out outcome);
+            _ = ref ItemInteractionCommon(ItemInteractionType.INTERACTION_USE, in usage, out outcome);
+            ref readonly ItemInfo srcItemInfo = ref ItemsInteractionsClass.GetItemInfo(usage.itemSource);
 
-            if (outcome.consumes)
+            if (outcome.consumes && srcItemInfo.isPickable)
             {
-                GamePickableItem pickable = ItemsInteractionsClass.ITEM_TO_PICKABLE[(int)usage.itemSource];
+                GamePickableItem pickable = srcItemInfo.pickableItem;
 
                 /* Pickable items which are already stored in inventory */
                 if (pickable != GamePickableItem.ITEM_PICK_NONE)

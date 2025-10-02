@@ -64,10 +64,8 @@ namespace Gob3AQ.VARMAP.Types
         PLAYER_MOVE,
         PLAYER_WITH_ITEM,
         PLAYER_WITH_DOOR,
-        PLAYER_WITH_NPC,
         ITEM_WITH_ITEM,
         ITEM_WITH_PLAYER,
-        ITEM_WITH_NPC
     }
 
     public enum GameEvent
@@ -80,19 +78,36 @@ namespace Gob3AQ.VARMAP.Types
         EVENT_TOTAL
     }
 
+    public readonly struct RoomInfo
+    {
+        private readonly GameSprite[] sprites;
+        private readonly DialogPhrase[] phrases;
+        private readonly NameType[] names;
+
+        public ReadOnlySpan<GameSprite> Sprites => sprites;
+        public ReadOnlySpan<DialogPhrase> Phrases => phrases;
+        public ReadOnlySpan<NameType> Names => names;
+
+
+        public static readonly RoomInfo EMPTY = new(new GameSprite[0], new DialogPhrase[0], new NameType[0]);
+
+        public RoomInfo(GameSprite[] sprites, DialogPhrase[] phrases, NameType[] names)
+        {
+            this.sprites = sprites;
+            this.phrases = phrases;
+            this.names = names;
+        }
+    }
+
     public readonly struct SpriteConfig
     {
         public readonly string path;
-        public readonly GameItem item;
-        public readonly Room room;
 
-        public static readonly SpriteConfig EMPTY = new(string.Empty, GameItem.ITEM_NONE, Room.ROOM_NONE);
+        public static readonly SpriteConfig EMPTY = new(string.Empty);
 
-        public SpriteConfig(string path, GameItem item, Room room)
+        public SpriteConfig(string path)
         {
             this.path = path;
-            this.item = item;
-            this.room = room;
         }
     }
 
@@ -112,18 +127,19 @@ namespace Gob3AQ.VARMAP.Types
 
     public readonly struct DialogOptionConfig
     {
-        public readonly GameEvent conditionEvent;
-        public readonly bool conditionNotOccurred;
+        public readonly ReadOnlySpan<GameEventCombi> ConditionEvents => conditionEvents;
+        public readonly ReadOnlySpan<DialogPhrase> Phrases => phrases;
+
+        private readonly GameEventCombi[] conditionEvents;
         public readonly GameEvent triggeredEvent;
         public readonly DialogType dialogTriggered;
-        public readonly DialogPhrase[] phrases;
+        private readonly DialogPhrase[] phrases;
 
-        public static readonly DialogOptionConfig EMPTY = new(GameEvent.EVENT_NONE, false, GameEvent.EVENT_NONE, DialogType.DIALOG_NONE, new DialogPhrase[0]);
+        public static readonly DialogOptionConfig EMPTY = new(new GameEventCombi[0], GameEvent.EVENT_NONE, DialogType.DIALOG_NONE, new DialogPhrase[0]);
 
-        public DialogOptionConfig(GameEvent conditionEvent, bool conditionNotOccurred, GameEvent triggeredEvent, DialogType dialogTriggered, DialogPhrase[] phrases)
+        public DialogOptionConfig(GameEventCombi[] conditionEvents, GameEvent triggeredEvent, DialogType dialogTriggered, DialogPhrase[] phrases)
         {
-            this.conditionEvent = conditionEvent;
-            this.conditionNotOccurred = conditionNotOccurred;
+            this.conditionEvents = conditionEvents;
             this.triggeredEvent = triggeredEvent;
             this.dialogTriggered = dialogTriggered;
             this.phrases = phrases;
@@ -134,16 +150,14 @@ namespace Gob3AQ.VARMAP.Types
     public readonly struct PhraseConfig
     {
         public readonly NameType name;
-        public readonly Room room;
         public readonly int sound;
         public readonly DialogAnimation animation;
 
-        public static readonly PhraseConfig EMPTY = new(NameType.NAME_NONE, Room.ROOM_NONE, 0, DialogAnimation.DIALOG_ANIMATION_NONE);
+        public static readonly PhraseConfig EMPTY = new(NameType.NAME_NONE, 0, DialogAnimation.DIALOG_ANIMATION_NONE);
 
-        public PhraseConfig(NameType name, Room room, int sound, DialogAnimation animation)
+        public PhraseConfig(NameType name, int sound, DialogAnimation animation)
         {
             this.name = name;
-            this.room = room;
             this.sound = sound;
             this.animation = animation;
         }
@@ -163,90 +177,80 @@ namespace Gob3AQ.VARMAP.Types
         }
     }
 
-    public readonly struct ItemConditions
+
+
+    public readonly struct ItemInfo
     {
-        public readonly GameEvent eventType;
-        public readonly bool eventNOT;
+        public readonly NameType name;
+        private readonly GameSprite[] sprites;
+        public readonly bool isPickable;
+        public readonly bool isNPC;
+        public readonly GameSprite pickableSprite;
+        public readonly GamePickableItem pickableItem;
+        private readonly ActionConditions[] conditions;
+
+        public ReadOnlySpan<ActionConditions> Conditions => conditions;
+        public ReadOnlySpan<GameSprite> Sprites => sprites;
+
+        public static readonly ItemInfo EMPTY = new(NameType.NAME_NONE, new GameSprite[0],false,false,
+            GameSprite.SPRITE_NONE, GamePickableItem.ITEM_PICK_NONE, new ActionConditions[0]);
+
+        public ItemInfo(NameType name, GameSprite[] sprites, bool isPickable, bool isNPC, GameSprite pickableSprite, GamePickableItem pickableItem,
+            ActionConditions[] conditions)
+        {
+            this.name = name;
+            this.sprites = sprites;
+            this.isPickable = isPickable;
+            this.isNPC = isNPC;
+            this.pickableSprite = pickableSprite;
+            this.pickableItem = pickableItem;
+            this.conditions = conditions;
+        }
+    }
+
+
+    public readonly struct ActionConditionsInfo
+    {
+        private readonly GameEventCombi[] neededEvents;
+        public readonly CharacterType srcChar;
+        public readonly GameItem srcItem;
+        public readonly ItemInteractionType actionOK;
         public readonly CharacterAnimation animationOK;
         public readonly CharacterAnimation animationNOK_Event;
         public readonly DialogType dialogOK;
         public readonly DialogPhrase phraseOK;
         public readonly DialogType dialogNOK_Event;
         public readonly DialogPhrase phraseNOK_Event;
+        public readonly GameEvent unchainEvent;
+        public readonly bool consumes;
 
-        public ItemConditions(GameEvent eventType, bool eventNOT, CharacterAnimation animationOK,
-            CharacterAnimation animationNOK_Event,
-            DialogType dialogOK, DialogPhrase phraseOK, DialogType dialogNOK_Event, DialogPhrase phraseNOK_Event)
+        public ReadOnlySpan<GameEventCombi> Events => neededEvents;
+
+        public static readonly ActionConditionsInfo EMPTY = new(new GameEventCombi[0], CharacterType.CHARACTER_NONE,
+            GameItem.ITEM_NONE, ItemInteractionType.INTERACTION_NONE, CharacterAnimation.ITEM_USE_ANIMATION_NONE,
+            CharacterAnimation.ITEM_USE_ANIMATION_NONE, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE,
+            DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, GameEvent.EVENT_NONE, false);
+
+        public ActionConditionsInfo(GameEventCombi[] events, CharacterType srcChar, GameItem srcItem,
+            ItemInteractionType actionOK, CharacterAnimation animationOK, CharacterAnimation animationNOK_Event,
+            DialogType dialogOK, DialogPhrase phraseOK, DialogType dialogNOK_Event, DialogPhrase phraseNOK_Event,
+            GameEvent unchainEvent, bool consumes)
         {
-            this.eventType = eventType;
-            this.eventNOT = eventNOT;
+            this.neededEvents = events;
+            this.srcChar = srcChar;
+            this.srcItem = srcItem;
+            this.actionOK = actionOK;
             this.animationOK = animationOK;
             this.animationNOK_Event = animationNOK_Event;
             this.dialogOK = dialogOK;
             this.phraseOK = phraseOK;
             this.dialogNOK_Event = dialogNOK_Event;
             this.phraseNOK_Event = phraseNOK_Event;
-        }
-    }
-
-    public readonly struct NPCInfo
-    {
-        public readonly NameType name;
-        public readonly Room room;
-
-        public static readonly NPCInfo EMPTY = new(NameType.NAME_NONE, Room.ROOM_NONE);
-
-        public NPCInfo(NameType name, Room room)
-        {
-            this.name = name;
-            this.room = room;
-        }
-
-    }
-    public readonly struct NPCInteractionInfo
-    {
-        public readonly CharacterType srcChar;
-        public readonly ItemInteractionType interaction;
-        public readonly GameItem srcItem;
-        public readonly ItemConditionsType conditions;
-        public readonly DialogType dialog;
-        public readonly GameEvent outEvent;
-        public readonly bool consumes;
-
-        public NPCInteractionInfo(CharacterType srcChar, ItemInteractionType interaction,
-            GameItem srcItem, ItemConditionsType conditions, DialogType dialog, GameEvent outEvent, bool consumes)
-        {
-            this.srcChar = srcChar;
-            this.interaction = interaction;
-            this.srcItem = srcItem;
-            this.conditions = conditions;
-            this.dialog = dialog;
-            this.outEvent = outEvent;
+            this.unchainEvent = unchainEvent;
             this.consumes = consumes;
         }
     }
 
-
-    public readonly struct ItemInteractionInfo
-    {
-        public readonly CharacterType srcChar;
-        public readonly ItemInteractionType interaction;
-        public readonly GameItem srcItem;
-        public readonly ItemConditionsType conditions;
-        public readonly GameEvent outEvent;
-        public readonly bool consumes;
-
-        public ItemInteractionInfo(CharacterType srcChar, ItemInteractionType interaction,
-            GameItem srcItem, ItemConditionsType conditions, GameEvent outEvent, bool consumes)
-        {
-            this.srcChar = srcChar;
-            this.interaction = interaction;
-            this.srcItem = srcItem;
-            this.conditions = conditions;
-            this.outEvent = outEvent;
-            this.consumes = consumes;
-        }
-    }
 
     public readonly ref struct InteractionUsageOutcome
     {
@@ -272,7 +276,6 @@ namespace Gob3AQ.VARMAP.Types
         public readonly CharacterType playerSource;
         public readonly GameItem itemSource;
         public readonly CharacterType playerDest;
-        public readonly NPCType npcDest;
         public readonly GameItem itemDest;
         public readonly int destListIndex;
         public readonly WaypointClass destWaypoint;
@@ -281,47 +284,60 @@ namespace Gob3AQ.VARMAP.Types
         public static InteractionUsage CreatePlayerMove(CharacterType playerSource, WaypointClass destWp)
         {
             return new InteractionUsage(InteractionType.PLAYER_MOVE, playerSource, GameItem.ITEM_NONE,
-                CharacterType.CHARACTER_NONE, NPCType.NPC_NONE, GameItem.ITEM_NONE, -1, destWp, 0);
+                CharacterType.CHARACTER_NONE, GameItem.ITEM_NONE, -1, destWp, 0);
         }
 
         public static InteractionUsage CreatePlayerTakeItem(CharacterType playerSource, GameItem itemDest, WaypointClass destWp)
         {
             return new InteractionUsage(InteractionType.PLAYER_WITH_ITEM, playerSource, GameItem.ITEM_NONE,
-                CharacterType.CHARACTER_NONE, NPCType.NPC_NONE, itemDest, -1, destWp, 0);
+                CharacterType.CHARACTER_NONE, itemDest, -1, destWp, 0);
         }
 
         public static InteractionUsage CreatePlayerUseItemWithItem(CharacterType playerSource, GameItem itemSource,
             GameItem itemDest, WaypointClass destWp)
         {
             return new InteractionUsage(InteractionType.ITEM_WITH_ITEM, playerSource, itemSource,
-                CharacterType.CHARACTER_NONE, NPCType.NPC_NONE, itemDest, -1, destWp, 0);
+                CharacterType.CHARACTER_NONE, itemDest, -1, destWp, 0);
         }
 
         public static InteractionUsage CreatePlayerUseItemWithPlayer(CharacterType playerSource, GameItem itemSource,
             CharacterType playerDest, ulong playerDestTransactionId, WaypointClass destWp)
         {
             return new InteractionUsage(InteractionType.ITEM_WITH_PLAYER, playerSource, itemSource,
-                playerDest, NPCType.NPC_NONE, GameItem.ITEM_NONE, -1, destWp, playerDestTransactionId);
+                playerDest, GameItem.ITEM_NONE, -1, destWp, playerDestTransactionId);
         }
 
         public static InteractionUsage CreatePlayerUseDoor(CharacterType playerSource, int doorIndex, WaypointClass destWp)
         {
             return new InteractionUsage(InteractionType.PLAYER_WITH_DOOR, playerSource, GameItem.ITEM_NONE,
-                CharacterType.CHARACTER_NONE, NPCType.NPC_NONE, GameItem.ITEM_NONE, doorIndex, destWp, 0);
+                CharacterType.CHARACTER_NONE, GameItem.ITEM_NONE, doorIndex, destWp, 0);
         }
 
         public InteractionUsage(InteractionType type, CharacterType playerSource, GameItem itemSource,
-            CharacterType playerDest, NPCType npcDest, GameItem itemDest, int doorIndex, WaypointClass destWaypoint, ulong destPlayerTransaction)
+            CharacterType playerDest, GameItem itemDest, int doorIndex, WaypointClass destWaypoint, ulong destPlayerTransaction)
         {
             this.type = type;
             this.playerSource = playerSource;
             this.itemSource = itemSource;
             this.playerDest = playerDest;
-            this.npcDest = npcDest;
             this.itemDest = itemDest;
             this.destListIndex = doorIndex;
             this.destWaypoint = destWaypoint;
             this.playerTransactionId = destPlayerTransaction;
+        }
+    }
+
+    public readonly struct GameEventCombi
+    {
+        public readonly GameEvent eventType;
+        public readonly bool eventNOT;
+
+        public static readonly GameEventCombi EMPTY = new(GameEvent.EVENT_NONE, false);
+
+        public GameEventCombi(GameEvent eventType, bool eventNOT)
+        {
+            this.eventType = eventType;
+            this.eventNOT = eventNOT;
         }
     }
 

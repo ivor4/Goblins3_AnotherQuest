@@ -354,7 +354,6 @@ namespace Gob3AQ.GameElement.PlayableChar
                     case InteractionType.PLAYER_WITH_ITEM:
                     case InteractionType.ITEM_WITH_ITEM:
                     case InteractionType.ITEM_WITH_PLAYER:
-                    case InteractionType.ITEM_WITH_NPC:
 
                         
 
@@ -388,11 +387,6 @@ namespace Gob3AQ.GameElement.PlayableChar
                             }
                         }
 
-                        break;
-
-                    case InteractionType.PLAYER_WITH_NPC:
-                        /* Talk */
-                        VARMAP_PlayerMaster.INTERACT_PLAYER_NPC(charType, bufferedData.usage.destListIndex);
                         break;
 
                     case InteractionType.PLAYER_WITH_DOOR:

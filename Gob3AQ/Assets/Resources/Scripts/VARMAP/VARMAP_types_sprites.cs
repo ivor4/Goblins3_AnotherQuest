@@ -10,6 +10,7 @@ namespace Gob3AQ.VARMAP.Types
         SPRITE_POTION_BLUE, 
         SPRITE_FOUNTAIN, 
         SPRITE_FOUNTAIN_FULL, 
+        SPRITE_NPC_MILITO, 
         SPRITE_LAST, 
         
         SPRITE_TOTAL

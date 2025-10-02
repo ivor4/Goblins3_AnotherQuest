@@ -72,12 +72,12 @@ namespace Gob3AQ.GameElement.Item
         protected virtual void Start()
         {
             bool taken;
-            pickable = ItemsInteractionsClass.ITEM_TO_PICKABLE[(int)itemID];
+            ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(itemID);
 
             /* If it is a pickable item, may have been picked before */
-            if (pickable != GamePickableItem.ITEM_PICK_NONE)
+            if (itemInfo.isPickable)
             {
-                VARMAP_ItemMaster.IS_ITEM_TAKEN_FROM_SCENE(pickable, out taken);
+                VARMAP_ItemMaster.IS_ITEM_TAKEN_FROM_SCENE(itemInfo.pickableItem, out taken);
             }
             else
             {

@@ -6,4 +6,5 @@ N,NAME_ID,Name_English,Name_Spanish
 4,NAME_NPC_MILITO,Militer,Milito
 5,NAME_ITEM_POTION,Red Potion,Pocion Roja
 6,NAME_ITEM_BLUE_POTION,Blue Potion,Pocion Azul
-7,NAME_NPC_LAST,Last,Ultimo
+7,NAME_ITEM_FOUNTAIN,Fountain,Fuente
+8,NAME_NPC_LAST,Last,Ultimo

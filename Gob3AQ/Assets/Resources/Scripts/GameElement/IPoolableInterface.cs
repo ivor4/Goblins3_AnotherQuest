@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-namespace Gob3AQ.BaseClasses.IPoolable
+namespace Gob3AQ.GameElement.IPoolable
 {
     public interface IPoolableInterface
     {

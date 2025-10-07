@@ -11,58 +11,13 @@ using Gob3AQ.GameElement.Door;
 using Gob3AQ.Waypoint;
 using Gob3AQ.GameElement.PlayableChar;
 using Gob3AQ.Libs.Arith;
+using Gob3AQ.VARMAP.Types.Delegates;
 
 namespace Gob3AQ.LevelMaster
 {
     public class LevelMasterClass : MonoBehaviour
     {
-        private enum MouseActiveElemsType
-        {
-            MELEMS_PLAYER,
-            MELEMS_ITEM,
-            MELEMS_DOOR
-        }
-
-        private class MouseActiveElems
-        {
-            public readonly MouseActiveElemsType type;
-            public readonly PlayableCharScript player;
-            public readonly ItemClass item;
-            public readonly DoorClass door;
-            public readonly int arrayIndex;
-
-            public MouseActiveElems(PlayableCharScript player, int index)
-            {
-                type = MouseActiveElemsType.MELEMS_PLAYER;
-                this.player = player;
-                this.item = null;
-                this.door = null;
-                this.arrayIndex = index;
-            }
-
-
-            public MouseActiveElems(ItemClass item, int index)
-            {
-                type = MouseActiveElemsType.MELEMS_ITEM;
-                this.player = null;
-                this.item = item;
-                this.door = null;
-                this.arrayIndex = index;
-            }
-
-            public MouseActiveElems(DoorClass door, int index)
-            {
-                type = MouseActiveElemsType.MELEMS_DOOR;
-                this.player = null;
-                this.item = null;
-                this.door = door;
-                this.arrayIndex = index;
-            }
-        }
-
         private static Rect _playMouseArea;
-        private static Dictionary<Collider2D, MouseActiveElems> _ColliderReference;
-        private static RaycastHit2D[] _HitArray;
         private static int _LayerOnlyPlayers;
         private static int _LayerPlayersAndItemsNPC;
 
@@ -72,6 +27,9 @@ namespace Gob3AQ.LevelMaster
         private static PlayableCharScript[] _Player_List;
         private static List<ItemClass> _Item_List;
         private static List<DoorClass> _Door_List;
+        private static Dictionary<GameItem, ItemClass> _ItemDictionary;
+        private static LevelElemInfo _ClickedElem;
+        private static int _freeClickDebounce;
 
 
         #region "Services"
@@ -119,25 +77,22 @@ namespace Gob3AQ.LevelMaster
             if (register)
             {
                 _Item_List.Add(instance);
-                MouseActiveElems melems = new(instance, _Item_List.Count - 1);
-                _ColliderReference.Add(instance.Collider, melems);
+                _ItemDictionary.Add(instance.ItemID, instance);
             }
             else
             {
-                _ColliderReference.Remove(instance.Collider);
                 _Item_List.Remove(instance);
+                _ItemDictionary.Remove(instance.ItemID);
             }
         }
 
         public static void ItemObtainPickableService(GameItem item)
         {
-            foreach(ItemClass itemclass in _Item_List)
+            bool found = _ItemDictionary.TryGetValue(item, out ItemClass itemInstance);
+
+            if(found)
             {
-                if(itemclass.ItemID == item)
-                {
-                    itemclass.gameObject.SetActive(false);
-                    break;
-                }
+                itemInstance.gameObject.SetActive(false);
             }
         }
 
@@ -146,12 +101,9 @@ namespace Gob3AQ.LevelMaster
             if (add)
             {
                 _Player_List[(int)mono.CharType] = mono;
-                MouseActiveElems melems = new(mono, (int)mono.CharType);
-                _ColliderReference.Add(mono.Collider, melems);
             }
             else
             {
-                _ColliderReference.Remove(mono.Collider);
                 _Player_List[(int)mono.CharType] = null;
             }
         }
@@ -161,12 +113,9 @@ namespace Gob3AQ.LevelMaster
             if (add)
             {
                 _Door_List.Add(door);
-                MouseActiveElems melems = new(door, _Door_List.Count - 1);
-                _ColliderReference.Add(door.Collider, melems);
             }
             else
             {
-                _ColliderReference.Remove(door.Collider);
                 _Door_List.Remove(door);
             }
         }
@@ -202,6 +151,15 @@ namespace Gob3AQ.LevelMaster
             VARMAP_LevelMaster.LOAD_ROOM(door.RoomLead, out _);
         }
 
+        public static void GameElementClickService(in LevelElemInfo info)
+        {
+            /* Overwrite new type is higher than actual */
+            if ((int)_ClickedElem.type < (int)info.type)
+            {
+                _ClickedElem = info;
+            }
+        }
+
 
         #endregion
 
@@ -212,6 +170,7 @@ namespace Gob3AQ.LevelMaster
             VARMAP_LevelMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_LevelMaster);
         }
 
+        
 
         #endregion
 
@@ -226,16 +185,9 @@ namespace Gob3AQ.LevelMaster
             else
             {
                 _singleton = this;
-
                 Initializations();
             }
 
-        }
-
-
-        private void Start()
-        {
-            VARMAP_LevelMaster.REG_GAMESTATUS(_OnGameStatusChanged);
         }
 
 
@@ -260,7 +212,6 @@ namespace Gob3AQ.LevelMaster
             if (_singleton == this)
             {
                 _singleton = null;
-                VARMAP_LevelMaster.UNREG_GAMESTATUS(_OnGameStatusChanged);
             }
         }
 
@@ -269,17 +220,19 @@ namespace Gob3AQ.LevelMaster
         {
             _Player_List = new PlayableCharScript[GameFixedConfig.MAX_LEVEL_PLAYABLE_CHARACTERS];
             _WP_List = new List<WaypointClass>(GameFixedConfig.MAX_LEVEL_WAYPOINTS);
-            _Item_List = new List<ItemClass>(GameFixedConfig.MAX_POOLED_ENEMIES);
-            _Door_List = new List<DoorClass>(GameFixedConfig.MAX_POOLED_ENEMIES);
-
-            _ColliderReference = new Dictionary<Collider2D, MouseActiveElems>(GameFixedConfig.MAX_LEVEL_WAYPOINTS);
-            _HitArray = new RaycastHit2D[GameFixedConfig.MAX_LEVEL_PLAYABLE_CHARACTERS];
+            _Item_List = new List<ItemClass>(GameFixedConfig.MAX_POOLED_ITEMS);
+            _ItemDictionary = new Dictionary<GameItem, ItemClass>(GameFixedConfig.MAX_POOLED_ITEMS);
+            _Door_List = new List<DoorClass>(GameFixedConfig.MAX_SCENE_DOORS);
 
 
             _LayerOnlyPlayers = 0x1 << LayerMask.NameToLayer("PlayerLayer");
             _LayerPlayersAndItemsNPC = _LayerOnlyPlayers | (0x1 << LayerMask.NameToLayer("ItemLayer"));
 
             _playMouseArea = new Rect(0, 0, Screen.width, Screen.height * GameFixedConfig.GAME_ZONE_HEIGHT_PERCENT);
+
+            _ClickedElem = LevelElemInfo.EMPTY;
+
+            _freeClickDebounce = 0;
         }
 
 
@@ -305,7 +258,7 @@ namespace Gob3AQ.LevelMaster
                     VARMAP_LevelMaster.ENABLE_ITEM_MENU(false);
                 }
             }
-            else if(_playMouseArea.Contains(mouse.posPixels))
+            else if (_playMouseArea.Contains(mouse.posPixels))
             {
                 UpdateCharItemMouseEvents(in mouse);
             }
@@ -322,10 +275,77 @@ namespace Gob3AQ.LevelMaster
             CharacterType playerSelected = VARMAP_LevelMaster.GET_PLAYER_SELECTED();
             InteractionUsage usage;
 
-            /* If no items menu or just a menu opened */
-            if (mouse.secondaryReleased)
+            /* If there is buffered action */
+            if(_ClickedElem.type != GameElementType.GAME_ELEMENT_NONE)
             {
-                if ((chosenItem == GameItem.ITEM_NONE)&&(playerSelected != CharacterType.CHARACTER_NONE))
+                switch (_ClickedElem.type)
+                {
+                    case GameElementType.GAME_ELEMENT_PLAYER:
+                        if ((chosenItem != GameItem.ITEM_NONE) && (playerSelected != CharacterType.CHARACTER_NONE))
+                        {
+                            if (_ClickedElem.available)
+                            {
+                                /* Transaction is used to ensure player is in the same state as when intended to use item */
+                                ulong playerTransactionState = VARMAP_LevelMaster.GET_ELEM_PLAYER_TRANSACTION(_ClickedElem.index);
+                                usage = InteractionUsage.CreatePlayerUseItemWithPlayer(playerSelected, chosenItem,
+                                    (CharacterType)_ClickedElem.index, playerTransactionState, _ClickedElem.waypoint);
+
+
+                                VARMAP_LevelMaster.INTERACT_PLAYER(in usage);
+                            }
+                        }
+                        else
+                        {
+                            VARMAP_LevelMaster.SELECT_PLAYER((CharacterType)_ClickedElem.index);
+                            VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
+                        }
+                        break;
+
+                    case GameElementType.GAME_ELEMENT_ITEM:
+                        if (playerSelected != CharacterType.CHARACTER_NONE)
+                        {
+                            if (chosenItem == GameItem.ITEM_NONE)
+                            {
+                                usage = InteractionUsage.CreatePlayerTakeItem(playerSelected, (GameItem)_ClickedElem.index,
+                                    _ClickedElem.waypoint);
+                            }
+                            else
+                            {
+                                usage = InteractionUsage.CreatePlayerUseItemWithItem(playerSelected, chosenItem,
+                                    (GameItem)_ClickedElem.index, _ClickedElem.waypoint);
+                            }
+
+                            VARMAP_LevelMaster.INTERACT_PLAYER(in usage);
+                        }
+                        break;
+
+
+                    case GameElementType.GAME_ELEMENT_DOOR:
+                        usage = InteractionUsage.CreatePlayerUseDoor(playerSelected, _ClickedElem.index,
+                            _ClickedElem.waypoint);
+
+                        VARMAP_LevelMaster.INTERACT_PLAYER(in usage);
+                        VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
+                        break;
+
+                    default:
+                        break;
+                }
+
+                /* Reset */
+                _ClickedElem = LevelElemInfo.EMPTY;
+
+                /* Avoid immediate free click after an interaction */
+                _freeClickDebounce = 2; 
+            }
+            else if (_freeClickDebounce > 0)
+            {
+                _freeClickDebounce--;
+            }
+            /* If no items menu or just a menu opened */
+            else if (mouse.secondaryReleased)
+            {
+                if ((chosenItem == GameItem.ITEM_NONE) && (playerSelected != CharacterType.CHARACTER_NONE))
                 {
                     VARMAP_LevelMaster.ENABLE_ITEM_MENU(true);
                 }
@@ -336,108 +356,10 @@ namespace Gob3AQ.LevelMaster
             }
             else if (mouse.primaryReleased)
             {
-                
-                int layerMask;
-
-                if(playerSelected == CharacterType.CHARACTER_NONE)
-                {
-                    layerMask = _LayerOnlyPlayers;
-                }
-                else
-                {
-                    layerMask = _LayerPlayersAndItemsNPC;
-                }
-
-                int hits = Physics2D.RaycastNonAlloc(mouse.pos1, Vector2.zero, _HitArray, float.PositiveInfinity, layerMask);
-                MouseActiveElems candidateMelems = null;
-
-
-                /* Give first priority to player selection, then items, then npcs */
-                for (int i = 0; i < hits; i++)
-                {
-                    MouseActiveElems melems = _ColliderReference[_HitArray[i].collider];
-
-                    if (candidateMelems != null)
-                    {
-                        /* Lower type index, higher priority */
-                        if (melems.type < candidateMelems.type)
-                        {
-                            candidateMelems = melems;
-                        }
-                    }
-                    else
-                    {
-                        candidateMelems = melems;
-                    }
-                }
-
                 /* Selected player or item */
-                if(candidateMelems != null)
-                {
-                    switch(candidateMelems.type)
-                    {
-                        case MouseActiveElemsType.MELEMS_PLAYER:
-                            if((chosenItem != GameItem.ITEM_NONE)&&(playerSelected != CharacterType.CHARACTER_NONE))
-                            {
-                                if (candidateMelems.player.IsSteady)
-                                {
-                                    /* Transaction is used to ensure player is in the same state as when intended to use item */
-                                    ulong playerTransactionState = VARMAP_LevelMaster.GET_ELEM_PLAYER_TRANSACTION((int)candidateMelems.player.CharType);
-                                    usage = InteractionUsage.CreatePlayerUseItemWithPlayer(playerSelected, chosenItem,
-                                        candidateMelems.player.CharType, playerTransactionState, candidateMelems.player.Waypoint);
-
-
-                                    VARMAP_LevelMaster.INTERACT_PLAYER(in usage);
-                                }
-                            }
-                            else
-                            {
-                                VARMAP_LevelMaster.SELECT_PLAYER(candidateMelems.player.CharType);
-                                VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
-                            }
-
-                            
-
-                            break;
-
-                        case MouseActiveElemsType.MELEMS_ITEM:
-                            if (playerSelected != CharacterType.CHARACTER_NONE)
-                            {
-                                if (chosenItem == GameItem.ITEM_NONE)
-                                {
-                                    usage = InteractionUsage.CreatePlayerTakeItem(playerSelected, candidateMelems.item.ItemID,
-                                        candidateMelems.item.Waypoint);
-                                }
-                                else
-                                {
-                                    usage = InteractionUsage.CreatePlayerUseItemWithItem(playerSelected, chosenItem,
-                                        candidateMelems.item.ItemID, candidateMelems.item.Waypoint);
-                                }
-
-                                VARMAP_LevelMaster.INTERACT_PLAYER(in usage);
-                            }
-                            break;
-
-
-                        case MouseActiveElemsType.MELEMS_DOOR:
-                            usage = InteractionUsage.CreatePlayerUseDoor(playerSelected, candidateMelems.arrayIndex,
-                                candidateMelems.door.Waypoint);
-
-                            VARMAP_LevelMaster.INTERACT_PLAYER(in usage);
-                            VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
-                            break;
-
-                        default:
-                            break;
-                    }
-                }
-                else if(playerSelected != CharacterType.CHARACTER_NONE)
+                if (playerSelected != CharacterType.CHARACTER_NONE)
                 {
                     CheckPlayerMovementOrder(in mouse, playerSelected);
-                }
-                else
-                {
-                    /* Nothing interesting */
                 }
             }
             else
@@ -456,46 +378,6 @@ namespace Gob3AQ.LevelMaster
                 VARMAP_LevelMaster.INTERACT_PLAYER(in usage);
             }
         }
-
-
-
-        #region "Events"
-        private void _OnGameStatusChanged(ChangedEventType evType, in Game_Status oldval, in Game_Status newval)
-        {
-            bool use;
-            bool activate;
-
-            if (newval == Game_Status.GAME_STATUS_PAUSE)
-            {
-                use = true;
-                activate = false;
-            }
-            else if (newval == Game_Status.GAME_STATUS_PLAY)
-            {
-                use = true;
-                activate = true;
-            }
-            else
-            {
-                use = false;
-                activate = false;
-            }
-
-            if (use)
-            {
-                for (int i = 0; i < _Player_List.Length; i++)
-                {
-                    if (_Player_List[i] != null)
-                    {
-                        _Player_List[i].enabled = activate;
-                    }
-                }
-            }
-        }
-        #endregion
-
-
-       
     }
 }
 

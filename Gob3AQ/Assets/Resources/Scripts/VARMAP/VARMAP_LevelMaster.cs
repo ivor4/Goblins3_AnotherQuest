@@ -49,6 +49,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
             WP_REGISTER = _WP_REGISTER;
             DOOR_REGISTER = _DOOR_REGISTER;
             PLAYER_WAYPOINT_UPDATE = _PLAYER_WAYPOINT_UPDATE;
+            GAME_ELEMENT_CLICK = _GAME_ELEMENT_CLICK;
             SELECT_PLAYER = _SELECT_PLAYER;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
             GET_NEAREST_WP = _GET_NEAREST_WP;
@@ -174,6 +175,13 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// </summary>
         public static PLAYER_WAYPOINT_UPDATE_DELEGATE PLAYER_WAYPOINT_UPDATE;
         /// <summary> 
+        /// Any of Game Elements (Player or Item or Door) will call with essential info
+        /// <para> Owner: LevelMaster </para> 
+        /// <para> Accessors: PlayerMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="LevelMasterClass.GameElementClickService"/> </para> 
+        /// </summary>
+        public static GAME_ELEMENT_CLICK_DELEGATE GAME_ELEMENT_CLICK;
+        /// <summary> 
         /// Selects player
         /// <para> Owner: PlayerMaster </para> 
         /// <para> Accessors: LevelMaster,  </para> 
@@ -232,7 +240,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// <summary> 
         /// Gets scenario item list
         /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: ItemMaster,  </para> 
+        /// <para> Accessors:  </para> 
         /// <para> Method: <see cref="LevelMasterClass.GetScenarioItemListService"/> </para> 
         /// </summary>
         public static GET_SCENARIO_ITEM_LIST_DELEGATE GET_SCENARIO_ITEM_LIST;

@@ -1,13 +1,27 @@
-﻿using Gob3AQ.GameElement.PlayableChar;
+﻿using Gob3AQ.GameElement.Door;
 using Gob3AQ.GameElement.Item;
-using Gob3AQ.GameElement.Door;
-using UnityEngine;
-using Gob3AQ.Waypoint;
+using Gob3AQ.GameElement.PlayableChar;
 using Gob3AQ.Libs.Arith;
+using Gob3AQ.Waypoint;
 using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Gob3AQ.VARMAP.Types.Delegates
 {
+    public delegate void VARMAPValueChangedEvent<T>(ChangedEventType eventType, in T oldval, in T newval);
+    public delegate ref readonly T GetVARMAPValueDelegate<T>();
+    public delegate void SetVARMAPValueDelegate<T>(in T newValue);
+    public delegate void ReUnRegisterVARMAPValueChangeEventDelegate<T>(VARMAPValueChangedEvent<T> callback);
+    public delegate ref readonly T GetVARMAPArrayElemValueDelegate<T>(int pos);
+    public delegate void SetVARMAPArrayElemValueDelegate<T>(int pos, in T newval);
+    public delegate int GetVARMAPArraySizeDelegate();
+    public delegate ReadOnlySpan<T> GetVARMAPArrayDelegate<T>();
+    public delegate void SetVARMAPArrayDelegate<T>(List<T> newvals);
+    public delegate void EVENT_SUBSCRIPTION_CALL_DELEGATE(bool newStatus);
+    public delegate void GAME_ELEMENT_CLICK_DELEGATE(in LevelElemInfo info);
+
+
     public delegate void START_GAME_DELEGATE(out bool error);
     public delegate void SAVE_GAME_DELEGATE();
     public delegate void LOAD_GAME_DELEGATE();

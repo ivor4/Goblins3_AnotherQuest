@@ -3,6 +3,7 @@ using Gob3AQ.VARMAP.GameEventMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.Libs.Arith;
+using Gob3AQ.VARMAP.Types.Delegates;
 using System.Collections.Generic;
 using System;
 

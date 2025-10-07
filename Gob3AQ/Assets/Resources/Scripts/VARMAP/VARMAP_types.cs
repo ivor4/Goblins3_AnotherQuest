@@ -10,16 +10,7 @@ using Gob3AQ.Waypoint;
 
 namespace Gob3AQ.VARMAP.Types
 {
-    public delegate void VARMAPValueChangedEvent<T>(ChangedEventType eventType, in T oldval, in T newval);
-    public delegate ref readonly T GetVARMAPValueDelegate<T>();
-    public delegate void SetVARMAPValueDelegate<T>(in T newValue);
-    public delegate void ReUnRegisterVARMAPValueChangeEventDelegate<T>(VARMAPValueChangedEvent<T> callback);
-    public delegate ref readonly T GetVARMAPArrayElemValueDelegate<T>(int pos);
-    public delegate void SetVARMAPArrayElemValueDelegate<T>(int pos, in T newval);
-    public delegate int GetVARMAPArraySizeDelegate();
-    public delegate ReadOnlySpan<T> GetVARMAPArrayDelegate<T>();
-    public delegate void SetVARMAPArrayDelegate<T>(List<T> newvals);
-    public delegate void EVENT_SUBSCRIPTION_CALL_DELEGATE(bool newStatus);
+    
 
 
     public enum ChangedEventType
@@ -68,14 +59,33 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_WITH_PLAYER,
     }
 
-    public enum GameEvent
+    
+
+    public enum GameElementType
     {
-        EVENT_NONE = -1,
+        GAME_ELEMENT_NONE = -1,
 
-        EVENT_FOUNTAIN_FULL,
-        EVENT_TALK_MAN,
+        GAME_ELEMENT_DOOR,
+        GAME_ELEMENT_ITEM,
+        GAME_ELEMENT_PLAYER,
+    }
 
-        EVENT_TOTAL
+    public readonly struct LevelElemInfo
+    {
+        public readonly int index;
+        public readonly GameElementType type;
+        public readonly WaypointClass waypoint;
+        public readonly bool available;
+
+        public static readonly LevelElemInfo EMPTY = new(-1, GameElementType.GAME_ELEMENT_NONE, null, false);
+
+        public LevelElemInfo(int index, GameElementType type, WaypointClass waypoint, bool available)
+        {
+            this.index = index;
+            this.type = type;
+            this.waypoint = waypoint;
+            this.available = available;
+        }
     }
 
     public readonly struct RoomInfo

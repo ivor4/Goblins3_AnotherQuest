@@ -1,58 +1,28 @@
-using UnityEngine;
+using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.VARMAP.ItemMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.Waypoint;
-using Gob3AQ.Brain.ItemsInteraction;
 using System.Collections;
 using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.EventSystems;
 
 
 
 namespace Gob3AQ.GameElement.Item
 {
     [System.Serializable]
-    public class ItemClass : MonoBehaviour
+    public class ItemClass : GameElement
     {
         [SerializeField]
-        public GameItem itemID;
+        protected GameItem itemID;
 
-        public GameItem ItemID
-        {
-            get
-            {
-                return itemID;
-            }
-        }
+        public GameItem ItemID => itemID;
 
-        public Collider2D Collider
-        {
-            get
-            {
-                return _collider;
-            }
-        }
-
-        public WaypointClass Waypoint
-        {
-            get
-            {
-                return actualWaypoint;
-            }
-        }
-
-        public GamePickableItem Pickable
-        {
-            get
-            {
-                return pickable;
-            }
-        }
 
         protected SpriteRenderer _sprRenderer;
         protected Collider2D _collider;
         protected Rigidbody2D _rigidbody;
-        protected WaypointClass actualWaypoint;
-        protected GamePickableItem pickable;
 
         protected bool registered;
 
@@ -108,6 +78,14 @@ namespace Gob3AQ.GameElement.Item
             {
                 VARMAP_ItemMaster.ITEM_REGISTER(false, this);
             }
+        }
+
+
+        protected void OnMouseUp()
+        {
+            /* Prepare LevelInfo struct */
+            LevelElemInfo info = new((int)itemID, GameElementType.GAME_ELEMENT_ITEM, actualWaypoint, true);
+            VARMAP_ItemMaster.GAME_ELEMENT_CLICK(in info);
         }
 
 

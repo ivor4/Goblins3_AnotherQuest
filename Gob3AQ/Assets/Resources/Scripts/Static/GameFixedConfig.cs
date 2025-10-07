@@ -41,7 +41,7 @@ namespace Gob3AQ.FixedConfig
         public const int MAX_CACHED_SPRITES = 64;
         public const int MAX_CACHED_PHRASES = 64;
         public const int MAX_DIALOG_OPTIONS = 8;
-        public const int MAX_POOLED_ENEMIES = 50;
+        public const int MAX_POOLED_ITEMS = 32;
         public const int MAX_LEVEL_PLAYABLE_CHARACTERS = 3;
         public const int MAX_BUFFERED_EVENTS = 16;
         public const int MAX_LEVEL_WAYPOINTS = 128;

@@ -37,13 +37,13 @@ namespace Gob3AQ.VARMAP.ItemMaster
             ITEM_REGISTER = _ITEM_REGISTER;
             ITEM_OBTAIN_PICKABLE = _ITEM_OBTAIN_PICKABLE;
             ITEM_OBTAIN_PICKABLE_EVENT = _ITEM_OBTAIN_PICKABLE_EVENT;
+            GAME_ELEMENT_CLICK = _GAME_ELEMENT_CLICK;
             GET_NEAREST_WP = _GET_NEAREST_WP;
             IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
             USE_ITEM = _USE_ITEM;
             IS_ITEM_TAKEN_FROM_SCENE = _IS_ITEM_TAKEN_FROM_SCENE;
-            GET_SCENARIO_ITEM_LIST = _GET_SCENARIO_ITEM_LIST;
             SELECT_PICKABLE_ITEM = _SELECT_PICKABLE_ITEM;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             EVENT_SUBSCRIPTION = _EVENT_SUBSCRIPTION;
@@ -108,6 +108,13 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /// </summary>
         public static ITEM_OBTAIN_PICKABLE_EVENT_DELEGATE ITEM_OBTAIN_PICKABLE_EVENT;
         /// <summary> 
+        /// Any of Game Elements (Player or Item or Door) will call with essential info
+        /// <para> Owner: LevelMaster </para> 
+        /// <para> Accessors: PlayerMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="LevelMasterClass.GameElementClickService"/> </para> 
+        /// </summary>
+        public static GAME_ELEMENT_CLICK_DELEGATE GAME_ELEMENT_CLICK;
+        /// <summary> 
         /// Gets nearest WP from a given coordinates of level
         /// <para> Owner: LevelMaster </para> 
         /// <para> Accessors: PlayerMaster, ItemMaster,  </para> 
@@ -149,13 +156,6 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /// <para> Method: <see cref="GameEventMasterClass.IsItemTakenFromSceneService"/> </para> 
         /// </summary>
         public static IS_ITEM_TAKEN_FROM_SCENE_DELEGATE IS_ITEM_TAKEN_FROM_SCENE;
-        /// <summary> 
-        /// Gets scenario item list
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: ItemMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.GetScenarioItemListService"/> </para> 
-        /// </summary>
-        public static GET_SCENARIO_ITEM_LIST_DELEGATE GET_SCENARIO_ITEM_LIST;
         /// <summary> 
         /// Selects some pickable from inventory
         /// <para> Owner: ItemMaster </para> 

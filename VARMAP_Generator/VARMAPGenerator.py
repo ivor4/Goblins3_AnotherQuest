@@ -24,6 +24,7 @@ modules_types_path = atg_path + "VARMAP_types_modules.cs"
 items_types_path = atg_path + "VARMAP_types_items.cs"
 names_types_path = atg_path + "VARMAP_types_names.cs"
 sprite_types_path = atg_path + "VARMAP_types_sprites.cs"
+event_types_path = atg_path + "VARMAP_types_events.cs"
 items_interaction_path = atg_path + "../Static/ItemsInteractionsClass.cs"
 dialog_atlas_path = atg_path + "../Static/ResourceDialogsAtlas.cs"
 sprite_atlas_path = atg_path + "../Static/ResourceSpritesAtlas.cs"
@@ -117,6 +118,7 @@ names_lines = ATGFile(names_text_path, 0)
 rooms_types_lines = ATGFile(rooms_types_path, 1)
 names_types_lines = ATGFile(names_types_path, 1)
 sprite_types_lines = ATGFile(sprite_types_path, 1)
+event_types_lines = ATGFile(event_types_path, 1)
 modules_types_lines = ATGFile(modules_types_path, 1)
 items_types_lines = ATGFile(items_types_path, 3)
 items_interaction_lines = ATGFile(items_interaction_path, 2)
@@ -142,6 +144,7 @@ PHRASESinputFile = open("PHRASES.csv", "r")
 ROOMSinputFile = open("ROOMS.csv", "r")
 NAMESinputFile = open("NAMES.csv", "r")
 SPRITESinputFile = open("SPRITES.csv", "r")
+EVENTSinputFile = open("EVENTS.csv", "r")
 
 VARMAPPermissionFile = []
 
@@ -225,9 +228,9 @@ for line in VARMAPinputFile:
     
 
     if(VARMAPVar["struct"]):
-        stringToWrite += "("+enumstring+", "+arrayString+safetyString+VARMAPVar["type"]+".StaticParseFromBytes, "+VARMAPVar["type"]+".StaticParseToBytes, "+"null"
+        stringToWrite += "("+enumstring+", "+arrayString+safetyString+VARMAPVar["type"]+".StaticParseFromBytes, "+VARMAPVar["type"]+".StaticParseToBytes"
     else:
-        stringToWrite += "("+enumstring+", "+arrayString+safetyString+"VARMAP_parsers."+VARMAPVar["type"]+"_ParseFromBytes, "+"VARMAP_parsers."+VARMAPVar["type"]+"_ParseToBytes, "+"null"
+        stringToWrite += "("+enumstring+", "+arrayString+safetyString+"VARMAP_parsers."+VARMAPVar["type"]+"_ParseFromBytes, "+"VARMAP_parsers."+VARMAPVar["type"]+"_ParseToBytes"
     
         
 
@@ -819,6 +822,7 @@ dialogs_types_lines.InsertLineInATG(3, stringToWrite)
 
 print('\n\n------ROOMS (Custom GOB3) -------\n\n')
 linecount = -1
+zone = 1
 for line in ROOMSinputFile:
     linecount += 1
     
@@ -1030,7 +1034,7 @@ print('\n\n------ITEMS (Custom GOB3) -------\n\n')
 
 items_types_lines.InsertLineInATG(2, 'ITEM_PICK_NONE = -1,\n')
 
-
+zone = 1
 linecount = -1
 for line in ITEMSinputFile:
     ItemVar = {}
@@ -1189,6 +1193,41 @@ stringToWrite = '\n'
 sprite_types_lines.InsertLineInATG(1, stringToWrite)
 stringToWrite = 'SPRITE_TOTAL\n'
 sprite_types_lines.InsertLineInATG(1, stringToWrite)
+
+
+print('\n\n------EVENTS (Custom GOB3) -------\n\n')
+linecount = -1
+zone = 1
+
+for line in EVENTSinputFile:
+    linecount += 1
+    
+    line = line.replace('\n','')
+    line = line.replace('\r','')
+    
+    
+    columns = line.split(',')
+    print(columns)
+
+    if(linecount == 0):
+        continue
+    
+    if(columns[0] == ''):
+        # Various zones in file, but only needed zone 1
+        break
+    
+    
+    stringToWrite = columns[1]
+    if('NONE' in columns[1]):
+        stringToWrite += ' = -1'
+    stringToWrite += ', \n'
+    event_types_lines.InsertLineInATG(1, stringToWrite)
+
+    
+stringToWrite = '\n'
+event_types_lines.InsertLineInATG(1, stringToWrite)
+stringToWrite = 'EVENT_TOTAL\n'
+event_types_lines.InsertLineInATG(1, stringToWrite)
     
 
 
@@ -1233,6 +1272,7 @@ items_interaction_lines.SaveFile()
 dialog_atlas_lines.SaveFile()
 names_types_lines.SaveFile()
 sprite_types_lines.SaveFile()
+event_types_lines.SaveFile()
 sprite_atlas_lines.SaveFile()
 room_atlas_lines.SaveFile()
 

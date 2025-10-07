@@ -1,8 +1,10 @@
+using Gob3AQ.GameEventMaster;
+using Gob3AQ.GameMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.VARMAP.Types.Delegates;
 using Gob3AQ.VARMAP.Variable;
-using Gob3AQ.GameEventMaster;
-using Gob3AQ.GameMaster;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Gob3AQ.VARMAP
@@ -205,6 +207,13 @@ namespace Gob3AQ.VARMAP
         /// </summary>
         protected static PLAYER_WAYPOINT_UPDATE_DELEGATE _PLAYER_WAYPOINT_UPDATE;
         /// <summary> 
+        /// Any of Game Elements (Player or Item or Door) will call with essential info
+        /// <para> Owner: LevelMaster </para> 
+        /// <para> Accessors: PlayerMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="LevelMasterClass.GameElementClickService"/> </para> 
+        /// </summary>
+        protected static GAME_ELEMENT_CLICK_DELEGATE _GAME_ELEMENT_CLICK;
+        /// <summary> 
         /// Selects player
         /// <para> Owner: PlayerMaster </para> 
         /// <para> Accessors: LevelMaster,  </para> 
@@ -270,7 +279,7 @@ namespace Gob3AQ.VARMAP
         /// <summary> 
         /// Gets scenario item list
         /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: ItemMaster,  </para> 
+        /// <para> Accessors:  </para> 
         /// <para> Method: <see cref="LevelMasterClass.GetScenarioItemListService"/> </para> 
         /// </summary>
         protected static GET_SCENARIO_ITEM_LIST_DELEGATE _GET_SCENARIO_ITEM_LIST;

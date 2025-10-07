@@ -7,6 +7,7 @@ using UnityEngine;
 using System.IO;
 using System.Collections;
 using Gob3AQ.VARMAP.Variable.IstreamableNamespace;
+using Gob3AQ.VARMAP.Types.Delegates;
 using System.Collections.Generic;
 using Gob3AQ.Libs.CRC32;
 using Gob3AQ.Libs.Arith;
@@ -69,12 +70,10 @@ namespace Gob3AQ.VARMAP.Variable
     {
         public delegate void ParseTypeToBytes(in T refvalue, ref Span<byte> writer);
         public delegate void ParseTypeFromBytes(ref T refvalue, ref ReadOnlySpan<byte> writer);
-        public delegate T ConstructorOfType();
 
 
         protected ParseTypeToBytes ParseToBytesFunction;
         protected ParseTypeFromBytes ParseFromBytesFunction;
-        protected ConstructorOfType ConstructorFunction;
 
         
 
@@ -102,7 +101,7 @@ namespace Gob3AQ.VARMAP.Variable
         private uint _IDSec;
         private uint _IDSecShadow;
 
-        public VARMAP_SafeArray(VARMAP_Variable_ID id, int elems, bool highSecurity, ParseTypeFromBytes parseFromBytesDelegate, ParseTypeToBytes parseToBytesDelegate, ConstructorOfType constructor = null) : base(id, elems, parseFromBytesDelegate, parseToBytesDelegate, constructor)
+        public VARMAP_SafeArray(VARMAP_Variable_ID id, int elems, bool highSecurity, ParseTypeFromBytes parseFromBytesDelegate, ParseTypeToBytes parseToBytesDelegate) : base(id, elems, parseFromBytesDelegate, parseToBytesDelegate)
         {
             _highSec = highSecurity;
             _IDSec = VARMAP_Safe.RegisterSecureVariable();
@@ -357,7 +356,7 @@ namespace Gob3AQ.VARMAP.Variable
         /// </summary>
         /// <param name="id">Unique ID for this variable</param>
         /// <param name="newInstanceFunc">If T is Streamable and not a primitive, its CreateNewInstance function must be given</param>
-        public VARMAP_Array(VARMAP_Variable_ID id, int elems, ParseTypeFromBytes parseFromBytesDelegate, ParseTypeToBytes parseToBytesDelegate, ConstructorOfType constructor = null)
+        public VARMAP_Array(VARMAP_Variable_ID id, int elems, ParseTypeFromBytes parseFromBytesDelegate, ParseTypeToBytes parseToBytesDelegate)
         {
             if(elems <= 0)
             {
@@ -368,7 +367,6 @@ namespace Gob3AQ.VARMAP.Variable
 
             ParseFromBytesFunction = parseFromBytesDelegate;
             ParseToBytesFunction = parseToBytesDelegate;
-            ConstructorFunction = constructor;
 
             _ID = id;
 
@@ -577,18 +575,7 @@ namespace Gob3AQ.VARMAP.Variable
             for (int i = 0; i < listSize; i++)
             {
                 ReadOnlySpan<byte> tempspan = readZone.ReadNext(_elemSize);
-
-                if(ConstructorFunction != null)
-                {
-                    _shadowValues[i] = ConstructorFunction();
-                }
-                else
-                {
-                    _shadowValues[i] = default;
-                }
-
                 ParseFromBytesFunction(ref _shadowValues[i], ref tempspan);
-
             }
 
             AddPendingCommit(this, _dirty);
@@ -658,7 +645,7 @@ namespace Gob3AQ.VARMAP.Variable
         private uint _IDSec;
         private uint _IDSecShadow;
 
-        public VARMAP_SafeVariable(VARMAP_Variable_ID id, bool highSecurity, ParseTypeFromBytes parseFromBytesDelegate, ParseTypeToBytes parseToBytesDelegate, ConstructorOfType constructor = null) : base (id, parseFromBytesDelegate, parseToBytesDelegate, constructor)
+        public VARMAP_SafeVariable(VARMAP_Variable_ID id, bool highSecurity, ParseTypeFromBytes parseFromBytesDelegate, ParseTypeToBytes parseToBytesDelegate) : base (id, parseFromBytesDelegate, parseToBytesDelegate)
         {
             _highSec = highSecurity;
             _IDSec = VARMAP_Safe.RegisterSecureVariable();
@@ -857,11 +844,10 @@ namespace Gob3AQ.VARMAP.Variable
         
 
 
-        public VARMAP_Variable(VARMAP_Variable_ID id, ParseTypeFromBytes parseFromBytesDelegate, ParseTypeToBytes parseToBytesDelegate, ConstructorOfType constructor = null)
+        public VARMAP_Variable(VARMAP_Variable_ID id, ParseTypeFromBytes parseFromBytesDelegate, ParseTypeToBytes parseToBytesDelegate)
         {
             ParseFromBytesFunction = parseFromBytesDelegate;
             ParseToBytesFunction = parseToBytesDelegate;
-            ConstructorFunction = constructor;
 
             Constructor(id, default);
         }

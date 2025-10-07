@@ -1,15 +1,18 @@
-using UnityEngine;
-using UnityEditor;
+using Gob3AQ.FixedConfig;
+using Gob3AQ.GameElement;
+using Gob3AQ.GameElement.Clickable;
 using Gob3AQ.PlayerMaster;
 using Gob3AQ.VARMAP.PlayerMaster;
 using Gob3AQ.VARMAP.Types;
-using Gob3AQ.FixedConfig;
 using Gob3AQ.Waypoint;
-using Gob3AQ.Waypoint.Types;
 using Gob3AQ.Waypoint.ProgrammedPath;
-using System.Collections.Generic;
+using Gob3AQ.Waypoint.Types;
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.EventSystems;
 
 
 namespace Gob3AQ.GameElement.PlayableChar
@@ -31,7 +34,7 @@ namespace Gob3AQ.GameElement.PlayableChar
 
 
     [System.Serializable]
-    public class PlayableCharScript : MonoBehaviour
+    public class PlayableCharScript : GameElement
     {
         /* Fields */
         [SerializeField]
@@ -43,7 +46,6 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         public bool IsSteady => (physicalstate == PhysicalState.PHYSICAL_STATE_STANDING) && (!bufferedData.pending);
 
-        public WaypointClass Waypoint => actualWaypoint;
 
         /* GameObject components */
         private GameObject _parent;
@@ -57,9 +59,10 @@ namespace Gob3AQ.GameElement.PlayableChar
         private float actTimeout;
 
         private bool selected;
-        private WaypointClass actualWaypoint;
         private WaypointProgrammedPath actualProgrammedPath;
         private BufferedData bufferedData;
+
+        
 
         /// <summary>
         /// This is a preallocated list to avoid unnecessary allocs when asking for a calculated solution
@@ -88,9 +91,6 @@ namespace Gob3AQ.GameElement.PlayableChar
                 }
             }
         }
-
-
-
 
 
         public void ActionRequest(in InteractionUsage usage)
@@ -128,6 +128,8 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         private void Awake()
         {
+            gameElementType = GameElementType.GAME_ELEMENT_PLAYER;
+
             _parent = transform.parent.gameObject;
             _parentTransform = _parent.transform;
             _sprRenderer = _parent.GetComponent<SpriteRenderer>();
@@ -152,6 +154,8 @@ namespace Gob3AQ.GameElement.PlayableChar
             VARMAP_PlayerMaster.REG_PLAYER_SELECTED(ChangedSelectedPlayerEvent);
             VARMAP_PlayerMaster.REG_GAMESTATUS(ChangedGameStatus);
 
+            _parent.GetComponent<GameElementClickable>().SetOnClickAction(MouseDownAction);
+
             /* Start loading coroutine */
             _ = StartCoroutine(Execute_Loading_Coroutine());
         }
@@ -170,6 +174,15 @@ namespace Gob3AQ.GameElement.PlayableChar
             VARMAP_PlayerMaster.UNREG_PLAYER_SELECTED(ChangedSelectedPlayerEvent);
             VARMAP_PlayerMaster.UNREG_GAMESTATUS(ChangedGameStatus);
         }
+
+        private void MouseDownAction()
+        {
+            /* Prepare LevelInfo struct */
+            LevelElemInfo info = new((int)charType, GameElementType.GAME_ELEMENT_PLAYER, actualWaypoint, IsSteady);
+            VARMAP_PlayerMaster.GAME_ELEMENT_CLICK(in info);
+        }
+
+
 
         #region "Private Methods "
 
@@ -354,9 +367,6 @@ namespace Gob3AQ.GameElement.PlayableChar
                     case InteractionType.PLAYER_WITH_ITEM:
                     case InteractionType.ITEM_WITH_ITEM:
                     case InteractionType.ITEM_WITH_PLAYER:
-
-                        
-
                         if(bufferedData.usage.type == InteractionType.ITEM_WITH_PLAYER)
                         {
                             validTransaction = PlayerMasterClass.IsPlayerInSameState(bufferedData.usage.playerDest,

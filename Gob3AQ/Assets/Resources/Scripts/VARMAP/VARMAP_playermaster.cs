@@ -35,26 +35,20 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             REG_PLAYER_SELECTED = _REG_PLAYER_SELECTED;
             UNREG_PLAYER_SELECTED = _UNREG_PLAYER_SELECTED;
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
-            GET_ELEM_PLAYER_TRANSACTION = _GET_ELEM_PLAYER_TRANSACTION;
-            GET_SHADOW_ELEM_PLAYER_TRANSACTION = _GET_SHADOW_ELEM_PLAYER_TRANSACTION;
-            SET_ELEM_PLAYER_TRANSACTION = _SET_ELEM_PLAYER_TRANSACTION;
-            GET_SIZE_PLAYER_TRANSACTION = _GET_SIZE_PLAYER_TRANSACTION;
-            GET_ARRAY_PLAYER_TRANSACTION = _GET_ARRAY_PLAYER_TRANSACTION;
-            GET_SHADOW_ARRAY_PLAYER_TRANSACTION = _GET_SHADOW_ARRAY_PLAYER_TRANSACTION;
-            SET_ARRAY_PLAYER_TRANSACTION = _SET_ARRAY_PLAYER_TRANSACTION;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             MONO_REGISTER = _MONO_REGISTER;
             PLAYER_WAYPOINT_UPDATE = _PLAYER_WAYPOINT_UPDATE;
-            GAME_ELEMENT_CLICK = _GAME_ELEMENT_CLICK;
+            GAME_ELEMENT_OVER = _GAME_ELEMENT_OVER;
             SELECT_PLAYER = _SELECT_PLAYER;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
             GET_NEAREST_WP = _GET_NEAREST_WP;
             IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
-            USE_ITEM = _USE_ITEM;
+            IS_ITEM_AVAILABLE = _IS_ITEM_AVAILABLE;
             INTERACT_PLAYER = _INTERACT_PLAYER;
+            USE_ITEM = _USE_ITEM;
             EVENT_SUBSCRIPTION = _EVENT_SUBSCRIPTION;
             CROSS_DOOR = _CROSS_DOOR;
             LOCK_PLAYER = _LOCK_PLAYER;
@@ -82,13 +76,6 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         public static ReUnRegisterVARMAPValueChangeEventDelegate<CharacterType> REG_PLAYER_SELECTED;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<CharacterType> UNREG_PLAYER_SELECTED;
         public static GetVARMAPValueDelegate<GameItem> GET_PICKABLE_ITEM_CHOSEN;
-        public static GetVARMAPArrayElemValueDelegate<ulong> GET_ELEM_PLAYER_TRANSACTION;
-        public static GetVARMAPArrayElemValueDelegate<ulong> GET_SHADOW_ELEM_PLAYER_TRANSACTION;
-        public static SetVARMAPArrayElemValueDelegate<ulong> SET_ELEM_PLAYER_TRANSACTION;
-        public static GetVARMAPArraySizeDelegate GET_SIZE_PLAYER_TRANSACTION;
-        public static GetVARMAPArrayDelegate<ulong> GET_ARRAY_PLAYER_TRANSACTION;
-        public static GetVARMAPArrayDelegate<ulong> GET_SHADOW_ARRAY_PLAYER_TRANSACTION;
-        public static SetVARMAPArrayDelegate<ulong> SET_ARRAY_PLAYER_TRANSACTION;
         /* > ATG 2 END */
 
         /* SERVICES */
@@ -125,9 +112,9 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         /// Any of Game Elements (Player or Item or Door) will call with essential info
         /// <para> Owner: LevelMaster </para> 
         /// <para> Accessors: PlayerMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.GameElementClickService"/> </para> 
+        /// <para> Method: <see cref="LevelMasterClass.GameElementOverService"/> </para> 
         /// </summary>
-        public static GAME_ELEMENT_CLICK_DELEGATE GAME_ELEMENT_CLICK;
+        public static GAME_ELEMENT_OVER_DELEGATE GAME_ELEMENT_OVER;
         /// <summary> 
         /// Selects player
         /// <para> Owner: PlayerMaster </para> 
@@ -171,19 +158,26 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         /// </summary>
         public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
         /// <summary> 
+        /// Gets if an item is available to interact with
+        /// <para> Owner: LevelMaster </para> 
+        /// <para> Accessors: PlayerMaster,  </para> 
+        /// <para> Method: <see cref="LevelMasterClass.IsItemAvailableService"/> </para> 
+        /// </summary>
+        public static IS_ITEM_AVAILABLE_DELEGATE IS_ITEM_AVAILABLE;
+        /// <summary> 
+        /// Makes player interact with usage data
+        /// <para> Owner: PlayerMaster </para> 
+        /// <para> Accessors: LevelMaster,  </para> 
+        /// <para> Method: <see cref="PlayerMasterClass.InteractPlayerService"/> </para> 
+        /// </summary>
+        public static INTERACT_PLAYER_DELEGATE INTERACT_PLAYER;
+        /// <summary> 
         /// Uses an item with something
         /// <para> Owner: ItemMaster </para> 
         /// <para> Accessors: PlayerMaster,  </para> 
         /// <para> Method: <see cref="ItemMasterClass.UseItemService"/> </para> 
         /// </summary>
         public static USE_ITEM_DELEGATE USE_ITEM;
-        /// <summary> 
-        /// Interacts player with an item
-        /// <para> Owner: PlayerMaster </para> 
-        /// <para> Accessors: LevelMaster,  </para> 
-        /// <para> Method: <see cref="PlayerMasterClass.InteractPlayerService"/> </para> 
-        /// </summary>
-        public static INTERACT_PLAYER_DELEGATE INTERACT_PLAYER;
         /// <summary> 
         /// Subscribe to an event. Invoke when event changes
         /// <para> Owner: GameEventMaster </para> 

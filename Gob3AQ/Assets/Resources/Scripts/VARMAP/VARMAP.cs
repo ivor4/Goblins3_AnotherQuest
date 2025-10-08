@@ -1,5 +1,8 @@
 using Gob3AQ.GameEventMaster;
 using Gob3AQ.GameMaster;
+using Gob3AQ.GameMenu;
+using Gob3AQ.LevelMaster;
+using Gob3AQ.PlayerMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.VARMAP.Types.Delegates;
 using Gob3AQ.VARMAP.Variable;
@@ -83,15 +86,6 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPValueDelegate<GameItem> _SET_PICKABLE_ITEM_CHOSEN;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> _REG_PICKABLE_ITEM_CHOSEN;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> _UNREG_PICKABLE_ITEM_CHOSEN;
-        protected static GetVARMAPArrayElemValueDelegate<ulong> _GET_ELEM_PLAYER_TRANSACTION;
-        protected static GetVARMAPArrayElemValueDelegate<ulong> _GET_SHADOW_ELEM_PLAYER_TRANSACTION;
-        protected static SetVARMAPArrayElemValueDelegate<ulong> _SET_ELEM_PLAYER_TRANSACTION;
-        protected static GetVARMAPArraySizeDelegate _GET_SIZE_PLAYER_TRANSACTION;
-        protected static GetVARMAPArrayDelegate<ulong> _GET_ARRAY_PLAYER_TRANSACTION;
-        protected static GetVARMAPArrayDelegate<ulong> _GET_SHADOW_ARRAY_PLAYER_TRANSACTION;
-        protected static SetVARMAPArrayDelegate<ulong> _SET_ARRAY_PLAYER_TRANSACTION;
-        protected static ReUnRegisterVARMAPValueChangeEventDelegate<ulong> _REG_PLAYER_TRANSACTION;
-        protected static ReUnRegisterVARMAPValueChangeEventDelegate<ulong> _UNREG_PLAYER_TRANSACTION;
         protected static GetVARMAPValueDelegate<bool> _GET_LAST_VARMAP_VAL;
         protected static GetVARMAPValueDelegate<bool> _GET_SHADOW_LAST_VARMAP_VAL;
         protected static SetVARMAPValueDelegate<bool> _SET_LAST_VARMAP_VAL;
@@ -210,9 +204,9 @@ namespace Gob3AQ.VARMAP
         /// Any of Game Elements (Player or Item or Door) will call with essential info
         /// <para> Owner: LevelMaster </para> 
         /// <para> Accessors: PlayerMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.GameElementClickService"/> </para> 
+        /// <para> Method: <see cref="LevelMasterClass.GameElementOverService"/> </para> 
         /// </summary>
-        protected static GAME_ELEMENT_CLICK_DELEGATE _GAME_ELEMENT_CLICK;
+        protected static GAME_ELEMENT_OVER_DELEGATE _GAME_ELEMENT_OVER;
         /// <summary> 
         /// Selects player
         /// <para> Owner: PlayerMaster </para> 
@@ -256,6 +250,20 @@ namespace Gob3AQ.VARMAP
         /// </summary>
         protected static COMMIT_EVENT_DELEGATE _COMMIT_EVENT;
         /// <summary> 
+        /// Gets if an item is available to interact with
+        /// <para> Owner: LevelMaster </para> 
+        /// <para> Accessors: PlayerMaster,  </para> 
+        /// <para> Method: <see cref="LevelMasterClass.IsItemAvailableService"/> </para> 
+        /// </summary>
+        protected static IS_ITEM_AVAILABLE_DELEGATE _IS_ITEM_AVAILABLE;
+        /// <summary> 
+        /// Makes player interact with usage data
+        /// <para> Owner: PlayerMaster </para> 
+        /// <para> Accessors: LevelMaster,  </para> 
+        /// <para> Method: <see cref="PlayerMasterClass.InteractPlayerService"/> </para> 
+        /// </summary>
+        protected static INTERACT_PLAYER_DELEGATE _INTERACT_PLAYER;
+        /// <summary> 
         /// Uses an item with something
         /// <para> Owner: ItemMaster </para> 
         /// <para> Accessors: PlayerMaster,  </para> 
@@ -269,20 +277,6 @@ namespace Gob3AQ.VARMAP
         /// <para> Method: <see cref="GameEventMasterClass.IsItemTakenFromSceneService"/> </para> 
         /// </summary>
         protected static IS_ITEM_TAKEN_FROM_SCENE_DELEGATE _IS_ITEM_TAKEN_FROM_SCENE;
-        /// <summary> 
-        /// Interacts player with an item
-        /// <para> Owner: PlayerMaster </para> 
-        /// <para> Accessors: LevelMaster,  </para> 
-        /// <para> Method: <see cref="PlayerMasterClass.InteractPlayerService"/> </para> 
-        /// </summary>
-        protected static INTERACT_PLAYER_DELEGATE _INTERACT_PLAYER;
-        /// <summary> 
-        /// Gets scenario item list
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors:  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.GetScenarioItemListService"/> </para> 
-        /// </summary>
-        protected static GET_SCENARIO_ITEM_LIST_DELEGATE _GET_SCENARIO_ITEM_LIST;
         /// <summary> 
         /// Enables or disables item menu (from Play State)
         /// <para> Owner: GameMaster </para> 

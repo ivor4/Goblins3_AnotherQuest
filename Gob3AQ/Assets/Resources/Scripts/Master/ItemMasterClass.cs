@@ -43,9 +43,6 @@ namespace Gob3AQ.ItemMaster
                 case InteractionType.ITEM_WITH_ITEM:
                     UseItemWithItem(in usage, out outcome);
                     break;
-                case InteractionType.ITEM_WITH_PLAYER:
-                    outcome = new(CharacterAnimation.ITEM_USE_ANIMATION_NONE, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, GameEvent.EVENT_NONE, false);
-                    break;
                 default:
                     outcome = new(CharacterAnimation.ITEM_USE_ANIMATION_NONE, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, GameEvent.EVENT_NONE, false);
                     break;

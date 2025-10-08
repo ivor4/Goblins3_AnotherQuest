@@ -19,7 +19,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate ReadOnlySpan<T> GetVARMAPArrayDelegate<T>();
     public delegate void SetVARMAPArrayDelegate<T>(List<T> newvals);
     public delegate void EVENT_SUBSCRIPTION_CALL_DELEGATE(bool newStatus);
-    public delegate void GAME_ELEMENT_CLICK_DELEGATE(in LevelElemInfo info);
+    public delegate void GAME_ELEMENT_OVER_DELEGATE(in LevelElemInfo info);
 
 
     public delegate void START_GAME_DELEGATE(out bool error);
@@ -30,8 +30,8 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void LODING_COMPLETED_DELEGATE(GameModules module);
     public delegate void IS_MODULE_LOADED_DELEGATE(GameModules module, out bool loaded);
     public delegate void FREEZE_PLAY_DELEGATE(bool freeze);
-    public delegate void ENABLE_DIALOGUE_DELEGATE(bool enable, CharacterType charType, DialogType dialog, DialogPhrase phrase);
-    public delegate void SHOW_DIALOGUE_DELEGATE(CharacterType charType, DialogType dialog, DialogPhrase phrase);
+    public delegate void ENABLE_DIALOGUE_DELEGATE(bool enable, ReadOnlySpan<GameItem> talkers, DialogType dialog, DialogPhrase phrase);
+    public delegate void SHOW_DIALOGUE_DELEGATE(ReadOnlySpan<GameItem> talkers, DialogType dialog, DialogPhrase phrase);
     public delegate void ITEM_REGISTER_DELEGATE(bool register, ItemClass instance);
     public delegate void ITEM_OBTAIN_PICKABLE_DELEGATE(GameItem item);
     public delegate void MONO_REGISTER_DELEGATE(PlayableCharScript mono, bool add);
@@ -44,11 +44,12 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void GET_NEAREST_WP_DELEGATE(Vector2 pos, float maxradius, out WaypointClass wp);
     public delegate void IS_EVENT_OCCURRED_DELEGATE(GameEvent ev, out bool occurred);
     public delegate void COMMIT_EVENT_DELEGATE(GameEvent ev, bool occurred);
+    public delegate void IS_ITEM_AVAILABLE_DELEGATE(GameItem item, out bool available);
+    public delegate void INTERACT_PLAYER_DELEGATE(in InteractionUsage usage);
     public delegate void IS_EVENT_COMBI_OCCURRED_DELEGATE(ReadOnlySpan<GameEventCombi> combi, out bool occurred);
     public delegate void ITEM_OBTAIN_PICKABLE_EVENT_DELEGATE(GamePickableItem item);
     public delegate void IS_ITEM_TAKEN_FROM_SCENE_DELEGATE(GamePickableItem item, out bool taken);
     public delegate void IS_ITEM_OWNED_DELEGATE(GamePickableItem item, out CharacterType character);
-    public delegate void INTERACT_PLAYER_DELEGATE(in InteractionUsage usage);
     public delegate void INTERACT_PLAYER_DOOR_DELEGATE(CharacterType character, WaypointClass doorWaypoint, int doorIndex);
     public delegate void TAKE_ITEM_DELEGATE(CharacterType character, GameItem item, out ItemInteractionType permitted);
     public delegate void USE_ITEM_DELEGATE(in InteractionUsage usage, out InteractionUsageOutcome outcome);

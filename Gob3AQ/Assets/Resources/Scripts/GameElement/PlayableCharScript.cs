@@ -1,3 +1,4 @@
+using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameElement;
 using Gob3AQ.GameElement.Clickable;
@@ -7,6 +8,7 @@ using Gob3AQ.VARMAP.Types;
 using Gob3AQ.Waypoint;
 using Gob3AQ.Waypoint.ProgrammedPath;
 using Gob3AQ.Waypoint.Types;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -44,8 +46,6 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         public Collider2D Collider => _collider;
 
-        public bool IsSteady => (physicalstate == PhysicalState.PHYSICAL_STATE_STANDING) && (!bufferedData.pending);
-
 
         /* GameObject components */
         private GameObject _parent;
@@ -76,7 +76,7 @@ namespace Gob3AQ.GameElement.PlayableChar
         {
             if (enablelock)
             {
-                if (IsSteady)
+                if (isAvailable)
                 {
                     /* Lock the character */
                     physicalstate = PhysicalState.PHYSICAL_STATE_LOCKED;
@@ -128,7 +128,7 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         private void Awake()
         {
-            gameElementType = GameElementType.GAME_ELEMENT_PLAYER;
+            gameElementFamily = GameItemFamily.ITEM_FAMILY_TYPE_PLAYER;
 
             _parent = transform.parent.gameObject;
             _parentTransform = _parent.transform;
@@ -147,14 +147,15 @@ namespace Gob3AQ.GameElement.PlayableChar
             selected = false;
             bufferedData.pending = false;
             actTimeout = 0f;
+            isAvailable = true;
 
-            PlayerMasterClass.SetPlayerAvailable(CharType);
+            PlayerMasterClass.SetPlayerLoadPresent(CharType);
 
             VARMAP_PlayerMaster.MONO_REGISTER(this, true);
             VARMAP_PlayerMaster.REG_PLAYER_SELECTED(ChangedSelectedPlayerEvent);
             VARMAP_PlayerMaster.REG_GAMESTATUS(ChangedGameStatus);
 
-            _parent.GetComponent<GameElementClickable>().SetOnClickAction(MouseDownAction);
+            _parent.GetComponent<GameElementClickable>().SetOnClickAction(MouseEnterAction);
 
             /* Start loading coroutine */
             _ = StartCoroutine(Execute_Loading_Coroutine());
@@ -175,11 +176,11 @@ namespace Gob3AQ.GameElement.PlayableChar
             VARMAP_PlayerMaster.UNREG_GAMESTATUS(ChangedGameStatus);
         }
 
-        private void MouseDownAction()
+        private void MouseEnterAction(bool enter)
         {
             /* Prepare LevelInfo struct */
-            LevelElemInfo info = new((int)charType, GameElementType.GAME_ELEMENT_PLAYER, actualWaypoint, IsSteady);
-            VARMAP_PlayerMaster.GAME_ELEMENT_CLICK(in info);
+            LevelElemInfo info = new((int)charType, gameElementFamily, actualWaypoint, enter & isAvailable);
+            VARMAP_PlayerMaster.GAME_ELEMENT_OVER(in info);
         }
 
 
@@ -259,6 +260,8 @@ namespace Gob3AQ.GameElement.PlayableChar
             {
                 gameObject.SetActive(false);
             }
+
+            isAvailable = (physicalstate == PhysicalState.PHYSICAL_STATE_STANDING) && (!bufferedData.pending);
         }
 
         private bool Execute_Walk()
@@ -356,35 +359,36 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         private bool StartBufferedInteraction()
         {
-            bool validTransaction;
             bool continueOp = false;
 
+            /* Generate stack array of 2 talkers, player and dst */
+            Span<GameItem> talkers = stackalloc GameItem[2];
+
             /* Now interact if buffered */
-            if (bufferedData.pending)
+            if (bufferedData.pending && (bufferedData.usage.type == InteractionType.PLAYER_WITH_ITEM))
             {
-                switch (bufferedData.usage.type)
+                ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(bufferedData.usage.itemDest);
+
+                switch(itemInfo.family)
                 {
-                    case InteractionType.PLAYER_WITH_ITEM:
-                    case InteractionType.ITEM_WITH_ITEM:
-                    case InteractionType.ITEM_WITH_PLAYER:
-                        if(bufferedData.usage.type == InteractionType.ITEM_WITH_PLAYER)
-                        {
-                            validTransaction = PlayerMasterClass.IsPlayerInSameState(bufferedData.usage.playerDest,
-                                bufferedData.usage.playerTransactionId, actualWaypoint);
-                        }
-                        else
-                        {
-                            validTransaction = true;
-                        }
+                    case GameItemFamily.ITEM_FAMILY_TYPE_DOOR:
+                        VARMAP_PlayerMaster.CROSS_DOOR(charType, bufferedData.usage.destListIndex);
+                        break;
+                    default:
+                        VARMAP_PlayerMaster.IS_ITEM_AVAILABLE(bufferedData.usage.itemDest, out bool validTransaction);
 
                         if (validTransaction)
                         {
                             /* Use Item is also Take Item */
                             VARMAP_PlayerMaster.USE_ITEM(in bufferedData.usage, out InteractionUsageOutcome outcome);
 
-                            if(outcome.dialogType != DialogType.DIALOG_NONE)
+                            if (outcome.dialogType != DialogType.DIALOG_NONE)
                             {
-                                VARMAP_PlayerMaster.ENABLE_DIALOGUE(true, CharType, outcome.dialogType, outcome.dialogPhrase);
+                                /* Default talkers are own player and itemDest */
+                                talkers[0] = itemID;
+                                talkers[1] = bufferedData.usage.itemDest;
+
+                                VARMAP_PlayerMaster.ENABLE_DIALOGUE(true, talkers, outcome.dialogType, outcome.dialogPhrase);
                             }
                             else if (outcome.animation != CharacterAnimation.ITEM_USE_ANIMATION_NONE)
                             {
@@ -396,21 +400,12 @@ namespace Gob3AQ.GameElement.PlayableChar
                                 /**/
                             }
                         }
-
                         break;
-
-                    case InteractionType.PLAYER_WITH_DOOR:
-                        VARMAP_PlayerMaster.CROSS_DOOR(charType, bufferedData.usage.destListIndex);
-                        break;
-
-                    default:
-                        break;
-                
                 }
-
-                /* Clear */
-                bufferedData.pending = false;
             }
+
+            /* Clear */
+            bufferedData.pending = false;
 
             return continueOp;
         }

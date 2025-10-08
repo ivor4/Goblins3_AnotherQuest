@@ -28,8 +28,7 @@ namespace Gob3AQ.LevelMaster
         private static List<ItemClass> _Item_List;
         private static List<DoorClass> _Door_List;
         private static Dictionary<GameItem, ItemClass> _ItemDictionary;
-        private static LevelElemInfo _ClickedElem;
-        private static int _freeClickDebounce;
+        private static LevelElemInfo _HoveredElem;
 
 
         #region "Services"
@@ -151,12 +150,36 @@ namespace Gob3AQ.LevelMaster
             VARMAP_LevelMaster.LOAD_ROOM(door.RoomLead, out _);
         }
 
-        public static void GameElementClickService(in LevelElemInfo info)
+        public static void GameElementOverService(in LevelElemInfo info)
         {
             /* Overwrite new type is higher than actual */
-            if ((int)_ClickedElem.type < (int)info.type)
+            if (info.enter)
             {
-                _ClickedElem = info;
+                if ((int)_HoveredElem.family < (int)info.family)
+                {
+                    _HoveredElem = info;
+                }
+            }
+            /* Undo if not over anymore and official was this one */
+            else
+            {
+                if(_HoveredElem.family == info.family && _HoveredElem.index == info.index)
+                {
+                    _HoveredElem = LevelElemInfo.EMPTY;
+                }
+            }
+        }
+
+        public static void IsItemAvailableService(GameItem item, out bool available)
+        {
+            bool found = _ItemDictionary.TryGetValue(item, out ItemClass itemInstance);
+            if (found)
+            {
+                available = itemInstance.IsAvailable;
+            }
+            else
+            {
+                available = false;
             }
         }
 
@@ -230,9 +253,7 @@ namespace Gob3AQ.LevelMaster
 
             _playMouseArea = new Rect(0, 0, Screen.width, Screen.height * GameFixedConfig.GAME_ZONE_HEIGHT_PERCENT);
 
-            _ClickedElem = LevelElemInfo.EMPTY;
-
-            _freeClickDebounce = 0;
+            _HoveredElem = LevelElemInfo.EMPTY;
         }
 
 
@@ -275,75 +296,9 @@ namespace Gob3AQ.LevelMaster
             CharacterType playerSelected = VARMAP_LevelMaster.GET_PLAYER_SELECTED();
             InteractionUsage usage;
 
-            /* If there is buffered action */
-            if(_ClickedElem.type != GameElementType.GAME_ELEMENT_NONE)
-            {
-                switch (_ClickedElem.type)
-                {
-                    case GameElementType.GAME_ELEMENT_PLAYER:
-                        if ((chosenItem != GameItem.ITEM_NONE) && (playerSelected != CharacterType.CHARACTER_NONE))
-                        {
-                            if (_ClickedElem.available)
-                            {
-                                /* Transaction is used to ensure player is in the same state as when intended to use item */
-                                ulong playerTransactionState = VARMAP_LevelMaster.GET_ELEM_PLAYER_TRANSACTION(_ClickedElem.index);
-                                usage = InteractionUsage.CreatePlayerUseItemWithPlayer(playerSelected, chosenItem,
-                                    (CharacterType)_ClickedElem.index, playerTransactionState, _ClickedElem.waypoint);
-
-
-                                VARMAP_LevelMaster.INTERACT_PLAYER(in usage);
-                            }
-                        }
-                        else
-                        {
-                            VARMAP_LevelMaster.SELECT_PLAYER((CharacterType)_ClickedElem.index);
-                            VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
-                        }
-                        break;
-
-                    case GameElementType.GAME_ELEMENT_ITEM:
-                        if (playerSelected != CharacterType.CHARACTER_NONE)
-                        {
-                            if (chosenItem == GameItem.ITEM_NONE)
-                            {
-                                usage = InteractionUsage.CreatePlayerTakeItem(playerSelected, (GameItem)_ClickedElem.index,
-                                    _ClickedElem.waypoint);
-                            }
-                            else
-                            {
-                                usage = InteractionUsage.CreatePlayerUseItemWithItem(playerSelected, chosenItem,
-                                    (GameItem)_ClickedElem.index, _ClickedElem.waypoint);
-                            }
-
-                            VARMAP_LevelMaster.INTERACT_PLAYER(in usage);
-                        }
-                        break;
-
-
-                    case GameElementType.GAME_ELEMENT_DOOR:
-                        usage = InteractionUsage.CreatePlayerUseDoor(playerSelected, _ClickedElem.index,
-                            _ClickedElem.waypoint);
-
-                        VARMAP_LevelMaster.INTERACT_PLAYER(in usage);
-                        VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
-                        break;
-
-                    default:
-                        break;
-                }
-
-                /* Reset */
-                _ClickedElem = LevelElemInfo.EMPTY;
-
-                /* Avoid immediate free click after an interaction */
-                _freeClickDebounce = 2; 
-            }
-            else if (_freeClickDebounce > 0)
-            {
-                _freeClickDebounce--;
-            }
+            
             /* If no items menu or just a menu opened */
-            else if (mouse.secondaryReleased)
+            if (mouse.secondaryReleased)
             {
                 if ((chosenItem == GameItem.ITEM_NONE) && (playerSelected != CharacterType.CHARACTER_NONE))
                 {
@@ -356,10 +311,65 @@ namespace Gob3AQ.LevelMaster
             }
             else if (mouse.primaryReleased)
             {
+                /* If there is buffered action */
+                if (_HoveredElem.family != GameItemFamily.ITEM_FAMILY_TYPE_NONE)
+                {
+                    switch (_HoveredElem.family)
+                    {
+                        case GameItemFamily.ITEM_FAMILY_TYPE_PLAYER:
+                            if ((chosenItem != GameItem.ITEM_NONE) && (playerSelected != CharacterType.CHARACTER_NONE))
+                            {
+                                /* Transaction is used to ensure player is in the same state as when intended to use item */
+                                usage = InteractionUsage.CreatePlayerUseItemWithItem(playerSelected, chosenItem,
+                                        (GameItem)_HoveredElem.index, _HoveredElem.waypoint);
+                                VARMAP_LevelMaster.INTERACT_PLAYER(in usage);
+                            }
+                            else
+                            {
+                                VARMAP_LevelMaster.SELECT_PLAYER((CharacterType)_HoveredElem.index);
+                                VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
+                            }
+                            break;
+
+                        case GameItemFamily.ITEM_FAMILY_TYPE_OBJECT:
+                            if (playerSelected != CharacterType.CHARACTER_NONE)
+                            {
+                                if (chosenItem == GameItem.ITEM_NONE)
+                                {
+                                    usage = InteractionUsage.CreatePlayerWithItem(playerSelected, (GameItem)_HoveredElem.index,
+                                        _HoveredElem.waypoint);
+                                }
+                                else
+                                {
+                                    usage = InteractionUsage.CreatePlayerUseItemWithItem(playerSelected, chosenItem,
+                                        (GameItem)_HoveredElem.index, _HoveredElem.waypoint);
+                                }
+
+                                VARMAP_LevelMaster.INTERACT_PLAYER(in usage);
+                            }
+                            break;
+
+
+                        case GameItemFamily.ITEM_FAMILY_TYPE_DOOR:
+                            usage = InteractionUsage.CreatePlayerWithItem(playerSelected, (GameItem)_HoveredElem.index,
+                                _HoveredElem.waypoint);
+
+                            VARMAP_LevelMaster.INTERACT_PLAYER(in usage);
+                            VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
                 /* Selected player or item */
-                if (playerSelected != CharacterType.CHARACTER_NONE)
+                else if (playerSelected != CharacterType.CHARACTER_NONE)
                 {
                     CheckPlayerMovementOrder(in mouse, playerSelected);
+                }
+                else
+                {
+                    /**/
                 }
             }
             else

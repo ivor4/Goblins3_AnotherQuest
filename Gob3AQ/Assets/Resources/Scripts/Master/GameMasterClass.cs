@@ -209,7 +209,7 @@ namespace Gob3AQ.GameMaster
 
         }
 
-        public static void EnableDialogueService(bool enable, CharacterType charType, DialogType dialog, DialogPhrase phrase)
+        public static void EnableDialogueService(bool enable, ReadOnlySpan<GameItem> talkers, DialogType dialog, DialogPhrase phrase)
         {
             Game_Status status = VARMAP_GameMaster.GET_SHADOW_GAMESTATUS();
 
@@ -220,7 +220,7 @@ namespace Gob3AQ.GameMaster
                     _SetGameStatus(Game_Status.GAME_STATUS_PLAY_DIALOG);
                     VARMAP_GameMaster.CANCEL_PICKABLE_ITEM();
 
-                    VARMAP_GameMaster.SHOW_DIALOGUE(charType, dialog, phrase);
+                    VARMAP_GameMaster.SHOW_DIALOGUE(talkers, dialog, phrase);
                 }
             }
             else

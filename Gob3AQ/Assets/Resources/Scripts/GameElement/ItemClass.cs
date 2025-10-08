@@ -11,15 +11,8 @@ using UnityEngine.EventSystems;
 
 namespace Gob3AQ.GameElement.Item
 {
-    [System.Serializable]
     public class ItemClass : GameElement
     {
-        [SerializeField]
-        protected GameItem itemID;
-
-        public GameItem ItemID => itemID;
-
-
         protected SpriteRenderer _sprRenderer;
         protected Collider2D _collider;
         protected Rigidbody2D _rigidbody;
@@ -35,7 +28,7 @@ namespace Gob3AQ.GameElement.Item
             _sprRenderer.enabled = false;
             _collider.enabled = false;
 
-            
+            gameElementFamily = GameItemFamily.ITEM_FAMILY_TYPE_OBJECT;
         }
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -61,6 +54,7 @@ namespace Gob3AQ.GameElement.Item
                 _collider.enabled = true;
                 _sprRenderer.enabled = true;
                 registered = true;
+                isAvailable = true;
 
                 /* Execute on next Update */
                 _ = StartCoroutine(Execute_Loading());
@@ -81,11 +75,21 @@ namespace Gob3AQ.GameElement.Item
         }
 
 
-        protected void OnMouseUp()
+        protected void OnMouseEnter()
+        {
+            MouseEnterAction(true);
+        }
+
+        protected void OnMouseExit()
+        {
+            MouseEnterAction(false);
+        }
+
+        private void MouseEnterAction(bool enter)
         {
             /* Prepare LevelInfo struct */
-            LevelElemInfo info = new((int)itemID, GameElementType.GAME_ELEMENT_ITEM, actualWaypoint, true);
-            VARMAP_ItemMaster.GAME_ELEMENT_CLICK(in info);
+            LevelElemInfo info = new((int)itemID, gameElementFamily, actualWaypoint, enter & isAvailable);
+            VARMAP_ItemMaster.GAME_ELEMENT_OVER(in info);
         }
 
 

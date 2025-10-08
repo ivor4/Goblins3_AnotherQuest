@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Gob3AQ.GameElement.Clickable
 {
-    public delegate void OnClickAction();
+    public delegate void OnClickAction(bool enter);
 
     public class GameElementClickable : MonoBehaviour
     {
@@ -13,9 +13,14 @@ namespace Gob3AQ.GameElement.Clickable
             _onClickAction = onClickAction;
         }
 
-        private void OnMouseUp()
+        private void OnMouseEnter()
         {
-            _onClickAction?.Invoke();
+            _onClickAction?.Invoke(true);
+        }
+
+        private void OnMouseExit()
+        {
+            _onClickAction?.Invoke(false);
         }
     }
 }

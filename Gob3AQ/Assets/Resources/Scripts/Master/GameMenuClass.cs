@@ -1,4 +1,5 @@
-﻿using Gob3AQ.FixedConfig;
+﻿using Gob3AQ.Brain.ItemsInteraction;
+using Gob3AQ.FixedConfig;
 using Gob3AQ.GameMenu.Dialog;
 using Gob3AQ.GameMenu.PickableItemDisplay;
 using Gob3AQ.ResourceAtlas;
@@ -31,9 +32,10 @@ namespace Gob3AQ.GameMenu
         
         private static string[] _gameMenuToolbarStrings;
 
-        private static CharacterType dialog_sender;
+        private static GameItem[] dialog_default_talkers;
         private static int dialog_currentPhraseIndex;
         private static int dialog_totalPhrases;
+        private static DialogType dialog_currentDialog;
         private static DialogOption dialog_optionPhrases;
         private static bool dialog_optionPending;
         private static bool dialog_tellingInProgress;
@@ -55,15 +57,16 @@ namespace Gob3AQ.GameMenu
         /// parameters. For simple dialogues,  the specified phrase is displayed directly. For multi-choice dialogues,
         /// the available options are dynamically  populated based on the active dialogue configurations. If no valid
         /// options are found, an error is logged.</remarks>
-        /// <param name="charType">The type of the character initiating the dialogue.</param>
+        /// <param name="defaultTalkers">Default list of talkers (Player and ItemDest)</param>
         /// <param name="dialog">The type of dialogue to display, which determines the structure and options available.</param>
         /// <param name="phrase">The initial phrase to display if the dialogue type is simple.</param>
-        public static void ShowDialogueService(CharacterType charType, DialogType dialog, DialogPhrase phrase)
+        public static void ShowDialogueService(ReadOnlySpan<GameItem> defaultTalkers, DialogType dialog, DialogPhrase phrase)
         {
             int selectablePhrases;
 
             DialogPhrase uniquePhrase = DialogPhrase.PHRASE_NONE;
             DialogOption uniqueOption = DialogOption.DIALOG_OPTION_NONE;
+
 
             if (dialog == DialogType.DIALOG_SIMPLE)
             {
@@ -76,7 +79,7 @@ namespace Gob3AQ.GameMenu
                 selectablePhrases = 0;
 
                 ReadOnlySpan<DialogOptionConfig> dialogOptionConfigs = ResourceDialogsAtlasClass.DialogOptionConfigs;
-                ref readonly DialogConfig dialogConfig = ref ResourceDialogsAtlasClass.DialogConfigs[(int)dialog];
+                ref readonly DialogConfig dialogConfig = ref ResourceDialogsAtlasClass.GetDialogConfig(dialog);
                 ReadOnlySpan<DialogOption> dialogOptions = dialogConfig.Options;
 
                 /* Iterate through dialog available options */
@@ -111,6 +114,10 @@ namespace Gob3AQ.GameMenu
                 }
             }
 
+            /* Prepare data which will be needed */
+            dialog_currentDialog = dialog;
+            defaultTalkers.CopyTo(dialog_default_talkers);
+
 
             /* If it is multichoice, enable selectors. If only 1 say it directly */
             if (selectablePhrases > 1)
@@ -119,17 +126,16 @@ namespace Gob3AQ.GameMenu
                 UICanvas_dialogObj_sender.gameObject.SetActive(false);
                 UICanvas_dialogOptions.SetActive(true);
 
-                dialog_sender = charType;
                 dialog_optionPending = true;
                 dialog_tellingInProgress = false;
             }
             else if (selectablePhrases == 1)
             {
                 /* Initialize phrase index */
-                dialog_sender = charType;
                 dialog_optionPending = false;
+
                 StartDialogue(uniqueOption, 1);
-                StartPhrase(charType, uniquePhrase);
+                StartPhrase(uniquePhrase);
             }
             else
             {
@@ -154,7 +160,7 @@ namespace Gob3AQ.GameMenu
                 {
                     ReadOnlySpan<DialogPhrase> dialogPhrases = dialogOptionConfig.Phrases;
                     StartDialogue(option, dialogPhrases.Length);
-                    StartPhrase(dialog_sender, dialogPhrases[0]);
+                    StartPhrase(dialogPhrases[0]);
                 }
             }
         }
@@ -166,29 +172,36 @@ namespace Gob3AQ.GameMenu
             dialog_currentPhraseIndex = 0;
         }
 
-        private static void StartPhrase(CharacterType charType, DialogPhrase phrase)
+        private static void StartPhrase(DialogPhrase phrase)
         {
+            ReadOnlySpan<GameItem> talkers;
             UICanvas_dialogObj_msg.gameObject.SetActive(true);
             UICanvas_dialogObj_sender.gameObject.SetActive(true);
             UICanvas_dialogOptions.SetActive(false);
 
             /* Preset */
             dialog_tellingInProgress = true;
-            
 
-            ref readonly PhraseContent content = ref ResourceDialogsClass.GetPhraseContent(phrase);
+            /* Chose between default talkers or imposed */
+            ref readonly DialogConfig optionConfig = ref ResourceDialogsAtlasClass.GetDialogConfig(dialog_currentDialog);
 
-            /* Set sender name */
-            if (content.config.name == NameType.NAME_NONE)
+            if(optionConfig.Talkers[0] != GameItem.ITEM_NONE)
             {
-                NameType charName = CharacterNames.CHARACTERNAME[(int)charType];
-                UICanvas_dialogObj_sender.text = ResourceDialogsClass.GetName(charName);
+                talkers = optionConfig.Talkers;
             }
             else
             {
-                UICanvas_dialogObj_sender.text = ResourceDialogsClass.GetName(content.config.name);
+                talkers = dialog_default_talkers;
             }
 
+
+            ref readonly PhraseContent content = ref ResourceDialogsClass.GetPhraseContent(phrase);
+            GameItem talkerItem = talkers[content.config.talkerIndex];
+            ref readonly ItemInfo talkerInfo = ref ItemsInteractionsClass.GetItemInfo(talkerItem);
+
+            /* Set sender name */
+
+            UICanvas_dialogObj_sender.text = ResourceDialogsClass.GetName(talkerInfo.name);
             UICanvas_dialogObj_msg.text = content.message;
 
             dialog_coroutine = _singleton.StartCoroutine(EndPhrase(2f));
@@ -217,7 +230,7 @@ namespace Gob3AQ.GameMenu
                 if (dialog_totalPhrases > dialog_currentPhraseIndex)
                 {
                     /* More phrases to say, wait for user interaction */
-                    StartPhrase(dialog_sender, dialogConfig.Phrases[dialog_currentPhraseIndex]);
+                    StartPhrase(dialogConfig.Phrases[dialog_currentPhraseIndex]);
                 }
                 else
                 {
@@ -232,7 +245,7 @@ namespace Gob3AQ.GameMenu
                         VARMAP_GameMenu.COMMIT_EVENT(dialogConfig.triggeredEvent, true);
                     }
 
-                    VARMAP_GameMenu.ENABLE_DIALOGUE(false, CharacterType.CHARACTER_NONE, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE);
+                    VARMAP_GameMenu.ENABLE_DIALOGUE(false, null, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE);
                 }
             }
         }
@@ -255,6 +268,8 @@ namespace Gob3AQ.GameMenu
 
                 UICanvas_dialogOptionButtons = new DialogOptionButtonClass[GameFixedConfig.MAX_DIALOG_OPTIONS];
                 _displayItemArray = new PickableItemDisplayClass[GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS];
+
+                dialog_default_talkers = new GameItem[GameFixedConfig.MAX_DIALOG_TALKERS];
             }
         }
 

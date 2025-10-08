@@ -37,7 +37,7 @@ namespace Gob3AQ.VARMAP.ItemMaster
             ITEM_REGISTER = _ITEM_REGISTER;
             ITEM_OBTAIN_PICKABLE = _ITEM_OBTAIN_PICKABLE;
             ITEM_OBTAIN_PICKABLE_EVENT = _ITEM_OBTAIN_PICKABLE_EVENT;
-            GAME_ELEMENT_CLICK = _GAME_ELEMENT_CLICK;
+            GAME_ELEMENT_OVER = _GAME_ELEMENT_OVER;
             GET_NEAREST_WP = _GET_NEAREST_WP;
             IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
@@ -111,9 +111,9 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /// Any of Game Elements (Player or Item or Door) will call with essential info
         /// <para> Owner: LevelMaster </para> 
         /// <para> Accessors: PlayerMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.GameElementClickService"/> </para> 
+        /// <para> Method: <see cref="LevelMasterClass.GameElementOverService"/> </para> 
         /// </summary>
-        public static GAME_ELEMENT_CLICK_DELEGATE GAME_ELEMENT_CLICK;
+        public static GAME_ELEMENT_OVER_DELEGATE GAME_ELEMENT_OVER;
         /// <summary> 
         /// Gets nearest WP from a given coordinates of level
         /// <para> Owner: LevelMaster </para> 

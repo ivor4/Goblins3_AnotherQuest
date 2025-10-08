@@ -35,9 +35,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
             GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
             GET_PLAYER_SELECTED = _GET_PLAYER_SELECTED;
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
-            GET_ELEM_PLAYER_TRANSACTION = _GET_ELEM_PLAYER_TRANSACTION;
-            GET_SIZE_PLAYER_TRANSACTION = _GET_SIZE_PLAYER_TRANSACTION;
-            GET_ARRAY_PLAYER_TRANSACTION = _GET_ARRAY_PLAYER_TRANSACTION;
             SAVE_GAME = _SAVE_GAME;
             LOAD_ROOM = _LOAD_ROOM;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
@@ -49,16 +46,16 @@ namespace Gob3AQ.VARMAP.LevelMaster
             WP_REGISTER = _WP_REGISTER;
             DOOR_REGISTER = _DOOR_REGISTER;
             PLAYER_WAYPOINT_UPDATE = _PLAYER_WAYPOINT_UPDATE;
-            GAME_ELEMENT_CLICK = _GAME_ELEMENT_CLICK;
+            GAME_ELEMENT_OVER = _GAME_ELEMENT_OVER;
             SELECT_PLAYER = _SELECT_PLAYER;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
             GET_NEAREST_WP = _GET_NEAREST_WP;
             IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
-            IS_ITEM_TAKEN_FROM_SCENE = _IS_ITEM_TAKEN_FROM_SCENE;
+            IS_ITEM_AVAILABLE = _IS_ITEM_AVAILABLE;
             INTERACT_PLAYER = _INTERACT_PLAYER;
-            GET_SCENARIO_ITEM_LIST = _GET_SCENARIO_ITEM_LIST;
+            IS_ITEM_TAKEN_FROM_SCENE = _IS_ITEM_TAKEN_FROM_SCENE;
             ENABLE_ITEM_MENU = _ENABLE_ITEM_MENU;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             EVENT_SUBSCRIPTION = _EVENT_SUBSCRIPTION;
@@ -90,9 +87,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static GetVARMAPValueDelegate<MousePropertiesStruct> GET_MOUSE_PROPERTIES;
         public static GetVARMAPValueDelegate<CharacterType> GET_PLAYER_SELECTED;
         public static GetVARMAPValueDelegate<GameItem> GET_PICKABLE_ITEM_CHOSEN;
-        public static GetVARMAPArrayElemValueDelegate<ulong> GET_ELEM_PLAYER_TRANSACTION;
-        public static GetVARMAPArraySizeDelegate GET_SIZE_PLAYER_TRANSACTION;
-        public static GetVARMAPArrayDelegate<ulong> GET_ARRAY_PLAYER_TRANSACTION;
         /* > ATG 2 END */
 
         /* SERVICES */
@@ -178,9 +172,9 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// Any of Game Elements (Player or Item or Door) will call with essential info
         /// <para> Owner: LevelMaster </para> 
         /// <para> Accessors: PlayerMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.GameElementClickService"/> </para> 
+        /// <para> Method: <see cref="LevelMasterClass.GameElementOverService"/> </para> 
         /// </summary>
-        public static GAME_ELEMENT_CLICK_DELEGATE GAME_ELEMENT_CLICK;
+        public static GAME_ELEMENT_OVER_DELEGATE GAME_ELEMENT_OVER;
         /// <summary> 
         /// Selects player
         /// <para> Owner: PlayerMaster </para> 
@@ -224,26 +218,26 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// </summary>
         public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
         /// <summary> 
-        /// Tells if item is taken from scene
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.IsItemTakenFromSceneService"/> </para> 
+        /// Gets if an item is available to interact with
+        /// <para> Owner: LevelMaster </para> 
+        /// <para> Accessors: PlayerMaster,  </para> 
+        /// <para> Method: <see cref="LevelMasterClass.IsItemAvailableService"/> </para> 
         /// </summary>
-        public static IS_ITEM_TAKEN_FROM_SCENE_DELEGATE IS_ITEM_TAKEN_FROM_SCENE;
+        public static IS_ITEM_AVAILABLE_DELEGATE IS_ITEM_AVAILABLE;
         /// <summary> 
-        /// Interacts player with an item
+        /// Makes player interact with usage data
         /// <para> Owner: PlayerMaster </para> 
         /// <para> Accessors: LevelMaster,  </para> 
         /// <para> Method: <see cref="PlayerMasterClass.InteractPlayerService"/> </para> 
         /// </summary>
         public static INTERACT_PLAYER_DELEGATE INTERACT_PLAYER;
         /// <summary> 
-        /// Gets scenario item list
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors:  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.GetScenarioItemListService"/> </para> 
+        /// Tells if item is taken from scene
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: LevelMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.IsItemTakenFromSceneService"/> </para> 
         /// </summary>
-        public static GET_SCENARIO_ITEM_LIST_DELEGATE GET_SCENARIO_ITEM_LIST;
+        public static IS_ITEM_TAKEN_FROM_SCENE_DELEGATE IS_ITEM_TAKEN_FROM_SCENE;
         /// <summary> 
         /// Enables or disables item menu (from Play State)
         /// <para> Owner: GameMaster </para> 

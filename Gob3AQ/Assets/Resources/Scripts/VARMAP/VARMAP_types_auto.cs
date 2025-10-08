@@ -4,7 +4,7 @@ using System;
 
 namespace Gob3AQ.VARMAP.Types
 {
-
+    
     public enum CharacterType
     {
         /* > ATG 1 START < */
@@ -47,31 +47,29 @@ namespace Gob3AQ.VARMAP.Types
         /* > ATG 3 END < */
     }
 
-    public static class CharacterNames
-    {
-        public static ReadOnlySpan<NameType> CHARACTERNAME => _characterName;
-
-        private static readonly NameType[] _characterName = new NameType[(int)CharacterType.CHARACTER_TOTAL]
-        {
-            /* > ATG 4 START < */
-            NameType.NAME_CHAR_MAIN, 
-            NameType.NAME_CHAR_PARROT, 
-            NameType.NAME_CHAR_SNAKE, 
-            /* > ATG 4 END < */
-        };
-    }
 
     public enum DialogAnimation
     {
-        /* > ATG 5 START < */
+        /* > ATG 4 START < */
         DIALOG_ANIMATION_NONE = -1, 
         DIALOG_ANIMATION_TALK, 
         
         DIALOG_ANIMATION_TOTAL
-        /* > ATG 5 END < */
+        /* > ATG 4 END < */
     }
 
-
+    public enum GameItemFamily
+    {
+        /* > ATG 5 START < */
+        ITEM_FAMILY_TYPE_NONE = -1, 
+        ITEM_FAMILY_TYPE_DOOR, 
+        ITEM_FAMILY_TYPE_OBJECT, 
+        ITEM_FAMILY_TYPE_NPC, 
+        ITEM_FAMILY_TYPE_PLAYER, 
+        
+        ITEM_FAMILY_TYPE_TOTAL
+        /* > ATG 5 END < */
+    }
 
 
 }

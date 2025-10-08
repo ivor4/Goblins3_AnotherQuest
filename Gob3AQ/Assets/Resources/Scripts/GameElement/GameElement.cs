@@ -6,12 +6,21 @@ using UnityEngine.EventSystems;
 
 namespace Gob3AQ.GameElement
 {
+    [System.Serializable]
     public class GameElement : MonoBehaviour
     {
-        public GameElementType GetGameElementType => gameElementType;
+        [SerializeField]
+        protected GameItem itemID;
+
+        public GameItem ItemID => itemID;
+
+        public GameItemFamily GetGameItemFamily => gameElementFamily;
         public WaypointClass Waypoint => actualWaypoint;
 
-        protected GameElementType gameElementType;
+        public bool IsAvailable => isAvailable;
+
+        protected GameItemFamily gameElementFamily;
         protected WaypointClass actualWaypoint;
+        protected bool isAvailable;
     }
 }

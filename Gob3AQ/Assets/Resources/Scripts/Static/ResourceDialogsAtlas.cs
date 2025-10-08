@@ -6,7 +6,18 @@ namespace Gob3AQ.ResourceDialogsAtlas
 {
     public static class ResourceDialogsAtlasClass
     {
-        public static ReadOnlySpan<DialogConfig> DialogConfigs => _DialogConfig;
+        public static ref readonly DialogConfig GetDialogConfig(DialogType dialog)
+        {
+            if((uint)dialog < (uint)DialogType.DIALOG_TOTAL)
+            {
+                return ref _DialogConfig[(int)dialog];
+            }
+            else
+            {
+                Debug.LogError($"[ResourceDialogsAtlas] GetDialogConfig: Invalid dialog {dialog}");
+                return ref DialogConfig.EMPTY;
+            }
+        }
         public static ReadOnlySpan<DialogOptionConfig> DialogOptionConfigs => _DialogOptionConfig;
         public static ReadOnlySpan<PhraseConfig> PhraseConfigs => _PhraseConfig;
 
@@ -17,9 +28,21 @@ namespace Gob3AQ.ResourceDialogsAtlas
         private static readonly DialogConfig[] _DialogConfig = new DialogConfig[(int)DialogType.DIALOG_TOTAL]
         {
             /* > ATG 1 START < */
-            new(new DialogOption[1]{DialogOption.DIALOG_OPTION_SIMPLE, }), /* DIALOG_SIMPLE */
-            new(new DialogOption[4]{DialogOption.DIALOG_OPTION_ASK_FOUNTAIN_1, DialogOption.DIALOG_OPTION_ASK_FOUNTAIN_2, DialogOption.DIALOG_OPTION_ASK_FOUNTAIN_3, DialogOption.DIALOG_OPTION_ASK_FOUNTAIN_4, }), /* DIALOG_FOUNTAIN */
-            new(new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE, }), /* DIALOG_LAST */
+            new( /* DIALOG_SIMPLE */
+            new GameItem[1]{GameItem.ITEM_NONE,},
+            new DialogOption[1]{DialogOption.DIALOG_OPTION_SIMPLE, }
+            ),
+            
+            new( /* DIALOG_FOUNTAIN */
+            new GameItem[1]{GameItem.ITEM_NONE,},
+            new DialogOption[4]{DialogOption.DIALOG_OPTION_ASK_FOUNTAIN_1, DialogOption.DIALOG_OPTION_ASK_FOUNTAIN_2, DialogOption.DIALOG_OPTION_ASK_FOUNTAIN_3, DialogOption.DIALOG_OPTION_ASK_FOUNTAIN_4, }
+            ),
+            
+            new( /* DIALOG_LAST */
+            new GameItem[1]{GameItem.ITEM_NONE,},
+            new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE, }
+            ),
+            
             /* > ATG 1 END < */
         };
 
@@ -62,12 +85,12 @@ namespace Gob3AQ.ResourceDialogsAtlas
         private static readonly PhraseConfig[] _PhraseConfig = new PhraseConfig[(int)DialogPhrase.PHRASE_TOTAL]
         {
             /* > ATG 3 START < */
-            new(NameType.NAME_NONE, 0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_NONSENSE */ 
-            new(NameType.NAME_NONE, 0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_FOUNTAIN1_1 */ 
-            new(NameType.NAME_NONE, 0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_FOUNTAIN1_2 */ 
-            new(NameType.NAME_NONE, 0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_FOUNTAIN2_1 */ 
-            new(NameType.NAME_NONE, 0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_FOUNTAIN3_1 */ 
-            new(NameType.NAME_NONE, 0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_FOUNTAIN4_1 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_NONSENSE */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_FOUNTAIN1_1 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_FOUNTAIN1_2 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_FOUNTAIN2_1 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_FOUNTAIN3_1 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_FOUNTAIN4_1 */ 
             /* > ATG 3 END < */
         };
     }

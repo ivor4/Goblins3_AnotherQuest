@@ -53,38 +53,26 @@ namespace Gob3AQ.VARMAP.Types
     public enum InteractionType
     {
         PLAYER_MOVE,
-        PLAYER_WITH_ITEM,
-        PLAYER_WITH_DOOR,
         ITEM_WITH_ITEM,
-        ITEM_WITH_PLAYER,
+        PLAYER_WITH_ITEM
     }
 
     
-
-    public enum GameElementType
-    {
-        GAME_ELEMENT_NONE = -1,
-
-        GAME_ELEMENT_DOOR,
-        GAME_ELEMENT_ITEM,
-        GAME_ELEMENT_PLAYER,
-    }
-
     public readonly struct LevelElemInfo
     {
         public readonly int index;
-        public readonly GameElementType type;
+        public readonly GameItemFamily family;
         public readonly WaypointClass waypoint;
-        public readonly bool available;
+        public readonly bool enter;
 
-        public static readonly LevelElemInfo EMPTY = new(-1, GameElementType.GAME_ELEMENT_NONE, null, false);
+        public static readonly LevelElemInfo EMPTY = new(-1, GameItemFamily.ITEM_FAMILY_TYPE_NONE, null, false);
 
-        public LevelElemInfo(int index, GameElementType type, WaypointClass waypoint, bool available)
+        public LevelElemInfo(int index, GameItemFamily family, WaypointClass waypoint, bool enter)
         {
             this.index = index;
-            this.type = type;
+            this.family = family;
             this.waypoint = waypoint;
-            this.available = available;
+            this.enter = enter;
         }
     }
 
@@ -123,14 +111,17 @@ namespace Gob3AQ.VARMAP.Types
 
     public readonly struct DialogConfig
     {
+        public ReadOnlySpan<GameItem> Talkers => talkers;
         public ReadOnlySpan<DialogOption> Options => options;
 
+        private readonly GameItem[] talkers;
         private readonly DialogOption[] options;
 
-        public static readonly DialogConfig EMPTY = new(new DialogOption[0]);
+        public static readonly DialogConfig EMPTY = new(new GameItem[0],new DialogOption[0]);
 
-        public DialogConfig(DialogOption[] options)
+        public DialogConfig(GameItem[] talkers, DialogOption[] options)
         {
+            this.talkers = talkers;
             this.options = options;
         }
     }
@@ -159,15 +150,15 @@ namespace Gob3AQ.VARMAP.Types
 
     public readonly struct PhraseConfig
     {
-        public readonly NameType name;
+        public readonly int talkerIndex;
         public readonly int sound;
         public readonly DialogAnimation animation;
 
-        public static readonly PhraseConfig EMPTY = new(NameType.NAME_NONE, 0, DialogAnimation.DIALOG_ANIMATION_NONE);
+        public static readonly PhraseConfig EMPTY = new(0,0, DialogAnimation.DIALOG_ANIMATION_NONE);
 
-        public PhraseConfig(NameType name, int sound, DialogAnimation animation)
+        public PhraseConfig(int talkerIndex, int sound, DialogAnimation animation)
         {
-            this.name = name;
+            this.talkerIndex = talkerIndex;
             this.sound = sound;
             this.animation = animation;
         }
@@ -192,9 +183,9 @@ namespace Gob3AQ.VARMAP.Types
     public readonly struct ItemInfo
     {
         public readonly NameType name;
+        public readonly GameItemFamily family;
         private readonly GameSprite[] sprites;
         public readonly bool isPickable;
-        public readonly bool isNPC;
         public readonly GameSprite pickableSprite;
         public readonly GamePickableItem pickableItem;
         private readonly ActionConditions[] conditions;
@@ -202,16 +193,16 @@ namespace Gob3AQ.VARMAP.Types
         public ReadOnlySpan<ActionConditions> Conditions => conditions;
         public ReadOnlySpan<GameSprite> Sprites => sprites;
 
-        public static readonly ItemInfo EMPTY = new(NameType.NAME_NONE, new GameSprite[0],false,false,
+        public static readonly ItemInfo EMPTY = new(NameType.NAME_NONE,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new GameSprite[0],false,
             GameSprite.SPRITE_NONE, GamePickableItem.ITEM_PICK_NONE, new ActionConditions[0]);
 
-        public ItemInfo(NameType name, GameSprite[] sprites, bool isPickable, bool isNPC, GameSprite pickableSprite, GamePickableItem pickableItem,
+        public ItemInfo(NameType name, GameItemFamily family, GameSprite[] sprites, bool isPickable, GameSprite pickableSprite, GamePickableItem pickableItem,
             ActionConditions[] conditions)
         {
             this.name = name;
+            this.family = family;
             this.sprites = sprites;
             this.isPickable = isPickable;
-            this.isNPC = isNPC;
             this.pickableSprite = pickableSprite;
             this.pickableItem = pickableItem;
             this.conditions = conditions;
@@ -297,7 +288,7 @@ namespace Gob3AQ.VARMAP.Types
                 CharacterType.CHARACTER_NONE, GameItem.ITEM_NONE, -1, destWp, 0);
         }
 
-        public static InteractionUsage CreatePlayerTakeItem(CharacterType playerSource, GameItem itemDest, WaypointClass destWp)
+        public static InteractionUsage CreatePlayerWithItem(CharacterType playerSource, GameItem itemDest, WaypointClass destWp)
         {
             return new InteractionUsage(InteractionType.PLAYER_WITH_ITEM, playerSource, GameItem.ITEM_NONE,
                 CharacterType.CHARACTER_NONE, itemDest, -1, destWp, 0);
@@ -310,18 +301,7 @@ namespace Gob3AQ.VARMAP.Types
                 CharacterType.CHARACTER_NONE, itemDest, -1, destWp, 0);
         }
 
-        public static InteractionUsage CreatePlayerUseItemWithPlayer(CharacterType playerSource, GameItem itemSource,
-            CharacterType playerDest, ulong playerDestTransactionId, WaypointClass destWp)
-        {
-            return new InteractionUsage(InteractionType.ITEM_WITH_PLAYER, playerSource, itemSource,
-                playerDest, GameItem.ITEM_NONE, -1, destWp, playerDestTransactionId);
-        }
 
-        public static InteractionUsage CreatePlayerUseDoor(CharacterType playerSource, int doorIndex, WaypointClass destWp)
-        {
-            return new InteractionUsage(InteractionType.PLAYER_WITH_DOOR, playerSource, GameItem.ITEM_NONE,
-                CharacterType.CHARACTER_NONE, GameItem.ITEM_NONE, doorIndex, destWp, 0);
-        }
 
         public InteractionUsage(InteractionType type, CharacterType playerSource, GameItem itemSource,
             CharacterType playerDest, GameItem itemDest, int doorIndex, WaypointClass destWaypoint, ulong destPlayerTransaction)

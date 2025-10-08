@@ -17,7 +17,7 @@ phrases_text_path = "./../Gob3AQ/Assets/Resources/Dialogs/PHRASES_CSV.csv"
 names_text_path = "./../Gob3AQ/Assets/Resources/Dialogs/NAMES_CSV.csv"
 
 #This is Custom part
-characters_types_path = atg_path + "VARMAP_types_chars.cs"
+auto_types_path = atg_path + "VARMAP_types_auto.cs"
 dialog_types_path = atg_path + "VARMAP_types_dialogs.cs"
 rooms_types_path = atg_path + "VARMAP_types_rooms.cs"
 modules_types_path = atg_path + "VARMAP_types_modules.cs"
@@ -111,7 +111,7 @@ defaultvalues_lines = ATGFile(defaultvalues_path, 1)
 enum_lines = ATGFile(enum_path, 1)
 delegateupdate_lines = ATGFile(delegateupdate_path, 2)
 savedata_lines = ATGFile(savedata_path, 1)
-characters_lines = ATGFile(characters_types_path, 5)
+auto_lines = ATGFile(auto_types_path, 5)
 dialogs_types_lines = ATGFile(dialog_types_path, 3)
 phrases_lines = ATGFile(phrases_text_path, 0)
 names_lines = ATGFile(names_text_path, 0)
@@ -138,7 +138,7 @@ VARMAPinputFile = open("VARMAP.csv", "r")
 SERVICESinputFile = open("SERVICES.csv", "r")
 ITEMSinputFile = open("ITEMS.csv", "r")
 ACTIONCONDSinputFile = open("ACTION_CONDS.csv", "r")
-CHARSinputFile = open("CHARACTERS.csv", "r")
+AUTOinputFile = open("TYPES.csv", "r")
 DIALOGSinputFile = open("DIALOGS.csv", "r")
 PHRASESinputFile = open("PHRASES.csv", "r")
 ROOMSinputFile = open("ROOMS.csv", "r")
@@ -687,6 +687,7 @@ item_prefix = 'GameItem.'
 room_prefix = 'Room.'
 sprite_prefix = 'GameSprite.'
 name_prefix = 'NameType.'
+family_prefix = 'GameItemFamily.'
 
 
 print('\n\n------DIALOGS (Custom GOB3) -------\n\n')
@@ -727,15 +728,27 @@ for line in DIALOGSinputFile:
     
     if(not 'NONE' in columns[1]):
         if(zone == 1):
-            stringToWrite = 'new('
+            stringToWrite = 'new( /* '+columns[1] + ' */\n'
+            dialog_atlas_lines.InsertLineInATG(1, stringToWrite)
+            
             options = columns[2].split('|')
             num_options = len(options)
+            stringToWrite = 'new GameItem['+str(num_options)+']{'
+            for _option in options:
+                stringToWrite += item_prefix+_option+','
+            stringToWrite += '},\n'
+            dialog_atlas_lines.InsertLineInATG(1, stringToWrite)
+            
+            options = columns[3].split('|')
+            num_options = len(options)
                 
-            stringToWrite += 'new DialogOption['+str(num_options)+']{'
+            stringToWrite = 'new DialogOption['+str(num_options)+']{'
             for _option in options:
                 stringToWrite += dialog_option_prefix + _option + ', '
-            stringToWrite += '}), /* ' + columns[1] + ' */\n'
+            stringToWrite += '}\n'
             dialog_atlas_lines.InsertLineInATG(1, stringToWrite)
+            dialog_atlas_lines.InsertLineInATG(1, '),\n')
+            dialog_atlas_lines.InsertLineInATG(1, '\n')
         elif(zone == 2):
             options = columns[2].split('|')
             num_options = len(options)
@@ -808,7 +821,7 @@ for line in PHRASESinputFile:
         stringToWrite = ",".join(selectedColumns)+'\n'
         phrases_lines.InsertLineInATG(0, stringToWrite)
         
-        stringToWrite = 'new('+name_prefix+columns[2]+', '+columns[3]+', '+\
+        stringToWrite = 'new('+columns[2]+','+columns[3]+', '+\
             dialoganim_prefix + columns[4]+'), /* '+columns[1]+' */ \n'
         dialog_atlas_lines.InsertLineInATG(3, stringToWrite)
     
@@ -898,10 +911,10 @@ stringToWrite = 'MODULE_TOTAL \n'
 modules_types_lines.InsertLineInATG(1, stringToWrite)
     
 
-print('\n\n------CHARS (Custom GOB3) -------\n\n')
+print('\n\n------TYPES (Custom GOB3) -------\n\n')
 linecount = -1
 zone = 1
-for line in CHARSinputFile:
+for line in AUTOinputFile:
     linecount += 1
     
     line = line.replace('\n','')
@@ -915,35 +928,34 @@ for line in CHARSinputFile:
         continue
     
     if(columns[0] == ''):
-        if(zone != 4):
-            stringToWrite = '\n'
-            characters_lines.InsertLineInATG(zone, stringToWrite)
-            
-            if(zone == 1):
-                stringToWrite = 'CHARACTER_TOTAL\n'
-            elif(zone == 2):
-                stringToWrite = 'ITEM_USE_ANIMATION_TOTAL\n'
-            elif(zone == 3):
-                stringToWrite = 'INTERACTION_TOTAL\n'
-            
-            characters_lines.InsertLineInATG(zone, stringToWrite)
+        stringToWrite = '\n'
+        auto_lines.InsertLineInATG(zone, stringToWrite)
+        
+        if(zone == 1):
+            stringToWrite = 'CHARACTER_TOTAL\n'
+        elif(zone == 2):
+            stringToWrite = 'ITEM_USE_ANIMATION_TOTAL\n'
+        elif(zone == 3):
+            stringToWrite = 'INTERACTION_TOTAL\n'
+        elif(zone == 4):
+            stringToWrite = 'DIALOG_ANIMATION_TOTAL\n'
+        
+        auto_lines.InsertLineInATG(zone, stringToWrite)
         
         zone +=1
         linecount = -1
         continue
     
     stringToWrite = columns[1]
-    if(zone == 4):
-        stringToWrite = name_prefix + stringToWrite
     if('NONE' in columns[1]):
         stringToWrite += ' = -1'
     stringToWrite += ', \n'
-    characters_lines.InsertLineInATG(zone, stringToWrite)
+    auto_lines.InsertLineInATG(zone, stringToWrite)
     
 stringToWrite = '\n'
-characters_lines.InsertLineInATG(5, stringToWrite)
-stringToWrite = 'DIALOG_ANIMATION_TOTAL\n'
-characters_lines.InsertLineInATG(5, stringToWrite)
+auto_lines.InsertLineInATG(5, stringToWrite)
+stringToWrite = 'ITEM_FAMILY_TYPE_TOTAL\n'
+auto_lines.InsertLineInATG(5, stringToWrite)
     
     
     
@@ -1053,9 +1065,9 @@ for line in ITEMSinputFile:
     
     ItemVar["name"] = columns[1]
     ItemVar["res_name"] = columns[2]
-    ItemVar["sprites"] = columns[3]
-    ItemVar["pickable"] = 'true' in columns[4].lower()
-    ItemVar["npc"] = 'true' in columns[5].lower()
+    ItemVar["family"] = columns[3]
+    ItemVar["sprites"] = columns[4]
+    ItemVar["pickable"] = 'true' in columns[5].lower()
     ItemVar["pickablesprite"] = columns[6]
     ItemVar["conditions"] = columns[7]
     
@@ -1082,7 +1094,8 @@ for line in ITEMSinputFile:
         stringToWrite = 'new ( /* '+ItemVar["name"] + ' */\n'
         items_interaction_lines.InsertLineInATG(2, stringToWrite)
         
-        stringToWrite = name_prefix+ItemVar["res_name"]+','+'new GameSprite['
+        stringToWrite = name_prefix+ItemVar["res_name"]+','+\
+            family_prefix+ItemVar["family"]+','+'new GameSprite['
         options = ItemVar["sprites"].split('|')
         num_options = len(options)
         stringToWrite += str(num_options)+']{'
@@ -1093,7 +1106,7 @@ for line in ITEMSinputFile:
         items_interaction_lines.InsertLineInATG(2, stringToWrite)
         
         stringToWrite = str(ItemVar["pickable"]).lower()+','+\
-            str(ItemVar["npc"]).lower()+','+sprite_prefix+ItemVar["pickablesprite"]+','+\
+            sprite_prefix+ItemVar["pickablesprite"]+','+\
             pickable_prefix+pickname+',\n'
         items_interaction_lines.InsertLineInATG(2, stringToWrite)
         
@@ -1236,7 +1249,7 @@ VARMAPinputFile.close()
 SERVICESinputFile.close()
 ITEMSinputFile.close()
 ACTIONCONDSinputFile.close()
-CHARSinputFile.close()
+AUTOinputFile.close()
 DIALOGSinputFile.close()
 PHRASESinputFile.close()
 ROOMSinputFile.close()
@@ -1261,7 +1274,7 @@ delegateupdate_lines.SaveFile()
 savedata_lines.SaveFile()
 
 #Custom classes
-characters_lines.SaveFile()
+auto_lines.SaveFile()
 dialogs_types_lines.SaveFile()
 phrases_lines.SaveFile()
 names_lines.SaveFile()

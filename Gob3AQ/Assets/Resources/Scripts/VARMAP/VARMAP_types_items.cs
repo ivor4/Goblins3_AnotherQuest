@@ -6,6 +6,9 @@ namespace Gob3AQ.VARMAP.Types
     {
         /* > ATG 1 START < */
         ITEM_NONE = -1, 
+        ITEM_PLAYER_MAIN, 
+        ITEM_PLAYER_PARROT, 
+        ITEM_PLAYER_SNAKE, 
         ITEM_POTION, 
         ITEM_POTION_BLUE, 
         ITEM_FOUNTAIN, 

@@ -282,31 +282,30 @@ namespace Gob3AQ.VARMAP.Types
         public readonly GameItem itemDest;
         public readonly int destListIndex;
         public readonly WaypointClass destWaypoint;
-        public readonly ulong playerTransactionId;
 
         public static InteractionUsage CreatePlayerMove(CharacterType playerSource, WaypointClass destWp)
         {
             return new InteractionUsage(InteractionType.PLAYER_MOVE, playerSource, GameItem.ITEM_NONE,
-                CharacterType.CHARACTER_NONE, GameItem.ITEM_NONE, -1, destWp, 0);
+                CharacterType.CHARACTER_NONE, GameItem.ITEM_NONE, -1, destWp);
         }
 
         public static InteractionUsage CreatePlayerWithItem(CharacterType playerSource, GameItem itemDest, WaypointClass destWp)
         {
             return new InteractionUsage(InteractionType.PLAYER_WITH_ITEM, playerSource, GameItem.ITEM_NONE,
-                CharacterType.CHARACTER_NONE, itemDest, -1, destWp, 0);
+                CharacterType.CHARACTER_NONE, itemDest, -1, destWp);
         }
 
         public static InteractionUsage CreatePlayerUseItemWithItem(CharacterType playerSource, GameItem itemSource,
             GameItem itemDest, WaypointClass destWp)
         {
             return new InteractionUsage(InteractionType.ITEM_WITH_ITEM, playerSource, itemSource,
-                CharacterType.CHARACTER_NONE, itemDest, -1, destWp, 0);
+                CharacterType.CHARACTER_NONE, itemDest, -1, destWp);
         }
 
 
 
         public InteractionUsage(InteractionType type, CharacterType playerSource, GameItem itemSource,
-            CharacterType playerDest, GameItem itemDest, int doorIndex, WaypointClass destWaypoint, ulong destPlayerTransaction)
+            CharacterType playerDest, GameItem itemDest, int doorIndex, WaypointClass destWaypoint)
         {
             this.type = type;
             this.playerSource = playerSource;
@@ -315,7 +314,6 @@ namespace Gob3AQ.VARMAP.Types
             this.itemDest = itemDest;
             this.destListIndex = doorIndex;
             this.destWaypoint = destWaypoint;
-            this.playerTransactionId = destPlayerTransaction;
         }
     }
 

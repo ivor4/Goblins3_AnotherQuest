@@ -194,7 +194,6 @@ namespace Gob3AQ.GameMenu
             ref readonly ItemInfo talkerInfo = ref ItemsInteractionsClass.GetItemInfo(talkerItem);
 
             /* Set sender name */
-
             UICanvas_dialogObj_sender.text = ResourceDialogsClass.GetName(talkerInfo.name);
             UICanvas_dialogObj_msg.text = content.message;
 

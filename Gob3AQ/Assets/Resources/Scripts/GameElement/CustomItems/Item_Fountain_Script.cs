@@ -25,11 +25,11 @@ namespace Gob3AQ.GameElement.Item.Fountain
             }
         }
 
-        
 
-        protected override void OnDisable()
+
+        public override void VirtualDestroy()
         {
-            base.OnDisable();
+            base.VirtualDestroy();
 
             if (registered)
             {
@@ -59,7 +59,7 @@ namespace Gob3AQ.GameElement.Item.Fountain
 
                     if (occurred)
                     {
-                        _sprRenderer.sprite = _sprite_full;
+                        mySpriteRenderer.sprite = _sprite_full;
                     }
                     else
                     {
@@ -75,7 +75,7 @@ namespace Gob3AQ.GameElement.Item.Fountain
 
         private void _Fountain_Filled(bool _)
         {
-            _sprRenderer.sprite = _sprite_full;
+            mySpriteRenderer.sprite = _sprite_full;
 
             /* Unsubscribe */
             VARMAP_ItemMaster.EVENT_SUBSCRIPTION(GameEvent.EVENT_FOUNTAIN_FULL, _Fountain_Filled, false);

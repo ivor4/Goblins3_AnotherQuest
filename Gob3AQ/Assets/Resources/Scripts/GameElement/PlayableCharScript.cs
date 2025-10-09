@@ -1,4 +1,3 @@
-using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameElement;
 using Gob3AQ.GameElement.Clickable;
@@ -12,7 +11,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -40,15 +38,8 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         public CharacterType CharType => charType;
 
-        public Collider2D Collider => _collider;
-
-
         /* GameObject components */
-        private GameObject _parent;
         private Transform _parentTransform;
-        private SpriteRenderer _sprRenderer;
-        private Collider2D _collider;
-        private Rigidbody2D _rigidbody;
 
         /* Status */
         private PhysicalState physicalstate;
@@ -94,7 +85,7 @@ namespace Gob3AQ.GameElement.PlayableChar
             bool requestAccepted;
 
             /* Interact only if not talking or doing an action */
-            if ((physicalstate & (PhysicalState.PHYSICAL_STATE_LOCKED | PhysicalState.PHYSICAL_STATE_TALKING | PhysicalState.PHYSICAL_STATE_ACTING)) == 0)
+            if (IsAvailable)
             {
                 WaypointSolution solution = dest.Network.GetWaypointSolution(actualWaypoint, dest,
                     WaypointSkillType.WAYPOINT_SKILL_NORMAL, wpsolutionlist);
@@ -111,10 +102,10 @@ namespace Gob3AQ.GameElement.PlayableChar
 
 
                     actualProgrammedPath = new WaypointProgrammedPath(solution);
-                    physicalstate = PhysicalState.PHYSICAL_STATE_WALKING; 
+                    physicalstate = PhysicalState.PHYSICAL_STATE_WALKING;
 
+                    SetActive_Internal(true);
                     Walk_StartNextSegment(false);
-                    gameObject.SetActive(true);
                     requestAccepted = true;
                 }
             }
@@ -131,23 +122,27 @@ namespace Gob3AQ.GameElement.PlayableChar
 
 
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+
             gameElementFamily = GameItemFamily.ITEM_FAMILY_TYPE_PLAYER;
 
-            _parent = transform.parent.gameObject;
-            _parentTransform = _parent.transform;
-            _sprRenderer = _parent.GetComponent<SpriteRenderer>();
-            _collider = _parent.GetComponent<Collider2D>();
-            _rigidbody = _parent.GetComponent<Rigidbody2D>();
+            topParent = transform.parent.gameObject;
+            _parentTransform = topParent.transform;
+            mySpriteRenderer = topParent.GetComponent<SpriteRenderer>();
+            myCollider = topParent.GetComponent<Collider2D>();
+            myRigidbody = topParent.GetComponent<Rigidbody2D>();
 
-            _sprRenderer.enabled = false;
+            SetVisible_Internal(false);
 
             wpsolutionlist = new List<WaypointClass>(GameFixedConfig.MAX_LEVEL_WAYPOINTS);
         }
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
+
             physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
             selected = false;
             pendingPath = false;
@@ -159,9 +154,10 @@ namespace Gob3AQ.GameElement.PlayableChar
             VARMAP_PlayerMaster.MONO_REGISTER(this, true);
             VARMAP_PlayerMaster.ITEM_REGISTER(true, this);
             VARMAP_PlayerMaster.REG_PLAYER_SELECTED(ChangedSelectedPlayerEvent);
-            VARMAP_PlayerMaster.REG_GAMESTATUS(ChangedGameStatus);
 
-            _parent.GetComponent<GameElementClickable>().SetOnClickAction(MouseEnterAction);
+            topParent.GetComponent<GameElementClickable>().SetOnClickAction(MouseEnterAction);
+
+            registered = true;
 
             /* Start loading coroutine */
             _ = StartCoroutine(Execute_Loading_Coroutine());
@@ -175,11 +171,12 @@ namespace Gob3AQ.GameElement.PlayableChar
 
 
 
-        private void OnDestroy()
+        protected override void OnDestroy()
         {
+            base.OnDestroy();
+
             VARMAP_PlayerMaster.MONO_REGISTER(this, false);
             VARMAP_PlayerMaster.UNREG_PLAYER_SELECTED(ChangedSelectedPlayerEvent);
-            VARMAP_PlayerMaster.UNREG_GAMESTATUS(ChangedGameStatus);
         }
 
 
@@ -215,9 +212,10 @@ namespace Gob3AQ.GameElement.PlayableChar
                 }
 
                 _parentTransform.position = actualWaypoint.transform.position;
-                _sprRenderer.enabled = true;
+                
                 VARMAP_PlayerMaster.PLAYER_WAYPOINT_UPDATE(charType, actualWaypoint.IndexInNetwork);
 
+                SetVisible_Internal(true);
                 PlayerMasterClass.SetPlayerLoaded(CharType);
                 loadOk = true;
             }
@@ -254,12 +252,9 @@ namespace Gob3AQ.GameElement.PlayableChar
                 continueLoop = true;
             }
 
-            if (!continueLoop)
-            {
-                gameObject.SetActive(false);
-            }
 
-            SetAvailable((physicalstate == PhysicalState.PHYSICAL_STATE_STANDING) && (!pendingPath));
+            SetActive_Internal(continueLoop);
+            SetAvailable((physicalstate == PhysicalState.PHYSICAL_STATE_STANDING) || (physicalstate == PhysicalState.PHYSICAL_STATE_WALKING));
         }
 
         private bool Execute_Walk()
@@ -273,7 +268,7 @@ namespace Gob3AQ.GameElement.PlayableChar
 
             /* If delta vector of positions and original velocity vector lose their cos(0deg)=1,
              * it means character crossed the point */
-            float dot = Vector2.Dot(deltaPos, _rigidbody.linearVelocity);
+            float dot = Vector2.Dot(deltaPos, myRigidbody.linearVelocity);
 
             if(dot <= 0f)
             {
@@ -285,7 +280,7 @@ namespace Gob3AQ.GameElement.PlayableChar
                 {
                     physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
                     _parentTransform.position = target_pos;
-                    _rigidbody.linearVelocity = Vector2.zero;
+                    myRigidbody.linearVelocity = Vector2.zero;
 
                     continueOp = StartBufferedInteraction();
                 }
@@ -316,11 +311,11 @@ namespace Gob3AQ.GameElement.PlayableChar
 
                 if(selected)
                 {
-                    _sprRenderer.color = Color.red;
+                    mySpriteRenderer.color = Color.red;
                 }
                 else
                 {
-                    _sprRenderer.color = Color.white;
+                    mySpriteRenderer.color = Color.white;
                 }
             }
             else
@@ -350,7 +345,7 @@ namespace Gob3AQ.GameElement.PlayableChar
                 delta = (target_wp.transform.position - _parentTransform.position).normalized;
             }
 
-            _rigidbody.linearVelocity = GameFixedConfig.CHARACTER_NORMAL_SPEED * delta;
+            myRigidbody.linearVelocity = GameFixedConfig.CHARACTER_NORMAL_SPEED * delta;
             
             actualWaypoint = target_wp;
         }
@@ -372,7 +367,7 @@ namespace Gob3AQ.GameElement.PlayableChar
             _ = animation;
 
             physicalstate = PhysicalState.PHYSICAL_STATE_ACTING;
-            _sprRenderer.color = Color.blue;
+            mySpriteRenderer.color = Color.blue;
             actTimeout = 1f;
         }
 
@@ -384,39 +379,13 @@ namespace Gob3AQ.GameElement.PlayableChar
         {
             if(newval == charType)
             {
-                _sprRenderer.color = Color.red;
+                mySpriteRenderer.color = Color.red;
                 selected = true;
             }
             else
             {
-                _sprRenderer.color = Color.white;
+                mySpriteRenderer.color = Color.white;
                 selected = false;
-            }
-        }
-
-        private void ChangedGameStatus(ChangedEventType eventType, in Game_Status oldval, in Game_Status newval)
-        {
-            _ = eventType;
-
-            if (oldval != newval)
-            {
-                switch(newval)
-                {
-                    case Game_Status.GAME_STATUS_PLAY:
-                        _rigidbody.simulated = true;
-
-                        /* Activate script only if there is pending action */
-                        gameObject.SetActive(physicalstate != PhysicalState.PHYSICAL_STATE_STANDING);
-                        break;
-                }
-
-                switch(oldval)
-                {
-                    case Game_Status.GAME_STATUS_PLAY:
-                        _rigidbody.simulated = false;
-                        gameObject.SetActive(false);
-                        break;
-                }
             }
         }
 

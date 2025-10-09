@@ -100,7 +100,7 @@ namespace Gob3AQ.LevelMaster
 
             if(found)
             {
-                itemInstance.gameObject.SetActive(false);
+                itemInstance.VirtualDestroy();
             }
         }
 
@@ -164,7 +164,10 @@ namespace Gob3AQ.LevelMaster
                         CrossDoor(character, usage.destListIndex);
                         break;
                     default:
+                        /* Check if it is available and is still in original position */
                         bool validTransaction = IsItemAvailable(usage.itemDest);
+                        validTransaction &= _ItemDictionary[usage.itemDest].Waypoint == usage.destWaypoint;
+
 
                         if (validTransaction)
                         {

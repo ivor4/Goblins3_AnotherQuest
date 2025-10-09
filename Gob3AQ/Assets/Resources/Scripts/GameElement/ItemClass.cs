@@ -1,4 +1,7 @@
 using Gob3AQ.Brain.ItemsInteraction;
+using Gob3AQ.GameElement.Clickable;
+using Gob3AQ.ResourceSprites;
+using Gob3AQ.ResourceSpritesAtlas;
 using Gob3AQ.VARMAP.ItemMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.Waypoint;
@@ -13,27 +16,29 @@ namespace Gob3AQ.GameElement.Item
 {
     public class ItemClass : GameElementClass
     {
-        protected SpriteRenderer _sprRenderer;
-        protected Collider2D _collider;
-        protected Rigidbody2D _rigidbody;
 
-        protected bool registered;
-
-        void Awake()
+        protected override void Awake()
         {
-            _sprRenderer = GetComponent<SpriteRenderer>();
-            _collider = GetComponent<Collider2D>();
-            _rigidbody = GetComponent<Rigidbody2D>();
+            base.Awake();
 
-            _sprRenderer.enabled = false;
-            _collider.enabled = false;
+            topParent = transform.parent.gameObject;
+
+            mySpriteRenderer = topParent.GetComponent<SpriteRenderer>();
+            myCollider = topParent.GetComponent<Collider2D>();
+            myRigidbody = topParent.GetComponent<Rigidbody2D>();
+
 
             gameElementFamily = GameItemFamily.ITEM_FAMILY_TYPE_OBJECT;
+
+            SetVisible_Internal(false);
+            SetClickable_Internal(false);
         }
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
-        protected virtual void Start()
+        protected override void Start()
         {
+            base.Start();
+
             bool taken;
             ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(itemID);
 
@@ -51,47 +56,47 @@ namespace Gob3AQ.GameElement.Item
             {
                 /* Register item as Level element (to be clicked and able to iteract) */
                 VARMAP_ItemMaster.ITEM_REGISTER(true, this);
-                _collider.enabled = true;
-                _sprRenderer.enabled = true;
+
+                topParent.GetComponent<GameElementClickable>().SetOnClickAction(MouseEnterAction);
+
                 registered = true;
-                SetAvailable(true);
 
                 /* Execute on next Update */
                 _ = StartCoroutine(Execute_Loading());
             }
             else
             {
-                gameObject.SetActive(false);
                 registered = false;
+                VirtualDestroy();
             }
         }
-
-        protected virtual void OnDisable()
-        {
-            if(registered)
-            {
-                VARMAP_ItemMaster.ITEM_REGISTER(false, this);
-            }
-        }
-
-
-        protected void OnMouseEnter()
-        {
-            MouseEnterAction(true);
-        }
-
-        protected void OnMouseExit()
-        {
-            MouseEnterAction(false);
-        }
-
-        
 
 
         protected virtual IEnumerator Execute_Loading()
         {
-            yield return new WaitForNextFrameUnit();
+            bool loaded = false;
+
+            while (!loaded)
+            {
+                yield return new WaitForNextFrameUnit();
+                VARMAP_ItemMaster.IS_MODULE_LOADED(GameModules.MODULE_GameMaster, out loaded);
+            }
+
+            Loading_Task();
+        }
+
+        protected virtual void Loading_Task()
+        {
             VARMAP_ItemMaster.GET_NEAREST_WP(transform.position, float.MaxValue, out actualWaypoint);
+
+            ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(itemID);
+
+            /* Set to default sprite */
+            mySpriteRenderer.sprite = ResourceSpritesClass.GetSprite(itemInfo.Sprites[0]);
+
+            SetVisible_Internal(true);
+            SetClickable_Internal(true);
+            SetAvailable(true);
         }
     }
 }

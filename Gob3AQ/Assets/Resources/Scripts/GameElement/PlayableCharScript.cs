@@ -47,7 +47,6 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         private bool selected;
         private WaypointProgrammedPath actualProgrammedPath;
-        private bool pendingPath;
 
         
 
@@ -98,9 +97,6 @@ namespace Gob3AQ.GameElement.PlayableChar
                 }
                 else
                 {
-                    pendingPath = true;
-
-
                     actualProgrammedPath = new WaypointProgrammedPath(solution);
                     physicalstate = PhysicalState.PHYSICAL_STATE_WALKING;
 
@@ -145,7 +141,6 @@ namespace Gob3AQ.GameElement.PlayableChar
 
             physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
             selected = false;
-            pendingPath = false;
             actTimeout = 0f;
             SetAvailable(true);
 
@@ -196,12 +191,15 @@ namespace Gob3AQ.GameElement.PlayableChar
         private bool Execute_Loading_Action()
         {
             bool loadOk;
-            int wpStartIndex = VARMAP_PlayerMaster.GET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)charType);
-            VARMAP_PlayerMaster.GET_NEAREST_WP(_parentTransform.position, float.MaxValue, out WaypointClass nearestWp);
 
-            /* Wait until Waypoints have loaded their network */
-            if ((nearestWp != null) && (nearestWp.Network != null) && (nearestWp.Network.IsCalculated))
+            VARMAP_PlayerMaster.IS_MODULE_LOADED(GameModules.MODULE_LevelMaster, out loadOk);
+
+            if (loadOk)
             {
+                int wpStartIndex = VARMAP_PlayerMaster.GET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)charType);
+                VARMAP_PlayerMaster.GET_NEAREST_WP(_parentTransform.position, float.MaxValue, out WaypointClass nearestWp);
+
+
                 if (wpStartIndex == -1)
                 {
                     actualWaypoint = nearestWp;
@@ -212,17 +210,13 @@ namespace Gob3AQ.GameElement.PlayableChar
                 }
 
                 _parentTransform.position = actualWaypoint.transform.position;
-                
+
                 VARMAP_PlayerMaster.PLAYER_WAYPOINT_UPDATE(charType, actualWaypoint.IndexInNetwork);
 
                 SetVisible_Internal(true);
                 PlayerMasterClass.SetPlayerLoaded(CharType);
-                loadOk = true;
             }
-            else
-            {
-                loadOk = false;
-            }
+
 
             return loadOk;
         }
@@ -355,9 +349,6 @@ namespace Gob3AQ.GameElement.PlayableChar
             bool continueOp = false;
 
             VARMAP_PlayerMaster.PLAYER_REACHED_WAYPOINT(charType);
-
-            /* Clear */
-            pendingPath = false;
 
             return continueOp;
         }

@@ -29,7 +29,6 @@ namespace Gob3AQ.VARMAP.GameMaster
             GET_SHADOW_GAMESTATUS = _GET_SHADOW_GAMESTATUS;
             SET_GAMESTATUS = _SET_GAMESTATUS;
             GET_PRESSED_KEYS = _GET_PRESSED_KEYS;
-            GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
             GET_LAST_VARMAP_VAL = _GET_LAST_VARMAP_VAL;
             GET_SHADOW_LAST_VARMAP_VAL = _GET_SHADOW_LAST_VARMAP_VAL;
             SET_LAST_VARMAP_VAL = _SET_LAST_VARMAP_VAL;
@@ -64,7 +63,6 @@ namespace Gob3AQ.VARMAP.GameMaster
         public static GetVARMAPValueDelegate<Game_Status> GET_SHADOW_GAMESTATUS;
         public static SetVARMAPValueDelegate<Game_Status> SET_GAMESTATUS;
         public static GetVARMAPValueDelegate<KeyStruct> GET_PRESSED_KEYS;
-        public static GetVARMAPValueDelegate<MousePropertiesStruct> GET_MOUSE_PROPERTIES;
         public static GetVARMAPValueDelegate<bool> GET_LAST_VARMAP_VAL;
         public static GetVARMAPValueDelegate<bool> GET_SHADOW_LAST_VARMAP_VAL;
         public static SetVARMAPValueDelegate<bool> SET_LAST_VARMAP_VAL;

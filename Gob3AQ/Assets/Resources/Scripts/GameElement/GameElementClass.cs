@@ -57,7 +57,7 @@ namespace Gob3AQ.GameElement
         protected virtual void OnDestroy()
         {
             VirtualDestroy();
-            VARMAP_ItemMaster.UNREG_GAMESTATUS(ChangedGameStatus);
+            
         }
 
         protected void MouseEnterAction(bool enter)
@@ -95,8 +95,6 @@ namespace Gob3AQ.GameElement
             bool enable = isActive_int & isActive_ext;
 
             gameObject.SetActive(enable);
-
-            _Hover_Refresh();
         }
 
         /// <summary>
@@ -162,7 +160,7 @@ namespace Gob3AQ.GameElement
 
         private void _SetClickable_Refresh()
         {
-            bool enable = isActive_int & isActive_ext;
+            bool enable = isClickable_ext & isClickable_int;
             myCollider.enabled = enable;
             _Hover_Refresh();
         }
@@ -171,8 +169,7 @@ namespace Gob3AQ.GameElement
         {
             bool compound;
 
-            compound = isActive_ext & isActive_int;
-            compound &= isAvailable;
+            compound = isAvailable;
             compound &= isClickable_ext & isClickable_int;
 
             if (isHovered && !compound)
@@ -185,7 +182,11 @@ namespace Gob3AQ.GameElement
 
         public virtual void VirtualDestroy()
         {
-            SetActive(false);
+            SetAvailable(false);
+            SetClickable(false);
+            SetMotion(false);
+            SetVisible(false);
+
             _Hover_Refresh();
 
             topParent.SetActive(false);
@@ -209,6 +210,7 @@ namespace Gob3AQ.GameElement
                 {
                     case Game_Status.GAME_STATUS_PLAY:
                         SetActive(true);
+                        SetClickable(true);
                         SetMotion(true);
                         break;
                 }
@@ -217,6 +219,7 @@ namespace Gob3AQ.GameElement
                 {
                     case Game_Status.GAME_STATUS_PLAY:
                         SetActive(false);
+                        SetClickable(false);
                         SetMotion(false);
                         break;
                 }

@@ -7,7 +7,7 @@ N,ENUM_ID,TYPE,SAFE,ARRAY,DEFVALUE,SAVE,Separator,GameMaster,InputMaster,LevelMa
 5,PLAYER_ACTUAL_WAYPOINT,int,2,3,-1,Y,,-,-,W,-,-,R,-,-
 6,GAMESTATUS,Game_Status,0,0,Game_Status.GAME_STATUS_STOPPED,N,,W,-,R E,R E,R E,R E,R E,R E
 7,PRESSED_KEYS,KeyStruct,0,0,KeyStruct_Default,N,,R,W,-,-,R,R,-,-
-8,MOUSE_PROPERTIES,MousePropertiesStruct,0,0,MouseProperties_Default,N,,R,W,R,R,R,-,-,-
+8,MOUSE_PROPERTIES,MousePropertiesStruct,0,0,MouseProperties_Default,N,,-,W,R,R,R,-,-,-
 9,PLAYER_SELECTED,CharacterType,0,0,CharacterType.CHARACTER_NONE,N,,-,-,R,-,R,W E,R,-
 10,PICKABLE_ITEM_CHOSEN,GameItem,1,0,GameItem.ITEM_NONE,N,,-,-,R,R E,R,R,W,-
 11,LAST_VARMAP_VAL,bool,0,0,false,N,,W,-,-,-,-,-,-,-

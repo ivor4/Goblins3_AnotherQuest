@@ -1,17 +1,19 @@
+using Gob3AQ.Brain.ItemsInteraction;
+using Gob3AQ.Brain.LevelOptions;
+using Gob3AQ.FixedConfig;
+using Gob3AQ.GameElement;
+using Gob3AQ.GameElement.Door;
+using Gob3AQ.GameElement.Item;
+using Gob3AQ.GameElement.PlayableChar;
+using Gob3AQ.Libs.Arith;
+using Gob3AQ.VARMAP.LevelMaster;
+using Gob3AQ.VARMAP.Types;
+using Gob3AQ.VARMAP.Types.Delegates;
+using Gob3AQ.Waypoint;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Gob3AQ.VARMAP.Types;
-using Gob3AQ.VARMAP.LevelMaster;
-using System;
-using Gob3AQ.FixedConfig;
-using Gob3AQ.Brain.LevelOptions;
-using Gob3AQ.GameElement.Item;
-using Gob3AQ.GameElement.Door;
-using Gob3AQ.Waypoint;
-using Gob3AQ.GameElement.PlayableChar;
-using Gob3AQ.Libs.Arith;
-using Gob3AQ.VARMAP.Types.Delegates;
 
 namespace Gob3AQ.LevelMaster
 {
@@ -25,16 +27,29 @@ namespace Gob3AQ.LevelMaster
 
         private static List<WaypointClass> _WP_List;
         private static PlayableCharScript[] _Player_List;
-        private static List<ItemClass> _Item_List;
         private static List<DoorClass> _Door_List;
-        private static Dictionary<GameItem, ItemClass> _ItemDictionary;
+        private static Dictionary<GameItem, GameElementClass> _ItemDictionary;
         private static LevelElemInfo _HoveredElem;
+        private static PendingCharacterInteraction[] _PendingCharInteractions;
+
+
+        public struct PendingCharacterInteraction
+        {
+            public bool pending;
+            public readonly InteractionUsage usage;
+
+            public PendingCharacterInteraction(in InteractionUsage interaction)
+            {
+                pending = true;
+                usage = interaction;
+            }
+        }
 
 
         #region "Services"
 
 
-           
+
 
         public static void GetPlayerListService(out ReadOnlySpan<PlayableCharScript> rolist)
         {
@@ -42,10 +57,6 @@ namespace Gob3AQ.LevelMaster
         }
 
 
-        public static void GetScenarioItemListService(out ReadOnlyList<ItemClass> rolist)
-        {
-            rolist = new(_Item_List);
-        }
 
         public static void GetNearestWPService(Vector2 position, float maxRadius, out WaypointClass candidate)
         {
@@ -71,23 +82,21 @@ namespace Gob3AQ.LevelMaster
         }
 
 
-        public static void ItemRegisterService(bool register, ItemClass instance)
+        public static void ItemRegisterService(bool register, GameElementClass instance)
         {
             if (register)
             {
-                _Item_List.Add(instance);
                 _ItemDictionary.Add(instance.ItemID, instance);
             }
             else
             {
-                _Item_List.Remove(instance);
                 _ItemDictionary.Remove(instance.ItemID);
             }
         }
 
         public static void ItemObtainPickableService(GameItem item)
         {
-            bool found = _ItemDictionary.TryGetValue(item, out ItemClass itemInstance);
+            bool found = _ItemDictionary.TryGetValue(item, out GameElementClass itemInstance);
 
             if(found)
             {
@@ -136,52 +145,77 @@ namespace Gob3AQ.LevelMaster
             VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)character, waypointIndex);
         }
 
-        public static void CrossDoorService(CharacterType character, int doorIndex)
+        public static void PlayerReachedWaypointService(CharacterType character)
         {
-            DoorClass door = _Door_List[doorIndex];
+            /* Generate stack array of 2 talkers, player and dst */
+            Span<GameItem> talkers = stackalloc GameItem[2];
 
-            _ = character;  /* TODO: out animation? Or should have been done before calling Cross Door? */
+            ref PendingCharacterInteraction charPendingAction = ref _PendingCharInteractions[(int)character];
+            ref readonly InteractionUsage usage = ref charPendingAction.usage;
 
-            int waypointIndex = LevelOptionsClass.GetLevelDoorToWaypoint(door.RoomLead, door.RoomAppearPosition);
-            VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)CharacterType.CHARACTER_MAIN, waypointIndex);
-            VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)CharacterType.CHARACTER_PARROT, waypointIndex);
-            VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)CharacterType.CHARACTER_SNAKE, waypointIndex);
+            /* Now interact if buffered */
+            if (charPendingAction.pending && (usage.type != InteractionType.PLAYER_MOVE))
+            {
+                ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(usage.itemDest);
 
-            VARMAP_LevelMaster.LOAD_ROOM(door.RoomLead, out _);
+                switch (itemInfo.family)
+                {
+                    case GameItemFamily.ITEM_FAMILY_TYPE_DOOR:
+                        CrossDoor(character, usage.destListIndex);
+                        break;
+                    default:
+                        bool validTransaction = IsItemAvailable(usage.itemDest);
+
+                        if (validTransaction)
+                        {
+                            /* Use Item is also Take Item */
+                            VARMAP_LevelMaster.USE_ITEM(in usage, out InteractionUsageOutcome outcome);
+
+                            if (outcome.dialogType != DialogType.DIALOG_NONE)
+                            {
+                                /* Default talkers are own player and itemDest */
+                                talkers[0] = _Player_List[(int)usage.playerSource].ItemID;
+                                talkers[1] = usage.itemDest;
+
+                                VARMAP_LevelMaster.ENABLE_DIALOGUE(true, talkers, outcome.dialogType, outcome.dialogPhrase);
+                            }
+                            else if (outcome.animation != CharacterAnimation.ITEM_USE_ANIMATION_NONE)
+                            {
+                                //ActAnimationRequest(outcome.animation);
+                            }
+                            else
+                            {
+                                /**/
+                            }
+                        }
+                        break;
+                }
+            }
+
+            /* Pending no more */
+            charPendingAction.pending = false;
         }
+
+        
 
         public static void GameElementOverService(in LevelElemInfo info)
         {
-            /* Overwrite new type is higher than actual */
-            if (info.enter)
+            /* Overwrite */
+            if (info.active)
             {
-                if ((int)_HoveredElem.family < (int)info.family)
-                {
-                    _HoveredElem = info;
-                }
+                _HoveredElem = info;
             }
-            /* Undo if not over anymore and official was this one */
+            /* Undo if actual family slot was used by this one */
             else
             {
-                if(_HoveredElem.family == info.family && _HoveredElem.index == info.index)
+                if ((_HoveredElem.family == info.family) && (_HoveredElem.index == info.index))
                 {
                     _HoveredElem = LevelElemInfo.EMPTY;
                 }
             }
         }
 
-        public static void IsItemAvailableService(GameItem item, out bool available)
-        {
-            bool found = _ItemDictionary.TryGetValue(item, out ItemClass itemInstance);
-            if (found)
-            {
-                available = itemInstance.IsAvailable;
-            }
-            else
-            {
-                available = false;
-            }
-        }
+        
 
 
         #endregion
@@ -243,8 +277,7 @@ namespace Gob3AQ.LevelMaster
         {
             _Player_List = new PlayableCharScript[GameFixedConfig.MAX_LEVEL_PLAYABLE_CHARACTERS];
             _WP_List = new List<WaypointClass>(GameFixedConfig.MAX_LEVEL_WAYPOINTS);
-            _Item_List = new List<ItemClass>(GameFixedConfig.MAX_POOLED_ITEMS);
-            _ItemDictionary = new Dictionary<GameItem, ItemClass>(GameFixedConfig.MAX_POOLED_ITEMS);
+            _ItemDictionary = new Dictionary<GameItem, GameElementClass>(GameFixedConfig.MAX_POOLED_ITEMS);
             _Door_List = new List<DoorClass>(GameFixedConfig.MAX_SCENE_DOORS);
 
 
@@ -253,6 +286,7 @@ namespace Gob3AQ.LevelMaster
 
             _playMouseArea = new Rect(0, 0, Screen.width, Screen.height * GameFixedConfig.GAME_ZONE_HEIGHT_PERCENT);
 
+            _PendingCharInteractions = new PendingCharacterInteraction[GameFixedConfig.MAX_LEVEL_PLAYABLE_CHARACTERS];
             _HoveredElem = LevelElemInfo.EMPTY;
         }
 
@@ -311,6 +345,7 @@ namespace Gob3AQ.LevelMaster
             }
             else if (mouse.primaryReleased)
             {
+                bool accepted;
                 /* If there is buffered action */
                 if (_HoveredElem.family != GameItemFamily.ITEM_FAMILY_TYPE_NONE)
                 {
@@ -319,10 +354,14 @@ namespace Gob3AQ.LevelMaster
                         case GameItemFamily.ITEM_FAMILY_TYPE_PLAYER:
                             if ((chosenItem != GameItem.ITEM_NONE) && (playerSelected != CharacterType.CHARACTER_NONE))
                             {
-                                /* Transaction is used to ensure player is in the same state as when intended to use item */
                                 usage = InteractionUsage.CreatePlayerUseItemWithItem(playerSelected, chosenItem,
                                         (GameItem)_HoveredElem.index, _HoveredElem.waypoint);
-                                VARMAP_LevelMaster.INTERACT_PLAYER(in usage);
+                                VARMAP_LevelMaster.INTERACT_PLAYER(playerSelected, _HoveredElem.waypoint, out accepted);
+
+                                if(accepted)
+                                {
+                                    _PendingCharInteractions[(int)playerSelected] = new PendingCharacterInteraction(in usage);
+                                }
                             }
                             else
                             {
@@ -345,7 +384,12 @@ namespace Gob3AQ.LevelMaster
                                         (GameItem)_HoveredElem.index, _HoveredElem.waypoint);
                                 }
 
-                                VARMAP_LevelMaster.INTERACT_PLAYER(in usage);
+                                VARMAP_LevelMaster.INTERACT_PLAYER(playerSelected, _HoveredElem.waypoint, out accepted);
+
+                                if (accepted)
+                                {
+                                    _PendingCharInteractions[(int)playerSelected] = new PendingCharacterInteraction(in usage);
+                                }
                             }
                             break;
 
@@ -354,7 +398,11 @@ namespace Gob3AQ.LevelMaster
                             usage = InteractionUsage.CreatePlayerWithItem(playerSelected, (GameItem)_HoveredElem.index,
                                 _HoveredElem.waypoint);
 
-                            VARMAP_LevelMaster.INTERACT_PLAYER(in usage);
+                            VARMAP_LevelMaster.INTERACT_PLAYER(playerSelected, _HoveredElem.waypoint, out accepted);
+                            if (accepted)
+                            {
+                                _PendingCharInteractions[(int)playerSelected] = new PendingCharacterInteraction(in usage);
+                            }
                             VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
                             break;
 
@@ -378,15 +426,51 @@ namespace Gob3AQ.LevelMaster
             }
         }
 
-        private void CheckPlayerMovementOrder(in MousePropertiesStruct mouse, CharacterType selectedCharacter)
+        private static void CheckPlayerMovementOrder(in MousePropertiesStruct mouse, CharacterType selectedCharacter)
         {
             GetNearestWPService(mouse.pos1, GameFixedConfig.DISTANCE_MOUSE_FURTHEST_WP, out WaypointClass candidate);
 
             if (candidate)
             {
                 InteractionUsage usage = InteractionUsage.CreatePlayerMove(selectedCharacter, candidate);
-                VARMAP_LevelMaster.INTERACT_PLAYER(in usage);
+
+                VARMAP_LevelMaster.INTERACT_PLAYER(selectedCharacter, candidate, out bool accepted);
+                if (accepted)
+                {
+                    _PendingCharInteractions[(int)selectedCharacter] = new PendingCharacterInteraction(in usage);
+                }
             }
+        }
+
+        private static void CrossDoor(CharacterType character, int doorIndex)
+        {
+            DoorClass door = _Door_List[doorIndex];
+
+            _ = character;  /* TODO: out animation? Or should have been done before calling Cross Door? */
+
+            int waypointIndex = LevelOptionsClass.GetLevelDoorToWaypoint(door.RoomLead, door.RoomAppearPosition);
+            VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)CharacterType.CHARACTER_MAIN, waypointIndex);
+            VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)CharacterType.CHARACTER_PARROT, waypointIndex);
+            VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)CharacterType.CHARACTER_SNAKE, waypointIndex);
+
+            VARMAP_LevelMaster.LOAD_ROOM(door.RoomLead, out _);
+        }
+
+        private static bool IsItemAvailable(GameItem item)
+        {
+            bool available;
+            bool found = _ItemDictionary.TryGetValue(item, out GameElementClass itemInstance);
+
+            if (found)
+            {
+                available = itemInstance.IsAvailable;
+            }
+            else
+            {
+                available = false;
+            }
+
+            return available;
         }
     }
 }

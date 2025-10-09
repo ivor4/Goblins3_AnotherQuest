@@ -123,15 +123,14 @@ namespace Gob3AQ.VARMAP.Initialization
             _IS_EVENT_OCCURRED = GameEventMasterClass.IsEventOccurredService;
             _IS_EVENT_COMBI_OCCURRED = GameEventMasterClass.IsEventCombiOccurredService;
             _COMMIT_EVENT = GameEventMasterClass.CommitEventService;
-            _IS_ITEM_AVAILABLE = LevelMasterClass.IsItemAvailableService;
             _INTERACT_PLAYER = PlayerMasterClass.InteractPlayerService;
+            _PLAYER_REACHED_WAYPOINT = LevelMasterClass.PlayerReachedWaypointService;
             _USE_ITEM = ItemMasterClass.UseItemService;
             _IS_ITEM_TAKEN_FROM_SCENE = GameEventMasterClass.IsItemTakenFromSceneService;
             _ENABLE_ITEM_MENU = GameMasterClass.EnableItemMenu;
             _SELECT_PICKABLE_ITEM = ItemMasterClass.SelectPickableItemService;
             _CANCEL_PICKABLE_ITEM = ItemMasterClass.CancelPickableItemService;
             _EVENT_SUBSCRIPTION = GameEventMasterClass.EventSubscriptionService;
-            _CROSS_DOOR = LevelMasterClass.CrossDoorService;
             _LOCK_PLAYER = PlayerMasterClass.LockPlayerService;
             _ENABLE_DIALOGUE = GameMasterClass.EnableDialogueService;
             _SHOW_DIALOGUE = GameMenuClass.ShowDialogueService;

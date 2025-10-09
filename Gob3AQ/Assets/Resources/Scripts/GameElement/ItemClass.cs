@@ -11,7 +11,7 @@ using UnityEngine.EventSystems;
 
 namespace Gob3AQ.GameElement.Item
 {
-    public class ItemClass : GameElement
+    public class ItemClass : GameElementClass
     {
         protected SpriteRenderer _sprRenderer;
         protected Collider2D _collider;
@@ -54,7 +54,7 @@ namespace Gob3AQ.GameElement.Item
                 _collider.enabled = true;
                 _sprRenderer.enabled = true;
                 registered = true;
-                isAvailable = true;
+                SetAvailable(true);
 
                 /* Execute on next Update */
                 _ = StartCoroutine(Execute_Loading());
@@ -85,12 +85,7 @@ namespace Gob3AQ.GameElement.Item
             MouseEnterAction(false);
         }
 
-        private void MouseEnterAction(bool enter)
-        {
-            /* Prepare LevelInfo struct */
-            LevelElemInfo info = new((int)itemID, gameElementFamily, actualWaypoint, enter & isAvailable);
-            VARMAP_ItemMaster.GAME_ELEMENT_OVER(in info);
-        }
+        
 
 
         protected virtual IEnumerator Execute_Loading()

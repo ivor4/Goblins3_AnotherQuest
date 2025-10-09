@@ -9,7 +9,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 
 namespace Gob3AQ.ItemMaster
@@ -44,7 +43,8 @@ namespace Gob3AQ.ItemMaster
                     UseItemWithItem(in usage, out outcome);
                     break;
                 default:
-                    outcome = new(CharacterAnimation.ITEM_USE_ANIMATION_NONE, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, GameEvent.EVENT_NONE, false);
+                    outcome = new(CharacterAnimation.ITEM_USE_ANIMATION_NONE, DialogType.DIALOG_NONE,
+                        DialogPhrase.PHRASE_NONE, GameEvent.EVENT_NONE, false, false);
                     break;
             }
         }
@@ -113,6 +113,7 @@ namespace Gob3AQ.ItemMaster
         private static ref readonly ItemInfo ItemInteractionCommon(ItemInteractionType interactionType,
             in InteractionUsage usage, out InteractionUsageOutcome outcome)
         {
+            bool conditionOK;
             bool consumeItem;
             CharacterAnimation animation;
             DialogType dialog;
@@ -121,6 +122,7 @@ namespace Gob3AQ.ItemMaster
 
             /* If item is not defined, it is not possible to process it */
             animation = CharacterAnimation.ITEM_USE_ANIMATION_NONE;
+            conditionOK = false;
             consumeItem = false;
             dialog = DialogType.DIALOG_NONE;
             phrase = DialogPhrase.PHRASE_NONE;
@@ -155,6 +157,7 @@ namespace Gob3AQ.ItemMaster
                         dialog = condition.dialogOK;
                         phrase = condition.phraseOK;
                         consumeItem = condition.consumes;
+                        conditionOK = true;
                     }
                     else
                     {
@@ -166,7 +169,7 @@ namespace Gob3AQ.ItemMaster
                 }
             }
 
-            outcome = new(animation, dialog, phrase, outEvent, consumeItem);
+            outcome = new(animation, dialog, phrase, outEvent, conditionOK, consumeItem);
 
             return ref itemInfo;
         }
@@ -182,7 +185,7 @@ namespace Gob3AQ.ItemMaster
             ref readonly ItemInfo dstItemInfo = ref ItemInteractionCommon(ItemInteractionType.INTERACTION_TAKE, in usage, out outcome);
 
 
-            if (dstItemInfo.isPickable)
+            if (dstItemInfo.isPickable && outcome.ok)
             {
                 /* If interaction is take, remove item from scenario and trigger events, also add it to inventory */
                 GamePickableItem pickable = dstItemInfo.pickableItem;
@@ -205,17 +208,13 @@ namespace Gob3AQ.ItemMaster
             {
                 GamePickableItem pickable = srcItemInfo.pickableItem;
 
-                /* Pickable items which are already stored in inventory */
-                if (pickable != GamePickableItem.ITEM_PICK_NONE)
-                {
-                    VARMAP_ItemMaster.SET_ELEM_PICKABLE_ITEM_OWNER((int)pickable, CharacterType.CHARACTER_NONE);
+                VARMAP_ItemMaster.SET_ELEM_PICKABLE_ITEM_OWNER((int)pickable, CharacterType.CHARACTER_NONE);
 
-                    /* Diselect in case it was selected */
-                    GameItem choosenItem = VARMAP_ItemMaster.GET_SHADOW_PICKABLE_ITEM_CHOSEN();
-                    if (choosenItem == usage.itemSource)
-                    {
-                        VARMAP_ItemMaster.CANCEL_PICKABLE_ITEM();
-                    }
+                /* Diselect in case it was selected */
+                GameItem choosenItem = VARMAP_ItemMaster.GET_SHADOW_PICKABLE_ITEM_CHOSEN();
+                if (choosenItem == usage.itemSource)
+                {
+                    VARMAP_ItemMaster.CANCEL_PICKABLE_ITEM();
                 }
             }
 

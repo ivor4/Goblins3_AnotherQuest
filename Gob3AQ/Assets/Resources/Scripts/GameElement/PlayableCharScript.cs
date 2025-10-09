@@ -28,15 +28,11 @@ namespace Gob3AQ.GameElement.PlayableChar
         PHYSICAL_STATE_LOCKED = 0x8,
     }
 
-    public struct BufferedData
-    {
-        public bool pending;
-        public InteractionUsage usage;
-    }
+    
 
 
     [System.Serializable]
-    public class PlayableCharScript : GameElement
+    public class PlayableCharScript : GameElementClass
     {
         /* Fields */
         [SerializeField]
@@ -60,7 +56,7 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         private bool selected;
         private WaypointProgrammedPath actualProgrammedPath;
-        private BufferedData bufferedData;
+        private bool pendingPath;
 
         
 
@@ -76,7 +72,7 @@ namespace Gob3AQ.GameElement.PlayableChar
         {
             if (enablelock)
             {
-                if (isAvailable)
+                if (IsAvailable)
                 {
                     /* Lock the character */
                     physicalstate = PhysicalState.PHYSICAL_STATE_LOCKED;
@@ -93,23 +89,25 @@ namespace Gob3AQ.GameElement.PlayableChar
         }
 
 
-        public void ActionRequest(in InteractionUsage usage)
+        public bool ActionRequest(WaypointClass dest)
         {
+            bool requestAccepted;
+
             /* Interact only if not talking or doing an action */
             if ((physicalstate & (PhysicalState.PHYSICAL_STATE_LOCKED | PhysicalState.PHYSICAL_STATE_TALKING | PhysicalState.PHYSICAL_STATE_ACTING)) == 0)
             {
-                WaypointSolution solution = usage.destWaypoint.Network.GetWaypointSolution(actualWaypoint, usage.destWaypoint,
+                WaypointSolution solution = dest.Network.GetWaypointSolution(actualWaypoint, dest,
                     WaypointSkillType.WAYPOINT_SKILL_NORMAL, wpsolutionlist);
 
                 if (solution.totalDistance == float.PositiveInfinity)
                 {
                     Debug.LogError("Point is not reachable from actual waypoint");
                     physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
+                    requestAccepted = false;
                 }
                 else
                 {
-                    bufferedData.usage = usage;
-                    bufferedData.pending = true;
+                    pendingPath = true;
 
 
                     actualProgrammedPath = new WaypointProgrammedPath(solution);
@@ -117,8 +115,15 @@ namespace Gob3AQ.GameElement.PlayableChar
 
                     Walk_StartNextSegment(false);
                     gameObject.SetActive(true);
+                    requestAccepted = true;
                 }
             }
+            else
+            {
+                requestAccepted = false;
+            }
+
+            return requestAccepted;
         }
 
 
@@ -145,13 +150,14 @@ namespace Gob3AQ.GameElement.PlayableChar
         {
             physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
             selected = false;
-            bufferedData.pending = false;
+            pendingPath = false;
             actTimeout = 0f;
-            isAvailable = true;
+            SetAvailable(true);
 
             PlayerMasterClass.SetPlayerLoadPresent(CharType);
 
             VARMAP_PlayerMaster.MONO_REGISTER(this, true);
+            VARMAP_PlayerMaster.ITEM_REGISTER(true, this);
             VARMAP_PlayerMaster.REG_PLAYER_SELECTED(ChangedSelectedPlayerEvent);
             VARMAP_PlayerMaster.REG_GAMESTATUS(ChangedGameStatus);
 
@@ -175,14 +181,6 @@ namespace Gob3AQ.GameElement.PlayableChar
             VARMAP_PlayerMaster.UNREG_PLAYER_SELECTED(ChangedSelectedPlayerEvent);
             VARMAP_PlayerMaster.UNREG_GAMESTATUS(ChangedGameStatus);
         }
-
-        private void MouseEnterAction(bool enter)
-        {
-            /* Prepare LevelInfo struct */
-            LevelElemInfo info = new((int)charType, gameElementFamily, actualWaypoint, enter & isAvailable);
-            VARMAP_PlayerMaster.GAME_ELEMENT_OVER(in info);
-        }
-
 
 
         #region "Private Methods "
@@ -261,7 +259,7 @@ namespace Gob3AQ.GameElement.PlayableChar
                 gameObject.SetActive(false);
             }
 
-            isAvailable = (physicalstate == PhysicalState.PHYSICAL_STATE_STANDING) && (!bufferedData.pending);
+            SetAvailable((physicalstate == PhysicalState.PHYSICAL_STATE_STANDING) && (!pendingPath));
         }
 
         private bool Execute_Walk()
@@ -361,51 +359,10 @@ namespace Gob3AQ.GameElement.PlayableChar
         {
             bool continueOp = false;
 
-            /* Generate stack array of 2 talkers, player and dst */
-            Span<GameItem> talkers = stackalloc GameItem[2];
-
-            /* Now interact if buffered */
-            if (bufferedData.pending && (bufferedData.usage.type == InteractionType.PLAYER_WITH_ITEM))
-            {
-                ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(bufferedData.usage.itemDest);
-
-                switch(itemInfo.family)
-                {
-                    case GameItemFamily.ITEM_FAMILY_TYPE_DOOR:
-                        VARMAP_PlayerMaster.CROSS_DOOR(charType, bufferedData.usage.destListIndex);
-                        break;
-                    default:
-                        VARMAP_PlayerMaster.IS_ITEM_AVAILABLE(bufferedData.usage.itemDest, out bool validTransaction);
-
-                        if (validTransaction)
-                        {
-                            /* Use Item is also Take Item */
-                            VARMAP_PlayerMaster.USE_ITEM(in bufferedData.usage, out InteractionUsageOutcome outcome);
-
-                            if (outcome.dialogType != DialogType.DIALOG_NONE)
-                            {
-                                /* Default talkers are own player and itemDest */
-                                talkers[0] = itemID;
-                                talkers[1] = bufferedData.usage.itemDest;
-
-                                VARMAP_PlayerMaster.ENABLE_DIALOGUE(true, talkers, outcome.dialogType, outcome.dialogPhrase);
-                            }
-                            else if (outcome.animation != CharacterAnimation.ITEM_USE_ANIMATION_NONE)
-                            {
-                                ActAnimationRequest(outcome.animation);
-                                continueOp = true;
-                            }
-                            else
-                            {
-                                /**/
-                            }
-                        }
-                        break;
-                }
-            }
+            VARMAP_PlayerMaster.PLAYER_REACHED_WAYPOINT(charType);
 
             /* Clear */
-            bufferedData.pending = false;
+            pendingPath = false;
 
             return continueOp;
         }

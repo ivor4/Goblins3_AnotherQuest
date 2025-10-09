@@ -1,4 +1,5 @@
-﻿using Gob3AQ.GameElement.Door;
+﻿using Gob3AQ.GameElement;
+using Gob3AQ.GameElement.Door;
 using Gob3AQ.GameElement.Item;
 using Gob3AQ.GameElement.PlayableChar;
 using Gob3AQ.Libs.Arith;
@@ -32,7 +33,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void FREEZE_PLAY_DELEGATE(bool freeze);
     public delegate void ENABLE_DIALOGUE_DELEGATE(bool enable, ReadOnlySpan<GameItem> talkers, DialogType dialog, DialogPhrase phrase);
     public delegate void SHOW_DIALOGUE_DELEGATE(ReadOnlySpan<GameItem> talkers, DialogType dialog, DialogPhrase phrase);
-    public delegate void ITEM_REGISTER_DELEGATE(bool register, ItemClass instance);
+    public delegate void ITEM_REGISTER_DELEGATE(bool register, GameElementClass instance);
     public delegate void ITEM_OBTAIN_PICKABLE_DELEGATE(GameItem item);
     public delegate void MONO_REGISTER_DELEGATE(PlayableCharScript mono, bool add);
     public delegate void WP_REGISTER_DELEGATE(WaypointClass wp, bool add);
@@ -45,7 +46,8 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void IS_EVENT_OCCURRED_DELEGATE(GameEvent ev, out bool occurred);
     public delegate void COMMIT_EVENT_DELEGATE(GameEvent ev, bool occurred);
     public delegate void IS_ITEM_AVAILABLE_DELEGATE(GameItem item, out bool available);
-    public delegate void INTERACT_PLAYER_DELEGATE(in InteractionUsage usage);
+    public delegate void INTERACT_PLAYER_DELEGATE(CharacterType character, WaypointClass dest, out bool accepted);
+    public delegate void PLAYER_REACHED_WAYPOINT(CharacterType character);
     public delegate void IS_EVENT_COMBI_OCCURRED_DELEGATE(ReadOnlySpan<GameEventCombi> combi, out bool occurred);
     public delegate void ITEM_OBTAIN_PICKABLE_EVENT_DELEGATE(GamePickableItem item);
     public delegate void IS_ITEM_TAKEN_FROM_SCENE_DELEGATE(GamePickableItem item, out bool taken);

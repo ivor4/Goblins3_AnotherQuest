@@ -6,6 +6,19 @@ namespace Gob3AQ.Brain.ItemsInteraction
 { 
     public static class ItemsInteractionsClass
     {
+        public static GameItem GetItemFromPickable(GamePickableItem pickable)
+        {
+            if((uint)pickable >= (uint)GamePickableItem.ITEM_PICK_TOTAL)
+            {
+                Debug.LogError($"[ItemsInteractionsClass] GetItemFromPickable: Invalid pickable item {pickable}");
+                return GameItem.ITEM_NONE;
+            }
+            else
+            {
+                return _PickableToItem[(int)pickable];
+            }
+        }
+
         public static ref readonly ItemInfo GetItemInfo(GameItem item)
         {
             if((uint)item >= (uint)GameItem.ITEM_TOTAL)
@@ -130,5 +143,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             /* > ATG 2 END < */
         };
 
+        private static readonly GameItem[] _PickableToItem = new GameItem[(int)GamePickableItem.ITEM_PICK_TOTAL]
+        {
+            /* > ATG 3 START < */
+            GameItem.ITEM_POTION,
+            GameItem.ITEM_POTION_BLUE,
+            /* > ATG 3 END < */
+        };
     }
 }

@@ -24,10 +24,10 @@ namespace Gob3AQ.PlayerMaster
             VARMAP_PlayerMaster.SET_PLAYER_SELECTED(character);
         }
 
-        public static void InteractPlayerService(in InteractionUsage usage)
+        public static void InteractPlayerService(CharacterType character, WaypointClass dest, out bool accepted)
         {
-            PlayableCharScript instance = GetPlayerInstance(usage.playerSource);
-            instance.ActionRequest(in usage);
+            PlayableCharScript instance = GetPlayerInstance(character);
+            accepted = instance.ActionRequest(dest);
         }
 
         public static void LockPlayerService(CharacterType character, bool lockPlayer)

@@ -89,7 +89,7 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /// <summary> 
         /// Registers an item in system
         /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: ItemMaster,  </para> 
+        /// <para> Accessors: PlayerMaster, ItemMaster,  </para> 
         /// <para> Method: <see cref="LevelMasterClass.ItemRegisterService"/> </para> 
         /// </summary>
         public static ITEM_REGISTER_DELEGATE ITEM_REGISTER;
@@ -145,7 +145,7 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /// <summary> 
         /// Uses an item with something
         /// <para> Owner: ItemMaster </para> 
-        /// <para> Accessors: PlayerMaster,  </para> 
+        /// <para> Accessors: LevelMaster,  </para> 
         /// <para> Method: <see cref="ItemMasterClass.UseItemService"/> </para> 
         /// </summary>
         public static USE_ITEM_DELEGATE USE_ITEM;

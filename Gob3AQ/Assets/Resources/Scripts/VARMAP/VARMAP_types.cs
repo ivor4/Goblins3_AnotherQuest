@@ -63,16 +63,16 @@ namespace Gob3AQ.VARMAP.Types
         public readonly int index;
         public readonly GameItemFamily family;
         public readonly WaypointClass waypoint;
-        public readonly bool enter;
+        public readonly bool active;
 
         public static readonly LevelElemInfo EMPTY = new(-1, GameItemFamily.ITEM_FAMILY_TYPE_NONE, null, false);
 
-        public LevelElemInfo(int index, GameItemFamily family, WaypointClass waypoint, bool enter)
+        public LevelElemInfo(int index, GameItemFamily family, WaypointClass waypoint, bool active)
         {
             this.index = index;
             this.family = family;
             this.waypoint = waypoint;
-            this.enter = enter;
+            this.active = active;
         }
     }
 
@@ -259,14 +259,16 @@ namespace Gob3AQ.VARMAP.Types
         public readonly DialogType dialogType;
         public readonly DialogPhrase dialogPhrase;
         public readonly GameEvent outEvent;
+        public readonly bool ok;
         public readonly bool consumes;
         public InteractionUsageOutcome(CharacterAnimation animation, DialogType dialogType, DialogPhrase dialogPhrase,
-            GameEvent outEvent, bool consumes)
+            GameEvent outEvent, bool ok, bool consumes)
         {
             this.animation = animation;
             this.dialogType = dialogType;
             this.dialogPhrase = dialogPhrase;
             this.outEvent = outEvent;
+            this.ok = ok;
             this.consumes = consumes;
         }
     }

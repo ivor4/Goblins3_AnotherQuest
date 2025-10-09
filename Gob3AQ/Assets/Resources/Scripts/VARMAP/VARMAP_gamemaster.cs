@@ -145,7 +145,7 @@ namespace Gob3AQ.VARMAP.GameMaster
         /// <summary> 
         /// Starts a dialogue with given text and sound
         /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: GameMenu, PlayerMaster,  </para> 
+        /// <para> Accessors: LevelMaster, GameMenu,  </para> 
         /// <para> Method: <see cref="GameMasterClass.EnableDialogueService"/> </para> 
         /// </summary>
         public static ENABLE_DIALOGUE_DELEGATE ENABLE_DIALOGUE;

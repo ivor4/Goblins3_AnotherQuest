@@ -154,7 +154,7 @@ namespace Gob3AQ.VARMAP
         /// <summary> 
         /// Registers an item in system
         /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: ItemMaster,  </para> 
+        /// <para> Accessors: PlayerMaster, ItemMaster,  </para> 
         /// <para> Method: <see cref="LevelMasterClass.ItemRegisterService"/> </para> 
         /// </summary>
         protected static ITEM_REGISTER_DELEGATE _ITEM_REGISTER;
@@ -250,13 +250,6 @@ namespace Gob3AQ.VARMAP
         /// </summary>
         protected static COMMIT_EVENT_DELEGATE _COMMIT_EVENT;
         /// <summary> 
-        /// Gets if an item is available to interact with
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: PlayerMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.IsItemAvailableService"/> </para> 
-        /// </summary>
-        protected static IS_ITEM_AVAILABLE_DELEGATE _IS_ITEM_AVAILABLE;
-        /// <summary> 
         /// Makes player interact with usage data
         /// <para> Owner: PlayerMaster </para> 
         /// <para> Accessors: LevelMaster,  </para> 
@@ -264,9 +257,16 @@ namespace Gob3AQ.VARMAP
         /// </summary>
         protected static INTERACT_PLAYER_DELEGATE _INTERACT_PLAYER;
         /// <summary> 
+        /// Tells LevelMaster that player reached Waypoint to start action in case
+        /// <para> Owner: LevelMaster </para> 
+        /// <para> Accessors: PlayerMaster,  </para> 
+        /// <para> Method: <see cref="LevelMasterClass.PlayerReachedWaypointService"/> </para> 
+        /// </summary>
+        protected static PLAYER_REACHED_WAYPOINT _PLAYER_REACHED_WAYPOINT;
+        /// <summary> 
         /// Uses an item with something
         /// <para> Owner: ItemMaster </para> 
-        /// <para> Accessors: PlayerMaster,  </para> 
+        /// <para> Accessors: LevelMaster,  </para> 
         /// <para> Method: <see cref="ItemMasterClass.UseItemService"/> </para> 
         /// </summary>
         protected static USE_ITEM_DELEGATE _USE_ITEM;
@@ -306,13 +306,6 @@ namespace Gob3AQ.VARMAP
         /// </summary>
         protected static EVENT_SUBSCRIPTION_DELEGATE _EVENT_SUBSCRIPTION;
         /// <summary> 
-        /// Trigger actions when crossing a door
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: PlayerMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.CrossDoorService"/> </para> 
-        /// </summary>
-        protected static CROSS_DOOR_DELEGATE _CROSS_DOOR;
-        /// <summary> 
         /// Locks player so it cannot act until an action over it has been done (or removes lock)
         /// <para> Owner: PlayerMaster </para> 
         /// <para> Accessors: LevelMaster,  </para> 
@@ -322,7 +315,7 @@ namespace Gob3AQ.VARMAP
         /// <summary> 
         /// Starts a dialogue with given text and sound
         /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: GameMenu, PlayerMaster,  </para> 
+        /// <para> Accessors: LevelMaster, GameMenu,  </para> 
         /// <para> Method: <see cref="GameMasterClass.EnableDialogueService"/> </para> 
         /// </summary>
         protected static ENABLE_DIALOGUE_DELEGATE _ENABLE_DIALOGUE;

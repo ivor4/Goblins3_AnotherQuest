@@ -37,6 +37,7 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
+            ITEM_REGISTER = _ITEM_REGISTER;
             MONO_REGISTER = _MONO_REGISTER;
             PLAYER_WAYPOINT_UPDATE = _PLAYER_WAYPOINT_UPDATE;
             GAME_ELEMENT_OVER = _GAME_ELEMENT_OVER;
@@ -46,13 +47,10 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
-            IS_ITEM_AVAILABLE = _IS_ITEM_AVAILABLE;
             INTERACT_PLAYER = _INTERACT_PLAYER;
-            USE_ITEM = _USE_ITEM;
+            PLAYER_REACHED_WAYPOINT = _PLAYER_REACHED_WAYPOINT;
             EVENT_SUBSCRIPTION = _EVENT_SUBSCRIPTION;
-            CROSS_DOOR = _CROSS_DOOR;
             LOCK_PLAYER = _LOCK_PLAYER;
-            ENABLE_DIALOGUE = _ENABLE_DIALOGUE;
             /* > ATG 1 END */
         }
 
@@ -94,6 +92,13 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         /// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
         /// </summary>
         public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
+        /// <summary> 
+        /// Registers an item in system
+        /// <para> Owner: LevelMaster </para> 
+        /// <para> Accessors: PlayerMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="LevelMasterClass.ItemRegisterService"/> </para> 
+        /// </summary>
+        public static ITEM_REGISTER_DELEGATE ITEM_REGISTER;
         /// <summary> 
         /// Registers a player in scene
         /// <para> Owner: LevelMaster </para> 
@@ -158,13 +163,6 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         /// </summary>
         public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
         /// <summary> 
-        /// Gets if an item is available to interact with
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: PlayerMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.IsItemAvailableService"/> </para> 
-        /// </summary>
-        public static IS_ITEM_AVAILABLE_DELEGATE IS_ITEM_AVAILABLE;
-        /// <summary> 
         /// Makes player interact with usage data
         /// <para> Owner: PlayerMaster </para> 
         /// <para> Accessors: LevelMaster,  </para> 
@@ -172,12 +170,12 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         /// </summary>
         public static INTERACT_PLAYER_DELEGATE INTERACT_PLAYER;
         /// <summary> 
-        /// Uses an item with something
-        /// <para> Owner: ItemMaster </para> 
+        /// Tells LevelMaster that player reached Waypoint to start action in case
+        /// <para> Owner: LevelMaster </para> 
         /// <para> Accessors: PlayerMaster,  </para> 
-        /// <para> Method: <see cref="ItemMasterClass.UseItemService"/> </para> 
+        /// <para> Method: <see cref="LevelMasterClass.PlayerReachedWaypointService"/> </para> 
         /// </summary>
-        public static USE_ITEM_DELEGATE USE_ITEM;
+        public static PLAYER_REACHED_WAYPOINT PLAYER_REACHED_WAYPOINT;
         /// <summary> 
         /// Subscribe to an event. Invoke when event changes
         /// <para> Owner: GameEventMaster </para> 
@@ -186,26 +184,12 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         /// </summary>
         public static EVENT_SUBSCRIPTION_DELEGATE EVENT_SUBSCRIPTION;
         /// <summary> 
-        /// Trigger actions when crossing a door
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: PlayerMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.CrossDoorService"/> </para> 
-        /// </summary>
-        public static CROSS_DOOR_DELEGATE CROSS_DOOR;
-        /// <summary> 
         /// Locks player so it cannot act until an action over it has been done (or removes lock)
         /// <para> Owner: PlayerMaster </para> 
         /// <para> Accessors: LevelMaster,  </para> 
         /// <para> Method: <see cref="PlayerMasterClass.LockPlayerService"/> </para> 
         /// </summary>
         public static LOCK_PLAYER_DELEGATE LOCK_PLAYER;
-        /// <summary> 
-        /// Starts a dialogue with given text and sound
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: GameMenu, PlayerMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.EnableDialogueService"/> </para> 
-        /// </summary>
-        public static ENABLE_DIALOGUE_DELEGATE ENABLE_DIALOGUE;
         /* > ATG 3 END */
     }
 }

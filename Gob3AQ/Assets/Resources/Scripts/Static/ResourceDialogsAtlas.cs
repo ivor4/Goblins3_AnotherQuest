@@ -18,7 +18,19 @@ namespace Gob3AQ.ResourceDialogsAtlas
                 return ref DialogConfig.EMPTY;
             }
         }
-        public static ReadOnlySpan<DialogOptionConfig> DialogOptionConfigs => _DialogOptionConfig;
+
+        public static ref readonly DialogOptionConfig GetDialogOptionConfig(DialogOption option)
+        {
+            if((uint)option < (uint)DialogOption.DIALOG_OPTION_TOTAL)
+            {
+                return ref _DialogOptionConfig[(int)option];
+            }
+            else
+            {
+                Debug.LogError($"[ResourceDialogsAtlas] GetDialogOptionConfig: Invalid dialog option {option}");
+                return ref DialogOptionConfig.EMPTY;
+            }
+        }
         public static ReadOnlySpan<PhraseConfig> PhraseConfigs => _PhraseConfig;
 
 

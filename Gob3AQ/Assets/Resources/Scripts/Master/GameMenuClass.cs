@@ -32,10 +32,9 @@ namespace Gob3AQ.GameMenu
         
         private static string[] _gameMenuToolbarStrings;
 
-        private static GameItem[] dialog_default_talkers;
+        private static GameItem[] dialog_current_talkers;
         private static int dialog_currentPhraseIndex;
         private static int dialog_totalPhrases;
-        private static DialogType dialog_currentDialog;
         private static DialogOption dialog_optionPhrases;
         private static bool dialog_optionPending;
         private static bool dialog_tellingInProgress;
@@ -67,6 +66,8 @@ namespace Gob3AQ.GameMenu
             DialogPhrase uniquePhrase = DialogPhrase.PHRASE_NONE;
             DialogOption uniqueOption = DialogOption.DIALOG_OPTION_NONE;
 
+            ref readonly DialogConfig dialogConfig = ref ResourceDialogsAtlasClass.GetDialogConfig(dialog);
+
 
             if (dialog == DialogType.DIALOG_SIMPLE)
             {
@@ -77,15 +78,13 @@ namespace Gob3AQ.GameMenu
             else
             {
                 selectablePhrases = 0;
-
-                ReadOnlySpan<DialogOptionConfig> dialogOptionConfigs = ResourceDialogsAtlasClass.DialogOptionConfigs;
-                ref readonly DialogConfig dialogConfig = ref ResourceDialogsAtlasClass.GetDialogConfig(dialog);
+                
                 ReadOnlySpan<DialogOption> dialogOptions = dialogConfig.Options;
 
                 /* Iterate through dialog available options */
                 for (int i = 0; i < dialogOptions.Length; i++)
                 {
-                    ref readonly DialogOptionConfig dialogOptionConfig = ref dialogOptionConfigs[(int)dialogOptions[i]];
+                    ref readonly DialogOptionConfig dialogOptionConfig = ref ResourceDialogsAtlasClass.GetDialogOptionConfig(dialogOptions[i]);
 
                     VARMAP_GameMenu.IS_EVENT_COMBI_OCCURRED(dialogOptionConfig.ConditionEvents, out bool valid);
 
@@ -114,9 +113,18 @@ namespace Gob3AQ.GameMenu
                 }
             }
 
-            /* Prepare data which will be needed */
-            dialog_currentDialog = dialog;
-            defaultTalkers.CopyTo(dialog_default_talkers);
+            
+
+            /* Chose between default talkers or imposed */
+
+            if (dialogConfig.Talkers[0] != GameItem.ITEM_NONE)
+            {
+                dialogConfig.Talkers.CopyTo(dialog_current_talkers);
+            }
+            else
+            {
+                defaultTalkers.CopyTo(dialog_current_talkers);
+            }
 
 
             /* If it is multichoice, enable selectors. If only 1 say it directly */
@@ -149,8 +157,7 @@ namespace Gob3AQ.GameMenu
         {
             if ((VARMAP_GameMenu.GET_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY_DIALOG) && dialog_optionPending)
             {
-                ReadOnlySpan<DialogOptionConfig> dialogOptionConfigs = ResourceDialogsAtlasClass.DialogOptionConfigs;
-                ref readonly DialogOptionConfig dialogOptionConfig = ref dialogOptionConfigs[(int)option];
+                ref readonly DialogOptionConfig dialogOptionConfig = ref ResourceDialogsAtlasClass.GetDialogOptionConfig(option);
 
                 dialog_optionPending = false;
 
@@ -174,7 +181,6 @@ namespace Gob3AQ.GameMenu
 
         private static void StartPhrase(DialogPhrase phrase)
         {
-            ReadOnlySpan<GameItem> talkers;
             UICanvas_dialogObj_msg.gameObject.SetActive(true);
             UICanvas_dialogObj_sender.gameObject.SetActive(true);
             UICanvas_dialogOptions.SetActive(false);
@@ -182,21 +188,9 @@ namespace Gob3AQ.GameMenu
             /* Preset */
             dialog_tellingInProgress = true;
 
-            /* Chose between default talkers or imposed */
-            ref readonly DialogConfig optionConfig = ref ResourceDialogsAtlasClass.GetDialogConfig(dialog_currentDialog);
-
-            if(optionConfig.Talkers[0] != GameItem.ITEM_NONE)
-            {
-                talkers = optionConfig.Talkers;
-            }
-            else
-            {
-                talkers = dialog_default_talkers;
-            }
-
 
             ref readonly PhraseContent content = ref ResourceDialogsClass.GetPhraseContent(phrase);
-            GameItem talkerItem = talkers[content.config.talkerIndex];
+            GameItem talkerItem = dialog_current_talkers[content.config.talkerIndex];
             ref readonly ItemInfo talkerInfo = ref ItemsInteractionsClass.GetItemInfo(talkerItem);
 
             /* Set sender name */
@@ -224,8 +218,7 @@ namespace Gob3AQ.GameMenu
             {
                 dialog_tellingInProgress = false;
                 ++dialog_currentPhraseIndex;
-                ReadOnlySpan<DialogOptionConfig> dialogOptionConfigs = ResourceDialogsAtlasClass.DialogOptionConfigs;
-                ref readonly DialogOptionConfig dialogConfig = ref dialogOptionConfigs[(int)dialog_optionPhrases];
+                ref readonly DialogOptionConfig dialogConfig = ref ResourceDialogsAtlasClass.GetDialogOptionConfig(dialog_optionPhrases);
 
                 if (dialog_totalPhrases > dialog_currentPhraseIndex)
                 {
@@ -269,7 +262,7 @@ namespace Gob3AQ.GameMenu
                 UICanvas_dialogOptionButtons = new DialogOptionButtonClass[GameFixedConfig.MAX_DIALOG_OPTIONS];
                 _displayItemArray = new PickableItemDisplayClass[GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS];
 
-                dialog_default_talkers = new GameItem[GameFixedConfig.MAX_DIALOG_TALKERS];
+                dialog_current_talkers = new GameItem[GameFixedConfig.MAX_DIALOG_TALKERS];
             }
         }
 
@@ -390,8 +383,10 @@ namespace Gob3AQ.GameMenu
                         /* If this element has to show a picked item */
                         if (item_owner[lastFoundItemIndex] == selectedChar)
                         {
+                            GameItem gitem = ItemsInteractionsClass.GetItemFromPickable((GamePickableItem)lastFoundItemIndex);
+
                             _displayItemArray[i].Enable(true);
-                            _displayItemArray[i].SetDisplayedItem((GameItem)lastFoundItemIndex);
+                            _displayItemArray[i].SetDisplayedItem(gitem);
                             found = true;
                         }
                     }

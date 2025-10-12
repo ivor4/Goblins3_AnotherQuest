@@ -48,6 +48,14 @@ Thumbs.db
 *.mov
 *.wmv
 
+# Sprites and sounds
+*.png
+*.bmp
+*.jpg
+*.wav
+*.mp3
+
+
 *.sln
 *.csproj
 

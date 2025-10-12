@@ -89,7 +89,6 @@ namespace Gob3AQ.GameMaster
                 case Game_Status.GAME_STATUS_LOADING:
                     if (moduleLoadingDone == ALL_MODULES_LOADED_MASK)
                     {
-                        GC.Collect();
                         _SetGameStatus(Game_Status.GAME_STATUS_PLAY);
                     }
                     break;
@@ -364,6 +363,9 @@ namespace Gob3AQ.GameMaster
 
             /* Just in case */
             yield return Resources.UnloadUnusedAssets();
+
+            /* Collect as much as possible */
+            GC.Collect();
         }
 
     }

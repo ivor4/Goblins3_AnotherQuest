@@ -16,16 +16,14 @@ MonoBehaviour:
   m_GUID: 4c7d8d162647be349b720b5721724b99
   m_SerializeEntries:
   - m_GUID: 04c7b89f19cd8aa4397d86fd57c17eb2
-    m_Address: Assets/Sprites/arrowpng.png
+    m_Address: SPRITE_CURSOR_NORMAL
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - ui
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 57dfcde8303e8a142b3bddfde29b2c35
-    m_Address: Assets/Sprites/insidechest256.jpg
+    m_Address: SPRITE_INVENTORY
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - ui
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 799d875810ff8af458134750bfd4969c
     m_Address: SCENE_LOADING

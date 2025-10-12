@@ -1,3 +1,4 @@
+using Gob3AQ.VARMAP.Types;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -36,9 +37,10 @@ namespace Gob3AQ.FixedConfig
         public const float GAME_ZONE_HEIGHT_FACTOR = 1.0f / GAME_ZONE_HEIGHT_PERCENT;
         public const float GAME_ZONE_CURSOR_MOVE_CAMERA_FACTOR = 0.1f;
         public const float GAME_ZONE_CURSOR_MOVE_CAMERA_1MFACTOR = 1.0f - GAME_ZONE_CURSOR_MOVE_CAMERA_FACTOR;
-        
+
 
         /* Performance */
+        public const int MAX_FIXED_SPRITES_TO_LOAD = (int)GamePickableItem.ITEM_PICK_TOTAL + 16;
         public const int MAX_CACHED_SPRITES = 64;
         public const int MAX_CACHED_PHRASES = 64;
         public const int MAX_DIALOG_OPTIONS = 8;

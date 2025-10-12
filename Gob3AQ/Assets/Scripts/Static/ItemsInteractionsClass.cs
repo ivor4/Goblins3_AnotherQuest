@@ -19,6 +19,19 @@ namespace Gob3AQ.Brain.ItemsInteraction
             }
         }
 
+        public static GameSprite GetSpriteFromPickable(GamePickableItem pickable)
+        {
+            if ((uint)pickable >= (uint)GamePickableItem.ITEM_PICK_TOTAL)
+            {
+                Debug.LogError($"[ItemsInteractionsClass] GetSpriteFromPickable: Invalid pickable item {pickable}");
+                return GameSprite.SPRITE_NONE;
+            }
+            else
+            {
+                return _PickableSprite[(int)pickable];
+            }
+        }
+
         public static ref readonly ItemInfo GetItemInfo(GameItem item)
         {
             if((uint)item >= (uint)GameItem.ITEM_TOTAL)
@@ -146,9 +159,17 @@ namespace Gob3AQ.Brain.ItemsInteraction
         private static readonly GameItem[] _PickableToItem = new GameItem[(int)GamePickableItem.ITEM_PICK_TOTAL]
         {
             /* > ATG 3 START < */
-            GameItem.ITEM_POTION,
-            GameItem.ITEM_POTION_BLUE,
+            GameItem.ITEM_POTION,	/* ITEM_PICK_POTION */
+            GameItem.ITEM_POTION_BLUE,	/* ITEM_PICK_POTION_BLUE */
             /* > ATG 3 END < */
+        };
+
+        private static readonly GameSprite[] _PickableSprite = new GameSprite[(int)GamePickableItem.ITEM_PICK_TOTAL]
+        {
+            /* > ATG 4 START < */
+            GameSprite.SPRITE_POTION_RED,	/* ITEM_PICK_POTION */
+            GameSprite.SPRITE_POTION_BLUE,	/* ITEM_PICK_POTION_BLUE */
+            /* > ATG 4 END < */
         };
     }
 }

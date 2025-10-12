@@ -18,14 +18,12 @@ MonoBehaviour:
   - m_GUID: 27ae4add7a00bdc44b6e261b841bee31
     m_Address: SPRITE_ITEM_FOUNTAIN_FULL
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - room_first
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 593641824d8dd5c40870706cb3b1b116
-    m_Address: Assets/Backgrounds/bckg_1.png
+    m_Address: BACKGROUND_ROOM_FIRST
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - room_first
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8c9cfa26abfee488c85f1582747f6a02
     m_Address: SCENE_SAMPLE
@@ -35,8 +33,7 @@ MonoBehaviour:
   - m_GUID: f9fdc56efdd86414db9f436a91d745b4
     m_Address: SPRITE_ITEM_FOUNTAIN
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - room_first
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c63f0f3646ca67f4abe7e9d9a952af85, type: 2}

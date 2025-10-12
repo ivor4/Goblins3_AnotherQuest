@@ -121,7 +121,7 @@ sprite_types_lines = ATGFile(sprite_types_path, 1)
 event_types_lines = ATGFile(event_types_path, 1)
 modules_types_lines = ATGFile(modules_types_path, 1)
 items_types_lines = ATGFile(items_types_path, 3)
-items_interaction_lines = ATGFile(items_interaction_path, 3)
+items_interaction_lines = ATGFile(items_interaction_path, 4)
 dialog_atlas_lines = ATGFile(dialog_atlas_path, 3)
 sprite_atlas_lines = ATGFile(sprite_atlas_path, 1)
 room_atlas_lines = ATGFile(room_atlas_path, 1)
@@ -1088,8 +1088,11 @@ for line in ITEMSinputFile:
             stringToWrite += ', \n'
             items_types_lines.InsertLineInATG(2, stringToWrite)
             
-            stringToWrite = item_prefix + ItemVar["name"] + ',\n'
+            stringToWrite = item_prefix + ItemVar["name"] + ',\t/* '+ pickname +' */\n'
             items_interaction_lines.InsertLineInATG(3, stringToWrite)
+            
+            stringToWrite = sprite_prefix + ItemVar["pickablesprite"] + ',\t/* '+ pickname +' */\n'
+            items_interaction_lines.InsertLineInATG(4, stringToWrite)
         else:
             pickname = 'ITEM_PICK_NONE'
 

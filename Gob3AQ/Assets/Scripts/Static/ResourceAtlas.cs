@@ -39,13 +39,13 @@ namespace Gob3AQ.ResourceAtlas
         {
             /* > ATG 1 START < */
             new( /* ROOM_FIRST */
-            new GameSprite[4]{GameSprite.SPRITE_POTION_RED, GameSprite.SPRITE_POTION_BLUE, GameSprite.SPRITE_FOUNTAIN, GameSprite.SPRITE_FOUNTAIN_FULL, }, 
+            new GameSprite[5]{GameSprite.SPRITE_POTION_RED, GameSprite.SPRITE_POTION_BLUE, GameSprite.SPRITE_FOUNTAIN, GameSprite.SPRITE_FOUNTAIN_FULL, GameSprite.BACKGROUND_ROOM_FIRST, }, 
             new DialogPhrase[6]{DialogPhrase.PHRASE_NONSENSE, DialogPhrase.PHRASE_ASK_FOUNTAIN1_1, DialogPhrase.PHRASE_ASK_FOUNTAIN1_2, DialogPhrase.PHRASE_ASK_FOUNTAIN2_1, DialogPhrase.PHRASE_ASK_FOUNTAIN3_1, DialogPhrase.PHRASE_ASK_FOUNTAIN4_1, }, 
             new NameType[5]{NameType.NAME_CHAR_MAIN, NameType.NAME_CHAR_PARROT, NameType.NAME_ITEM_POTION, NameType.NAME_ITEM_BLUE_POTION, NameType.NAME_ITEM_FOUNTAIN, } 
             ),
             
             new( /* ROOM_LAST */
-            new GameSprite[3]{GameSprite.SPRITE_LAST, GameSprite.SPRITE_POTION_RED, GameSprite.SPRITE_POTION_BLUE, }, 
+            new GameSprite[1]{GameSprite.SPRITE_LAST, }, 
             new DialogPhrase[1]{DialogPhrase.PHRASE_NONSENSE, }, 
             new NameType[3]{NameType.NAME_NPC_LAST, NameType.NAME_ITEM_POTION, NameType.NAME_ITEM_BLUE_POTION, } 
             ),

@@ -13,6 +13,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 namespace Gob3AQ.GraphicsMaster
 {
@@ -20,7 +21,7 @@ namespace Gob3AQ.GraphicsMaster
     public class GraphicsMasterClass : MonoBehaviour
     {
         [SerializeField]
-        private GameObject background;
+        private GameSprite backgroundGameSprite;
 
         [SerializeField]
         private GameObject UICanvas;
@@ -36,8 +37,8 @@ namespace Gob3AQ.GraphicsMaster
         private static Camera mainCamera;
         private static Transform mainCameraTransform;
         private static GameObject cursor;
+        private static GameObject background;
         private static SpriteRenderer cursor_spr;
-        private static Sprite cursor_orig_spr;
         private static Game_Status cachedGameStatus;
 
         
@@ -64,9 +65,8 @@ namespace Gob3AQ.GraphicsMaster
                 _singleton = this;
                 cursor = transform.Find("Cursor").gameObject;
                 cursor_spr = cursor.GetComponent<SpriteRenderer>();
-                cursor_orig_spr = cursor_spr.sprite;
+                background = transform.Find("Background").gameObject;
                 background_spr = background.GetComponent<SpriteRenderer>();
-                _levelBounds = background_spr.bounds;
 
                 UICanvas_loadingObj = UICanvas.transform.Find("LoadingObj").gameObject;
                 UICanvas_dialogObj = UICanvas.transform.Find("DialogObj").gameObject;
@@ -84,9 +84,6 @@ namespace Gob3AQ.GraphicsMaster
 
             _cameraBounds.min = mainCamera.ScreenToWorldPoint(Vector3.zero);
             _cameraBounds.max = mainCamera.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
-
-            _cameraCenterLimitBounds = _levelBounds;
-            _cameraCenterLimitBounds.extents -= _cameraBounds.extents;
 
             VARMAP_GraphicsMaster.REG_GAMESTATUS(_GameStatusChanged);
             VARMAP_GraphicsMaster.REG_PICKABLE_ITEM_CHOSEN(_OnPickedItemChanged);
@@ -138,10 +135,11 @@ namespace Gob3AQ.GraphicsMaster
         {
             if (!_loaded)
             {
+                VARMAP_GraphicsMaster.IS_MODULE_LOADED(GameModules.MODULE_GameMaster, out bool gamemasterLoaded);
                 VARMAP_GraphicsMaster.IS_MODULE_LOADED(GameModules.MODULE_LevelMaster, out bool levelmasterLoaded);
                 VARMAP_GraphicsMaster.IS_MODULE_LOADED(GameModules.MODULE_PlayerMaster, out bool playermasterLoaded);
 
-                if (levelmasterLoaded && playermasterLoaded)
+                if (gamemasterLoaded && levelmasterLoaded && playermasterLoaded)
                 {
                     VARMAP_GraphicsMaster.GET_PLAYER_LIST(out ReadOnlySpan<PlayableCharScript> playerlist);
                     Vector3 candidatePos = mainCameraTransform.position;
@@ -154,6 +152,14 @@ namespace Gob3AQ.GraphicsMaster
                             break;
                         }
                     }
+
+                    background_spr.sprite = ResourceSpritesClass.GetSprite(_singleton.backgroundGameSprite);
+                    _levelBounds = background_spr.bounds;
+
+                    _cameraCenterLimitBounds = _levelBounds;
+                    _cameraCenterLimitBounds.extents -= _cameraBounds.extents;
+
+                    cursor_spr.sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_CURSOR_NORMAL);
 
                     candidatePos.z = mainCameraTransform.position.z;
 
@@ -243,7 +249,7 @@ namespace Gob3AQ.GraphicsMaster
             {
                 if (newval == GameItem.ITEM_NONE)
                 {
-                    cursor_spr.sprite = cursor_orig_spr;
+                    cursor_spr.sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_CURSOR_NORMAL);
                 }
                 else
                 {

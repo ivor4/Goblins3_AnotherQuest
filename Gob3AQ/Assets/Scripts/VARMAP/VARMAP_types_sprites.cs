@@ -6,11 +6,14 @@ namespace Gob3AQ.VARMAP.Types
     {
         /* > ATG 1 START < */
         SPRITE_NONE = -1, 
+        SPRITE_CURSOR_NORMAL, 
+        SPRITE_INVENTORY, 
         SPRITE_POTION_RED, 
         SPRITE_POTION_BLUE, 
         SPRITE_FOUNTAIN, 
         SPRITE_FOUNTAIN_FULL, 
         SPRITE_NPC_MILITO, 
+        BACKGROUND_ROOM_FIRST, 
         SPRITE_LAST, 
         
         SPRITE_TOTAL

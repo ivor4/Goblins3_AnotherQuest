@@ -18,14 +18,12 @@ MonoBehaviour:
   - m_GUID: 2c858da63339d4f468c3353972eedfe4
     m_Address: PHRASES_CSV
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - language_texts
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b9eaf75df4a63a14884ec6bb40f22b01
     m_Address: NAMES_CSV
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - language_texts
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c63f0f3646ca67f4abe7e9d9a952af85, type: 2}

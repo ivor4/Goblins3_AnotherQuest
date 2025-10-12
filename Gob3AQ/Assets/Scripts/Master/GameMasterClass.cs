@@ -11,6 +11,10 @@ using Gob3AQ.ResourceDialogs;
 using Gob3AQ.VARMAP.Variable;
 using System;
 using Gob3AQ.ResourceSprites;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.ResourceProviders;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceLocations;
 
 namespace Gob3AQ.GameMaster
 {
@@ -22,6 +26,8 @@ namespace Gob3AQ.GameMaster
         private static GameMasterClass _singleton;
         private static Game_Status prevPauseStatus;
         private static uint moduleLoadingDone;
+        private static AsyncOperationHandle<SceneInstance> prevRoom;
+        private static bool prevRoomLoaded;
 
         void Awake()
         {
@@ -36,6 +42,10 @@ namespace Gob3AQ.GameMaster
 
                 /* Initialize VARMAP once for all the game */
                 VARMAP_DataSystem.InitializeVARMAP();
+
+                /* Make default (undefined behavior) */
+                prevRoom = default;
+                prevRoomLoaded = false;
             }
         }
 
@@ -136,7 +146,7 @@ namespace Gob3AQ.GameMaster
 
         public static void LoadRoomService(Room room, out bool error)
         {
-            if ((room > Room.ROOM_NONE) && (room < Room.ROOMS_TOTAL))
+            if ((uint)room < (uint)Room.ROOMS_TOTAL)
             {
                 error = false;
                 
@@ -265,7 +275,7 @@ namespace Gob3AQ.GameMaster
             if (VARMAP_GameMaster.GET_SHADOW_GAMESTATUS() != Game_Status.GAME_STATUS_STOPPED)
             {
                 _SetGameStatus(Game_Status.GAME_STATUS_STOPPED);
-                SceneManager.LoadScene(GameFixedConfig.ROOM_MAINMENU, LoadSceneMode.Single);
+                _singleton.StartCoroutine(ExitGameCoroutine());
                 error = false;
             }
             else
@@ -288,18 +298,72 @@ namespace Gob3AQ.GameMaster
 
         private static IEnumerator UnloadAndLoadRoomCoroutine(Room room)
         {
-            string sceneName = GameFixedConfig.ROOM_TO_SCENE_NAME[(int)room];
+            AsyncOperationHandle<SceneInstance> nextRoom;
+            AsyncOperationHandle<SceneInstance> loadingRoom;
 
-            yield return SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+            /* Load loading room */
+            loadingRoom = Addressables.LoadSceneAsync(GameFixedConfig.ROOM_LOADING, LoadSceneMode.Single, true);
+            yield return loadingRoom;
 
-            _SetGameStatus(Game_Status.GAME_STATUS_LOADING);
+            /* Unlaod previous room resources */
+            yield return UnloadPreviousRoomResources();
 
-            yield return ResourceDialogsClass.PreloadRoomPhrasesCoroutine(room);
+            /* Now load desired room and its resources */
+            string resourceName = GameFixedConfig.ROOM_TO_SCENE_NAME[(int)room];
+            
+
+            /* Prepare, but not go into next room yet */
+            nextRoom = Addressables.LoadSceneAsync(resourceName, LoadSceneMode.Single, false);
+            yield return nextRoom;
+
+            /* Load sprites */
             yield return ResourceSpritesClass.PreloadRoomSpritesCoroutine(room);
 
-            yield return Resources.UnloadUnusedAssets();
+            /* Load texts */
+            yield return ResourceDialogsClass.PreloadRoomPhrasesCoroutine(room);
 
+            /* Activate loaded room */
+            yield return nextRoom.Result.ActivateAsync();
+
+            /* Unload loading room */
+            yield return Addressables.UnloadSceneAsync(loadingRoom);
+
+            
+
+            /* Move to previous for next load */
+            prevRoom = nextRoom;
+            prevRoomLoaded = true;
+            
+
+            _SetGameStatus(Game_Status.GAME_STATUS_LOADING);
             VARMAP_GameMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameMaster);
+        }
+
+
+        private static IEnumerator ExitGameCoroutine()
+        {
+            /* Load bootstrap */
+            yield return SceneManager.LoadSceneAsync(GameFixedConfig.ROOM_MAINMENU, LoadSceneMode.Single);
+
+            /* Unlaod previous room resources */
+            yield return UnloadPreviousRoomResources();
+        }
+
+
+        private static IEnumerable UnloadPreviousRoomResources()
+        {
+            /* Unload previous room (in case) */
+            if (prevRoomLoaded)
+            {
+                yield return Addressables.UnloadSceneAsync(prevRoom);
+                prevRoom = default;
+                prevRoomLoaded = false;
+            }
+
+            ResourceSpritesClass.UnloadUsedSprites();
+
+            /* Just in case */
+            yield return Resources.UnloadUnusedAssets();
         }
 
     }

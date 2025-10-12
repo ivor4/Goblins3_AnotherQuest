@@ -91,6 +91,9 @@ namespace Gob3AQ.GraphicsMaster
             VARMAP_GraphicsMaster.REG_GAMESTATUS(_GameStatusChanged);
             VARMAP_GraphicsMaster.REG_PICKABLE_ITEM_CHOSEN(_OnPickedItemChanged);
 
+            /* Force initial event */
+            _GameStatusChanged(ChangedEventType.CHANGED_EVENT_SET, Game_Status.GAME_STATUS_STOPPED, VARMAP_GraphicsMaster.GET_GAMESTATUS());
+
             cachedGameStatus = VARMAP_GraphicsMaster.GET_GAMESTATUS();
 
             _loaded = false;

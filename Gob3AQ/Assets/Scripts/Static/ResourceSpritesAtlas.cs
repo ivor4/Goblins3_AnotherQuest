@@ -23,12 +23,12 @@ namespace Gob3AQ.ResourceSpritesAtlas
         private static readonly SpriteConfig[] _SpriteConfig = new SpriteConfig[(int)GameSprite.SPRITE_TOTAL]
         {
             /* > ATG 1 START < */
-            new("Sprites/potion_64"), /* SPRITE_POTION_RED */ 
-            new("Sprites/potionblue_64"), /* SPRITE_POTION_BLUE */ 
-            new("Sprites/spr_fountain_256"), /* SPRITE_FOUNTAIN */ 
-            new("Sprites/spr_fountain_full_256"), /* SPRITE_FOUNTAIN_FULL */ 
-            new("Sprites/spr_milito_1"), /* SPRITE_NPC_MILITO */ 
-            new(""), /* SPRITE_LAST */ 
+            new("SPRITE_ITEM_POTION"), /* SPRITE_POTION_RED */ 
+            new("SPRITE_ITEM_POTION_BLUE"), /* SPRITE_POTION_BLUE */ 
+            new("SPRITE_ITEM_FOUNTAIN"), /* SPRITE_FOUNTAIN */ 
+            new("SPRITE_ITEM_FOUNTAIN_FULL"), /* SPRITE_FOUNTAIN_FULL */ 
+            new("SPRITE_NPC_MILITO"), /* SPRITE_NPC_MILITO */ 
+            new("SPRITE_LAST"), /* SPRITE_LAST */ 
             /* > ATG 1 END < */
         };
 

@@ -5,43 +5,51 @@ using Gob3AQ.VARMAP.Types;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.ResourceProviders;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceLocations;
 
 
 namespace Gob3AQ.ResourceSprites
 {
     public static class ResourceSpritesClass
     {
+        private static AsyncOperationHandle<Sprite>[] _cachedHandles;
         private static Sprite[] _cachedSprites;
         private static Dictionary<GameSprite, int> _cachedSpritesFinder;
+        private static int _loadedSprites;
 
 
         public static void Initialize()
         {
+            _cachedHandles = new AsyncOperationHandle<Sprite>[GameFixedConfig.MAX_CACHED_SPRITES];
             _cachedSprites = new Sprite[GameFixedConfig.MAX_CACHED_SPRITES];
             _cachedSpritesFinder = new(GameFixedConfig.MAX_CACHED_SPRITES);
+            _loadedSprites = 0;
         }
 
         public static IEnumerator PreloadRoomSpritesCoroutine(Room room)
         {
-            int processedSprites = 0;
             bool keepProcessing = true;
 
             _cachedSpritesFinder.Clear();
             Array.Clear(_cachedSprites, 0, _cachedSprites.Length);
+            Array.Clear(_cachedHandles, 0, _cachedHandles.Length);
+            _loadedSprites = 0;
 
             while (keepProcessing)
             {
-                ResourceRequest request = PreloadRoomSpritesCycle(room, processedSprites, out GameSprite sprite);
+                AsyncOperationHandle<Sprite> handle = PreloadRoomSpritesCycle(room, _loadedSprites, out GameSprite sprite);
 
-                if(request != null)
+                if(sprite != GameSprite.SPRITE_NONE)
                 {
-                    yield return request;
-                    Sprite spriteRes = (Sprite)request.asset;
-                    _cachedSprites[processedSprites] = spriteRes;
-                    _cachedSpritesFinder[sprite] = processedSprites++;
+                    yield return handle;
+                    Sprite spriteRes = handle.Result;
+                    _cachedHandles[_loadedSprites] = handle;
+                    _cachedSprites[_loadedSprites] = spriteRes;
+                    _cachedSpritesFinder[sprite] = _loadedSprites++;
                 }
                 else
                 {
@@ -50,7 +58,17 @@ namespace Gob3AQ.ResourceSprites
             }
         }
 
-        private static ResourceRequest PreloadRoomSpritesCycle(Room room, int index, out GameSprite sprite)
+        public static void UnloadUsedSprites()
+        {
+            for(int i=0; i< _loadedSprites; i++)
+            {
+                Addressables.Release(_cachedHandles[i]);
+            }
+
+            _loadedSprites = 0;
+        }
+
+        private static AsyncOperationHandle<Sprite> PreloadRoomSpritesCycle(Room room, int index, out GameSprite sprite)
         {
             ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(room);
 
@@ -59,14 +77,14 @@ namespace Gob3AQ.ResourceSprites
             if (index < roomSprites.Length)
             {
                 ref readonly SpriteConfig config = ref ResourceSpritesAtlasClass.GetSpriteConfig(roomSprites[index]);
-                ResourceRequest request = Resources.LoadAsync<Sprite>(config.path);
+                AsyncOperationHandle<Sprite> handle = Addressables.LoadAssetAsync<Sprite>(config.path);
                 sprite = roomSprites[index];
-                return request;
+                return handle;
             }
             else
             {
                 sprite = GameSprite.SPRITE_NONE;
-                return null;
+                return default;
             }
         }
 

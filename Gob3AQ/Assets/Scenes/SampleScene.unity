@@ -3714,6 +3714,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1567378405976853793, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4393278064670122710, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3801,6 +3805,10 @@ PrefabInstance:
     - target: {fileID: 6910175552404248689, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7888174734805580130, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8951149274311812720, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
       propertyPath: m_Camera

@@ -50,6 +50,8 @@ namespace Gob3AQ.GameMenu.PickableItemDisplay
             _glow = transform.parent.Find("Glow").gameObject;
             _sprglow = _glow.GetComponent<Image>();
             _parent = transform.parent.gameObject;
+
+            _glow.SetActive(false);
         }
 
 

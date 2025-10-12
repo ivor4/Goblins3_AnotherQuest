@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Pickables
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Pickables
+  m_GUID: 37e3bf811ae9a384c8d1d4b3659db34a
+  m_SerializeEntries:
+  - m_GUID: 06f53015545c2874083bba66d47bf49d
+    m_Address: SPRITE_ITEM_POTION_BLUE
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - pickable
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d54ac608b7f3e294c8416f614d9fab58
+    m_Address: SPRITE_ITEM_POTION
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - pickable
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c63f0f3646ca67f4abe7e9d9a952af85, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 3526abc348baee84c80218dc05aeee8e, type: 2}
+    - {fileID: 11400000, guid: 0fd7636694172754ea7029cac6caf051, type: 2}

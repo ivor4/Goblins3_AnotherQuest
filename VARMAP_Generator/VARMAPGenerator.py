@@ -6,15 +6,15 @@ This is not a temporary script file.
 """
 
 #Global part
-atg_path = "./../Gob3AQ/Assets/Resources/Scripts/VARMAP/"
+atg_path = "./../Gob3AQ/Assets/Scripts/VARMAP/"
 proto_path = atg_path+"VARMAP.cs"
 initialization_path = atg_path+"VARMAP_datasystem.cs"
 defaultvalues_path = atg_path+"VARMAP_defaultvalues.cs"
 enum_path = atg_path+"VARMAP_enum.cs"
 delegateupdate_path = atg_path+"VARMAP_UpdateDelegates.cs"
 savedata_path = atg_path+"VARMAP_savedata.cs"
-phrases_text_path = "./../Gob3AQ/Assets/Resources/Dialogs/PHRASES_CSV.csv"
-names_text_path = "./../Gob3AQ/Assets/Resources/Dialogs/NAMES_CSV.csv"
+phrases_text_path = "./../Gob3AQ/Assets/Dialogs/PHRASES_CSV.csv"
+names_text_path = "./../Gob3AQ/Assets/Dialogs/NAMES_CSV.csv"
 
 #This is Custom part
 auto_types_path = atg_path + "VARMAP_types_auto.cs"

@@ -11,6 +11,7 @@ namespace Gob3AQ.FixedConfig
         public static ReadOnlySpan<byte> GAME_VERSION => _GAME_VERSION;
         public static ReadOnlySpan<byte> LOAD_SAVE_FILE_FORMAT_VERSION => _LOAD_SAVE_FILE_FORMAT_VERSION;
         public static ReadOnlySpan<string> ROOM_TO_SCENE_NAME => _ROOM_TO_SCENE_NAME;
+        public static ReadOnlySpan<string> ROOM_TO_ADDRESSABLE_TAG_NAME => _ROOM_TO_ADDRESSABLE_TAG_NAME;
 
 
         /* Release data */
@@ -58,10 +59,17 @@ namespace Gob3AQ.FixedConfig
         /* Scenes */
         public const int MAX_SCENE_DOORS = 2;
         public const string ROOM_MAINMENU = "Boot";
+        public const string ROOM_LOADING = "SCENE_LOADING";
         private static readonly string[] _ROOM_TO_SCENE_NAME =
         {
-            "SampleScene",
+            "SCENE_SAMPLE",
             "House1"
+        };
+
+        private static readonly string[] _ROOM_TO_ADDRESSABLE_TAG_NAME =
+        {
+            "room_first",
+            "room_second"
         };
 
         

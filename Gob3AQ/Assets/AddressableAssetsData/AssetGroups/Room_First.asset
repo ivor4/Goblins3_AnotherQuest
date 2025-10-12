@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Room_First
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Room_First
+  m_GUID: f8641862df2a96a46aad6b0a436c2d70
+  m_SerializeEntries:
+  - m_GUID: 27ae4add7a00bdc44b6e261b841bee31
+    m_Address: SPRITE_ITEM_FOUNTAIN_FULL
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - room_first
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 593641824d8dd5c40870706cb3b1b116
+    m_Address: Assets/Backgrounds/bckg_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - room_first
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c9cfa26abfee488c85f1582747f6a02
+    m_Address: SCENE_SAMPLE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9fdc56efdd86414db9f436a91d745b4
+    m_Address: SPRITE_ITEM_FOUNTAIN
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - room_first
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c63f0f3646ca67f4abe7e9d9a952af85, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 2e14cb61dc8943342a1411b0bd37d74d, type: 2}
+    - {fileID: 11400000, guid: 77cff52ee56542945a01b0975b927d2d, type: 2}

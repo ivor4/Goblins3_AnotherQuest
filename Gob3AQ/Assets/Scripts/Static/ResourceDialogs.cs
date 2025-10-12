@@ -9,13 +9,17 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.ResourceProviders;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceLocations;
 
 namespace Gob3AQ.ResourceDialogs
 {
     public static class ResourceDialogsClass
     {
-        private const string PHRASES_PATH = "Dialogs/PHRASES_CSV";
-        private const string NAMES_PATH = "Dialogs/NAMES_CSV";
+        private const string PHRASES_PATH = "PHRASES_CSV";
+        private const string NAMES_PATH = "NAMES_CSV";
 
 
         private static PhraseContent[] _cachedPhrases;
@@ -38,19 +42,20 @@ namespace Gob3AQ.ResourceDialogs
         {
             TextAsset textAsset;
 
-            ResourceRequest resrq = Resources.LoadAsync<TextAsset>(PHRASES_PATH);
+            AsyncOperationHandle<TextAsset> handler1 = Addressables.LoadAssetAsync<TextAsset>(PHRASES_PATH);
+            AsyncOperationHandle<TextAsset> handler2 = Addressables.LoadAssetAsync<TextAsset>(NAMES_PATH);
 
-            yield return resrq;
+            yield return handler1;
+            yield return handler2;
 
-            textAsset = resrq.asset as TextAsset;
+            textAsset = handler1.Result;
             string[] phrases = textAsset.text.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
 
-            resrq = Resources.LoadAsync<TextAsset>(NAMES_PATH);
-
-            yield return resrq;
-
-            textAsset = resrq.asset as TextAsset;
+            textAsset = handler2.Result;
             string[] names = textAsset.text.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+
+            Addressables.Release(handler1);
+            Addressables.Release(handler2);
 
             yield return Task.Run(() => PreloadRoomPhrases(room, phrases));
             yield return Task.Run(() => PreloadRoomNames(room, names));

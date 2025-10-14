@@ -64,7 +64,7 @@ namespace Gob3AQ.GameElement
         {
             /* Prepare LevelInfo struct */
             isHovered = enter;
-            LevelElemInfo info = new((int)itemID, gameElementFamily, actualWaypoint, enter & isAvailable);
+            LevelElemInfo info = new(itemID, gameElementFamily, actualWaypoint, enter & isAvailable);
             VARMAP_ItemMaster.GAME_ELEMENT_OVER(in info);
         }
 

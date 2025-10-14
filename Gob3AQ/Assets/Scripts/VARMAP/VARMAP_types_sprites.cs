@@ -7,6 +7,7 @@ namespace Gob3AQ.VARMAP.Types
         /* > ATG 1 START < */
         SPRITE_NONE = -1, 
         SPRITE_CURSOR_NORMAL, 
+        SPRITE_CURSOR_USING, 
         SPRITE_INVENTORY, 
         SPRITE_POTION_RED, 
         SPRITE_POTION_BLUE, 

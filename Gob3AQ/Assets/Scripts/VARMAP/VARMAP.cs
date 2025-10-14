@@ -86,6 +86,11 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPValueDelegate<GameItem> _SET_PICKABLE_ITEM_CHOSEN;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> _REG_PICKABLE_ITEM_CHOSEN;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> _UNREG_PICKABLE_ITEM_CHOSEN;
+        protected static GetVARMAPValueDelegate<GameItem> _GET_ITEM_HOVER;
+        protected static GetVARMAPValueDelegate<GameItem> _GET_SHADOW_ITEM_HOVER;
+        protected static SetVARMAPValueDelegate<GameItem> _SET_ITEM_HOVER;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> _REG_ITEM_HOVER;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> _UNREG_ITEM_HOVER;
         protected static GetVARMAPValueDelegate<bool> _GET_LAST_VARMAP_VAL;
         protected static GetVARMAPValueDelegate<bool> _GET_SHADOW_LAST_VARMAP_VAL;
         protected static SetVARMAPValueDelegate<bool> _SET_LAST_VARMAP_VAL;
@@ -203,7 +208,7 @@ namespace Gob3AQ.VARMAP
         /// <summary> 
         /// Any of Game Elements (Player or Item or Door) will call with essential info
         /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: PlayerMaster, ItemMaster,  </para> 
+        /// <para> Accessors: ItemMaster,  </para> 
         /// <para> Method: <see cref="LevelMasterClass.GameElementOverService"/> </para> 
         /// </summary>
         protected static GAME_ELEMENT_OVER_DELEGATE _GAME_ELEMENT_OVER;

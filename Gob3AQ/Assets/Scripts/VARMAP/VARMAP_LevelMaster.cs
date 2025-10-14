@@ -35,6 +35,9 @@ namespace Gob3AQ.VARMAP.LevelMaster
             GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
             GET_PLAYER_SELECTED = _GET_PLAYER_SELECTED;
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
+            GET_ITEM_HOVER = _GET_ITEM_HOVER;
+            GET_SHADOW_ITEM_HOVER = _GET_SHADOW_ITEM_HOVER;
+            SET_ITEM_HOVER = _SET_ITEM_HOVER;
             SAVE_GAME = _SAVE_GAME;
             LOAD_ROOM = _LOAD_ROOM;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
@@ -88,6 +91,9 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static GetVARMAPValueDelegate<MousePropertiesStruct> GET_MOUSE_PROPERTIES;
         public static GetVARMAPValueDelegate<CharacterType> GET_PLAYER_SELECTED;
         public static GetVARMAPValueDelegate<GameItem> GET_PICKABLE_ITEM_CHOSEN;
+        public static GetVARMAPValueDelegate<GameItem> GET_ITEM_HOVER;
+        public static GetVARMAPValueDelegate<GameItem> GET_SHADOW_ITEM_HOVER;
+        public static SetVARMAPValueDelegate<GameItem> SET_ITEM_HOVER;
         /* > ATG 2 END */
 
         /* SERVICES */
@@ -172,7 +178,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// <summary> 
         /// Any of Game Elements (Player or Item or Door) will call with essential info
         /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: PlayerMaster, ItemMaster,  </para> 
+        /// <para> Accessors: ItemMaster,  </para> 
         /// <para> Method: <see cref="LevelMasterClass.GameElementOverService"/> </para> 
         /// </summary>
         public static GAME_ELEMENT_OVER_DELEGATE GAME_ELEMENT_OVER;

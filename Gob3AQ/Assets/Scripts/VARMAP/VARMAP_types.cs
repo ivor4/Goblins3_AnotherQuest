@@ -60,16 +60,16 @@ namespace Gob3AQ.VARMAP.Types
     
     public readonly struct LevelElemInfo
     {
-        public readonly int index;
+        public readonly GameItem item;
         public readonly GameItemFamily family;
         public readonly WaypointClass waypoint;
         public readonly bool active;
 
-        public static readonly LevelElemInfo EMPTY = new(-1, GameItemFamily.ITEM_FAMILY_TYPE_NONE, null, false);
+        public static readonly LevelElemInfo EMPTY = new(GameItem.ITEM_NONE, GameItemFamily.ITEM_FAMILY_TYPE_NONE, null, false);
 
-        public LevelElemInfo(int index, GameItemFamily family, WaypointClass waypoint, bool active)
+        public LevelElemInfo(GameItem item, GameItemFamily family, WaypointClass waypoint, bool active)
         {
-            this.index = index;
+            this.item = item;
             this.family = family;
             this.waypoint = waypoint;
             this.active = active;

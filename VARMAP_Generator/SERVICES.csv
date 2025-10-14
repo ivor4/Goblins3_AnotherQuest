@@ -14,7 +14,7 @@ N,SERVICE_ID,SPECIAL_DELEGATE,SERVICE_ROUTE,Description,Separator,GameMaster,Inp
 12,WP_REGISTER,WP_REGISTER_DELEGATE,LevelMasterClass.WPRegisterService,Registers a Waypoint in level,,-,-,W,-,-,-,-,-
 13,DOOR_REGISTER,DOOR_REGISTER_DELEGATE,LevelMasterClass.DoorRegisterService,Registers a door in level,,-,-,W,-,-,-,-,-
 14,PLAYER_WAYPOINT_UPDATE,PLAYER_WAYPOINT_UPDATE_DELEGATE,LevelMasterClass.PlayerWaypointUpdateService,Updates actual player waypoint when crossing or stopping on it,,-,-,W,-,-,X,-,-
-15,GAME_ELEMENT_OVER,GAME_ELEMENT_OVER_DELEGATE,LevelMasterClass.GameElementOverService,Any of Game Elements (Player or Item or Door) will call with essential info,,-,-,W,-,-,X,X,-
+15,GAME_ELEMENT_OVER,GAME_ELEMENT_OVER_DELEGATE,LevelMasterClass.GameElementOverService,Any of Game Elements (Player or Item or Door) will call with essential info,,-,-,W,-,-,-,X,-
 16,SELECT_PLAYER,SELECT_PLAYER_DELEGATE,PlayerMasterClass.SelectPlayerService,Selects player,,-,-,X,-,-,W,-,-
 17,GET_PLAYER_LIST,GET_PLAYER_LIST_DELEGATE,LevelMasterClass.GetPlayerListService,Gets a list of actual players,,-,-,W,X,-,X,-,-
 18,GET_NEAREST_WP,GET_NEAREST_WP_DELEGATE,LevelMasterClass.GetNearestWPService,Gets nearest WP from a given coordinates of level,,-,-,W,-,-,X,X,-

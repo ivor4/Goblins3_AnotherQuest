@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 27ae4add7a00bdc44b6e261b841bee31
+guid: e3a8880f4a90d764bbbe28818b6a9556
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4819633757514815761
-    second: spr_fountain_full_256_0
+      213: 5307642147758658416
+    second: SPRITE_ACTION_TALK_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_fountain_full_256_0
+      name: SPRITE_ACTION_TALK_0
       rect:
         serializedVersion: 2
         x: 4
-        y: 16
-        width: 246
-        height: 228
+        y: 3
+        width: 42
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fe629df02a83d1db0800000000000000
-      internalID: -4819633757514815761
+      spriteID: 073db0c896888a940800000000000000
+      internalID: 5307642147758658416
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      spr_fountain_full_256_0: -4819633757514815761
+      SPRITE_ACTION_TALK_0: 5307642147758658416
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

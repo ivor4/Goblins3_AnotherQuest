@@ -110,7 +110,7 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /// <summary> 
         /// Any of Game Elements (Player or Item or Door) will call with essential info
         /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: PlayerMaster, ItemMaster,  </para> 
+        /// <para> Accessors: ItemMaster,  </para> 
         /// <para> Method: <see cref="LevelMasterClass.GameElementOverService"/> </para> 
         /// </summary>
         public static GAME_ELEMENT_OVER_DELEGATE GAME_ELEMENT_OVER;

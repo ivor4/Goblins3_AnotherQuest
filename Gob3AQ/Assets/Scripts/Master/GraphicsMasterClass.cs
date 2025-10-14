@@ -2,6 +2,7 @@ using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameElement.PlayableChar;
 using Gob3AQ.ResourceAtlas;
+using Gob3AQ.ResourceDialogs;
 using Gob3AQ.ResourceSprites;
 using Gob3AQ.ResourceSpritesAtlas;
 using Gob3AQ.VARMAP.GraphicsMaster;
@@ -10,10 +11,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 namespace Gob3AQ.GraphicsMaster
 {
@@ -37,8 +36,12 @@ namespace Gob3AQ.GraphicsMaster
         private static Camera mainCamera;
         private static Transform mainCameraTransform;
         private static GameObject cursor;
+        private static GameObject cursor_subobj;
+        private static GameObject cursor_textobj;
         private static GameObject background;
-        private static SpriteRenderer cursor_spr;
+        private static Image cursor_spr;
+        private static Image cursor_subobj_spr;
+        private static TMP_Text cursor_textobj_text;
         private static Game_Status cachedGameStatus;
 
         
@@ -63,8 +66,12 @@ namespace Gob3AQ.GraphicsMaster
             else
             {
                 _singleton = this;
-                cursor = transform.Find("Cursor").gameObject;
-                cursor_spr = cursor.GetComponent<SpriteRenderer>();
+                cursor = UICanvas.transform.Find("Cursor").gameObject;
+                cursor_spr = cursor.GetComponent<Image>();
+                cursor_subobj = cursor.transform.Find("CursorObject").gameObject;
+                cursor_subobj_spr = cursor_subobj.GetComponent<Image>();
+                cursor_textobj = cursor.transform.Find("CursorText").gameObject;
+                cursor_textobj_text = cursor_textobj.transform.Find("Text").gameObject.GetComponent<TMP_Text>();
                 background = transform.Find("Background").gameObject;
                 background_spr = background.GetComponent<SpriteRenderer>();
 
@@ -87,6 +94,7 @@ namespace Gob3AQ.GraphicsMaster
 
             VARMAP_GraphicsMaster.REG_GAMESTATUS(_GameStatusChanged);
             VARMAP_GraphicsMaster.REG_PICKABLE_ITEM_CHOSEN(_OnPickedItemChanged);
+            VARMAP_GraphicsMaster.REG_ITEM_HOVER(_OnHoverItemChanged);
 
             /* Force initial event */
             _GameStatusChanged(ChangedEventType.CHANGED_EVENT_SET, Game_Status.GAME_STATUS_STOPPED, VARMAP_GraphicsMaster.GET_GAMESTATUS());
@@ -128,6 +136,7 @@ namespace Gob3AQ.GraphicsMaster
 
                 VARMAP_GraphicsMaster.UNREG_GAMESTATUS(_GameStatusChanged);
                 VARMAP_GraphicsMaster.UNREG_PICKABLE_ITEM_CHOSEN(_OnPickedItemChanged);
+                VARMAP_GraphicsMaster.UNREG_ITEM_HOVER(_OnHoverItemChanged);
             }
         }
 
@@ -160,6 +169,9 @@ namespace Gob3AQ.GraphicsMaster
                     _cameraCenterLimitBounds.extents -= _cameraBounds.extents;
 
                     cursor_spr.sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_CURSOR_NORMAL);
+                    cursor.SetActive(true);
+
+                    UICanvas_itemMenuObj.GetComponent<Image>().sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_INVENTORY);
 
                     candidatePos.z = mainCameraTransform.position.z;
 
@@ -250,14 +262,37 @@ namespace Gob3AQ.GraphicsMaster
                 if (newval == GameItem.ITEM_NONE)
                 {
                     cursor_spr.sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_CURSOR_NORMAL);
+                    cursor_subobj.SetActive(false);
+                    cursor_subobj_spr.sprite = null;
                 }
                 else
                 {
                     ref readonly ItemInfo info = ref ItemsInteractionsClass.GetItemInfo(newval);
                     GameSprite sprID;
-                    GamePickableItem pickable = info.pickableItem;
                     sprID = info.pickableSprite;
-                    cursor_spr.sprite = ResourceSpritesClass.GetSprite(sprID);
+
+                    cursor_spr.sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_CURSOR_USING);
+                    cursor_subobj_spr.sprite = ResourceSpritesClass.GetSprite(sprID);
+                    cursor_subobj.SetActive(true);
+                }
+            }
+        }
+
+        private static void _OnHoverItemChanged(ChangedEventType evtype, in GameItem oldval, in GameItem newval)
+        {
+            _ = evtype;
+
+            if(oldval != newval)
+            {
+                if(newval == GameItem.ITEM_NONE)
+                {
+                    cursor_textobj.SetActive(false);
+                }
+                else
+                {
+                    ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(newval);
+                    cursor_textobj_text.text = ResourceDialogsClass.GetName(itemInfo.name);
+                    cursor_textobj.SetActive(true);
                 }
             }
         }
@@ -270,17 +305,17 @@ namespace Gob3AQ.GraphicsMaster
             switch (newval)
             {
                 case Game_Status.GAME_STATUS_PLAY:
-                    UICanvas.SetActive(false);
+                    UICanvas_loadingObj.SetActive(false);
+                    UICanvas_dialogObj.SetActive(false);
+                    UICanvas_itemMenuObj.SetActive(false);
                     break;
                 case Game_Status.GAME_STATUS_LOADING:
                 case Game_Status.GAME_STATUS_CHANGING_ROOM:
-                    UICanvas.SetActive(true);
                     UICanvas_loadingObj.SetActive(true);
                     UICanvas_dialogObj.SetActive(false);
                     UICanvas_itemMenuObj.SetActive(false);
                     break;
                 case Game_Status.GAME_STATUS_PLAY_DIALOG:
-                    UICanvas.SetActive(true);
                     UICanvas_dialogObj.SetActive(true);
                     UICanvas_loadingObj.SetActive(false);
                     UICanvas_itemMenuObj.SetActive(false);
@@ -289,7 +324,6 @@ namespace Gob3AQ.GraphicsMaster
                     //paused_text.gameObject.SetActive(true);
                     break;
                 case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
-                    UICanvas.SetActive(true);
                     UICanvas_itemMenuObj.SetActive(true);
                     UICanvas_loadingObj.SetActive(false);
                     UICanvas_dialogObj.SetActive(false);

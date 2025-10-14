@@ -40,7 +40,6 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             ITEM_REGISTER = _ITEM_REGISTER;
             MONO_REGISTER = _MONO_REGISTER;
             PLAYER_WAYPOINT_UPDATE = _PLAYER_WAYPOINT_UPDATE;
-            GAME_ELEMENT_OVER = _GAME_ELEMENT_OVER;
             SELECT_PLAYER = _SELECT_PLAYER;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
             GET_NEAREST_WP = _GET_NEAREST_WP;
@@ -113,13 +112,6 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         /// <para> Method: <see cref="LevelMasterClass.PlayerWaypointUpdateService"/> </para> 
         /// </summary>
         public static PLAYER_WAYPOINT_UPDATE_DELEGATE PLAYER_WAYPOINT_UPDATE;
-        /// <summary> 
-        /// Any of Game Elements (Player or Item or Door) will call with essential info
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: PlayerMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.GameElementOverService"/> </para> 
-        /// </summary>
-        public static GAME_ELEMENT_OVER_DELEGATE GAME_ELEMENT_OVER;
         /// <summary> 
         /// Selects player
         /// <para> Owner: PlayerMaster </para> 

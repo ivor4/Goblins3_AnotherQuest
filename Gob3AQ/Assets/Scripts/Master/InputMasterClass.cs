@@ -109,8 +109,8 @@ namespace Gob3AQ.InputMaster
                 cachedMouseProps.posPixels = new Vector2Int((int)mousePosition.x, (int)mousePosition.y);
 
 
-                VARMAP_InputMaster.SET_PRESSED_KEYS(cachedPressedKeys);
-                VARMAP_InputMaster.SET_MOUSE_PROPERTIES(cachedMouseProps);
+                VARMAP_InputMaster.SET_PRESSED_KEYS(in cachedPressedKeys);
+                VARMAP_InputMaster.SET_MOUSE_PROPERTIES(in cachedMouseProps);
             }
 
         }

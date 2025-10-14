@@ -27,7 +27,6 @@ namespace Gob3AQ.GameMenu
         private static GameMenuClass _singleton;
         private static bool _menuOpened;
         private static PickableItemDisplayClass[] _displayItemArray;
-        private static Camera _mainCamera;
         private static Rect _upperGameMenuRect;
         
         private static string[] _gameMenuToolbarStrings;
@@ -41,13 +40,10 @@ namespace Gob3AQ.GameMenu
         private static Coroutine dialog_coroutine;
 
 
-        private static GameObject UICanvas_dialogObj;
         private static TMP_Text UICanvas_dialogObj_sender;
         private static TMP_Text UICanvas_dialogObj_msg;
         private static GameObject UICanvas_dialogOptions;
         private static DialogOptionButtonClass[] UICanvas_dialogOptionButtons;
-
-        private static GameObject UICanvas_itemMenuObj;
 
         /// <summary>
         /// Displays a dialogue interface based on the specified character type, dialogue type, and initial phrase.
@@ -272,8 +268,6 @@ namespace Gob3AQ.GameMenu
             VARMAP_GameMenu.REG_PICKABLE_ITEM_OWNER(_OnItemOwnerChanged);
             VARMAP_GameMenu.REG_GAMESTATUS(_OnGameStatusChanged);
 
-            _mainCamera = Camera.main;
-
             _ = StartCoroutine(Execute_Load_Coroutine());
         }
 
@@ -329,7 +323,7 @@ namespace Gob3AQ.GameMenu
 
         private static IEnumerator Execute_Load_Coroutine()
         {
-            UICanvas_dialogObj = _UICanvas.transform.Find("DialogObj").gameObject;
+            GameObject UICanvas_dialogObj = _UICanvas.transform.Find("DialogObj").gameObject;
             UICanvas_dialogObj_sender = UICanvas_dialogObj.transform.Find("DialogSender").GetComponent<TMP_Text>();
             UICanvas_dialogObj_msg = UICanvas_dialogObj.transform.Find("DialogMsg").GetComponent<TMP_Text>();
             UICanvas_dialogOptions = UICanvas_dialogObj.transform.Find("DialogOptions").gameObject;
@@ -345,7 +339,7 @@ namespace Gob3AQ.GameMenu
             }
 
 
-            UICanvas_itemMenuObj = _UICanvas.transform.Find("ItemMenuObj").gameObject;
+            GameObject UICanvas_itemMenuObj = _UICanvas.transform.Find("ItemMenuObj").gameObject;
 
             for (int i = 0; i < GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS; ++i)
             {

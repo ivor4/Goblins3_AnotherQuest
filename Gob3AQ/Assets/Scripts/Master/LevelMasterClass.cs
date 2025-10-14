@@ -211,11 +211,13 @@ namespace Gob3AQ.LevelMaster
             /* Undo if actual family slot was used by this one */
             else
             {
-                if ((_HoveredElem.family == info.family) && (_HoveredElem.index == info.index))
+                if ((_HoveredElem.family == info.family) && (_HoveredElem.item == info.item))
                 {
                     _HoveredElem = LevelElemInfo.EMPTY;
                 }
             }
+
+            VARMAP_LevelMaster.SET_ITEM_HOVER(_HoveredElem.item);
         }
 
         
@@ -358,7 +360,7 @@ namespace Gob3AQ.LevelMaster
                             if ((chosenItem != GameItem.ITEM_NONE) && (playerSelected != CharacterType.CHARACTER_NONE))
                             {
                                 usage = InteractionUsage.CreatePlayerUseItemWithItem(playerSelected, chosenItem,
-                                        (GameItem)_HoveredElem.index, _HoveredElem.waypoint);
+                                        _HoveredElem.item, _HoveredElem.waypoint);
                                 VARMAP_LevelMaster.INTERACT_PLAYER(playerSelected, _HoveredElem.waypoint, out accepted);
 
                                 if(accepted)
@@ -368,7 +370,8 @@ namespace Gob3AQ.LevelMaster
                             }
                             else
                             {
-                                VARMAP_LevelMaster.SELECT_PLAYER((CharacterType)_HoveredElem.index);
+                                /* This cast works just because first declared items match in same order as characters (chiripa) */
+                                VARMAP_LevelMaster.SELECT_PLAYER((CharacterType)_HoveredElem.item);
                                 VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
                             }
                             break;
@@ -378,13 +381,13 @@ namespace Gob3AQ.LevelMaster
                             {
                                 if (chosenItem == GameItem.ITEM_NONE)
                                 {
-                                    usage = InteractionUsage.CreatePlayerWithItem(playerSelected, (GameItem)_HoveredElem.index,
+                                    usage = InteractionUsage.CreatePlayerWithItem(playerSelected, _HoveredElem.item,
                                         _HoveredElem.waypoint);
                                 }
                                 else
                                 {
                                     usage = InteractionUsage.CreatePlayerUseItemWithItem(playerSelected, chosenItem,
-                                        (GameItem)_HoveredElem.index, _HoveredElem.waypoint);
+                                        _HoveredElem.item, _HoveredElem.waypoint);
                                 }
 
                                 VARMAP_LevelMaster.INTERACT_PLAYER(playerSelected, _HoveredElem.waypoint, out accepted);
@@ -398,7 +401,7 @@ namespace Gob3AQ.LevelMaster
 
 
                         case GameItemFamily.ITEM_FAMILY_TYPE_DOOR:
-                            usage = InteractionUsage.CreatePlayerWithItem(playerSelected, (GameItem)_HoveredElem.index,
+                            usage = InteractionUsage.CreatePlayerWithItem(playerSelected, _HoveredElem.item,
                                 _HoveredElem.waypoint);
 
                             VARMAP_LevelMaster.INTERACT_PLAYER(playerSelected, _HoveredElem.waypoint, out accepted);

@@ -24,6 +24,7 @@ namespace Gob3AQ.ResourceSpritesAtlas
         {
             /* > ATG 1 START < */
             new("SPRITE_CURSOR_NORMAL"), /* SPRITE_CURSOR_NORMAL */ 
+            new("SPRITE_CURSOR_USING"), /* SPRITE_CURSOR_USING */ 
             new("SPRITE_INVENTORY"), /* SPRITE_INVENTORY */ 
             new("SPRITE_ITEM_POTION"), /* SPRITE_POTION_RED */ 
             new("SPRITE_ITEM_POTION_BLUE"), /* SPRITE_POTION_BLUE */ 

@@ -3626,7 +3626,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1567378405976853793, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4393278064670122710, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
       propertyPath: m_Pivot.x
@@ -3708,22 +3708,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4768701210980426453, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6910175552404248689, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
       propertyPath: m_Name
       value: UICanvas
       objectReference: {fileID: 0}
     - target: {fileID: 6910175552404248689, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7888174734805580130, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8951149274311812720, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 8951149274311812720, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4128,7 +4136,7 @@ PrefabInstance:
       objectReference: {fileID: 6491572021259018865}
     - target: {fileID: 3637719463198597506, guid: 4043428f270d468409adbea1caff1e50, type: 3}
       propertyPath: backgroundGameSprite
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4231066689909814807, guid: 4043428f270d468409adbea1caff1e50, type: 3}
       propertyPath: m_Name

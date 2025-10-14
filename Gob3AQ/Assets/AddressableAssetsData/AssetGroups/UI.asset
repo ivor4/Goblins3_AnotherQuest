@@ -20,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 27a69597165a3994e8972b4d3cb6e286
+    m_Address: SPRITE_CURSOR_USING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 57dfcde8303e8a142b3bddfde29b2c35
     m_Address: SPRITE_INVENTORY
     m_ReadOnly: 0
@@ -27,6 +32,21 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 799d875810ff8af458134750bfd4969c
     m_Address: SCENE_LOADING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b98775155cc4d5b408d254644c4c02c7
+    m_Address: SPRITE_ACTION_OBSERVE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db7e2e3be67785f4988c50ac8575206d
+    m_Address: Assets/Sprites/SPRITE_ACTION_TAKE.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3a8880f4a90d764bbbe28818b6a9556
+    m_Address: SPRITE_ACTION_TALK
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

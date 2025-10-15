@@ -1,5 +1,4 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 using Gob3AQ.VARMAP.GameMenu;
 
 namespace Gob3AQ.MainMenu

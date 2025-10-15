@@ -15,23 +15,13 @@ MonoBehaviour:
   m_GroupName: Room_First
   m_GUID: f8641862df2a96a46aad6b0a436c2d70
   m_SerializeEntries:
-  - m_GUID: 27ae4add7a00bdc44b6e261b841bee31
-    m_Address: SPRITE_ITEM_FOUNTAIN_FULL
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 593641824d8dd5c40870706cb3b1b116
-    m_Address: BACKGROUND_ROOM_FIRST
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8c9cfa26abfee488c85f1582747f6a02
     m_Address: SCENE_SAMPLE
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f9fdc56efdd86414db9f436a91d745b4
-    m_Address: SPRITE_ITEM_FOUNTAIN
+  - m_GUID: aa36d8df163d68745b9d0be060a6280d
+    m_Address: SPRITE_ATLAS_ROOM_FIRST_0
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -10,18 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Pickables
+  m_Name: Pickables_UI
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
-  m_GroupName: Pickables
-  m_GUID: 37e3bf811ae9a384c8d1d4b3659db34a
+  m_GroupName: Pickables_UI
+  m_GUID: 4c7d8d162647be349b720b5721724b99
   m_SerializeEntries:
-  - m_GUID: 06f53015545c2874083bba66d47bf49d
-    m_Address: SPRITE_ITEM_POTION_BLUE
+  - m_GUID: 0927956e5347c1e448036ffeca798dcc
+    m_Address: SPRITE_ATLAS_UI_0
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d54ac608b7f3e294c8416f614d9fab58
-    m_Address: SPRITE_ITEM_POTION
+  - m_GUID: 49fc62090e4a65e468d40c9652e2bb79
+    m_Address: SPRITE_ATLAS_PICKABLES_0
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 799d875810ff8af458134750bfd4969c
+    m_Address: SCENE_LOADING
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -29,5 +34,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: c63f0f3646ca67f4abe7e9d9a952af85, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 3526abc348baee84c80218dc05aeee8e, type: 2}
-    - {fileID: 11400000, guid: 0fd7636694172754ea7029cac6caf051, type: 2}
+    - {fileID: 11400000, guid: cc7ec0ec4ba2149429fa71ab03e09c2e, type: 2}
+    - {fileID: 11400000, guid: c1c0cc26bdd2062409dca969f0df01e3, type: 2}

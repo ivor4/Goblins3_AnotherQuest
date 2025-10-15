@@ -52,7 +52,7 @@ namespace Gob3AQ.GameMenu.Dialog
             optionText.color = Color.white;
         }
 
-        void Awake()
+        private void Awake()
         {
             optionParent = transform.parent.gameObject;
             optionText = transform.parent.Find("OptionText").GetComponent<TMP_Text>();

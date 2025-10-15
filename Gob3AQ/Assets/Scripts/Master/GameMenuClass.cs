@@ -328,14 +328,14 @@ namespace Gob3AQ.GameMenu
             UICanvas_dialogObj_msg = UICanvas_dialogObj.transform.Find("DialogMsg").GetComponent<TMP_Text>();
             UICanvas_dialogOptions = UICanvas_dialogObj.transform.Find("DialogOptions").gameObject;
 
-            yield return new WaitForNextFrameUnit();
+            yield return ResourceAtlasClass.WaitForNextFrame;
 
             for (int i = 0; i < GameFixedConfig.MAX_DIALOG_OPTIONS; ++i)
             {
                 Transform btnTransf = UICanvas_dialogOptions.transform.Find("DialogOption" + (i + 1).ToString());
                 UICanvas_dialogOptionButtons[i] = btnTransf.Find("ActiveArea").gameObject.GetComponent<DialogOptionButtonClass>();
                 UICanvas_dialogOptionButtons[i].SetClickDelegate(_DialogOptionSelected);
-                yield return new WaitForNextFrameUnit();
+                yield return ResourceAtlasClass.WaitForNextFrame;
             }
 
 
@@ -346,7 +346,7 @@ namespace Gob3AQ.GameMenu
                 GameObject itemObj = UICanvas_itemMenuObj.transform.Find("Item" + (i + 1)).Find("Item").gameObject;
                 _displayItemArray[i] = itemObj.GetComponent<PickableItemDisplayClass>();
                 _displayItemArray[i].SetCallFunction(OnItemDisplayClick);
-                yield return new WaitForNextFrameUnit();
+                yield return ResourceAtlasClass.WaitForNextFrame;
             }
 
             VARMAP_GameMenu.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameMenu);

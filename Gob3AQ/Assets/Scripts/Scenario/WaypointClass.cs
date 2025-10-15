@@ -8,6 +8,7 @@ using Gob3AQ.VARMAP.LevelMaster;
 using System.Threading.Tasks;
 using Gob3AQ.LevelMaster;
 using Unity.VisualScripting;
+using Gob3AQ.ResourceAtlas;
 
 namespace Gob3AQ.Waypoint
 {
@@ -80,7 +81,7 @@ namespace Gob3AQ.Waypoint
 
         private IEnumerator LateStart()
         {
-            yield return new WaitForNextFrameUnit();
+            yield return ResourceAtlasClass.WaitForNextFrame;
             AsyncLoad();
         }
 

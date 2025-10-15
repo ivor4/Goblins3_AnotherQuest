@@ -1,5 +1,6 @@
 using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.GameElement.Clickable;
+using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceSprites;
 using Gob3AQ.ResourceSpritesAtlas;
 using Gob3AQ.VARMAP.ItemMaster;
@@ -78,7 +79,7 @@ namespace Gob3AQ.GameElement.Item
 
             while (!loaded)
             {
-                yield return new WaitForNextFrameUnit();
+                yield return ResourceAtlasClass.WaitForNextFrame;
                 VARMAP_ItemMaster.IS_MODULE_LOADED(GameModules.MODULE_GameMaster, out loaded);
             }
 

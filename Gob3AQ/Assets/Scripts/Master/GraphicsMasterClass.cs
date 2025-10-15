@@ -101,6 +101,9 @@ namespace Gob3AQ.GraphicsMaster
 
             cachedGameStatus = VARMAP_GraphicsMaster.GET_GAMESTATUS();
 
+            UICanvas_itemMenuObj.SetActive(false);
+            UICanvas_dialogObj.SetActive(false);
+
             _loaded = false;
         }
 

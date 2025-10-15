@@ -48,7 +48,7 @@ namespace Gob3AQ.GameElement.Item.Fountain
 
                 if (!ResourcesLoaded)
                 {
-                    yield return new WaitForNextFrameUnit();
+                    yield return ResourceAtlasClass.WaitForNextFrame;
                 }
                 else
                 {

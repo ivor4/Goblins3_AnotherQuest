@@ -2,6 +2,7 @@ using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameElement.Item;
 using Gob3AQ.Libs.Arith;
+using Gob3AQ.ResourceAtlas;
 using Gob3AQ.VARMAP.ItemMaster;
 using Gob3AQ.VARMAP.PlayerMaster;
 using Gob3AQ.VARMAP.Types;
@@ -90,7 +91,7 @@ namespace Gob3AQ.ItemMaster
 
         private IEnumerator LoadCoroutine()
         {
-            yield return new WaitForNextFrameUnit();
+            yield return ResourceAtlasClass.WaitForNextFrame;
 
             if(_itemsAvailableToLoad == 0)
             {

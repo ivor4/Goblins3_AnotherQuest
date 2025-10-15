@@ -2,6 +2,7 @@ using Gob3AQ.FixedConfig;
 using Gob3AQ.GameElement;
 using Gob3AQ.GameElement.Clickable;
 using Gob3AQ.PlayerMaster;
+using Gob3AQ.ResourceAtlas;
 using Gob3AQ.VARMAP.PlayerMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.Waypoint;
@@ -184,7 +185,7 @@ namespace Gob3AQ.GameElement.PlayableChar
             while (!loadOk)
             {
                 loadOk = Execute_Loading_Action();
-                yield return new WaitForNextFrameUnit();
+                yield return ResourceAtlasClass.WaitForNextFrame;
             }
         }
 

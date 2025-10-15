@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.Brain.ItemsInteraction;
 using System;
+using System.Collections;
+using Unity.VisualScripting;
 
 namespace Gob3AQ.ResourceAtlas
 {
@@ -22,6 +24,7 @@ namespace Gob3AQ.ResourceAtlas
 
     public static class ResourceAtlasClass
     {
+        public static readonly WaitForNextFrameUnit WaitForNextFrame = new WaitForNextFrameUnit();
         public static ref readonly RoomInfo GetRoomInfo(Room room)
         {
             if ((uint)room < (uint)Room.ROOMS_TOTAL)

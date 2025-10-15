@@ -36,11 +36,13 @@ namespace Gob3AQ.LevelMaster
         public struct PendingCharacterInteraction
         {
             public bool pending;
+            public bool ended;
             public readonly InteractionUsage usage;
 
             public PendingCharacterInteraction(in InteractionUsage interaction)
             {
                 pending = true;
+                ended = false;
                 usage = interaction;
             }
         }
@@ -147,56 +149,7 @@ namespace Gob3AQ.LevelMaster
 
         public static void PlayerReachedWaypointService(CharacterType character)
         {
-            /* Generate stack array of 2 talkers, player and dst */
-            Span<GameItem> talkers = stackalloc GameItem[2];
-
-            ref PendingCharacterInteraction charPendingAction = ref _PendingCharInteractions[(int)character];
-            ref readonly InteractionUsage usage = ref charPendingAction.usage;
-
-            /* Now interact if buffered */
-            if (charPendingAction.pending && (usage.type != InteractionType.PLAYER_MOVE))
-            {
-                ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(usage.itemDest);
-
-                switch (itemInfo.family)
-                {
-                    case GameItemFamily.ITEM_FAMILY_TYPE_DOOR:
-                        CrossDoor(character, usage.destListIndex);
-                        break;
-                    default:
-                        /* Check if it is available and is still in original position */
-                        bool validTransaction = IsItemAvailable(usage.itemDest);
-                        validTransaction &= _ItemDictionary[usage.itemDest].Waypoint == usage.destWaypoint;
-
-
-                        if (validTransaction)
-                        {
-                            /* Use Item is also Take Item */
-                            VARMAP_LevelMaster.USE_ITEM(in usage, out InteractionUsageOutcome outcome);
-
-                            if (outcome.dialogType != DialogType.DIALOG_NONE)
-                            {
-                                /* Default talkers are own player and itemDest */
-                                talkers[0] = _Player_List[(int)usage.playerSource].ItemID;
-                                talkers[1] = usage.itemDest;
-
-                                VARMAP_LevelMaster.ENABLE_DIALOGUE(true, talkers, outcome.dialogType, outcome.dialogPhrase);
-                            }
-                            else if (outcome.animation != CharacterAnimation.ITEM_USE_ANIMATION_NONE)
-                            {
-                                //ActAnimationRequest(outcome.animation);
-                            }
-                            else
-                            {
-                                /**/
-                            }
-                        }
-                        break;
-                }
-            }
-
-            /* Pending no more */
-            charPendingAction.pending = false;
+            _PendingCharInteractions[(int)character].ended = true;
         }
 
         
@@ -278,9 +231,9 @@ namespace Gob3AQ.LevelMaster
         }
 
 
-        private void Initializations()
+        private static void Initializations()
         {
-            _Player_List = new PlayableCharScript[GameFixedConfig.MAX_LEVEL_PLAYABLE_CHARACTERS];
+            _Player_List = new PlayableCharScript[(int)CharacterType.CHARACTER_TOTAL];
             _WP_List = new List<WaypointClass>(GameFixedConfig.MAX_LEVEL_WAYPOINTS);
             _ItemDictionary = new Dictionary<GameItem, GameElementClass>(GameFixedConfig.MAX_POOLED_ITEMS);
             _Door_List = new List<DoorClass>(GameFixedConfig.MAX_SCENE_DOORS);
@@ -291,7 +244,7 @@ namespace Gob3AQ.LevelMaster
 
             _playMouseArea = new Rect(0, 0, Screen.width, Screen.height * GameFixedConfig.GAME_ZONE_HEIGHT_PERCENT);
 
-            _PendingCharInteractions = new PendingCharacterInteraction[GameFixedConfig.MAX_LEVEL_PLAYABLE_CHARACTERS];
+            _PendingCharInteractions = new PendingCharacterInteraction[(int)CharacterType.CHARACTER_TOTAL];
             _HoveredElem = LevelElemInfo.EMPTY;
         }
 
@@ -299,15 +252,24 @@ namespace Gob3AQ.LevelMaster
 
 
 
-        private void Update_Play(Game_Status gstatus)
+        private static void Update_Play(Game_Status gstatus)
         {
+            for(int i = 0; i < (int)CharacterType.CHARACTER_TOTAL; i++)
+            {
+                ref readonly PendingCharacterInteraction pending = ref _PendingCharInteractions[i];
+
+                if(pending.ended)
+                {
+                    ExecutePlayerEndOfInteraction((CharacterType)i);
+                }
+            }
             UpdateMouseEvents(gstatus);
         }
 
        
 
 
-        private void UpdateMouseEvents(Game_Status gstatus)
+        private static void UpdateMouseEvents(Game_Status gstatus)
         {
             ref readonly MousePropertiesStruct mouse = ref VARMAP_LevelMaster.GET_MOUSE_PROPERTIES();
 
@@ -329,7 +291,7 @@ namespace Gob3AQ.LevelMaster
           
         }
 
-        private void UpdateCharItemMouseEvents(in MousePropertiesStruct mouse)
+        private static void UpdateCharItemMouseEvents(in MousePropertiesStruct mouse)
         {
             GameItem chosenItem = VARMAP_LevelMaster.GET_PICKABLE_ITEM_CHOSEN();
             CharacterType playerSelected = VARMAP_LevelMaster.GET_PLAYER_SELECTED();
@@ -446,6 +408,61 @@ namespace Gob3AQ.LevelMaster
                     _PendingCharInteractions[(int)selectedCharacter] = new PendingCharacterInteraction(in usage);
                 }
             }
+        }
+
+        private static void ExecutePlayerEndOfInteraction(CharacterType character)
+        {
+            /* Generate stack array of 2 talkers, player and dst */
+            Span<GameItem> talkers = stackalloc GameItem[2];
+
+            ref PendingCharacterInteraction charPendingAction = ref _PendingCharInteractions[(int)character];
+            ref readonly InteractionUsage usage = ref charPendingAction.usage;
+
+            /* Now interact if buffered */
+            if (charPendingAction.pending && (usage.type != InteractionType.PLAYER_MOVE))
+            {
+                ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(usage.itemDest);
+
+                switch (itemInfo.family)
+                {
+                    case GameItemFamily.ITEM_FAMILY_TYPE_DOOR:
+                        CrossDoor(character, usage.destListIndex);
+                        break;
+                    default:
+                        /* Check if it is available and is still in original position */
+                        bool validTransaction = IsItemAvailable(usage.itemDest);
+                        validTransaction &= _ItemDictionary[usage.itemDest].Waypoint == usage.destWaypoint;
+
+
+                        if (validTransaction)
+                        {
+                            /* Use Item is also Take Item */
+                            VARMAP_LevelMaster.USE_ITEM(in usage, out InteractionUsageOutcome outcome);
+
+                            if (outcome.dialogType != DialogType.DIALOG_NONE)
+                            {
+                                /* Default talkers are own player and itemDest */
+                                talkers[0] = _Player_List[(int)usage.playerSource].ItemID;
+                                talkers[1] = usage.itemDest;
+
+                                VARMAP_LevelMaster.ENABLE_DIALOGUE(true, talkers, outcome.dialogType, outcome.dialogPhrase);
+                            }
+                            else if (outcome.animation != CharacterAnimation.ITEM_USE_ANIMATION_NONE)
+                            {
+                                //ActAnimationRequest(outcome.animation);
+                            }
+                            else
+                            {
+                                /**/
+                            }
+                        }
+                        break;
+                }
+            }
+
+            /* Pending and ended no more */
+            charPendingAction.pending = false;
+            charPendingAction.ended = false;
         }
 
         private static void CrossDoor(CharacterType character, int doorIndex)

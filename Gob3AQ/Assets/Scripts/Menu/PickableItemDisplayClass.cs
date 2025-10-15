@@ -39,8 +39,9 @@ namespace Gob3AQ.GameMenu.PickableItemDisplay
             ref readonly ItemInfo info = ref ItemsInteractionsClass.GetItemInfo(item);
             pickable = info.pickableItem;
             sprID = info.pickableSprite;
-            _spr.sprite = ResourceSpritesClass.GetSprite(sprID);
-            _sprglow.sprite = _spr.sprite;
+            Sprite sprRes = ResourceSpritesClass.GetSprite(sprID);
+            _spr.sprite = sprRes;
+            _sprglow.sprite = sprRes;
         }
 
         void Awake()
@@ -50,8 +51,6 @@ namespace Gob3AQ.GameMenu.PickableItemDisplay
             _glow = transform.parent.Find("Glow").gameObject;
             _sprglow = _glow.GetComponent<Image>();
             _parent = transform.parent.gameObject;
-
-            _glow.SetActive(false);
         }
 
 

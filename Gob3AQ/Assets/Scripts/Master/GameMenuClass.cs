@@ -1,7 +1,6 @@
 ﻿using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.FixedConfig;
-using Gob3AQ.GameMenu.Dialog;
-using Gob3AQ.GameMenu.PickableItemDisplay;
+using Gob3AQ.GameMenu.UICanvas;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceDialogs;
 using Gob3AQ.ResourceDialogsAtlas;
@@ -9,7 +8,6 @@ using Gob3AQ.VARMAP.GameMenu;
 using Gob3AQ.VARMAP.Types;
 using System;
 using System.Collections;
-using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -19,31 +17,41 @@ namespace Gob3AQ.GameMenu
     [System.Serializable]
     public class GameMenuClass : MonoBehaviour
     {
+        private enum DialogCoroutineTaskType
+        {
+            DIALOG_TASK_NONE,
+            DIALOG_TASK_START,
+            DIALOG_TASK_ENDPHRASE
+        }
+
         [SerializeField]
         private GameObject UICanvas;
 
-        private static GameObject _UICanvas;
-
         private static GameMenuClass _singleton;
-        private static bool _menuOpened;
-        private static PickableItemDisplayClass[] _displayItemArray;
-        private static Rect _upperGameMenuRect;
+        private bool _menuOpened;
         
-        private static string[] _gameMenuToolbarStrings;
+        private Rect _upperGameMenuRect;
+        
+        private string[] _gameMenuToolbarStrings;
 
-        private static GameItem[] dialog_current_talkers;
-        private static int dialog_currentPhraseIndex;
-        private static int dialog_totalPhrases;
-        private static DialogOption dialog_optionPhrases;
-        private static bool dialog_optionPending;
-        private static bool dialog_tellingInProgress;
-        private static Coroutine dialog_coroutine;
+        private UICanvasClass _uicanvas_cls;
+
+        private GameItem[] dialog_input_talkers;
+        private DialogType dialog_input_type;
+        private DialogPhrase dialog_input_phrase;
+
+        private int dialog_currentPhraseIndex;
+        private int dialog_totalPhrases;
+        private DialogOption dialog_optionPhrases;
+        private bool dialog_optionPending;
+        private bool dialog_tellingInProgress;
+        private Coroutine dialog_main_coroutine;
+        private WaitUntil yield_custom;
+        private DialogCoroutineTaskType dialog_actualTaskType;
+        private WaitForSeconds yield_2s;
 
 
-        private static TMP_Text UICanvas_dialogObj_sender;
-        private static TMP_Text UICanvas_dialogObj_msg;
-        private static GameObject UICanvas_dialogOptions;
-        private static DialogOptionButtonClass[] UICanvas_dialogOptionButtons;
+        
 
         /// <summary>
         /// Displays a dialogue interface based on the specified character type, dialogue type, and initial phrase.
@@ -56,6 +64,18 @@ namespace Gob3AQ.GameMenu
         /// <param name="dialog">The type of dialogue to display, which determines the structure and options available.</param>
         /// <param name="phrase">The initial phrase to display if the dialogue type is simple.</param>
         public static void ShowDialogueService(ReadOnlySpan<GameItem> defaultTalkers, DialogType dialog, DialogPhrase phrase)
+        {
+           if(_singleton != null)
+           {
+                /* Copy default talkers to array */
+                defaultTalkers.CopyTo(_singleton.dialog_input_talkers);
+                _singleton.dialog_input_type = dialog;
+                _singleton.dialog_input_phrase = phrase;
+                _singleton.dialog_actualTaskType = DialogCoroutineTaskType.DIALOG_TASK_START;
+           }
+        }
+
+        private void ShowDialogueExec(DialogType dialog, DialogPhrase phrase)
         {
             int selectablePhrases;
 
@@ -74,7 +94,7 @@ namespace Gob3AQ.GameMenu
             else
             {
                 selectablePhrases = 0;
-                
+
                 ReadOnlySpan<DialogOption> dialogOptions = dialogConfig.Options;
 
                 /* Iterate through dialog available options */
@@ -90,9 +110,7 @@ namespace Gob3AQ.GameMenu
 
                         ref readonly PhraseContent optionPhraseContent = ref ResourceDialogsClass.GetPhraseContent(dialogPhrases[0]);
 
-                        UICanvas_dialogOptionButtons[selectablePhrases].SetOptionText(in optionPhraseContent.message);
-                        UICanvas_dialogOptionButtons[selectablePhrases].SetDialogOption(dialogOptions[i]);
-                        UICanvas_dialogOptionButtons[selectablePhrases].SetActive(true);
+                        _uicanvas_cls.ActivateDialogOption(selectablePhrases, true, dialogOptions[i], in optionPhraseContent.message);
 
                         uniquePhrase = dialogPhrases[0];
                         uniqueOption = dialogOptions[i];
@@ -101,34 +119,26 @@ namespace Gob3AQ.GameMenu
                 }
 
                 /* Clear previous usage data and deactivate */
-                for (int i=selectablePhrases;i<GameFixedConfig.MAX_DIALOG_OPTIONS;++i)
+                for (int i = selectablePhrases; i < GameFixedConfig.MAX_DIALOG_OPTIONS; ++i)
                 {
-                    UICanvas_dialogOptionButtons[i].SetOptionText(in string.Empty);
-                    UICanvas_dialogOptionButtons[i].SetDialogOption(DialogOption.DIALOG_OPTION_NONE);
-                    UICanvas_dialogOptionButtons[i].SetActive(false);
+                    _uicanvas_cls.ActivateDialogOption(i, false, DialogOption.DIALOG_OPTION_NONE, in string.Empty);
                 }
             }
 
-            
+
 
             /* Chose between default talkers or imposed */
 
             if (dialogConfig.Talkers[0] != GameItem.ITEM_NONE)
             {
-                dialogConfig.Talkers.CopyTo(dialog_current_talkers);
-            }
-            else
-            {
-                defaultTalkers.CopyTo(dialog_current_talkers);
+                dialogConfig.Talkers.CopyTo(dialog_input_talkers);
             }
 
 
             /* If it is multichoice, enable selectors. If only 1 say it directly */
             if (selectablePhrases > 1)
             {
-                UICanvas_dialogObj_msg.gameObject.SetActive(false);
-                UICanvas_dialogObj_sender.gameObject.SetActive(false);
-                UICanvas_dialogOptions.SetActive(true);
+                _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_OPTIONS, in string.Empty, in string.Empty);
 
                 dialog_optionPending = true;
                 dialog_tellingInProgress = false;
@@ -145,11 +155,11 @@ namespace Gob3AQ.GameMenu
             {
                 dialog_optionPending = false;
                 dialog_tellingInProgress = false;
-                Debug.LogError("GraphicsMasterClass.ShowDialogueService: No valid dialog options found for dialog " + dialog.ToString());
+                Debug.LogError("GameMenuClass.ShowDialogueService: No valid dialog options found for dialog " + dialog.ToString());
             }
         }
 
-        private static void _DialogOptionSelected(DialogOption option)
+        private void OnDialogOptionClick(DialogOption option)
         {
             if ((VARMAP_GameMenu.GET_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY_DIALOG) && dialog_optionPending)
             {
@@ -168,46 +178,54 @@ namespace Gob3AQ.GameMenu
             }
         }
 
-        private static void StartDialogue(DialogOption option, int totalPhrases)
+        private void OnInventoryItemClick(GameItem item)
+        {
+            if (_menuOpened)
+            {
+                GameItem prevChoosen = VARMAP_GameMenu.GET_PICKABLE_ITEM_CHOSEN();
+
+
+                if (prevChoosen == item)
+                {
+                    VARMAP_GameMenu.CANCEL_PICKABLE_ITEM();
+                }
+                else
+                {
+                    /* Possible interaction of item combine ? */
+                    _ = prevChoosen;
+
+                    VARMAP_GameMenu.SELECT_PICKABLE_ITEM(item);
+                }
+            }
+        }
+
+        private void StartDialogue(DialogOption option, int totalPhrases)
         {
             dialog_optionPhrases = option;
             dialog_totalPhrases = totalPhrases;
             dialog_currentPhraseIndex = 0;
         }
 
-        private static void StartPhrase(DialogPhrase phrase)
+        private void StartPhrase(DialogPhrase phrase)
         {
-            UICanvas_dialogObj_msg.gameObject.SetActive(true);
-            UICanvas_dialogObj_sender.gameObject.SetActive(true);
-            UICanvas_dialogOptions.SetActive(false);
-
             /* Preset */
             dialog_tellingInProgress = true;
 
-
             ref readonly PhraseContent content = ref ResourceDialogsClass.GetPhraseContent(phrase);
-            GameItem talkerItem = dialog_current_talkers[content.config.talkerIndex];
+            GameItem talkerItem = dialog_input_talkers[content.config.talkerIndex];
             ref readonly ItemInfo talkerInfo = ref ItemsInteractionsClass.GetItemInfo(talkerItem);
 
-            /* Set sender name */
-            UICanvas_dialogObj_sender.text = ResourceDialogsClass.GetName(talkerInfo.name);
-            UICanvas_dialogObj_msg.text = content.message;
+            ref readonly string sender = ref ResourceDialogsClass.GetName(talkerInfo.name);
+            ref readonly string msg = ref content.message;
 
-            dialog_coroutine = _singleton.StartCoroutine(EndPhrase(2f));
+            _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_PHRASE, in sender, in msg);
+
+            dialog_actualTaskType = DialogCoroutineTaskType.DIALOG_TASK_ENDPHRASE;
         }
 
 
-        private static IEnumerator EndPhrase(float waitSeconds)
-        {
-            yield return new WaitForSeconds(waitSeconds);
 
-            /* Erase this coroutine reference */
-            dialog_coroutine = null;
-
-            EndPhrase_Action();
-        }
-
-        private static void EndPhrase_Action()
+        private void EndPhrase_Action()
         {
             if (dialog_tellingInProgress)
             {
@@ -223,9 +241,7 @@ namespace Gob3AQ.GameMenu
                 else
                 {
                     /* End of dialog */
-                    UICanvas_dialogObj_msg.gameObject.SetActive(false);
-                    UICanvas_dialogObj_sender.gameObject.SetActive(false);
-                    UICanvas_dialogOptions.SetActive(false);
+                    _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_NONE, in string.Empty, in string.Empty);
 
                     /* If end of conversation triggers an event */
                     if (dialogConfig.triggeredEvent != GameEvent.EVENT_NONE)
@@ -233,7 +249,7 @@ namespace Gob3AQ.GameMenu
                         VARMAP_GameMenu.COMMIT_EVENT(dialogConfig.triggeredEvent, true);
                     }
 
-                    VARMAP_GameMenu.ENABLE_DIALOGUE(false, null, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE);
+                    VARMAP_GameMenu.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
                 }
             }
         }
@@ -248,16 +264,15 @@ namespace Gob3AQ.GameMenu
             else
             {
                 _singleton = this;
-                _UICanvas = UICanvas;
 
                 float menuHeight = Screen.safeArea.height * GameFixedConfig.MENU_TOP_SCREEN_HEIGHT_PERCENT;
                 _upperGameMenuRect = new Rect(0, 0, Screen.safeArea.width, menuHeight);
                 _gameMenuToolbarStrings = new string[] { "Save Game", "Exit Game" };
+                dialog_input_talkers = new GameItem[GameFixedConfig.MAX_DIALOG_TALKERS];
 
-                UICanvas_dialogOptionButtons = new DialogOptionButtonClass[GameFixedConfig.MAX_DIALOG_OPTIONS];
-                _displayItemArray = new PickableItemDisplayClass[GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS];
-
-                dialog_current_talkers = new GameItem[GameFixedConfig.MAX_DIALOG_TALKERS];
+                yield_custom = new WaitUntil(WaitUntilCondition);
+                yield_2s = new WaitForSeconds(2f);
+                dialog_actualTaskType = DialogCoroutineTaskType.DIALOG_TASK_NONE;
             }
         }
 
@@ -268,11 +283,56 @@ namespace Gob3AQ.GameMenu
             VARMAP_GameMenu.REG_PICKABLE_ITEM_OWNER(_OnItemOwnerChanged);
             VARMAP_GameMenu.REG_GAMESTATUS(_OnGameStatusChanged);
 
-            _ = StartCoroutine(Execute_Load_Coroutine());
+            _uicanvas_cls = UICanvas.GetComponent<UICanvasClass>();
+
+            _ = StartCoroutine(LoadCoroutine());
         }
 
-        
+        private IEnumerator LoadCoroutine()
+        {
+            Coroutine uicoroutine = StartCoroutine(_uicanvas_cls.Execute_Load_Coroutine(OnDialogOptionClick, OnInventoryItemClick));
+            yield return uicoroutine;
 
+            /* This is as a deferred Update function */
+            dialog_main_coroutine = StartCoroutine(UpdateDialog_Coroutine());
+
+            VARMAP_GameMenu.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameMenu);
+        }
+
+        private bool WaitUntilCondition()
+        {
+            return dialog_actualTaskType != DialogCoroutineTaskType.DIALOG_TASK_NONE;
+        }
+
+        /// <summary>
+        /// Periodic Task, but interrupted when no active dialog
+        /// </summary>
+        /// <returns></returns>
+        private IEnumerator UpdateDialog_Coroutine()
+        {
+            while(true)
+            {
+                switch(dialog_actualTaskType)
+                {
+                    case DialogCoroutineTaskType.DIALOG_TASK_START:
+                        dialog_actualTaskType = DialogCoroutineTaskType.DIALOG_TASK_NONE;
+                        ShowDialogueExec(dialog_input_type, dialog_input_phrase);
+                        break;
+
+                    case DialogCoroutineTaskType.DIALOG_TASK_ENDPHRASE:
+                        dialog_actualTaskType = DialogCoroutineTaskType.DIALOG_TASK_NONE;
+                        yield return yield_2s;
+                        EndPhrase_Action();
+                        break;
+
+                    default:
+                        dialog_actualTaskType = DialogCoroutineTaskType.DIALOG_TASK_NONE;
+                        break;
+                }
+
+                yield return yield_custom;
+            }
+        }
 
         void OnGUI()
         {
@@ -316,46 +376,18 @@ namespace Gob3AQ.GameMenu
             if(_singleton == this)
             {
                 _singleton = null;
+                StopCoroutine(dialog_main_coroutine);
                 VARMAP_GameMenu.UNREG_PICKABLE_ITEM_OWNER(_OnItemOwnerChanged);
                 VARMAP_GameMenu.UNREG_GAMESTATUS(_OnGameStatusChanged);
             }
         }
 
-        private static IEnumerator Execute_Load_Coroutine()
-        {
-            GameObject UICanvas_dialogObj = _UICanvas.transform.Find("DialogObj").gameObject;
-            UICanvas_dialogObj_sender = UICanvas_dialogObj.transform.Find("DialogSender").GetComponent<TMP_Text>();
-            UICanvas_dialogObj_msg = UICanvas_dialogObj.transform.Find("DialogMsg").GetComponent<TMP_Text>();
-            UICanvas_dialogOptions = UICanvas_dialogObj.transform.Find("DialogOptions").gameObject;
-
-            yield return ResourceAtlasClass.WaitForNextFrame;
-
-            for (int i = 0; i < GameFixedConfig.MAX_DIALOG_OPTIONS; ++i)
-            {
-                Transform btnTransf = UICanvas_dialogOptions.transform.Find("DialogOption" + (i + 1).ToString());
-                UICanvas_dialogOptionButtons[i] = btnTransf.Find("ActiveArea").gameObject.GetComponent<DialogOptionButtonClass>();
-                UICanvas_dialogOptionButtons[i].SetClickDelegate(_DialogOptionSelected);
-                yield return ResourceAtlasClass.WaitForNextFrame;
-            }
-
-
-            GameObject UICanvas_itemMenuObj = _UICanvas.transform.Find("ItemMenuObj").gameObject;
-
-            for (int i = 0; i < GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS; ++i)
-            {
-                GameObject itemObj = UICanvas_itemMenuObj.transform.Find("Item" + (i + 1)).Find("Item").gameObject;
-                _displayItemArray[i] = itemObj.GetComponent<PickableItemDisplayClass>();
-                _displayItemArray[i].SetCallFunction(OnItemDisplayClick);
-                yield return ResourceAtlasClass.WaitForNextFrame;
-            }
-
-            VARMAP_GameMenu.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameMenu);
-        }
+        
 
 
 
 
-        private static void RefreshItemMenuElements()
+        private void RefreshItemMenuElements()
         {
             ReadOnlySpan<CharacterType> item_owner = VARMAP_GameMenu.GET_ARRAY_PICKABLE_ITEM_OWNER();
             CharacterType selectedChar = VARMAP_GameMenu.GET_PLAYER_SELECTED();
@@ -366,7 +398,7 @@ namespace Gob3AQ.GameMenu
 
 
             /* Fill all spots with first available item */
-            for(int i = 0; i < _displayItemArray.Length; i++)
+            for(int i = 0; i < GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS; i++)
             {
                 bool found = false;
                 if (selectedChar != CharacterType.CHARACTER_NONE)
@@ -377,9 +409,7 @@ namespace Gob3AQ.GameMenu
                         if (item_owner[lastFoundItemIndex] == selectedChar)
                         {
                             GameItem gitem = ItemsInteractionsClass.GetItemFromPickable((GamePickableItem)lastFoundItemIndex);
-
-                            _displayItemArray[i].Enable(true);
-                            _displayItemArray[i].SetDisplayedItem(gitem);
+                            _uicanvas_cls.ActivateInventoryItem(i, true, gitem);
                             found = true;
                         }
                     }
@@ -388,14 +418,14 @@ namespace Gob3AQ.GameMenu
                 if(!found)
                 {
                     /* Otherwise keep hidden */
-                    _displayItemArray[i].Enable(false);
+                    _uicanvas_cls.ActivateInventoryItem(i, false, GameItem.ITEM_NONE);
                 }
                 
             }
         }
 
 
-        private static void _OnItemOwnerChanged(ChangedEventType evtype, in CharacterType oldVal, in CharacterType newVal)
+        private void _OnItemOwnerChanged(ChangedEventType evtype, in CharacterType oldVal, in CharacterType newVal)
         {
             _ = evtype;
             _ = oldVal;
@@ -410,7 +440,7 @@ namespace Gob3AQ.GameMenu
         }
   
 
-        private static void _OnGameStatusChanged(ChangedEventType evtype, in Game_Status oldVal, in Game_Status newVal)
+        private void _OnGameStatusChanged(ChangedEventType evtype, in Game_Status oldVal, in Game_Status newVal)
         {
             _ = evtype;
 
@@ -434,12 +464,7 @@ namespace Gob3AQ.GameMenu
                         break;
                     case Game_Status.GAME_STATUS_PLAY_DIALOG:
                         /* If dialog was in progress, stop it */
-                        if (dialog_coroutine != null)
-                        {
-                            _singleton.StopCoroutine(dialog_coroutine);    
-                        }
-
-                        dialog_coroutine = null;
+                        dialog_actualTaskType = DialogCoroutineTaskType.DIALOG_TASK_NONE;
                         dialog_tellingInProgress = false;
                         dialog_optionPending = false;
                         break;
@@ -447,26 +472,7 @@ namespace Gob3AQ.GameMenu
             }
         }
 
-        private static void OnItemDisplayClick(GameItem item)
-        {
-            if (_menuOpened)
-            {
-                GameItem prevChoosen = VARMAP_GameMenu.GET_PICKABLE_ITEM_CHOSEN();
-
-
-                if (prevChoosen == item)
-                {
-                    VARMAP_GameMenu.CANCEL_PICKABLE_ITEM();
-                }
-                else
-                {
-                    /* Possible interaction of item combine ? */
-                    _ = prevChoosen;
-
-                    VARMAP_GameMenu.SELECT_PICKABLE_ITEM(item);
-                }
-            }
-        }
+        
 
     }
 }

@@ -15,6 +15,7 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceLocations;
+using Gob3AQ.ResourceAtlas;
 
 namespace Gob3AQ.GameMaster
 {
@@ -199,75 +200,42 @@ namespace Gob3AQ.GameMaster
             loaded = (moduleLoadingDone & (1 << (int)module)) != 0;
         }
 
-        public static void FreezePlayService(bool freeze)
+
+        public static void ChangeGameModeService(Game_Status newmode, out bool error)
         {
-            Game_Status status = VARMAP_GameMaster.GET_SHADOW_GAMESTATUS();
+            Game_Status oldmode = VARMAP_GameMaster.GET_SHADOW_GAMESTATUS();
 
-            if (freeze && (status == Game_Status.GAME_STATUS_PLAY))
-            {
-                _SetGameStatus(Game_Status.GAME_STATUS_PLAY_FREEZE);
-            }
-            else if((!freeze) && (status == Game_Status.GAME_STATUS_PLAY_FREEZE))
-            {
-                _SetGameStatus(Game_Status.GAME_STATUS_PLAY);
-            }
-            else
-            {
+            bool valid;
 
+            switch (newmode)
+            {
+                case Game_Status.GAME_STATUS_STOPPED:
+                case Game_Status.GAME_STATUS_PLAY_DIALOG:
+                case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
+                case Game_Status.GAME_STATUS_PLAY_FREEZE:
+                case Game_Status.GAME_STATUS_PAUSE:
+                    valid = oldmode == Game_Status.GAME_STATUS_PLAY;
+                    break;
+                case Game_Status.GAME_STATUS_PLAY:
+                    valid = (oldmode == Game_Status.GAME_STATUS_PLAY_DIALOG) ||
+                        (oldmode == Game_Status.GAME_STATUS_STOPPED) ||
+                        (oldmode == Game_Status.GAME_STATUS_PLAY_ITEM_MENU) ||
+                        (oldmode == Game_Status.GAME_STATUS_PLAY_FREEZE)||
+                        (oldmode == Game_Status.GAME_STATUS_PAUSE);
+                    break;
+                default:
+                    valid = false;
+                    break;
             }
 
+            if(valid)
+            {
+                _SetGameStatus(newmode);
+            }
+
+            error = !valid;
         }
 
-        public static void EnableDialogueService(bool enable, ReadOnlySpan<GameItem> talkers, DialogType dialog, DialogPhrase phrase)
-        {
-            Game_Status status = VARMAP_GameMaster.GET_SHADOW_GAMESTATUS();
-
-            if (enable)
-            {
-                if (status == Game_Status.GAME_STATUS_PLAY)
-                {
-                    _SetGameStatus(Game_Status.GAME_STATUS_PLAY_DIALOG);
-                    VARMAP_GameMaster.CANCEL_PICKABLE_ITEM();
-
-                    VARMAP_GameMaster.SHOW_DIALOGUE(talkers, dialog, phrase);
-                }
-            }
-            else
-            {
-                if (status == Game_Status.GAME_STATUS_PLAY_DIALOG)
-                {
-                    _SetGameStatus(Game_Status.GAME_STATUS_PLAY);
-                }
-            }
-        }
-
-        public static void EnableItemMenu(bool enable)
-        {
-            Game_Status status = VARMAP_GameMaster.GET_SHADOW_GAMESTATUS();
-
-            if (enable)
-            {
-                if(status == Game_Status.GAME_STATUS_PLAY)
-                {
-                    _SetGameStatus(Game_Status.GAME_STATUS_PLAY_ITEM_MENU);
-                }
-            }
-            else
-            {
-                if (status == Game_Status.GAME_STATUS_PLAY_ITEM_MENU)
-                {
-                    _SetGameStatus(Game_Status.GAME_STATUS_PLAY);
-                }
-            }
-        }
-
-        public static void EndDialogueService()
-        {
-            if (VARMAP_GameMaster.GET_SHADOW_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY_DIALOG)
-            {
-                VARMAP_GameMaster.SET_GAMESTATUS(Game_Status.GAME_STATUS_PLAY);
-            }
-        }
 
         public static void ExitGameService(out bool error)
         {
@@ -327,14 +295,17 @@ namespace Gob3AQ.GameMaster
             /* Unload loading room */
             yield return Addressables.UnloadSceneAsync(loadingRoom);
 
-            
 
             /* Move to previous for next load */
             prevRoom = nextRoom;
             prevRoomLoaded = true;
-            
+
+            yield return ResourceAtlasClass.WaitForNextFrame;
 
             _SetGameStatus(Game_Status.GAME_STATUS_LOADING);
+
+            yield return ResourceAtlasClass.WaitForNextFrame;
+
             VARMAP_GameMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameMaster);
         }
 

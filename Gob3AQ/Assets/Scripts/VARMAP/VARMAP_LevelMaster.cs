@@ -5,6 +5,7 @@ using Gob3AQ.LevelMaster;
 using Gob3AQ.PlayerMaster;
 using Gob3AQ.ItemMaster;
 using Gob3AQ.GameEventMaster;
+using Gob3AQ.GameMenu;
 using Gob3AQ.InputMaster;
 
 
@@ -42,7 +43,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
             LOAD_ROOM = _LOAD_ROOM;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
-            FREEZE_PLAY = _FREEZE_PLAY;
             ITEM_REGISTER = _ITEM_REGISTER;
             ITEM_OBTAIN_PICKABLE = _ITEM_OBTAIN_PICKABLE;
             MONO_REGISTER = _MONO_REGISTER;
@@ -60,11 +60,11 @@ namespace Gob3AQ.VARMAP.LevelMaster
             PLAYER_REACHED_WAYPOINT = _PLAYER_REACHED_WAYPOINT;
             USE_ITEM = _USE_ITEM;
             IS_ITEM_TAKEN_FROM_SCENE = _IS_ITEM_TAKEN_FROM_SCENE;
-            ENABLE_ITEM_MENU = _ENABLE_ITEM_MENU;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             EVENT_SUBSCRIPTION = _EVENT_SUBSCRIPTION;
             LOCK_PLAYER = _LOCK_PLAYER;
-            ENABLE_DIALOGUE = _ENABLE_DIALOGUE;
+            CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
+            SHOW_DIALOGUE = _SHOW_DIALOGUE;
             /* > ATG 1 END */
         }
 
@@ -126,13 +126,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
         /// </summary>
         public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
-        /// <summary> 
-        /// This service is called to pause game or enter cinematic
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: LevelMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.FreezePlayService"/> </para> 
-        /// </summary>
-        public static FREEZE_PLAY_DELEGATE FREEZE_PLAY;
         /// <summary> 
         /// Registers an item in system
         /// <para> Owner: LevelMaster </para> 
@@ -253,13 +246,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// </summary>
         public static IS_ITEM_TAKEN_FROM_SCENE_DELEGATE IS_ITEM_TAKEN_FROM_SCENE;
         /// <summary> 
-        /// Enables or disables item menu (from Play State)
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: LevelMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.EnableItemMenu"/> </para> 
-        /// </summary>
-        public static ENABLE_ITEM_MENU_DELEGATE ENABLE_ITEM_MENU;
-        /// <summary> 
         /// Cancels selected item
         /// <para> Owner: ItemMaster </para> 
         /// <para> Accessors: GameMaster, LevelMaster, GameMenu,  </para> 
@@ -281,12 +267,19 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// </summary>
         public static LOCK_PLAYER_DELEGATE LOCK_PLAYER;
         /// <summary> 
-        /// Starts a dialogue with given text and sound
+        /// Asks Game Master to set game mode
         /// <para> Owner: GameMaster </para> 
         /// <para> Accessors: LevelMaster, GameMenu,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.EnableDialogueService"/> </para> 
+        /// <para> Method: <see cref="GameMasterClass.ChangeGameModeService"/> </para> 
         /// </summary>
-        public static ENABLE_DIALOGUE_DELEGATE ENABLE_DIALOGUE;
+        public static CHANGE_GAME_MODE_DELEGATE CHANGE_GAME_MODE;
+        /// <summary> 
+        /// Second part of start dialogue. Tells Game Menu to prepare menu elements
+        /// <para> Owner: GameMenu </para> 
+        /// <para> Accessors: LevelMaster,  </para> 
+        /// <para> Method: <see cref="GameMenuClass.ShowDialogueService"/> </para> 
+        /// </summary>
+        public static SHOW_DIALOGUE_DELEGATE SHOW_DIALOGUE;
         /* > ATG 3 END */
     }
 }

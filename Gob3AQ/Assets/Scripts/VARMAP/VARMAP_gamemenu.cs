@@ -47,7 +47,7 @@ namespace Gob3AQ.VARMAP.GameMenu
             COMMIT_EVENT = _COMMIT_EVENT;
             SELECT_PICKABLE_ITEM = _SELECT_PICKABLE_ITEM;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
-            ENABLE_DIALOGUE = _ENABLE_DIALOGUE;
+            CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
             SHOW_DIALOGUE = _SHOW_DIALOGUE;
             /* > ATG 1 END */
         }
@@ -157,16 +157,16 @@ namespace Gob3AQ.VARMAP.GameMenu
         /// </summary>
         public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
         /// <summary> 
-        /// Starts a dialogue with given text and sound
+        /// Asks Game Master to set game mode
         /// <para> Owner: GameMaster </para> 
         /// <para> Accessors: LevelMaster, GameMenu,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.EnableDialogueService"/> </para> 
+        /// <para> Method: <see cref="GameMasterClass.ChangeGameModeService"/> </para> 
         /// </summary>
-        public static ENABLE_DIALOGUE_DELEGATE ENABLE_DIALOGUE;
+        public static CHANGE_GAME_MODE_DELEGATE CHANGE_GAME_MODE;
         /// <summary> 
         /// Second part of start dialogue. Tells Game Menu to prepare menu elements
         /// <para> Owner: GameMenu </para> 
-        /// <para> Accessors: GameMaster,  </para> 
+        /// <para> Accessors: LevelMaster,  </para> 
         /// <para> Method: <see cref="GameMenuClass.ShowDialogueService"/> </para> 
         /// </summary>
         public static SHOW_DIALOGUE_DELEGATE SHOW_DIALOGUE;

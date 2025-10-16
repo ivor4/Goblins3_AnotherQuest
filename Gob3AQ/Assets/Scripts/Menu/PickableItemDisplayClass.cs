@@ -36,12 +36,21 @@ namespace Gob3AQ.GameMenu.PickableItemDisplay
             GameSprite sprID;
 
             _item = item;
-            ref readonly ItemInfo info = ref ItemsInteractionsClass.GetItemInfo(item);
-            pickable = info.pickableItem;
-            sprID = info.pickableSprite;
-            Sprite sprRes = ResourceSpritesClass.GetSprite(sprID);
-            _spr.sprite = sprRes;
-            _sprglow.sprite = sprRes;
+
+            if (item != GameItem.ITEM_NONE)
+            {
+                ref readonly ItemInfo info = ref ItemsInteractionsClass.GetItemInfo(item);
+                pickable = info.pickableItem;
+                sprID = info.pickableSprite;
+                Sprite sprRes = ResourceSpritesClass.GetSprite(sprID);
+                _spr.sprite = sprRes;
+                _sprglow.sprite = sprRes;
+            }
+            else
+            {
+                _spr.sprite = null;
+                _sprglow.sprite = null;
+            }
         }
 
         void Awake()

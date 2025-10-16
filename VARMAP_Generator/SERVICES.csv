@@ -6,30 +6,28 @@ N,SERVICE_ID,SPECIAL_DELEGATE,SERVICE_ROUTE,Description,Separator,GameMaster,Inp
 4,EXIT_GAME,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Exits games to OS,,W,-,-,-,X,-,-,-
 5,MODULE_LOADING_COMPLETED,LODING_COMPLETED_DELEGATE,GameMasterClass.LoadingCompletedService,This service is called when whole room has been loaded,,W,X,X,X,X,X,X,X
 6,IS_MODULE_LOADED,IS_MODULE_LOADED_DELEGATE,GameMasterClass.IsModuleLoadedService,This service returns a bool which tells if given module has been loaded in Room Loading Process,,W,X,X,X,X,X,X,X
-7,FREEZE_PLAY,FREEZE_PLAY_DELEGATE,GameMasterClass.FreezePlayService,This service is called to pause game or enter cinematic,,W,-,X,-,-,-,-,-
-8,ITEM_REGISTER,ITEM_REGISTER_DELEGATE,LevelMasterClass.ItemRegisterService,Registers an item in system,,-,-,W,-,-,X,X,-
-9,ITEM_OBTAIN_PICKABLE,ITEM_OBTAIN_PICKABLE_DELEGATE,LevelMasterClass.ItemObtainPickableService,Removes an item from level,,-,-,W,-,-,-,X,-
-10,ITEM_OBTAIN_PICKABLE_EVENT,ITEM_OBTAIN_PICKABLE_EVENT_DELEGATE,GameEventMasterClass.ItemObtainPickableEventService,Takes an item from scene (triggering event),,-,-,-,-,-,-,X,W
-11,MONO_REGISTER,MONO_REGISTER_DELEGATE,LevelMasterClass.MonoRegisterService,Registers a player in scene,,-,-,W,-,-,X,-,-
-12,WP_REGISTER,WP_REGISTER_DELEGATE,LevelMasterClass.WPRegisterService,Registers a Waypoint in level,,-,-,W,-,-,-,-,-
-13,DOOR_REGISTER,DOOR_REGISTER_DELEGATE,LevelMasterClass.DoorRegisterService,Registers a door in level,,-,-,W,-,-,-,-,-
-14,PLAYER_WAYPOINT_UPDATE,PLAYER_WAYPOINT_UPDATE_DELEGATE,LevelMasterClass.PlayerWaypointUpdateService,Updates actual player waypoint when crossing or stopping on it,,-,-,W,-,-,X,-,-
-15,GAME_ELEMENT_OVER,GAME_ELEMENT_OVER_DELEGATE,LevelMasterClass.GameElementOverService,Any of Game Elements (Player or Item or Door) will call with essential info,,-,-,W,-,-,-,X,-
-16,SELECT_PLAYER,SELECT_PLAYER_DELEGATE,PlayerMasterClass.SelectPlayerService,Selects player,,-,-,X,-,-,W,-,-
-17,GET_PLAYER_LIST,GET_PLAYER_LIST_DELEGATE,LevelMasterClass.GetPlayerListService,Gets a list of actual players,,-,-,W,X,-,X,-,-
-18,GET_NEAREST_WP,GET_NEAREST_WP_DELEGATE,LevelMasterClass.GetNearestWPService,Gets nearest WP from a given coordinates of level,,-,-,W,-,-,X,X,-
-19,IS_EVENT_OCCURRED,IS_EVENT_OCCURRED_DELEGATE,GameEventMasterClass.IsEventOccurredService,Tells if an event is occurred,,-,-,X,-,X,X,X,W
-20,IS_EVENT_COMBI_OCCURRED,IS_EVENT_COMBI_OCCURRED_DELEGATE,GameEventMasterClass.IsEventCombiOccurredService,Same as IsEventOccurredService but for array of combos with possible negation,,-,-,X,-,X,X,X,W
-21,COMMIT_EVENT,COMMIT_EVENT_DELEGATE,GameEventMasterClass.CommitEventService,Activates/Deactivates an event,,-,-,X,-,X,X,X,W
-22,INTERACT_PLAYER,INTERACT_PLAYER_DELEGATE,PlayerMasterClass.InteractPlayerService,Makes player interact with usage data,,-,-,X,-,-,W,-,-
-23,PLAYER_REACHED_WAYPOINT,PLAYER_REACHED_WAYPOINT,LevelMasterClass.PlayerReachedWaypointService,Tells LevelMaster that player reached Waypoint to start action in case,,-,-,W,-,-,X,-,-
-24,USE_ITEM,USE_ITEM_DELEGATE,ItemMasterClass.UseItemService,Uses an item with something,,-,-,X,-,-,-,W,-
-25,IS_ITEM_TAKEN_FROM_SCENE,IS_ITEM_TAKEN_FROM_SCENE_DELEGATE,GameEventMasterClass.IsItemTakenFromSceneService,Tells if item is taken from scene,,-,-,X,-,-,-,X,W
-26,ENABLE_ITEM_MENU,ENABLE_ITEM_MENU_DELEGATE,GameMasterClass.EnableItemMenu,Enables or disables item menu (from Play State),,W,-,X,-,-,-,-,-
-27,SELECT_PICKABLE_ITEM,SELECT_PICKABLE_ITEM_DELEGATE,ItemMasterClass.SelectPickableItemService,Selects some pickable from inventory,,-,-,-,-,X,-,W,-
-28,CANCEL_PICKABLE_ITEM,CANCEL_PICKABLE_ITEM_DELEGATE,ItemMasterClass.CancelPickableItemService,Cancels selected item,,X,-,X,-,X,-,W,-
-29,EVENT_SUBSCRIPTION,EVENT_SUBSCRIPTION_DELEGATE,GameEventMasterClass.EventSubscriptionService,Subscribe to an event. Invoke when event changes,,-,-,X,-,-,X,X,W
-30,LOCK_PLAYER,LOCK_PLAYER_DELEGATE,PlayerMasterClass.LockPlayerService,Locks player so it cannot act until an action over it has been done (or removes lock),,-,-,X,-,-,W,-,-
-31,ENABLE_DIALOGUE,ENABLE_DIALOGUE_DELEGATE,GameMasterClass.EnableDialogueService,Starts a dialogue with given text and sound,,W,-,X,-,X,-,-,-
-32,SHOW_DIALOGUE,SHOW_DIALOGUE_DELEGATE,GameMenuClass.ShowDialogueService,Second part of start dialogue. Tells Game Menu to prepare menu elements,,X,-,-,-,W,-,-,-
-33,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-
+7,ITEM_REGISTER,ITEM_REGISTER_DELEGATE,LevelMasterClass.ItemRegisterService,Registers an item in system,,-,-,W,-,-,X,X,-
+8,ITEM_OBTAIN_PICKABLE,ITEM_OBTAIN_PICKABLE_DELEGATE,LevelMasterClass.ItemObtainPickableService,Removes an item from level,,-,-,W,-,-,-,X,-
+9,ITEM_OBTAIN_PICKABLE_EVENT,ITEM_OBTAIN_PICKABLE_EVENT_DELEGATE,GameEventMasterClass.ItemObtainPickableEventService,Takes an item from scene (triggering event),,-,-,-,-,-,-,X,W
+10,MONO_REGISTER,MONO_REGISTER_DELEGATE,LevelMasterClass.MonoRegisterService,Registers a player in scene,,-,-,W,-,-,X,-,-
+11,WP_REGISTER,WP_REGISTER_DELEGATE,LevelMasterClass.WPRegisterService,Registers a Waypoint in level,,-,-,W,-,-,-,-,-
+12,DOOR_REGISTER,DOOR_REGISTER_DELEGATE,LevelMasterClass.DoorRegisterService,Registers a door in level,,-,-,W,-,-,-,-,-
+13,PLAYER_WAYPOINT_UPDATE,PLAYER_WAYPOINT_UPDATE_DELEGATE,LevelMasterClass.PlayerWaypointUpdateService,Updates actual player waypoint when crossing or stopping on it,,-,-,W,-,-,X,-,-
+14,GAME_ELEMENT_OVER,GAME_ELEMENT_OVER_DELEGATE,LevelMasterClass.GameElementOverService,Any of Game Elements (Player or Item or Door) will call with essential info,,-,-,W,-,-,-,X,-
+15,SELECT_PLAYER,SELECT_PLAYER_DELEGATE,PlayerMasterClass.SelectPlayerService,Selects player,,-,-,X,-,-,W,-,-
+16,GET_PLAYER_LIST,GET_PLAYER_LIST_DELEGATE,LevelMasterClass.GetPlayerListService,Gets a list of actual players,,-,-,W,X,-,X,-,-
+17,GET_NEAREST_WP,GET_NEAREST_WP_DELEGATE,LevelMasterClass.GetNearestWPService,Gets nearest WP from a given coordinates of level,,-,-,W,-,-,X,X,-
+18,IS_EVENT_OCCURRED,IS_EVENT_OCCURRED_DELEGATE,GameEventMasterClass.IsEventOccurredService,Tells if an event is occurred,,-,-,X,-,X,X,X,W
+19,IS_EVENT_COMBI_OCCURRED,IS_EVENT_COMBI_OCCURRED_DELEGATE,GameEventMasterClass.IsEventCombiOccurredService,Same as IsEventOccurredService but for array of combos with possible negation,,-,-,X,-,X,X,X,W
+20,COMMIT_EVENT,COMMIT_EVENT_DELEGATE,GameEventMasterClass.CommitEventService,Activates/Deactivates an event,,-,-,X,-,X,X,X,W
+21,INTERACT_PLAYER,INTERACT_PLAYER_DELEGATE,PlayerMasterClass.InteractPlayerService,Makes player interact with usage data,,-,-,X,-,-,W,-,-
+22,PLAYER_REACHED_WAYPOINT,PLAYER_REACHED_WAYPOINT,LevelMasterClass.PlayerReachedWaypointService,Tells LevelMaster that player reached Waypoint to start action in case,,-,-,W,-,-,X,-,-
+23,USE_ITEM,USE_ITEM_DELEGATE,ItemMasterClass.UseItemService,Uses an item with something,,-,-,X,-,-,-,W,-
+24,IS_ITEM_TAKEN_FROM_SCENE,IS_ITEM_TAKEN_FROM_SCENE_DELEGATE,GameEventMasterClass.IsItemTakenFromSceneService,Tells if item is taken from scene,,-,-,X,-,-,-,X,W
+25,SELECT_PICKABLE_ITEM,SELECT_PICKABLE_ITEM_DELEGATE,ItemMasterClass.SelectPickableItemService,Selects some pickable from inventory,,-,-,-,-,X,-,W,-
+26,CANCEL_PICKABLE_ITEM,CANCEL_PICKABLE_ITEM_DELEGATE,ItemMasterClass.CancelPickableItemService,Cancels selected item,,X,-,X,-,X,-,W,-
+27,EVENT_SUBSCRIPTION,EVENT_SUBSCRIPTION_DELEGATE,GameEventMasterClass.EventSubscriptionService,Subscribe to an event. Invoke when event changes,,-,-,X,-,-,X,X,W
+28,LOCK_PLAYER,LOCK_PLAYER_DELEGATE,PlayerMasterClass.LockPlayerService,Locks player so it cannot act until an action over it has been done (or removes lock),,-,-,X,-,-,W,-,-
+29,CHANGE_GAME_MODE,CHANGE_GAME_MODE_DELEGATE,GameMasterClass.ChangeGameModeService,Asks Game Master to set game mode,,W,-,X,-,X,-,-,-
+30,SHOW_DIALOGUE,SHOW_DIALOGUE_DELEGATE,GameMenuClass.ShowDialogueService,Second part of start dialogue. Tells Game Menu to prepare menu elements,,-,-,X,-,W,-,-,-
+31,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-

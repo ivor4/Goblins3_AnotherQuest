@@ -6,11 +6,10 @@ using UnityEngine.EventSystems;
 
 namespace Gob3AQ.GameMenu.Dialog
 {
+    public delegate void DIALOG_OPTION_CLICK_DELEGATE(DialogOption option);
 
     public class DialogOptionButtonClass : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
-        public delegate void DIALOG_OPTION_CLICK_DELEGATE(DialogOption option);
-
         private DialogOption dialogOption;
         private TMP_Text optionText;
         private GameObject optionParent;

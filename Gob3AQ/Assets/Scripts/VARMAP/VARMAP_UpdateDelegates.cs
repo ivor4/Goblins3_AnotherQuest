@@ -113,7 +113,6 @@ namespace Gob3AQ.VARMAP.Initialization
             _EXIT_GAME = GameMasterClass.ExitGameService;
             _MODULE_LOADING_COMPLETED = GameMasterClass.LoadingCompletedService;
             _IS_MODULE_LOADED = GameMasterClass.IsModuleLoadedService;
-            _FREEZE_PLAY = GameMasterClass.FreezePlayService;
             _ITEM_REGISTER = LevelMasterClass.ItemRegisterService;
             _ITEM_OBTAIN_PICKABLE = LevelMasterClass.ItemObtainPickableService;
             _ITEM_OBTAIN_PICKABLE_EVENT = GameEventMasterClass.ItemObtainPickableEventService;
@@ -132,12 +131,11 @@ namespace Gob3AQ.VARMAP.Initialization
             _PLAYER_REACHED_WAYPOINT = LevelMasterClass.PlayerReachedWaypointService;
             _USE_ITEM = ItemMasterClass.UseItemService;
             _IS_ITEM_TAKEN_FROM_SCENE = GameEventMasterClass.IsItemTakenFromSceneService;
-            _ENABLE_ITEM_MENU = GameMasterClass.EnableItemMenu;
             _SELECT_PICKABLE_ITEM = ItemMasterClass.SelectPickableItemService;
             _CANCEL_PICKABLE_ITEM = ItemMasterClass.CancelPickableItemService;
             _EVENT_SUBSCRIPTION = GameEventMasterClass.EventSubscriptionService;
             _LOCK_PLAYER = PlayerMasterClass.LockPlayerService;
-            _ENABLE_DIALOGUE = GameMasterClass.EnableDialogueService;
+            _CHANGE_GAME_MODE = GameMasterClass.ChangeGameModeService;
             _SHOW_DIALOGUE = GameMenuClass.ShowDialogueService;
             _LAST_SERVICE = GameMasterClass.ExitGameService;
             /* > ATG 2 END */

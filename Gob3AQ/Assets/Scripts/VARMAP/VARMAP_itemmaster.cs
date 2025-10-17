@@ -30,8 +30,6 @@ namespace Gob3AQ.VARMAP.ItemMaster
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             GET_PLAYER_SELECTED = _GET_PLAYER_SELECTED;
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
-            GET_SHADOW_PICKABLE_ITEM_CHOSEN = _GET_SHADOW_PICKABLE_ITEM_CHOSEN;
-            SET_PICKABLE_ITEM_CHOSEN = _SET_PICKABLE_ITEM_CHOSEN;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             ITEM_REGISTER = _ITEM_REGISTER;
@@ -44,7 +42,6 @@ namespace Gob3AQ.VARMAP.ItemMaster
             COMMIT_EVENT = _COMMIT_EVENT;
             USE_ITEM = _USE_ITEM;
             IS_ITEM_TAKEN_FROM_SCENE = _IS_ITEM_TAKEN_FROM_SCENE;
-            SELECT_PICKABLE_ITEM = _SELECT_PICKABLE_ITEM;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             EVENT_SUBSCRIPTION = _EVENT_SUBSCRIPTION;
             /* > ATG 1 END */
@@ -66,8 +63,6 @@ namespace Gob3AQ.VARMAP.ItemMaster
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
         public static GetVARMAPValueDelegate<CharacterType> GET_PLAYER_SELECTED;
         public static GetVARMAPValueDelegate<GameItem> GET_PICKABLE_ITEM_CHOSEN;
-        public static GetVARMAPValueDelegate<GameItem> GET_SHADOW_PICKABLE_ITEM_CHOSEN;
-        public static SetVARMAPValueDelegate<GameItem> SET_PICKABLE_ITEM_CHOSEN;
         /* > ATG 2 END */
 
         /* SERVICES */
@@ -157,17 +152,10 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /// </summary>
         public static IS_ITEM_TAKEN_FROM_SCENE_DELEGATE IS_ITEM_TAKEN_FROM_SCENE;
         /// <summary> 
-        /// Selects some pickable from inventory
-        /// <para> Owner: ItemMaster </para> 
-        /// <para> Accessors: GameMenu,  </para> 
-        /// <para> Method: <see cref="ItemMasterClass.SelectPickableItemService"/> </para> 
-        /// </summary>
-        public static SELECT_PICKABLE_ITEM_DELEGATE SELECT_PICKABLE_ITEM;
-        /// <summary> 
         /// Cancels selected item
-        /// <para> Owner: ItemMaster </para> 
-        /// <para> Accessors: GameMaster, LevelMaster, GameMenu,  </para> 
-        /// <para> Method: <see cref="ItemMasterClass.CancelPickableItemService"/> </para> 
+        /// <para> Owner: GameMenu </para> 
+        /// <para> Accessors: LevelMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="GameMenuClass.CancelPickableItemService"/> </para> 
         /// </summary>
         public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
         /// <summary> 

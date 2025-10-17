@@ -115,7 +115,7 @@ namespace Gob3AQ.GameMaster
 
             elapsed_millis = VARMAP_GameMaster.GET_ELAPSED_TIME_MS();
 
-            elapsed_millis += elapsedDelta * GameFixedConfig.MILLISECONDS_TO_SECONDS;
+            elapsed_millis += elapsedDelta * GameFixedConfig.SECONDS_TO_MILLISECONDS;
 
             VARMAP_GameMaster.SET_ELAPSED_TIME_MS((ulong)elapsed_millis);
         }

@@ -19,11 +19,6 @@ namespace Gob3AQ.PlayerMaster
 
 
 
-        public static void SelectPlayerService(CharacterType character)
-        {
-            VARMAP_PlayerMaster.SET_PLAYER_SELECTED(character);
-        }
-
         public static void InteractPlayerService(CharacterType character, WaypointClass dest, out bool accepted)
         {
             PlayableCharScript instance = GetPlayerInstance(character);
@@ -82,7 +77,6 @@ namespace Gob3AQ.PlayerMaster
 
         void Start()
         {
-            VARMAP_PlayerMaster.SELECT_PLAYER(CharacterType.CHARACTER_NONE);
             playersLoaded = 0;
             playersToLoad = 0;
         }

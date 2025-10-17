@@ -206,13 +206,6 @@ namespace Gob3AQ.VARMAP
         /// </summary>
         protected static GAME_ELEMENT_OVER_DELEGATE _GAME_ELEMENT_OVER;
         /// <summary> 
-        /// Selects player
-        /// <para> Owner: PlayerMaster </para> 
-        /// <para> Accessors: LevelMaster,  </para> 
-        /// <para> Method: <see cref="PlayerMasterClass.SelectPlayerService"/> </para> 
-        /// </summary>
-        protected static SELECT_PLAYER_DELEGATE _SELECT_PLAYER;
-        /// <summary> 
         /// Gets a list of actual players
         /// <para> Owner: LevelMaster </para> 
         /// <para> Accessors: GraphicsMaster, PlayerMaster,  </para> 
@@ -276,17 +269,10 @@ namespace Gob3AQ.VARMAP
         /// </summary>
         protected static IS_ITEM_TAKEN_FROM_SCENE_DELEGATE _IS_ITEM_TAKEN_FROM_SCENE;
         /// <summary> 
-        /// Selects some pickable from inventory
-        /// <para> Owner: ItemMaster </para> 
-        /// <para> Accessors: GameMenu,  </para> 
-        /// <para> Method: <see cref="ItemMasterClass.SelectPickableItemService"/> </para> 
-        /// </summary>
-        protected static SELECT_PICKABLE_ITEM_DELEGATE _SELECT_PICKABLE_ITEM;
-        /// <summary> 
         /// Cancels selected item
-        /// <para> Owner: ItemMaster </para> 
-        /// <para> Accessors: GameMaster, LevelMaster, GameMenu,  </para> 
-        /// <para> Method: <see cref="ItemMasterClass.CancelPickableItemService"/> </para> 
+        /// <para> Owner: GameMenu </para> 
+        /// <para> Accessors: LevelMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="GameMenuClass.CancelPickableItemService"/> </para> 
         /// </summary>
         protected static CANCEL_PICKABLE_ITEM_DELEGATE _CANCEL_PICKABLE_ITEM;
         /// <summary> 

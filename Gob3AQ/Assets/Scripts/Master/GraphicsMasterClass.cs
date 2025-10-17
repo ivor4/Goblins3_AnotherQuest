@@ -24,9 +24,12 @@ namespace Gob3AQ.GraphicsMaster
 
         private UICanvasClass uicanvas_cls;
 
+        private Vector2 _mouseStartedCameraDrag;
+        private bool _mouseDraggingCamera;
         private Bounds _levelBounds;
         private Bounds _cameraCenterLimitBounds;
         private Bounds _cameraBounds;
+        private Bounds _mouseScreenBounds;
 
         private Camera mainCamera;
         private Transform mainCameraTransform;
@@ -65,6 +68,10 @@ namespace Gob3AQ.GraphicsMaster
             _cameraBounds.min = mainCamera.ScreenToWorldPoint(Vector3.zero);
             _cameraBounds.max = mainCamera.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
 
+            _mouseScreenBounds = new Bounds();
+            _mouseScreenBounds.min = Vector2.zero;
+            _mouseScreenBounds.max = Vector2.one;
+
             VARMAP_GraphicsMaster.REG_GAMESTATUS(_GameStatusChanged);
             VARMAP_GraphicsMaster.REG_PICKABLE_ITEM_CHOSEN(_OnPickedItemChanged);
             VARMAP_GraphicsMaster.REG_ITEM_HOVER(_OnHoverItemChanged);
@@ -72,14 +79,14 @@ namespace Gob3AQ.GraphicsMaster
             cachedGameStatus = VARMAP_GraphicsMaster.GET_GAMESTATUS();
 
             _loaded = false;
+
+            _mouseDraggingCamera = false;
         }
 
         // Update is called once per frame
         void Update()
         {
             ref readonly MousePropertiesStruct mouse = ref VARMAP_GraphicsMaster.GET_MOUSE_PROPERTIES();
-
-            Vector2 screenzone = new Vector2(mouse.posPixels.x / Screen.safeArea.width, mouse.posPixels.y / Screen.safeArea.height);
 
             uicanvas_cls.MoveCursor(mouse.pos1);
 
@@ -89,7 +96,7 @@ namespace Gob3AQ.GraphicsMaster
                     Execute_Loading();
                     break;
                 case Game_Status.GAME_STATUS_PLAY:
-                    FollowMouseWithCamera(in screenzone);
+                    FollowMouseWithCamera(in mouse);
                     break;
                 default:
                     break;
@@ -149,51 +156,46 @@ namespace Gob3AQ.GraphicsMaster
         }
 
 
-        private void FollowMouseWithCamera(in Vector2 screenzone)
+        private void FollowMouseWithCamera(in MousePropertiesStruct mouse)
         {
-            if(screenzone.y < GameFixedConfig.GAME_ZONE_HEIGHT_PERCENT)
+            Vector2 screenzone_orig = new(mouse.posPixels.x / Screen.safeArea.width, mouse.posPixels.y / Screen.safeArea.height);
+            Vector2 szone = new(screenzone_orig.x, screenzone_orig.y * GameFixedConfig.GAME_ZONE_HEIGHT_FACTOR);
+
+            if (_mouseScreenBounds.Contains(szone))
             {
-                /* Expand Y of game zone to 100% */
-                Vector2 szone = new Vector2(screenzone.x, screenzone.y * GameFixedConfig.GAME_ZONE_HEIGHT_FACTOR);
+                if (_mouseDraggingCamera && (mouse.mouseThird == ButtonState.BUTTON_STATE_PRESSING))
+                {
+                    Vector3 moveCameraDelta;
+                    Vector3 cameraNewPosition;
 
-                Vector3 moveCameraDelta;
-                Vector3 cameraNewPosition;
+                    Vector2 deltaszone = szone - _mouseStartedCameraDrag;
+                    float distance = Mathf.Min(deltaszone.magnitude, GameFixedConfig.GAME_ZONE_CURSOR_PERCENT_MAX_SPEED); /* 25% of screen */
+                    deltaszone = GameFixedConfig.GAME_ZONE_CURSOR_PERCENT_MAX_SPEED_DIV * GameFixedConfig.MOVE_CAMERA_SPEED * distance * deltaszone.normalized;
+                    
 
-                float deltaX;
-                float deltaY;
+                    /* Create movement vector and propose new camera center position */
+                    moveCameraDelta = deltaszone;
+                    moveCameraDelta *= Time.deltaTime;
+                    cameraNewPosition = mainCameraTransform.position + moveCameraDelta;
 
-                if(szone.x < GameFixedConfig.GAME_ZONE_CURSOR_MOVE_CAMERA_FACTOR)
-                {
-                    deltaX = -GameFixedConfig.MOVE_CAMERA_SPEED;
-                }
-                else if(szone.x > GameFixedConfig.GAME_ZONE_CURSOR_MOVE_CAMERA_1MFACTOR)
-                {
-                    deltaX = GameFixedConfig.MOVE_CAMERA_SPEED;
-                }
-                else
-                {
-                    deltaX = 0f;
-                }
-
-                if (szone.y < GameFixedConfig.GAME_ZONE_CURSOR_MOVE_CAMERA_FACTOR)
-                {
-                    deltaY = -GameFixedConfig.MOVE_CAMERA_SPEED;
-                }
-                else if (szone.y > GameFixedConfig.GAME_ZONE_CURSOR_MOVE_CAMERA_1MFACTOR)
-                {
-                    deltaY = GameFixedConfig.MOVE_CAMERA_SPEED;
+                    MoveCameraToPosition(in cameraNewPosition);
                 }
                 else
                 {
-                    deltaY = 0f;
+                    if(mouse.mouseThird == ButtonState.BUTTON_STATE_PRESSED)
+                    {
+                        _mouseDraggingCamera = true;
+                        _mouseStartedCameraDrag = szone;
+                    }
+                    else
+                    {
+                        _mouseDraggingCamera = false;
+                    }
                 }
-
-                /* Create movement vector and propose new camera center position */
-                moveCameraDelta = new(deltaX, deltaY);
-                moveCameraDelta *= Time.deltaTime;
-                cameraNewPosition = mainCameraTransform.position + moveCameraDelta;
-
-                MoveCameraToPosition(in cameraNewPosition);
+            }
+            else
+            {
+                _mouseDraggingCamera = false;
             }
         }
 
@@ -239,25 +241,30 @@ namespace Gob3AQ.GraphicsMaster
             _ = evtype;
             _ = oldval;
 
-            switch (newval)
+            if (oldval != newval)
             {
-                case Game_Status.GAME_STATUS_PLAY:
-                    uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_NONE);
-                    break;
-                case Game_Status.GAME_STATUS_LOADING:
-                    uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_LOADING);
-                    break;
-                case Game_Status.GAME_STATUS_PLAY_DIALOG:
-                    uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_DIALOG);
-                    break;
-                case Game_Status.GAME_STATUS_PAUSE:
-                    //paused_text.gameObject.SetActive(true);
-                    break;
-                case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
-                    uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_INVENTORY);
-                    break;
-                default:
-                    break;
+                _mouseDraggingCamera = false;
+
+                switch (newval)
+                {
+                    case Game_Status.GAME_STATUS_PLAY:
+                        uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_NONE);
+                        break;
+                    case Game_Status.GAME_STATUS_LOADING:
+                        uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_LOADING);
+                        break;
+                    case Game_Status.GAME_STATUS_PLAY_DIALOG:
+                        uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_DIALOG);
+                        break;
+                    case Game_Status.GAME_STATUS_PAUSE:
+                        //paused_text.gameObject.SetActive(true);
+                        break;
+                    case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
+                        uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_INVENTORY);
+                        break;
+                    default:
+                        break;
+                }
             }
 
             cachedGameStatus = newval;

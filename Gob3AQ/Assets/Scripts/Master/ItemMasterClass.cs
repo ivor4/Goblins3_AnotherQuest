@@ -17,20 +17,10 @@ namespace Gob3AQ.ItemMaster
     public class ItemMasterClass : MonoBehaviour
     {
         private static ItemMasterClass _singleton;
-        private static uint _itemsAvailableToLoad;
-        private static uint _itemsLoaded;
+        private uint _itemsAvailableToLoad;
+        private uint _itemsLoaded;
 
 
-
-        public static void SelectPickableItemService(GameItem item)
-        {
-            VARMAP_ItemMaster.SET_PICKABLE_ITEM_CHOSEN(item);
-        }
-
-        public static void CancelPickableItemService()
-        {
-            VARMAP_ItemMaster.SET_PICKABLE_ITEM_CHOSEN(GameItem.ITEM_NONE);
-        }
 
 
         public static void UseItemService(in InteractionUsage usage, out InteractionUsageOutcome outcome)
@@ -38,10 +28,10 @@ namespace Gob3AQ.ItemMaster
             switch(usage.type)
             {
                 case InteractionType.PLAYER_WITH_ITEM:
-                    TakePickableItem(in usage, out outcome);
+                    _singleton.TakePickableItem(in usage, out outcome);
                     break;
                 case InteractionType.ITEM_WITH_ITEM:
-                    UseItemWithItem(in usage, out outcome);
+                    _singleton.UseItemWithItem(in usage, out outcome);
                     break;
                 default:
                     outcome = new(CharacterAnimation.ITEM_USE_ANIMATION_NONE, DialogType.DIALOG_NONE,
@@ -53,14 +43,14 @@ namespace Gob3AQ.ItemMaster
 
         public static void SetItemAvailableForLoad(GameItem item)
         {
-            _itemsAvailableToLoad |= (uint)(1 << (int)item);
+            _singleton._itemsAvailableToLoad |= (uint)(1 << (int)item);
         }
 
         public static void SetItemLoaded(GameItem item)
         {
-            _itemsLoaded |= (uint)(1 << (int)item);
+            _singleton._itemsLoaded |= (uint)(1 << (int)item);
 
-            if (_itemsLoaded == _itemsAvailableToLoad)
+            if (_singleton._itemsLoaded == _singleton._itemsAvailableToLoad)
             {
                 VARMAP_PlayerMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_ItemMaster);
             }
@@ -111,7 +101,7 @@ namespace Gob3AQ.ItemMaster
         }
 
 
-        private static ref readonly ItemInfo ItemInteractionCommon(ItemInteractionType interactionType,
+        private ref readonly ItemInfo ItemInteractionCommon(ItemInteractionType interactionType,
             in InteractionUsage usage, out InteractionUsageOutcome outcome)
         {
             bool conditionOK;
@@ -181,7 +171,7 @@ namespace Gob3AQ.ItemMaster
         /// </summary>
         /// <param name="item">involved labelled item</param>
         /// <param name="character">Character who took the item</param>
-        private static void TakePickableItem(in InteractionUsage usage, out InteractionUsageOutcome outcome)
+        private void TakePickableItem(in InteractionUsage usage, out InteractionUsageOutcome outcome)
         {
             ref readonly ItemInfo dstItemInfo = ref ItemInteractionCommon(ItemInteractionType.INTERACTION_TAKE, in usage, out outcome);
 
@@ -200,7 +190,7 @@ namespace Gob3AQ.ItemMaster
             }
         }
 
-        private static void UseItemWithItem(in InteractionUsage usage, out InteractionUsageOutcome outcome)
+        private void UseItemWithItem(in InteractionUsage usage, out InteractionUsageOutcome outcome)
         {
             _ = ref ItemInteractionCommon(ItemInteractionType.INTERACTION_USE, in usage, out outcome);
             ref readonly ItemInfo srcItemInfo = ref ItemsInteractionsClass.GetItemInfo(usage.itemSource);
@@ -212,7 +202,7 @@ namespace Gob3AQ.ItemMaster
                 VARMAP_ItemMaster.SET_ELEM_PICKABLE_ITEM_OWNER((int)pickable, CharacterType.CHARACTER_NONE);
 
                 /* Diselect in case it was selected */
-                GameItem choosenItem = VARMAP_ItemMaster.GET_SHADOW_PICKABLE_ITEM_CHOSEN();
+                GameItem choosenItem = VARMAP_ItemMaster.GET_PICKABLE_ITEM_CHOSEN();
                 if (choosenItem == usage.itemSource)
                 {
                     VARMAP_ItemMaster.CANCEL_PICKABLE_ITEM();

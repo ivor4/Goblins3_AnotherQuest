@@ -35,6 +35,8 @@ namespace Gob3AQ.VARMAP.LevelMaster
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
             GET_PLAYER_SELECTED = _GET_PLAYER_SELECTED;
+            GET_SHADOW_PLAYER_SELECTED = _GET_SHADOW_PLAYER_SELECTED;
+            SET_PLAYER_SELECTED = _SET_PLAYER_SELECTED;
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
             GET_ITEM_HOVER = _GET_ITEM_HOVER;
             GET_SHADOW_ITEM_HOVER = _GET_SHADOW_ITEM_HOVER;
@@ -50,7 +52,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
             DOOR_REGISTER = _DOOR_REGISTER;
             PLAYER_WAYPOINT_UPDATE = _PLAYER_WAYPOINT_UPDATE;
             GAME_ELEMENT_OVER = _GAME_ELEMENT_OVER;
-            SELECT_PLAYER = _SELECT_PLAYER;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
             GET_NEAREST_WP = _GET_NEAREST_WP;
             IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
@@ -90,6 +91,8 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
         public static GetVARMAPValueDelegate<MousePropertiesStruct> GET_MOUSE_PROPERTIES;
         public static GetVARMAPValueDelegate<CharacterType> GET_PLAYER_SELECTED;
+        public static GetVARMAPValueDelegate<CharacterType> GET_SHADOW_PLAYER_SELECTED;
+        public static SetVARMAPValueDelegate<CharacterType> SET_PLAYER_SELECTED;
         public static GetVARMAPValueDelegate<GameItem> GET_PICKABLE_ITEM_CHOSEN;
         public static GetVARMAPValueDelegate<GameItem> GET_ITEM_HOVER;
         public static GetVARMAPValueDelegate<GameItem> GET_SHADOW_ITEM_HOVER;
@@ -176,13 +179,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// </summary>
         public static GAME_ELEMENT_OVER_DELEGATE GAME_ELEMENT_OVER;
         /// <summary> 
-        /// Selects player
-        /// <para> Owner: PlayerMaster </para> 
-        /// <para> Accessors: LevelMaster,  </para> 
-        /// <para> Method: <see cref="PlayerMasterClass.SelectPlayerService"/> </para> 
-        /// </summary>
-        public static SELECT_PLAYER_DELEGATE SELECT_PLAYER;
-        /// <summary> 
         /// Gets a list of actual players
         /// <para> Owner: LevelMaster </para> 
         /// <para> Accessors: GraphicsMaster, PlayerMaster,  </para> 
@@ -247,9 +243,9 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static IS_ITEM_TAKEN_FROM_SCENE_DELEGATE IS_ITEM_TAKEN_FROM_SCENE;
         /// <summary> 
         /// Cancels selected item
-        /// <para> Owner: ItemMaster </para> 
-        /// <para> Accessors: GameMaster, LevelMaster, GameMenu,  </para> 
-        /// <para> Method: <see cref="ItemMasterClass.CancelPickableItemService"/> </para> 
+        /// <para> Owner: GameMenu </para> 
+        /// <para> Accessors: LevelMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="GameMenuClass.CancelPickableItemService"/> </para> 
         /// </summary>
         public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
         /// <summary> 

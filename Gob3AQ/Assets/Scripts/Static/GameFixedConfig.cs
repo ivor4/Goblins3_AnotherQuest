@@ -22,10 +22,10 @@ namespace Gob3AQ.FixedConfig
 
 
         /* Time and timeouts */
-        public const float MILLISECONDS_TO_SECONDS = 1000f;
+        public const float SECONDS_TO_MILLISECONDS = 1000f;
         public const float KEY_REFRESH_TIME_SECONDS = 0.05f;
         public const float CHARACTER_NORMAL_SPEED = 5.0f;
-        public const float MOVE_CAMERA_SPEED = 6.0f;
+        public const float MOVE_CAMERA_SPEED = 20.0f;
 
         /* HUD */
         public const float DISTANCE_MOUSE_FURTHEST_WP = 1.5f;
@@ -37,6 +37,8 @@ namespace Gob3AQ.FixedConfig
         public const float GAME_ZONE_HEIGHT_FACTOR = 1.0f / GAME_ZONE_HEIGHT_PERCENT;
         public const float GAME_ZONE_CURSOR_MOVE_CAMERA_FACTOR = 0.1f;
         public const float GAME_ZONE_CURSOR_MOVE_CAMERA_1MFACTOR = 1.0f - GAME_ZONE_CURSOR_MOVE_CAMERA_FACTOR;
+        public const float GAME_ZONE_CURSOR_PERCENT_MAX_SPEED = 0.25f;
+        public const float GAME_ZONE_CURSOR_PERCENT_MAX_SPEED_DIV = 1f/GAME_ZONE_CURSOR_PERCENT_MAX_SPEED;
 
 
         /* Performance */

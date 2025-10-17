@@ -13,12 +13,39 @@ namespace Gob3AQ.InputMaster
     public class InputMasterClass : MonoBehaviour
     {
         private static InputMasterClass _singleton;
-        private static KeyOptions cachedKeyOptions;
-        private static KeyStruct cachedPressedKeys;
-        private static KeyFunctions accumulatedDownkeys;
-        private static MousePropertiesStruct cachedMouseProps;
-        private static float ellapsedMillis;
-        private static Camera mainCamera;
+        private  KeyOptions cachedKeyOptions;
+        private KeyStruct cachedPressedKeys;
+        private KeyFunctions accumulatedDownkeys;
+        private MousePropertiesStruct cachedMouseProps;
+        private float ellapsedMillis;
+        private Camera mainCamera;
+
+        private static readonly ButtonState[,] _ButtonStateLookup = new ButtonState[4, 2]
+        {
+            /* BUTTON_STATE_IDLE */
+            {
+                ButtonState.BUTTON_STATE_IDLE,  /* Not pressed now */
+                ButtonState.BUTTON_STATE_PRESSED   /* Pressed now */
+            },
+
+            /* BUTTON_STATE_PRESSED */
+            {
+                ButtonState.BUTTON_STATE_RELEASED,  /* Not pressed now */
+                ButtonState.BUTTON_STATE_PRESSING   /* Pressed now */
+            },
+
+            /* BUTTON_STATE_PRESSING */
+            {
+                ButtonState.BUTTON_STATE_RELEASED,  /* Not pressed now */
+                ButtonState.BUTTON_STATE_PRESSING       /* Pressed now */
+            },
+
+            /* BUTTON_STATE_RELEASED */
+            {
+                ButtonState.BUTTON_STATE_IDLE,  /* Not pressed now */
+                ButtonState.BUTTON_STATE_PRESSED   /* Pressed now */
+            }
+        };
 
 
         private void Awake()
@@ -57,6 +84,7 @@ namespace Gob3AQ.InputMaster
                 KeyFunctions pressedandreleasedKeys;
                 bool accumulationCycle;
                 float deltaTime;
+                int mouseNowPressed;
 
                 deltaTime = Time.deltaTime;
 
@@ -90,19 +118,17 @@ namespace Gob3AQ.InputMaster
                 }
 
                 Vector2 mousePosition = Input.mousePosition;
-                bool mousenowpressed = Input.GetMouseButton(0);
-                bool secmousenowpressed = Input.GetMouseButton(1);
+
+
+                mouseNowPressed = Input.GetMouseButton(0) ? 1 : 0;
+                cachedMouseProps.mousePrimary = _ButtonStateLookup[(int)cachedMouseProps.mousePrimary,mouseNowPressed];
+                mouseNowPressed = Input.GetMouseButton(1) ? 1 : 0;
+                cachedMouseProps.mouseSecondary = _ButtonStateLookup[(int)cachedMouseProps.mouseSecondary, mouseNowPressed];
+                mouseNowPressed = Input.GetMouseButton(2) ? 1 : 0;
+                cachedMouseProps.mouseThird = _ButtonStateLookup[(int)cachedMouseProps.mouseThird, mouseNowPressed];
+
 
                 Vector2 mouseWorld = mainCamera.ScreenToWorldPoint(mousePosition);
-
-                cachedMouseProps.primaryPressed = (!cachedMouseProps.primaryPressing) & mousenowpressed;
-                cachedMouseProps.primaryReleased = cachedMouseProps.primaryPressing & (!mousenowpressed);
-                cachedMouseProps.primaryPressing = mousenowpressed;
-
-                cachedMouseProps.secondaryPressed = (!cachedMouseProps.secondaryPressing) & secmousenowpressed;
-                cachedMouseProps.secondaryReleased = cachedMouseProps.secondaryPressing & (!secmousenowpressed);
-                cachedMouseProps.secondaryPressing = secmousenowpressed;
-
 
                 cachedMouseProps.pos1 = mouseWorld;
                 cachedMouseProps.pos2 = mouseWorld;
@@ -131,7 +157,7 @@ namespace Gob3AQ.InputMaster
             return count;
         }
 
-        private static void _GameOptionsChanged(ChangedEventType evtype, in GameOptionsStruct oldval, in GameOptionsStruct newval)
+        private void _GameOptionsChanged(ChangedEventType evtype, in GameOptionsStruct oldval, in GameOptionsStruct newval)
         {
             if (evtype == ChangedEventType.CHANGED_EVENT_SET)
             {
@@ -139,7 +165,7 @@ namespace Gob3AQ.InputMaster
             }
         }
 
-        public static void ResetPressedKeysService()
+        public void ResetPressedKeysService()
         {
             cachedPressedKeys.pressedKeys = 0;
             cachedPressedKeys.cyclepressedKeys = 0;

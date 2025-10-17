@@ -37,6 +37,6 @@ namespace Gob3AQ.VARMAP.DefaultValues
         };
 
         public static MousePropertiesStruct MouseProperties_Default => new MousePropertiesStruct() { pos1 = Vector2.zero, pos2 = Vector2.zero,
-            primaryPressed = false, primaryPressing = false, primaryReleased = false };
+            mousePrimary = ButtonState.BUTTON_STATE_IDLE, mouseSecondary = ButtonState.BUTTON_STATE_IDLE, mouseThird = ButtonState.BUTTON_STATE_IDLE };
     }
 }

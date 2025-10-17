@@ -121,7 +121,6 @@ namespace Gob3AQ.VARMAP.Initialization
             _DOOR_REGISTER = LevelMasterClass.DoorRegisterService;
             _PLAYER_WAYPOINT_UPDATE = LevelMasterClass.PlayerWaypointUpdateService;
             _GAME_ELEMENT_OVER = LevelMasterClass.GameElementOverService;
-            _SELECT_PLAYER = PlayerMasterClass.SelectPlayerService;
             _GET_PLAYER_LIST = LevelMasterClass.GetPlayerListService;
             _GET_NEAREST_WP = LevelMasterClass.GetNearestWPService;
             _IS_EVENT_OCCURRED = GameEventMasterClass.IsEventOccurredService;
@@ -131,8 +130,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _PLAYER_REACHED_WAYPOINT = LevelMasterClass.PlayerReachedWaypointService;
             _USE_ITEM = ItemMasterClass.UseItemService;
             _IS_ITEM_TAKEN_FROM_SCENE = GameEventMasterClass.IsItemTakenFromSceneService;
-            _SELECT_PICKABLE_ITEM = ItemMasterClass.SelectPickableItemService;
-            _CANCEL_PICKABLE_ITEM = ItemMasterClass.CancelPickableItemService;
+            _CANCEL_PICKABLE_ITEM = GameMenuClass.CancelPickableItemService;
             _EVENT_SUBSCRIPTION = GameEventMasterClass.EventSubscriptionService;
             _LOCK_PLAYER = PlayerMasterClass.LockPlayerService;
             _CHANGE_GAME_MODE = GameMasterClass.ChangeGameModeService;

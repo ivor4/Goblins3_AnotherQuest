@@ -39,7 +39,6 @@ namespace Gob3AQ.VARMAP.GameMaster
             EXIT_GAME = _EXIT_GAME;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
-            CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
             LAST_SERVICE = _LAST_SERVICE;
             /* > ATG 1 END */
@@ -116,13 +115,6 @@ namespace Gob3AQ.VARMAP.GameMaster
         /// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
         /// </summary>
         public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
-        /// <summary> 
-        /// Cancels selected item
-        /// <para> Owner: ItemMaster </para> 
-        /// <para> Accessors: GameMaster, LevelMaster, GameMenu,  </para> 
-        /// <para> Method: <see cref="ItemMasterClass.CancelPickableItemService"/> </para> 
-        /// </summary>
-        public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
         /// <summary> 
         /// Asks Game Master to set game mode
         /// <para> Owner: GameMaster </para> 

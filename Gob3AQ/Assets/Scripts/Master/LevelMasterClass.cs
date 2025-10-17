@@ -49,8 +49,6 @@ namespace Gob3AQ.LevelMaster
         #region "Services"
 
 
-
-
         public static void GetPlayerListService(out ReadOnlySpan<PlayableCharScript> rolist)
         {
             rolist = _singleton._Player_List;
@@ -215,6 +213,11 @@ namespace Gob3AQ.LevelMaster
 
         }
 
+        private void Start()
+        {
+            VARMAP_LevelMaster.SET_PLAYER_SELECTED(CharacterType.CHARACTER_NONE);
+        }
+
 
         private void Update()
         {
@@ -285,7 +288,7 @@ namespace Gob3AQ.LevelMaster
 
             if(gstatus == Game_Status.GAME_STATUS_PLAY_ITEM_MENU)
             {
-                if(mouse.secondaryReleased)
+                if(mouse.mouseSecondary == ButtonState.BUTTON_STATE_RELEASED)
                 {
                     VARMAP_LevelMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
                 }
@@ -309,7 +312,7 @@ namespace Gob3AQ.LevelMaster
 
             
             /* If no items menu or just a menu opened */
-            if (mouse.secondaryReleased)
+            if (mouse.mouseSecondary == ButtonState.BUTTON_STATE_RELEASED)
             {
                 if ((chosenItem == GameItem.ITEM_NONE) && (playerSelected != CharacterType.CHARACTER_NONE))
                 {
@@ -320,7 +323,7 @@ namespace Gob3AQ.LevelMaster
                     VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
                 }
             }
-            else if (mouse.primaryReleased)
+            else if (mouse.mousePrimary == ButtonState.BUTTON_STATE_RELEASED)
             {
                 bool accepted;
                 /* If there is buffered action */
@@ -343,7 +346,7 @@ namespace Gob3AQ.LevelMaster
                             else
                             {
                                 /* This cast works just because first declared items match in same order as characters (chiripa) */
-                                VARMAP_LevelMaster.SELECT_PLAYER((CharacterType)_HoveredElem.item);
+                                VARMAP_LevelMaster.SET_PLAYER_SELECTED((CharacterType)_HoveredElem.item);
                                 VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
                             }
                             break;

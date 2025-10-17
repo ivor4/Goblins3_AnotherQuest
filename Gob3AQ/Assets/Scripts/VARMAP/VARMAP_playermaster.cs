@@ -30,8 +30,6 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             GET_PRESSED_KEYS = _GET_PRESSED_KEYS;
             GET_PLAYER_SELECTED = _GET_PLAYER_SELECTED;
-            GET_SHADOW_PLAYER_SELECTED = _GET_SHADOW_PLAYER_SELECTED;
-            SET_PLAYER_SELECTED = _SET_PLAYER_SELECTED;
             REG_PLAYER_SELECTED = _REG_PLAYER_SELECTED;
             UNREG_PLAYER_SELECTED = _UNREG_PLAYER_SELECTED;
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
@@ -40,7 +38,6 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             ITEM_REGISTER = _ITEM_REGISTER;
             MONO_REGISTER = _MONO_REGISTER;
             PLAYER_WAYPOINT_UPDATE = _PLAYER_WAYPOINT_UPDATE;
-            SELECT_PLAYER = _SELECT_PLAYER;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
             GET_NEAREST_WP = _GET_NEAREST_WP;
             IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
@@ -68,8 +65,6 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
         public static GetVARMAPValueDelegate<KeyStruct> GET_PRESSED_KEYS;
         public static GetVARMAPValueDelegate<CharacterType> GET_PLAYER_SELECTED;
-        public static GetVARMAPValueDelegate<CharacterType> GET_SHADOW_PLAYER_SELECTED;
-        public static SetVARMAPValueDelegate<CharacterType> SET_PLAYER_SELECTED;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<CharacterType> REG_PLAYER_SELECTED;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<CharacterType> UNREG_PLAYER_SELECTED;
         public static GetVARMAPValueDelegate<GameItem> GET_PICKABLE_ITEM_CHOSEN;
@@ -112,13 +107,6 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         /// <para> Method: <see cref="LevelMasterClass.PlayerWaypointUpdateService"/> </para> 
         /// </summary>
         public static PLAYER_WAYPOINT_UPDATE_DELEGATE PLAYER_WAYPOINT_UPDATE;
-        /// <summary> 
-        /// Selects player
-        /// <para> Owner: PlayerMaster </para> 
-        /// <para> Accessors: LevelMaster,  </para> 
-        /// <para> Method: <see cref="PlayerMasterClass.SelectPlayerService"/> </para> 
-        /// </summary>
-        public static SELECT_PLAYER_DELEGATE SELECT_PLAYER;
         /// <summary> 
         /// Gets a list of actual players
         /// <para> Owner: LevelMaster </para> 

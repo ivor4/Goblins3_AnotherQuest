@@ -51,7 +51,10 @@ namespace Gob3AQ.GameMenu
         private WaitForSeconds yield_2s;
 
 
-        
+        public static void CancelPickableItemService()
+        {
+            VARMAP_GameMenu.SET_PICKABLE_ITEM_CHOSEN(GameItem.ITEM_NONE);
+        }
 
         /// <summary>
         /// Displays a dialogue interface based on the specified character type, dialogue type, and initial phrase.
@@ -194,7 +197,7 @@ namespace Gob3AQ.GameMenu
                     /* Possible interaction of item combine ? */
                     _ = prevChoosen;
 
-                    VARMAP_GameMenu.SELECT_PICKABLE_ITEM(item);
+                    VARMAP_GameMenu.SET_PICKABLE_ITEM_CHOSEN(item);
                 }
             }
         }

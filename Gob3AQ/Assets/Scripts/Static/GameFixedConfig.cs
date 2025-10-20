@@ -26,6 +26,7 @@ namespace Gob3AQ.FixedConfig
         public const float KEY_REFRESH_TIME_SECONDS = 0.05f;
         public const float CHARACTER_NORMAL_SPEED = 5.0f;
         public const float MOVE_CAMERA_SPEED = 20.0f;
+        public const float USER_INTERACTION_CHANGE_ANIMATION_TIME = 0.5f;
 
         /* HUD */
         public const float DISTANCE_MOUSE_FURTHEST_WP = 1.5f;

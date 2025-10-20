@@ -41,6 +41,9 @@ namespace Gob3AQ.VARMAP.LevelMaster
             GET_ITEM_HOVER = _GET_ITEM_HOVER;
             GET_SHADOW_ITEM_HOVER = _GET_SHADOW_ITEM_HOVER;
             SET_ITEM_HOVER = _SET_ITEM_HOVER;
+            GET_USER_INPUT_INTERACTION = _GET_USER_INPUT_INTERACTION;
+            GET_SHADOW_USER_INPUT_INTERACTION = _GET_SHADOW_USER_INPUT_INTERACTION;
+            SET_USER_INPUT_INTERACTION = _SET_USER_INPUT_INTERACTION;
             SAVE_GAME = _SAVE_GAME;
             LOAD_ROOM = _LOAD_ROOM;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
@@ -97,6 +100,9 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static GetVARMAPValueDelegate<GameItem> GET_ITEM_HOVER;
         public static GetVARMAPValueDelegate<GameItem> GET_SHADOW_ITEM_HOVER;
         public static SetVARMAPValueDelegate<GameItem> SET_ITEM_HOVER;
+        public static GetVARMAPValueDelegate<UserInputInteraction> GET_USER_INPUT_INTERACTION;
+        public static GetVARMAPValueDelegate<UserInputInteraction> GET_SHADOW_USER_INPUT_INTERACTION;
+        public static SetVARMAPValueDelegate<UserInputInteraction> SET_USER_INPUT_INTERACTION;
         /* > ATG 2 END */
 
         /* SERVICES */

@@ -85,6 +85,7 @@ namespace Gob3AQ.InputMaster
                 bool accumulationCycle;
                 float deltaTime;
                 int mouseNowPressed;
+                MouseWheelState mouseWheel;
 
                 deltaTime = Time.deltaTime;
 
@@ -127,6 +128,24 @@ namespace Gob3AQ.InputMaster
                 mouseNowPressed = Input.GetMouseButton(2) ? 1 : 0;
                 cachedMouseProps.mouseThird = _ButtonStateLookup[(int)cachedMouseProps.mouseThird, mouseNowPressed];
 
+                float mouseWheelFloat = Input.GetAxisRaw("Mouse ScrollWheel");
+
+                
+
+                if(mouseWheelFloat > 0.0f)
+                {
+                    mouseWheel = MouseWheelState.MOUSE_WHEEL_UP;
+                }
+                else if(mouseWheelFloat < 0.0f)
+                {
+                    mouseWheel = MouseWheelState.MOUSE_WHEEL_DOWN;
+                }
+                else
+                {
+                    mouseWheel = MouseWheelState.MOUSE_WHEEL_IDLE;
+                }
+
+                cachedMouseProps.mouseWheel = mouseWheel;
 
                 Vector2 mouseWorld = mainCamera.ScreenToWorldPoint(mousePosition);
 

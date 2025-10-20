@@ -42,6 +42,22 @@ namespace Gob3AQ.VARMAP.Types
         BUTTON_STATE_RELEASED
     }
 
+    public enum MouseWheelState
+    {
+        MOUSE_WHEEL_IDLE,
+        MOUSE_WHEEL_UP,
+        MOUSE_WHEEL_DOWN
+    }
+
+    public enum UserInputInteraction
+    {
+        INPUT_INTERACTION_TAKE,
+        INPUT_INTERACTION_TALK,
+        INPUT_INTERACTION_OBSERVE,
+
+        INPUT_INTERACTION_TOTAL
+    }
+
 
     public enum Game_Status
     {
@@ -352,12 +368,13 @@ namespace Gob3AQ.VARMAP.Types
         public ButtonState mousePrimary;
         public ButtonState mouseSecondary;
         public ButtonState mouseThird;
+        public MouseWheelState mouseWheel;
 
 
 
         public static void StaticParseFromBytes(ref MousePropertiesStruct gstruct, ref ReadOnlySpan<byte> reader)
         {
-            ReadStreamSpan<byte> readZone = new ReadStreamSpan<byte>(reader);
+            ReadStreamSpan<byte> readZone = new(reader);
 
             gstruct.pos1 = new Vector2(BitConverter.ToSingle(readZone.ReadNext(sizeof(float))), BitConverter.ToSingle(readZone.ReadNext(sizeof(float))));
             gstruct.pos2 = new Vector2(BitConverter.ToSingle(readZone.ReadNext(sizeof(float))), BitConverter.ToSingle(readZone.ReadNext(sizeof(float))));
@@ -365,6 +382,7 @@ namespace Gob3AQ.VARMAP.Types
             gstruct.mousePrimary = (ButtonState)BitConverter.ToChar(readZone.ReadNext(sizeof(char)));
             gstruct.mouseSecondary = (ButtonState)BitConverter.ToChar(readZone.ReadNext(sizeof(char)));
             gstruct.mouseThird = (ButtonState)BitConverter.ToChar(readZone.ReadNext(sizeof(char)));
+            gstruct.mouseWheel = (MouseWheelState)BitConverter.ToChar(readZone.ReadNext(sizeof(char)));
         }
 
         public static void StaticParseToBytes(in MousePropertiesStruct gstruct, ref Span<byte> writer)
@@ -380,6 +398,7 @@ namespace Gob3AQ.VARMAP.Types
             BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(char)), (char)gstruct.mousePrimary);
             BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(char)), (char)gstruct.mouseSecondary);
             BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(char)), (char)gstruct.mouseThird);
+            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(char)), (char)gstruct.mouseWheel);
         }
 
         public static IStreamable CreateNewInstance()

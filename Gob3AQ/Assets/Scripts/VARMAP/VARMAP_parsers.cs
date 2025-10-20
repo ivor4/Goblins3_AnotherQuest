@@ -55,6 +55,16 @@ namespace Gob3AQ.VARMAP.Types.Parsers
             value = (Game_Status)BitConverter.ToInt32(reader);
         }
 
+        public static void UserInputInteraction_ParseToBytes(in UserInputInteraction value, ref Span<byte> writer)
+        {
+            BitConverter.TryWriteBytes(writer, (int)value);
+        }
+
+        public static void UserInputInteraction_ParseFromBytes(ref UserInputInteraction value, ref ReadOnlySpan<byte> reader)
+        {
+            value = (UserInputInteraction)BitConverter.ToInt32(reader);
+        }
+
 
         public static void Room_ParseToBytes(in Room value, ref Span<byte> writer)
         {

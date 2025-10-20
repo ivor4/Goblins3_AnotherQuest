@@ -12,6 +12,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Gob3AQ.LevelMaster
 {
@@ -29,6 +30,8 @@ namespace Gob3AQ.LevelMaster
         private Dictionary<GameItem, GameElementClass> _ItemDictionary;
         private LevelElemInfo _HoveredElem;
         private PendingCharacterInteraction[] _PendingCharInteractions;
+
+        private int _wheelDebounce;
 
 
         public struct PendingCharacterInteraction
@@ -222,12 +225,18 @@ namespace Gob3AQ.LevelMaster
         private void Update()
         {
             Game_Status gstatus = VARMAP_LevelMaster.GET_GAMESTATUS();
+            ref readonly MousePropertiesStruct mouse = ref VARMAP_LevelMaster.GET_MOUSE_PROPERTIES();
 
             switch (gstatus)
             {
                 case Game_Status.GAME_STATUS_PLAY:
+                    Update_Play(gstatus, in mouse);
+                    break;
                 case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
-                    Update_Play(gstatus);
+                    if (mouse.mouseSecondary == ButtonState.BUTTON_STATE_RELEASED)
+                    {
+                        VARMAP_LevelMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
+                    }
                     break;
 
                 default:
@@ -255,7 +264,7 @@ namespace Gob3AQ.LevelMaster
             _LayerOnlyPlayers = 0x1 << LayerMask.NameToLayer("PlayerLayer");
             _LayerPlayersAndItemsNPC = _LayerOnlyPlayers | (0x1 << LayerMask.NameToLayer("ItemLayer"));
 
-            _playMouseArea = new Rect(0, 0, Screen.width, Screen.height * GameFixedConfig.GAME_ZONE_HEIGHT_PERCENT);
+            _playMouseArea = new Rect(0, 0, Screen.safeArea.width, Screen.safeArea.height * GameFixedConfig.GAME_ZONE_HEIGHT_PERCENT);
 
             _PendingCharInteractions = new PendingCharacterInteraction[(int)CharacterType.CHARACTER_TOTAL];
             _HoveredElem = LevelElemInfo.EMPTY;
@@ -265,7 +274,7 @@ namespace Gob3AQ.LevelMaster
 
 
 
-        private void Update_Play(Game_Status gstatus)
+        private void Update_Play(Game_Status gstatus, in MousePropertiesStruct mouse)
         {
             for(int i = 0; i < (int)CharacterType.CHARACTER_TOTAL; i++)
             {
@@ -276,32 +285,64 @@ namespace Gob3AQ.LevelMaster
                     ExecutePlayerEndOfInteraction((CharacterType)i);
                 }
             }
-            UpdateMouseEvents(gstatus);
+            UpdateMouseEvents(gstatus, in mouse);
         }
 
        
 
 
-        private void UpdateMouseEvents(Game_Status gstatus)
+        private void UpdateMouseEvents(Game_Status gstatus, in MousePropertiesStruct mouse)
         {
-            ref readonly MousePropertiesStruct mouse = ref VARMAP_LevelMaster.GET_MOUSE_PROPERTIES();
-
-            if(gstatus == Game_Status.GAME_STATUS_PLAY_ITEM_MENU)
+            if (_playMouseArea.Contains(mouse.posPixels))
             {
-                if(mouse.mouseSecondary == ButtonState.BUTTON_STATE_RELEASED)
-                {
-                    VARMAP_LevelMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
-                }
-            }
-            else if (_playMouseArea.Contains(mouse.posPixels))
-            {
+                UpdateUserInputInteraction(in mouse);
                 UpdateCharItemMouseEvents(in mouse);
             }
-            else
+        }
+
+        private void UpdateUserInputInteraction(in MousePropertiesStruct mouse)
+        {
+            if(_wheelDebounce > 0)
             {
+                --_wheelDebounce;
+            }
+            else if(mouse.mouseWheel != MouseWheelState.MOUSE_WHEEL_IDLE)
+            {
+                UserInputInteraction interaction = VARMAP_LevelMaster.GET_SHADOW_USER_INPUT_INTERACTION();
+                int intinteraction = (int)interaction;
+
+                if(mouse.mouseWheel == MouseWheelState.MOUSE_WHEEL_UP)
+                {
+                    intinteraction++;
+                }
+                else
+                {
+                    intinteraction--;
+                }
+
+                if(intinteraction >= (int)UserInputInteraction.INPUT_INTERACTION_TOTAL)
+                {
+                    intinteraction = 0;
+                }
+                else if(intinteraction < 0)
+                {
+                    intinteraction = (int)UserInputInteraction.INPUT_INTERACTION_TOTAL - 1;
+                }
+                else
+                {
+                    /**/
+                }
+
+                interaction = (UserInputInteraction)intinteraction;
+
+                VARMAP_LevelMaster.SET_USER_INPUT_INTERACTION(interaction);
+
+                _wheelDebounce = 40;
+            }
+            else
+            { 
                 /**/
             }
-          
         }
 
         private void UpdateCharItemMouseEvents(in MousePropertiesStruct mouse)

@@ -96,6 +96,11 @@ namespace Gob3AQ.VARMAP.Initialization
             _SET_ITEM_HOVER = ((VARMAP_Variable_Interface<GameItem>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_HOVER]).SetValue;
             _REG_ITEM_HOVER = ((VARMAP_Variable_Interface<GameItem>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_HOVER]).RegisterChangeEvent;
             _UNREG_ITEM_HOVER = ((VARMAP_Variable_Interface<GameItem>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_HOVER]).UnregisterChangeEvent;
+            _GET_USER_INPUT_INTERACTION = ((VARMAP_Variable_Interface<UserInputInteraction>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_USER_INPUT_INTERACTION]).GetValue;
+            _GET_SHADOW_USER_INPUT_INTERACTION = ((VARMAP_Variable_Interface<UserInputInteraction>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_USER_INPUT_INTERACTION]).GetShadowValue;
+            _SET_USER_INPUT_INTERACTION = ((VARMAP_Variable_Interface<UserInputInteraction>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_USER_INPUT_INTERACTION]).SetValue;
+            _REG_USER_INPUT_INTERACTION = ((VARMAP_Variable_Interface<UserInputInteraction>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_USER_INPUT_INTERACTION]).RegisterChangeEvent;
+            _UNREG_USER_INPUT_INTERACTION = ((VARMAP_Variable_Interface<UserInputInteraction>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_USER_INPUT_INTERACTION]).UnregisterChangeEvent;
             _GET_LAST_VARMAP_VAL = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL]).GetValue;
             _GET_SHADOW_LAST_VARMAP_VAL = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL]).GetShadowValue;
             _SET_LAST_VARMAP_VAL = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL]).SetValue;

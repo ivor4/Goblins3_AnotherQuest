@@ -36,7 +36,10 @@ namespace Gob3AQ.ResourceSprites
             _fixedSpritesArray[0] = GameSprite.SPRITE_CURSOR_NORMAL;
             _fixedSpritesArray[1] = GameSprite.SPRITE_CURSOR_USING;
             _fixedSpritesArray[2] = GameSprite.SPRITE_INVENTORY;
-            _fixedSpritesToLoad = 3;
+            _fixedSpritesArray[3] = GameSprite.SPRITE_UI_TAKE;
+            _fixedSpritesArray[4] = GameSprite.SPRITE_UI_TALK;
+            _fixedSpritesArray[5] = GameSprite.SPRITE_UI_OBSERVE;
+            _fixedSpritesToLoad = 6;
 
             for (GamePickableItem i = 0; i < GamePickableItem.ITEM_PICK_TOTAL; i++)
             {

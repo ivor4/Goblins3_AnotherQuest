@@ -91,6 +91,11 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPValueDelegate<GameItem> _SET_ITEM_HOVER;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> _REG_ITEM_HOVER;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> _UNREG_ITEM_HOVER;
+        protected static GetVARMAPValueDelegate<UserInputInteraction> _GET_USER_INPUT_INTERACTION;
+        protected static GetVARMAPValueDelegate<UserInputInteraction> _GET_SHADOW_USER_INPUT_INTERACTION;
+        protected static SetVARMAPValueDelegate<UserInputInteraction> _SET_USER_INPUT_INTERACTION;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<UserInputInteraction> _REG_USER_INPUT_INTERACTION;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<UserInputInteraction> _UNREG_USER_INPUT_INTERACTION;
         protected static GetVARMAPValueDelegate<bool> _GET_LAST_VARMAP_VAL;
         protected static GetVARMAPValueDelegate<bool> _GET_SHADOW_LAST_VARMAP_VAL;
         protected static SetVARMAPValueDelegate<bool> _SET_LAST_VARMAP_VAL;

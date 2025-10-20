@@ -192,6 +192,7 @@ namespace Gob3AQ.VARMAP.Initialization
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_SELECTED] = new VARMAP_Variable<CharacterType>(VARMAP_Variable_ID.VARMAP_ID_PLAYER_SELECTED, VARMAP_parsers.CharacterType_ParseFromBytes, VARMAP_parsers.CharacterType_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_CHOSEN] = new VARMAP_SafeVariable<GameItem>(VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_CHOSEN, false, VARMAP_parsers.GameItem_ParseFromBytes, VARMAP_parsers.GameItem_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_HOVER] = new VARMAP_Variable<GameItem>(VARMAP_Variable_ID.VARMAP_ID_ITEM_HOVER, VARMAP_parsers.GameItem_ParseFromBytes, VARMAP_parsers.GameItem_ParseToBytes);
+            DATA[(int)VARMAP_Variable_ID.VARMAP_ID_USER_INPUT_INTERACTION] = new VARMAP_Variable<UserInputInteraction>(VARMAP_Variable_ID.VARMAP_ID_USER_INPUT_INTERACTION, VARMAP_parsers.UserInputInteraction_ParseFromBytes, VARMAP_parsers.UserInputInteraction_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL] = new VARMAP_Variable<bool>(VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL, VARMAP_parsers.bool_ParseFromBytes, VARMAP_parsers.bool_ParseToBytes);
             /* > ATG 1 END < */
 

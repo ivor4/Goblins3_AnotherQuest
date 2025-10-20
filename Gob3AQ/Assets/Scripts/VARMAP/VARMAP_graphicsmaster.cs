@@ -31,6 +31,9 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
             GET_ITEM_HOVER = _GET_ITEM_HOVER;
             REG_ITEM_HOVER = _REG_ITEM_HOVER;
             UNREG_ITEM_HOVER = _UNREG_ITEM_HOVER;
+            GET_USER_INPUT_INTERACTION = _GET_USER_INPUT_INTERACTION;
+            REG_USER_INPUT_INTERACTION = _REG_USER_INPUT_INTERACTION;
+            UNREG_USER_INPUT_INTERACTION = _UNREG_USER_INPUT_INTERACTION;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
@@ -54,6 +57,9 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
         public static GetVARMAPValueDelegate<GameItem> GET_ITEM_HOVER;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> REG_ITEM_HOVER;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> UNREG_ITEM_HOVER;
+        public static GetVARMAPValueDelegate<UserInputInteraction> GET_USER_INPUT_INTERACTION;
+        public static ReUnRegisterVARMAPValueChangeEventDelegate<UserInputInteraction> REG_USER_INPUT_INTERACTION;
+        public static ReUnRegisterVARMAPValueChangeEventDelegate<UserInputInteraction> UNREG_USER_INPUT_INTERACTION;
         /* > ATG 2 END */
 
         /* SERVICES */

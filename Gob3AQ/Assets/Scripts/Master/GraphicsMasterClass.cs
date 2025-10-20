@@ -29,7 +29,7 @@ namespace Gob3AQ.GraphicsMaster
         private Bounds _levelBounds;
         private Bounds _cameraCenterLimitBounds;
         private Bounds _cameraBounds;
-        private Bounds _mouseScreenBounds;
+        private Bounds _mouseScreenZoneLimit;
 
         private Camera mainCamera;
         private Transform mainCameraTransform;
@@ -68,13 +68,14 @@ namespace Gob3AQ.GraphicsMaster
             _cameraBounds.min = mainCamera.ScreenToWorldPoint(Vector3.zero);
             _cameraBounds.max = mainCamera.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
 
-            _mouseScreenBounds = new Bounds();
-            _mouseScreenBounds.min = Vector2.zero;
-            _mouseScreenBounds.max = Vector2.one;
+            _mouseScreenZoneLimit = new Bounds();
+            _mouseScreenZoneLimit.min = Vector2.zero;
+            _mouseScreenZoneLimit.max = Vector2.one;
 
             VARMAP_GraphicsMaster.REG_GAMESTATUS(_GameStatusChanged);
             VARMAP_GraphicsMaster.REG_PICKABLE_ITEM_CHOSEN(_OnPickedItemChanged);
             VARMAP_GraphicsMaster.REG_ITEM_HOVER(_OnHoverItemChanged);
+            VARMAP_GraphicsMaster.REG_USER_INPUT_INTERACTION(_OnUserInputInteractionChanged);
 
             cachedGameStatus = VARMAP_GraphicsMaster.GET_GAMESTATUS();
 
@@ -114,6 +115,7 @@ namespace Gob3AQ.GraphicsMaster
                 VARMAP_GraphicsMaster.UNREG_GAMESTATUS(_GameStatusChanged);
                 VARMAP_GraphicsMaster.UNREG_PICKABLE_ITEM_CHOSEN(_OnPickedItemChanged);
                 VARMAP_GraphicsMaster.UNREG_ITEM_HOVER(_OnHoverItemChanged);
+                VARMAP_GraphicsMaster.UNREG_USER_INPUT_INTERACTION(_OnUserInputInteractionChanged);
             }
         }
 
@@ -161,9 +163,10 @@ namespace Gob3AQ.GraphicsMaster
             Vector2 screenzone_orig = new(mouse.posPixels.x / Screen.safeArea.width, mouse.posPixels.y / Screen.safeArea.height);
             Vector2 szone = new(screenzone_orig.x, screenzone_orig.y * GameFixedConfig.GAME_ZONE_HEIGHT_FACTOR);
 
-            if (_mouseScreenBounds.Contains(szone))
+            if (_mouseScreenZoneLimit.Contains(szone))
             {
-                if (_mouseDraggingCamera && (mouse.mouseThird == ButtonState.BUTTON_STATE_PRESSING))
+                bool thirdPressed = mouse.mouseThird == ButtonState.BUTTON_STATE_PRESSING;
+                if (_mouseDraggingCamera && thirdPressed)
                 {
                     Vector3 moveCameraDelta;
                     Vector3 cameraNewPosition;
@@ -182,7 +185,7 @@ namespace Gob3AQ.GraphicsMaster
                 }
                 else
                 {
-                    if(mouse.mouseThird == ButtonState.BUTTON_STATE_PRESSED)
+                    if (thirdPressed)
                     {
                         _mouseDraggingCamera = true;
                         _mouseStartedCameraDrag = szone;
@@ -236,10 +239,19 @@ namespace Gob3AQ.GraphicsMaster
             }
         }
 
+        private void _OnUserInputInteractionChanged(ChangedEventType evtype, in UserInputInteraction oldval, in UserInputInteraction newval)
+        {
+            _ = evtype;
+
+            if (oldval != newval)
+            {
+                uicanvas_cls.AnimateNewUserInteraction(newval);
+            }
+        }
+
         private void _GameStatusChanged(ChangedEventType evtype, in Game_Status oldval, in Game_Status newval)
         {
             _ = evtype;
-            _ = oldval;
 
             if (oldval != newval)
             {
@@ -249,9 +261,6 @@ namespace Gob3AQ.GraphicsMaster
                 {
                     case Game_Status.GAME_STATUS_PLAY:
                         uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_NONE);
-                        break;
-                    case Game_Status.GAME_STATUS_LOADING:
-                        uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_LOADING);
                         break;
                     case Game_Status.GAME_STATUS_PLAY_DIALOG:
                         uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_DIALOG);

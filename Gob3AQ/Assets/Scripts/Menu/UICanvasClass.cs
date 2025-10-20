@@ -18,7 +18,6 @@ namespace Gob3AQ.GameMenu.UICanvas
     public enum DisplayMode
     {
         DISPLAY_MODE_NONE,
-        DISPLAY_MODE_LOADING,
         DISPLAY_MODE_INVENTORY,
         DISPLAY_MODE_DIALOG
     }
@@ -46,6 +45,8 @@ namespace Gob3AQ.GameMenu.UICanvas
         private GameObject cursor;
         private GameObject cursor_subobj;
         private GameObject cursor_textobj;
+        private GameObject cursor_userInteractionSel;
+        private UIUserInteractionSelClass cursor_userInteraction_cls;
 
         private Image cursor_spr;
         private Image cursor_subobj_spr;
@@ -72,40 +73,39 @@ namespace Gob3AQ.GameMenu.UICanvas
             cursor_subobj_spr = cursor_subobj.GetComponent<Image>();
             cursor_textobj = cursor.transform.Find("CursorText").gameObject;
             cursor_textobj_text = cursor_textobj.transform.Find("Text").gameObject.GetComponent<TMP_Text>();
+            cursor_userInteractionSel = cursor.transform.Find("UserInteractionSel").gameObject;
+            cursor_userInteraction_cls = cursor_userInteractionSel.GetComponent<UIUserInteractionSelClass>();
 
+            /* Will be enabled at the end of Loading (new display mode) */
             raycaster.enabled = false;
         }
 
         public void SetDisplayMode(DisplayMode mode)
         {
-            switch(mode)
-            {
-                case DisplayMode.DISPLAY_MODE_LOADING:
-                    UICanvas_loadingObj.SetActive(true);
-                    UICanvas_dialogObj.SetActive(false);
-                    UICanvas_itemMenuObj.SetActive(false);
-                    raycaster.enabled = false;
-                    break;
+            /* On every change of dispaly mode, abort any animation of User Interaction change and hide related objects */
+            cursor_userInteraction_cls.Disable();
 
+            raycaster.enabled = true;
+
+            switch (mode)
+            {
                 case DisplayMode.DISPLAY_MODE_INVENTORY:
                     UICanvas_loadingObj.SetActive(false);
                     UICanvas_dialogObj.SetActive(false);
                     UICanvas_itemMenuObj.SetActive(true);
-                    raycaster.enabled = true;
+                    
                     break;
 
                 case DisplayMode.DISPLAY_MODE_DIALOG:
                     UICanvas_loadingObj.SetActive(false);
                     UICanvas_dialogObj.SetActive(true);
                     UICanvas_itemMenuObj.SetActive(false);
-                    raycaster.enabled = true;
                     break;
 
                 default:
                     UICanvas_loadingObj.SetActive(false);
                     UICanvas_dialogObj.SetActive(false);
                     UICanvas_itemMenuObj.SetActive(false);
-                    raycaster.enabled = true;
                     break;
             }
         }
@@ -214,6 +214,12 @@ namespace Gob3AQ.GameMenu.UICanvas
             inventory_obj.Enable(activate);
         }
 
+        public void AnimateNewUserInteraction(UserInputInteraction interaction)
+        {
+            /* Passthrough */
+            cursor_userInteraction_cls.AnimateNewUserInteraction(interaction);
+        }
+
         public IEnumerator Execute_Load_Coroutine(DIALOG_OPTION_CLICK_DELEGATE OnDialogOptionClick, DISPLAYED_ITEM_CLICK OnItemDisplayClick)
         {
             bool sprites_loaded = false;
@@ -244,9 +250,10 @@ namespace Gob3AQ.GameMenu.UICanvas
             }
 
             cursor_spr.sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_CURSOR_NORMAL);
-            cursor.SetActive(true);
 
             UICanvas_itemMenuObj.GetComponent<Image>().sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_INVENTORY);
+
+            cursor_userInteraction_cls.LoadTask();
         }
     }
 }

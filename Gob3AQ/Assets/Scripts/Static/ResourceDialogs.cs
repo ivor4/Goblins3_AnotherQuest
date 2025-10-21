@@ -26,16 +26,14 @@ namespace Gob3AQ.ResourceDialogs
         private static DialogPhrase[] _fixedPhrasesArray;
         private static DialogPhrase[] _phrasesToLoadArray;
         private static Dictionary<DialogPhrase, int> _cachedPhrasesFinder;
-        private static Dictionary<NameType, int> _cachedNamesFinder;
+        private static Dictionary<NameType, string> _cachedNamesFinder;
         private static PhraseContent[] _cachedPhrasesArray;
-        private static string[] _cachedNamesArray;
         private static DialogLanguages _language;
 
         private static int _fixedPhrasesToLoad;
         private static int _fixedNamesToLoad;
         private static int _namesToLoad;
         private static int _phrasesToLoad;
-        private static int _cachedNames;
         private static int _cachedPhrases;
 
 
@@ -50,7 +48,6 @@ namespace Gob3AQ.ResourceDialogs
             _phrasesToLoadArray = new DialogPhrase[GameFixedConfig.MAX_CACHED_PHRASES];
             _namesToLoadArray = new NameType[GameFixedConfig.MAX_CACHED_PHRASES];
             _cachedPhrasesArray = new PhraseContent[GameFixedConfig.MAX_CACHED_PHRASES];
-            _cachedNamesArray = new string[GameFixedConfig.MAX_CACHED_PHRASES];
 
             _fixedNamesToLoad = 0;
 
@@ -72,7 +69,6 @@ namespace Gob3AQ.ResourceDialogs
 
             _namesToLoad = 0;
             _phrasesToLoad = 0;
-            _cachedNames = 0;
             _cachedPhrases = 0;
         }
 
@@ -82,12 +78,10 @@ namespace Gob3AQ.ResourceDialogs
             _cachedPhrasesFinder.Clear();
             Array.Clear(_namesToLoadArray, 0, _namesToLoadArray.Length);
             Array.Clear(_phrasesToLoadArray, 0, _phrasesToLoadArray.Length);
-            Array.Clear(_cachedNamesArray, 0, _cachedNamesArray.Length);
             Array.Clear(_cachedPhrasesArray, 0, _cachedPhrasesArray.Length);
 
             _namesToLoad = 0;
             _phrasesToLoad = 0;
-            _cachedNames = 0;
             _cachedPhrases = 0;
         }
 
@@ -129,7 +123,7 @@ namespace Gob3AQ.ResourceDialogs
             ReadOnlySpan<DialogPhrase> roomPhrases = roomInfo.Phrases;
 
             /* Copy imposed ones from room */
-            Span<DialogPhrase> phrasesDest = new(_phrasesToLoadArray);
+            Span<DialogPhrase> phrasesDest = _phrasesToLoadArray;
             phrasesDest = phrasesDest[_phrasesToLoad..];
             roomPhrases.CopyTo(phrasesDest);
             _phrasesToLoad += roomPhrases.Length;
@@ -216,9 +210,7 @@ namespace Gob3AQ.ResourceDialogs
             ref readonly string row = ref lines[(int)name];
             ReadOnlySpan<string> columns = row.Split(',');
 
-            _cachedNamesArray[_cachedNames] = columns[(int)_language];
-            _cachedNamesFinder[name] = _cachedNames;
-            ++_cachedNames;
+            _cachedNamesFinder[name] = columns[(int)_language];
         }
 
 
@@ -236,16 +228,16 @@ namespace Gob3AQ.ResourceDialogs
             }
         }
 
-        public static ref readonly string GetName(NameType name)
+        public static string GetName(NameType name)
         {
-            if (_cachedNamesFinder.TryGetValue(name, out int storedIndex))
+            if (_cachedNamesFinder.TryGetValue(name, out string outName))
             {
-                return ref _cachedNamesArray[storedIndex];
+                return outName;
             }
             else
             {
                 Debug.LogError($"Name type {name} not found in cached names.");
-                return ref string.Empty;
+                return string.Empty;
             }
         }
 

@@ -112,7 +112,7 @@ namespace Gob3AQ.GameMenu.UICanvas
             }
         }
 
-        public void SetDialogMode(DialogMode mode, in string sender, in string msg)
+        public void SetDialogMode(DialogMode mode, string sender, string msg)
         {
             switch(mode)
             {
@@ -194,7 +194,7 @@ namespace Gob3AQ.GameMenu.UICanvas
             }
         }
 
-        public void ActivateDialogOption(int index, bool activate, DialogOption option, in string text)
+        public void ActivateDialogOption(int index, bool activate, DialogOption option, string text)
         {
             ref readonly DialogOptionButtonClass button = ref UICanvas_dialogOptionButtons[index];
             

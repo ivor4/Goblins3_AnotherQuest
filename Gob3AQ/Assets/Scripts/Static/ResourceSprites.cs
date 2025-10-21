@@ -76,21 +76,20 @@ namespace Gob3AQ.ResourceSprites
 
         public static void UnloadUsedSprites()
         {
-            for(int i=0; i< _cachedHandles.Count; i++)
+            _cachedSpritesFinder.Clear();
+            Array.Clear(_spritesToLoadArray, 0, _spritesToLoadArray.Length);
+
+            for (int i=0; i< _cachedHandles.Count; i++)
             {
                 Addressables.Release(_cachedHandles[i]);
             }
-
             _cachedHandles.Clear();
         }
 
         private static void PreloadSpritesPrepareList(Room room)
         {
-            _cachedSpritesFinder.Clear();
-            Array.Clear(_spritesToLoadArray, 0, _spritesToLoadArray.Length);
-            _cachedHandles.Clear();
-
-            /* Prepare sprites to load */
+            /* Clear */
+            UnloadUsedSprites();
 
             /* First fixed sprites to load */
             _fixedSpritesArray.CopyTo(_spritesToLoadArray, 0);

@@ -113,7 +113,7 @@ namespace Gob3AQ.GameMenu
 
                         ref readonly PhraseContent optionPhraseContent = ref ResourceDialogsClass.GetPhraseContent(dialogPhrases[0]);
 
-                        _uicanvas_cls.ActivateDialogOption(selectablePhrases, true, dialogOptions[i], in optionPhraseContent.message);
+                        _uicanvas_cls.ActivateDialogOption(selectablePhrases, true, dialogOptions[i], optionPhraseContent.message);
 
                         uniquePhrase = dialogPhrases[0];
                         uniqueOption = dialogOptions[i];
@@ -124,7 +124,7 @@ namespace Gob3AQ.GameMenu
                 /* Clear previous usage data and deactivate */
                 for (int i = selectablePhrases; i < GameFixedConfig.MAX_DIALOG_OPTIONS; ++i)
                 {
-                    _uicanvas_cls.ActivateDialogOption(i, false, DialogOption.DIALOG_OPTION_NONE, in string.Empty);
+                    _uicanvas_cls.ActivateDialogOption(i, false, DialogOption.DIALOG_OPTION_NONE, string.Empty);
                 }
             }
 
@@ -141,7 +141,7 @@ namespace Gob3AQ.GameMenu
             /* If it is multichoice, enable selectors. If only 1 say it directly */
             if (selectablePhrases > 1)
             {
-                _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_OPTIONS, in string.Empty, in string.Empty);
+                _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_OPTIONS, string.Empty, string.Empty);
 
                 dialog_optionPending = true;
                 dialog_tellingInProgress = false;
@@ -218,10 +218,10 @@ namespace Gob3AQ.GameMenu
             GameItem talkerItem = dialog_input_talkers[content.config.talkerIndex];
             ref readonly ItemInfo talkerInfo = ref ItemsInteractionsClass.GetItemInfo(talkerItem);
 
-            ref readonly string sender = ref ResourceDialogsClass.GetName(talkerInfo.name);
-            ref readonly string msg = ref content.message;
+            string sender = ResourceDialogsClass.GetName(talkerInfo.name);
+            string msg = content.message;
 
-            _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_PHRASE, in sender, in msg);
+            _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_PHRASE, sender, msg);
 
             dialog_actualTaskType = DialogCoroutineTaskType.DIALOG_TASK_ENDPHRASE;
         }
@@ -244,7 +244,7 @@ namespace Gob3AQ.GameMenu
                 else
                 {
                     /* End of dialog */
-                    _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_NONE, in string.Empty, in string.Empty);
+                    _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_NONE, string.Empty, string.Empty);
 
                     /* If end of conversation triggers an event */
                     if (dialogConfig.triggeredEvent != GameEvent.EVENT_NONE)

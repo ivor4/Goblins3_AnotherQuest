@@ -39,6 +39,7 @@ namespace Gob3AQ.VARMAP.Types
         PHRASE_ASK_FOUNTAIN2_1, 
         PHRASE_ASK_FOUNTAIN3_1, 
         PHRASE_ASK_FOUNTAIN4_1, 
+        PHRASE_OBSERVE_RED_POTION, 
         
         PHRASE_TOTAL
         /* > ATG 3 END < */

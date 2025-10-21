@@ -240,11 +240,8 @@ namespace Gob3AQ.VARMAP.Types
         public readonly GameItem srcItem;
         public readonly ItemInteractionType actionOK;
         public readonly CharacterAnimation animationOK;
-        public readonly CharacterAnimation animationNOK_Event;
         public readonly DialogType dialogOK;
         public readonly DialogPhrase phraseOK;
-        public readonly DialogType dialogNOK_Event;
-        public readonly DialogPhrase phraseNOK_Event;
         public readonly GameEvent unchainEvent;
         public readonly bool consumes;
 
@@ -252,12 +249,10 @@ namespace Gob3AQ.VARMAP.Types
 
         public static readonly ActionConditionsInfo EMPTY = new(new GameEventCombi[0], CharacterType.CHARACTER_NONE,
             GameItem.ITEM_NONE, ItemInteractionType.INTERACTION_NONE, CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE,
             DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, GameEvent.EVENT_NONE, false);
 
         public ActionConditionsInfo(GameEventCombi[] events, CharacterType srcChar, GameItem srcItem,
-            ItemInteractionType actionOK, CharacterAnimation animationOK, CharacterAnimation animationNOK_Event,
-            DialogType dialogOK, DialogPhrase phraseOK, DialogType dialogNOK_Event, DialogPhrase phraseNOK_Event,
+            ItemInteractionType actionOK, CharacterAnimation animationOK,DialogType dialogOK, DialogPhrase phraseOK,
             GameEvent unchainEvent, bool consumes)
         {
             this.neededEvents = events;
@@ -265,11 +260,8 @@ namespace Gob3AQ.VARMAP.Types
             this.srcItem = srcItem;
             this.actionOK = actionOK;
             this.animationOK = animationOK;
-            this.animationNOK_Event = animationNOK_Event;
             this.dialogOK = dialogOK;
             this.phraseOK = phraseOK;
-            this.dialogNOK_Event = dialogNOK_Event;
-            this.phraseNOK_Event = phraseNOK_Event;
             this.unchainEvent = unchainEvent;
             this.consumes = consumes;
         }

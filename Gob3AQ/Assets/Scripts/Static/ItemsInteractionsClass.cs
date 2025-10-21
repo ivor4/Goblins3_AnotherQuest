@@ -65,44 +65,51 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new( /* COND_OK */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,
-            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,CharacterAnimation.ITEM_USE_ANIMATION_CONFUSE,
+            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
             DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
-            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameEvent.EVENT_NONE,false),
+            GameEvent.EVENT_NONE,false),
             
             new( /* COND_TAKE_POTION */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,CharacterAnimation.ITEM_USE_ANIMATION_NONE,
+            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
             DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
-            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameEvent.EVENT_NONE,false),
+            GameEvent.EVENT_NONE,false),
+            
+            new( /* COND_OBSERVE_POTION */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
+            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
+            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_RED_POTION,
+            GameEvent.EVENT_NONE,false),
             
             new( /* COND_TAKE_POTION_BLUE */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             CharacterType.CHARACTER_PARROT,GameItem.ITEM_POTION_BLUE,ItemInteractionType.INTERACTION_TAKE,
-            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,CharacterAnimation.ITEM_USE_ANIMATION_NONE,
+            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
             DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
-            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameEvent.EVENT_NONE,false),
+            GameEvent.EVENT_NONE,false),
             
             new( /* COND_FOUNTAIN */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             CharacterType.CHARACTER_MAIN,GameItem.ITEM_POTION,ItemInteractionType.INTERACTION_USE,
-            CharacterAnimation.ITEM_USE_ANIMATION_POUR,CharacterAnimation.ITEM_USE_ANIMATION_CONFUSE,
+            CharacterAnimation.ITEM_USE_ANIMATION_POUR,
             DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
-            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameEvent.EVENT_FOUNTAIN_FULL,true),
+            GameEvent.EVENT_FOUNTAIN_FULL,true),
             
             new( /* COND_FOUNTAIN2 */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             CharacterType.CHARACTER_PARROT,GameItem.ITEM_POTION_BLUE,ItemInteractionType.INTERACTION_USE,
-            CharacterAnimation.ITEM_USE_ANIMATION_STARE_SCREEN,CharacterAnimation.ITEM_USE_ANIMATION_CONFUSE,
+            CharacterAnimation.ITEM_USE_ANIMATION_STARE_SCREEN,
             DialogType.DIALOG_FOUNTAIN,DialogPhrase.PHRASE_NONE,
-            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameEvent.EVENT_NONE,false),
+            GameEvent.EVENT_NONE,false),
             
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,
-            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,CharacterAnimation.ITEM_USE_ANIMATION_CONFUSE,
+            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
             DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
-            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameEvent.EVENT_NONE,false),
+            GameEvent.EVENT_NONE,false),
             
             /* > ATG 1 END < */
         };

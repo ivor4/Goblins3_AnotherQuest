@@ -35,6 +35,7 @@ namespace Gob3AQ.VARMAP.Types
         /* > ATG 3 START < */
         COND_OK, 
         COND_TAKE_POTION, 
+        COND_OBSERVE_POTION, 
         COND_TAKE_POTION_BLUE, 
         COND_FOUNTAIN, 
         COND_FOUNTAIN2, 

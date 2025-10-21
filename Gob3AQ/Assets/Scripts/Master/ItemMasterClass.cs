@@ -149,14 +149,8 @@ namespace Gob3AQ.ItemMaster
                         phrase = condition.phraseOK;
                         consumeItem = condition.consumes;
                         conditionOK = true;
+                        break;
                     }
-                    else
-                    {
-                        phrase = condition.phraseNOK_Event;
-                        dialog = condition.dialogNOK_Event;
-                        animation = condition.animationNOK_Event;
-                    }
-                    break;
                 }
             }
 

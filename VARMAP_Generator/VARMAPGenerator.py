@@ -986,13 +986,10 @@ for line in ACTIONCONDSinputFile:
     ItemVar["srcItem"] = item_prefix+str(columns[4])
     ItemVar["actionOK"] = interaction_prefix+str(columns[5])
     ItemVar["animationOK"] = animation_prefix+str(columns[6])
-    ItemVar["animationNOK_event"] = animation_prefix+str(columns[7])
-    ItemVar["dialogOK"] = dialog_prefix+str(columns[8])
-    ItemVar["phraseOK"] = phrase_prefix+str(columns[9])
-    ItemVar["dialogNOK_event"] = dialog_prefix+str(columns[10])
-    ItemVar["phraseNOK_event"] = phrase_prefix+str(columns[11])
-    ItemVar["unchain_event"] = event_prefix + str(columns[12])
-    ItemVar["consume_item"] = str(columns[13]).lower()
+    ItemVar["dialogOK"] = dialog_prefix+str(columns[7])
+    ItemVar["phraseOK"] = phrase_prefix+str(columns[8])
+    ItemVar["unchain_event"] = event_prefix + str(columns[9])
+    ItemVar["consume_item"] = str(columns[10]).lower()
     
     # Write in item enum
     stringToWrite = ItemVar["name"]
@@ -1022,14 +1019,12 @@ for line in ACTIONCONDSinputFile:
     stringToWrite = ItemVar["srcChar"]+','+ItemVar["srcItem"]+','+\
         ItemVar["actionOK"]+',\n'
     items_interaction_lines.InsertLineInATG(1, stringToWrite)
-    stringToWrite = ItemVar["animationOK"]+','+\
-    ItemVar["animationNOK_event"]+",\n"
+    stringToWrite = ItemVar["animationOK"]+',\n'
     items_interaction_lines.InsertLineInATG(1, stringToWrite)
     stringToWrite = ItemVar["dialogOK"]+","+\
         ItemVar["phraseOK"]+",\n"
     items_interaction_lines.InsertLineInATG(1, stringToWrite)
-    stringToWrite = ItemVar["dialogNOK_event"]+","+\
-        ItemVar["phraseNOK_event"]+','+ItemVar["unchain_event"]+','+\
+    stringToWrite = ItemVar["unchain_event"]+','+\
         ItemVar["consume_item"]+"),\n"
     items_interaction_lines.InsertLineInATG(1, stringToWrite)
     items_interaction_lines.InsertLineInATG(1, '\n')

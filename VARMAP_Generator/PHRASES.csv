@@ -6,3 +6,4 @@ N,PHRASE_ID,TalkerIndex,Sound,CharAnimation,Text_English,Text_Spanish
 4,PHRASE_ASK_FOUNTAIN2_1,0,0,DIALOG_ANIMATION_TALK,Are you kidding me?,¿Me estás troleando?
 5,PHRASE_ASK_FOUNTAIN3_1,0,0,DIALOG_ANIMATION_TALK,Why are you red?,¿Por qué estás roja?
 6,PHRASE_ASK_FOUNTAIN4_1,0,0,DIALOG_ANIMATION_TALK,Why are you not red yet?,¿Por qué aún no estás roja?
+7,PHRASE_OBSERVE_RED_POTION,0,0,DIALOG_ANIMATION_TALK,It looks like a potion with red liquid,Parece una poción con líquido rojo

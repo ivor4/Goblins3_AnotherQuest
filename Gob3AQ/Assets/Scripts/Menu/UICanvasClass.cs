@@ -47,6 +47,7 @@ namespace Gob3AQ.GameMenu.UICanvas
         private GameObject cursor_textobj;
         private GameObject cursor_userInteractionSel;
         private UIUserInteractionSelClass cursor_userInteraction_cls;
+        RectTransform cursor_rect;
 
         private Image cursor_spr;
         private Image cursor_subobj_spr;
@@ -69,6 +70,7 @@ namespace Gob3AQ.GameMenu.UICanvas
 
             cursor = transform.Find("Cursor").gameObject;
             cursor_spr = cursor.GetComponent<Image>();
+            cursor_rect = cursor.GetComponent<RectTransform>();
             cursor_subobj = cursor.transform.Find("CursorObject").gameObject;
             cursor_subobj_spr = cursor_subobj.GetComponent<Image>();
             cursor_textobj = cursor.transform.Find("CursorText").gameObject;
@@ -146,11 +148,24 @@ namespace Gob3AQ.GameMenu.UICanvas
             cursor.transform.position = pos;
         }
 
+        public void SetCursorBaseSprite(GameSprite spriteID)
+        {
+            if(spriteID == GameSprite.SPRITE_UI_MOUSE_MOVE)
+            {
+                cursor_rect.pivot = new Vector2(0.5f, 0.5f);
+            }
+            else
+            {
+                cursor_rect.pivot = new Vector2(0f, 1f);
+            }
+
+            cursor_spr.sprite = ResourceSpritesClass.GetSprite(spriteID);
+        }
+
         public void SetCursorItem(GameItem item)
         {
             if(item == GameItem.ITEM_NONE)
             {
-                cursor_spr.sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_CURSOR_NORMAL);
                 cursor_subobj.SetActive(false);
                 cursor_subobj_spr.sprite = null;
             }
@@ -160,7 +175,6 @@ namespace Gob3AQ.GameMenu.UICanvas
                 GameSprite sprID;
                 sprID = info.pickableSprite;
 
-                cursor_spr.sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_CURSOR_USING);
                 cursor_subobj_spr.sprite = ResourceSpritesClass.GetSprite(sprID);
                 cursor_subobj.SetActive(true);
             }
@@ -248,8 +262,6 @@ namespace Gob3AQ.GameMenu.UICanvas
                 yield return ResourceAtlasClass.WaitForNextFrame;
                 VARMAP_GraphicsMaster.IS_MODULE_LOADED(GameModules.MODULE_GameMaster, out sprites_loaded);
             }
-
-            cursor_spr.sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_CURSOR_NORMAL);
 
             UICanvas_itemMenuObj.GetComponent<Image>().sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_INVENTORY);
 

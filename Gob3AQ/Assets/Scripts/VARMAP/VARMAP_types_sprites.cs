@@ -12,6 +12,7 @@ namespace Gob3AQ.VARMAP.Types
         SPRITE_UI_TAKE, 
         SPRITE_UI_TALK, 
         SPRITE_UI_OBSERVE, 
+        SPRITE_UI_MOUSE_MOVE, 
         SPRITE_POTION_RED, 
         SPRITE_POTION_BLUE, 
         SPRITE_FOUNTAIN, 

@@ -36,6 +36,8 @@ namespace Gob3AQ.GraphicsMaster
         private GameObject background;
         private SpriteRenderer background_spr;
 
+        private bool pickableSelected;
+
         private Game_Status cachedGameStatus;
         private bool _loaded;
 
@@ -152,6 +154,8 @@ namespace Gob3AQ.GraphicsMaster
                     MoveCameraToPosition(in candidatePos);
 
                     VARMAP_GraphicsMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GraphicsMaster);
+
+                    UpdateCursorBaseSprite();
                     _loaded = true;
                 }
             }
@@ -162,6 +166,7 @@ namespace Gob3AQ.GraphicsMaster
         {
             Vector2 screenzone_orig = new(mouse.posPixels.x / Screen.safeArea.width, mouse.posPixels.y / Screen.safeArea.height);
             Vector2 szone = new(screenzone_orig.x, screenzone_orig.y * GameFixedConfig.GAME_ZONE_HEIGHT_FACTOR);
+            bool mouseDraggingChanged = _mouseDraggingCamera;
 
             if (_mouseScreenZoneLimit.Contains(szone))
             {
@@ -200,6 +205,13 @@ namespace Gob3AQ.GraphicsMaster
             {
                 _mouseDraggingCamera = false;
             }
+
+            mouseDraggingChanged ^= _mouseDraggingCamera;
+
+            if(mouseDraggingChanged)
+            {
+                UpdateCursorBaseSprite();
+            }
         }
 
         private void MoveCameraToPosition(in Vector3 position)
@@ -219,12 +231,35 @@ namespace Gob3AQ.GraphicsMaster
             mainCameraTransform.position = cameraNewPosition;
         }
 
+        private void UpdateCursorBaseSprite()
+        {
+            GameSprite cursorSprite;
+
+            if(_mouseDraggingCamera)
+            {
+                cursorSprite = GameSprite.SPRITE_UI_MOUSE_MOVE;
+            }
+            else if (pickableSelected)
+            {
+                cursorSprite = GameSprite.SPRITE_CURSOR_USING;
+            }
+            else
+            {
+                cursorSprite = GameSprite.SPRITE_CURSOR_NORMAL;
+            }
+
+            uicanvas_cls.SetCursorBaseSprite(cursorSprite);
+        }
+
         private void _OnPickedItemChanged(ChangedEventType evtype, in GameItem oldval, in GameItem newval)
         {
             _ = evtype;
 
             if (newval != oldval)
             {
+                pickableSelected = newval != GameItem.ITEM_NONE;
+
+                UpdateCursorBaseSprite();
                 uicanvas_cls.SetCursorItem(newval);
             }
         }
@@ -256,6 +291,7 @@ namespace Gob3AQ.GraphicsMaster
             if (oldval != newval)
             {
                 _mouseDraggingCamera = false;
+                UpdateCursorBaseSprite();
 
                 switch (newval)
                 {

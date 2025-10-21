@@ -3,8 +3,11 @@ N,NAME_ID,Name_English,Name_Spanish
 1,NAME_CHAR_MAIN,Blount,Blount
 2,NAME_CHAR_PARROT,Parrot,Loro
 3,NAME_CHAR_SNAKE,Snake,Serpiente
-4,NAME_NPC_MILITO,Militer,Milito
-5,NAME_ITEM_POTION,Red Potion,Pocion Roja
-6,NAME_ITEM_BLUE_POTION,Blue Potion,Pocion Azul
-7,NAME_ITEM_FOUNTAIN,Fountain,Fuente
-8,NAME_NPC_LAST,Last,Ultimo
+4,NAME_INTERACTION_TAKE,Take,Agarrar
+5,NAME_INTERACTION_TALK,Talk,Hablar
+6,NAME_INTERACTION_OBSERVE,Observe,Observar
+7,NAME_ITEM_POTION,Red Potion,Pocion Roja
+8,NAME_ITEM_BLUE_POTION,Blue Potion,Pocion Azul
+9,NAME_ITEM_FOUNTAIN,Fountain,Fuente
+10,NAME_NPC_MILITO,Militer,Milito
+11,NAME_NPC_LAST,Last,Ultimo

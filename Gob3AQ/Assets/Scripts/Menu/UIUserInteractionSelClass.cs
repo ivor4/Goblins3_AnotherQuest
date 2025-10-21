@@ -21,10 +21,15 @@ namespace Gob3AQ.GameMenu.UICanvas
     public class UIUserInteractionSelClass : MonoBehaviour
     {
         private const float THIRD_OF_REVOLUTION = 360f / 3f;
+        private GameObject action_rotator;
         private GameObject action_take;
         private GameObject action_talk;
         private GameObject action_observe;
-        
+
+        private GameObject action_text_background;
+        private TMP_Text action_text;
+
+        private NameType[] action_name_lookup;
         private GameObject[] action_target_lookup;
         private GameObject action_target;
 
@@ -40,9 +45,13 @@ namespace Gob3AQ.GameMenu.UICanvas
 
         private void Awake()
         {
-            action_take = transform.Find("Take").gameObject;
-            action_talk = transform.Find("Talk").gameObject;
-            action_observe = transform.Find("Observe").gameObject;
+            action_rotator = transform.Find("Rotator").gameObject;
+            action_take = action_rotator.transform.Find("Take").gameObject;
+            action_talk = action_rotator.transform.Find("Talk").gameObject;
+            action_observe = action_rotator.transform.Find("Observe").gameObject;
+
+            action_text_background = transform.Find("CursorText").gameObject;
+            action_text = action_text_background.transform.Find("Text").GetComponent<TMP_Text>();
 
             action_take_img = action_take.GetComponent<Image>();
             action_talk_img = action_talk.GetComponent<Image>();
@@ -52,6 +61,11 @@ namespace Gob3AQ.GameMenu.UICanvas
             elapsedTime = 0f;
             animationPending = false;
             rotationDone = false;
+
+            action_name_lookup = new NameType[(int)UserInputInteraction.INPUT_INTERACTION_TOTAL];
+            action_name_lookup[(int)UserInputInteraction.INPUT_INTERACTION_TAKE] = NameType.NAME_INTERACTION_TAKE;
+            action_name_lookup[(int)UserInputInteraction.INPUT_INTERACTION_TALK] = NameType.NAME_INTERACTION_TALK;
+            action_name_lookup[(int)UserInputInteraction.INPUT_INTERACTION_OBSERVE] = NameType.NAME_INTERACTION_OBSERVE;
 
             action_target_lookup = new GameObject[(int)UserInputInteraction.INPUT_INTERACTION_TOTAL];
             action_target_lookup[(int)UserInputInteraction.INPUT_INTERACTION_TAKE] = action_take;
@@ -72,21 +86,19 @@ namespace Gob3AQ.GameMenu.UICanvas
                     if (elapsedTime >= (GameFixedConfig.USER_INTERACTION_CHANGE_ANIMATION_TIME*0.5f))
                     {
                         rotationDone = true;
-                        transform.rotation = targetAngle;
+                        action_rotator.transform.localRotation = targetAngle;
                     }
                     else
                     {
-                        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetAngle, omega * deltaTime);
+                        action_rotator.transform.localRotation = Quaternion.RotateTowards(action_rotator.transform.localRotation, targetAngle, omega * deltaTime);
                     }
 
-                    action_target.transform.localRotation = Quaternion.Inverse(transform.rotation);
                     action_target.transform.localScale = (1f + elapsedTime/(GameFixedConfig.USER_INTERACTION_CHANGE_ANIMATION_TIME * 0.5f)) * Vector3.one;
                 }
                 else if(elapsedTime >= GameFixedConfig.USER_INTERACTION_CHANGE_ANIMATION_TIME)
                 {
                     animationPending = false;
                     action_target.transform.localScale = Vector3.one;
-                    action_target.transform.localRotation = Quaternion.identity;
                     action_target = null;
                 }
                 else
@@ -107,7 +119,6 @@ namespace Gob3AQ.GameMenu.UICanvas
             if(action_target != null)
             {
                 action_target.transform.localScale = Vector3.one;
-                action_target.transform.localRotation = Quaternion.identity;
             }
 
             /* By using whole U16 instead of 360 or radians, shortest distance is implicit and no modulo operation needed */
@@ -116,10 +127,11 @@ namespace Gob3AQ.GameMenu.UICanvas
             action_target = action_target_lookup[(int)interaction];
 
 
-            omega = Quaternion.Angle(transform.rotation, targetAngle) / (GameFixedConfig.USER_INTERACTION_CHANGE_ANIMATION_TIME*0.5f);
+            omega = Quaternion.Angle(action_rotator.transform.localRotation, targetAngle) / (GameFixedConfig.USER_INTERACTION_CHANGE_ANIMATION_TIME*0.5f);
             animationPending = true;
             rotationDone = false;
             elapsedTime = 0f;
+            action_text.text = ResourceDialogsClass.GetName(action_name_lookup[(int)interaction]);
             gameObject.SetActive(true);
         }
 

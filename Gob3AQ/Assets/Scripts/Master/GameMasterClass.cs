@@ -331,6 +331,7 @@ namespace Gob3AQ.GameMaster
             }
 
             ResourceSpritesClass.UnloadUsedSprites();
+            ResourceDialogsClass.UnloadUsedDialogsAndNames();
 
             /* Just in case */
             yield return Resources.UnloadUnusedAssets();

@@ -349,7 +349,7 @@ namespace Gob3AQ.LevelMaster
         {
             GameItem chosenItem = VARMAP_LevelMaster.GET_PICKABLE_ITEM_CHOSEN();
             CharacterType playerSelected = VARMAP_LevelMaster.GET_PLAYER_SELECTED();
-            InteractionUsage usage;
+            
 
             
             /* If no items menu or just a menu opened */
@@ -366,71 +366,10 @@ namespace Gob3AQ.LevelMaster
             }
             else if (mouse.mousePrimary == ButtonState.BUTTON_STATE_RELEASED)
             {
-                bool accepted;
                 /* If there is buffered action */
                 if (_HoveredElem.family != GameItemFamily.ITEM_FAMILY_TYPE_NONE)
                 {
-                    switch (_HoveredElem.family)
-                    {
-                        case GameItemFamily.ITEM_FAMILY_TYPE_PLAYER:
-                            if ((chosenItem != GameItem.ITEM_NONE) && (playerSelected != CharacterType.CHARACTER_NONE))
-                            {
-                                usage = InteractionUsage.CreatePlayerUseItemWithItem(playerSelected, chosenItem,
-                                        _HoveredElem.item, _HoveredElem.waypoint);
-                                VARMAP_LevelMaster.INTERACT_PLAYER(playerSelected, _HoveredElem.waypoint, out accepted);
-
-                                if(accepted)
-                                {
-                                    _PendingCharInteractions[(int)playerSelected] = new PendingCharacterInteraction(in usage);
-                                }
-                            }
-                            else
-                            {
-                                /* This cast works just because first declared items match in same order as characters (chiripa) */
-                                VARMAP_LevelMaster.SET_PLAYER_SELECTED((CharacterType)_HoveredElem.item);
-                                VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
-                            }
-                            break;
-
-                        case GameItemFamily.ITEM_FAMILY_TYPE_OBJECT:
-                            if (playerSelected != CharacterType.CHARACTER_NONE)
-                            {
-                                if (chosenItem == GameItem.ITEM_NONE)
-                                {
-                                    usage = InteractionUsage.CreatePlayerWithItem(playerSelected, _HoveredElem.item,
-                                        _HoveredElem.waypoint);
-                                }
-                                else
-                                {
-                                    usage = InteractionUsage.CreatePlayerUseItemWithItem(playerSelected, chosenItem,
-                                        _HoveredElem.item, _HoveredElem.waypoint);
-                                }
-
-                                VARMAP_LevelMaster.INTERACT_PLAYER(playerSelected, _HoveredElem.waypoint, out accepted);
-
-                                if (accepted)
-                                {
-                                    _PendingCharInteractions[(int)playerSelected] = new PendingCharacterInteraction(in usage);
-                                }
-                            }
-                            break;
-
-
-                        case GameItemFamily.ITEM_FAMILY_TYPE_DOOR:
-                            usage = InteractionUsage.CreatePlayerWithItem(playerSelected, _HoveredElem.item,
-                                _HoveredElem.waypoint);
-
-                            VARMAP_LevelMaster.INTERACT_PLAYER(playerSelected, _HoveredElem.waypoint, out accepted);
-                            if (accepted)
-                            {
-                                _PendingCharInteractions[(int)playerSelected] = new PendingCharacterInteraction(in usage);
-                            }
-                            VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
-                            break;
-
-                        default:
-                            break;
-                    }
+                    CheckInteractionWithHoveredItem(playerSelected, chosenItem, in _HoveredElem);
                 }
                 /* Selected player or item */
                 else if (playerSelected != CharacterType.CHARACTER_NONE)
@@ -446,6 +385,87 @@ namespace Gob3AQ.LevelMaster
             {
                 /**/
             }
+        }
+
+        private void CheckInteractionWithHoveredItem(CharacterType playerSelected, GameItem chosenItem, in LevelElemInfo hovered)
+        {
+            InteractionUsage usage = default;
+            bool accepted = false;
+
+            switch (hovered.family)
+            {
+                case GameItemFamily.ITEM_FAMILY_TYPE_PLAYER:
+                    if ((chosenItem != GameItem.ITEM_NONE) && (playerSelected != CharacterType.CHARACTER_NONE))
+                    {
+                        accepted = InteractWithItem(playerSelected, chosenItem, ref usage, in hovered);
+                    }
+                    else
+                    {
+                        /* This cast works just because first declared items match in same order as characters (chiripa) */
+                        VARMAP_LevelMaster.SET_PLAYER_SELECTED((CharacterType)hovered.item);
+                        VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
+                    }
+                    break;
+
+                case GameItemFamily.ITEM_FAMILY_TYPE_OBJECT:
+                    accepted = InteractWithItem(playerSelected, chosenItem, ref usage, in hovered);
+                    break;
+
+
+                case GameItemFamily.ITEM_FAMILY_TYPE_DOOR:
+                    usage = InteractionUsage.CreateTakeItem(playerSelected, hovered.item,
+                        hovered.waypoint);
+
+                    VARMAP_LevelMaster.INTERACT_PLAYER(playerSelected, hovered.waypoint, out accepted);
+                    VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
+                    break;
+
+                default:
+                    break;
+            }
+
+            if (accepted)
+            {
+                _PendingCharInteractions[(int)playerSelected] = new PendingCharacterInteraction(in usage);
+            }
+        }
+
+        private bool InteractWithItem(CharacterType playerSelected,GameItem chosenItem, ref InteractionUsage usage, in LevelElemInfo hovered)
+        {
+            bool accepted = false;
+
+            if (playerSelected != CharacterType.CHARACTER_NONE)
+            {
+                if (chosenItem == GameItem.ITEM_NONE)
+                {
+                    UserInputInteraction userInteraction = VARMAP_LevelMaster.GET_USER_INPUT_INTERACTION();
+
+                    switch (userInteraction)
+                    {
+                        case UserInputInteraction.INPUT_INTERACTION_TAKE:
+                            usage = InteractionUsage.CreateTakeItem(playerSelected, hovered.item,
+                                hovered.waypoint);
+                            break;
+                        case UserInputInteraction.INPUT_INTERACTION_TALK:
+                            usage = InteractionUsage.CreateTalkItem(playerSelected, hovered.item,
+                                hovered.waypoint);
+                            break;
+                        default:
+                            usage = InteractionUsage.CreateObserveItem(playerSelected, hovered.item,
+                                hovered.waypoint);
+                            break;
+                    }
+                }
+                else
+                {
+                    usage = InteractionUsage.CreateUseItemWithItem(playerSelected, chosenItem,
+                        hovered.item, hovered.waypoint);
+                }
+
+                VARMAP_LevelMaster.INTERACT_PLAYER(playerSelected, hovered.waypoint, out accepted);
+            }
+
+            return accepted;
         }
 
         private void CheckPlayerMovementOrder(in MousePropertiesStruct mouse, CharacterType selectedCharacter)
@@ -473,7 +493,7 @@ namespace Gob3AQ.LevelMaster
             ref readonly InteractionUsage usage = ref charPendingAction.usage;
 
             /* Now interact if buffered */
-            if (charPendingAction.pending && (usage.type != InteractionType.PLAYER_MOVE))
+            if (charPendingAction.pending && (usage.type != ItemInteractionType.INTERACTION_MOVE))
             {
                 ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(usage.itemDest);
 

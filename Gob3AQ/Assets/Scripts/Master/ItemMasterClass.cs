@@ -22,20 +22,20 @@ namespace Gob3AQ.ItemMaster
 
 
 
-
         public static void UseItemService(in InteractionUsage usage, out InteractionUsageOutcome outcome)
         {
-            switch(usage.type)
+            ref readonly ItemInfo dstItemInfo = ref _singleton.ItemInteractionCommon(in usage, out outcome);
+
+            /* Additional actions (like consuming items) */
+            switch (usage.type)
             {
-                case InteractionType.PLAYER_WITH_ITEM:
-                    _singleton.TakePickableItem(in usage, out outcome);
+                case ItemInteractionType.INTERACTION_TAKE:
+                    _singleton.TakePickableItem(in usage, in dstItemInfo, in outcome);
                     break;
-                case InteractionType.ITEM_WITH_ITEM:
-                    _singleton.UseItemWithItem(in usage, out outcome);
+                case ItemInteractionType.INTERACTION_USE:
+                    _singleton.UseItemWithItem(in usage, in outcome);
                     break;
                 default:
-                    outcome = new(CharacterAnimation.ITEM_USE_ANIMATION_NONE, DialogType.DIALOG_NONE,
-                        DialogPhrase.PHRASE_NONE, GameEvent.EVENT_NONE, false, false);
                     break;
             }
         }
@@ -101,8 +101,7 @@ namespace Gob3AQ.ItemMaster
         }
 
 
-        private ref readonly ItemInfo ItemInteractionCommon(ItemInteractionType interactionType,
-            in InteractionUsage usage, out InteractionUsageOutcome outcome)
+        private ref readonly ItemInfo ItemInteractionCommon(in InteractionUsage usage, out InteractionUsageOutcome outcome)
         {
             bool conditionOK;
             bool consumeItem;
@@ -129,8 +128,8 @@ namespace Gob3AQ.ItemMaster
                 ref readonly ActionConditionsInfo condition = ref ItemsInteractionsClass.GetActionConditionsInfo(conditionsEnumArray[i]);
                 
                 /* Validation if, check if interaction slot is the one which fits actual conditions */
-                if ((usage.playerSource == condition.srcChar) && (condition.actionOK == interactionType) &&
-                    ((interactionType != ItemInteractionType.INTERACTION_USE) || (usage.itemSource == condition.srcItem)))
+                if ((usage.playerSource == condition.srcChar) && (condition.actionOK == usage.type) &&
+                    ((usage.type != ItemInteractionType.INTERACTION_USE) || (usage.itemSource == condition.srcItem)))
                 {
 
                     VARMAP_ItemMaster.IS_EVENT_COMBI_OCCURRED(condition.Events, out bool occurred);
@@ -165,11 +164,8 @@ namespace Gob3AQ.ItemMaster
         /// </summary>
         /// <param name="item">involved labelled item</param>
         /// <param name="character">Character who took the item</param>
-        private void TakePickableItem(in InteractionUsage usage, out InteractionUsageOutcome outcome)
+        private void TakePickableItem(in InteractionUsage usage, in ItemInfo dstItemInfo, in InteractionUsageOutcome outcome)
         {
-            ref readonly ItemInfo dstItemInfo = ref ItemInteractionCommon(ItemInteractionType.INTERACTION_TAKE, in usage, out outcome);
-
-
             if (dstItemInfo.isPickable && outcome.ok)
             {
                 /* If interaction is take, remove item from scenario and trigger events, also add it to inventory */
@@ -184,9 +180,8 @@ namespace Gob3AQ.ItemMaster
             }
         }
 
-        private void UseItemWithItem(in InteractionUsage usage, out InteractionUsageOutcome outcome)
+        private void UseItemWithItem(in InteractionUsage usage, in InteractionUsageOutcome outcome)
         {
-            _ = ref ItemInteractionCommon(ItemInteractionType.INTERACTION_USE, in usage, out outcome);
             ref readonly ItemInfo srcItemInfo = ref ItemsInteractionsClass.GetItemInfo(usage.itemSource);
 
             if (outcome.consumes && srcItemInfo.isPickable)

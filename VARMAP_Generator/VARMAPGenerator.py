@@ -882,9 +882,9 @@ for line in ROOMSinputFile:
         options = columns[4].split('|')
         num_options = len(options)
             
-        stringToWrite = 'new NameType['+str(num_options)+']{'
+        stringToWrite = 'new GameItem['+str(num_options)+']{'
         for _option in options:
-            stringToWrite += name_prefix + _option + ', '
+            stringToWrite += item_prefix + _option + ', '
         stringToWrite += '} \n'
         room_atlas_lines.InsertLineInATG(1, stringToWrite)
         

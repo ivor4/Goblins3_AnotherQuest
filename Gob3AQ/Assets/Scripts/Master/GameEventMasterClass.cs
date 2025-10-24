@@ -37,7 +37,7 @@ namespace Gob3AQ.GameEventMaster
         {
             occurred = true;
 
-            if ((combi.Length > 1) || (combi[0].eventType != GameEvent.EVENT_NONE))
+            if (combi[0].eventType != GameEvent.EVENT_NONE)
             {
                 for (int i = 0; i < combi.Length && occurred; i++)
                 {

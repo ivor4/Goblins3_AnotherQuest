@@ -37,8 +37,9 @@ namespace Gob3AQ.VARMAP.Types
     {
         /* > ATG 3 START < */
         INTERACTION_NONE = -1, 
-        INTERACTION_TAKE, 
+        INTERACTION_MOVE, 
         INTERACTION_USE, 
+        INTERACTION_TAKE, 
         INTERACTION_OBSERVE, 
         INTERACTION_TALK, 
         

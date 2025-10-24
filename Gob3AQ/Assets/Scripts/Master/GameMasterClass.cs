@@ -287,7 +287,7 @@ namespace Gob3AQ.GameMaster
             yield return ResourceSpritesClass.PreloadRoomSpritesCoroutine(room);
 
             /* Load texts */
-            yield return ResourceDialogsClass.PreloadRoomPhrasesCoroutine(room);
+            yield return ResourceDialogsClass.PreloadRoomTextsCoroutine(room);
 
             /* Activate loaded room */
             yield return nextRoom.Result.ActivateAsync();
@@ -331,7 +331,7 @@ namespace Gob3AQ.GameMaster
             }
 
             ResourceSpritesClass.UnloadUsedSprites();
-            ResourceDialogsClass.UnloadUsedDialogsAndNames();
+            ResourceDialogsClass.UnloadUsedTexts();
 
             /* Just in case */
             yield return Resources.UnloadUnusedAssets();

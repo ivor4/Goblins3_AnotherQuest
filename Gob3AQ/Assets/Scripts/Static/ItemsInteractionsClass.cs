@@ -131,14 +131,14 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ActionConditions[1]{ActionConditions.COND_OK,}),
             
             new ( /* ITEM_PLAYER_SNAKE */
-            NameType.NAME_CHAR_SNAKE,GameItemFamily.ITEM_FAMILY_TYPE_PLAYER,new GameSprite[1]{GameSprite.SPRITE_NONE,},
+            NameType.NAME_CHAR_SNAKE,GameItemFamily.ITEM_FAMILY_TYPE_PLAYER,new GameSprite[1]{GameSprite.SPRITE_POTION_RED,},
             false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
             new ActionConditions[1]{ActionConditions.COND_OK,}),
             
             new ( /* ITEM_POTION */
             NameType.NAME_ITEM_POTION,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new GameSprite[1]{GameSprite.SPRITE_POTION_RED,},
             true,GameSprite.SPRITE_POTION_RED,GamePickableItem.ITEM_PICK_POTION,
-            new ActionConditions[1]{ActionConditions.COND_TAKE_POTION,}),
+            new ActionConditions[2]{ActionConditions.COND_OBSERVE_POTION,ActionConditions.COND_TAKE_POTION,}),
             
             new ( /* ITEM_POTION_BLUE */
             NameType.NAME_ITEM_BLUE_POTION,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new GameSprite[1]{GameSprite.SPRITE_POTION_BLUE,},

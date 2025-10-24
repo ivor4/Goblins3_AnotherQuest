@@ -73,12 +73,6 @@ namespace Gob3AQ.VARMAP.Types
 
 
 
-    public enum InteractionType
-    {
-        PLAYER_MOVE,
-        ITEM_WITH_ITEM,
-        PLAYER_WITH_ITEM
-    }
 
     
     public readonly struct LevelElemInfo
@@ -103,20 +97,20 @@ namespace Gob3AQ.VARMAP.Types
     {
         private readonly GameSprite[] sprites;
         private readonly DialogPhrase[] phrases;
-        private readonly NameType[] names;
+        private readonly GameItem[] items;
 
         public ReadOnlySpan<GameSprite> Sprites => sprites;
         public ReadOnlySpan<DialogPhrase> Phrases => phrases;
-        public ReadOnlySpan<NameType> Names => names;
+        public ReadOnlySpan<GameItem> Items => items;
 
 
-        public static readonly RoomInfo EMPTY = new(new GameSprite[0], new DialogPhrase[0], new NameType[0]);
+        public static readonly RoomInfo EMPTY = new(new GameSprite[0], new DialogPhrase[0], new GameItem[0]);
 
-        public RoomInfo(GameSprite[] sprites, DialogPhrase[] phrases, NameType[] names)
+        public RoomInfo(GameSprite[] sprites, DialogPhrase[] phrases, GameItem[] items)
         {
             this.sprites = sprites;
             this.phrases = phrases;
-            this.names = names;
+            this.items = items;
         }
     }
 
@@ -290,7 +284,7 @@ namespace Gob3AQ.VARMAP.Types
 
     public readonly struct InteractionUsage
     {
-        public readonly InteractionType type;
+        public readonly ItemInteractionType type;
         public readonly CharacterType playerSource;
         public readonly GameItem itemSource;
         public readonly CharacterType playerDest;
@@ -300,26 +294,38 @@ namespace Gob3AQ.VARMAP.Types
 
         public static InteractionUsage CreatePlayerMove(CharacterType playerSource, WaypointClass destWp)
         {
-            return new InteractionUsage(InteractionType.PLAYER_MOVE, playerSource, GameItem.ITEM_NONE,
+            return new InteractionUsage(ItemInteractionType.INTERACTION_MOVE, playerSource, GameItem.ITEM_NONE,
                 CharacterType.CHARACTER_NONE, GameItem.ITEM_NONE, -1, destWp);
         }
 
-        public static InteractionUsage CreatePlayerWithItem(CharacterType playerSource, GameItem itemDest, WaypointClass destWp)
+        public static InteractionUsage CreateTakeItem(CharacterType playerSource, GameItem itemDest, WaypointClass destWp)
         {
-            return new InteractionUsage(InteractionType.PLAYER_WITH_ITEM, playerSource, GameItem.ITEM_NONE,
+            return new InteractionUsage(ItemInteractionType.INTERACTION_TAKE, playerSource, GameItem.ITEM_NONE,
                 CharacterType.CHARACTER_NONE, itemDest, -1, destWp);
         }
 
-        public static InteractionUsage CreatePlayerUseItemWithItem(CharacterType playerSource, GameItem itemSource,
+        public static InteractionUsage CreateUseItemWithItem(CharacterType playerSource, GameItem itemSource,
             GameItem itemDest, WaypointClass destWp)
         {
-            return new InteractionUsage(InteractionType.ITEM_WITH_ITEM, playerSource, itemSource,
+            return new InteractionUsage(ItemInteractionType.INTERACTION_USE, playerSource, itemSource,
+                CharacterType.CHARACTER_NONE, itemDest, -1, destWp);
+        }
+
+        public static InteractionUsage CreateObserveItem(CharacterType playerSource, GameItem itemDest, WaypointClass destWp)
+        {
+            return new InteractionUsage(ItemInteractionType.INTERACTION_OBSERVE, playerSource, GameItem.ITEM_NONE,
+                CharacterType.CHARACTER_NONE, itemDest, -1, destWp);
+        }
+
+        public static InteractionUsage CreateTalkItem(CharacterType playerSource, GameItem itemDest, WaypointClass destWp)
+        {
+            return new InteractionUsage(ItemInteractionType.INTERACTION_TALK, playerSource, GameItem.ITEM_NONE,
                 CharacterType.CHARACTER_NONE, itemDest, -1, destWp);
         }
 
 
 
-        public InteractionUsage(InteractionType type, CharacterType playerSource, GameItem itemSource,
+        public InteractionUsage(ItemInteractionType type, CharacterType playerSource, GameItem itemSource,
             CharacterType playerDest, GameItem itemDest, int doorIndex, WaypointClass destWaypoint)
         {
             this.type = type;

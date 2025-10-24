@@ -10,9 +10,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceLocations;
+using UnityEngine.ResourceManagement.ResourceProviders;
 
 namespace Gob3AQ.ResourceDialogs
 {
@@ -72,7 +72,7 @@ namespace Gob3AQ.ResourceDialogs
             _cachedPhrases = 0;
         }
 
-        public static void UnloadUsedDialogsAndNames()
+        public static void UnloadUsedTexts()
         {
             _cachedNamesFinder.Clear();
             _cachedPhrasesFinder.Clear();
@@ -85,7 +85,7 @@ namespace Gob3AQ.ResourceDialogs
             _cachedPhrases = 0;
         }
 
-        public static IEnumerator PreloadRoomPhrasesCoroutine(Room room)
+        public static IEnumerator PreloadRoomTextsCoroutine(Room room)
         {
             TextAsset textAsset;
 
@@ -105,49 +105,12 @@ namespace Gob3AQ.ResourceDialogs
             Addressables.Release(handler2);
 
             /* Empty cached dialogs */
-            UnloadUsedDialogsAndNames();
+            UnloadUsedTexts();
 
 
-            yield return PreloadRoomPhrasesCoroutine(room, phrases);
-            yield return PreloadRoomNamesCoroutine(room, names);
+            yield return PreloadRoomTextsCoroutine(room, names, phrases);
         }
 
-        private static void PreloadRoomPhrasesPrepareList(Room room)
-        {
-            /* Copy fixed ones */
-            _fixedPhrasesArray.CopyTo(_phrasesToLoadArray, 0);
-            _phrasesToLoad = _fixedPhrasesToLoad;
-
-            /* Get room info and its linked phrases */
-            ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(room);
-            ReadOnlySpan<DialogPhrase> roomPhrases = roomInfo.Phrases;
-
-            /* Copy imposed ones from room */
-            Span<DialogPhrase> phrasesDest = _phrasesToLoadArray;
-            phrasesDest = phrasesDest[_phrasesToLoad..];
-            roomPhrases.CopyTo(phrasesDest);
-            _phrasesToLoad += roomPhrases.Length;
-        }
-
-        private static IEnumerator PreloadRoomPhrasesCoroutine(Room room, string[] lines)
-        {
-            int _loadedPhrases = 0;
-
-            PreloadRoomPhrasesPrepareList(room);
-
-            while (_loadedPhrases < _phrasesToLoad)
-            {
-                bool already = _cachedPhrasesFinder.TryGetValue(_phrasesToLoadArray[_loadedPhrases], out _);
-
-                if (!already)
-                {
-                    PreloadRoomPhrases_TaskCycle(lines, _loadedPhrases);
-                    yield return ResourceAtlasClass.WaitForNextFrame;
-                }
-
-                ++_loadedPhrases;
-            }
-        }
 
         private static void PreloadRoomPhrases_TaskCycle(string[] lines, int index)
         {
@@ -165,28 +128,84 @@ namespace Gob3AQ.ResourceDialogs
             ++_cachedPhrases;
         }
 
-        private static void PreloadRoomNamesPrepareList(Room room)
+        private static void PreloadRoomTextsPrepareList(Room room)
         {
             /* Copy fixed ones */
             _fixedNamesArray.CopyTo(_namesToLoadArray, 0);
             _namesToLoad = _fixedNamesToLoad;
+            _fixedPhrasesArray.CopyTo(_phrasesToLoadArray, 0);
+            _phrasesToLoad = _fixedPhrasesToLoad;
 
             /* Get room info and its linked phrases */
             ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(room);
-            ReadOnlySpan<NameType> roomNames = roomInfo.Names;
+            ReadOnlySpan<GameItem> roomItems = roomInfo.Items;
 
-            /* Copy imposed ones from room */
-            Span<NameType> namesDest = _namesToLoadArray;
-            namesDest = namesDest[_namesToLoad..];
-            roomNames.CopyTo(namesDest);
-            _namesToLoad += roomNames.Length;
+            /* Necessary to use heap for this (but it is loading) */
+            HashSet<DialogType> processedDialogues = new(GameFixedConfig.MAX_CACHED_PHRASES);
+            Queue<DialogType> dialoguesToProcess = new(GameFixedConfig.MAX_CACHED_PHRASES);
+
+            for (int i = 0; i < roomItems.Length; ++i)
+            {
+                ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(roomItems[i]);
+                _namesToLoadArray[_namesToLoad++] = itemInfo.name;
+
+                ReadOnlySpan<ActionConditions> conditionsEnumArray = itemInfo.Conditions;
+
+                for (int j = 0; j < conditionsEnumArray.Length; j++)
+                {
+                    ref readonly ActionConditionsInfo condition = ref ItemsInteractionsClass.GetActionConditionsInfo(conditionsEnumArray[j]);
+
+                    /* Standalone phrases */
+                    if (condition.phraseOK != DialogPhrase.PHRASE_NONE)
+                    {
+                        _phrasesToLoadArray[_phrasesToLoad++] = condition.phraseOK;
+                    }
+
+                    /* Include phrases from dialogs */
+                    if (!processedDialogues.Contains(condition.dialogOK))
+                    {
+                        dialoguesToProcess.Enqueue(condition.dialogOK);
+                        processedDialogues.Add(condition.dialogOK);
+                    }
+
+                    while (dialoguesToProcess.TryDequeue(out DialogType remainingDialog))
+                    {
+                        if ((remainingDialog != DialogType.DIALOG_NONE) && (remainingDialog != DialogType.DIALOG_SIMPLE))
+                        {
+                            ref readonly DialogConfig dialogConfig = ref ResourceDialogsAtlasClass.GetDialogConfig(remainingDialog);
+                            ReadOnlySpan<DialogOption> dialogOptions = dialogConfig.Options;
+
+                            for (int k = 0; k < dialogOptions.Length; ++k)
+                            {
+                                ref readonly DialogOptionConfig dialogOptionConfig = ref ResourceDialogsAtlasClass.GetDialogOptionConfig(dialogOptions[k]);
+                                ReadOnlySpan<DialogPhrase> dialogPhrases = dialogOptionConfig.Phrases;
+
+                                for (int l = 0; l < dialogPhrases.Length; ++l)
+                                {
+                                    _phrasesToLoadArray[_phrasesToLoad++] = dialogPhrases[l];
+                                }
+
+                                /* If option triggers another dialog, include its phrases too */
+                                if (dialogOptionConfig.dialogTriggered != DialogType.DIALOG_NONE)
+                                {
+                                    if (!processedDialogues.Contains(dialogOptionConfig.dialogTriggered))
+                                    {
+                                        dialoguesToProcess.Enqueue(dialogOptionConfig.dialogTriggered);
+                                        processedDialogues.Add(dialogOptionConfig.dialogTriggered);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
 
-        private static IEnumerator PreloadRoomNamesCoroutine(Room room, string[] lines)
+        private static IEnumerator PreloadRoomTextsCoroutine(Room room, string[] names, string[] phrases)
         {
             int _loadedNames = 0;
 
-            PreloadRoomNamesPrepareList(room);
+            PreloadRoomTextsPrepareList(room);
 
             while (_loadedNames < _namesToLoad)
             {
@@ -194,7 +213,22 @@ namespace Gob3AQ.ResourceDialogs
 
                 if (!already)
                 {
-                    PreloadRoomNames_AddName(lines, _loadedNames);
+                    PreloadRoomNames_AddName(names, _loadedNames);
+                    yield return ResourceAtlasClass.WaitForNextFrame;
+                }
+
+                ++_loadedNames;
+            }
+
+            _loadedNames = 0;
+
+            while (_loadedNames < _phrasesToLoad)
+            {
+                bool already = _cachedPhrasesFinder.TryGetValue(_phrasesToLoadArray[_loadedNames], out _);
+
+                if (!already)
+                {
+                    PreloadRoomPhrases_TaskCycle(phrases, _loadedNames);
                     yield return ResourceAtlasClass.WaitForNextFrame;
                 }
 

@@ -8,6 +8,7 @@ namespace Gob3AQ.VARMAP.Types
         DIALOG_NONE = -1, 
         DIALOG_SIMPLE, 
         DIALOG_FOUNTAIN, 
+        DIALOG_MILITO, 
         DIALOG_LAST, 
         
         DIALOG_TOTAL
@@ -23,6 +24,8 @@ namespace Gob3AQ.VARMAP.Types
         DIALOG_OPTION_ASK_FOUNTAIN_2, 
         DIALOG_OPTION_ASK_FOUNTAIN_3, 
         DIALOG_OPTION_ASK_FOUNTAIN_4, 
+        DIALOG_OPTION_ASK_MILITO_1, 
+        DIALOG_OPTION_ASK_MILITO_2, 
         DIALOG_OPTION_LAST, 
         
         DIALOG_OPTION_TOTAL
@@ -34,12 +37,16 @@ namespace Gob3AQ.VARMAP.Types
         /* > ATG 3 START < */
         PHRASE_NONE = -1, 
         PHRASE_NONSENSE, 
+        PHRASE_NONSENSE_OBSERVE, 
+        PHRASE_NONSENSE_TALK, 
         PHRASE_ASK_FOUNTAIN1_1, 
         PHRASE_ASK_FOUNTAIN1_2, 
         PHRASE_ASK_FOUNTAIN2_1, 
         PHRASE_ASK_FOUNTAIN3_1, 
         PHRASE_ASK_FOUNTAIN4_1, 
         PHRASE_OBSERVE_RED_POTION, 
+        PHRASE_ASK_MILITO_1, 
+        PHRASE_ASK_MILITO_2, 
         
         PHRASE_TOTAL
         /* > ATG 3 END < */

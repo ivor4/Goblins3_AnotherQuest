@@ -1,9 +1,13 @@
 N,PHRASE_ID,TalkerIndex,Sound,CharAnimation,Text_English,Text_Spanish
 0,PHRASE_NONE,0,0,DIALOG_ANIMATION_NONE,,
 1,PHRASE_NONSENSE,0,0,DIALOG_ANIMATION_TALK,That has no sense!,¡Eso no tiene sentido!
-2,PHRASE_ASK_FOUNTAIN1_1,0,0,DIALOG_ANIMATION_TALK,Are you the fountain?,¿Eres tú la fuente?
-3,PHRASE_ASK_FOUNTAIN1_2,0,0,DIALOG_ANIMATION_TALK,Sure?,¿De verdad?
-4,PHRASE_ASK_FOUNTAIN2_1,0,0,DIALOG_ANIMATION_TALK,Are you kidding me?,¿Me estás troleando?
-5,PHRASE_ASK_FOUNTAIN3_1,0,0,DIALOG_ANIMATION_TALK,Why are you red?,¿Por qué estás roja?
-6,PHRASE_ASK_FOUNTAIN4_1,0,0,DIALOG_ANIMATION_TALK,Why are you not red yet?,¿Por qué aún no estás roja?
-7,PHRASE_OBSERVE_RED_POTION,0,0,DIALOG_ANIMATION_TALK,It looks like a potion with red liquid,Parece una poción con líquido rojo
+2,PHRASE_NONSENSE_OBSERVE,0,0,DIALOG_ANIMATION_TALK,That has nothing outstanding,No tiene nada del otro mundo
+3,PHRASE_NONSENSE_TALK,0,0,DIALOG_ANIMATION_TALK,Nothing to tell,Nada que decir
+4,PHRASE_ASK_FOUNTAIN1_1,0,0,DIALOG_ANIMATION_TALK,Are you the fountain?,¿Eres tú la fuente?
+5,PHRASE_ASK_FOUNTAIN1_2,0,0,DIALOG_ANIMATION_TALK,Sure?,¿De verdad?
+6,PHRASE_ASK_FOUNTAIN2_1,0,0,DIALOG_ANIMATION_TALK,Are you kidding me?,¿Me estás troleando?
+7,PHRASE_ASK_FOUNTAIN3_1,0,0,DIALOG_ANIMATION_TALK,Why are you red?,¿Por qué estás roja?
+8,PHRASE_ASK_FOUNTAIN4_1,0,0,DIALOG_ANIMATION_TALK,Why are you not red yet?,¿Por qué aún no estás roja?
+9,PHRASE_OBSERVE_RED_POTION,0,0,DIALOG_ANIMATION_TALK,It looks like a potion with red liquid,Parece una poción con líquido rojo
+10,PHRASE_ASK_MILITO_1,0,0,DIALOG_ANIMATION_TALK,Hey are you Milito the mighty?,¿Eres tú Milito el magnífico?
+11,PHRASE_ASK_MILITO_2,0,0,DIALOG_ANIMATION_TALK,They say you are able to compile with your head,Dicen que compilas solo con la mente

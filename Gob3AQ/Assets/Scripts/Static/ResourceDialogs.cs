@@ -66,6 +66,8 @@ namespace Gob3AQ.ResourceDialogs
 
             _fixedPhrasesToLoad = 0;
             _fixedPhrasesArray[_fixedPhrasesToLoad++] = DialogPhrase.PHRASE_NONSENSE;
+            _fixedPhrasesArray[_fixedPhrasesToLoad++] = DialogPhrase.PHRASE_NONSENSE_OBSERVE;
+            _fixedPhrasesArray[_fixedPhrasesToLoad++] = DialogPhrase.PHRASE_NONSENSE_TALK;
 
             _namesToLoad = 0;
             _phrasesToLoad = 0;
@@ -115,9 +117,8 @@ namespace Gob3AQ.ResourceDialogs
         private static void PreloadRoomPhrases_TaskCycle(string[] lines, int index)
         {
             /* Get phrases which use actual Room or Room.NONE */
-            ReadOnlySpan<PhraseConfig> phraseConfigs = ResourceDialogsAtlasClass.PhraseConfigs;
             DialogPhrase phrase = _phrasesToLoadArray[index];
-            ref readonly PhraseConfig phraseConfig = ref phraseConfigs[(int)phrase];
+            ref readonly PhraseConfig phraseConfig = ref ResourceDialogsAtlasClass.GetPhraseConfig(phrase);
 
             /* Retrieve configuration for given phrase */
             ref readonly string row = ref lines[(int)phrase];

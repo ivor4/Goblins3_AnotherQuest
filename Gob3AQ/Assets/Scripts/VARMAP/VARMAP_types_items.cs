@@ -39,6 +39,7 @@ namespace Gob3AQ.VARMAP.Types
         COND_TAKE_POTION_BLUE, 
         COND_FOUNTAIN, 
         COND_FOUNTAIN2, 
+        COND_TALK_MILITO, 
         COND_LAST, 
         
         COND_TOTAL

@@ -98,6 +98,8 @@ namespace Gob3AQ.GameElement.Item
             SetVisible_Internal(true);
             SetClickable_Internal(true);
             SetAvailable(true);
+
+            UpdateSortingOrder();
         }
     }
 }

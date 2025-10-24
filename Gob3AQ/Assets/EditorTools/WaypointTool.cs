@@ -1,11 +1,12 @@
 #if UNITY_EDITOR
+using Gob3AQ.ResourceAtlas;
+using Gob3AQ.Waypoint.Types;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.EditorTools;
 using UnityEngine;
-using Gob3AQ.Waypoint.Types;
-using Gob3AQ.ResourceAtlas;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace Gob3AQ.Waypoint.WaypointTool
 {
@@ -23,7 +24,7 @@ namespace Gob3AQ.Waypoint.WaypointTool
             {
                 if (m_ToolbarIcon == null)
                     m_ToolbarIcon = new GUIContent(
-                        AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Resources/Sprites/spr_diamond.png"),
+                        AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Sprites/spr_diamond.png"),
                         "Waypoint Tool");
                 return m_ToolbarIcon;
             }
@@ -180,24 +181,34 @@ namespace Gob3AQ.Waypoint.WaypointTool
 
         private WaypointClass CreateWaypoint(Vector3 position, string name)
         {
-            GameObject wpgameobject = Instantiate(ResourceAtlasClass.GetPrefab(PrefabEnum.PREFAB_WAYPOINT)); 
-            wpgameobject.transform.position = position;
-            wpgameobject.name = name;
+            AsyncOperationHandle<GameObject> handle = ResourceAtlasClass.GetPrefab(PrefabEnum.PREFAB_WAYPOINT, out bool success);
 
-            WaypointClass waypoint = wpgameobject.GetComponent<WaypointClass>();
-
-            waypoint.PreloadType = wpType;
-
-            SpriteRenderer wprenderer = wpgameobject.GetComponent<SpriteRenderer>();
-
-            switch (wpType)
+            if (success)
             {
-                default:
-                    wprenderer.color = Color.white;
-                    break;
-            }
+                GameObject wpgameobject = Instantiate(handle.Result);
+                handle.Release();
+                wpgameobject.transform.position = position;
+                wpgameobject.name = name;
 
-            return waypoint;
+                WaypointClass waypoint = wpgameobject.GetComponent<WaypointClass>();
+
+                waypoint.PreloadType = wpType;
+
+                SpriteRenderer wprenderer = wpgameobject.GetComponent<SpriteRenderer>();
+
+                switch (wpType)
+                {
+                    default:
+                        wprenderer.color = Color.white;
+                        break;
+                }
+
+                return waypoint;
+            }
+            else
+            {
+                return null;
+            }   
         }
     }
 }

@@ -270,8 +270,8 @@ namespace Gob3AQ.VARMAP.Types
         public readonly GameEvent outEvent;
         public readonly bool ok;
         public readonly bool consumes;
-        public InteractionUsageOutcome(CharacterAnimation animation, DialogType dialogType, DialogPhrase dialogPhrase,
-            GameEvent outEvent, bool ok, bool consumes)
+        public InteractionUsageOutcome(CharacterAnimation animation, DialogType dialogType,
+            DialogPhrase dialogPhrase, GameEvent outEvent, bool ok, bool consumes)
         {
             this.animation = animation;
             this.dialogType = dialogType;

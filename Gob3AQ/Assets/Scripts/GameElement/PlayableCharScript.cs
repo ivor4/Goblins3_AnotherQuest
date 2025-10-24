@@ -155,6 +155,7 @@ namespace Gob3AQ.GameElement.PlayableChar
 
             registered = true;
 
+
             /* Start loading coroutine */
             _ = StartCoroutine(Execute_Loading_Coroutine());
         }
@@ -216,6 +217,8 @@ namespace Gob3AQ.GameElement.PlayableChar
 
                 SetVisible_Internal(true);
                 PlayerMasterClass.SetPlayerLoaded(CharType);
+
+                UpdateSortingOrder();
             }
 
 
@@ -247,7 +250,7 @@ namespace Gob3AQ.GameElement.PlayableChar
                 continueLoop = true;
             }
 
-
+            UpdateSortingOrder();
             SetActive_Internal(continueLoop);
             SetAvailable((physicalstate == PhysicalState.PHYSICAL_STATE_STANDING) || (physicalstate == PhysicalState.PHYSICAL_STATE_WALKING));
         }

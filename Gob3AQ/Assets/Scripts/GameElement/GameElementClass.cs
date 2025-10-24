@@ -51,6 +51,8 @@ namespace Gob3AQ.GameElement
         protected virtual void Start()
         {
             VARMAP_ItemMaster.REG_GAMESTATUS(ChangedGameStatus);
+
+            UpdateSortingOrder();
         }
 
 
@@ -178,6 +180,12 @@ namespace Gob3AQ.GameElement
                 MouseEnterAction(false);
                 isHovered = false;
             }
+        }
+
+        protected void UpdateSortingOrder()
+        {
+            /* Set sorting order based on its actual Y */
+            mySpriteRenderer.sortingOrder = -(int)mySpriteRenderer.bounds.min.y * 1000;
         }
 
         public virtual void VirtualDestroy()

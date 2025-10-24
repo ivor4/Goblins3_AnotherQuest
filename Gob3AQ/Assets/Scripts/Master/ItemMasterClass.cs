@@ -1,15 +1,10 @@
 using Gob3AQ.Brain.ItemsInteraction;
-using Gob3AQ.FixedConfig;
-using Gob3AQ.GameElement.Item;
-using Gob3AQ.Libs.Arith;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.VARMAP.ItemMaster;
 using Gob3AQ.VARMAP.PlayerMaster;
 using Gob3AQ.VARMAP.Types;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Gob3AQ.ItemMaster
@@ -111,12 +106,13 @@ namespace Gob3AQ.ItemMaster
             GameEvent outEvent;
 
             /* If item is not defined, it is not possible to process it */
-            animation = CharacterAnimation.ITEM_USE_ANIMATION_NONE;
             conditionOK = false;
             consumeItem = false;
-            dialog = DialogType.DIALOG_NONE;
-            phrase = DialogPhrase.PHRASE_NONE;
+            animation = CharacterAnimation.ITEM_USE_ANIMATION_NONE;
             outEvent = GameEvent.EVENT_NONE;
+            dialog = DialogType.DIALOG_SIMPLE;
+            phrase = GetDefaultNegativePhrase(usage.type);
+            
 
             /* Retrieve item info and conditions */
             ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(usage.itemDest);
@@ -197,7 +193,19 @@ namespace Gob3AQ.ItemMaster
                     VARMAP_ItemMaster.CANCEL_PICKABLE_ITEM();
                 }
             }
+        }
 
+        private DialogPhrase GetDefaultNegativePhrase(ItemInteractionType interaction)
+        {
+            switch (interaction)
+            {
+                case ItemInteractionType.INTERACTION_TALK:
+                    return DialogPhrase.PHRASE_NONSENSE_TALK;
+                case ItemInteractionType.INTERACTION_OBSERVE:
+                    return DialogPhrase.PHRASE_NONSENSE_OBSERVE;
+                default:
+                    return DialogPhrase.PHRASE_NONSENSE;
+            }
         }
     }
 }

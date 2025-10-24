@@ -104,6 +104,13 @@ namespace Gob3AQ.Brain.ItemsInteraction
             DialogType.DIALOG_FOUNTAIN,DialogPhrase.PHRASE_NONE,
             GameEvent.EVENT_NONE,false),
             
+            new( /* COND_TALK_MILITO */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,
+            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
+            DialogType.DIALOG_MILITO,DialogPhrase.PHRASE_NONE,
+            GameEvent.EVENT_NONE,false),
+            
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,
@@ -153,7 +160,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_NPC_MILITO */
             NameType.NAME_NPC_MILITO,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new GameSprite[1]{GameSprite.SPRITE_NPC_MILITO,},
             false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
-            new ActionConditions[1]{ActionConditions.COND_OK,}),
+            new ActionConditions[1]{ActionConditions.COND_TALK_MILITO,}),
             
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new GameSprite[1]{GameSprite.SPRITE_LAST,},

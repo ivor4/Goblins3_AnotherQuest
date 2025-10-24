@@ -379,7 +379,12 @@ namespace Gob3AQ.GameMenu
             if(_singleton == this)
             {
                 _singleton = null;
-                StopCoroutine(dialog_main_coroutine);
+
+                if (dialog_main_coroutine != null)
+                {
+                    StopCoroutine(dialog_main_coroutine);
+                }
+
                 VARMAP_GameMenu.UNREG_PICKABLE_ITEM_OWNER(_OnItemOwnerChanged);
                 VARMAP_GameMenu.UNREG_GAMESTATUS(_OnGameStatusChanged);
             }

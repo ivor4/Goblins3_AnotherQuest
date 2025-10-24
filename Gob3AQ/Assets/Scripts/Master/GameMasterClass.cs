@@ -275,19 +275,19 @@ namespace Gob3AQ.GameMaster
             /* Unlaod previous room resources */
             yield return UnloadPreviousRoomResources();
 
+            /* Load texts */
+            yield return ResourceDialogsClass.PreloadRoomTextsCoroutine(room);
+
+            /* Load sprites */
+            yield return ResourceSpritesClass.PreloadRoomSpritesCoroutine(room);
+
             /* Now load desired room and its resources */
             string resourceName = GameFixedConfig.ROOM_TO_SCENE_NAME[(int)room];
-            
 
             /* Prepare, but not go into next room yet */
             nextRoom = Addressables.LoadSceneAsync(resourceName, LoadSceneMode.Single, false);
             yield return nextRoom;
 
-            /* Load sprites */
-            yield return ResourceSpritesClass.PreloadRoomSpritesCoroutine(room);
-
-            /* Load texts */
-            yield return ResourceDialogsClass.PreloadRoomTextsCoroutine(room);
 
             /* Activate loaded room */
             yield return nextRoom.Result.ActivateAsync();

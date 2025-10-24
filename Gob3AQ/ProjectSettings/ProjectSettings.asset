@@ -588,7 +588,19 @@ PlayerSettings:
   webWasm2023: 0
   webEnableSubmoduleStrippingCompatibility: 0
   scriptingDefineSymbols:
+    Android: 
+    EmbeddedLinux: 
+    LinuxHeadlessSimulation: 
+    Nintendo Switch: 
+    PS4: 
+    QNX: 
+    Server: 
     Standalone: APP_UI_EDITOR_ONLY
+    WebGL: 
+    Windows Store Apps: 
+    XboxOne: 
+    iPhone: 
+    tvOS: 
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:

@@ -206,15 +206,18 @@ namespace Gob3AQ.VARMAP.Types
         public readonly GameSprite pickableSprite;
         public readonly GamePickableItem pickableItem;
         private readonly ActionConditions[] conditions;
+        private readonly SpawnConditions[] spawnConditions;
+
 
         public ReadOnlySpan<ActionConditions> Conditions => conditions;
+        public ReadOnlySpan<SpawnConditions> SpawnConditions => spawnConditions;
         public ReadOnlySpan<GameSprite> Sprites => sprites;
 
         public static readonly ItemInfo EMPTY = new(NameType.NAME_NONE,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new GameSprite[0],false,
-            GameSprite.SPRITE_NONE, GamePickableItem.ITEM_PICK_NONE, new ActionConditions[0]);
+            GameSprite.SPRITE_NONE, GamePickableItem.ITEM_PICK_NONE, new ActionConditions[0], new SpawnConditions[0]);
 
         public ItemInfo(NameType name, GameItemFamily family, GameSprite[] sprites, bool isPickable, GameSprite pickableSprite, GamePickableItem pickableItem,
-            ActionConditions[] conditions)
+            ActionConditions[] conditions, SpawnConditions[] spawnConditions)
         {
             this.name = name;
             this.family = family;
@@ -223,7 +226,32 @@ namespace Gob3AQ.VARMAP.Types
             this.pickableSprite = pickableSprite;
             this.pickableItem = pickableItem;
             this.conditions = conditions;
+            this.spawnConditions = spawnConditions;
         }
+    }
+
+    public readonly struct SpawnConditionInfo
+    {
+        public readonly bool spawn;
+        public readonly bool despawn;
+        public readonly bool changeSprite;
+        private readonly GameEventCombi[] neededEvents;
+        public readonly GameSprite targetSprite;
+
+
+        public ReadOnlySpan<GameEventCombi> Events => neededEvents;
+
+        public static readonly SpawnConditionInfo EMPTY = new(false, false, false, new GameEventCombi[0], GameSprite.SPRITE_NONE);
+
+        public SpawnConditionInfo(bool spawn, bool despawn, bool changeSprite, GameEventCombi[] events, GameSprite targetSprite)
+        {
+            this.spawn = spawn;
+            this.despawn = despawn;
+            this.changeSprite = changeSprite;
+            this.neededEvents = events;
+            this.targetSprite = targetSprite;
+        }
+
     }
 
 

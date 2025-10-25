@@ -45,4 +45,14 @@ namespace Gob3AQ.VARMAP.Types
         COND_TOTAL
         /* > ATG 3 END < */
     }
+
+    public enum SpawnConditions
+    {
+        /* > ATG 4 START < */
+        SPAWN_COND_NONE, 
+        SPAWN_COND_FOUNTAIN, 
+        
+        SPAWN_COND_TOTAL
+        /* > ATG 4 END < */
+    }
 }

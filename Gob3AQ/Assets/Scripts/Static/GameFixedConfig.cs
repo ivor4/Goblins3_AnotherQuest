@@ -56,6 +56,7 @@ namespace Gob3AQ.FixedConfig
         public const int MAX_DIALOG_TALKERS = 4;
         public const int MAX_DISPLAYED_PICKED_ITEMS = 16;
         public const int MAX_DISPLAYED_HOR_PICKED_ITEMS = 4;
+        public const int MAX_SUBSCRIBED_EVENTS_PER_ITEM = 8;
 
 
         /* File routes */

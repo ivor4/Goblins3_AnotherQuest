@@ -1,4 +1,5 @@
 using Gob3AQ.Brain.ItemsInteraction;
+using Gob3AQ.FixedConfig;
 using Gob3AQ.GameElement.Clickable;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceSprites;
@@ -6,7 +7,9 @@ using Gob3AQ.ResourceSpritesAtlas;
 using Gob3AQ.VARMAP.ItemMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.Waypoint;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -17,7 +20,7 @@ namespace Gob3AQ.GameElement.Item
 {
     public class ItemClass : GameElementClass
     {
-
+        
         protected override void Awake()
         {
             base.Awake();
@@ -50,7 +53,8 @@ namespace Gob3AQ.GameElement.Item
             }
             else
             {
-                taken = false;
+                subscribedEvents = new(GameFixedConfig.MAX_SUBSCRIBED_EVENTS_PER_ITEM);
+                taken = CheckSpawnConditions(true);
             }
 
             if(!taken)
@@ -93,13 +97,15 @@ namespace Gob3AQ.GameElement.Item
             ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(itemID);
 
             /* Set to default sprite */
-            mySpriteRenderer.sprite = ResourceSpritesClass.GetSprite(itemInfo.Sprites[0]);
+            mySpriteRenderer.sprite = ResourceSpritesClass.GetSprite(actualSprite);
 
             SetVisible_Internal(true);
             SetClickable_Internal(true);
             SetAvailable(true);
 
             UpdateSortingOrder();
+
+            loaded = true;
         }
     }
 }

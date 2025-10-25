@@ -45,6 +45,19 @@ namespace Gob3AQ.Brain.ItemsInteraction
             }
         }
 
+        public static ref readonly SpawnConditionInfo GetSpawnConditionInfo(SpawnConditions condition)
+        {
+            if ((uint)condition >= (uint)SpawnConditions.SPAWN_COND_TOTAL)
+            {
+                Debug.LogError($"[ItemsInteractionsClass] GetItemInfo: Invalid item {condition}");
+                return ref SpawnConditionInfo.EMPTY;
+            }
+            else
+            {
+                return ref _SpawnConditions[(int)condition];
+            }
+        }
+
         public static ref readonly ActionConditionsInfo GetActionConditionsInfo(ActionConditions conditions)
         {
             if ((uint)conditions >= (uint)ActionConditions.COND_TOTAL)
@@ -59,9 +72,27 @@ namespace Gob3AQ.Brain.ItemsInteraction
         }
 
 
-        private static readonly ActionConditionsInfo[] _ActionConditions = new ActionConditionsInfo[(int)ActionConditions.COND_TOTAL]
+        private static readonly SpawnConditionInfo[] _SpawnConditions = new SpawnConditionInfo[(int)SpawnConditions.SPAWN_COND_TOTAL]
         {
             /* > ATG 1 START < */
+            new( /* SPAWN_COND_NONE */
+            false, false, false,
+             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            GameSprite.SPRITE_NONE),
+            
+            new( /* SPAWN_COND_FOUNTAIN */
+            false, false, true,
+             new GameEventCombi[1]{new(GameEvent.EVENT_FOUNTAIN_FULL, false),}, 
+            GameSprite.SPRITE_FOUNTAIN_FULL),
+            
+            /* > ATG 1 END < */
+        };
+
+
+
+        private static readonly ActionConditionsInfo[] _ActionConditions = new ActionConditionsInfo[(int)ActionConditions.COND_TOTAL]
+        {
+            /* > ATG 2 START < */
             new( /* COND_OK */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,
@@ -118,7 +149,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
             GameEvent.EVENT_NONE,false),
             
-            /* > ATG 1 END < */
+            /* > ATG 2 END < */
         };
 
 
@@ -126,64 +157,72 @@ namespace Gob3AQ.Brain.ItemsInteraction
 
         private static readonly ItemInfo[] _ItemInfo = new ItemInfo[(int)GameItem.ITEM_TOTAL]
         {
-            /* > ATG 2 START < */
+            /* > ATG 3 START < */
             new ( /* ITEM_PLAYER_MAIN */
             NameType.NAME_CHAR_MAIN,GameItemFamily.ITEM_FAMILY_TYPE_PLAYER,new GameSprite[1]{GameSprite.SPRITE_POTION_RED,},
             false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
-            new ActionConditions[1]{ActionConditions.COND_OK,}),
+            new ActionConditions[1]{ActionConditions.COND_OK,},
+            new SpawnConditions[1]{SpawnConditions.SPAWN_COND_NONE,}),
             
             new ( /* ITEM_PLAYER_PARROT */
             NameType.NAME_CHAR_PARROT,GameItemFamily.ITEM_FAMILY_TYPE_PLAYER,new GameSprite[1]{GameSprite.SPRITE_POTION_RED,},
             false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
-            new ActionConditions[1]{ActionConditions.COND_OK,}),
+            new ActionConditions[1]{ActionConditions.COND_OK,},
+            new SpawnConditions[1]{SpawnConditions.SPAWN_COND_NONE,}),
             
             new ( /* ITEM_PLAYER_SNAKE */
             NameType.NAME_CHAR_SNAKE,GameItemFamily.ITEM_FAMILY_TYPE_PLAYER,new GameSprite[1]{GameSprite.SPRITE_POTION_RED,},
             false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
-            new ActionConditions[1]{ActionConditions.COND_OK,}),
+            new ActionConditions[1]{ActionConditions.COND_OK,},
+            new SpawnConditions[1]{SpawnConditions.SPAWN_COND_NONE,}),
             
             new ( /* ITEM_POTION */
             NameType.NAME_ITEM_POTION,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new GameSprite[1]{GameSprite.SPRITE_POTION_RED,},
             true,GameSprite.SPRITE_POTION_RED,GamePickableItem.ITEM_PICK_POTION,
-            new ActionConditions[2]{ActionConditions.COND_OBSERVE_POTION,ActionConditions.COND_TAKE_POTION,}),
+            new ActionConditions[2]{ActionConditions.COND_OBSERVE_POTION,ActionConditions.COND_TAKE_POTION,},
+            new SpawnConditions[1]{SpawnConditions.SPAWN_COND_NONE,}),
             
             new ( /* ITEM_POTION_BLUE */
             NameType.NAME_ITEM_BLUE_POTION,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new GameSprite[1]{GameSprite.SPRITE_POTION_BLUE,},
             true,GameSprite.SPRITE_POTION_BLUE,GamePickableItem.ITEM_PICK_POTION_BLUE,
-            new ActionConditions[1]{ActionConditions.COND_TAKE_POTION_BLUE,}),
+            new ActionConditions[1]{ActionConditions.COND_TAKE_POTION_BLUE,},
+            new SpawnConditions[1]{SpawnConditions.SPAWN_COND_NONE,}),
             
             new ( /* ITEM_FOUNTAIN */
             NameType.NAME_ITEM_FOUNTAIN,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new GameSprite[2]{GameSprite.SPRITE_FOUNTAIN,GameSprite.SPRITE_FOUNTAIN_FULL,},
             false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
-            new ActionConditions[2]{ActionConditions.COND_FOUNTAIN,ActionConditions.COND_FOUNTAIN2,}),
+            new ActionConditions[2]{ActionConditions.COND_FOUNTAIN,ActionConditions.COND_FOUNTAIN2,},
+            new SpawnConditions[1]{SpawnConditions.SPAWN_COND_FOUNTAIN,}),
             
             new ( /* ITEM_NPC_MILITO */
             NameType.NAME_NPC_MILITO,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new GameSprite[1]{GameSprite.SPRITE_NPC_MILITO,},
             false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
-            new ActionConditions[1]{ActionConditions.COND_TALK_MILITO,}),
+            new ActionConditions[1]{ActionConditions.COND_TALK_MILITO,},
+            new SpawnConditions[1]{SpawnConditions.SPAWN_COND_NONE,}),
             
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new GameSprite[1]{GameSprite.SPRITE_LAST,},
             false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
-            new ActionConditions[1]{ActionConditions.COND_OK,}),
+            new ActionConditions[1]{ActionConditions.COND_OK,},
+            new SpawnConditions[1]{SpawnConditions.SPAWN_COND_NONE,}),
             
-            /* > ATG 2 END < */
+            /* > ATG 3 END < */
         };
 
         private static readonly GameItem[] _PickableToItem = new GameItem[(int)GamePickableItem.ITEM_PICK_TOTAL]
         {
-            /* > ATG 3 START < */
+            /* > ATG 4 START < */
             GameItem.ITEM_POTION,	/* ITEM_PICK_POTION */
             GameItem.ITEM_POTION_BLUE,	/* ITEM_PICK_POTION_BLUE */
-            /* > ATG 3 END < */
+            /* > ATG 4 END < */
         };
 
         private static readonly GameSprite[] _PickableSprite = new GameSprite[(int)GamePickableItem.ITEM_PICK_TOTAL]
         {
-            /* > ATG 4 START < */
+            /* > ATG 5 START < */
             GameSprite.SPRITE_POTION_RED,	/* ITEM_PICK_POTION */
             GameSprite.SPRITE_POTION_BLUE,	/* ITEM_PICK_POTION_BLUE */
-            /* > ATG 4 END < */
+            /* > ATG 5 END < */
         };
     }
 }

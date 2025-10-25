@@ -241,7 +241,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// </summary>
         public static USE_ITEM_DELEGATE USE_ITEM;
         /// <summary> 
-        /// Tells if item is taken from scene
+        /// Tells if a pickable item has already been picked in game
         /// <para> Owner: GameEventMaster </para> 
         /// <para> Accessors: LevelMaster, ItemMaster,  </para> 
         /// <para> Method: <see cref="GameEventMasterClass.IsItemTakenFromSceneService"/> </para> 

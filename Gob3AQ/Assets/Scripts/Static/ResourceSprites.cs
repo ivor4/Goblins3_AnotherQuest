@@ -31,21 +31,22 @@ namespace Gob3AQ.ResourceSprites
             _spritesToLoadArray = new GameSprite[GameFixedConfig.MAX_CACHED_SPRITES];
             _fixedSpritesArray = new GameSprite[GameFixedConfig.MAX_FIXED_SPRITES_TO_LOAD];
 
-            _fixedSpritesArray[0] = GameSprite.SPRITE_CURSOR_NORMAL;
-            _fixedSpritesArray[1] = GameSprite.SPRITE_CURSOR_USING;
-            _fixedSpritesArray[2] = GameSprite.SPRITE_INVENTORY;
-            _fixedSpritesArray[3] = GameSprite.SPRITE_UI_TAKE;
-            _fixedSpritesArray[4] = GameSprite.SPRITE_UI_TALK;
-            _fixedSpritesArray[5] = GameSprite.SPRITE_UI_OBSERVE;
-            _fixedSpritesArray[6] = GameSprite.SPRITE_UI_MOUSE_MOVE;
-            _fixedSpritesToLoad = 7;
+            _fixedSpritesToLoad = 0;
+
+            _fixedSpritesArray[_fixedSpritesToLoad++] = GameSprite.SPRITE_CURSOR_NORMAL;
+            _fixedSpritesArray[_fixedSpritesToLoad++] = GameSprite.SPRITE_CURSOR_USING;
+            _fixedSpritesArray[_fixedSpritesToLoad++] = GameSprite.SPRITE_CURSOR_DRAG;
+            _fixedSpritesArray[_fixedSpritesToLoad++] = GameSprite.SPRITE_INVENTORY;
+            _fixedSpritesArray[_fixedSpritesToLoad++] = GameSprite.SPRITE_UI_TAKE;
+            _fixedSpritesArray[_fixedSpritesToLoad++] = GameSprite.SPRITE_UI_TALK;
+            _fixedSpritesArray[_fixedSpritesToLoad++] = GameSprite.SPRITE_UI_OBSERVE;
+            _fixedSpritesArray[_fixedSpritesToLoad++] = GameSprite.SPRITE_UI_MOUSE_MOVE;
+
 
             for (GamePickableItem i = 0; i < GamePickableItem.ITEM_PICK_TOTAL; i++)
             {
-                _fixedSpritesArray[_fixedSpritesToLoad + (int)i] = ItemsInteractionsClass.GetSpriteFromPickable(i);
+                _fixedSpritesArray[_fixedSpritesToLoad++] = ItemsInteractionsClass.GetSpriteFromPickable(i);
             }
-
-            _fixedSpritesToLoad += (int)GamePickableItem.ITEM_PICK_TOTAL;
         }
 
         public static IEnumerator PreloadRoomSpritesCoroutine(Room room)

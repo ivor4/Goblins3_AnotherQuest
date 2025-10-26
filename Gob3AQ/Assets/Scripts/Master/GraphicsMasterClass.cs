@@ -24,11 +24,13 @@ namespace Gob3AQ.GraphicsMaster
 
         private UICanvasClass uicanvas_cls;
 
+        private static float _maxCameraOrthographicSize;
         private Vector2 _mouseStartedCameraDrag;
+        private Vector3 _cameraPosStartedCameraDrag;
+        private Vector3 _screenToWorldFactor;
         private bool _mouseDraggingCamera;
         private Bounds _levelBounds;
         private Bounds _cameraCenterLimitBounds;
-        private Bounds _cameraBounds;
         private Bounds _mouseScreenZoneLimit;
 
         private Camera mainCamera;
@@ -63,16 +65,14 @@ namespace Gob3AQ.GraphicsMaster
         {
             mainCamera = Camera.main;
             mainCameraTransform = mainCamera.transform;
-            _cameraBounds = new Bounds();
 
             uicanvas_cls = UICanvas.GetComponent<UICanvasClass>();
 
-            _cameraBounds.min = mainCamera.ScreenToWorldPoint(Vector3.zero);
-            _cameraBounds.max = mainCamera.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
-
-            _mouseScreenZoneLimit = new Bounds();
-            _mouseScreenZoneLimit.min = Vector2.zero;
-            _mouseScreenZoneLimit.max = Vector2.one;
+            _mouseScreenZoneLimit = new()
+            {
+                min = Vector2.zero,
+                max = Vector2.one
+            };
 
             VARMAP_GraphicsMaster.REG_GAMESTATUS(_GameStatusChanged);
             VARMAP_GraphicsMaster.REG_PICKABLE_ITEM_CHOSEN(_OnPickedItemChanged);
@@ -90,6 +90,7 @@ namespace Gob3AQ.GraphicsMaster
         void Update()
         {
             ref readonly MousePropertiesStruct mouse = ref VARMAP_GraphicsMaster.GET_MOUSE_PROPERTIES();
+            ref readonly KeyStruct keys = ref VARMAP_GraphicsMaster.GET_PRESSED_KEYS();
 
             uicanvas_cls.MoveCursor(mouse.pos1);
 
@@ -99,7 +100,7 @@ namespace Gob3AQ.GraphicsMaster
                     Execute_Loading();
                     break;
                 case Game_Status.GAME_STATUS_PLAY:
-                    FollowMouseWithCamera(in mouse);
+                    FollowMouseWithCamera(in mouse, in keys);
                     break;
                 default:
                     break;
@@ -146,8 +147,12 @@ namespace Gob3AQ.GraphicsMaster
                     background_spr.sprite = ResourceSpritesClass.GetSprite(_singleton.backgroundGameSprite);
                     _levelBounds = background_spr.bounds;
 
-                    _cameraCenterLimitBounds = _levelBounds;
-                    _cameraCenterLimitBounds.extents -= _cameraBounds.extents;
+                    float constrainedByWidth = _levelBounds.extents.x / mainCamera.aspect;
+                    float constrainedByHeight = _levelBounds.extents.y;
+
+                    _maxCameraOrthographicSize = Mathf.Min(constrainedByWidth, constrainedByHeight);
+
+                    UpdateCameraBounds();
 
                     candidatePos.z = mainCameraTransform.position.z;
 
@@ -161,8 +166,18 @@ namespace Gob3AQ.GraphicsMaster
             }
         }
 
+        private void UpdateCameraBounds()
+        {
+            Vector2 src = mainCamera.ScreenToWorldPoint(new(0, 0, 0));
+            Vector2 dst = mainCamera.ScreenToWorldPoint(new(1, 1, 0));
+            _screenToWorldFactor = dst - src;
 
-        private void FollowMouseWithCamera(in MousePropertiesStruct mouse)
+            _cameraCenterLimitBounds = _levelBounds;
+            _cameraCenterLimitBounds.size -= new Vector3(_screenToWorldFactor.x * Screen.safeArea.width, _screenToWorldFactor.y * Screen.safeArea.height);
+        }
+
+
+        private void FollowMouseWithCamera(in MousePropertiesStruct mouse, in KeyStruct keys)
         {
             Vector2 screenzone_orig = new(mouse.posPixels.x / Screen.safeArea.width, mouse.posPixels.y / Screen.safeArea.height);
             Vector2 szone = new(screenzone_orig.x, screenzone_orig.y * GameFixedConfig.GAME_ZONE_HEIGHT_FACTOR);
@@ -170,21 +185,17 @@ namespace Gob3AQ.GraphicsMaster
 
             if (_mouseScreenZoneLimit.Contains(szone))
             {
-                bool thirdPressed = mouse.mouseThird == ButtonState.BUTTON_STATE_PRESSING;
+                bool thirdPressed = keys.isKeyBeingPressed(KeyFunctions.KEYFUNC_DRAG);
                 if (_mouseDraggingCamera && thirdPressed)
                 {
                     Vector3 moveCameraDelta;
                     Vector3 cameraNewPosition;
 
-                    Vector2 deltaszone = szone - _mouseStartedCameraDrag;
-                    float distance = Mathf.Min(deltaszone.magnitude, GameFixedConfig.GAME_ZONE_CURSOR_PERCENT_MAX_SPEED); /* 25% of screen */
-                    deltaszone = GameFixedConfig.GAME_ZONE_CURSOR_PERCENT_MAX_SPEED_DIV * GameFixedConfig.MOVE_CAMERA_SPEED * distance * deltaszone.normalized;
-                    
+                    Vector2 deltaPixels = _mouseStartedCameraDrag - mouse.posPixels;
 
                     /* Create movement vector and propose new camera center position */
-                    moveCameraDelta = deltaszone;
-                    moveCameraDelta *= Time.deltaTime;
-                    cameraNewPosition = mainCameraTransform.position + moveCameraDelta;
+                    moveCameraDelta = new(deltaPixels.x * _screenToWorldFactor.x, deltaPixels.y * _screenToWorldFactor.y);
+                    cameraNewPosition = _cameraPosStartedCameraDrag + moveCameraDelta;
 
                     MoveCameraToPosition(in cameraNewPosition);
                 }
@@ -193,11 +204,41 @@ namespace Gob3AQ.GraphicsMaster
                     if (thirdPressed)
                     {
                         _mouseDraggingCamera = true;
-                        _mouseStartedCameraDrag = szone;
+                        _mouseStartedCameraDrag = mouse.posPixels;
+                        _cameraPosStartedCameraDrag = mainCameraTransform.position;
                     }
                     else
                     {
                         _mouseDraggingCamera = false;
+                        bool zoomApplied;
+
+                        if(keys.isKeyBeingPressed(KeyFunctions.KEYFUNC_ZOOM_UP))
+                        {
+                            mainCamera.orthographicSize = Math.Max(mainCamera.orthographicSize - 0.2f, GameFixedConfig.MIN_CAMERA_ORTHO_SIZE);
+                            zoomApplied = true;
+                        }
+                        else if(keys.isKeyBeingPressed(KeyFunctions.KEYFUNC_ZOOM_DOWN))
+                        {
+                            mainCamera.orthographicSize = Math.Min(mainCamera.orthographicSize + 0.2f, _maxCameraOrthographicSize);
+                            zoomApplied = true;
+                        }
+                        else
+                        {
+                            zoomApplied = false;
+                        }
+
+                        if(zoomApplied)
+                        {
+                            UpdateCameraBounds();
+
+                            /* Keep world point where cursor is at the exact same point in Screen */
+                            Vector2 pixelsDistance = new(Screen.safeArea.width * 0.5f - mouse.posPixels.x, Screen.safeArea.height * 0.5f - mouse.posPixels.y);
+                            Vector2 worldDistance = new(pixelsDistance.x * _screenToWorldFactor.x, pixelsDistance.y * _screenToWorldFactor.y);
+
+
+                            Vector3 CameraNewPosition = new(mouse.pos1.x + worldDistance.x, mouse.pos1.y + worldDistance.y, mainCameraTransform.position.z);
+                            MoveCameraToPosition(in CameraNewPosition);
+                        }
                     }
                 }
             }
@@ -237,7 +278,7 @@ namespace Gob3AQ.GraphicsMaster
 
             if(_mouseDraggingCamera)
             {
-                cursorSprite = GameSprite.SPRITE_UI_MOUSE_MOVE;
+                cursorSprite = GameSprite.SPRITE_CURSOR_DRAG;
             }
             else if (pickableSelected)
             {

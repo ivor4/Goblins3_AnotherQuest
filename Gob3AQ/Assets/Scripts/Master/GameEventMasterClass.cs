@@ -13,12 +13,12 @@ namespace Gob3AQ.GameEventMaster
     public class GameEventMasterClass : MonoBehaviour
     {
         private static GameEventMasterClass _singleton;
-        private static EVENT_SUBSCRIPTION_CALL_DELEGATE[] _event_subscription;
+        private EVENT_SUBSCRIPTION_CALL_DELEGATE[] _event_subscription;
 
         /// <summary>
         /// Will be used for subscriptions only
         /// </summary>
-        private static Queue<int> _bufferedEvents;
+        private Queue<int> _bufferedEvents;
 
 
         public static void IsEventOccurredService(GameEvent ev, out bool occurred)
@@ -64,9 +64,9 @@ namespace Gob3AQ.GameEventMaster
 
             VARMAP_GameEventMaster.SET_ELEM_EVENTS_OCCURRED(arraypos, mbfs);
 
-            if (occurred != prevValue)
+            if ((occurred != prevValue) && (_singleton != null))
             {
-                _bufferedEvents.Enqueue(evIndex);
+                _singleton._bufferedEvents.Enqueue(evIndex);
             }
         }
 
@@ -85,9 +85,9 @@ namespace Gob3AQ.GameEventMaster
 
             VARMAP_GameEventMaster.SET_ELEM_EVENTS_OCCURRED(arraypos, mbfs);
 
-            if (!prevValue)
+            if ((!prevValue) && (_singleton != null))
             {
-                _bufferedEvents.Enqueue(evIndex);
+                _singleton._bufferedEvents.Enqueue(evIndex);
             }
         }
 
@@ -106,13 +106,16 @@ namespace Gob3AQ.GameEventMaster
             int evIndex = (int)gevent;
             evIndex += (int)GamePickableItem.ITEM_PICK_TOTAL;    /* Every item has 1 event, which is placed at the beginning */
 
-            if (add)
+            if (_singleton != null)
             {
-                _event_subscription[evIndex] += callable;
-            }
-            else
-            {
-                _event_subscription[evIndex] -= callable;
+                if (add)
+                {
+                    _singleton._event_subscription[evIndex] += callable;
+                }
+                else
+                {
+                    _singleton._event_subscription[evIndex] -= callable;
+                }
             }
         }
 
@@ -132,7 +135,7 @@ namespace Gob3AQ.GameEventMaster
 
         void Awake()
         {
-            if (_singleton)
+            if (_singleton != null)
             {
                 Destroy(this);
                 return;
@@ -140,6 +143,7 @@ namespace Gob3AQ.GameEventMaster
             else
             {
                 _singleton = this;
+                _bufferedEvents = null;
                 _event_subscription = new EVENT_SUBSCRIPTION_CALL_DELEGATE[(int)GamePickableItem.ITEM_PICK_TOTAL + (int)GameEvent.EVENT_TOTAL];
                 _bufferedEvents = new(GameFixedConfig.MAX_BUFFERED_EVENTS);
             }
@@ -147,8 +151,11 @@ namespace Gob3AQ.GameEventMaster
 
         void Start()
         {
-            VARMAP_GameEventMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameEventMaster);
-            VARMAP_GameEventMaster.REG_EVENTS_OCCURRED(_OnEventsChanged);
+            if (_singleton != null)
+            {
+                VARMAP_GameEventMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameEventMaster);
+                VARMAP_GameEventMaster.REG_EVENTS_OCCURRED(_OnEventsChanged);
+            }
         }
 
 
@@ -157,16 +164,18 @@ namespace Gob3AQ.GameEventMaster
         {
             if (_singleton == this)
             {
+                _event_subscription = null;
                 _singleton = null;
                 VARMAP_GameEventMaster.UNREG_EVENTS_OCCURRED(_OnEventsChanged);
             }
         }
 
-        private static void _OnEventsChanged(ChangedEventType eventType, in MultiBitFieldStruct oldval, in MultiBitFieldStruct newval)
+        private void _OnEventsChanged(ChangedEventType eventType, in MultiBitFieldStruct oldval, in MultiBitFieldStruct newval)
         {
             _ = eventType;
             _ = oldval;
             _ = newval;
+
 
             /* Process all buffered events */
             while (_bufferedEvents.TryDequeue(out int evIndex))

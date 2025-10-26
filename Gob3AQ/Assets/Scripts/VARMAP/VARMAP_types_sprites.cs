@@ -8,6 +8,7 @@ namespace Gob3AQ.VARMAP.Types
         SPRITE_NONE = -1, 
         SPRITE_CURSOR_NORMAL, 
         SPRITE_CURSOR_USING, 
+        SPRITE_CURSOR_DRAG, 
         SPRITE_INVENTORY, 
         SPRITE_UI_TAKE, 
         SPRITE_UI_TALK, 

@@ -4191,7 +4191,7 @@ PrefabInstance:
       objectReference: {fileID: 6491572021259018865}
     - target: {fileID: 3637719463198597506, guid: 4043428f270d468409adbea1caff1e50, type: 3}
       propertyPath: backgroundGameSprite
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4231066689909814807, guid: 4043428f270d468409adbea1caff1e50, type: 3}
       propertyPath: m_Name

@@ -25,6 +25,7 @@ namespace Gob3AQ.ResourceSpritesAtlas
             /* > ATG 1 START < */
             new("SPRITE_ATLAS_UI_0[SPRITE_CURSOR_NORMAL]"), /* SPRITE_CURSOR_NORMAL */ 
             new("SPRITE_ATLAS_UI_0[SPRITE_CURSOR_USING]"), /* SPRITE_CURSOR_USING */ 
+            new("SPRITE_ATLAS_UI_0[SPRITE_CURSOR_DRAG]"), /* SPRITE_CURSOR_DRAG */ 
             new("SPRITE_ATLAS_UI_0[SPRITE_INVENTORY]"), /* SPRITE_INVENTORY */ 
             new("SPRITE_ATLAS_UI_0[SPRITE_ACTION_TAKE]"), /* SPRITE_UI_TAKE */ 
             new("SPRITE_ATLAS_UI_0[SPRITE_ACTION_TALK]"), /* SPRITE_UI_TALK */ 

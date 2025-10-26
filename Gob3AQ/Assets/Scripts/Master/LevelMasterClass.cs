@@ -31,8 +31,6 @@ namespace Gob3AQ.LevelMaster
         private LevelElemInfo _HoveredElem;
         private PendingCharacterInteraction[] _PendingCharInteractions;
 
-        private int _wheelDebounce;
-
 
         public struct PendingCharacterInteraction
         {
@@ -226,14 +224,15 @@ namespace Gob3AQ.LevelMaster
         {
             Game_Status gstatus = VARMAP_LevelMaster.GET_GAMESTATUS();
             ref readonly MousePropertiesStruct mouse = ref VARMAP_LevelMaster.GET_MOUSE_PROPERTIES();
+            ref readonly KeyStruct keys = ref VARMAP_LevelMaster.GET_PRESSED_KEYS();
 
             switch (gstatus)
             {
                 case Game_Status.GAME_STATUS_PLAY:
-                    Update_Play(gstatus, in mouse);
+                    Update_Play(gstatus, in mouse, in keys);
                     break;
                 case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
-                    if (mouse.mouseSecondary == ButtonState.BUTTON_STATE_RELEASED)
+                    if (keys.isKeyCycleReleased(KeyFunctions.KEYFUNC_INVENTORY))
                     {
                         VARMAP_LevelMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
                     }
@@ -274,7 +273,7 @@ namespace Gob3AQ.LevelMaster
 
 
 
-        private void Update_Play(Game_Status gstatus, in MousePropertiesStruct mouse)
+        private void Update_Play(Game_Status gstatus, in MousePropertiesStruct mouse, in KeyStruct keys)
         {
             for(int i = 0; i < (int)CharacterType.CHARACTER_TOTAL; i++)
             {
@@ -285,67 +284,35 @@ namespace Gob3AQ.LevelMaster
                     ExecutePlayerEndOfInteraction((CharacterType)i);
                 }
             }
-            UpdateMouseEvents(gstatus, in mouse);
+            UpdateMouseEvents(gstatus, in mouse, in keys);
         }
 
        
 
 
-        private void UpdateMouseEvents(Game_Status gstatus, in MousePropertiesStruct mouse)
+        private void UpdateMouseEvents(Game_Status gstatus, in MousePropertiesStruct mouse, in KeyStruct keys)
         {
             if (_playMouseArea.Contains(mouse.posPixels))
             {
-                UpdateUserInputInteraction(in mouse);
-                UpdateCharItemMouseEvents(in mouse);
+                UpdateUserInputInteraction(in mouse, in keys);
+                UpdateCharItemMouseEvents(in mouse, in keys);
             }
         }
 
-        private void UpdateUserInputInteraction(in MousePropertiesStruct mouse)
+        private void UpdateUserInputInteraction(in MousePropertiesStruct mouse, in KeyStruct keys)
         {
-            if(_wheelDebounce > 0)
-            {
-                --_wheelDebounce;
-            }
-            else if(mouse.mouseWheel != MouseWheelState.MOUSE_WHEEL_IDLE)
+            if(keys.isKeyCycleReleased(KeyFunctions.KEYFUNC_CHANGEACTION))
             {
                 UserInputInteraction interaction = VARMAP_LevelMaster.GET_SHADOW_USER_INPUT_INTERACTION();
-                int intinteraction = (int)interaction;
-
-                if(mouse.mouseWheel == MouseWheelState.MOUSE_WHEEL_UP)
-                {
-                    intinteraction++;
-                }
-                else
-                {
-                    intinteraction--;
-                }
-
-                if(intinteraction >= (int)UserInputInteraction.INPUT_INTERACTION_TOTAL)
-                {
-                    intinteraction = 0;
-                }
-                else if(intinteraction < 0)
-                {
-                    intinteraction = (int)UserInputInteraction.INPUT_INTERACTION_TOTAL - 1;
-                }
-                else
-                {
-                    /**/
-                }
+                int intinteraction = ((int)interaction + 1) % (int)UserInputInteraction.INPUT_INTERACTION_TOTAL;
 
                 interaction = (UserInputInteraction)intinteraction;
 
                 VARMAP_LevelMaster.SET_USER_INPUT_INTERACTION(interaction);
-
-                _wheelDebounce = 40;
-            }
-            else
-            { 
-                /**/
             }
         }
 
-        private void UpdateCharItemMouseEvents(in MousePropertiesStruct mouse)
+        private void UpdateCharItemMouseEvents(in MousePropertiesStruct mouse, in KeyStruct keys)
         {
             GameItem chosenItem = VARMAP_LevelMaster.GET_PICKABLE_ITEM_CHOSEN();
             CharacterType playerSelected = VARMAP_LevelMaster.GET_PLAYER_SELECTED();
@@ -353,7 +320,7 @@ namespace Gob3AQ.LevelMaster
 
             
             /* If no items menu or just a menu opened */
-            if (mouse.mouseSecondary == ButtonState.BUTTON_STATE_RELEASED)
+            if (keys.isKeyCycleReleased(KeyFunctions.KEYFUNC_INVENTORY))
             {
                 if ((chosenItem == GameItem.ITEM_NONE) && (playerSelected != CharacterType.CHARACTER_NONE))
                 {
@@ -364,7 +331,7 @@ namespace Gob3AQ.LevelMaster
                     VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
                 }
             }
-            else if (mouse.mousePrimary == ButtonState.BUTTON_STATE_RELEASED)
+            else if (keys.isKeyCycleReleased(KeyFunctions.KEYFUNC_SELECT))
             {
                 /* If there is buffered action */
                 if (_HoveredElem.family != GameItemFamily.ITEM_FAMILY_TYPE_NONE)

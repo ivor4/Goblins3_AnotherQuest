@@ -30,6 +30,7 @@ namespace Gob3AQ.FixedConfig
 
         /* HUD */
         public const float DISTANCE_MOUSE_FURTHEST_WP = 1.5f;
+        public const float MIN_CAMERA_ORTHO_SIZE = 2.0f;
 
 
         /* Graphics - Mouse */
@@ -52,7 +53,6 @@ namespace Gob3AQ.FixedConfig
         public const int MAX_POOLED_ITEMS = 32;
         public const int MAX_BUFFERED_EVENTS = 16;
         public const int MAX_LEVEL_WAYPOINTS = 128;
-        public const int MAX_PICKED_ITEMS = 64;
         public const int MAX_DIALOG_TALKERS = 4;
         public const int MAX_DISPLAYED_PICKED_ITEMS = 16;
         public const int MAX_DISPLAYED_HOR_PICKED_ITEMS = 4;

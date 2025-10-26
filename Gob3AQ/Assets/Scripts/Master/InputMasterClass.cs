@@ -13,39 +13,13 @@ namespace Gob3AQ.InputMaster
     public class InputMasterClass : MonoBehaviour
     {
         private static InputMasterClass _singleton;
-        private  KeyOptions cachedKeyOptions;
+        private KeyOptions cachedKeyOptions;
         private KeyStruct cachedPressedKeys;
         private KeyFunctions accumulatedDownkeys;
         private MousePropertiesStruct cachedMouseProps;
         private float ellapsedMillis;
         private Camera mainCamera;
 
-        private static readonly ButtonState[,] _ButtonStateLookup = new ButtonState[4, 2]
-        {
-            /* BUTTON_STATE_IDLE */
-            {
-                ButtonState.BUTTON_STATE_IDLE,  /* Not pressed now */
-                ButtonState.BUTTON_STATE_PRESSED   /* Pressed now */
-            },
-
-            /* BUTTON_STATE_PRESSED */
-            {
-                ButtonState.BUTTON_STATE_RELEASED,  /* Not pressed now */
-                ButtonState.BUTTON_STATE_PRESSING   /* Pressed now */
-            },
-
-            /* BUTTON_STATE_PRESSING */
-            {
-                ButtonState.BUTTON_STATE_RELEASED,  /* Not pressed now */
-                ButtonState.BUTTON_STATE_PRESSING       /* Pressed now */
-            },
-
-            /* BUTTON_STATE_RELEASED */
-            {
-                ButtonState.BUTTON_STATE_IDLE,  /* Not pressed now */
-                ButtonState.BUTTON_STATE_PRESSED   /* Pressed now */
-            }
-        };
 
 
         private void Awake()
@@ -64,9 +38,9 @@ namespace Gob3AQ.InputMaster
 
         private void Start()
         {
-            cachedPressedKeys = default(KeyStruct);
+            cachedPressedKeys = default;
             cachedKeyOptions = VARMAP_InputMaster.GET_GAME_OPTIONS().keyOptions;
-            cachedMouseProps = VARMAP_DefaultValues.MouseProperties_Default;
+            cachedMouseProps = default;
             ellapsedMillis = 0f;
             accumulatedDownkeys = 0;
             mainCamera = Camera.main;
@@ -84,21 +58,38 @@ namespace Gob3AQ.InputMaster
                 KeyFunctions pressedandreleasedKeys;
                 bool accumulationCycle;
                 float deltaTime;
-                int mouseNowPressed;
-                MouseWheelState mouseWheel;
+                bool wheelUp;
+                bool wheelDown;
 
                 deltaTime = Time.deltaTime;
 
                 ellapsedMillis += deltaTime;
 
-                accumulatedDownkeys |= Input.GetKey(cachedKeyOptions.upKey) ? KeyFunctions.KEYFUNC_UP : 0;
-                accumulatedDownkeys |= Input.GetKey(cachedKeyOptions.downKey) ? KeyFunctions.KEYFUNC_DOWN : 0;
-                accumulatedDownkeys |= Input.GetKey(cachedKeyOptions.leftKey) ? KeyFunctions.KEYFUNC_LEFT : 0;
-                accumulatedDownkeys |= Input.GetKey(cachedKeyOptions.rightKey) ? KeyFunctions.KEYFUNC_RIGHT : 0;
-                accumulatedDownkeys |= Input.GetKey(cachedKeyOptions.jumpKey) ? KeyFunctions.KEYFUNC_JUMP : 0;
-                accumulatedDownkeys |= Input.GetKey(cachedKeyOptions.attackKey) ? KeyFunctions.KEYFUNC_ATTACK : 0;
-                accumulatedDownkeys |= Input.GetKey(cachedKeyOptions.spellKey) ? KeyFunctions.KEYFUNC_SPELL : 0;
-                accumulatedDownkeys |= Input.GetKey(cachedKeyOptions.pauseKey) ? KeyFunctions.KEYFUNC_PAUSE : 0;
+                accumulatedDownkeys |= Input.GetKey(cachedKeyOptions.changeActionKey) ? KeyFunctions.KEYFUNC_CHANGEACTION : 0;
+                accumulatedDownkeys |= Input.GetKey(cachedKeyOptions.selectKey) ? KeyFunctions.KEYFUNC_SELECT : 0;
+                accumulatedDownkeys |= Input.GetKey(cachedKeyOptions.inventoryKey) ? KeyFunctions.KEYFUNC_INVENTORY : 0;
+                accumulatedDownkeys |= Input.GetKey(cachedKeyOptions.dragKey) ? KeyFunctions.KEYFUNC_DRAG : 0;
+
+                float mouseWheelFloat = Input.GetAxisRaw("Mouse ScrollWheel");
+
+                if (mouseWheelFloat > 0.0f)
+                {
+                    wheelUp = true;
+                    wheelDown = false;
+                }
+                else if (mouseWheelFloat < 0.0f)
+                {
+                    wheelUp = false;
+                    wheelDown = true;
+                }
+                else
+                {
+                    wheelUp = false;
+                    wheelDown = false;
+                }
+
+                accumulatedDownkeys |= wheelUp ? KeyFunctions.KEYFUNC_ZOOM_UP : 0;
+                accumulatedDownkeys |= wheelDown ? KeyFunctions.KEYFUNC_ZOOM_DOWN : 0;
 
 
                 pressedandreleasedKeys = cachedPressedKeys.cyclepressedKeys | cachedPressedKeys.cyclereleasedKeys;
@@ -119,34 +110,6 @@ namespace Gob3AQ.InputMaster
                 }
 
                 Vector2 mousePosition = Input.mousePosition;
-
-
-                mouseNowPressed = Input.GetMouseButton(0) ? 1 : 0;
-                cachedMouseProps.mousePrimary = _ButtonStateLookup[(int)cachedMouseProps.mousePrimary,mouseNowPressed];
-                mouseNowPressed = Input.GetMouseButton(1) ? 1 : 0;
-                cachedMouseProps.mouseSecondary = _ButtonStateLookup[(int)cachedMouseProps.mouseSecondary, mouseNowPressed];
-                mouseNowPressed = Input.GetMouseButton(2) ? 1 : 0;
-                cachedMouseProps.mouseThird = _ButtonStateLookup[(int)cachedMouseProps.mouseThird, mouseNowPressed];
-
-                float mouseWheelFloat = Input.GetAxisRaw("Mouse ScrollWheel");
-
-                
-
-                if(mouseWheelFloat > 0.0f)
-                {
-                    mouseWheel = MouseWheelState.MOUSE_WHEEL_UP;
-                }
-                else if(mouseWheelFloat < 0.0f)
-                {
-                    mouseWheel = MouseWheelState.MOUSE_WHEEL_DOWN;
-                }
-                else
-                {
-                    mouseWheel = MouseWheelState.MOUSE_WHEEL_IDLE;
-                }
-
-                cachedMouseProps.mouseWheel = mouseWheel;
-
                 Vector2 mouseWorld = mainCamera.ScreenToWorldPoint(mousePosition);
 
                 cachedMouseProps.pos1 = mouseWorld;

@@ -149,8 +149,8 @@ namespace Gob3AQ.GameMaster
             if ((uint)room < (uint)Room.ROOMS_TOTAL)
             {
                 error = false;
-                
 
+                VARMAP_DataSystem.ClearVARMAPChangeEvents();
                 VARMAP_GameMaster.SET_ACTUAL_ROOM(room);
                 _SetGameStatus(Game_Status.GAME_STATUS_CHANGING_ROOM);
 
@@ -241,7 +241,7 @@ namespace Gob3AQ.GameMaster
         {
             if (VARMAP_GameMaster.GET_SHADOW_GAMESTATUS() != Game_Status.GAME_STATUS_STOPPED)
             {
-                _SetGameStatus(Game_Status.GAME_STATUS_STOPPED);
+                VARMAP_DataSystem.ResetVARMAP();
                 _singleton.StartCoroutine(ExitGameCoroutine());
                 error = false;
             }

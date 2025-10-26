@@ -20,34 +20,19 @@ namespace Gob3AQ.VARMAP.Types
         CHANGED_EVENT_SET_LIST_ELEM
     }
 
-
+    [System.Flags]
     public enum KeyFunctions
     {
         KEYFUNC_NONE = 0,
-        KEYFUNC_UP = 1 << 0,
-        KEYFUNC_DOWN = 1 << 1,
-        KEYFUNC_LEFT = 1 << 2,
-        KEYFUNC_RIGHT = 1 << 3,
-        KEYFUNC_JUMP = 1 << 4,
-        KEYFUNC_ATTACK = 1 << 5,
-        KEYFUNC_SPELL = 1 << 6,
-        KEYFUNC_PAUSE = 1 << 7
+        KEYFUNC_CHANGEACTION = 1 << 0,
+        KEYFUNC_SELECT = 1 << 1,
+        KEYFUNC_INVENTORY = 1 << 2,
+        KEYFUNC_ZOOM_UP = 1 << 3,
+        KEYFUNC_ZOOM_DOWN = 1 << 4,
+        KEYFUNC_DRAG = 1 << 5,
+        KEYFUNC_PAUSE = 1 << 6
     }
 
-    public enum ButtonState
-    {
-        BUTTON_STATE_IDLE,
-        BUTTON_STATE_PRESSED,
-        BUTTON_STATE_PRESSING,
-        BUTTON_STATE_RELEASED
-    }
-
-    public enum MouseWheelState
-    {
-        MOUSE_WHEEL_IDLE,
-        MOUSE_WHEEL_UP,
-        MOUSE_WHEEL_DOWN
-    }
 
     public enum UserInputInteraction
     {
@@ -383,18 +368,11 @@ namespace Gob3AQ.VARMAP.Types
 
     public struct MousePropertiesStruct : IStreamable
     {
-        public const int STRUCT_SIZE = 2*2*sizeof(float) + 1*2 * sizeof(int) + 3*sizeof(byte);
+        public const int STRUCT_SIZE = 2*2*sizeof(float) + 1*2 * sizeof(int);
 
         public Vector2 pos1;
         public Vector2 pos2;
-
         public Vector2Int posPixels;
-
-
-        public ButtonState mousePrimary;
-        public ButtonState mouseSecondary;
-        public ButtonState mouseThird;
-        public MouseWheelState mouseWheel;
 
 
 
@@ -405,10 +383,6 @@ namespace Gob3AQ.VARMAP.Types
             gstruct.pos1 = new Vector2(BitConverter.ToSingle(readZone.ReadNext(sizeof(float))), BitConverter.ToSingle(readZone.ReadNext(sizeof(float))));
             gstruct.pos2 = new Vector2(BitConverter.ToSingle(readZone.ReadNext(sizeof(float))), BitConverter.ToSingle(readZone.ReadNext(sizeof(float))));
             gstruct.posPixels = new Vector2Int(BitConverter.ToInt32(readZone.ReadNext(sizeof(int))), BitConverter.ToInt32(readZone.ReadNext(sizeof(int))));
-            gstruct.mousePrimary = (ButtonState)BitConverter.ToChar(readZone.ReadNext(sizeof(char)));
-            gstruct.mouseSecondary = (ButtonState)BitConverter.ToChar(readZone.ReadNext(sizeof(char)));
-            gstruct.mouseThird = (ButtonState)BitConverter.ToChar(readZone.ReadNext(sizeof(char)));
-            gstruct.mouseWheel = (MouseWheelState)BitConverter.ToChar(readZone.ReadNext(sizeof(char)));
         }
 
         public static void StaticParseToBytes(in MousePropertiesStruct gstruct, ref Span<byte> writer)
@@ -421,10 +395,6 @@ namespace Gob3AQ.VARMAP.Types
             BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(float)), gstruct.pos2.y);
             BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(int)), gstruct.posPixels.x);
             BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(int)), gstruct.posPixels.y);
-            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(char)), (char)gstruct.mousePrimary);
-            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(char)), (char)gstruct.mouseSecondary);
-            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(char)), (char)gstruct.mouseThird);
-            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(char)), (char)gstruct.mouseWheel);
         }
 
         public static IStreamable CreateNewInstance()
@@ -432,7 +402,7 @@ namespace Gob3AQ.VARMAP.Types
             return new MousePropertiesStruct();
         }
 
-        public int GetElemSize()
+        public readonly int GetElemSize()
         {
             return STRUCT_SIZE;
         }
@@ -480,7 +450,7 @@ namespace Gob3AQ.VARMAP.Types
             return new Vector3Struct();
         }
 
-        public int GetElemSize()
+        public readonly int GetElemSize()
         {
             return STRUCT_SIZE;
         }
@@ -648,7 +618,7 @@ namespace Gob3AQ.VARMAP.Types
             return new GameOptionsStruct();
         }
 
-        public int GetElemSize()
+        public readonly int GetElemSize()
         {
             return STRUCT_SIZE;
         }
@@ -667,14 +637,13 @@ namespace Gob3AQ.VARMAP.Types
 
     public struct KeyOptions : IStreamable
     {
-        public const int STRUCT_SIZE = 8 * sizeof(ushort);
-        public KeyCode upKey;
-        public KeyCode downKey;
-        public KeyCode leftKey;
-        public KeyCode rightKey;
-        public KeyCode jumpKey;
-        public KeyCode attackKey;
-        public KeyCode spellKey;
+        public const int STRUCT_SIZE = 7 * sizeof(ushort);
+        public KeyCode changeActionKey;
+        public KeyCode selectKey;
+        public KeyCode inventoryKey;
+        public KeyCode zoomUpKey;
+        public KeyCode zoomDownKey;
+        public KeyCode dragKey;
         public KeyCode pauseKey;
             
             
@@ -688,7 +657,7 @@ namespace Gob3AQ.VARMAP.Types
             return new KeyOptions();
         }
 
-        public int GetElemSize()
+        public readonly int GetElemSize()
         {
             return STRUCT_SIZE;
         }
@@ -697,13 +666,12 @@ namespace Gob3AQ.VARMAP.Types
         {
             ReadStreamSpan<byte> readZone = new ReadStreamSpan<byte>(reader);
 
-            gstruct.upKey = (KeyCode)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
-            gstruct.downKey = (KeyCode)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
-            gstruct.leftKey = (KeyCode)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
-            gstruct.rightKey = (KeyCode)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
-            gstruct.jumpKey = (KeyCode)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
-            gstruct.attackKey = (KeyCode)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
-            gstruct.spellKey = (KeyCode)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
+            gstruct.changeActionKey = (KeyCode)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
+            gstruct.selectKey = (KeyCode)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
+            gstruct.inventoryKey = (KeyCode)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
+            gstruct.zoomUpKey = (KeyCode)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
+            gstruct.zoomDownKey = (KeyCode)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
+            gstruct.dragKey = (KeyCode)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
             gstruct.pauseKey = (KeyCode)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
         }
 
@@ -711,13 +679,12 @@ namespace Gob3AQ.VARMAP.Types
         {
             WriteStreamSpan<byte> writeZone = new WriteStreamSpan<byte>(writer);
 
-            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.upKey);
-            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.downKey);
-            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.leftKey);
-            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.rightKey);
-            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.jumpKey);
-            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.attackKey);
-            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.spellKey);
+            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.changeActionKey);
+            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.selectKey);
+            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.inventoryKey);
+            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.zoomUpKey);
+            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.zoomDownKey);
+            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.dragKey);
             BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.pauseKey);
         }
 
@@ -735,7 +702,7 @@ namespace Gob3AQ.VARMAP.Types
 
     public struct KeyStruct : IStreamable
     {
-        public const int STRUCT_SIZE = 3 * sizeof(uint) + sizeof(int);
+        public const int STRUCT_SIZE = 3 * sizeof(uint);
 
         public KeyFunctions pressedKeys;
         public KeyFunctions cyclepressedKeys;
@@ -743,9 +710,27 @@ namespace Gob3AQ.VARMAP.Types
 
 
 
-        public int GetElemSize()
+        public readonly int GetElemSize()
         {
             return STRUCT_SIZE;
+        }
+
+        public readonly bool isKeyBeingPressed(KeyFunctions key)
+        {
+            bool retVal = ((int)pressedKeys & (int)key) != 0;
+            return retVal;
+        }
+
+        public readonly bool isKeyCyclePressed(KeyFunctions key)
+        {
+            bool retVal = ((int)cyclepressedKeys & (int)key) != 0;
+            return retVal;
+        }
+
+        public readonly bool isKeyCycleReleased(KeyFunctions key)
+        {
+            bool retVal = ((int)cyclereleasedKeys & (int)key) != 0;
+            return retVal;
         }
 
         public static void StaticParseFromBytes(ref KeyStruct gstruct, ref ReadOnlySpan<byte> reader)

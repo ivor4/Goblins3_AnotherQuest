@@ -150,7 +150,7 @@ namespace Gob3AQ.GameMenu.UICanvas
 
         public void SetCursorBaseSprite(GameSprite spriteID)
         {
-            if(spriteID == GameSprite.SPRITE_UI_MOUSE_MOVE)
+            if(spriteID == GameSprite.SPRITE_CURSOR_DRAG)
             {
                 cursor_rect.pivot = new Vector2(0.5f, 0.5f);
             }

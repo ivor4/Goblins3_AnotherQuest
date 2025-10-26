@@ -165,7 +165,7 @@ namespace Gob3AQ.VARMAP.Initialization
 
 
 
-        private static void ClearVARMAPChangeEvents()
+        public static void ClearVARMAPChangeEvents()
         {
             for (int i = 0; i < (int)VARMAP_Variable_ID.VARMAP_ID_TOTAL; i++)
             {

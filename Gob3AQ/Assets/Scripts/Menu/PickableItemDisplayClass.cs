@@ -10,19 +10,26 @@ using Gob3AQ.Brain.ItemsInteraction;
 namespace Gob3AQ.GameMenu.PickableItemDisplay
 {
     public delegate void DISPLAYED_ITEM_CLICK(GameItem item);
+    public delegate void DISPALYED_ITEM_HOVER(GameItem item, bool hover);
 
     public class PickableItemDisplayClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
     {
         private Image _spr;
         private GameItem _item;
-        private DISPLAYED_ITEM_CLICK _call;
+        private DISPLAYED_ITEM_CLICK _call_click;
+        private DISPALYED_ITEM_HOVER _call_hover;
         private GameObject _glow;
         private Image _sprglow;
         private GameObject _parent;
 
-        public void SetCallFunction(DISPLAYED_ITEM_CLICK fn)
+        public void SetOnClickCallFunction(DISPLAYED_ITEM_CLICK fn)
         {
-            _call = fn;
+            _call_click = fn;
+        }
+
+        public void SetHoverCallFunction(DISPALYED_ITEM_HOVER fn)
+        {
+            _call_hover = fn;
         }
 
         public void Enable(bool enable)
@@ -73,19 +80,23 @@ namespace Gob3AQ.GameMenu.PickableItemDisplay
         {
             _glow.SetActive(true);
             eventData.Use();
+
+            _call_hover?.Invoke(_item, true);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
             _glow.SetActive(false);
             eventData.Use();
+
+            _call_hover?.Invoke(_item, false);
         }
 
         public void OnPointerClick(PointerEventData eventData)
         {
             if (eventData.button == PointerEventData.InputButton.Left)
             {
-                _call?.Invoke(_item);
+                _call_click?.Invoke(_item);
                 eventData.Use();
             }
         }

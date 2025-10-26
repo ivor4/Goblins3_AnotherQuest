@@ -214,12 +214,12 @@ namespace Gob3AQ.GraphicsMaster
 
                         if(keys.isKeyBeingPressed(KeyFunctions.KEYFUNC_ZOOM_UP))
                         {
-                            mainCamera.orthographicSize = Math.Max(mainCamera.orthographicSize - 0.2f, GameFixedConfig.MIN_CAMERA_ORTHO_SIZE);
+                            mainCamera.orthographicSize = Math.Max(mainCamera.orthographicSize - 0.1f, GameFixedConfig.MIN_CAMERA_ORTHO_SIZE);
                             zoomApplied = true;
                         }
                         else if(keys.isKeyBeingPressed(KeyFunctions.KEYFUNC_ZOOM_DOWN))
                         {
-                            mainCamera.orthographicSize = Math.Min(mainCamera.orthographicSize + 0.2f, _maxCameraOrthographicSize);
+                            mainCamera.orthographicSize = Math.Min(mainCamera.orthographicSize + 0.1f, _maxCameraOrthographicSize);
                             zoomApplied = true;
                         }
                         else

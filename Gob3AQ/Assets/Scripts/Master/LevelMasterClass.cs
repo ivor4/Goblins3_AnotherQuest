@@ -235,6 +235,7 @@ namespace Gob3AQ.LevelMaster
                     if (keys.isKeyCycleReleased(KeyFunctions.KEYFUNC_INVENTORY))
                     {
                         VARMAP_LevelMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
+                        VARMAP_LevelMaster.SET_ITEM_HOVER(GameItem.ITEM_NONE);
                     }
                     break;
 
@@ -325,6 +326,7 @@ namespace Gob3AQ.LevelMaster
                 if ((chosenItem == GameItem.ITEM_NONE) && (playerSelected != CharacterType.CHARACTER_NONE))
                 {
                     VARMAP_LevelMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_ITEM_MENU, out _);
+                    VARMAP_LevelMaster.SET_ITEM_HOVER(GameItem.ITEM_NONE);
                 }
                 else
                 {

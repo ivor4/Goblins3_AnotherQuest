@@ -53,6 +53,8 @@ namespace Gob3AQ.GameMenu.UICanvas
         private Image cursor_subobj_spr;
         private TMP_Text cursor_textobj_text;
 
+        private GameItem hovered_item;
+
 
         private void Awake()
         {
@@ -86,7 +88,8 @@ namespace Gob3AQ.GameMenu.UICanvas
         {
             /* On every change of dispaly mode, abort any animation of User Interaction change and hide related objects */
             cursor_userInteraction_cls.Disable();
-
+            hovered_item = GameItem.ITEM_NONE;
+            SetCursorLabel(hovered_item);
             raycaster.enabled = true;
 
             switch (mode)
@@ -95,7 +98,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_loadingObj.SetActive(false);
                     UICanvas_dialogObj.SetActive(false);
                     UICanvas_itemMenuObj.SetActive(true);
-                    
+
                     break;
 
                 case DisplayMode.DISPLAY_MODE_DIALOG:
@@ -114,7 +117,7 @@ namespace Gob3AQ.GameMenu.UICanvas
 
         public void SetDialogMode(DialogMode mode, string sender, string msg)
         {
-            switch(mode)
+            switch (mode)
             {
                 case DialogMode.DIALOG_MODE_OPTIONS:
                     UICanvas_dialogObj_sender.gameObject.SetActive(false);
@@ -150,7 +153,7 @@ namespace Gob3AQ.GameMenu.UICanvas
 
         public void SetCursorBaseSprite(GameSprite spriteID)
         {
-            if(spriteID == GameSprite.SPRITE_CURSOR_DRAG)
+            if (spriteID == GameSprite.SPRITE_CURSOR_DRAG)
             {
                 cursor_rect.pivot = new Vector2(0.5f, 0.5f);
             }
@@ -164,7 +167,7 @@ namespace Gob3AQ.GameMenu.UICanvas
 
         public void SetCursorItem(GameItem item)
         {
-            if(item == GameItem.ITEM_NONE)
+            if (item == GameItem.ITEM_NONE)
             {
                 cursor_subobj.SetActive(false);
                 cursor_subobj_spr.sprite = null;
@@ -197,8 +200,8 @@ namespace Gob3AQ.GameMenu.UICanvas
         public void ActivateDialogOption(int index, bool activate, DialogOption option, string text)
         {
             ref readonly DialogOptionButtonClass button = ref UICanvas_dialogOptionButtons[index];
-            
-            if(activate)
+
+            if (activate)
             {
                 button.SetDialogOption(option);
                 button.SetOptionText(in text);
@@ -216,7 +219,7 @@ namespace Gob3AQ.GameMenu.UICanvas
         {
             ref readonly PickableItemDisplayClass inventory_obj = ref UICanvas_inventoryButtons[index];
 
-            if(activate)
+            if (activate)
             {
                 inventory_obj.SetDisplayedItem(item);
             }
@@ -252,7 +255,8 @@ namespace Gob3AQ.GameMenu.UICanvas
             {
                 GameObject itemObj = UICanvas_itemMenuObj.transform.Find("Item" + (i + 1)).Find("Item").gameObject;
                 UICanvas_inventoryButtons[i] = itemObj.GetComponent<PickableItemDisplayClass>();
-                UICanvas_inventoryButtons[i].SetCallFunction(OnItemDisplayClick);
+                UICanvas_inventoryButtons[i].SetOnClickCallFunction(OnItemDisplayClick);
+                UICanvas_inventoryButtons[i].SetHoverCallFunction(_OnInventoryItemHover);
                 yield return ResourceAtlasClass.WaitForNextFrame;
             }
 
@@ -266,6 +270,23 @@ namespace Gob3AQ.GameMenu.UICanvas
             UICanvas_itemMenuObj.GetComponent<Image>().sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_INVENTORY);
 
             cursor_userInteraction_cls.LoadTask();
+        }
+
+        private void _OnInventoryItemHover(GameItem item, bool hover)
+        {
+            if (hover)
+            {
+                hovered_item = item;
+                SetCursorLabel(hovered_item);
+            }
+            else
+            {
+                if (hovered_item == item)
+                {
+                    hovered_item = GameItem.ITEM_NONE;
+                    SetCursorLabel(hovered_item);
+                }
+            }
         }
     }
 }

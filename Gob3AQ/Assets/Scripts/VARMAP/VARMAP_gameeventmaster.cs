@@ -33,7 +33,6 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             ITEM_OBTAIN_PICKABLE_EVENT = _ITEM_OBTAIN_PICKABLE_EVENT;
-            IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
             IS_ITEM_TAKEN_FROM_SCENE = _IS_ITEM_TAKEN_FROM_SCENE;
@@ -83,14 +82,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         /// </summary>
         public static ITEM_OBTAIN_PICKABLE_EVENT_DELEGATE ITEM_OBTAIN_PICKABLE_EVENT;
         /// <summary> 
-        /// Tells if an event is occurred
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.IsEventOccurredService"/> </para> 
-        /// </summary>
-        public static IS_EVENT_OCCURRED_DELEGATE IS_EVENT_OCCURRED;
-        /// <summary> 
-        /// Same as IsEventOccurredService but for array of combos with possible negation
+        /// Checks if a combination of events is totally complied (event absence can also be requested)
         /// <para> Owner: GameEventMaster </para> 
         /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, ItemMaster,  </para> 
         /// <para> Method: <see cref="GameEventMasterClass.IsEventCombiOccurredService"/> </para> 

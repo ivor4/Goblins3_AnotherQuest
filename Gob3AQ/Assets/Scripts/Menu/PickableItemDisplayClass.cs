@@ -10,14 +10,14 @@ using Gob3AQ.Brain.ItemsInteraction;
 namespace Gob3AQ.GameMenu.PickableItemDisplay
 {
     public delegate void DISPLAYED_ITEM_CLICK(GameItem item);
-    public delegate void DISPALYED_ITEM_HOVER(GameItem item, bool hover);
+    public delegate void DISPLAYED_ITEM_HOVER(GameItem item, bool hover);
 
     public class PickableItemDisplayClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
     {
         private Image _spr;
         private GameItem _item;
         private DISPLAYED_ITEM_CLICK _call_click;
-        private DISPALYED_ITEM_HOVER _call_hover;
+        private DISPLAYED_ITEM_HOVER _call_hover;
         private GameObject _glow;
         private Image _sprglow;
         private GameObject _parent;
@@ -27,7 +27,7 @@ namespace Gob3AQ.GameMenu.PickableItemDisplay
             _call_click = fn;
         }
 
-        public void SetHoverCallFunction(DISPALYED_ITEM_HOVER fn)
+        public void SetHoverCallFunction(DISPLAYED_ITEM_HOVER fn)
         {
             _call_hover = fn;
         }

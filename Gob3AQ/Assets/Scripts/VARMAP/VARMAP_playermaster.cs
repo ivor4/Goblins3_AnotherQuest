@@ -35,7 +35,6 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             PLAYER_WAYPOINT_UPDATE = _PLAYER_WAYPOINT_UPDATE;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
             GET_NEAREST_WP = _GET_NEAREST_WP;
-            IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
             INTERACT_PLAYER = _INTERACT_PLAYER;
@@ -112,14 +111,7 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         /// </summary>
         public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
         /// <summary> 
-        /// Tells if an event is occurred
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.IsEventOccurredService"/> </para> 
-        /// </summary>
-        public static IS_EVENT_OCCURRED_DELEGATE IS_EVENT_OCCURRED;
-        /// <summary> 
-        /// Same as IsEventOccurredService but for array of combos with possible negation
+        /// Checks if a combination of events is totally complied (event absence can also be requested)
         /// <para> Owner: GameEventMaster </para> 
         /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, ItemMaster,  </para> 
         /// <para> Method: <see cref="GameEventMasterClass.IsEventCombiOccurredService"/> </para> 
@@ -145,7 +137,7 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         /// <para> Accessors: PlayerMaster,  </para> 
         /// <para> Method: <see cref="LevelMasterClass.PlayerReachedWaypointService"/> </para> 
         /// </summary>
-        public static PLAYER_REACHED_WAYPOINT PLAYER_REACHED_WAYPOINT;
+        public static PLAYER_REACHED_WAYPOINT_DELEGATE PLAYER_REACHED_WAYPOINT;
         /// <summary> 
         /// Subscribe to an event. Invoke when event changes
         /// <para> Owner: GameEventMaster </para> 

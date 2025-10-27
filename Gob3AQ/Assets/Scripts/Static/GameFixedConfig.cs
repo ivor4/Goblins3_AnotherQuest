@@ -34,7 +34,7 @@ namespace Gob3AQ.FixedConfig
 
 
         /* Graphics - Mouse */
-        public const float MENU_TOP_SCREEN_HEIGHT_PERCENT = 0.05f;
+        public const float MENU_TOP_SCREEN_HEIGHT_PERCENT = 64f/768f;
         public const float GAME_ZONE_HEIGHT_PERCENT = 1.0f - MENU_TOP_SCREEN_HEIGHT_PERCENT;
         public const float GAME_ZONE_HEIGHT_FACTOR = 1.0f / GAME_ZONE_HEIGHT_PERCENT;
         public const float GAME_ZONE_CURSOR_MOVE_CAMERA_FACTOR = 0.1f;
@@ -49,7 +49,7 @@ namespace Gob3AQ.FixedConfig
         public const int MAX_FIXED_PHRASES_TO_LOAD = 8;
         public const int MAX_CACHED_SPRITES = 64;
         public const int MAX_CACHED_PHRASES = 64;
-        public const int MAX_DIALOG_OPTIONS = 8;
+        public const int MAX_DIALOG_OPTIONS = 6;
         public const int MAX_POOLED_ITEMS = 32;
         public const int MAX_BUFFERED_EVENTS = 16;
         public const int MAX_LEVEL_WAYPOINTS = 128;

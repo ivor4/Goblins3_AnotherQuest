@@ -1,5 +1,6 @@
 ﻿using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.FixedConfig;
+using Gob3AQ.GameMenu.PickableItemDisplay;
 using Gob3AQ.GameMenu.UICanvas;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceDialogs;
@@ -202,6 +203,20 @@ namespace Gob3AQ.GameMenu
             }
         }
 
+        private void OnInventoryItemHover(GameItem item, bool hover)
+        {
+            if(_menuOpened)
+            {
+                LevelElemInfo info = new(item, GameItemFamily.ITEM_FAMILY_TYPE_OBJECT, null, hover);
+                VARMAP_GameMenu.GAME_ELEMENT_HOVER(in info);
+            }
+        }
+
+        private void OnMenuButtonClick(MenuButtonType type)
+        {
+
+        }
+
         private void StartDialogue(DialogOption option, int totalPhrases)
         {
             dialog_optionPhrases = option;
@@ -293,7 +308,8 @@ namespace Gob3AQ.GameMenu
 
         private IEnumerator LoadCoroutine()
         {
-            Coroutine uicoroutine = StartCoroutine(_uicanvas_cls.Execute_Load_Coroutine(OnDialogOptionClick, OnInventoryItemClick));
+            Coroutine uicoroutine = StartCoroutine(_uicanvas_cls.Execute_Load_Coroutine(OnDialogOptionClick,
+                OnInventoryItemClick, OnInventoryItemHover, OnMenuButtonClick));
             yield return uicoroutine;
 
             /* This is as a deferred Update function */
@@ -337,40 +353,6 @@ namespace Gob3AQ.GameMenu
             }
         }
 
-        void OnGUI()
-        {
-            GUI.backgroundColor = Color.blue;
-
-            GUILayout.BeginArea(_upperGameMenuRect);
-
-
-            
-            GUILayout.BeginVertical();
-            GUILayout.BeginHorizontal();
-
-            int selected = GUILayout.Toolbar(-1, _gameMenuToolbarStrings, GUILayout.Height(_upperGameMenuRect.height));
-
-            switch(selected)
-            {
-                case 0:
-                    VARMAP_GameMenu.SAVE_GAME();
-                    break;
-
-                case 1:
-                    VARMAP_GameMenu.EXIT_GAME(out _);
-                    break;
-
-                default:
-                    break;
-            }
-
-            GUILayout.EndHorizontal();
-            GUILayout.EndVertical();
-            
-
-            GUILayout.EndArea();
-        }
-
 
 
 
@@ -390,8 +372,19 @@ namespace Gob3AQ.GameMenu
             }
         }
 
-        
 
+        private void UpdateUserInputInteraction(in KeyStruct keys)
+        {
+            if (keys.isKeyCycleReleased(KeyFunctions.KEYFUNC_CHANGEACTION))
+            {
+                UserInputInteraction interaction = VARMAP_GameMenu.GET_SHADOW_USER_INPUT_INTERACTION();
+                int intinteraction = ((int)interaction + 1) % (int)UserInputInteraction.INPUT_INTERACTION_TOTAL;
+
+                interaction = (UserInputInteraction)intinteraction;
+
+                VARMAP_GameMenu.SET_USER_INPUT_INTERACTION(interaction);
+            }
+        }
 
 
 

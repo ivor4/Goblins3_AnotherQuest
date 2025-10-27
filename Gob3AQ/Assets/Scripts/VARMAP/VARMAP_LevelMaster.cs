@@ -43,8 +43,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
             GET_SHADOW_ITEM_HOVER = _GET_SHADOW_ITEM_HOVER;
             SET_ITEM_HOVER = _SET_ITEM_HOVER;
             GET_USER_INPUT_INTERACTION = _GET_USER_INPUT_INTERACTION;
-            GET_SHADOW_USER_INPUT_INTERACTION = _GET_SHADOW_USER_INPUT_INTERACTION;
-            SET_USER_INPUT_INTERACTION = _SET_USER_INPUT_INTERACTION;
             SAVE_GAME = _SAVE_GAME;
             LOAD_ROOM = _LOAD_ROOM;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
@@ -55,10 +53,9 @@ namespace Gob3AQ.VARMAP.LevelMaster
             WP_REGISTER = _WP_REGISTER;
             DOOR_REGISTER = _DOOR_REGISTER;
             PLAYER_WAYPOINT_UPDATE = _PLAYER_WAYPOINT_UPDATE;
-            GAME_ELEMENT_OVER = _GAME_ELEMENT_OVER;
+            GAME_ELEMENT_HOVER = _GAME_ELEMENT_HOVER;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
             GET_NEAREST_WP = _GET_NEAREST_WP;
-            IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
             INTERACT_PLAYER = _INTERACT_PLAYER;
@@ -103,8 +100,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static GetVARMAPValueDelegate<GameItem> GET_SHADOW_ITEM_HOVER;
         public static SetVARMAPValueDelegate<GameItem> SET_ITEM_HOVER;
         public static GetVARMAPValueDelegate<UserInputInteraction> GET_USER_INPUT_INTERACTION;
-        public static GetVARMAPValueDelegate<UserInputInteraction> GET_SHADOW_USER_INPUT_INTERACTION;
-        public static SetVARMAPValueDelegate<UserInputInteraction> SET_USER_INPUT_INTERACTION;
         /* > ATG 2 END */
 
         /* SERVICES */
@@ -182,10 +177,10 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// <summary> 
         /// Any of Game Elements (Player or Item or Door) will call with essential info
         /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: ItemMaster,  </para> 
+        /// <para> Accessors: GameMenu, ItemMaster,  </para> 
         /// <para> Method: <see cref="LevelMasterClass.GameElementOverService"/> </para> 
         /// </summary>
-        public static GAME_ELEMENT_OVER_DELEGATE GAME_ELEMENT_OVER;
+        public static GAME_ELEMENT_HOVER_DELEGATE GAME_ELEMENT_HOVER;
         /// <summary> 
         /// Gets a list of actual players
         /// <para> Owner: LevelMaster </para> 
@@ -201,14 +196,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// </summary>
         public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
         /// <summary> 
-        /// Tells if an event is occurred
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.IsEventOccurredService"/> </para> 
-        /// </summary>
-        public static IS_EVENT_OCCURRED_DELEGATE IS_EVENT_OCCURRED;
-        /// <summary> 
-        /// Same as IsEventOccurredService but for array of combos with possible negation
+        /// Checks if a combination of events is totally complied (event absence can also be requested)
         /// <para> Owner: GameEventMaster </para> 
         /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, ItemMaster,  </para> 
         /// <para> Method: <see cref="GameEventMasterClass.IsEventCombiOccurredService"/> </para> 
@@ -234,7 +222,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// <para> Accessors: PlayerMaster,  </para> 
         /// <para> Method: <see cref="LevelMasterClass.PlayerReachedWaypointService"/> </para> 
         /// </summary>
-        public static PLAYER_REACHED_WAYPOINT PLAYER_REACHED_WAYPOINT;
+        public static PLAYER_REACHED_WAYPOINT_DELEGATE PLAYER_REACHED_WAYPOINT;
         /// <summary> 
         /// Uses an item with something
         /// <para> Owner: ItemMaster </para> 

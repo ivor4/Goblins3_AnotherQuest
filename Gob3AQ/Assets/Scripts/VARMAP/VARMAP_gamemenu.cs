@@ -38,13 +38,16 @@ namespace Gob3AQ.VARMAP.GameMenu
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
             GET_SHADOW_PICKABLE_ITEM_CHOSEN = _GET_SHADOW_PICKABLE_ITEM_CHOSEN;
             SET_PICKABLE_ITEM_CHOSEN = _SET_PICKABLE_ITEM_CHOSEN;
+            GET_USER_INPUT_INTERACTION = _GET_USER_INPUT_INTERACTION;
+            GET_SHADOW_USER_INPUT_INTERACTION = _GET_SHADOW_USER_INPUT_INTERACTION;
+            SET_USER_INPUT_INTERACTION = _SET_USER_INPUT_INTERACTION;
             START_GAME = _START_GAME;
             SAVE_GAME = _SAVE_GAME;
             LOAD_GAME = _LOAD_GAME;
             EXIT_GAME = _EXIT_GAME;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
-            IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
+            GAME_ELEMENT_HOVER = _GAME_ELEMENT_HOVER;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
@@ -78,6 +81,9 @@ namespace Gob3AQ.VARMAP.GameMenu
         public static GetVARMAPValueDelegate<GameItem> GET_PICKABLE_ITEM_CHOSEN;
         public static GetVARMAPValueDelegate<GameItem> GET_SHADOW_PICKABLE_ITEM_CHOSEN;
         public static SetVARMAPValueDelegate<GameItem> SET_PICKABLE_ITEM_CHOSEN;
+        public static GetVARMAPValueDelegate<UserInputInteraction> GET_USER_INPUT_INTERACTION;
+        public static GetVARMAPValueDelegate<UserInputInteraction> GET_SHADOW_USER_INPUT_INTERACTION;
+        public static SetVARMAPValueDelegate<UserInputInteraction> SET_USER_INPUT_INTERACTION;
         /* > ATG 2 END */
 
         /* SERVICES */
@@ -125,14 +131,14 @@ namespace Gob3AQ.VARMAP.GameMenu
         /// </summary>
         public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
         /// <summary> 
-        /// Tells if an event is occurred
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.IsEventOccurredService"/> </para> 
+        /// Any of Game Elements (Player or Item or Door) will call with essential info
+        /// <para> Owner: LevelMaster </para> 
+        /// <para> Accessors: GameMenu, ItemMaster,  </para> 
+        /// <para> Method: <see cref="LevelMasterClass.GameElementOverService"/> </para> 
         /// </summary>
-        public static IS_EVENT_OCCURRED_DELEGATE IS_EVENT_OCCURRED;
+        public static GAME_ELEMENT_HOVER_DELEGATE GAME_ELEMENT_HOVER;
         /// <summary> 
-        /// Same as IsEventOccurredService but for array of combos with possible negation
+        /// Checks if a combination of events is totally complied (event absence can also be requested)
         /// <para> Owner: GameEventMaster </para> 
         /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, ItemMaster,  </para> 
         /// <para> Method: <see cref="GameEventMasterClass.IsEventCombiOccurredService"/> </para> 

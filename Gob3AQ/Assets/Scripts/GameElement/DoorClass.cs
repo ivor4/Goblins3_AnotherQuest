@@ -2,6 +2,7 @@ using UnityEngine;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.Waypoint;
 using Gob3AQ.VARMAP.LevelMaster;
+using System;
 
 namespace Gob3AQ.GameElement.Door
 {
@@ -52,7 +53,9 @@ namespace Gob3AQ.GameElement.Door
         {
             if (_neededEvent != GameEvent.EVENT_NONE)
             {
-                VARMAP_LevelMaster.IS_EVENT_OCCURRED(_neededEvent, out bool occurred);
+                GameEventCombi combi = new(_neededEvent, false);
+                Span<GameEventCombi> combis = stackalloc GameEventCombi[1] { combi };
+                VARMAP_LevelMaster.IS_EVENT_COMBI_OCCURRED(combis, out bool occurred);
 
                 if(occurred)
                 {

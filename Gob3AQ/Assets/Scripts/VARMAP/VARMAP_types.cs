@@ -68,6 +68,7 @@ namespace Gob3AQ.VARMAP.Types
         public readonly bool active;
 
         public static readonly LevelElemInfo EMPTY = new(GameItem.ITEM_NONE, GameItemFamily.ITEM_FAMILY_TYPE_NONE, null, false);
+        public static readonly LevelElemInfo DEACTIVATOR = new(GameItem.ITEM_NONE, GameItemFamily.ITEM_FAMILY_TYPE_NONE, null, true);
 
         public LevelElemInfo(GameItem item, GameItemFamily family, WaypointClass waypoint, bool active)
         {

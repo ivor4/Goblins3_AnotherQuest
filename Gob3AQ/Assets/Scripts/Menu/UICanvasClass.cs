@@ -7,6 +7,7 @@ using Gob3AQ.ResourceDialogs;
 using Gob3AQ.ResourceSprites;
 using Gob3AQ.VARMAP.GraphicsMaster;
 using Gob3AQ.VARMAP.Types;
+using Gob3AQ.VARMAP.Types.Delegates;
 using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
@@ -15,6 +16,7 @@ using UnityEngine.UI;
 
 namespace Gob3AQ.GameMenu.UICanvas
 {
+    public delegate void MENU_BUTTON_CLICK_DELEGATE(MenuButtonType type);
     public enum DisplayMode
     {
         DISPLAY_MODE_NONE,
@@ -27,6 +29,16 @@ namespace Gob3AQ.GameMenu.UICanvas
         DIALOG_MODE_NONE,
         DIALOG_MODE_OPTIONS,
         DIALOG_MODE_PHRASE
+    }
+
+    public enum MenuButtonType
+    {
+        MENU_BUTTON_NONE,
+        MENU_BUTTON_SAVE,
+        MENU_BUTTON_EXIT,
+        MENU_BUTTON_TAKE,
+        MENU_BUTTON_TALK,
+        MENU_BUTTON_OBSERVE
     }
 
     public class UICanvasClass : MonoBehaviour
@@ -53,7 +65,12 @@ namespace Gob3AQ.GameMenu.UICanvas
         private Image cursor_subobj_spr;
         private TMP_Text cursor_textobj_text;
 
-        private GameItem hovered_item;
+        private GameObject UICanvas_uppertoolbarObj;
+        private Button saveButton;
+        private Button exitButton;
+        private Button takeButton;
+        private Button talkButton;
+        private Button observeButton;
 
 
         private void Awake()
@@ -80,6 +97,13 @@ namespace Gob3AQ.GameMenu.UICanvas
             cursor_userInteractionSel = cursor.transform.Find("UserInteractionSel").gameObject;
             cursor_userInteraction_cls = cursor_userInteractionSel.GetComponent<UIUserInteractionSelClass>();
 
+            UICanvas_uppertoolbarObj = transform.Find("UpperToolbar").gameObject;
+            saveButton = UICanvas_uppertoolbarObj.transform.Find("SaveButton").GetComponent<Button>();
+            exitButton = UICanvas_uppertoolbarObj.transform.Find("ExitButton").GetComponent<Button>();
+            takeButton = UICanvas_uppertoolbarObj.transform.Find("TakeButton").GetComponent<Button>();
+            talkButton = UICanvas_uppertoolbarObj.transform.Find("TalkButton").GetComponent<Button>();
+            observeButton = UICanvas_uppertoolbarObj.transform.Find("ObserveButton").GetComponent<Button>();
+
             /* Will be enabled at the end of Loading (new display mode) */
             raycaster.enabled = false;
         }
@@ -88,8 +112,6 @@ namespace Gob3AQ.GameMenu.UICanvas
         {
             /* On every change of dispaly mode, abort any animation of User Interaction change and hide related objects */
             cursor_userInteraction_cls.Disable();
-            hovered_item = GameItem.ITEM_NONE;
-            SetCursorLabel(hovered_item);
             raycaster.enabled = true;
 
             switch (mode)
@@ -237,9 +259,19 @@ namespace Gob3AQ.GameMenu.UICanvas
             cursor_userInteraction_cls.AnimateNewUserInteraction(interaction);
         }
 
-        public IEnumerator Execute_Load_Coroutine(DIALOG_OPTION_CLICK_DELEGATE OnDialogOptionClick, DISPLAYED_ITEM_CLICK OnItemDisplayClick)
+        public IEnumerator Execute_Load_Coroutine(DIALOG_OPTION_CLICK_DELEGATE OnDialogOptionClick,
+            DISPLAYED_ITEM_CLICK OnItemDisplayClick,
+            DISPLAYED_ITEM_HOVER OnHover,
+            MENU_BUTTON_CLICK_DELEGATE OnMenuButtonClick
+            )
         {
             bool sprites_loaded = false;
+
+            saveButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_SAVE));
+            exitButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_EXIT));
+            takeButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_TAKE));
+            talkButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_TALK));
+            observeButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_OBSERVE));
 
 
             for (int i = 0; i < GameFixedConfig.MAX_DIALOG_OPTIONS; ++i)
@@ -256,7 +288,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                 GameObject itemObj = UICanvas_itemMenuObj.transform.Find("Item" + (i + 1)).Find("Item").gameObject;
                 UICanvas_inventoryButtons[i] = itemObj.GetComponent<PickableItemDisplayClass>();
                 UICanvas_inventoryButtons[i].SetOnClickCallFunction(OnItemDisplayClick);
-                UICanvas_inventoryButtons[i].SetHoverCallFunction(_OnInventoryItemHover);
+                UICanvas_inventoryButtons[i].SetHoverCallFunction(OnHover);
                 yield return ResourceAtlasClass.WaitForNextFrame;
             }
 
@@ -268,25 +300,12 @@ namespace Gob3AQ.GameMenu.UICanvas
             }
 
             UICanvas_itemMenuObj.GetComponent<Image>().sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_INVENTORY);
+            takeButton.image.sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_UI_TAKE);
+            talkButton.image.sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_UI_TALK);
+            observeButton.image.sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_UI_OBSERVE);
 
             cursor_userInteraction_cls.LoadTask();
         }
 
-        private void _OnInventoryItemHover(GameItem item, bool hover)
-        {
-            if (hover)
-            {
-                hovered_item = item;
-                SetCursorLabel(hovered_item);
-            }
-            else
-            {
-                if (hovered_item == item)
-                {
-                    hovered_item = GameItem.ITEM_NONE;
-                    SetCursorLabel(hovered_item);
-                }
-            }
-        }
     }
 }

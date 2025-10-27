@@ -206,10 +206,10 @@ namespace Gob3AQ.VARMAP
         /// <summary> 
         /// Any of Game Elements (Player or Item or Door) will call with essential info
         /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: ItemMaster,  </para> 
+        /// <para> Accessors: GameMenu, ItemMaster,  </para> 
         /// <para> Method: <see cref="LevelMasterClass.GameElementOverService"/> </para> 
         /// </summary>
-        protected static GAME_ELEMENT_OVER_DELEGATE _GAME_ELEMENT_OVER;
+        protected static GAME_ELEMENT_HOVER_DELEGATE _GAME_ELEMENT_HOVER;
         /// <summary> 
         /// Gets a list of actual players
         /// <para> Owner: LevelMaster </para> 
@@ -225,14 +225,7 @@ namespace Gob3AQ.VARMAP
         /// </summary>
         protected static GET_NEAREST_WP_DELEGATE _GET_NEAREST_WP;
         /// <summary> 
-        /// Tells if an event is occurred
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.IsEventOccurredService"/> </para> 
-        /// </summary>
-        protected static IS_EVENT_OCCURRED_DELEGATE _IS_EVENT_OCCURRED;
-        /// <summary> 
-        /// Same as IsEventOccurredService but for array of combos with possible negation
+        /// Checks if a combination of events is totally complied (event absence can also be requested)
         /// <para> Owner: GameEventMaster </para> 
         /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, ItemMaster,  </para> 
         /// <para> Method: <see cref="GameEventMasterClass.IsEventCombiOccurredService"/> </para> 
@@ -258,7 +251,7 @@ namespace Gob3AQ.VARMAP
         /// <para> Accessors: PlayerMaster,  </para> 
         /// <para> Method: <see cref="LevelMasterClass.PlayerReachedWaypointService"/> </para> 
         /// </summary>
-        protected static PLAYER_REACHED_WAYPOINT _PLAYER_REACHED_WAYPOINT;
+        protected static PLAYER_REACHED_WAYPOINT_DELEGATE _PLAYER_REACHED_WAYPOINT;
         /// <summary> 
         /// Uses an item with something
         /// <para> Owner: ItemMaster </para> 

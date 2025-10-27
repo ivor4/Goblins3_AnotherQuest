@@ -35,9 +35,8 @@ namespace Gob3AQ.VARMAP.ItemMaster
             ITEM_REGISTER = _ITEM_REGISTER;
             ITEM_OBTAIN_PICKABLE = _ITEM_OBTAIN_PICKABLE;
             ITEM_OBTAIN_PICKABLE_EVENT = _ITEM_OBTAIN_PICKABLE_EVENT;
-            GAME_ELEMENT_OVER = _GAME_ELEMENT_OVER;
+            GAME_ELEMENT_HOVER = _GAME_ELEMENT_HOVER;
             GET_NEAREST_WP = _GET_NEAREST_WP;
-            IS_EVENT_OCCURRED = _IS_EVENT_OCCURRED;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
             USE_ITEM = _USE_ITEM;
@@ -105,10 +104,10 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /// <summary> 
         /// Any of Game Elements (Player or Item or Door) will call with essential info
         /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: ItemMaster,  </para> 
+        /// <para> Accessors: GameMenu, ItemMaster,  </para> 
         /// <para> Method: <see cref="LevelMasterClass.GameElementOverService"/> </para> 
         /// </summary>
-        public static GAME_ELEMENT_OVER_DELEGATE GAME_ELEMENT_OVER;
+        public static GAME_ELEMENT_HOVER_DELEGATE GAME_ELEMENT_HOVER;
         /// <summary> 
         /// Gets nearest WP from a given coordinates of level
         /// <para> Owner: LevelMaster </para> 
@@ -117,14 +116,7 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /// </summary>
         public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
         /// <summary> 
-        /// Tells if an event is occurred
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.IsEventOccurredService"/> </para> 
-        /// </summary>
-        public static IS_EVENT_OCCURRED_DELEGATE IS_EVENT_OCCURRED;
-        /// <summary> 
-        /// Same as IsEventOccurredService but for array of combos with possible negation
+        /// Checks if a combination of events is totally complied (event absence can also be requested)
         /// <para> Owner: GameEventMaster </para> 
         /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, ItemMaster,  </para> 
         /// <para> Method: <see cref="GameEventMasterClass.IsEventCombiOccurredService"/> </para> 

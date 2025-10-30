@@ -71,6 +71,9 @@ namespace Gob3AQ.GameMenu.UICanvas
         private Button takeButton;
         private Button talkButton;
         private Button observeButton;
+        private Image takeButton_img;
+        private Image talkButton_img;
+        private Image observeButton_img;
 
 
         private void Awake()
@@ -103,6 +106,9 @@ namespace Gob3AQ.GameMenu.UICanvas
             takeButton = UICanvas_uppertoolbarObj.transform.Find("TakeButton").GetComponent<Button>();
             talkButton = UICanvas_uppertoolbarObj.transform.Find("TalkButton").GetComponent<Button>();
             observeButton = UICanvas_uppertoolbarObj.transform.Find("ObserveButton").GetComponent<Button>();
+            takeButton_img = takeButton.gameObject.GetComponent<Image>();
+            talkButton_img = talkButton.gameObject.GetComponent<Image>();
+            observeButton_img = observeButton.gameObject.GetComponent<Image>();
 
             /* Will be enabled at the end of Loading (new display mode) */
             raycaster.enabled = false;
@@ -216,6 +222,28 @@ namespace Gob3AQ.GameMenu.UICanvas
                 ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(item);
                 cursor_textobj_text.text = ResourceDialogsClass.GetName(itemInfo.name);
                 cursor_textobj.SetActive(true);
+            }
+        }
+
+        public void SetUserInteraction(UserInputInteraction interaction)
+        {
+            switch(interaction)
+            {
+                case UserInputInteraction.INPUT_INTERACTION_TAKE:
+                    takeButton_img.color = Color.white;
+                    talkButton_img.color = Color.gray;
+                    observeButton_img.color = Color.gray;
+                    break;
+                case UserInputInteraction.INPUT_INTERACTION_TALK:
+                    takeButton_img.color = Color.gray;
+                    talkButton_img.color = Color.white;
+                    observeButton_img.color = Color.gray;
+                    break;
+                default:
+                    takeButton_img.color = Color.gray;
+                    talkButton_img.color = Color.gray;
+                    observeButton_img.color = Color.white;
+                    break;
             }
         }
 

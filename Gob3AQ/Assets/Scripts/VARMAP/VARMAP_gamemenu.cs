@@ -4,6 +4,7 @@ using Gob3AQ.GameMaster;
 using Gob3AQ.LevelMaster;
 using Gob3AQ.PlayerMaster;
 using Gob3AQ.ItemMaster;
+using Gob3AQ.InputMaster;
 using Gob3AQ.GameEventMaster;
 
 namespace Gob3AQ.VARMAP.GameMenu
@@ -51,6 +52,7 @@ namespace Gob3AQ.VARMAP.GameMenu
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
+            KEY_SUBSCRIPTION = _KEY_SUBSCRIPTION;
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
             SHOW_DIALOGUE = _SHOW_DIALOGUE;
             /* > ATG 1 END */
@@ -158,6 +160,13 @@ namespace Gob3AQ.VARMAP.GameMenu
         /// <para> Method: <see cref="GameMenuClass.CancelPickableItemService"/> </para> 
         /// </summary>
         public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
+        /// <summary> 
+        /// Subscribe to determined key events to avoid polling
+        /// <para> Owner: InputMaster </para> 
+        /// <para> Accessors: GameMenu,  </para> 
+        /// <para> Method: <see cref="InputMasterClass.KeySubscriptionService"/> </para> 
+        /// </summary>
+        public static KEY_SUBSCRIPTION_DELEGATE KEY_SUBSCRIPTION;
         /// <summary> 
         /// Asks Game Master to set game mode
         /// <para> Owner: GameMaster </para> 

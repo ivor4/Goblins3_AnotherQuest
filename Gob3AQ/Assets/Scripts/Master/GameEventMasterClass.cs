@@ -143,7 +143,6 @@ namespace Gob3AQ.GameEventMaster
             else
             {
                 _singleton = this;
-                _bufferedEvents = null;
                 _event_subscription = new EVENT_SUBSCRIPTION_CALL_DELEGATE[(int)GamePickableItem.ITEM_PICK_TOTAL + (int)GameEvent.EVENT_TOTAL];
                 _bufferedEvents = new(GameFixedConfig.MAX_BUFFERED_EVENTS);
             }
@@ -154,29 +153,13 @@ namespace Gob3AQ.GameEventMaster
             if (_singleton != null)
             {
                 VARMAP_GameEventMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameEventMaster);
-                VARMAP_GameEventMaster.REG_EVENTS_OCCURRED(_OnEventsChanged);
             }
         }
 
-
-
-        void OnDestroy()
+        /* This module is executed just after GameMaster (which will not interfere by services or variable with this module) */
+        /* Therefore here in Update are processed changed events from last cycle (which is desirable scenario) */
+        private void Update()
         {
-            if (_singleton == this)
-            {
-                _event_subscription = null;
-                _singleton = null;
-                VARMAP_GameEventMaster.UNREG_EVENTS_OCCURRED(_OnEventsChanged);
-            }
-        }
-
-        private void _OnEventsChanged(ChangedEventType eventType, in MultiBitFieldStruct oldval, in MultiBitFieldStruct newval)
-        {
-            _ = eventType;
-            _ = oldval;
-            _ = newval;
-
-
             /* Process all buffered events */
             while (_bufferedEvents.TryDequeue(out int evIndex))
             {
@@ -189,5 +172,16 @@ namespace Gob3AQ.GameEventMaster
                 _event_subscription[evIndex]?.Invoke(active);
             }
         }
+
+
+        void OnDestroy()
+        {
+            if (_singleton == this)
+            {
+                _event_subscription = null;
+                _singleton = null;
+            }
+        }
+
     }
 }

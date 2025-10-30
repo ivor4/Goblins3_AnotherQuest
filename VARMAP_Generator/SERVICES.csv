@@ -24,7 +24,8 @@ N,SERVICE_ID,SPECIAL_DELEGATE,SERVICE_ROUTE,Description,Separator,GameMaster,Inp
 22,IS_ITEM_TAKEN_FROM_SCENE,IS_ITEM_TAKEN_FROM_SCENE_DELEGATE,GameEventMasterClass.IsItemTakenFromSceneService,Tells if a pickable item has already been picked in game,,-,-,X,-,-,-,X,W
 23,CANCEL_PICKABLE_ITEM,CANCEL_PICKABLE_ITEM_DELEGATE,GameMenuClass.CancelPickableItemService,Cancels selected item,,-,-,X,-,W,-,X,-
 24,EVENT_SUBSCRIPTION,EVENT_SUBSCRIPTION_DELEGATE,GameEventMasterClass.EventSubscriptionService,Subscribe to an event. Invoke when event changes,,-,-,X,-,-,X,X,W
-25,LOCK_PLAYER,LOCK_PLAYER_DELEGATE,PlayerMasterClass.LockPlayerService,Locks player so it cannot act until an action over it has been done (or removes lock),,-,-,X,-,-,W,-,-
-26,CHANGE_GAME_MODE,CHANGE_GAME_MODE_DELEGATE,GameMasterClass.ChangeGameModeService,Asks Game Master to set game mode,,W,-,X,-,X,-,-,-
-27,SHOW_DIALOGUE,SHOW_DIALOGUE_DELEGATE,GameMenuClass.ShowDialogueService,Second part of start dialogue. Tells Game Menu to prepare menu elements,,-,-,X,-,W,-,-,-
-28,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-
+25,KEY_SUBSCRIPTION,KEY_SUBSCRIPTION_DELEGATE,InputMasterClass.KeySubscriptionService,Subscribe to determined key events to avoid polling,,-,W,-,-,X,-,-,-
+26,LOCK_PLAYER,LOCK_PLAYER_DELEGATE,PlayerMasterClass.LockPlayerService,Locks player so it cannot act until an action over it has been done (or removes lock),,-,-,X,-,-,W,-,-
+27,CHANGE_GAME_MODE,CHANGE_GAME_MODE_DELEGATE,GameMasterClass.ChangeGameModeService,Asks Game Master to set game mode,,W,-,X,-,X,-,-,-
+28,SHOW_DIALOGUE,SHOW_DIALOGUE_DELEGATE,GameMenuClass.ShowDialogueService,Second part of start dialogue. Tells Game Menu to prepare menu elements,,-,-,X,-,W,-,-,-
+29,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-

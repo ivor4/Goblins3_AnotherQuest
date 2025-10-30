@@ -30,6 +30,7 @@ namespace Gob3AQ.VARMAP.InputMaster
             SET_MOUSE_PROPERTIES = _SET_MOUSE_PROPERTIES;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
+            KEY_SUBSCRIPTION = _KEY_SUBSCRIPTION;
             /* > ATG 1 END */
         }
 
@@ -65,6 +66,13 @@ namespace Gob3AQ.VARMAP.InputMaster
         /// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
         /// </summary>
         public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
+        /// <summary> 
+        /// Subscribe to determined key events to avoid polling
+        /// <para> Owner: InputMaster </para> 
+        /// <para> Accessors: GameMenu,  </para> 
+        /// <para> Method: <see cref="InputMasterClass.KeySubscriptionService"/> </para> 
+        /// </summary>
+        public static KEY_SUBSCRIPTION_DELEGATE KEY_SUBSCRIPTION;
         /* > ATG 3 END */
     }
 }

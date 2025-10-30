@@ -20,19 +20,31 @@ namespace Gob3AQ.VARMAP.Types
         CHANGED_EVENT_SET_LIST_ELEM
     }
 
+    public enum KeyFunctionsIndex
+    {
+        KEYFUNC_INDEX_CHANGEACTION = 0,
+        KEYFUNC_INDEX_SELECT = 1,
+        KEYFUNC_INDEX_INVENTORY = 2,
+        KEYFUNC_INDEX_ZOOM_UP = 3,
+        KEYFUNC_INDEX_ZOOM_DOWN = 4,
+        KEYFUNC_INDEX_DRAG = 5,
+        KEYFUNC_INDEX_PAUSE = 6,
+
+        KEYFUNC_INDEX_TOTAL
+    }
+
     [System.Flags]
     public enum KeyFunctions
     {
         KEYFUNC_NONE = 0,
-        KEYFUNC_CHANGEACTION = 1 << 0,
-        KEYFUNC_SELECT = 1 << 1,
-        KEYFUNC_INVENTORY = 1 << 2,
-        KEYFUNC_ZOOM_UP = 1 << 3,
-        KEYFUNC_ZOOM_DOWN = 1 << 4,
-        KEYFUNC_DRAG = 1 << 5,
-        KEYFUNC_PAUSE = 1 << 6
+        KEYFUNC_CHANGEACTION = 1 << KeyFunctionsIndex.KEYFUNC_INDEX_CHANGEACTION,
+        KEYFUNC_SELECT = 1 << KeyFunctionsIndex.KEYFUNC_INDEX_SELECT,
+        KEYFUNC_INVENTORY = 1 << KeyFunctionsIndex.KEYFUNC_INDEX_INVENTORY,
+        KEYFUNC_ZOOM_UP = 1 << KeyFunctionsIndex.KEYFUNC_INDEX_ZOOM_UP,
+        KEYFUNC_ZOOM_DOWN = 1 << KeyFunctionsIndex.KEYFUNC_INDEX_ZOOM_DOWN,
+        KEYFUNC_DRAG = 1 << KeyFunctionsIndex.KEYFUNC_INDEX_DRAG,
+        KEYFUNC_PAUSE = 1 << KeyFunctionsIndex.KEYFUNC_INDEX_PAUSE
     }
-
 
     public enum UserInputInteraction
     {
@@ -709,7 +721,7 @@ namespace Gob3AQ.VARMAP.Types
         public KeyFunctions cyclepressedKeys;
         public KeyFunctions cyclereleasedKeys;
 
-
+        public static readonly KeyStruct KEY_EMPTY = default;
 
         public readonly int GetElemSize()
         {

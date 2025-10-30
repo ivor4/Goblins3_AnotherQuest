@@ -31,9 +31,6 @@ namespace Gob3AQ.GameMenu
         private static GameMenuClass _singleton;
         private bool _menuOpened;
         
-        private Rect _upperGameMenuRect;
-        
-        private string[] _gameMenuToolbarStrings;
 
         private UICanvasClass _uicanvas_cls;
 
@@ -214,7 +211,26 @@ namespace Gob3AQ.GameMenu
 
         private void OnMenuButtonClick(MenuButtonType type)
         {
-
+            switch(type)
+            {
+                case MenuButtonType.MENU_BUTTON_SAVE:
+                    VARMAP_GameMenu.SAVE_GAME();
+                    break;
+                case MenuButtonType.MENU_BUTTON_EXIT:
+                    VARMAP_GameMenu.EXIT_GAME(out _);
+                    break;
+                case MenuButtonType.MENU_BUTTON_TAKE:
+                    SetUserInteraction(UserInputInteraction.INPUT_INTERACTION_TAKE);
+                    break;
+                case MenuButtonType.MENU_BUTTON_TALK:
+                    SetUserInteraction(UserInputInteraction.INPUT_INTERACTION_TALK);
+                    break;
+                case MenuButtonType.MENU_BUTTON_OBSERVE:
+                    SetUserInteraction(UserInputInteraction.INPUT_INTERACTION_OBSERVE);
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void StartDialogue(DialogOption option, int totalPhrases)
@@ -284,8 +300,6 @@ namespace Gob3AQ.GameMenu
                 _singleton = this;
 
                 float menuHeight = Screen.safeArea.height * GameFixedConfig.MENU_TOP_SCREEN_HEIGHT_PERCENT;
-                _upperGameMenuRect = new Rect(0, 0, Screen.safeArea.width, menuHeight);
-                _gameMenuToolbarStrings = new string[] { "Save Game", "Exit Game" };
                 dialog_input_talkers = new GameItem[GameFixedConfig.MAX_DIALOG_TALKERS];
 
                 yield_custom = new WaitUntil(WaitUntilCondition);
@@ -300,6 +314,7 @@ namespace Gob3AQ.GameMenu
         {
             VARMAP_GameMenu.REG_PICKABLE_ITEM_OWNER(_OnItemOwnerChanged);
             VARMAP_GameMenu.REG_GAMESTATUS(_OnGameStatusChanged);
+            VARMAP_GameMenu.KEY_SUBSCRIPTION(KeyFunctionsIndex.KEYFUNC_INDEX_CHANGEACTION, _OnKeyPressedChanged, true);
 
             _uicanvas_cls = UICanvas.GetComponent<UICanvasClass>();
 
@@ -311,6 +326,10 @@ namespace Gob3AQ.GameMenu
             Coroutine uicoroutine = StartCoroutine(_uicanvas_cls.Execute_Load_Coroutine(OnDialogOptionClick,
                 OnInventoryItemClick, OnInventoryItemHover, OnMenuButtonClick));
             yield return uicoroutine;
+
+            /* Preset with actual value */
+            UserInputInteraction interaction = VARMAP_GameMenu.GET_SHADOW_USER_INPUT_INTERACTION();
+            _uicanvas_cls.SetUserInteraction(interaction);
 
             /* This is as a deferred Update function */
             dialog_main_coroutine = StartCoroutine(UpdateDialog_Coroutine());
@@ -369,22 +388,10 @@ namespace Gob3AQ.GameMenu
 
                 VARMAP_GameMenu.UNREG_PICKABLE_ITEM_OWNER(_OnItemOwnerChanged);
                 VARMAP_GameMenu.UNREG_GAMESTATUS(_OnGameStatusChanged);
+                VARMAP_GameMenu.KEY_SUBSCRIPTION(KeyFunctionsIndex.KEYFUNC_INDEX_CHANGEACTION, _OnKeyPressedChanged, false);
             }
         }
 
-
-        private void UpdateUserInputInteraction(in KeyStruct keys)
-        {
-            if (keys.isKeyCycleReleased(KeyFunctions.KEYFUNC_CHANGEACTION))
-            {
-                UserInputInteraction interaction = VARMAP_GameMenu.GET_SHADOW_USER_INPUT_INTERACTION();
-                int intinteraction = ((int)interaction + 1) % (int)UserInputInteraction.INPUT_INTERACTION_TOTAL;
-
-                interaction = (UserInputInteraction)intinteraction;
-
-                VARMAP_GameMenu.SET_USER_INPUT_INTERACTION(interaction);
-            }
-        }
 
 
 
@@ -425,6 +432,12 @@ namespace Gob3AQ.GameMenu
             }
         }
 
+        private void SetUserInteraction(UserInputInteraction interaction)
+        {
+            _uicanvas_cls.SetUserInteraction(interaction);
+            VARMAP_GameMenu.SET_USER_INPUT_INTERACTION(interaction);
+        }
+
 
         private void _OnItemOwnerChanged(ChangedEventType evtype, in CharacterType oldVal, in CharacterType newVal)
         {
@@ -437,6 +450,27 @@ namespace Gob3AQ.GameMenu
             if (_menuOpened)
             {
                 RefreshItemMenuElements();
+            }
+        }
+
+        private void _OnKeyPressedChanged(KeyFunctionsIndex key, bool isPressed)
+        {
+            switch(key)
+            {
+                case KeyFunctionsIndex.KEYFUNC_INDEX_CHANGEACTION:
+                    if(isPressed)
+                    {
+                        UserInputInteraction interaction = VARMAP_GameMenu.GET_SHADOW_USER_INPUT_INTERACTION();
+                        int intinteraction = ((int)interaction + 1) % (int)UserInputInteraction.INPUT_INTERACTION_TOTAL;
+
+                        interaction = (UserInputInteraction)intinteraction;
+
+                        SetUserInteraction(interaction);
+                    }
+                    break;
+
+                default:
+                    break;
             }
         }
   

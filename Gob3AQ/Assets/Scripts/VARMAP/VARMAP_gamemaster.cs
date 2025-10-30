@@ -18,7 +18,6 @@ namespace Gob3AQ.VARMAP.GameMaster
         public static void UpdateDelegates()
         {
             /* > ATG 1 START */
-            GET_GAME_OPTIONS = _GET_GAME_OPTIONS;
             GET_ELAPSED_TIME_MS = _GET_ELAPSED_TIME_MS;
             GET_SHADOW_ELAPSED_TIME_MS = _GET_SHADOW_ELAPSED_TIME_MS;
             SET_ELAPSED_TIME_MS = _SET_ELAPSED_TIME_MS;
@@ -48,7 +47,6 @@ namespace Gob3AQ.VARMAP.GameMaster
 
         /* GET/SET */
         /* > ATG 2 START */
-        public static GetVARMAPValueDelegate<GameOptionsStruct> GET_GAME_OPTIONS;
         public static GetVARMAPValueDelegate<ulong> GET_ELAPSED_TIME_MS;
         public static GetVARMAPValueDelegate<ulong> GET_SHADOW_ELAPSED_TIME_MS;
         public static SetVARMAPValueDelegate<ulong> SET_ELAPSED_TIME_MS;

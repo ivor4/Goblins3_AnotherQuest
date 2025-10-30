@@ -4,18 +4,36 @@ using UnityEngine;
 using Gob3AQ.VARMAP.InputMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.FixedConfig;
+using Gob3AQ.VARMAP.Types.Delegates;
+using UnityEditor.UI;
 
 namespace Gob3AQ.InputMaster
 {
     public class InputMasterClass : MonoBehaviour
     {
         private static InputMasterClass _singleton;
+        private KEY_SUBSCRIPTION_CALL_DELEGATE[] keySubscription;
         private KeyOptions cachedKeyOptions;
         private KeyStruct cachedPressedKeys;
         private MousePropertiesStruct cachedMouseProps;
         private Camera mainCamera;
         private int wheelDebounce;
 
+
+        public static void KeySubscriptionService(KeyFunctionsIndex key, KEY_SUBSCRIPTION_CALL_DELEGATE func, bool add)
+        {
+            if (_singleton != null)
+            {
+                if (add)
+                {
+                    _singleton.keySubscription[(int)key] += func;
+                }
+                else
+                {
+                    _singleton.keySubscription[(int)key] -= func;
+                }
+            }
+        }
 
 
         private void Awake()
@@ -27,6 +45,7 @@ namespace Gob3AQ.InputMaster
             else
             {
                 _singleton = this;
+                keySubscription = new KEY_SUBSCRIPTION_CALL_DELEGATE[(int)KeyFunctionsIndex.KEYFUNC_INDEX_TOTAL];
             }
         }
 
@@ -41,12 +60,14 @@ namespace Gob3AQ.InputMaster
 
 
             VARMAP_InputMaster.REG_GAME_OPTIONS(_GameOptionsChanged);
-            VARMAP_InputMaster.SET_PRESSED_KEYS(new KeyStruct() { pressedKeys = 0 });
+            VARMAP_InputMaster.SET_PRESSED_KEYS(in KeyStruct.KEY_EMPTY);
             VARMAP_InputMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_InputMaster);
         }
 
         private void Update()
         {
+            ManageKeyEventsSubscription(in cachedPressedKeys);
+
             if (GameFixedConfig.PERIPH_PC)
             {
                 bool wheelUp;
@@ -104,7 +125,7 @@ namespace Gob3AQ.InputMaster
                 cachedMouseProps.pos2 = mouseWorld;
                 cachedMouseProps.posPixels = new Vector2Int((int)mousePosition.x, (int)mousePosition.y);
 
-
+                
                 VARMAP_InputMaster.SET_PRESSED_KEYS(in cachedPressedKeys);
                 VARMAP_InputMaster.SET_MOUSE_PROPERTIES(in cachedMouseProps);
             }
@@ -132,6 +153,53 @@ namespace Gob3AQ.InputMaster
             if (evtype == ChangedEventType.CHANGED_EVENT_SET)
             {
                 cachedKeyOptions = newval.keyOptions;
+            }
+        }
+
+        private void ManageKeyEventsSubscription(in KeyStruct prevCycleKeys)
+        {
+            /* Manage events */
+            int pressed = (int)prevCycleKeys.cyclepressedKeys;
+            int released = (int)prevCycleKeys.cyclereleasedKeys;
+            int combiPressedReleased = pressed | released;
+            int keyIndex = 0;
+
+            while (combiPressedReleased != 0)
+            {
+                bool callEvent;
+                bool isPressed;
+                int amountToShift;
+
+                /* If last bit has info */
+                if((pressed & 0x1) != 0)
+                {
+                    callEvent = true;
+                    isPressed = true;
+                }
+                else if((released & 0x1) != 0)
+                {
+                    callEvent = true;
+                    isPressed = false;
+                }
+                else
+                {
+                    callEvent = false;
+                    isPressed = false;
+                }
+
+                if(callEvent)
+                {
+                    keySubscription[keyIndex]?.Invoke((KeyFunctionsIndex)keyIndex, isPressed);
+                }
+
+                /* Shift one element if next has info, or two if next has no info */
+                amountToShift = 1;
+                amountToShift += 0x1 & (~(combiPressedReleased >> 1));
+
+                combiPressedReleased >>= amountToShift;
+                pressed >>= amountToShift;
+                released >>= amountToShift;
+                keyIndex += amountToShift;
             }
         }
 

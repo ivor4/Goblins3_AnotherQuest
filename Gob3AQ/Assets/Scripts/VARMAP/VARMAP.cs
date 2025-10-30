@@ -3,6 +3,8 @@ using Gob3AQ.GameMaster;
 using Gob3AQ.GameMenu;
 using Gob3AQ.LevelMaster;
 using Gob3AQ.PlayerMaster;
+using Gob3AQ.InputMaster;
+using Gob3AQ.ItemMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.VARMAP.Types.Delegates;
 using Gob3AQ.VARMAP.Variable;
@@ -280,6 +282,13 @@ namespace Gob3AQ.VARMAP
         /// <para> Method: <see cref="GameEventMasterClass.EventSubscriptionService"/> </para> 
         /// </summary>
         protected static EVENT_SUBSCRIPTION_DELEGATE _EVENT_SUBSCRIPTION;
+        /// <summary> 
+        /// Subscribe to determined key events to avoid polling
+        /// <para> Owner: InputMaster </para> 
+        /// <para> Accessors: GameMenu,  </para> 
+        /// <para> Method: <see cref="InputMasterClass.KeySubscriptionService"/> </para> 
+        /// </summary>
+        protected static KEY_SUBSCRIPTION_DELEGATE _KEY_SUBSCRIPTION;
         /// <summary> 
         /// Locks player so it cannot act until an action over it has been done (or removes lock)
         /// <para> Owner: PlayerMaster </para> 

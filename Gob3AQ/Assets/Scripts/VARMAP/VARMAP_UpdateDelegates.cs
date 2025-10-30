@@ -136,6 +136,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _IS_ITEM_TAKEN_FROM_SCENE = GameEventMasterClass.IsItemTakenFromSceneService;
             _CANCEL_PICKABLE_ITEM = GameMenuClass.CancelPickableItemService;
             _EVENT_SUBSCRIPTION = GameEventMasterClass.EventSubscriptionService;
+            _KEY_SUBSCRIPTION = InputMasterClass.KeySubscriptionService;
             _LOCK_PLAYER = PlayerMasterClass.LockPlayerService;
             _CHANGE_GAME_MODE = GameMasterClass.ChangeGameModeService;
             _SHOW_DIALOGUE = GameMenuClass.ShowDialogueService;

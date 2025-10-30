@@ -20,6 +20,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate ReadOnlySpan<T> GetVARMAPArrayDelegate<T>();
     public delegate void SetVARMAPArrayDelegate<T>(List<T> newvals);
     public delegate void EVENT_SUBSCRIPTION_CALL_DELEGATE(bool newStatus);
+    public delegate void KEY_SUBSCRIPTION_CALL_DELEGATE(KeyFunctionsIndex key, bool pressed);
     public delegate void GAME_ELEMENT_HOVER_DELEGATE(in LevelElemInfo info);
 
 
@@ -58,6 +59,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void GET_SCENARIO_ITEM_LIST_DELEGATE(out ReadOnlyList<ItemClass> list);
     public delegate void SELECT_PICKABLE_ITEM_DELEGATE(GameItem item);
     public delegate void CANCEL_PICKABLE_ITEM_DELEGATE();
+    public delegate void KEY_SUBSCRIPTION_DELEGATE(KeyFunctionsIndex key, KEY_SUBSCRIPTION_CALL_DELEGATE callable, bool add);
     public delegate void SET_PLAYER_ANIMATION_DELEGATE(CharacterType character, CharacterAnimation animation);
     public delegate void EVENT_SUBSCRIPTION_DELEGATE(GameEvent gevent, EVENT_SUBSCRIPTION_CALL_DELEGATE callable, bool add);
     public delegate void CROSS_DOOR_DELEGATE(CharacterType character, int doorIndex);

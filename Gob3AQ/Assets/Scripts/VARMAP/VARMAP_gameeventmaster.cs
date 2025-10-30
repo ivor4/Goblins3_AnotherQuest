@@ -25,11 +25,6 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             GET_ARRAY_EVENTS_OCCURRED = _GET_ARRAY_EVENTS_OCCURRED;
             GET_SHADOW_ARRAY_EVENTS_OCCURRED = _GET_SHADOW_ARRAY_EVENTS_OCCURRED;
             SET_ARRAY_EVENTS_OCCURRED = _SET_ARRAY_EVENTS_OCCURRED;
-            REG_EVENTS_OCCURRED = _REG_EVENTS_OCCURRED;
-            UNREG_EVENTS_OCCURRED = _UNREG_EVENTS_OCCURRED;
-            GET_GAMESTATUS = _GET_GAMESTATUS;
-            REG_GAMESTATUS = _REG_GAMESTATUS;
-            UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             ITEM_OBTAIN_PICKABLE_EVENT = _ITEM_OBTAIN_PICKABLE_EVENT;
@@ -51,11 +46,6 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         public static GetVARMAPArrayDelegate<MultiBitFieldStruct> GET_ARRAY_EVENTS_OCCURRED;
         public static GetVARMAPArrayDelegate<MultiBitFieldStruct> GET_SHADOW_ARRAY_EVENTS_OCCURRED;
         public static SetVARMAPArrayDelegate<MultiBitFieldStruct> SET_ARRAY_EVENTS_OCCURRED;
-        public static ReUnRegisterVARMAPValueChangeEventDelegate<MultiBitFieldStruct> REG_EVENTS_OCCURRED;
-        public static ReUnRegisterVARMAPValueChangeEventDelegate<MultiBitFieldStruct> UNREG_EVENTS_OCCURRED;
-        public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
-        public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
-        public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
         /* > ATG 2 END */
 
         /* SERVICES */

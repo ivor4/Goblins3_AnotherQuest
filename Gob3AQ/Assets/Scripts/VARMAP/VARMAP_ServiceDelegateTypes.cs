@@ -18,7 +18,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void SetVARMAPArrayElemValueDelegate<T>(int pos, in T newval);
     public delegate int GetVARMAPArraySizeDelegate();
     public delegate ReadOnlySpan<T> GetVARMAPArrayDelegate<T>();
-    public delegate void SetVARMAPArrayDelegate<T>(List<T> newvals);
+    public delegate void SetVARMAPArrayDelegate<T>(ReadOnlySpan<T> newvals);
     public delegate void EVENT_SUBSCRIPTION_CALL_DELEGATE(bool newStatus);
     public delegate void KEY_SUBSCRIPTION_CALL_DELEGATE(KeyFunctionsIndex key, bool pressed);
     public delegate void GAME_ELEMENT_HOVER_DELEGATE(in LevelElemInfo info);

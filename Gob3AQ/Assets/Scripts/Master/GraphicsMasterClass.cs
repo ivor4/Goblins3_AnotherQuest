@@ -40,7 +40,6 @@ namespace Gob3AQ.GraphicsMaster
 
         private bool pickableSelected;
 
-        private Game_Status cachedGameStatus;
         private bool _loaded;
 
 
@@ -79,7 +78,6 @@ namespace Gob3AQ.GraphicsMaster
             VARMAP_GraphicsMaster.REG_ITEM_HOVER(_OnHoverItemChanged);
             VARMAP_GraphicsMaster.REG_USER_INPUT_INTERACTION(_OnUserInputInteractionChanged);
 
-            cachedGameStatus = VARMAP_GraphicsMaster.GET_GAMESTATUS();
 
             _loaded = false;
 
@@ -93,8 +91,9 @@ namespace Gob3AQ.GraphicsMaster
             ref readonly KeyStruct keys = ref VARMAP_GraphicsMaster.GET_PRESSED_KEYS();
 
             uicanvas_cls.MoveCursor(mouse.pos1);
+            Game_Status gstatus = VARMAP_GraphicsMaster.GET_GAMESTATUS();
 
-            switch (cachedGameStatus)
+            switch (gstatus)
             {
                 case Game_Status.GAME_STATUS_LOADING:
                     Execute_Loading();
@@ -352,8 +351,6 @@ namespace Gob3AQ.GraphicsMaster
                         break;
                 }
             }
-
-            cachedGameStatus = newval;
         }
     }
 }

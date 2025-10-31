@@ -268,9 +268,13 @@ namespace Gob3AQ.GameMaster
             AsyncOperationHandle<SceneInstance> nextRoom;
             AsyncOperationHandle<SceneInstance> loadingRoom;
 
+
             /* Load loading room */
             loadingRoom = Addressables.LoadSceneAsync(GameFixedConfig.ROOM_LOADING, LoadSceneMode.Single, true);
             yield return loadingRoom;
+
+            /* Commit pending changes */
+            VARMAP_Variable_Indexable.CommitPending();
 
             /* Unlaod previous room resources */
             yield return UnloadPreviousRoomResources();

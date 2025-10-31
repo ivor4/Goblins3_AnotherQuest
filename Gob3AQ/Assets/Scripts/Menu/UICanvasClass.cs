@@ -59,7 +59,7 @@ namespace Gob3AQ.GameMenu.UICanvas
         private GameObject cursor_textobj;
         private GameObject cursor_userInteractionSel;
         private UIUserInteractionSelClass cursor_userInteraction_cls;
-        RectTransform cursor_rect;
+        private RectTransform cursor_rect;
 
         private Image cursor_spr;
         private Image cursor_subobj_spr;

@@ -388,7 +388,6 @@ namespace Gob3AQ.VARMAP.Types
         public Vector2Int posPixels;
 
 
-
         public static void StaticParseFromBytes(ref MousePropertiesStruct gstruct, ref ReadOnlySpan<byte> reader)
         {
             ReadStreamSpan<byte> readZone = new(reader);

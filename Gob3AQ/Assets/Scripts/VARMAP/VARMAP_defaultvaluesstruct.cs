@@ -32,6 +32,12 @@ namespace Gob3AQ.VARMAP.DefaultValues
             cyclereleasedKeys = 0
         };
 
+        public static CameraDispositionStruct CameraDispositionStruct_Default => new()
+        {
+            position = Vector2.zero,
+            orthoSize = 5f
+        };
+
         public static MousePropertiesStruct MouseProperties_Default => new MousePropertiesStruct() { pos1 = Vector2.zero, pos2 = Vector2.zero };
     }
 }

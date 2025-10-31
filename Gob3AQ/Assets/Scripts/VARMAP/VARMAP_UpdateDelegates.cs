@@ -66,6 +66,11 @@ namespace Gob3AQ.VARMAP.Initialization
             _SET_ARRAY_PLAYER_ACTUAL_WAYPOINT = ((VARMAP_Variable_Interface<int>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_ACTUAL_WAYPOINT]).SetListValues;
             _REG_PLAYER_ACTUAL_WAYPOINT = ((VARMAP_Variable_Interface<int>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_ACTUAL_WAYPOINT]).RegisterChangeEvent;
             _UNREG_PLAYER_ACTUAL_WAYPOINT = ((VARMAP_Variable_Interface<int>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_ACTUAL_WAYPOINT]).UnregisterChangeEvent;
+            _GET_CAMERA_DISPOSITION = ((VARMAP_Variable_Interface<CameraDispositionStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_CAMERA_DISPOSITION]).GetValue;
+            _GET_SHADOW_CAMERA_DISPOSITION = ((VARMAP_Variable_Interface<CameraDispositionStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_CAMERA_DISPOSITION]).GetShadowValue;
+            _SET_CAMERA_DISPOSITION = ((VARMAP_Variable_Interface<CameraDispositionStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_CAMERA_DISPOSITION]).SetValue;
+            _REG_CAMERA_DISPOSITION = ((VARMAP_Variable_Interface<CameraDispositionStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_CAMERA_DISPOSITION]).RegisterChangeEvent;
+            _UNREG_CAMERA_DISPOSITION = ((VARMAP_Variable_Interface<CameraDispositionStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_CAMERA_DISPOSITION]).UnregisterChangeEvent;
             _GET_GAMESTATUS = ((VARMAP_Variable_Interface<Game_Status>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_GAMESTATUS]).GetValue;
             _GET_SHADOW_GAMESTATUS = ((VARMAP_Variable_Interface<Game_Status>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_GAMESTATUS]).GetShadowValue;
             _SET_GAMESTATUS = ((VARMAP_Variable_Interface<Game_Status>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_GAMESTATUS]).SetValue;

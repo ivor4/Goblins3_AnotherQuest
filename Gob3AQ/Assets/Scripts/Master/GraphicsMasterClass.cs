@@ -131,18 +131,6 @@ namespace Gob3AQ.GraphicsMaster
 
                 if (gamemasterLoaded && levelmasterLoaded && playermasterLoaded)
                 {
-                    VARMAP_GraphicsMaster.GET_PLAYER_LIST(out ReadOnlySpan<PlayableCharScript> playerlist);
-                    Vector3 candidatePos = mainCameraTransform.position;
-
-                    for (int i = 0; i < playerlist.Length; i++)
-                    {
-                        if (playerlist[i] != null)
-                        {
-                            candidatePos = playerlist[i].transform.position;
-                            break;
-                        }
-                    }
-
                     background_spr.sprite = ResourceSpritesClass.GetSprite(_singleton.backgroundGameSprite);
                     _levelBounds = background_spr.bounds;
 
@@ -151,11 +139,15 @@ namespace Gob3AQ.GraphicsMaster
 
                     _maxCameraOrthographicSize = Mathf.Min(constrainedByWidth, constrainedByHeight);
 
+                    ref readonly CameraDispositionStruct cameradisp = ref VARMAP_GraphicsMaster.GET_CAMERA_DISPOSITION();
+                    mainCamera.orthographicSize = cameradisp.orthoSize;
+
                     UpdateCameraBounds();
+                    
+                    Vector3 cameraPosition = cameradisp.position;
+                    cameraPosition.z = mainCameraTransform.position.z;
 
-                    candidatePos.z = mainCameraTransform.position.z;
-
-                    MoveCameraToPosition(in candidatePos);
+                    MoveCameraToPosition(in cameraPosition);
 
                     VARMAP_GraphicsMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GraphicsMaster);
 
@@ -269,6 +261,10 @@ namespace Gob3AQ.GraphicsMaster
             cameraNewPosition += deltaFromMin + deltaFromMax;
 
             mainCameraTransform.position = cameraNewPosition;
+
+            CameraDispositionStruct cameradisp = new() { position = mainCameraTransform.position, orthoSize = mainCamera.orthographicSize };
+
+            VARMAP_GraphicsMaster.SET_CAMERA_DISPOSITION(in cameradisp);
         }
 
         private void UpdateCursorBaseSprite()

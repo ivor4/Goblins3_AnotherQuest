@@ -63,6 +63,11 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPArrayDelegate<int> _SET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<int> _REG_PLAYER_ACTUAL_WAYPOINT;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<int> _UNREG_PLAYER_ACTUAL_WAYPOINT;
+        protected static GetVARMAPValueDelegate<CameraDispositionStruct> _GET_CAMERA_DISPOSITION;
+        protected static GetVARMAPValueDelegate<CameraDispositionStruct> _GET_SHADOW_CAMERA_DISPOSITION;
+        protected static SetVARMAPValueDelegate<CameraDispositionStruct> _SET_CAMERA_DISPOSITION;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<CameraDispositionStruct> _REG_CAMERA_DISPOSITION;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<CameraDispositionStruct> _UNREG_CAMERA_DISPOSITION;
         protected static GetVARMAPValueDelegate<Game_Status> _GET_GAMESTATUS;
         protected static GetVARMAPValueDelegate<Game_Status> _GET_SHADOW_GAMESTATUS;
         protected static SetVARMAPValueDelegate<Game_Status> _SET_GAMESTATUS;

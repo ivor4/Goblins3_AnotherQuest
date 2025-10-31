@@ -430,27 +430,28 @@ namespace Gob3AQ.VARMAP.Types
         }
     }
 
-    public struct Vector3Struct : IStreamable
+    public struct CameraDispositionStruct : IStreamable
     {
-        public const int STRUCT_SIZE =  3 * sizeof(float);
-        public Vector3 position;
+        public const int STRUCT_SIZE = 2 * sizeof(float) + sizeof(float);
+        public Vector2 position;
+        public float orthoSize;
 
-        public static void StaticParseFromBytes(ref Vector3Struct gstruct, ref ReadOnlySpan<byte> reader)
+        public static void StaticParseFromBytes(ref CameraDispositionStruct gstruct, ref ReadOnlySpan<byte> reader)
         {
             ReadStreamSpan<byte> readZone = new ReadStreamSpan<byte>(reader);
 
             gstruct.position.x = BitConverter.ToSingle(readZone.ReadNext(sizeof(float)));
             gstruct.position.y = BitConverter.ToSingle(readZone.ReadNext(sizeof(float)));
-            gstruct.position.z = BitConverter.ToSingle(readZone.ReadNext(sizeof(float)));
+            gstruct.orthoSize = BitConverter.ToSingle(readZone.ReadNext(sizeof(float)));
         }
 
-        public static void StaticParseToBytes(ref Vector3Struct gstruct, ref Span<byte> writer)
+        public static void StaticParseToBytes(in CameraDispositionStruct gstruct, ref Span<byte> writer)
         {
             WriteStreamSpan<byte> writeZone = new WriteStreamSpan<byte>(writer);
 
             BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(float)), gstruct.position.x);
             BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(float)), gstruct.position.y);
-            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(float)), gstruct.position.z);
+            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(float)), gstruct.orthoSize);
         }
 
         /// <summary>
@@ -459,7 +460,7 @@ namespace Gob3AQ.VARMAP.Types
         /// <returns>new instance of struct/class</returns>
         public static IStreamable CreateNewInstance()
         {
-            return new Vector3Struct();
+            return new CameraDispositionStruct();
         }
 
         public readonly int GetElemSize()
@@ -475,7 +476,54 @@ namespace Gob3AQ.VARMAP.Types
 
         public void ParseToBytes(ref Span<byte> writer)
         {
-            StaticParseToBytes(ref this, ref writer);
+            StaticParseToBytes(in this, ref writer);
+        }
+    }
+
+    public struct Vector2Struct : IStreamable
+    {
+        public const int STRUCT_SIZE =  2 * sizeof(float);
+        public Vector2 position;
+
+        public static void StaticParseFromBytes(ref Vector2Struct gstruct, ref ReadOnlySpan<byte> reader)
+        {
+            ReadStreamSpan<byte> readZone = new ReadStreamSpan<byte>(reader);
+
+            gstruct.position.x = BitConverter.ToSingle(readZone.ReadNext(sizeof(float)));
+            gstruct.position.y = BitConverter.ToSingle(readZone.ReadNext(sizeof(float)));
+        }
+
+        public static void StaticParseToBytes(in Vector2Struct gstruct, ref Span<byte> writer)
+        {
+            WriteStreamSpan<byte> writeZone = new WriteStreamSpan<byte>(writer);
+
+            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(float)), gstruct.position.x);
+            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(float)), gstruct.position.y);
+        }
+
+        /// <summary>
+        /// Normally used to give a new instance to receive from parsed Bytes
+        /// </summary>
+        /// <returns>new instance of struct/class</returns>
+        public static IStreamable CreateNewInstance()
+        {
+            return new Vector2Struct();
+        }
+
+        public readonly int GetElemSize()
+        {
+            return STRUCT_SIZE;
+        }
+
+
+        public void ParseFromBytes(ref ReadOnlySpan<byte> reader)
+        {
+            StaticParseFromBytes(ref this, ref reader);
+        }
+
+        public void ParseToBytes(ref Span<byte> writer)
+        {
+            StaticParseToBytes(in this, ref writer);
         }
     }
 

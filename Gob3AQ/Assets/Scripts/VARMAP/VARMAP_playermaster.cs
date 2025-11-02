@@ -39,7 +39,6 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             COMMIT_EVENT = _COMMIT_EVENT;
             INTERACT_PLAYER = _INTERACT_PLAYER;
             PLAYER_REACHED_WAYPOINT = _PLAYER_REACHED_WAYPOINT;
-            EVENT_SUBSCRIPTION = _EVENT_SUBSCRIPTION;
             LOCK_PLAYER = _LOCK_PLAYER;
             /* > ATG 1 END */
         }
@@ -138,13 +137,6 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         /// <para> Method: <see cref="LevelMasterClass.PlayerReachedWaypointService"/> </para> 
         /// </summary>
         public static PLAYER_REACHED_WAYPOINT_DELEGATE PLAYER_REACHED_WAYPOINT;
-        /// <summary> 
-        /// Subscribe to an event. Invoke when event changes
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, PlayerMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.EventSubscriptionService"/> </para> 
-        /// </summary>
-        public static EVENT_SUBSCRIPTION_DELEGATE EVENT_SUBSCRIPTION;
         /// <summary> 
         /// Locks player so it cannot act until an action over it has been done (or removes lock)
         /// <para> Owner: PlayerMaster </para> 

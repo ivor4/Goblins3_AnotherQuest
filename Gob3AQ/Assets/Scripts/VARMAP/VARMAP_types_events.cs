@@ -7,6 +7,7 @@ namespace Gob3AQ.VARMAP.Types
     {
         /* > ATG 1 START < */
         EVENT_NONE = -1, 
+        EVENT_RED_POTION_TOOK, 
         EVENT_FOUNTAIN_FULL, 
         EVENT_LAST, 
         

@@ -21,9 +21,6 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
             GET_GAME_OPTIONS = _GET_GAME_OPTIONS;
             GET_ELAPSED_TIME_MS = _GET_ELAPSED_TIME_MS;
             GET_ACTUAL_ROOM = _GET_ACTUAL_ROOM;
-            GET_CAMERA_DISPOSITION = _GET_CAMERA_DISPOSITION;
-            GET_SHADOW_CAMERA_DISPOSITION = _GET_SHADOW_CAMERA_DISPOSITION;
-            SET_CAMERA_DISPOSITION = _SET_CAMERA_DISPOSITION;
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
@@ -51,9 +48,6 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
         public static GetVARMAPValueDelegate<GameOptionsStruct> GET_GAME_OPTIONS;
         public static GetVARMAPValueDelegate<ulong> GET_ELAPSED_TIME_MS;
         public static GetVARMAPValueDelegate<Room> GET_ACTUAL_ROOM;
-        public static GetVARMAPValueDelegate<CameraDispositionStruct> GET_CAMERA_DISPOSITION;
-        public static GetVARMAPValueDelegate<CameraDispositionStruct> GET_SHADOW_CAMERA_DISPOSITION;
-        public static SetVARMAPValueDelegate<CameraDispositionStruct> SET_CAMERA_DISPOSITION;
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;

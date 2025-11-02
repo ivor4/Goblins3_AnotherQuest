@@ -59,7 +59,7 @@ namespace Gob3AQ.VARMAP.Initialization
 
 
             /* BONUS: Set VARMAP data with default values */
-            VARMAP_DefaultValues.SetDefaultValues();
+            ResetVARMAP();
         }
 
 
@@ -71,7 +71,6 @@ namespace Gob3AQ.VARMAP.Initialization
         {
             ClearVARMAPChangeEvents();
             VARMAP_DefaultValues.SetDefaultValues();
-
             VARMAP_Variable_Indexable.CommitPending();
         }
 
@@ -79,8 +78,6 @@ namespace Gob3AQ.VARMAP.Initialization
         public static void SaveVARMAPData()
         {
             Digest digest = CRC32.CreateDigest;
-
-            VARMAP_Variable_Indexable.CommitPending();
 
             using (FileStream fstream = File.Open(GameFixedConfig.LOADSAVE_FILEPATH, FileMode.Create))
             {
@@ -151,6 +148,7 @@ namespace Gob3AQ.VARMAP.Initialization
                 }
             }
 
+            ClearVARMAPChangeEvents();
             VARMAP_Variable_Indexable.CommitPending();
         }
 

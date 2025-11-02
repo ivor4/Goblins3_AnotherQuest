@@ -18,6 +18,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         public static void UpdateDelegates()
         {
             /* > ATG 1 START */
+            GET_ACTUAL_ROOM = _GET_ACTUAL_ROOM;
             GET_ELEM_EVENTS_OCCURRED = _GET_ELEM_EVENTS_OCCURRED;
             GET_SHADOW_ELEM_EVENTS_OCCURRED = _GET_SHADOW_ELEM_EVENTS_OCCURRED;
             SET_ELEM_EVENTS_OCCURRED = _SET_ELEM_EVENTS_OCCURRED;
@@ -27,11 +28,9 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             SET_ARRAY_EVENTS_OCCURRED = _SET_ARRAY_EVENTS_OCCURRED;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
-            ITEM_OBTAIN_PICKABLE_EVENT = _ITEM_OBTAIN_PICKABLE_EVENT;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
-            IS_ITEM_TAKEN_FROM_SCENE = _IS_ITEM_TAKEN_FROM_SCENE;
-            EVENT_SUBSCRIPTION = _EVENT_SUBSCRIPTION;
+            UNCHAIN_TO_ITEM = _UNCHAIN_TO_ITEM;
             /* > ATG 1 END */
         }
 
@@ -39,6 +38,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
 
         /* GET/SET */
         /* > ATG 2 START */
+        public static GetVARMAPValueDelegate<Room> GET_ACTUAL_ROOM;
         public static GetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> GET_ELEM_EVENTS_OCCURRED;
         public static GetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> GET_SHADOW_ELEM_EVENTS_OCCURRED;
         public static SetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> SET_ELEM_EVENTS_OCCURRED;
@@ -65,13 +65,6 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         /// </summary>
         public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
         /// <summary> 
-        /// Takes an item from scene (triggering event)
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: ItemMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.ItemObtainPickableEventService"/> </para> 
-        /// </summary>
-        public static ITEM_OBTAIN_PICKABLE_EVENT_DELEGATE ITEM_OBTAIN_PICKABLE_EVENT;
-        /// <summary> 
         /// Checks if a combination of events is totally complied (event absence can also be requested)
         /// <para> Owner: GameEventMaster </para> 
         /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, ItemMaster,  </para> 
@@ -86,19 +79,12 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         /// </summary>
         public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
         /// <summary> 
-        /// Tells if a pickable item has already been picked in game
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.IsItemTakenFromSceneService"/> </para> 
+        /// Applies an unchain event to an item such as spawn or setsprite
+        /// <para> Owner: ItemMaster </para> 
+        /// <para> Accessors: GameEventMaster,  </para> 
+        /// <para> Method: <see cref="ItemMasterClass.UnchainToItemService"/> </para> 
         /// </summary>
-        public static IS_ITEM_TAKEN_FROM_SCENE_DELEGATE IS_ITEM_TAKEN_FROM_SCENE;
-        /// <summary> 
-        /// Subscribe to an event. Invoke when event changes
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, PlayerMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.EventSubscriptionService"/> </para> 
-        /// </summary>
-        public static EVENT_SUBSCRIPTION_DELEGATE EVENT_SUBSCRIPTION;
+        public static UNCHAIN_TO_ITEM_DELEGATE UNCHAIN_TO_ITEM;
         /* > ATG 3 END */
     }
 }

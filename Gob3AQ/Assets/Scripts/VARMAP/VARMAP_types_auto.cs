@@ -47,20 +47,32 @@ namespace Gob3AQ.VARMAP.Types
         /* > ATG 3 END < */
     }
 
+    public enum UnchainType
+    {
+        /* > ATG 4 START < */
+        UNCHAIN_TYPE_SPAWN, 
+        UNCHAIN_TYPE_DESPAWN, 
+        UNCHAIN_TYPE_SET_SPRITE, 
+        UNCHAIN_TYPE_EVENT, 
+        
+        UNCHAIN_TYPE_TOTAL
+        /* > ATG 4 END < */
+    }
+
 
     public enum DialogAnimation
     {
-        /* > ATG 4 START < */
+        /* > ATG 5 START < */
         DIALOG_ANIMATION_NONE = -1, 
         DIALOG_ANIMATION_TALK, 
         
         DIALOG_ANIMATION_TOTAL
-        /* > ATG 4 END < */
+        /* > ATG 5 END < */
     }
 
     public enum GameItemFamily
     {
-        /* > ATG 5 START < */
+        /* > ATG 6 START < */
         ITEM_FAMILY_TYPE_NONE = -1, 
         ITEM_FAMILY_TYPE_DOOR, 
         ITEM_FAMILY_TYPE_OBJECT, 
@@ -68,7 +80,7 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_FAMILY_TYPE_PLAYER, 
         
         ITEM_FAMILY_TYPE_TOTAL
-        /* > ATG 5 END < */
+        /* > ATG 6 END < */
     }
 
 

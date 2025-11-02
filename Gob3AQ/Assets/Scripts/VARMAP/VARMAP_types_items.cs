@@ -46,13 +46,13 @@ namespace Gob3AQ.VARMAP.Types
         /* > ATG 3 END < */
     }
 
-    public enum SpawnConditions
+    public enum UnchainConditions
     {
         /* > ATG 4 START < */
-        SPAWN_COND_NONE, 
-        SPAWN_COND_FOUNTAIN, 
+        UNCHAIN_RED_POTION_TOOK, 
+        UNCHAIN_FOUNTAIN_FULL, 
         
-        SPAWN_COND_TOTAL
+        UNCHAIN_TOTAL
         /* > ATG 4 END < */
     }
 }

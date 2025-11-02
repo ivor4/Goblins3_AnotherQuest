@@ -33,16 +33,13 @@ namespace Gob3AQ.VARMAP.ItemMaster
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             ITEM_REGISTER = _ITEM_REGISTER;
-            ITEM_OBTAIN_PICKABLE = _ITEM_OBTAIN_PICKABLE;
-            ITEM_OBTAIN_PICKABLE_EVENT = _ITEM_OBTAIN_PICKABLE_EVENT;
             GAME_ELEMENT_HOVER = _GAME_ELEMENT_HOVER;
             GET_NEAREST_WP = _GET_NEAREST_WP;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
+            UNCHAIN_TO_ITEM = _UNCHAIN_TO_ITEM;
             USE_ITEM = _USE_ITEM;
-            IS_ITEM_TAKEN_FROM_SCENE = _IS_ITEM_TAKEN_FROM_SCENE;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
-            EVENT_SUBSCRIPTION = _EVENT_SUBSCRIPTION;
             /* > ATG 1 END */
         }
 
@@ -88,20 +85,6 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /// </summary>
         public static ITEM_REGISTER_DELEGATE ITEM_REGISTER;
         /// <summary> 
-        /// Removes an item from level
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: ItemMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.ItemObtainPickableService"/> </para> 
-        /// </summary>
-        public static ITEM_OBTAIN_PICKABLE_DELEGATE ITEM_OBTAIN_PICKABLE;
-        /// <summary> 
-        /// Takes an item from scene (triggering event)
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: ItemMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.ItemObtainPickableEventService"/> </para> 
-        /// </summary>
-        public static ITEM_OBTAIN_PICKABLE_EVENT_DELEGATE ITEM_OBTAIN_PICKABLE_EVENT;
-        /// <summary> 
         /// Any of Game Elements (Player or Item or Door) will call with essential info
         /// <para> Owner: LevelMaster </para> 
         /// <para> Accessors: GameMenu, ItemMaster,  </para> 
@@ -130,6 +113,13 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /// </summary>
         public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
         /// <summary> 
+        /// Applies an unchain event to an item such as spawn or setsprite
+        /// <para> Owner: ItemMaster </para> 
+        /// <para> Accessors: GameEventMaster,  </para> 
+        /// <para> Method: <see cref="ItemMasterClass.UnchainToItemService"/> </para> 
+        /// </summary>
+        public static UNCHAIN_TO_ITEM_DELEGATE UNCHAIN_TO_ITEM;
+        /// <summary> 
         /// Uses an item with something
         /// <para> Owner: ItemMaster </para> 
         /// <para> Accessors: LevelMaster,  </para> 
@@ -137,26 +127,12 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /// </summary>
         public static USE_ITEM_DELEGATE USE_ITEM;
         /// <summary> 
-        /// Tells if a pickable item has already been picked in game
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.IsItemTakenFromSceneService"/> </para> 
-        /// </summary>
-        public static IS_ITEM_TAKEN_FROM_SCENE_DELEGATE IS_ITEM_TAKEN_FROM_SCENE;
-        /// <summary> 
         /// Cancels selected item
         /// <para> Owner: GameMenu </para> 
         /// <para> Accessors: LevelMaster, ItemMaster,  </para> 
         /// <para> Method: <see cref="GameMenuClass.CancelPickableItemService"/> </para> 
         /// </summary>
         public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
-        /// <summary> 
-        /// Subscribe to an event. Invoke when event changes
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, PlayerMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.EventSubscriptionService"/> </para> 
-        /// </summary>
-        public static EVENT_SUBSCRIPTION_DELEGATE EVENT_SUBSCRIPTION;
         /* > ATG 3 END */
     }
 }

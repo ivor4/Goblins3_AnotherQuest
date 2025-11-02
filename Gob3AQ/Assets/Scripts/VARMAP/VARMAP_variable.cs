@@ -18,38 +18,45 @@ namespace Gob3AQ.VARMAP.Variable
     public abstract class VARMAP_Variable_Indexable
     {
         private static HashSet<VARMAP_Variable_Indexable> _CommitPendingQueue;
-        private static HashSet<VARMAP_Variable_Indexable> _CommitPendingQueueCopy;
+        private static HashSet<VARMAP_Variable_Indexable> _InvokePendingQueue;
 
         public static void Initialize()
         {
             _CommitPendingQueue = new ((int)VARMAP_Variable_ID.VARMAP_ID_TOTAL);
-            _CommitPendingQueueCopy = new((int)VARMAP_Variable_ID.VARMAP_ID_TOTAL);
+            _InvokePendingQueue = new((int)VARMAP_Variable_ID.VARMAP_ID_TOTAL);
         }
 
 
         public static void CommitPending()
         {
+            _InvokePendingQueue.Clear();
+
             /* First commit changes, then invoke events and clear list */
             foreach (VARMAP_Variable_Indexable indexable in _CommitPendingQueue)
             {
                 indexable.Commit();
             }
 
-            _CommitPendingQueueCopy.UnionWith(_CommitPendingQueue);
             _CommitPendingQueue.Clear();
+        }
 
+        public static void InvokePending()
+        {
             /* In this way, when all variables have their new value, events can be called */
-            foreach (VARMAP_Variable_Indexable indexable in _CommitPendingQueueCopy)
+            foreach (VARMAP_Variable_Indexable indexable in _InvokePendingQueue)
             {
                 indexable.InvokeOnChangeEvents();
             }
-
-            _CommitPendingQueueCopy.Clear();
         }
 
         protected static void AddPendingCommit(VARMAP_Variable_Indexable vardata)
         {
             _CommitPendingQueue.Add(vardata);
+        }
+
+        protected static void AddPendingInvoke(VARMAP_Variable_Indexable vardata)
+        {
+            _InvokePendingQueue.Add(vardata);
         }
 
         /// <summary>
@@ -526,8 +533,7 @@ namespace Gob3AQ.VARMAP.Variable
             if((pos >= 0) && (pos < _elems))
             {
                 _shadowValues[pos] = newvalue;
-                AddPendingCommit(this);
-                _dirty = true;
+                ShadowChanged();
             }
             else
             {
@@ -584,8 +590,7 @@ namespace Gob3AQ.VARMAP.Variable
                 ParseFromBytesFunction(ref _shadowValues[i], ref tempspan);
             }
 
-            AddPendingCommit(this);
-            _dirty = true;
+            ShadowChanged();
         }
 
         public override uint CalcCRC32()
@@ -605,8 +610,7 @@ namespace Gob3AQ.VARMAP.Variable
         public override void SetListValues(ReadOnlySpan<T> newList)
         {
             newList.CopyTo(_shadowValues);
-            AddPendingCommit(this);
-            _dirty = true;
+            ShadowChanged();
         }
 
         public override void InitializeListElems(in T defaultValue)
@@ -620,10 +624,24 @@ namespace Gob3AQ.VARMAP.Variable
             _dirty = false;
         }
 
+        private void ShadowChanged()
+        {
+            if(!_dirty)
+            {
+                AddPendingCommit(this);
+            }
+            _dirty = true;
+        }
+
         public override void Commit()
         {
             _shadowValues.CopyTo(_values, 0);
             _dirty = false;
+
+            if (_changedevents != null)
+            {
+                AddPendingInvoke(this);
+            }
         }
 
         public override void InvokeOnChangeEvents()
@@ -963,8 +981,7 @@ namespace Gob3AQ.VARMAP.Variable
         public override void SetValue(in T newval)
         {
             _shadowValue = newval;
-            AddPendingCommit(this);
-            _dirty = true;
+            ShadowChanged();
         }
 
 
@@ -1007,8 +1024,7 @@ namespace Gob3AQ.VARMAP.Variable
         public override void ParseFromBytes(ref ReadOnlySpan<byte> streamreader)
         {
             ParseFromBytesFunction(ref _shadowValue, ref streamreader);
-            AddPendingCommit(this);
-            _dirty = true;
+            ShadowChanged();
         }
 
         public override uint CalcCRC32()
@@ -1052,11 +1068,25 @@ namespace Gob3AQ.VARMAP.Variable
             throw new Exception("Not array VARMAP variable");
         }
 
+        private void ShadowChanged()
+        {
+            if (!_dirty)
+            {
+                AddPendingCommit(this);
+            }
+            _dirty = true;
+        }
+
         public override void Commit()
         {
             _prevValue = _value;
             _value = _shadowValue;
             _dirty = false;
+
+            if (_changedevents != null)
+            {
+                AddPendingInvoke(this);
+            }
         }
 
         public override void InvokeOnChangeEvents()

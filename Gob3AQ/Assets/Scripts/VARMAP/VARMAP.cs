@@ -169,20 +169,6 @@ namespace Gob3AQ.VARMAP
         /// </summary>
         protected static ITEM_REGISTER_DELEGATE _ITEM_REGISTER;
         /// <summary> 
-        /// Removes an item from level
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: ItemMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.ItemObtainPickableService"/> </para> 
-        /// </summary>
-        protected static ITEM_OBTAIN_PICKABLE_DELEGATE _ITEM_OBTAIN_PICKABLE;
-        /// <summary> 
-        /// Takes an item from scene (triggering event)
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: ItemMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.ItemObtainPickableEventService"/> </para> 
-        /// </summary>
-        protected static ITEM_OBTAIN_PICKABLE_EVENT_DELEGATE _ITEM_OBTAIN_PICKABLE_EVENT;
-        /// <summary> 
         /// Registers a player in scene
         /// <para> Owner: LevelMaster </para> 
         /// <para> Accessors: PlayerMaster,  </para> 
@@ -253,6 +239,13 @@ namespace Gob3AQ.VARMAP
         /// </summary>
         protected static INTERACT_PLAYER_DELEGATE _INTERACT_PLAYER;
         /// <summary> 
+        /// Applies an unchain event to an item such as spawn or setsprite
+        /// <para> Owner: ItemMaster </para> 
+        /// <para> Accessors: GameEventMaster,  </para> 
+        /// <para> Method: <see cref="ItemMasterClass.UnchainToItemService"/> </para> 
+        /// </summary>
+        protected static UNCHAIN_TO_ITEM_DELEGATE _UNCHAIN_TO_ITEM;
+        /// <summary> 
         /// Tells LevelMaster that player reached Waypoint to start action in case
         /// <para> Owner: LevelMaster </para> 
         /// <para> Accessors: PlayerMaster,  </para> 
@@ -267,26 +260,12 @@ namespace Gob3AQ.VARMAP
         /// </summary>
         protected static USE_ITEM_DELEGATE _USE_ITEM;
         /// <summary> 
-        /// Tells if a pickable item has already been picked in game
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.IsItemTakenFromSceneService"/> </para> 
-        /// </summary>
-        protected static IS_ITEM_TAKEN_FROM_SCENE_DELEGATE _IS_ITEM_TAKEN_FROM_SCENE;
-        /// <summary> 
         /// Cancels selected item
         /// <para> Owner: GameMenu </para> 
         /// <para> Accessors: LevelMaster, ItemMaster,  </para> 
         /// <para> Method: <see cref="GameMenuClass.CancelPickableItemService"/> </para> 
         /// </summary>
         protected static CANCEL_PICKABLE_ITEM_DELEGATE _CANCEL_PICKABLE_ITEM;
-        /// <summary> 
-        /// Subscribe to an event. Invoke when event changes
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, PlayerMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.EventSubscriptionService"/> </para> 
-        /// </summary>
-        protected static EVENT_SUBSCRIPTION_DELEGATE _EVENT_SUBSCRIPTION;
         /// <summary> 
         /// Subscribe to determined key events to avoid polling
         /// <para> Owner: InputMaster </para> 

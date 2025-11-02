@@ -43,15 +43,15 @@ namespace Gob3AQ.ResourceAtlas
         {
             /* > ATG 1 START < */
             new( /* ROOM_FIRST */
-            new GameSprite[1]{GameSprite.BACKGROUND_ROOM_FIRST, }, 
-            new DialogPhrase[1]{DialogPhrase.PHRASE_NONSENSE, }, 
-            new GameItem[4]{GameItem.ITEM_POTION, GameItem.ITEM_POTION_BLUE, GameItem.ITEM_FOUNTAIN, GameItem.ITEM_NPC_MILITO, } 
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_ROOM_FIRST, }), 
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(4){GameItem.ITEM_POTION, GameItem.ITEM_POTION_BLUE, GameItem.ITEM_FOUNTAIN, GameItem.ITEM_NPC_MILITO, }) 
             ),
             
             new( /* ROOM_LAST */
-            new GameSprite[1]{GameSprite.SPRITE_LAST, }, 
-            new DialogPhrase[1]{DialogPhrase.PHRASE_NONSENSE, }, 
-            new GameItem[1]{GameItem.ITEM_LAST, } 
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST, }), 
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(1){GameItem.ITEM_LAST, }) 
             ),
             
             /* > ATG 1 END < */

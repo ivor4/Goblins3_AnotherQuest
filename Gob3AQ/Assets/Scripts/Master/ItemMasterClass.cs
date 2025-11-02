@@ -12,8 +12,6 @@ namespace Gob3AQ.ItemMaster
     public class ItemMasterClass : MonoBehaviour
     {
         private static ItemMasterClass _singleton;
-        private uint _itemsAvailableToLoad;
-        private uint _itemsLoaded;
 
 
 
@@ -36,22 +34,6 @@ namespace Gob3AQ.ItemMaster
         }
 
 
-        public static void SetItemAvailableForLoad(GameItem item)
-        {
-            _singleton._itemsAvailableToLoad |= (uint)(1 << (int)item);
-        }
-
-        public static void SetItemLoaded(GameItem item)
-        {
-            _singleton._itemsLoaded |= (uint)(1 << (int)item);
-
-            if (_singleton._itemsLoaded == _singleton._itemsAvailableToLoad)
-            {
-                VARMAP_PlayerMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_ItemMaster);
-            }
-        }
-
-
 
         void Awake()
         {
@@ -66,23 +48,21 @@ namespace Gob3AQ.ItemMaster
         }
 
         void Start()
-        {
-            _itemsAvailableToLoad = 0;
-            _itemsLoaded = 0;
-            
-
+        {           
             _ = StartCoroutine(LoadCoroutine());
         }
 
         private IEnumerator LoadCoroutine()
         {
-            yield return ResourceAtlasClass.WaitForNextFrame;
+            bool masterLoaded = false;
 
-            if(_itemsAvailableToLoad == 0)
+            while (!masterLoaded)
             {
-                // No items to load, just notify
-                VARMAP_ItemMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_ItemMaster);
+                yield return ResourceAtlasClass.WaitForNextFrame;
+                VARMAP_ItemMaster.IS_MODULE_LOADED(GameModules.MODULE_GameMaster, out masterLoaded);
             }
+
+            VARMAP_ItemMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_ItemMaster);
         }
 
 
@@ -128,7 +108,7 @@ namespace Gob3AQ.ItemMaster
                     ((usage.type != ItemInteractionType.INTERACTION_USE) || (usage.itemSource == condition.srcItem)))
                 {
 
-                    VARMAP_ItemMaster.IS_EVENT_COMBI_OCCURRED(condition.Events, out bool occurred);
+                    VARMAP_ItemMaster.IS_EVENT_COMBI_OCCURRED(condition.NeededEvents, out bool occurred);
 
                     if (occurred)
                     {

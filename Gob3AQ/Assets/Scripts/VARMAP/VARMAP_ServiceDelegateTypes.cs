@@ -45,9 +45,10 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void GET_PLAYER_LIST_DELEGATE(out ReadOnlySpan<PlayableCharScript> list);
     public delegate void GET_NEAREST_WP_DELEGATE(Vector2 pos, float maxradius, out WaypointClass wp);
     public delegate void IS_EVENT_OCCURRED_DELEGATE(GameEvent ev, out bool occurred);
-    public delegate void COMMIT_EVENT_DELEGATE(GameEvent ev, bool occurred);
+    public delegate void COMMIT_EVENT_DELEGATE(ReadOnlySpan<GameEventCombi> combi);
     public delegate void IS_ITEM_AVAILABLE_DELEGATE(GameItem item, out bool available);
     public delegate void INTERACT_PLAYER_DELEGATE(CharacterType character, WaypointClass dest, out bool accepted);
+    public delegate void UNCHAIN_TO_ITEM_DELEGATE(GameItem item, in UnchainInfo unchainInfo);
     public delegate void PLAYER_REACHED_WAYPOINT_DELEGATE(CharacterType character);
     public delegate void IS_EVENT_COMBI_OCCURRED_DELEGATE(ReadOnlySpan<GameEventCombi> combi, out bool occurred);
     public delegate void ITEM_OBTAIN_PICKABLE_EVENT_DELEGATE(GamePickableItem item);
@@ -56,7 +57,6 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void INTERACT_PLAYER_DOOR_DELEGATE(CharacterType character, WaypointClass doorWaypoint, int doorIndex);
     public delegate void TAKE_ITEM_DELEGATE(CharacterType character, GameItem item, out ItemInteractionType permitted);
     public delegate void USE_ITEM_DELEGATE(in InteractionUsage usage, out InteractionUsageOutcome outcome);
-    public delegate void GET_SCENARIO_ITEM_LIST_DELEGATE(out ReadOnlyList<ItemClass> list);
     public delegate void SELECT_PICKABLE_ITEM_DELEGATE(GameItem item);
     public delegate void CANCEL_PICKABLE_ITEM_DELEGATE();
     public delegate void KEY_SUBSCRIPTION_DELEGATE(KeyFunctionsIndex key, KEY_SUBSCRIPTION_CALL_DELEGATE callable, bool add);

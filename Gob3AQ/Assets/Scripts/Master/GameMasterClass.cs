@@ -29,6 +29,8 @@ namespace Gob3AQ.GameMaster
         private static uint moduleLoadingDone;
         private static AsyncOperationHandle<SceneInstance> prevRoom;
         private static bool prevRoomLoaded;
+        private static bool saveGamePending;
+        private static Room loadScenePending;
 
         void Awake()
         {
@@ -47,6 +49,8 @@ namespace Gob3AQ.GameMaster
                 /* Make default (undefined behavior) */
                 prevRoom = default;
                 prevRoomLoaded = false;
+                saveGamePending = false;
+                loadScenePending = Room.ROOM_NONE;
             }
         }
 
@@ -56,6 +60,25 @@ namespace Gob3AQ.GameMaster
         {
             VARMAP_Safe.IncrementTick();
             VARMAP_Variable_Indexable.CommitPending();
+
+            /* -------- Old game cycle ends here -------- */
+
+            if(saveGamePending)
+            {
+                saveGamePending = false;
+                VARMAP_DataSystem.SaveVARMAPData();
+            }
+
+            if(loadScenePending != Room.ROOM_NONE)
+            {
+                Room loadRoom = loadScenePending;
+                loadScenePending = Room.ROOM_NONE;
+                _singleton.StartCoroutine(UnloadAndLoadRoomCoroutine(loadRoom));
+            }
+
+            /* -------- New game cycle starts here -------- */
+
+            VARMAP_Variable_Indexable.InvokePending();
 
             bool pausePressed;
 
@@ -146,18 +169,14 @@ namespace Gob3AQ.GameMaster
 
         public static void LoadRoomService(Room room, out bool error)
         {
-            if ((uint)room < (uint)Room.ROOMS_TOTAL)
+            saveGamePending = false;
+            Game_Status gstatus = VARMAP_GameMaster.GET_SHADOW_GAMESTATUS();
+
+            if (((uint)room < (uint)Room.ROOMS_TOTAL) &&
+                (gstatus != Game_Status.GAME_STATUS_CHANGING_ROOM) && (gstatus != Game_Status.GAME_STATUS_CHANGING_ROOM))
             {
                 error = false;
-
-                VARMAP_DataSystem.ClearVARMAPChangeEvents();
-                VARMAP_GameMaster.SET_ACTUAL_ROOM(room);
-                _SetGameStatus(Game_Status.GAME_STATUS_CHANGING_ROOM);
-
-                /* Operations prepared for next level */
-                moduleLoadingDone = 0;
-
-                _singleton.StartCoroutine(UnloadAndLoadRoomCoroutine(room));
+                loadScenePending = room;
             }
             else
             {
@@ -176,7 +195,7 @@ namespace Gob3AQ.GameMaster
 
         public static void SaveGameService()
         {
-            VARMAP_DataSystem.SaveVARMAPData();
+            saveGamePending = true;
         }
 
         public static void LoadGameService()
@@ -239,6 +258,9 @@ namespace Gob3AQ.GameMaster
 
         public static void ExitGameService(out bool error)
         {
+            saveGamePending = false;
+            loadScenePending = Room.ROOM_NONE;
+
             if (VARMAP_GameMaster.GET_SHADOW_GAMESTATUS() != Game_Status.GAME_STATUS_STOPPED)
             {
                 VARMAP_DataSystem.ResetVARMAP();
@@ -268,13 +290,20 @@ namespace Gob3AQ.GameMaster
             AsyncOperationHandle<SceneInstance> nextRoom;
             AsyncOperationHandle<SceneInstance> loadingRoom;
 
+            /* Operations prepared for next level */
+            /* Commit pending changes */
+            
+            VARMAP_GameMaster.SET_ACTUAL_ROOM(room);
+            _SetGameStatus(Game_Status.GAME_STATUS_CHANGING_ROOM);
+            VARMAP_DataSystem.ClearVARMAPChangeEvents();
+            VARMAP_Variable_Indexable.CommitPending();
 
             /* Load loading room */
             loadingRoom = Addressables.LoadSceneAsync(GameFixedConfig.ROOM_LOADING, LoadSceneMode.Single, true);
             yield return loadingRoom;
 
-            /* Commit pending changes */
-            VARMAP_Variable_Indexable.CommitPending();
+            /* Prepare for next scene loading process bitfield */
+            moduleLoadingDone = 0;
 
             /* Unlaod previous room resources */
             yield return UnloadPreviousRoomResources();
@@ -306,6 +335,7 @@ namespace Gob3AQ.GameMaster
 
             yield return ResourceAtlasClass.WaitForNextFrame;
 
+            
             _SetGameStatus(Game_Status.GAME_STATUS_LOADING);
 
             yield return ResourceAtlasClass.WaitForNextFrame;

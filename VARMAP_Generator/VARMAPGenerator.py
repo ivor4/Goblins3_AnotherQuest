@@ -111,7 +111,7 @@ defaultvalues_lines = ATGFile(defaultvalues_path, 1)
 enum_lines = ATGFile(enum_path, 1)
 delegateupdate_lines = ATGFile(delegateupdate_path, 2)
 savedata_lines = ATGFile(savedata_path, 1)
-auto_lines = ATGFile(auto_types_path, 5)
+auto_lines = ATGFile(auto_types_path, 6)
 dialogs_types_lines = ATGFile(dialog_types_path, 3)
 phrases_lines = ATGFile(phrases_text_path, 0)
 names_lines = ATGFile(names_text_path, 0)
@@ -689,6 +689,7 @@ room_prefix = 'Room.'
 sprite_prefix = 'GameSprite.'
 name_prefix = 'NameType.'
 family_prefix = 'GameItemFamily.'
+unchain_type_prefix = 'UnchainType.'
 
 
 print('\n\n------DIALOGS (Custom GOB3) -------\n\n')
@@ -865,28 +866,28 @@ for line in ROOMSinputFile:
         options = columns[2].split('|')
         num_options = len(options)
             
-        stringToWrite = 'new GameSprite['+str(num_options)+']{'
+        stringToWrite = 'new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>('+str(num_options)+'){'
         for _option in options:
             stringToWrite += sprite_prefix + _option + ', '
-        stringToWrite += '}, \n'
+        stringToWrite += '}), \n'
         room_atlas_lines.InsertLineInATG(1, stringToWrite)
         
         options = columns[3].split('|')
         num_options = len(options)
             
-        stringToWrite = 'new DialogPhrase['+str(num_options)+']{'
+        stringToWrite = 'new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>('+str(num_options)+'){'
         for _option in options:
             stringToWrite += phrase_prefix + _option + ', '
-        stringToWrite += '}, \n'
+        stringToWrite += '}), \n'
         room_atlas_lines.InsertLineInATG(1, stringToWrite)
         
         options = columns[4].split('|')
         num_options = len(options)
             
-        stringToWrite = 'new GameItem['+str(num_options)+']{'
+        stringToWrite = 'new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>('+str(num_options)+'){'
         for _option in options:
             stringToWrite += item_prefix + _option + ', '
-        stringToWrite += '} \n'
+        stringToWrite += '}) \n'
         room_atlas_lines.InsertLineInATG(1, stringToWrite)
         
         stringToWrite = '),\n'
@@ -939,6 +940,8 @@ for line in AUTOinputFile:
         elif(zone == 3):
             stringToWrite = 'INTERACTION_TOTAL\n'
         elif(zone == 4):
+            stringToWrite = 'UNCHAIN_TYPE_TOTAL\n'
+        elif(zone == 5):
             stringToWrite = 'DIALOG_ANIMATION_TOTAL\n'
         
         auto_lines.InsertLineInATG(zone, stringToWrite)
@@ -954,9 +957,9 @@ for line in AUTOinputFile:
     auto_lines.InsertLineInATG(zone, stringToWrite)
     
 stringToWrite = '\n'
-auto_lines.InsertLineInATG(5, stringToWrite)
+auto_lines.InsertLineInATG(6, stringToWrite)
 stringToWrite = 'ITEM_FAMILY_TYPE_TOTAL\n'
-auto_lines.InsertLineInATG(5, stringToWrite)
+auto_lines.InsertLineInATG(6, stringToWrite)
     
     
     
@@ -1001,8 +1004,7 @@ for line in ACTIONCONDSinputFile:
         ItemVar["animationOK"] = animation_prefix+str(columns[6])
         ItemVar["dialogOK"] = dialog_prefix+str(columns[7])
         ItemVar["phraseOK"] = phrase_prefix+str(columns[8])
-        ItemVar["unchain_event"] = event_prefix + str(columns[9])
-        ItemVar["consume_item"] = str(columns[10]).lower()
+        ItemVar["unchain_event"] = str(columns[9])
         
         # Write in item enum
         stringToWrite = ItemVar["name"]
@@ -1037,17 +1039,27 @@ for line in ACTIONCONDSinputFile:
         stringToWrite = ItemVar["dialogOK"]+","+\
             ItemVar["phraseOK"]+",\n"
         items_interaction_lines.InsertLineInATG(2, stringToWrite)
-        stringToWrite = ItemVar["unchain_event"]+','+\
-            ItemVar["consume_item"]+"),\n"
+        
+        options = ItemVar["unchain_event"].split('|')
+        num_options = len(options)
+        stringToWrite = 'new GameEventCombi['+str(num_options)+']{'
+    
+        for _option in options:
+            _not_ = str('(NOT)' in _option).lower()
+            _option = _option.replace('(NOT)','')
+            stringToWrite += 'new('+event_prefix + _option + ', ' + _not_ + '),'
+            
+        stringToWrite += '}), \n'
         items_interaction_lines.InsertLineInATG(2, stringToWrite)
         items_interaction_lines.InsertLineInATG(2, '\n')
     elif(zone == 2):
         ItemVar["name"] = str(columns[1])
-        ItemVar["spawn"] = str(columns[2]).lower()
-        ItemVar["despawn"] = str(columns[3]).lower()
-        ItemVar["changeSprite"] = str(columns[4]).lower()
-        ItemVar["neededEvents"] = str(columns[5])
+        ItemVar["type"] = str(columns[2])
+        ItemVar["ignoreif"] = str(columns[3])
+        ItemVar["neededEvents"] = str(columns[4])
+        ItemVar["targetItem"] = str(columns[5])
         ItemVar["targetSprite"] = str(columns[6])
+        ItemVar["targetEvents"] = str(columns[7])
         
         # Write in item enum
         stringToWrite = ItemVar["name"]
@@ -1059,8 +1071,12 @@ for line in ACTIONCONDSinputFile:
         stringToWrite = 'new( /* '+ ItemVar["name"] + ' */\n'
         items_interaction_lines.InsertLineInATG(1, stringToWrite)
         
-        stringToWrite = ItemVar["spawn"]+', '+ItemVar["despawn"] +', ' +\
-            ItemVar["changeSprite"]+',\n '
+        stringToWrite = unchain_type_prefix + ItemVar["type"]+','
+        
+        _not_ = str('(NOT)' in ItemVar["ignoreif"]).lower()
+        _option = ItemVar["ignoreif"].replace('(NOT)','')
+        
+        stringToWrite += 'new('+event_prefix + _option + ', ' + _not_ + '), \n'
         items_interaction_lines.InsertLineInATG(1, stringToWrite)
         
         
@@ -1076,15 +1092,31 @@ for line in ACTIONCONDSinputFile:
             
         stringToWrite += '}, \n'
         items_interaction_lines.InsertLineInATG(1, stringToWrite)
-
-        stringToWrite = sprite_prefix + ItemVar["targetSprite"]+"),\n"
+        
+        
+        stringToWrite = item_prefix + ItemVar["targetItem"] +', ' +\
+            sprite_prefix + ItemVar["targetSprite"]+',\n '
+        items_interaction_lines.InsertLineInATG(1, stringToWrite)
+        
+        
+        options = ItemVar["targetEvents"].split('|')
+        num_options = len(options)
+            
+        stringToWrite = 'new GameEventCombi['+str(num_options)+']{'
+    
+        for _option in options:
+            _not_ = str('(NOT)' in _option).lower()
+            _option = _option.replace('(NOT)','')
+            stringToWrite += 'new('+event_prefix + _option + ', ' + _not_ + '),'
+            
+        stringToWrite += '}), \n'
         items_interaction_lines.InsertLineInATG(1, stringToWrite)
         items_interaction_lines.InsertLineInATG(1, '\n')
         
         
 stringToWrite = '\n'
 items_types_lines.InsertLineInATG(4, stringToWrite)
-stringToWrite = 'SPAWN_COND_TOTAL\n'
+stringToWrite = 'UNCHAIN_TOTAL\n'
 items_types_lines.InsertLineInATG(4, stringToWrite)
     
 
@@ -1120,7 +1152,6 @@ for line in ITEMSinputFile:
     ItemVar["pickable"] = 'true' in columns[5].lower()
     ItemVar["pickablesprite"] = columns[6]
     ItemVar["conditions"] = columns[7]
-    ItemVar["spawnConditions"] = columns[8]
     
     
     # Write in item enum
@@ -1174,16 +1205,6 @@ for line in ITEMSinputFile:
         
         for _option in options:
             stringToWrite += conditiontype_prefix+_option+','
-        stringToWrite += '},\n'
-        items_interaction_lines.InsertLineInATG(3, stringToWrite)
-        
-        stringToWrite = 'new SpawnConditions['
-        options = ItemVar["spawnConditions"].split('|')
-        num_options = len(options)
-        stringToWrite += str(num_options)+']{'
-        
-        for _option in options:
-            stringToWrite += spawnconditiontype_prefix+_option+','
         stringToWrite += '}),\n'
         items_interaction_lines.InsertLineInATG(3, stringToWrite)
         items_interaction_lines.InsertLineInATG(3, '\n')

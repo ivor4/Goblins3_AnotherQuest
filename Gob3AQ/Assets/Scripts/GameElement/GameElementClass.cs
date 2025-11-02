@@ -23,7 +23,6 @@ namespace Gob3AQ.GameElement
         public bool IsAvailable => isAvailable;
 
         protected GameSprite actualSprite;
-        protected HashSet<GameEvent> subscribedEvents;
         protected GameItemFamily gameElementFamily;
         protected WaypointClass actualWaypoint;
         protected bool isHovered;
@@ -85,69 +84,6 @@ namespace Gob3AQ.GameElement
             }
         }
 
-        protected bool CheckSpawnConditions(bool register)
-        {
-            bool despawn = false;
-            ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(itemID);
-            ReadOnlySpan<SpawnConditions> spawnConditions = itemInfo.SpawnConditions;
-
-            for (int i = 0; (i < spawnConditions.Length) && (!despawn); i++)
-            {
-                SpawnConditions spawnCondition = spawnConditions[i];
-
-                if (spawnCondition != SpawnConditions.SPAWN_COND_NONE)
-                {
-                    ref readonly SpawnConditionInfo conditionInfo = ref ItemsInteractionsClass.GetSpawnConditionInfo(spawnCondition);
-                    ReadOnlySpan<GameEventCombi> neededEvents = conditionInfo.Events;
-
-                    /* First, check if already complied */
-                    VARMAP_ItemMaster.IS_EVENT_COMBI_OCCURRED(neededEvents, out bool complied);
-
-                    if (complied)
-                    {
-                        despawn = SpawnConditionComplied(in conditionInfo);
-                    }
-                    else if (register)
-                    {
-                        /* Register event for late actions */
-                        for (int j = 0; j < neededEvents.Length; j++)
-                        {
-                            ref readonly GameEventCombi eventCombi = ref conditionInfo.Events[j];
-
-                            if (eventCombi.eventType != GameEvent.EVENT_NONE)
-                            {
-                                if (!subscribedEvents.Contains(eventCombi.eventType))
-                                {
-                                    subscribedEvents.Add(eventCombi.eventType);
-                                    VARMAP_ItemMaster.EVENT_SUBSCRIPTION(eventCombi.eventType, _OnSpawnConditionEvent, true);
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        /* Not completed */
-                    }
-                }
-            }
-
-            return despawn;
-        }
-
-        protected bool SpawnConditionComplied(in SpawnConditionInfo conditionInfo)
-        {
-            if (conditionInfo.spawn)
-            {
-                /**/
-            }
-
-            if (conditionInfo.changeSprite)
-            {
-                SetSprite(conditionInfo.targetSprite);
-            }
-
-            return conditionInfo.despawn;
-        }
 
         protected void MouseEnterAction(bool enter)
         {
@@ -294,16 +230,6 @@ namespace Gob3AQ.GameElement
             {
                 VARMAP_ItemMaster.ITEM_REGISTER(false, this);
             }
-
-            if (subscribedEvents != null)
-            {
-                foreach (GameEvent gameEvent in subscribedEvents)
-                {
-                    VARMAP_ItemMaster.EVENT_SUBSCRIPTION(gameEvent, _OnSpawnConditionEvent, false);
-                }
-                subscribedEvents.Clear();
-                subscribedEvents = null;
-            }
         }
 
 
@@ -333,15 +259,5 @@ namespace Gob3AQ.GameElement
             }
         }
 
-        private void _OnSpawnConditionEvent(bool eventStatus)
-        {
-            _ = eventStatus;
-            bool despawn = CheckSpawnConditions(false);
-
-            if (despawn)
-            {
-                VirtualDestroy();
-            }
-        }
     }
 }

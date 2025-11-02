@@ -124,8 +124,6 @@ namespace Gob3AQ.VARMAP.Initialization
             _MODULE_LOADING_COMPLETED = GameMasterClass.LoadingCompletedService;
             _IS_MODULE_LOADED = GameMasterClass.IsModuleLoadedService;
             _ITEM_REGISTER = LevelMasterClass.ItemRegisterService;
-            _ITEM_OBTAIN_PICKABLE = LevelMasterClass.ItemObtainPickableService;
-            _ITEM_OBTAIN_PICKABLE_EVENT = GameEventMasterClass.ItemObtainPickableEventService;
             _MONO_REGISTER = LevelMasterClass.MonoRegisterService;
             _WP_REGISTER = LevelMasterClass.WPRegisterService;
             _DOOR_REGISTER = LevelMasterClass.DoorRegisterService;
@@ -136,11 +134,10 @@ namespace Gob3AQ.VARMAP.Initialization
             _IS_EVENT_COMBI_OCCURRED = GameEventMasterClass.IsEventCombiOccurredService;
             _COMMIT_EVENT = GameEventMasterClass.CommitEventService;
             _INTERACT_PLAYER = PlayerMasterClass.InteractPlayerService;
+            _UNCHAIN_TO_ITEM = ItemMasterClass.UnchainToItemService;
             _PLAYER_REACHED_WAYPOINT = LevelMasterClass.PlayerReachedWaypointService;
             _USE_ITEM = ItemMasterClass.UseItemService;
-            _IS_ITEM_TAKEN_FROM_SCENE = GameEventMasterClass.IsItemTakenFromSceneService;
             _CANCEL_PICKABLE_ITEM = GameMenuClass.CancelPickableItemService;
-            _EVENT_SUBSCRIPTION = GameEventMasterClass.EventSubscriptionService;
             _KEY_SUBSCRIPTION = InputMasterClass.KeySubscriptionService;
             _LOCK_PLAYER = PlayerMasterClass.LockPlayerService;
             _CHANGE_GAME_MODE = GameMasterClass.ChangeGameModeService;

@@ -93,18 +93,16 @@ namespace Gob3AQ.VARMAP.Types
 
     public readonly struct RoomInfo
     {
-        private readonly GameSprite[] sprites;
-        private readonly DialogPhrase[] phrases;
-        private readonly GameItem[] items;
-
-        public ReadOnlySpan<GameSprite> Sprites => sprites;
-        public ReadOnlySpan<DialogPhrase> Phrases => phrases;
-        public ReadOnlySpan<GameItem> Items => items;
+        public readonly ReadOnlyHashSet<GameSprite> sprites;
+        public readonly ReadOnlyHashSet<DialogPhrase> phrases;
+        public readonly ReadOnlyHashSet<GameItem> items;
 
 
-        public static readonly RoomInfo EMPTY = new(new GameSprite[0], new DialogPhrase[0], new GameItem[0]);
 
-        public RoomInfo(GameSprite[] sprites, DialogPhrase[] phrases, GameItem[] items)
+        public static readonly RoomInfo EMPTY = new(new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(0)),
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(0)), new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(0)));
+
+        public RoomInfo(ReadOnlyHashSet<GameSprite> sprites, ReadOnlyHashSet<DialogPhrase> phrases, ReadOnlyHashSet<GameItem> items)
         {
             this.sprites = sprites;
             this.phrases = phrases;
@@ -204,18 +202,16 @@ namespace Gob3AQ.VARMAP.Types
         public readonly GameSprite pickableSprite;
         public readonly GamePickableItem pickableItem;
         private readonly ActionConditions[] conditions;
-        private readonly SpawnConditions[] spawnConditions;
 
 
         public ReadOnlySpan<ActionConditions> Conditions => conditions;
-        public ReadOnlySpan<SpawnConditions> SpawnConditions => spawnConditions;
         public ReadOnlySpan<GameSprite> Sprites => sprites;
 
         public static readonly ItemInfo EMPTY = new(NameType.NAME_NONE,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new GameSprite[0],false,
-            GameSprite.SPRITE_NONE, GamePickableItem.ITEM_PICK_NONE, new ActionConditions[0], new SpawnConditions[0]);
+            GameSprite.SPRITE_NONE, GamePickableItem.ITEM_PICK_NONE, new ActionConditions[0]);
 
         public ItemInfo(NameType name, GameItemFamily family, GameSprite[] sprites, bool isPickable, GameSprite pickableSprite, GamePickableItem pickableItem,
-            ActionConditions[] conditions, SpawnConditions[] spawnConditions)
+            ActionConditions[] conditions)
         {
             this.name = name;
             this.family = family;
@@ -224,30 +220,34 @@ namespace Gob3AQ.VARMAP.Types
             this.pickableSprite = pickableSprite;
             this.pickableItem = pickableItem;
             this.conditions = conditions;
-            this.spawnConditions = spawnConditions;
         }
     }
 
-    public readonly struct SpawnConditionInfo
+    public readonly struct UnchainInfo
     {
-        public readonly bool spawn;
-        public readonly bool despawn;
-        public readonly bool changeSprite;
+        public readonly UnchainType type;
+        public readonly GameEventCombi ignoreif;
         private readonly GameEventCombi[] neededEvents;
+        public readonly GameItem targetItem;
         public readonly GameSprite targetSprite;
+        private readonly GameEventCombi[] targetEvents;
 
+        public ReadOnlySpan<GameEventCombi> NeededEvents => neededEvents;
 
-        public ReadOnlySpan<GameEventCombi> Events => neededEvents;
+        public ReadOnlySpan<GameEventCombi> TargetEvents => targetEvents;
 
-        public static readonly SpawnConditionInfo EMPTY = new(false, false, false, new GameEventCombi[0], GameSprite.SPRITE_NONE);
+        public static readonly UnchainInfo EMPTY = new(UnchainType.UNCHAIN_TYPE_SET_SPRITE, GameEventCombi.EMPTY,
+            new GameEventCombi[0], GameItem.ITEM_NONE, GameSprite.SPRITE_NONE, new GameEventCombi[0]);
 
-        public SpawnConditionInfo(bool spawn, bool despawn, bool changeSprite, GameEventCombi[] events, GameSprite targetSprite)
+        public UnchainInfo(UnchainType type, GameEventCombi ignoreif, GameEventCombi[] neededEvents,
+            GameItem targetItem, GameSprite targetSprite, GameEventCombi[] targetEvents)
         {
-            this.spawn = spawn;
-            this.despawn = despawn;
-            this.changeSprite = changeSprite;
-            this.neededEvents = events;
+            this.type = type;
+            this.ignoreif = ignoreif;
+            this.neededEvents = neededEvents;
+            this.targetItem = targetItem;
             this.targetSprite = targetSprite;
+            this.targetEvents = targetEvents;
         }
 
     }
@@ -262,18 +262,19 @@ namespace Gob3AQ.VARMAP.Types
         public readonly CharacterAnimation animationOK;
         public readonly DialogType dialogOK;
         public readonly DialogPhrase phraseOK;
-        public readonly GameEvent unchainEvent;
-        public readonly bool consumes;
+        private readonly GameEventCombi[] unchainEvents;
 
-        public ReadOnlySpan<GameEventCombi> Events => neededEvents;
+        public ReadOnlySpan<GameEventCombi> NeededEvents => neededEvents;
+        public ReadOnlySpan<GameEventCombi> UnchainEvents => unchainEvents;
+
 
         public static readonly ActionConditionsInfo EMPTY = new(new GameEventCombi[0], CharacterType.CHARACTER_NONE,
             GameItem.ITEM_NONE, ItemInteractionType.INTERACTION_NONE, CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, GameEvent.EVENT_NONE, false);
+            DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, new GameEventCombi[0]);
 
         public ActionConditionsInfo(GameEventCombi[] events, CharacterType srcChar, GameItem srcItem,
             ItemInteractionType actionOK, CharacterAnimation animationOK,DialogType dialogOK, DialogPhrase phraseOK,
-            GameEvent unchainEvent, bool consumes)
+            GameEventCombi[] unchainEvents)
         {
             this.neededEvents = events;
             this.srcChar = srcChar;
@@ -282,8 +283,7 @@ namespace Gob3AQ.VARMAP.Types
             this.animationOK = animationOK;
             this.dialogOK = dialogOK;
             this.phraseOK = phraseOK;
-            this.unchainEvent = unchainEvent;
-            this.consumes = consumes;
+            this.unchainEvents = unchainEvents;
         }
     }
 
@@ -293,18 +293,14 @@ namespace Gob3AQ.VARMAP.Types
         public readonly CharacterAnimation animation;
         public readonly DialogType dialogType;
         public readonly DialogPhrase dialogPhrase;
-        public readonly GameEvent outEvent;
         public readonly bool ok;
-        public readonly bool consumes;
         public InteractionUsageOutcome(CharacterAnimation animation, DialogType dialogType,
-            DialogPhrase dialogPhrase, GameEvent outEvent, bool ok, bool consumes)
+            DialogPhrase dialogPhrase, bool ok)
         {
             this.animation = animation;
             this.dialogType = dialogType;
             this.dialogPhrase = dialogPhrase;
-            this.outEvent = outEvent;
             this.ok = ok;
-            this.consumes = consumes;
         }
     }
 

@@ -48,7 +48,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             ITEM_REGISTER = _ITEM_REGISTER;
-            ITEM_OBTAIN_PICKABLE = _ITEM_OBTAIN_PICKABLE;
             MONO_REGISTER = _MONO_REGISTER;
             WP_REGISTER = _WP_REGISTER;
             DOOR_REGISTER = _DOOR_REGISTER;
@@ -61,9 +60,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
             INTERACT_PLAYER = _INTERACT_PLAYER;
             PLAYER_REACHED_WAYPOINT = _PLAYER_REACHED_WAYPOINT;
             USE_ITEM = _USE_ITEM;
-            IS_ITEM_TAKEN_FROM_SCENE = _IS_ITEM_TAKEN_FROM_SCENE;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
-            EVENT_SUBSCRIPTION = _EVENT_SUBSCRIPTION;
             LOCK_PLAYER = _LOCK_PLAYER;
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
             SHOW_DIALOGUE = _SHOW_DIALOGUE;
@@ -139,13 +136,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// <para> Method: <see cref="LevelMasterClass.ItemRegisterService"/> </para> 
         /// </summary>
         public static ITEM_REGISTER_DELEGATE ITEM_REGISTER;
-        /// <summary> 
-        /// Removes an item from level
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: ItemMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.ItemObtainPickableService"/> </para> 
-        /// </summary>
-        public static ITEM_OBTAIN_PICKABLE_DELEGATE ITEM_OBTAIN_PICKABLE;
         /// <summary> 
         /// Registers a player in scene
         /// <para> Owner: LevelMaster </para> 
@@ -231,26 +221,12 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// </summary>
         public static USE_ITEM_DELEGATE USE_ITEM;
         /// <summary> 
-        /// Tells if a pickable item has already been picked in game
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.IsItemTakenFromSceneService"/> </para> 
-        /// </summary>
-        public static IS_ITEM_TAKEN_FROM_SCENE_DELEGATE IS_ITEM_TAKEN_FROM_SCENE;
-        /// <summary> 
         /// Cancels selected item
         /// <para> Owner: GameMenu </para> 
         /// <para> Accessors: LevelMaster, ItemMaster,  </para> 
         /// <para> Method: <see cref="GameMenuClass.CancelPickableItemService"/> </para> 
         /// </summary>
         public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
-        /// <summary> 
-        /// Subscribe to an event. Invoke when event changes
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, PlayerMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.EventSubscriptionService"/> </para> 
-        /// </summary>
-        public static EVENT_SUBSCRIPTION_DELEGATE EVENT_SUBSCRIPTION;
         /// <summary> 
         /// Locks player so it cannot act until an action over it has been done (or removes lock)
         /// <para> Owner: PlayerMaster </para> 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,6 +44,35 @@ namespace Gob3AQ.Libs.Arith
         }
 
         public readonly T this[int index] => _list[index];
+    }
+
+    public readonly struct ReadOnlyHashSet<T>
+    {
+        private readonly HashSet<T> _hash;
+
+        public readonly int Count => _hash.Count;
+
+        public readonly HashSet<T>.Enumerator GetEnumerator()
+        {
+            return _hash.GetEnumerator();
+        }
+
+        public readonly void CopyTo(Span<T> dest)
+        {
+            int index = 0;
+            foreach(T elem in this)
+            {
+                dest[index++] = elem;
+            }
+        }
+
+        public readonly bool this[T index] => _hash.Contains(index);
+
+        public ReadOnlyHashSet(HashSet<T> hash)
+        {
+            _hash = hash;
+        }
+
     }
 
 

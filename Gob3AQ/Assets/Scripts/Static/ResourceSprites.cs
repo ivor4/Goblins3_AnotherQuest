@@ -98,14 +98,13 @@ namespace Gob3AQ.ResourceSprites
             Span<GameSprite> spriteDest = _spritesToLoadArray;
             spriteDest = spriteDest[_spritesToLoad..];
             ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(room);
-            roomInfo.Sprites.CopyTo(spriteDest);
-            _spritesToLoad += roomInfo.Sprites.Length;
+            roomInfo.sprites.CopyTo(spriteDest);
+            _spritesToLoad += roomInfo.sprites.Count;
 
             /* Then present room items sprites */
-            ReadOnlySpan<GameItem> roomItems = roomInfo.Items;
-            for (int i = 0; i < roomItems.Length; i++)
+            foreach(GameItem item in roomInfo.items)
             {
-                ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(roomItems[i]);
+                ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(item);
                 ReadOnlySpan<GameSprite> itemSprites = itemInfo.Sprites;
                 for (int j = 0; j < itemSprites.Length; j++)
                 {

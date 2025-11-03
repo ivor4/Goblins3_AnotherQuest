@@ -752,11 +752,11 @@ for line in DIALOGSinputFile:
             dialog_atlas_lines.InsertLineInATG(1, '),\n')
             dialog_atlas_lines.InsertLineInATG(1, '\n')
         elif(zone == 2):
-            options = columns[2].split('|')
-            num_options = len(options)
-            
             stringToWrite = 'new( /* '+columns[1]+' */\n'
             dialog_atlas_lines.InsertLineInATG(2, stringToWrite)
+            
+            options = columns[2].split('|')
+            num_options = len(options)
             
             stringToWrite = 'new GameEventCombi['+str(num_options)+']{'
             
@@ -769,8 +769,22 @@ for line in DIALOGSinputFile:
             dialog_atlas_lines.InsertLineInATG(2, stringToWrite)
             
             
-            stringToWrite = event_prefix+columns[3]+', '
-            stringToWrite += dialog_prefix+columns[4]+',\n'
+            options = columns[3].split('|')
+            num_options = len(options)
+            
+            stringToWrite = 'new GameEventCombi['+str(num_options)+']{'
+            
+            for _option in options:
+                _not = str('(NOT)' in _option).lower()
+                _option = _option.replace('(NOT)','')
+                stringToWrite += 'new('+event_prefix+_option+', '+_not+'), '
+                
+            stringToWrite += '},\n'
+            dialog_atlas_lines.InsertLineInATG(2, stringToWrite)
+            
+            
+            
+            stringToWrite = dialog_prefix+columns[4]+',\n'
             dialog_atlas_lines.InsertLineInATG(2, stringToWrite)
             
             options = columns[5].split('|')
@@ -1059,7 +1073,8 @@ for line in ACTIONCONDSinputFile:
         ItemVar["neededEvents"] = str(columns[4])
         ItemVar["targetItem"] = str(columns[5])
         ItemVar["targetSprite"] = str(columns[6])
-        ItemVar["targetEvents"] = str(columns[7])
+        ItemVar["targetCharacter"] = str(columns[7])
+        ItemVar["targetEvents"] = str(columns[8])
         
         # Write in item enum
         stringToWrite = ItemVar["name"]
@@ -1095,7 +1110,8 @@ for line in ACTIONCONDSinputFile:
         
         
         stringToWrite = item_prefix + ItemVar["targetItem"] +', ' +\
-            sprite_prefix + ItemVar["targetSprite"]+',\n '
+            sprite_prefix + ItemVar["targetSprite"]+','+\
+            character_prefix + ItemVar["targetCharacter"] +',\n'
         items_interaction_lines.InsertLineInATG(1, stringToWrite)
         
         
@@ -1149,9 +1165,10 @@ for line in ITEMSinputFile:
     ItemVar["res_name"] = columns[2]
     ItemVar["family"] = columns[3]
     ItemVar["sprites"] = columns[4]
-    ItemVar["pickable"] = 'true' in columns[5].lower()
-    ItemVar["pickablesprite"] = columns[6]
-    ItemVar["conditions"] = columns[7]
+    ItemVar["defaultSprite"] = columns[5]
+    ItemVar["pickable"] = 'true' in columns[6].lower()
+    ItemVar["pickablesprite"] = columns[7]
+    ItemVar["conditions"] = columns[8]
     
     
     # Write in item enum
@@ -1183,17 +1200,18 @@ for line in ITEMSinputFile:
         items_interaction_lines.InsertLineInATG(3, stringToWrite)
         
         stringToWrite = name_prefix+ItemVar["res_name"]+','+\
-            family_prefix+ItemVar["family"]+','+'new GameSprite['
+            family_prefix+ItemVar["family"]+','+'new(new HashSet<GameSprite>('
         options = ItemVar["sprites"].split('|')
         num_options = len(options)
-        stringToWrite += str(num_options)+']{'
+        stringToWrite += str(num_options)+'){'
         
         for _option in options:
             stringToWrite += sprite_prefix+_option+','
-        stringToWrite += '},\n'
+        stringToWrite += '}),\n'
         items_interaction_lines.InsertLineInATG(3, stringToWrite)
         
-        stringToWrite = str(ItemVar["pickable"]).lower()+','+\
+        stringToWrite = sprite_prefix + ItemVar["defaultSprite"] + ','
+        stringToWrite += str(ItemVar["pickable"]).lower()+','+\
             sprite_prefix+ItemVar["pickablesprite"]+','+\
             pickable_prefix+pickname+',\n'
         items_interaction_lines.InsertLineInATG(3, stringToWrite)

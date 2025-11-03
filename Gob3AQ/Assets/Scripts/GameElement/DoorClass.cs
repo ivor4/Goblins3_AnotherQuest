@@ -63,7 +63,7 @@ namespace Gob3AQ.GameElement.Door
                 }
                 else
                 {
-                    VARMAP_LevelMaster.EVENT_SUBSCRIPTION(_neededEvent, _NeededEventChanged, true);
+                    //VARMAP_LevelMaster.EVENT_SUBSCRIPTION(_neededEvent, _NeededEventChanged, true);
                     _subscribed = true;
                 }
             }
@@ -73,7 +73,7 @@ namespace Gob3AQ.GameElement.Door
         {
             if(_subscribed)
             {
-                VARMAP_LevelMaster.EVENT_SUBSCRIPTION(_neededEvent, _NeededEventChanged, false);
+                //VARMAP_LevelMaster.EVENT_SUBSCRIPTION(_neededEvent, _NeededEventChanged, false);
             }
 
             if(_registered)

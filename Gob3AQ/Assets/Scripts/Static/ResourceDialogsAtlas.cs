@@ -79,42 +79,50 @@ namespace Gob3AQ.ResourceDialogsAtlas
             /* > ATG 2 START < */
             new( /* DIALOG_OPTION_SIMPLE */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
-            GameEvent.EVENT_NONE, DialogType.DIALOG_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            DialogType.DIALOG_NONE,
             new DialogPhrase[1]{DialogPhrase.PHRASE_NONE, }
             ),
             new( /* DIALOG_OPTION_ASK_FOUNTAIN_1 */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
-            GameEvent.EVENT_NONE, DialogType.DIALOG_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            DialogType.DIALOG_NONE,
             new DialogPhrase[2]{DialogPhrase.PHRASE_ASK_FOUNTAIN1_1, DialogPhrase.PHRASE_ASK_FOUNTAIN1_2, }
             ),
             new( /* DIALOG_OPTION_ASK_FOUNTAIN_2 */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
-            GameEvent.EVENT_NONE, DialogType.DIALOG_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            DialogType.DIALOG_NONE,
             new DialogPhrase[1]{DialogPhrase.PHRASE_ASK_FOUNTAIN2_1, }
             ),
             new( /* DIALOG_OPTION_ASK_FOUNTAIN_3 */
             new GameEventCombi[1]{new(GameEvent.EVENT_FOUNTAIN_FULL, false), },
-            GameEvent.EVENT_NONE, DialogType.DIALOG_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            DialogType.DIALOG_NONE,
             new DialogPhrase[1]{DialogPhrase.PHRASE_ASK_FOUNTAIN3_1, }
             ),
             new( /* DIALOG_OPTION_ASK_FOUNTAIN_4 */
             new GameEventCombi[1]{new(GameEvent.EVENT_FOUNTAIN_FULL, true), },
-            GameEvent.EVENT_NONE, DialogType.DIALOG_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            DialogType.DIALOG_NONE,
             new DialogPhrase[1]{DialogPhrase.PHRASE_ASK_FOUNTAIN4_1, }
             ),
             new( /* DIALOG_OPTION_ASK_MILITO_1 */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
-            GameEvent.EVENT_NONE, DialogType.DIALOG_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            DialogType.DIALOG_NONE,
             new DialogPhrase[1]{DialogPhrase.PHRASE_ASK_MILITO_1, }
             ),
             new( /* DIALOG_OPTION_ASK_MILITO_2 */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
-            GameEvent.EVENT_NONE, DialogType.DIALOG_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            DialogType.DIALOG_NONE,
             new DialogPhrase[1]{DialogPhrase.PHRASE_ASK_MILITO_2, }
             ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
-            GameEvent.EVENT_NONE, DialogType.DIALOG_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            DialogType.DIALOG_NONE,
             new DialogPhrase[1]{DialogPhrase.PHRASE_NONE, }
             ),
             /* > ATG 2 END < */

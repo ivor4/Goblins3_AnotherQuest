@@ -39,6 +39,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void MONO_REGISTER_DELEGATE(PlayableCharScript mono, bool add);
     public delegate void WP_REGISTER_DELEGATE(WaypointClass wp, bool add);
     public delegate void DOOR_REGISTER_DELEGATE(DoorClass door, bool add);
+    public delegate void OBTAIN_SCENARIO_ITEMS_DELEGATE(out IReadOnlyDictionary<GameItem, GameElementClass> dict);
     public delegate void MOVE_PLAYER_DELEGATE(CharacterType character, WaypointClass wp);
     public delegate void PLAYER_WAYPOINT_UPDATE_DELEGATE(CharacterType character, int wpIndex);
     public delegate void SELECT_PLAYER_DELEGATE(CharacterType character);
@@ -48,11 +49,10 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void COMMIT_EVENT_DELEGATE(ReadOnlySpan<GameEventCombi> combi);
     public delegate void IS_ITEM_AVAILABLE_DELEGATE(GameItem item, out bool available);
     public delegate void INTERACT_PLAYER_DELEGATE(CharacterType character, WaypointClass dest, out bool accepted);
-    public delegate void UNCHAIN_TO_ITEM_DELEGATE(GameItem item, in UnchainInfo unchainInfo);
+    public delegate void UNCHAIN_TO_ITEM_DELEGATE(in UnchainInfo unchainInfo);
     public delegate void PLAYER_REACHED_WAYPOINT_DELEGATE(CharacterType character);
     public delegate void IS_EVENT_COMBI_OCCURRED_DELEGATE(ReadOnlySpan<GameEventCombi> combi, out bool occurred);
     public delegate void ITEM_OBTAIN_PICKABLE_EVENT_DELEGATE(GamePickableItem item);
-    public delegate void IS_ITEM_TAKEN_FROM_SCENE_DELEGATE(GamePickableItem item, out bool taken);
     public delegate void IS_ITEM_OWNED_DELEGATE(GamePickableItem item, out CharacterType character);
     public delegate void INTERACT_PLAYER_DOOR_DELEGATE(CharacterType character, WaypointClass doorWaypoint, int doorIndex);
     public delegate void TAKE_ITEM_DELEGATE(CharacterType character, GameItem item, out ItemInteractionType permitted);

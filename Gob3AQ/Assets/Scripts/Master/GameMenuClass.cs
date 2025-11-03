@@ -278,10 +278,7 @@ namespace Gob3AQ.GameMenu
                     _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_NONE, string.Empty, string.Empty);
 
                     /* If end of conversation triggers an event */
-                    if (dialogConfig.triggeredEvent != GameEvent.EVENT_NONE)
-                    {
-                        VARMAP_GameMenu.COMMIT_EVENT(dialogConfig.triggeredEvent, true);
-                    }
+                    VARMAP_GameMenu.COMMIT_EVENT(dialogConfig.TriggeredEvents);
 
                     VARMAP_GameMenu.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
                 }

@@ -1,5 +1,6 @@
 using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.FixedConfig;
+using Gob3AQ.Libs.Arith;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceSpritesAtlas;
 using Gob3AQ.VARMAP.Types;
@@ -16,71 +17,60 @@ namespace Gob3AQ.ResourceSprites
 {
     public static class ResourceSpritesClass
     {
-        private static List<AsyncOperationHandle<Sprite>> _cachedHandles;
+        private static HashSet<AsyncOperationHandle<Sprite>> _cachedHandles;
         private static Dictionary<GameSprite, Sprite> _cachedSpritesFinder;
-        private static GameSprite[] _spritesToLoadArray;
-        private static GameSprite[] _fixedSpritesArray;
-        private static int _fixedSpritesToLoad;
-        private static int _spritesToLoad;
-
+        private static HashSet<GameSprite> _spritesToLoadArray;
+        private static ReadOnlyHashSet<GameSprite> _fixedSpritesArray;
 
         public static void Initialize()
         {
             _cachedHandles = new(GameFixedConfig.MAX_CACHED_SPRITES);
             _cachedSpritesFinder = new(GameFixedConfig.MAX_CACHED_SPRITES);
-            _spritesToLoadArray = new GameSprite[GameFixedConfig.MAX_CACHED_SPRITES];
-            _fixedSpritesArray = new GameSprite[GameFixedConfig.MAX_FIXED_SPRITES_TO_LOAD];
+            _spritesToLoadArray = new(GameFixedConfig.MAX_CACHED_SPRITES);
 
-            _fixedSpritesToLoad = 0;
-
-            _fixedSpritesArray[_fixedSpritesToLoad++] = GameSprite.SPRITE_CURSOR_NORMAL;
-            _fixedSpritesArray[_fixedSpritesToLoad++] = GameSprite.SPRITE_CURSOR_USING;
-            _fixedSpritesArray[_fixedSpritesToLoad++] = GameSprite.SPRITE_CURSOR_DRAG;
-            _fixedSpritesArray[_fixedSpritesToLoad++] = GameSprite.SPRITE_INVENTORY;
-            _fixedSpritesArray[_fixedSpritesToLoad++] = GameSprite.SPRITE_UI_TAKE;
-            _fixedSpritesArray[_fixedSpritesToLoad++] = GameSprite.SPRITE_UI_TALK;
-            _fixedSpritesArray[_fixedSpritesToLoad++] = GameSprite.SPRITE_UI_OBSERVE;
-            _fixedSpritesArray[_fixedSpritesToLoad++] = GameSprite.SPRITE_UI_MOUSE_MOVE;
-
+            HashSet<GameSprite> editableHash = new(GameFixedConfig.MAX_CACHED_SPRITES)
+            {
+                GameSprite.SPRITE_CURSOR_NORMAL,
+                GameSprite.SPRITE_CURSOR_USING,
+                GameSprite.SPRITE_CURSOR_DRAG,
+                GameSprite.SPRITE_INVENTORY,
+                GameSprite.SPRITE_UI_TAKE,
+                GameSprite.SPRITE_UI_TALK,
+                GameSprite.SPRITE_UI_OBSERVE,
+                GameSprite.SPRITE_UI_MOUSE_MOVE
+            };
 
             for (GamePickableItem i = 0; i < GamePickableItem.ITEM_PICK_TOTAL; i++)
             {
-                _fixedSpritesArray[_fixedSpritesToLoad++] = ItemsInteractionsClass.GetSpriteFromPickable(i);
+                editableHash.Add(ItemsInteractionsClass.GetSpriteFromPickable(i));
             }
+
+            _fixedSpritesArray = new(editableHash);
         }
 
         public static IEnumerator PreloadRoomSpritesCoroutine(Room room)
         {
-            int _loadedSprites = 0;
-
             PreloadSpritesPrepareList(room);
 
-            while (_loadedSprites < _spritesToLoad)
+            foreach(GameSprite spriteToLoad in _spritesToLoadArray)
             {
-                bool already = _cachedSpritesFinder.TryGetValue(_spritesToLoadArray[_loadedSprites], out _);
+                AsyncOperationHandle<Sprite> handle = PreloadRoomSpritesCycle(room, spriteToLoad);
 
-                if (!already)
-                {
-                    AsyncOperationHandle<Sprite> handle = PreloadRoomSpritesCycle(room, _loadedSprites, out GameSprite sprite);
-
-                    yield return handle;
-                    Sprite spriteRes = handle.Result;
-                    _cachedHandles.Add(handle);
-                    _cachedSpritesFinder[sprite] = spriteRes;
-                }
-
-                ++_loadedSprites;
+                yield return handle;
+                Sprite spriteRes = handle.Result;
+                _cachedHandles.Add(handle);
+                _cachedSpritesFinder[spriteToLoad] = spriteRes;
             }
         }
 
         public static void UnloadUsedSprites()
         {
             _cachedSpritesFinder.Clear();
-            Array.Clear(_spritesToLoadArray, 0, _spritesToLoadArray.Length);
+            _spritesToLoadArray.Clear();
 
-            for (int i=0; i< _cachedHandles.Count; i++)
+            foreach(AsyncOperationHandle<Sprite> handle in _cachedHandles)
             {
-                Addressables.Release(_cachedHandles[i]);
+                Addressables.Release(handle);
             }
             _cachedHandles.Clear();
         }
@@ -91,34 +81,23 @@ namespace Gob3AQ.ResourceSprites
             UnloadUsedSprites();
 
             /* First fixed sprites to load */
-            _fixedSpritesArray.CopyTo(_spritesToLoadArray, 0);
-            _spritesToLoad = _fixedSpritesToLoad;
+            _spritesToLoadArray.UnionWith(_fixedSpritesArray);
 
             /* Then room sprites */
-            Span<GameSprite> spriteDest = _spritesToLoadArray;
-            spriteDest = spriteDest[_spritesToLoad..];
             ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(room);
-            roomInfo.sprites.CopyTo(spriteDest);
-            _spritesToLoad += roomInfo.sprites.Count;
+            _spritesToLoadArray.UnionWith(roomInfo.sprites);
 
             /* Then present room items sprites */
             foreach(GameItem item in roomInfo.items)
             {
                 ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(item);
-                ReadOnlySpan<GameSprite> itemSprites = itemInfo.Sprites;
-                for (int j = 0; j < itemSprites.Length; j++)
-                {
-                    GameSprite itemSprite = itemSprites[j];
-                    _spritesToLoadArray[_spritesToLoad++] = itemSprite;
-                }
+                _spritesToLoadArray.UnionWith(itemInfo.sprites);
             }
         }
 
-        private static AsyncOperationHandle<Sprite> PreloadRoomSpritesCycle(Room room, int index, out GameSprite sprite)
+        private static AsyncOperationHandle<Sprite> PreloadRoomSpritesCycle(Room room, GameSprite sprite)
         {
             AsyncOperationHandle<Sprite> handle;
-
-            sprite = _spritesToLoadArray[index];
             ref readonly SpriteConfig config = ref ResourceSpritesAtlasClass.GetSpriteConfig(sprite);
             handle = Addressables.LoadAssetAsync<Sprite>(config.path);
 

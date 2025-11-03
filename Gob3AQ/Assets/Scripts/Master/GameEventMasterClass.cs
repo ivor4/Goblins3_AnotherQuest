@@ -310,7 +310,15 @@ namespace Gob3AQ.GameEventMaster
             /* If occurred, execute it and don't add it to pending */
             if (occurred)
             {
-                VARMAP_GameEventMaster.UNCHAIN_TO_ITEM(info.targetItem, in info);
+                switch(info.type)
+                {
+                    case UnchainType.UNCHAIN_TYPE_EVENT:
+                        CommitEventService(info.TargetEvents);
+                        break;
+                    default:
+                        VARMAP_GameEventMaster.UNCHAIN_TO_ITEM(in info);
+                        break;
+                }
             }
 
             return occurred;

@@ -46,16 +46,13 @@ namespace Gob3AQ.Libs.Arith
         public readonly T this[int index] => _list[index];
     }
 
-    public readonly struct ReadOnlyHashSet<T>
+    public readonly struct ReadOnlyHashSet<T> : IEnumerable<T>
     {
         private readonly HashSet<T> _hash;
 
         public readonly int Count => _hash.Count;
 
-        public readonly HashSet<T>.Enumerator GetEnumerator()
-        {
-            return _hash.GetEnumerator();
-        }
+
 
         public readonly void CopyTo(Span<T> dest)
         {
@@ -64,6 +61,16 @@ namespace Gob3AQ.Libs.Arith
             {
                 dest[index++] = elem;
             }
+        }
+
+        readonly IEnumerator<T> IEnumerable<T>.GetEnumerator()
+        {
+            return _hash.GetEnumerator();
+        }
+
+        readonly IEnumerator IEnumerable.GetEnumerator()
+        {
+            return _hash.GetEnumerator();
         }
 
         public readonly bool this[T index] => _hash.Contains(index);

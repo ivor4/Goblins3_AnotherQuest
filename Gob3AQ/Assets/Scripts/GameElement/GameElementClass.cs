@@ -60,7 +60,7 @@ namespace Gob3AQ.GameElement
 
             ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(itemID);
 
-            actualSprite = itemInfo.Sprites[0];
+            actualSprite = itemInfo.defaultSprite;
 
             VARMAP_ItemMaster.REG_GAMESTATUS(ChangedGameStatus);
 
@@ -74,7 +74,7 @@ namespace Gob3AQ.GameElement
             
         }
 
-        protected void SetSprite(GameSprite newSprite)
+        public void SetSprite(GameSprite newSprite)
         {
             actualSprite = newSprite;
 

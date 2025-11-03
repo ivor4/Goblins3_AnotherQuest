@@ -55,7 +55,17 @@ namespace Gob3AQ.LevelMaster
             rolist = _singleton._Player_List;
         }
 
-
+        public static void ObtainScenarioItemsService(out IReadOnlyDictionary<GameItem, GameElementClass> dict)
+        {
+            if (_singleton != null)
+            {
+                dict = _singleton._ItemDictionary;
+            }
+            else
+            {
+                dict = null;
+            }
+        }
 
         public static void GetNearestWPService(Vector2 position, float maxRadius, out WaypointClass candidate)
         {

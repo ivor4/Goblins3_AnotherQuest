@@ -142,19 +142,20 @@ namespace Gob3AQ.VARMAP.Types
     public readonly struct DialogOptionConfig
     {
         public readonly ReadOnlySpan<GameEventCombi> ConditionEvents => conditionEvents;
+        public readonly ReadOnlySpan<GameEventCombi> TriggeredEvents => triggeredEvents;
         public readonly ReadOnlySpan<DialogPhrase> Phrases => phrases;
 
         private readonly GameEventCombi[] conditionEvents;
-        public readonly GameEvent triggeredEvent;
+        private readonly GameEventCombi[] triggeredEvents;
         public readonly DialogType dialogTriggered;
         private readonly DialogPhrase[] phrases;
 
-        public static readonly DialogOptionConfig EMPTY = new(new GameEventCombi[0], GameEvent.EVENT_NONE, DialogType.DIALOG_NONE, new DialogPhrase[0]);
+        public static readonly DialogOptionConfig EMPTY = new(new GameEventCombi[0], new GameEventCombi[0], DialogType.DIALOG_NONE, new DialogPhrase[0]);
 
-        public DialogOptionConfig(GameEventCombi[] conditionEvents, GameEvent triggeredEvent, DialogType dialogTriggered, DialogPhrase[] phrases)
+        public DialogOptionConfig(GameEventCombi[] conditionEvents, GameEventCombi[] triggeredEvents, DialogType dialogTriggered, DialogPhrase[] phrases)
         {
             this.conditionEvents = conditionEvents;
-            this.triggeredEvent = triggeredEvent;
+            this.triggeredEvents = triggeredEvents;
             this.dialogTriggered = dialogTriggered;
             this.phrases = phrases;
         }
@@ -197,7 +198,8 @@ namespace Gob3AQ.VARMAP.Types
     {
         public readonly NameType name;
         public readonly GameItemFamily family;
-        private readonly GameSprite[] sprites;
+        public readonly ReadOnlyHashSet<GameSprite> sprites;
+        public readonly GameSprite defaultSprite;
         public readonly bool isPickable;
         public readonly GameSprite pickableSprite;
         public readonly GamePickableItem pickableItem;
@@ -205,17 +207,17 @@ namespace Gob3AQ.VARMAP.Types
 
 
         public ReadOnlySpan<ActionConditions> Conditions => conditions;
-        public ReadOnlySpan<GameSprite> Sprites => sprites;
 
-        public static readonly ItemInfo EMPTY = new(NameType.NAME_NONE,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new GameSprite[0],false,
-            GameSprite.SPRITE_NONE, GamePickableItem.ITEM_PICK_NONE, new ActionConditions[0]);
+        public static readonly ItemInfo EMPTY = new(NameType.NAME_NONE,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(0)),
+            GameSprite.SPRITE_NONE,false,GameSprite.SPRITE_NONE, GamePickableItem.ITEM_PICK_NONE, new ActionConditions[0]);
 
-        public ItemInfo(NameType name, GameItemFamily family, GameSprite[] sprites, bool isPickable, GameSprite pickableSprite, GamePickableItem pickableItem,
-            ActionConditions[] conditions)
+        public ItemInfo(NameType name, GameItemFamily family, ReadOnlyHashSet<GameSprite> sprites,
+            GameSprite defaultSprite, bool isPickable, GameSprite pickableSprite, GamePickableItem pickableItem, ActionConditions[] conditions)
         {
             this.name = name;
             this.family = family;
             this.sprites = sprites;
+            this.defaultSprite = defaultSprite;
             this.isPickable = isPickable;
             this.pickableSprite = pickableSprite;
             this.pickableItem = pickableItem;
@@ -230,6 +232,7 @@ namespace Gob3AQ.VARMAP.Types
         private readonly GameEventCombi[] neededEvents;
         public readonly GameItem targetItem;
         public readonly GameSprite targetSprite;
+        public readonly CharacterType targetCharacter;
         private readonly GameEventCombi[] targetEvents;
 
         public ReadOnlySpan<GameEventCombi> NeededEvents => neededEvents;
@@ -237,16 +240,17 @@ namespace Gob3AQ.VARMAP.Types
         public ReadOnlySpan<GameEventCombi> TargetEvents => targetEvents;
 
         public static readonly UnchainInfo EMPTY = new(UnchainType.UNCHAIN_TYPE_SET_SPRITE, GameEventCombi.EMPTY,
-            new GameEventCombi[0], GameItem.ITEM_NONE, GameSprite.SPRITE_NONE, new GameEventCombi[0]);
+            new GameEventCombi[0], GameItem.ITEM_NONE, GameSprite.SPRITE_NONE, CharacterType.CHARACTER_NONE, new GameEventCombi[0]);
 
         public UnchainInfo(UnchainType type, GameEventCombi ignoreif, GameEventCombi[] neededEvents,
-            GameItem targetItem, GameSprite targetSprite, GameEventCombi[] targetEvents)
+            GameItem targetItem, GameSprite targetSprite, CharacterType targetCharacter, GameEventCombi[] targetEvents)
         {
             this.type = type;
             this.ignoreif = ignoreif;
             this.neededEvents = neededEvents;
             this.targetItem = targetItem;
             this.targetSprite = targetSprite;
+            this.targetCharacter = targetCharacter;
             this.targetEvents = targetEvents;
         }
 

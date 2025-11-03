@@ -20,9 +20,6 @@ namespace Gob3AQ.VARMAP.InputMaster
             /* > ATG 1 START */
             GET_GAME_OPTIONS = _GET_GAME_OPTIONS;
             GET_ELAPSED_TIME_MS = _GET_ELAPSED_TIME_MS;
-            GET_CAMERA_DISPOSITION = _GET_CAMERA_DISPOSITION;
-            GET_SHADOW_CAMERA_DISPOSITION = _GET_SHADOW_CAMERA_DISPOSITION;
-            SET_CAMERA_DISPOSITION = _SET_CAMERA_DISPOSITION;
             GET_PRESSED_KEYS = _GET_PRESSED_KEYS;
             GET_SHADOW_PRESSED_KEYS = _GET_SHADOW_PRESSED_KEYS;
             SET_PRESSED_KEYS = _SET_PRESSED_KEYS;
@@ -41,9 +38,6 @@ namespace Gob3AQ.VARMAP.InputMaster
         /* > ATG 2 START */
         public static GetVARMAPValueDelegate<GameOptionsStruct> GET_GAME_OPTIONS;
         public static GetVARMAPValueDelegate<ulong> GET_ELAPSED_TIME_MS;
-        public static GetVARMAPValueDelegate<CameraDispositionStruct> GET_CAMERA_DISPOSITION;
-        public static GetVARMAPValueDelegate<CameraDispositionStruct> GET_SHADOW_CAMERA_DISPOSITION;
-        public static SetVARMAPValueDelegate<CameraDispositionStruct> SET_CAMERA_DISPOSITION;
         public static GetVARMAPValueDelegate<KeyStruct> GET_PRESSED_KEYS;
         public static GetVARMAPValueDelegate<KeyStruct> GET_SHADOW_PRESSED_KEYS;
         public static SetVARMAPValueDelegate<KeyStruct> SET_PRESSED_KEYS;

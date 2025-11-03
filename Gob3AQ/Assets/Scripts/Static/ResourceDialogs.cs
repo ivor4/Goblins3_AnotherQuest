@@ -6,13 +6,9 @@ using Gob3AQ.VARMAP.Types;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEngine.ResourceManagement.ResourceLocations;
-using UnityEngine.ResourceManagement.ResourceProviders;
 
 namespace Gob3AQ.ResourceDialogs
 {
@@ -139,15 +135,14 @@ namespace Gob3AQ.ResourceDialogs
 
             /* Get room info and its linked phrases */
             ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(room);
-            ReadOnlySpan<GameItem> roomItems = roomInfo.Items;
 
             /* Necessary to use heap for this (but it is loading) */
             HashSet<DialogType> processedDialogues = new(GameFixedConfig.MAX_CACHED_PHRASES);
             Queue<DialogType> dialoguesToProcess = new(GameFixedConfig.MAX_CACHED_PHRASES);
 
-            for (int i = 0; i < roomItems.Length; ++i)
+            foreach(GameItem item in roomInfo.items)
             {
-                ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(roomItems[i]);
+                ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(item);
                 _namesToLoadArray[_namesToLoad++] = itemInfo.name;
 
                 ReadOnlySpan<ActionConditions> conditionsEnumArray = itemInfo.Conditions;

@@ -51,6 +51,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
             MONO_REGISTER = _MONO_REGISTER;
             WP_REGISTER = _WP_REGISTER;
             DOOR_REGISTER = _DOOR_REGISTER;
+            OBTAIN_SCENARIO_ITEMS = _OBTAIN_SCENARIO_ITEMS;
             PLAYER_WAYPOINT_UPDATE = _PLAYER_WAYPOINT_UPDATE;
             GAME_ELEMENT_HOVER = _GAME_ELEMENT_HOVER;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
@@ -157,6 +158,13 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// <para> Method: <see cref="LevelMasterClass.DoorRegisterService"/> </para> 
         /// </summary>
         public static DOOR_REGISTER_DELEGATE DOOR_REGISTER;
+        /// <summary> 
+        /// Obtains dictionary of placed elements in actual Scene
+        /// <para> Owner: LevelMaster </para> 
+        /// <para> Accessors: ItemMaster,  </para> 
+        /// <para> Method: <see cref="LevelMasterClass.ObtainScenarioItemsService"/> </para> 
+        /// </summary>
+        public static OBTAIN_SCENARIO_ITEMS_DELEGATE OBTAIN_SCENARIO_ITEMS;
         /// <summary> 
         /// Updates actual player waypoint when crossing or stopping on it
         /// <para> Owner: LevelMaster </para> 

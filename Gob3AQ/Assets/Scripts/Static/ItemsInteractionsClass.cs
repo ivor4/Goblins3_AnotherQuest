@@ -1,6 +1,7 @@
 using UnityEngine;
 using Gob3AQ.VARMAP.Types;
 using System;
+using System.Collections.Generic;
 
 namespace Gob3AQ.Brain.ItemsInteraction
 { 
@@ -80,14 +81,20 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new( /* UNCHAIN_RED_POTION_TOOK */
             UnchainType.UNCHAIN_TYPE_DESPAWN,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_RED_POTION_TOOK, false),}, 
-            GameItem.ITEM_POTION, GameSprite.SPRITE_NONE,
-             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            GameItem.ITEM_POTION, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* UNCHAIN_RED_POTION_TOOK_2 */
+            UnchainType.UNCHAIN_TYPE_EARN_ITEM,new(GameEvent.EVENT_RED_POTION_TOOK, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_RED_POTION_TOOK, false),}, 
+            GameItem.ITEM_POTION, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_MAIN,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
             new( /* UNCHAIN_FOUNTAIN_FULL */
             UnchainType.UNCHAIN_TYPE_SET_SPRITE,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_FOUNTAIN_FULL, false),}, 
-            GameItem.ITEM_FOUNTAIN, GameSprite.SPRITE_FOUNTAIN_FULL,
-             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            GameItem.ITEM_FOUNTAIN, GameSprite.SPRITE_FOUNTAIN_FULL,CharacterType.CHARACTER_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
             /* > ATG 1 END < */
         };
@@ -163,43 +170,43 @@ namespace Gob3AQ.Brain.ItemsInteraction
         {
             /* > ATG 3 START < */
             new ( /* ITEM_PLAYER_MAIN */
-            NameType.NAME_CHAR_MAIN,GameItemFamily.ITEM_FAMILY_TYPE_PLAYER,new GameSprite[1]{GameSprite.SPRITE_POTION_RED,},
-            false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            NameType.NAME_CHAR_MAIN,GameItemFamily.ITEM_FAMILY_TYPE_PLAYER,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_POTION_RED,}),
+            GameSprite.SPRITE_POTION_RED,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
             new ActionConditions[1]{ActionConditions.COND_OK,}),
             
             new ( /* ITEM_PLAYER_PARROT */
-            NameType.NAME_CHAR_PARROT,GameItemFamily.ITEM_FAMILY_TYPE_PLAYER,new GameSprite[1]{GameSprite.SPRITE_POTION_RED,},
-            false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            NameType.NAME_CHAR_PARROT,GameItemFamily.ITEM_FAMILY_TYPE_PLAYER,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_POTION_RED,}),
+            GameSprite.SPRITE_POTION_RED,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
             new ActionConditions[1]{ActionConditions.COND_OK,}),
             
             new ( /* ITEM_PLAYER_SNAKE */
-            NameType.NAME_CHAR_SNAKE,GameItemFamily.ITEM_FAMILY_TYPE_PLAYER,new GameSprite[1]{GameSprite.SPRITE_POTION_RED,},
-            false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            NameType.NAME_CHAR_SNAKE,GameItemFamily.ITEM_FAMILY_TYPE_PLAYER,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_POTION_RED,}),
+            GameSprite.SPRITE_POTION_RED,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
             new ActionConditions[1]{ActionConditions.COND_OK,}),
             
             new ( /* ITEM_POTION */
-            NameType.NAME_ITEM_POTION,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new GameSprite[1]{GameSprite.SPRITE_POTION_RED,},
-            true,GameSprite.SPRITE_POTION_RED,GamePickableItem.ITEM_PICK_POTION,
+            NameType.NAME_ITEM_POTION,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_POTION_RED,}),
+            GameSprite.SPRITE_POTION_RED,true,GameSprite.SPRITE_POTION_RED,GamePickableItem.ITEM_PICK_POTION,
             new ActionConditions[2]{ActionConditions.COND_OBSERVE_POTION,ActionConditions.COND_TAKE_POTION,}),
             
             new ( /* ITEM_POTION_BLUE */
-            NameType.NAME_ITEM_BLUE_POTION,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new GameSprite[1]{GameSprite.SPRITE_POTION_BLUE,},
-            true,GameSprite.SPRITE_POTION_BLUE,GamePickableItem.ITEM_PICK_POTION_BLUE,
+            NameType.NAME_ITEM_BLUE_POTION,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_POTION_BLUE,}),
+            GameSprite.SPRITE_POTION_BLUE,true,GameSprite.SPRITE_POTION_BLUE,GamePickableItem.ITEM_PICK_POTION_BLUE,
             new ActionConditions[1]{ActionConditions.COND_TAKE_POTION_BLUE,}),
             
             new ( /* ITEM_FOUNTAIN */
-            NameType.NAME_ITEM_FOUNTAIN,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new GameSprite[2]{GameSprite.SPRITE_FOUNTAIN,GameSprite.SPRITE_FOUNTAIN_FULL,},
-            false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            NameType.NAME_ITEM_FOUNTAIN,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(2){GameSprite.SPRITE_FOUNTAIN,GameSprite.SPRITE_FOUNTAIN_FULL,}),
+            GameSprite.SPRITE_FOUNTAIN,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
             new ActionConditions[2]{ActionConditions.COND_FOUNTAIN,ActionConditions.COND_FOUNTAIN2,}),
             
             new ( /* ITEM_NPC_MILITO */
-            NameType.NAME_NPC_MILITO,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new GameSprite[1]{GameSprite.SPRITE_NPC_MILITO,},
-            false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            NameType.NAME_NPC_MILITO,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_NPC_MILITO,}),
+            GameSprite.SPRITE_NPC_MILITO,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
             new ActionConditions[1]{ActionConditions.COND_TALK_MILITO,}),
             
             new ( /* ITEM_LAST */
-            NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new GameSprite[1]{GameSprite.SPRITE_LAST,},
-            false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST,}),
+            GameSprite.SPRITE_LAST,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
             new ActionConditions[1]{ActionConditions.COND_OK,}),
             
             /* > ATG 3 END < */

@@ -50,6 +50,7 @@ namespace Gob3AQ.VARMAP.Types
     {
         /* > ATG 4 START < */
         UNCHAIN_RED_POTION_TOOK, 
+        UNCHAIN_RED_POTION_TOOK_2, 
         UNCHAIN_FOUNTAIN_FULL, 
         
         UNCHAIN_TOTAL

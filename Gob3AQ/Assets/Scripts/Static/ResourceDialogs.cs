@@ -1,5 +1,6 @@
 using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.FixedConfig;
+using Gob3AQ.Libs.Arith;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceDialogsAtlas;
 using Gob3AQ.VARMAP.Types;
@@ -17,19 +18,15 @@ namespace Gob3AQ.ResourceDialogs
         private const string PHRASES_PATH = "PHRASES_CSV";
         private const string NAMES_PATH = "NAMES_CSV";
 
-        private static NameType[] _fixedNamesArray;
-        private static NameType[] _namesToLoadArray;
-        private static DialogPhrase[] _fixedPhrasesArray;
-        private static DialogPhrase[] _phrasesToLoadArray;
+        private static ReadOnlyHashSet<NameType> _fixedNamesArray;
+        private static HashSet<NameType> _namesToLoadArray;
+        private static ReadOnlyHashSet<DialogPhrase> _fixedPhrasesArray;
+        private static HashSet<DialogPhrase> _phrasesToLoadArray;
         private static Dictionary<DialogPhrase, int> _cachedPhrasesFinder;
         private static Dictionary<NameType, string> _cachedNamesFinder;
         private static PhraseContent[] _cachedPhrasesArray;
         private static DialogLanguages _language;
 
-        private static int _fixedPhrasesToLoad;
-        private static int _fixedNamesToLoad;
-        private static int _namesToLoad;
-        private static int _phrasesToLoad;
         private static int _cachedPhrases;
 
 
@@ -39,34 +36,37 @@ namespace Gob3AQ.ResourceDialogs
             _language = language;
             _cachedPhrasesFinder = new(GameFixedConfig.MAX_CACHED_PHRASES);
             _cachedNamesFinder = new(GameFixedConfig.MAX_CACHED_PHRASES);
-            _fixedPhrasesArray = new DialogPhrase[GameFixedConfig.MAX_FIXED_PHRASES_TO_LOAD];
-            _fixedNamesArray = new NameType[GameFixedConfig.MAX_FIXED_NAMES_TO_LOAD];
-            _phrasesToLoadArray = new DialogPhrase[GameFixedConfig.MAX_CACHED_PHRASES];
-            _namesToLoadArray = new NameType[GameFixedConfig.MAX_CACHED_PHRASES];
+            
+            _phrasesToLoadArray = new(GameFixedConfig.MAX_CACHED_PHRASES);
+            _namesToLoadArray = new(GameFixedConfig.MAX_CACHED_PHRASES);
             _cachedPhrasesArray = new PhraseContent[GameFixedConfig.MAX_CACHED_PHRASES];
 
-            _fixedNamesToLoad = 0;
+            HashSet<DialogPhrase> editablePhraseHash = new(GameFixedConfig.MAX_FIXED_PHRASES_TO_LOAD)
+            {
+                DialogPhrase.PHRASE_NONSENSE,
+                DialogPhrase.PHRASE_NONSENSE_OBSERVE,
+                DialogPhrase.PHRASE_NONSENSE_TALK
+            };
 
-            _fixedNamesArray[_fixedNamesToLoad++] = NameType.NAME_CHAR_MAIN;
-            _fixedNamesArray[_fixedNamesToLoad++] = NameType.NAME_CHAR_PARROT;
-            _fixedNamesArray[_fixedNamesToLoad++] = NameType.NAME_CHAR_SNAKE;
-            _fixedNamesArray[_fixedNamesToLoad++] = NameType.NAME_INTERACTION_TAKE;
-            _fixedNamesArray[_fixedNamesToLoad++] = NameType.NAME_INTERACTION_TALK;
-            _fixedNamesArray[_fixedNamesToLoad++] = NameType.NAME_INTERACTION_OBSERVE;
+            HashSet<NameType> editableNameHash = new(GameFixedConfig.MAX_FIXED_NAMES_TO_LOAD)
+            {
+                NameType.NAME_CHAR_MAIN,
+                NameType.NAME_CHAR_PARROT,
+                NameType.NAME_CHAR_SNAKE,
+                NameType.NAME_INTERACTION_TAKE,
+                NameType.NAME_INTERACTION_TALK,
+                NameType.NAME_INTERACTION_OBSERVE
+            };
 
             for (GamePickableItem i = 0; i < GamePickableItem.ITEM_PICK_TOTAL; i++)
             {
                 ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(ItemsInteractionsClass.GetItemFromPickable(i));
-                _fixedNamesArray[_fixedNamesToLoad++] = itemInfo.name;
+                editableNameHash.Add(itemInfo.name);
             }
 
-            _fixedPhrasesToLoad = 0;
-            _fixedPhrasesArray[_fixedPhrasesToLoad++] = DialogPhrase.PHRASE_NONSENSE;
-            _fixedPhrasesArray[_fixedPhrasesToLoad++] = DialogPhrase.PHRASE_NONSENSE_OBSERVE;
-            _fixedPhrasesArray[_fixedPhrasesToLoad++] = DialogPhrase.PHRASE_NONSENSE_TALK;
+            _fixedPhrasesArray = new(editablePhraseHash);
+            _fixedNamesArray = new(editableNameHash);
 
-            _namesToLoad = 0;
-            _phrasesToLoad = 0;
             _cachedPhrases = 0;
         }
 
@@ -74,12 +74,10 @@ namespace Gob3AQ.ResourceDialogs
         {
             _cachedNamesFinder.Clear();
             _cachedPhrasesFinder.Clear();
-            Array.Clear(_namesToLoadArray, 0, _namesToLoadArray.Length);
-            Array.Clear(_phrasesToLoadArray, 0, _phrasesToLoadArray.Length);
+            _namesToLoadArray.Clear();
+            _phrasesToLoadArray.Clear();
             Array.Clear(_cachedPhrasesArray, 0, _cachedPhrasesArray.Length);
 
-            _namesToLoad = 0;
-            _phrasesToLoad = 0;
             _cachedPhrases = 0;
         }
 
@@ -110,10 +108,8 @@ namespace Gob3AQ.ResourceDialogs
         }
 
 
-        private static void PreloadRoomPhrases_TaskCycle(string[] lines, int index)
+        private static void PreloadRoomPhrases_TaskCycle(string[] lines, DialogPhrase phrase)
         {
-            /* Get phrases which use actual Room or Room.NONE */
-            DialogPhrase phrase = _phrasesToLoadArray[index];
             ref readonly PhraseConfig phraseConfig = ref ResourceDialogsAtlasClass.GetPhraseConfig(phrase);
 
             /* Retrieve configuration for given phrase */
@@ -128,10 +124,8 @@ namespace Gob3AQ.ResourceDialogs
         private static void PreloadRoomTextsPrepareList(Room room)
         {
             /* Copy fixed ones */
-            _fixedNamesArray.CopyTo(_namesToLoadArray, 0);
-            _namesToLoad = _fixedNamesToLoad;
-            _fixedPhrasesArray.CopyTo(_phrasesToLoadArray, 0);
-            _phrasesToLoad = _fixedPhrasesToLoad;
+            _namesToLoadArray.UnionWith(_fixedNamesArray);
+            _phrasesToLoadArray.UnionWith(_fixedPhrasesArray);
 
             /* Get room info and its linked phrases */
             ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(room);
@@ -143,7 +137,7 @@ namespace Gob3AQ.ResourceDialogs
             foreach(GameItem item in roomInfo.items)
             {
                 ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(item);
-                _namesToLoadArray[_namesToLoad++] = itemInfo.name;
+                _namesToLoadArray.Add(itemInfo.name);
 
                 ReadOnlySpan<ActionConditions> conditionsEnumArray = itemInfo.Conditions;
 
@@ -154,7 +148,7 @@ namespace Gob3AQ.ResourceDialogs
                     /* Standalone phrases */
                     if (condition.phraseOK != DialogPhrase.PHRASE_NONE)
                     {
-                        _phrasesToLoadArray[_phrasesToLoad++] = condition.phraseOK;
+                        _phrasesToLoadArray.Add(condition.phraseOK);
                     }
 
                     /* Include phrases from dialogs */
@@ -178,7 +172,7 @@ namespace Gob3AQ.ResourceDialogs
 
                                 for (int l = 0; l < dialogPhrases.Length; ++l)
                                 {
-                                    _phrasesToLoadArray[_phrasesToLoad++] = dialogPhrases[l];
+                                    _phrasesToLoadArray.Add(dialogPhrases[l]);
                                 }
 
                                 /* If option triggers another dialog, include its phrases too */
@@ -199,43 +193,24 @@ namespace Gob3AQ.ResourceDialogs
 
         private static IEnumerator PreloadRoomTextsCoroutine(Room room, string[] names, string[] phrases)
         {
-            int _loadedNames = 0;
 
             PreloadRoomTextsPrepareList(room);
 
-            while (_loadedNames < _namesToLoad)
+            foreach(NameType name in _namesToLoadArray)
             {
-                bool already = _cachedNamesFinder.TryGetValue(_namesToLoadArray[_loadedNames], out _);
-
-                if (!already)
-                {
-                    PreloadRoomNames_AddName(names, _loadedNames);
-                    yield return ResourceAtlasClass.WaitForNextFrame;
-                }
-
-                ++_loadedNames;
+                PreloadRoomNames_AddName(names, name);
+                yield return ResourceAtlasClass.WaitForNextFrame;
             }
 
-            _loadedNames = 0;
-
-            while (_loadedNames < _phrasesToLoad)
+            foreach(DialogPhrase phrase in _phrasesToLoadArray)
             {
-                bool already = _cachedPhrasesFinder.TryGetValue(_phrasesToLoadArray[_loadedNames], out _);
-
-                if (!already)
-                {
-                    PreloadRoomPhrases_TaskCycle(phrases, _loadedNames);
-                    yield return ResourceAtlasClass.WaitForNextFrame;
-                }
-
-                ++_loadedNames;
+                PreloadRoomPhrases_TaskCycle(phrases, phrase);
+                yield return ResourceAtlasClass.WaitForNextFrame;
             }
         }
 
-        private static void PreloadRoomNames_AddName(string[] lines, int index)
+        private static void PreloadRoomNames_AddName(string[] lines, NameType name)
         {
-            NameType name = _namesToLoadArray[index];
-
             /* Retrieve configuration for given phrase */
             ref readonly string row = ref lines[(int)name];
             ReadOnlySpan<string> columns = row.Split(',');

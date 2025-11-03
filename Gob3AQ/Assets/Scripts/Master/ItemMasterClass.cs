@@ -28,7 +28,7 @@ namespace Gob3AQ.ItemMaster
                         EarnLosePickableItem(unchainInfo.targetCharacter, unchainInfo.targetItem, true);
                         break;
                     case UnchainType.UNCHAIN_TYPE_LOSE_ITEM:
-                        EarnLosePickableItem(unchainInfo.targetCharacter, unchainInfo.targetItem, false);
+                        EarnLosePickableItem(CharacterType.CHARACTER_NONE, unchainInfo.targetItem, false);
                         break;
                     case UnchainType.UNCHAIN_TYPE_SET_SPRITE:
                         if(_singleton._levelItems.TryGetValue(unchainInfo.targetItem, out instance))

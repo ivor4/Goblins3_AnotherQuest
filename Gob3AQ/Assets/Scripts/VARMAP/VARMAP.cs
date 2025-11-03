@@ -103,6 +103,11 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPValueDelegate<UserInputInteraction> _SET_USER_INPUT_INTERACTION;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<UserInputInteraction> _REG_USER_INPUT_INTERACTION;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<UserInputInteraction> _UNREG_USER_INPUT_INTERACTION;
+        protected static GetVARMAPValueDelegate<bool> _GET_EVENTS_BEING_PROCESSED;
+        protected static GetVARMAPValueDelegate<bool> _GET_SHADOW_EVENTS_BEING_PROCESSED;
+        protected static SetVARMAPValueDelegate<bool> _SET_EVENTS_BEING_PROCESSED;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<bool> _REG_EVENTS_BEING_PROCESSED;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<bool> _UNREG_EVENTS_BEING_PROCESSED;
         protected static GetVARMAPValueDelegate<bool> _GET_LAST_VARMAP_VAL;
         protected static GetVARMAPValueDelegate<bool> _GET_SHADOW_LAST_VARMAP_VAL;
         protected static SetVARMAPValueDelegate<bool> _SET_LAST_VARMAP_VAL;

@@ -63,17 +63,22 @@ namespace Gob3AQ.GameMaster
 
             /* -------- Old game cycle ends here -------- */
 
-            if(saveGamePending)
-            {
-                saveGamePending = false;
-                VARMAP_DataSystem.SaveVARMAPData();
-            }
+            bool eventsBeingProcessed = VARMAP_GameMaster.GET_EVENTS_BEING_PROCESSED();
 
-            if(loadScenePending != Room.ROOM_NONE)
+            if (!eventsBeingProcessed)
             {
-                Room loadRoom = loadScenePending;
-                loadScenePending = Room.ROOM_NONE;
-                _singleton.StartCoroutine(UnloadAndLoadRoomCoroutine(loadRoom));
+                if (saveGamePending)
+                {
+                    saveGamePending = false;
+                    VARMAP_DataSystem.SaveVARMAPData();
+                }
+
+                if (loadScenePending != Room.ROOM_NONE)
+                {
+                    Room loadRoom = loadScenePending;
+                    loadScenePending = Room.ROOM_NONE;
+                    _singleton.StartCoroutine(UnloadAndLoadRoomCoroutine(loadRoom));
+                }
             }
 
             /* -------- New game cycle starts here -------- */

@@ -1,12 +1,12 @@
-using UnityEngine;
+using Gob3AQ.Brain.ItemsInteraction;
+using Gob3AQ.FixedConfig;
+using Gob3AQ.ResourceAtlas;
 using Gob3AQ.VARMAP.GameEventMaster;
 using Gob3AQ.VARMAP.Types;
-using Gob3AQ.FixedConfig;
-using System.Collections.Generic;
 using System;
-using Gob3AQ.Brain.ItemsInteraction;
 using System.Collections;
-using Gob3AQ.ResourceAtlas;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Gob3AQ.GameEventMaster
 {
@@ -27,6 +27,7 @@ namespace Gob3AQ.GameEventMaster
         /* One of (maybe) multiple events necessary for one or multiple unchainers. So several keys could point to same unchainer(s) */
         /* It is responsability of designer to set correctly "ignoreif" events for events which could happen way further in game */
         private Dictionary<GameEvent, HashSet<UnchainConditions>> _pendingUnchainDict;
+        private Dictionary<UnchainConditions, HashSet<GameEvent>> _reversePendingUnchainDict;
 
 
         public static void IsEventCombiOccurredService(ReadOnlySpan<GameEventCombi> combi, out bool occurred)
@@ -78,6 +79,7 @@ namespace Gob3AQ.GameEventMaster
                 }
 
                 VARMAP_GameEventMaster.SET_ARRAY_EVENTS_OCCURRED(events_out);
+                VARMAP_GameEventMaster.SET_EVENTS_BEING_PROCESSED(true);
             }
         }
 
@@ -118,9 +120,11 @@ namespace Gob3AQ.GameEventMaster
             {
                 _singleton = this;
 
-                _pendingUnchainDict = new Dictionary<GameEvent, HashSet<UnchainConditions>>(GameFixedConfig.MAX_PENDING_UNCHAINERS);
+                _pendingUnchainDict = new(GameFixedConfig.MAX_PENDING_UNCHAINERS);
+                _reversePendingUnchainDict = new(GameFixedConfig.MAX_PENDING_UNCHAINERS);
+
                 _removePendingKey = new HashSet<GameEvent>(GameFixedConfig.MAX_PENDING_UNCHAINERS);
-                _removePendingHash = new HashSet<UnchainConditions>(GameFixedConfig.MAX_UNCHAINER_CONDITIONS);
+                _removePendingHash = new HashSet<UnchainConditions>(GameFixedConfig.MAX_PENDING_UNCHAINERS);
 
                 _bufferedEvents = new HashSet<GameEvent>[2];
                 _bufferedEvents[0] = new(GameFixedConfig.MAX_BUFFERED_EVENTS);
@@ -143,6 +147,8 @@ namespace Gob3AQ.GameEventMaster
         /* Therefore here in Update are processed changed events from last cycle (which is desirable scenario) */
         private void Update()
         {
+            bool processingEvents;
+            bool prevProcessingEvents;
             int lastCycleHashSetIndex;
             int nextCycleHashSetIndex;
 
@@ -150,6 +156,9 @@ namespace Gob3AQ.GameEventMaster
             lastCycleHashSetIndex = _actualUsedBufferedHashSetIndex;
             nextCycleHashSetIndex = (lastCycleHashSetIndex + 1) & 0x1;
             _actualUsedBufferedHashSetIndex = nextCycleHashSetIndex;
+
+            processingEvents = _bufferedEvents[lastCycleHashSetIndex].Count != 0;
+            prevProcessingEvents = VARMAP_GameEventMaster.GET_SHADOW_EVENTS_BEING_PROCESSED();
 
             /* Iterate in buffered changes to call invokes, based on dictionary which has been working until now */
             /* Whatever these invoke do, will work on the alternate dictionary (which is the official new for this cycle) */
@@ -163,28 +172,29 @@ namespace Gob3AQ.GameEventMaster
                         ref readonly UnchainInfo unchainerInfo = ref ItemsInteractionsClass.GetUnchainInfo(unchainer);
 
                         /* If it is completed, add to remove list */
-                        if(TryUnchainAction(in unchainerInfo))
+                        if (TryUnchainAction(in unchainerInfo))
                         {
                             _removePendingHash.Add(unchainer);
                         }
                     }
 
                     /* Remove outside previous foreach loop */
-                    foreach(UnchainConditions unchainerToRemove in _removePendingHash)
+                    foreach (UnchainConditions unchainerToRemove in _removePendingHash)
                     {
-                        foreach(KeyValuePair<GameEvent, HashSet<UnchainConditions>> keypair in _pendingUnchainDict)
+                        foreach(GameEvent unchainerNeededEvent in _reversePendingUnchainDict[unchainerToRemove])
                         {
-                            keypair.Value.Remove(unchainerToRemove);
+                            _pendingUnchainDict[unchainerNeededEvent].Remove(unchainerToRemove);
 
-                            if(keypair.Value.Count == 0)
+                            if (_pendingUnchainDict[unchainerNeededEvent].Count == 0)
                             {
-                                _removePendingKey.Add(keypair.Key);
+                                _removePendingKey.Add(unchainerNeededEvent);
                             }
                         }
+                        _reversePendingUnchainDict.Remove(unchainerToRemove);
                     }
                     _removePendingHash.Clear();
 
-                    foreach(GameEvent gameEventToRemove in _removePendingKey)
+                    foreach (GameEvent gameEventToRemove in _removePendingKey)
                     {
                         _pendingUnchainDict.Remove(gameEventToRemove);
                     }
@@ -194,6 +204,11 @@ namespace Gob3AQ.GameEventMaster
 
             /* Clear old dictionary */
             _bufferedEvents[lastCycleHashSetIndex].Clear();
+
+            if(prevProcessingEvents != processingEvents)
+            {
+                VARMAP_GameEventMaster.SET_EVENTS_BEING_PROCESSED(processingEvents);
+            }
         }
 
 
@@ -260,7 +275,10 @@ namespace Gob3AQ.GameEventMaster
                 if (pending)
                 {
                     /* In case this points to an item, check if item is involved in room */
-                    if (unchainer_info.type != UnchainType.UNCHAIN_TYPE_EVENT)
+                    if ((unchainer_info.type == UnchainType.UNCHAIN_TYPE_SET_SPRITE) ||
+                        (unchainer_info.type == UnchainType.UNCHAIN_TYPE_SPAWN) ||
+                        (unchainer_info.type == UnchainType.UNCHAIN_TYPE_DESPAWN)
+                        )
                     {
                         if (!roomInfo.items[unchainer_info.targetItem])
                         {
@@ -285,8 +303,18 @@ namespace Gob3AQ.GameEventMaster
                             }
                             else
                             {
-                                _pendingUnchainDict[eventCombi.eventType] = new HashSet<UnchainConditions>(GameFixedConfig.MAX_UNCHAINER_CONDITIONS)
+                                _pendingUnchainDict[eventCombi.eventType] = new(GameFixedConfig.MAX_PENDING_UNCHAINERS)
                                 { unchainer };
+                            }
+
+                            if(_reversePendingUnchainDict.TryGetValue(unchainer, out HashSet<GameEvent> reverseHash))
+                            {
+                                reverseHash.Add(eventCombi.eventType);
+                            }
+                            else
+                            {
+                                _reversePendingUnchainDict[unchainer] = new(GameFixedConfig.MAX_PENDING_UNCHAINERS)
+                                { eventCombi.eventType};
                             }
                         }
                     }

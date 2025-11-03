@@ -96,6 +96,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameItem.ITEM_FOUNTAIN, GameSprite.SPRITE_FOUNTAIN_FULL,CharacterType.CHARACTER_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
+            new( /* UNCHAIN_FOUNTAIN_FULL_2 */
+            UnchainType.UNCHAIN_TYPE_LOSE_ITEM,new(GameEvent.EVENT_FOUNTAIN_FULL, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_FOUNTAIN_FULL, false),}, 
+            GameItem.ITEM_POTION, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
             /* > ATG 1 END < */
         };
 

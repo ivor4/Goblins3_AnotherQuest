@@ -52,6 +52,7 @@ namespace Gob3AQ.VARMAP.Types
         UNCHAIN_RED_POTION_TOOK, 
         UNCHAIN_RED_POTION_TOOK_2, 
         UNCHAIN_FOUNTAIN_FULL, 
+        UNCHAIN_FOUNTAIN_FULL_2, 
         
         UNCHAIN_TOTAL
         /* > ATG 4 END < */

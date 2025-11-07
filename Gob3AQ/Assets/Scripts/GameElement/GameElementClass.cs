@@ -18,6 +18,8 @@ namespace Gob3AQ.GameElement
         public GameItem ItemID => itemID;
 
         public GameItemFamily GetGameItemFamily => gameElementFamily;
+
+        public Collider2D My2DCollider => myCollider;
         public int Waypoint => actualWaypoint;
 
         public bool IsAvailable => isAvailable;
@@ -228,7 +230,7 @@ namespace Gob3AQ.GameElement
 
             if (registered)
             {
-                VARMAP_ItemMaster.ITEM_REGISTER(false, this);
+                VARMAP_ItemMaster.ITEM_REGISTER(false, this, null);
             }
         }
 

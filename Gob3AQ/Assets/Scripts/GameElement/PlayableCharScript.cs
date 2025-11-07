@@ -138,11 +138,13 @@ namespace Gob3AQ.GameElement.PlayableChar
 
             PlayerMasterClass.SetPlayerLoadPresent(CharType);
 
+            GameElementClickable clickable = topParent.GetComponent<GameElementClickable>();
+
             VARMAP_PlayerMaster.MONO_REGISTER(this, true);
-            VARMAP_PlayerMaster.ITEM_REGISTER(true, this);
+            VARMAP_PlayerMaster.ITEM_REGISTER(true, this, clickable);
             VARMAP_PlayerMaster.REG_PLAYER_SELECTED(ChangedSelectedPlayerEvent);
 
-            topParent.GetComponent<GameElementClickable>().SetOnClickAction(MouseEnterAction);
+            clickable.SetOnClickAction(MouseEnterAction);
 
             registered = true;
 

@@ -1,4 +1,5 @@
 ﻿using Gob3AQ.GameElement;
+using Gob3AQ.GameElement.Clickable;
 using Gob3AQ.GameElement.Door;
 using Gob3AQ.GameElement.Item;
 using Gob3AQ.GameElement.PlayableChar;
@@ -35,7 +36,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void FREEZE_PLAY_DELEGATE(bool freeze);
     public delegate void CHANGE_GAME_MODE_DELEGATE(Game_Status mode, out bool error);
     public delegate void SHOW_DIALOGUE_DELEGATE(ReadOnlySpan<GameItem> talkers, DialogType dialog, DialogPhrase phrase);
-    public delegate void ITEM_REGISTER_DELEGATE(bool register, GameElementClass instance);
+    public delegate void ITEM_REGISTER_DELEGATE(bool register, GameElementClass instance, GameElementClickable clickable);
     public delegate void ITEM_OBTAIN_PICKABLE_DELEGATE(GameItem item);
     public delegate void MONO_REGISTER_DELEGATE(PlayableCharScript mono, bool add);
     public delegate void DOOR_REGISTER_DELEGATE(DoorClass door, bool add);

@@ -90,6 +90,18 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameItem.ITEM_POTION, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_MAIN,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
+            new( /* UNCHAIN_BLUE_POTION_TOOK */
+            UnchainType.UNCHAIN_TYPE_DESPAWN,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_BLUE_POTION_TOOK, false),}, 
+            GameItem.ITEM_POTION_BLUE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* UNCHAIN_BLUE_POTION_TOOK_2 */
+            UnchainType.UNCHAIN_TYPE_EARN_ITEM,new(GameEvent.EVENT_RED_POTION_TOOK, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_BLUE_POTION_TOOK, false),}, 
+            GameItem.ITEM_POTION_BLUE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_PARROT,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
             new( /* UNCHAIN_FOUNTAIN_FULL */
             UnchainType.UNCHAIN_TYPE_SET_SPRITE,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_FOUNTAIN_FULL, false),}, 
@@ -136,7 +148,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterType.CHARACTER_PARROT,GameItem.ITEM_POTION_BLUE,ItemInteractionType.INTERACTION_TAKE,
             CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
             DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_BLUE_POTION_TOOK, false),}), 
             
             new( /* COND_FOUNTAIN */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 

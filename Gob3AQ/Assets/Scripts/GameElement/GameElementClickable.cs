@@ -2,25 +2,25 @@ using UnityEngine;
 
 namespace Gob3AQ.GameElement.Clickable
 {
-    public delegate void OnClickAction(bool enter);
+    public delegate void OnHoverAction(bool enter);
 
-    public class GameElementClickable : MonoBehaviour
+    public interface IGameObjectHoverable
     {
-        private OnClickAction _onClickAction;
+        public void OnHover(bool enter);
+    }
 
-        public void SetOnClickAction(OnClickAction onClickAction)
+    public class GameElementClickable : MonoBehaviour, IGameObjectHoverable
+    {
+        private OnHoverAction _onHoverAction;
+
+        public void OnHover(bool enter)
         {
-            _onClickAction = onClickAction;
+            _onHoverAction?.Invoke(enter);
         }
 
-        private void OnMouseEnter()
+        public void SetOnClickAction(OnHoverAction onClickAction)
         {
-            _onClickAction?.Invoke(true);
-        }
-
-        private void OnMouseExit()
-        {
-            _onClickAction?.Invoke(false);
+            _onHoverAction = onClickAction;
         }
     }
 }

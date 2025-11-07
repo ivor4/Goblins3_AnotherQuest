@@ -54,6 +54,7 @@ namespace Gob3AQ.FixedConfig
         public const int MAX_BUFFERED_EVENTS = 16;
         public const int MAX_PENDING_UNCHAINERS = 32;
         public const int MAX_UNCHAINER_CONDITIONS = 4;
+        public const int MAX_RAYCASTED_ITEMS = 4;
         public const int MAX_LEVEL_WAYPOINTS = 128;
         public const int MAX_DIALOG_TALKERS = 4;
         public const int MAX_DISPLAYED_PICKED_ITEMS = 16;

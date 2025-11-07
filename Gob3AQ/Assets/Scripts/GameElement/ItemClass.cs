@@ -39,11 +39,12 @@ namespace Gob3AQ.GameElement.Item
 
             ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(itemID);
 
+            GameElementClickable clickable = topParent.GetComponent<GameElementClickable>();
+
+            clickable.SetOnClickAction(MouseEnterAction);
 
             /* Register item as Level element (to be clicked and able to iteract) */
-            VARMAP_ItemMaster.ITEM_REGISTER(true, this);
-
-            topParent.GetComponent<GameElementClickable>().SetOnClickAction(MouseEnterAction);
+            VARMAP_ItemMaster.ITEM_REGISTER(true, this, clickable);
 
             registered = true;
 

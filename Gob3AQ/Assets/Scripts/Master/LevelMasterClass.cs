@@ -2,6 +2,7 @@ using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.Brain.LevelOptions;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameElement;
+using Gob3AQ.GameElement.Clickable;
 using Gob3AQ.GameElement.Door;
 using Gob3AQ.GameElement.Item;
 using Gob3AQ.GameElement.PlayableChar;
@@ -12,6 +13,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Gob3AQ.LevelMaster
 {
@@ -30,6 +32,10 @@ namespace Gob3AQ.LevelMaster
         private Dictionary<GameItem, GameElementClass> _ItemDictionary;
         private LevelElemInfo _HoveredElem;
         private PendingCharacterInteraction[] _PendingCharInteractions;
+        private HashSet<IGameObjectHoverable> _RaycastedItems;
+        private HashSet<IGameObjectHoverable> _PrevRaycastedItems;
+        private RaycastHit2D[] _RaycastedItemColliders;
+        private Dictionary<Collider2D, IGameObjectHoverable> _ItemColliderDictionary;
 
 
         public struct PendingCharacterInteraction
@@ -117,17 +123,19 @@ namespace Gob3AQ.LevelMaster
         }
 
 
-        public static void ItemRegisterService(bool register, GameElementClass instance)
+        public static void ItemRegisterService(bool register, GameElementClass instance, GameElementClickable clickable)
         {
             if (_singleton != null)
             {
                 if (register)
                 {
                     _singleton._ItemDictionary.Add(instance.ItemID, instance);
+                    _singleton._ItemColliderDictionary[instance.My2DCollider] = clickable;
                 }
                 else
                 {
                     _singleton._ItemDictionary.Remove(instance.ItemID);
+                    _singleton._ItemColliderDictionary.Remove(instance.My2DCollider);
                 }
             }
         }
@@ -188,21 +196,27 @@ namespace Gob3AQ.LevelMaster
 
         public static void GameElementOverService(in LevelElemInfo info)
         {
-            /* Overwrite */
-            if (info.active)
+            if (_singleton != null)
             {
-                _singleton._HoveredElem = info;
-            }
-            /* Undo if actual family slot was used by this one */
-            else
-            {
-                if ((_singleton._HoveredElem.family == info.family) && (_singleton._HoveredElem.item == info.item))
+                /* Overwrite */
+                if (info.active)
                 {
-                    _singleton._HoveredElem = LevelElemInfo.EMPTY;
+                    if (_singleton._HoveredElem.family < info.family)
+                    {
+                        _singleton._HoveredElem = info;
+                    }
                 }
-            }
+                /* Undo if actual family slot was used by this one */
+                else
+                {
+                    if ((_singleton._HoveredElem.family == info.family) && (_singleton._HoveredElem.item == info.item))
+                    {
+                        _singleton._HoveredElem = LevelElemInfo.EMPTY;
+                    }
+                }
 
-            VARMAP_LevelMaster.SET_ITEM_HOVER(_singleton._HoveredElem.item);
+                VARMAP_LevelMaster.SET_ITEM_HOVER(_singleton._HoveredElem.item);
+            }
         }
 
         
@@ -251,11 +265,15 @@ namespace Gob3AQ.LevelMaster
         private void Update()
         {
             bool events_processed = VARMAP_LevelMaster.GET_EVENTS_BEING_PROCESSED();
+            ref readonly MousePropertiesStruct mouse = ref VARMAP_LevelMaster.GET_MOUSE_PROPERTIES();
+
+            UpdateHoverElements(in mouse);
+
 
             if (!events_processed)
             {
                 Game_Status gstatus = VARMAP_LevelMaster.GET_GAMESTATUS();
-                ref readonly MousePropertiesStruct mouse = ref VARMAP_LevelMaster.GET_MOUSE_PROPERTIES();
+               
                 ref readonly KeyStruct keys = ref VARMAP_LevelMaster.GET_PRESSED_KEYS();
 
                 switch (gstatus)
@@ -291,6 +309,10 @@ namespace Gob3AQ.LevelMaster
             _Player_List = new PlayableCharScript[(int)CharacterType.CHARACTER_TOTAL];
             _ItemDictionary = new Dictionary<GameItem, GameElementClass>(GameFixedConfig.MAX_POOLED_ITEMS);
             _Door_List = new List<DoorClass>(GameFixedConfig.MAX_SCENE_DOORS);
+            _RaycastedItems = new(GameFixedConfig.MAX_RAYCASTED_ITEMS);
+            _PrevRaycastedItems = new(GameFixedConfig.MAX_RAYCASTED_ITEMS);
+            _RaycastedItemColliders = new RaycastHit2D[GameFixedConfig.MAX_RAYCASTED_ITEMS];
+            _ItemColliderDictionary = new(GameFixedConfig.MAX_POOLED_ITEMS);
 
 
             _LayerOnlyPlayers = 0x1 << LayerMask.NameToLayer("PlayerLayer");
@@ -320,7 +342,50 @@ namespace Gob3AQ.LevelMaster
             UpdateMouseEvents(gstatus, in mouse, in keys);
         }
 
-       
+        private void UpdateHoverElements(in MousePropertiesStruct mouse)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(new(mouse.posPixels.x,mouse.posPixels.y));
+            int matches = Physics2D.RaycastNonAlloc(ray.origin, ray.direction, _RaycastedItemColliders, float.PositiveInfinity, _LayerPlayersAndItemsNPC);
+
+            _RaycastedItems.Clear();
+
+            for(int i=0;i<matches;++i)
+            {
+                if (_ItemColliderDictionary.TryGetValue(_RaycastedItemColliders[i].collider, out IGameObjectHoverable hoverable))
+                {
+                    _RaycastedItems.Add(hoverable);
+                }
+            }
+
+            /* Remain only items which are not common between previous and actual cycle  */
+            /* This will make system forget about elements which are in continuous hover or absence of */
+            _PrevRaycastedItems.SymmetricExceptWith(_RaycastedItems);
+
+            /* If there is at least one difference, recalculate */
+            if (_PrevRaycastedItems.Count > 0)
+            {
+                /* Actuals (+) Differences = Actuals (+) Previous */
+                _PrevRaycastedItems.UnionWith(_RaycastedItems);
+
+                foreach (IGameObjectHoverable hoverable in _PrevRaycastedItems)
+                {
+                    /* Enter (or ReEnter) */
+                    if (_RaycastedItems.Contains(hoverable))
+                    {
+                        hoverable.OnHover(true);
+                    }
+                    /* Exit */
+                    else
+                    {
+                        hoverable.OnHover(false);
+                    }
+                }
+            }
+
+            /* Take actual ones, which will be used as previous */
+            _PrevRaycastedItems.Clear();
+            _PrevRaycastedItems.UnionWith(_RaycastedItems);
+        }
 
 
         private void UpdateMouseEvents(Game_Status gstatus, in MousePropertiesStruct mouse, in KeyStruct keys)

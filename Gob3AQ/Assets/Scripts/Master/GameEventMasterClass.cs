@@ -18,10 +18,9 @@ namespace Gob3AQ.GameEventMaster
         /// <summary>
         /// Events which were modified on last cycle
         /// </summary>
-        private HashSet<GameEvent>[] _bufferedEvents;
+        private HashSet<GameEvent> _bufferedEvents;
         private HashSet<UnchainConditions> _removePendingHash;
         private HashSet<GameEvent> _removePendingKey;
-        private int _actualUsedBufferedHashSetIndex;
 
         /* Ok, this is gross. Here goes something which could make you think in opposite directions <noob<->expert> */
         /* One of (maybe) multiple events necessary for one or multiple unchainers. So several keys could point to same unchainer(s) */
@@ -71,9 +70,9 @@ namespace Gob3AQ.GameEventMaster
 
                         mbfs.SetIndividualBool(elembit, newValue);
 
-                        if ((newValue != prevValue) && (_singleton != null))
+                        if (newValue != prevValue)
                         {
-                            _singleton._bufferedEvents[_singleton._actualUsedBufferedHashSetIndex].Add(combiInfo.eventType);
+                            _singleton._bufferedEvents.Add(combiInfo.eventType);
                         }
                     }
                 }
@@ -126,11 +125,7 @@ namespace Gob3AQ.GameEventMaster
                 _removePendingKey = new HashSet<GameEvent>(GameFixedConfig.MAX_PENDING_UNCHAINERS);
                 _removePendingHash = new HashSet<UnchainConditions>(GameFixedConfig.MAX_PENDING_UNCHAINERS);
 
-                _bufferedEvents = new HashSet<GameEvent>[2];
-                _bufferedEvents[0] = new(GameFixedConfig.MAX_BUFFERED_EVENTS);
-                _bufferedEvents[1] = new(GameFixedConfig.MAX_BUFFERED_EVENTS);
-
-                _actualUsedBufferedHashSetIndex = 0;
+                _bufferedEvents = new(GameFixedConfig.MAX_BUFFERED_EVENTS);
             }
         }
 
@@ -149,22 +144,24 @@ namespace Gob3AQ.GameEventMaster
         {
             bool processingEvents;
             bool prevProcessingEvents;
-            int lastCycleHashSetIndex;
-            int nextCycleHashSetIndex;
 
-            /* First of all, move selector to the other alternate dictionary, as invokes may trigger new events */
-            lastCycleHashSetIndex = _actualUsedBufferedHashSetIndex;
-            nextCycleHashSetIndex = (lastCycleHashSetIndex + 1) & 0x1;
-            _actualUsedBufferedHashSetIndex = nextCycleHashSetIndex;
-
-            processingEvents = _bufferedEvents[lastCycleHashSetIndex].Count != 0;
+            processingEvents = _bufferedEvents.Count != 0;
             prevProcessingEvents = VARMAP_GameEventMaster.GET_SHADOW_EVENTS_BEING_PROCESSED();
 
             /* Iterate in buffered changes to call invokes, based on dictionary which has been working until now */
             /* Whatever these invoke do, will work on the alternate dictionary (which is the official new for this cycle) */
-            foreach (GameEvent gameEvent in _bufferedEvents[lastCycleHashSetIndex])
+            /* >Only one per cycle< */
+            if (processingEvents)
             {
-                if (_pendingUnchainDict.TryGetValue(gameEvent, out HashSet<UnchainConditions> unchainers))
+                GameEvent eventWithChanges = GameEvent.EVENT_NONE;
+                foreach (GameEvent gameEvent in _bufferedEvents)
+                {
+                    eventWithChanges = gameEvent;
+                    break;
+                }
+                _bufferedEvents.Remove(eventWithChanges);
+
+                if (_pendingUnchainDict.TryGetValue(eventWithChanges, out HashSet<UnchainConditions> unchainers))
                 {
                     /* Try unchain for related unchainers to this event */
                     foreach (UnchainConditions unchainer in unchainers)
@@ -181,7 +178,7 @@ namespace Gob3AQ.GameEventMaster
                     /* Remove outside previous foreach loop */
                     foreach (UnchainConditions unchainerToRemove in _removePendingHash)
                     {
-                        foreach(GameEvent unchainerNeededEvent in _reversePendingUnchainDict[unchainerToRemove])
+                        foreach (GameEvent unchainerNeededEvent in _reversePendingUnchainDict[unchainerToRemove])
                         {
                             _pendingUnchainDict[unchainerNeededEvent].Remove(unchainerToRemove);
 
@@ -202,10 +199,7 @@ namespace Gob3AQ.GameEventMaster
                 }
             }
 
-            /* Clear old dictionary */
-            _bufferedEvents[lastCycleHashSetIndex].Clear();
-
-            if(prevProcessingEvents != processingEvents)
+            if (prevProcessingEvents != processingEvents)
             {
                 VARMAP_GameEventMaster.SET_EVENTS_BEING_PROCESSED(processingEvents);
             }

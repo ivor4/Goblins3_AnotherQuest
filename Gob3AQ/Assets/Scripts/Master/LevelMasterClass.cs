@@ -7,12 +7,11 @@ using Gob3AQ.GameElement.Item;
 using Gob3AQ.GameElement.PlayableChar;
 using Gob3AQ.VARMAP.LevelMaster;
 using Gob3AQ.VARMAP.Types;
-using Gob3AQ.Waypoint;
+using Gob3AQ.Waypoint.Network;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Gob3AQ.LevelMaster
 {
@@ -24,7 +23,8 @@ namespace Gob3AQ.LevelMaster
 
         private static LevelMasterClass _singleton;
 
-        private List<WaypointClass> _WP_List;
+        private IReadOnlyList<Vector2> _WP_List;
+        private IReadOnlyList<WaypointSolution> _WP_Solution_List;
         private PlayableCharScript[] _Player_List;
         private List<DoorClass> _Door_List;
         private Dictionary<GameItem, GameElementClass> _ItemDictionary;
@@ -67,26 +67,52 @@ namespace Gob3AQ.LevelMaster
             }
         }
 
-        public static void GetNearestWPService(Vector2 position, float maxRadius, out WaypointClass candidate)
+        public static void GetNearestWPService(Vector2 position, float maxRadius, out int candidate_index,
+            out Vector2 candidate_pos)
         {
-            float minDistance = float.PositiveInfinity;
-            candidate = null;
-
-            foreach (WaypointClass wp in _singleton._WP_List)
+            if (_singleton != null)
             {
-                float dist = Vector2.Distance(wp.transform.position, position);
+                float minDistance = float.PositiveInfinity;
+                candidate_pos = Vector2.zero;
+                candidate_index = -1;
 
-                if (dist < minDistance)
+                for (int i = 0; i < _singleton._WP_List.Count; ++i)
                 {
-                    minDistance = dist;
-                    candidate = wp;
+                    Vector2 wp_pos = _singleton._WP_List[i];
+                    float dist = Vector2.Distance(wp_pos, position);
+
+                    if (dist < minDistance)
+                    {
+                        minDistance = dist;
+                        candidate_pos = wp_pos;
+                        candidate_index = i;
+                    }
+                }
+
+                /* Its better to cancel with ONE comparison at the end than do this comparison on each element */
+                if (minDistance > maxRadius)
+                {
+                    candidate_index = -1;
                 }
             }
-
-            /* Its better to cancel with ONE comparison at the end than do this comparison on each element */
-            if(minDistance > maxRadius)
+            else
             {
-                candidate = null;
+                candidate_index = -1;
+                candidate_pos = Vector2.zero;
+            }
+        }
+
+        public static void GetWaypointListService(out IReadOnlyList<Vector2> waypoints, out IReadOnlyList<WaypointSolution> solutions)
+        {
+            if (_singleton != null)
+            {
+                waypoints = _singleton._WP_List;
+                solutions = _singleton._WP_Solution_List;
+            }
+            else
+            {
+                waypoints = null;
+                solutions = null;
             }
         }
 
@@ -146,20 +172,7 @@ namespace Gob3AQ.LevelMaster
             }
         }
 
-        public static void WPRegisterService(WaypointClass waypoint, bool add)
-        {
-            if (_singleton != null)
-            {
-                if (add)
-                {
-                    _singleton._WP_List.Add(waypoint);
-                }
-                else
-                {
-                    _singleton._WP_List.Remove(waypoint);
-                }
-            }
-        }
+        
 
         public static void PlayerWaypointUpdateService(CharacterType character, int waypointIndex)
         {
@@ -199,12 +212,16 @@ namespace Gob3AQ.LevelMaster
 
 
         #region "Internal Services"
-        public static void DeclareAllWaypointsLoaded()
+
+        public static void WPListRegister(IReadOnlyList<Vector2> waypointList, IReadOnlyList<WaypointSolution> solutions)
         {
-            VARMAP_LevelMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_LevelMaster);
+            if (_singleton != null)
+            {
+                _singleton._WP_List = waypointList;
+                _singleton._WP_Solution_List = solutions;
+            }
         }
 
-        
 
         #endregion
 
@@ -227,30 +244,36 @@ namespace Gob3AQ.LevelMaster
         private void Start()
         {
             VARMAP_LevelMaster.SET_PLAYER_SELECTED(CharacterType.CHARACTER_NONE);
+            VARMAP_LevelMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_LevelMaster);
         }
 
 
         private void Update()
         {
-            Game_Status gstatus = VARMAP_LevelMaster.GET_GAMESTATUS();
-            ref readonly MousePropertiesStruct mouse = ref VARMAP_LevelMaster.GET_MOUSE_PROPERTIES();
-            ref readonly KeyStruct keys = ref VARMAP_LevelMaster.GET_PRESSED_KEYS();
+            bool events_processed = VARMAP_LevelMaster.GET_EVENTS_BEING_PROCESSED();
 
-            switch (gstatus)
+            if (!events_processed)
             {
-                case Game_Status.GAME_STATUS_PLAY:
-                    Update_Play(gstatus, in mouse, in keys);
-                    break;
-                case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
-                    if (keys.isKeyCycleReleased(KeyFunctions.KEYFUNC_INVENTORY))
-                    {
-                        VARMAP_LevelMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
-                        GameElementOverService(in LevelElemInfo.DEACTIVATOR);
-                    }
-                    break;
+                Game_Status gstatus = VARMAP_LevelMaster.GET_GAMESTATUS();
+                ref readonly MousePropertiesStruct mouse = ref VARMAP_LevelMaster.GET_MOUSE_PROPERTIES();
+                ref readonly KeyStruct keys = ref VARMAP_LevelMaster.GET_PRESSED_KEYS();
 
-                default:
-                    break;
+                switch (gstatus)
+                {
+                    case Game_Status.GAME_STATUS_PLAY:
+                        Update_Play(gstatus, in mouse, in keys);
+                        break;
+                    case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
+                        if (keys.isKeyCycleReleased(KeyFunctions.KEYFUNC_INVENTORY))
+                        {
+                            VARMAP_LevelMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
+                            GameElementOverService(in LevelElemInfo.DEACTIVATOR);
+                        }
+                        break;
+
+                    default:
+                        break;
+                }
             }
         }
 
@@ -266,7 +289,6 @@ namespace Gob3AQ.LevelMaster
         private void Initializations()
         {
             _Player_List = new PlayableCharScript[(int)CharacterType.CHARACTER_TOTAL];
-            _WP_List = new List<WaypointClass>(GameFixedConfig.MAX_LEVEL_WAYPOINTS);
             _ItemDictionary = new Dictionary<GameItem, GameElementClass>(GameFixedConfig.MAX_POOLED_ITEMS);
             _Door_List = new List<DoorClass>(GameFixedConfig.MAX_SCENE_DOORS);
 
@@ -380,8 +402,7 @@ namespace Gob3AQ.LevelMaster
 
 
                 case GameItemFamily.ITEM_FAMILY_TYPE_DOOR:
-                    usage = InteractionUsage.CreateTakeItem(playerSelected, hovered.item,
-                        hovered.waypoint);
+                    usage = InteractionUsage.CreateTakeItem(playerSelected, hovered.item, hovered.waypoint);
 
                     VARMAP_LevelMaster.INTERACT_PLAYER(playerSelected, hovered.waypoint, out accepted);
                     VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
@@ -410,16 +431,13 @@ namespace Gob3AQ.LevelMaster
                     switch (userInteraction)
                     {
                         case UserInputInteraction.INPUT_INTERACTION_TAKE:
-                            usage = InteractionUsage.CreateTakeItem(playerSelected, hovered.item,
-                                hovered.waypoint);
+                            usage = InteractionUsage.CreateTakeItem(playerSelected, hovered.item,hovered.waypoint);
                             break;
                         case UserInputInteraction.INPUT_INTERACTION_TALK:
-                            usage = InteractionUsage.CreateTalkItem(playerSelected, hovered.item,
-                                hovered.waypoint);
+                            usage = InteractionUsage.CreateTalkItem(playerSelected, hovered.item, hovered.waypoint);
                             break;
                         default:
-                            usage = InteractionUsage.CreateObserveItem(playerSelected, hovered.item,
-                                hovered.waypoint);
+                            usage = InteractionUsage.CreateObserveItem(playerSelected, hovered.item, hovered.waypoint);
                             break;
                     }
                 }
@@ -437,13 +455,13 @@ namespace Gob3AQ.LevelMaster
 
         private void CheckPlayerMovementOrder(in MousePropertiesStruct mouse, CharacterType selectedCharacter)
         {
-            GetNearestWPService(mouse.pos1, GameFixedConfig.DISTANCE_MOUSE_FURTHEST_WP, out WaypointClass candidate);
+            GetNearestWPService(mouse.pos1, GameFixedConfig.DISTANCE_MOUSE_FURTHEST_WP, out int candidate_index, out Vector2 candidate_pos);
 
-            if (candidate)
+            if (candidate_index >= 0)
             {
-                InteractionUsage usage = InteractionUsage.CreatePlayerMove(selectedCharacter, candidate);
+                InteractionUsage usage = InteractionUsage.CreatePlayerMove(selectedCharacter, candidate_index);
 
-                VARMAP_LevelMaster.INTERACT_PLAYER(selectedCharacter, candidate, out bool accepted);
+                VARMAP_LevelMaster.INTERACT_PLAYER(selectedCharacter, candidate_index, out bool accepted);
                 if (accepted)
                 {
                     _PendingCharInteractions[(int)selectedCharacter] = new PendingCharacterInteraction(in usage);
@@ -472,7 +490,7 @@ namespace Gob3AQ.LevelMaster
                     default:
                         /* Check if it is available and is still in original position */
                         bool validTransaction = IsItemAvailable(usage.itemDest);
-                        validTransaction &= _ItemDictionary[usage.itemDest].Waypoint == usage.destWaypoint;
+                        validTransaction &= _ItemDictionary[usage.itemDest].Waypoint == usage.destWaypoint_index;
 
 
                         if (validTransaction)

@@ -181,13 +181,6 @@ namespace Gob3AQ.VARMAP
         /// </summary>
         protected static MONO_REGISTER_DELEGATE _MONO_REGISTER;
         /// <summary> 
-        /// Registers a Waypoint in level
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors:  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.WPRegisterService"/> </para> 
-        /// </summary>
-        protected static WP_REGISTER_DELEGATE _WP_REGISTER;
-        /// <summary> 
         /// Registers a door in level
         /// <para> Owner: LevelMaster </para> 
         /// <para> Accessors:  </para> 
@@ -208,6 +201,13 @@ namespace Gob3AQ.VARMAP
         /// <para> Method: <see cref="LevelMasterClass.PlayerWaypointUpdateService"/> </para> 
         /// </summary>
         protected static PLAYER_WAYPOINT_UPDATE_DELEGATE _PLAYER_WAYPOINT_UPDATE;
+        /// <summary> 
+        /// Gets list of waypoints and solutions
+        /// <para> Owner: LevelMaster </para> 
+        /// <para> Accessors: PlayerMaster,  </para> 
+        /// <para> Method: <see cref="LevelMasterClass.GetWaypointListService"/> </para> 
+        /// </summary>
+        protected static GET_WP_LIST_DELEGATE _GET_WP_LIST;
         /// <summary> 
         /// Any of Game Elements (Player or Item or Door) will call with essential info
         /// <para> Owner: LevelMaster </para> 

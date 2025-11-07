@@ -54,7 +54,7 @@ namespace Gob3AQ.ResourceSprites
 
             foreach(GameSprite spriteToLoad in _spritesToLoadArray)
             {
-                AsyncOperationHandle<Sprite> handle = PreloadRoomSpritesCycle(room, spriteToLoad);
+                AsyncOperationHandle<Sprite> handle = PreloadRoomSpritesCycle(spriteToLoad);
 
                 yield return handle;
                 Sprite spriteRes = handle.Result;
@@ -95,7 +95,7 @@ namespace Gob3AQ.ResourceSprites
             }
         }
 
-        private static AsyncOperationHandle<Sprite> PreloadRoomSpritesCycle(Room room, GameSprite sprite)
+        private static AsyncOperationHandle<Sprite> PreloadRoomSpritesCycle(GameSprite sprite)
         {
             AsyncOperationHandle<Sprite> handle;
             ref readonly SpriteConfig config = ref ResourceSpritesAtlasClass.GetSpriteConfig(sprite);

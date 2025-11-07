@@ -13,5 +13,5 @@ N,ENUM_ID,TYPE,SAFE,ARRAY,DEFVALUE,SAVE,Separator,GameMaster,InputMaster,LevelMa
 11,PICKABLE_ITEM_CHOSEN,GameItem,1,0,GameItem.ITEM_NONE,N,,-,-,R,R E,W,-,R,-
 12,ITEM_HOVER,GameItem,0,0,GameItem.ITEM_NONE,N,,-,-,W,R E,-,-,-,-
 13,USER_INPUT_INTERACTION,UserInputInteraction,0,0,UserInputInteraction.INPUT_INTERACTION_TAKE,N,,-,-,R,R E,W,-,-,-
-14,EVENTS_BEING_PROCESSED,bool,0,0,false,N,,R,-,-,-,-,-,-,W
+14,EVENTS_BEING_PROCESSED,bool,0,0,false,N,,R,-,R,-,-,-,-,W
 15,LAST_VARMAP_VAL,bool,0,0,false,N,,W,-,-,-,-,-,-,-

@@ -43,16 +43,17 @@ namespace Gob3AQ.VARMAP.LevelMaster
             GET_SHADOW_ITEM_HOVER = _GET_SHADOW_ITEM_HOVER;
             SET_ITEM_HOVER = _SET_ITEM_HOVER;
             GET_USER_INPUT_INTERACTION = _GET_USER_INPUT_INTERACTION;
+            GET_EVENTS_BEING_PROCESSED = _GET_EVENTS_BEING_PROCESSED;
             SAVE_GAME = _SAVE_GAME;
             LOAD_ROOM = _LOAD_ROOM;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             ITEM_REGISTER = _ITEM_REGISTER;
             MONO_REGISTER = _MONO_REGISTER;
-            WP_REGISTER = _WP_REGISTER;
             DOOR_REGISTER = _DOOR_REGISTER;
             OBTAIN_SCENARIO_ITEMS = _OBTAIN_SCENARIO_ITEMS;
             PLAYER_WAYPOINT_UPDATE = _PLAYER_WAYPOINT_UPDATE;
+            GET_WP_LIST = _GET_WP_LIST;
             GAME_ELEMENT_HOVER = _GAME_ELEMENT_HOVER;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
             GET_NEAREST_WP = _GET_NEAREST_WP;
@@ -98,6 +99,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static GetVARMAPValueDelegate<GameItem> GET_SHADOW_ITEM_HOVER;
         public static SetVARMAPValueDelegate<GameItem> SET_ITEM_HOVER;
         public static GetVARMAPValueDelegate<UserInputInteraction> GET_USER_INPUT_INTERACTION;
+        public static GetVARMAPValueDelegate<bool> GET_EVENTS_BEING_PROCESSED;
         /* > ATG 2 END */
 
         /* SERVICES */
@@ -145,13 +147,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// </summary>
         public static MONO_REGISTER_DELEGATE MONO_REGISTER;
         /// <summary> 
-        /// Registers a Waypoint in level
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors:  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.WPRegisterService"/> </para> 
-        /// </summary>
-        public static WP_REGISTER_DELEGATE WP_REGISTER;
-        /// <summary> 
         /// Registers a door in level
         /// <para> Owner: LevelMaster </para> 
         /// <para> Accessors:  </para> 
@@ -172,6 +167,13 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// <para> Method: <see cref="LevelMasterClass.PlayerWaypointUpdateService"/> </para> 
         /// </summary>
         public static PLAYER_WAYPOINT_UPDATE_DELEGATE PLAYER_WAYPOINT_UPDATE;
+        /// <summary> 
+        /// Gets list of waypoints and solutions
+        /// <para> Owner: LevelMaster </para> 
+        /// <para> Accessors: PlayerMaster,  </para> 
+        /// <para> Method: <see cref="LevelMasterClass.GetWaypointListService"/> </para> 
+        /// </summary>
+        public static GET_WP_LIST_DELEGATE GET_WP_LIST;
         /// <summary> 
         /// Any of Game Elements (Player or Item or Door) will call with essential info
         /// <para> Owner: LevelMaster </para> 

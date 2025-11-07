@@ -67,7 +67,7 @@ namespace Gob3AQ.GameElement.Item
 
         protected virtual void Loading_Task()
         {
-            VARMAP_ItemMaster.GET_NEAREST_WP(transform.position, float.MaxValue, out actualWaypoint);
+            VARMAP_ItemMaster.GET_NEAREST_WP(transform.position, float.MaxValue, out actualWaypoint, out _);
 
             ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(itemID);
 

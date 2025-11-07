@@ -10,14 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Default Local Group
+  m_Name: Tooling
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
-  m_GroupName: Default Local Group
-  m_GUID: 075f6319cb1e6f74a8f51fa0abc2158c
-  m_SerializeEntries: []
+  m_GroupName: Tooling
+  m_GUID: a0ab09a0e1d9cac42ba49a5f0e18de6b
+  m_SerializeEntries:
+  - m_GUID: a71b80ba85ae5ad48b6dc3bd265dbf3c
+    m_Address: PREFAB_WAYPOINT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c63f0f3646ca67f4abe7e9d9a952af85, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 8e2fe4d2933a75347919c4ae95895d42, type: 2}
-    - {fileID: 11400000, guid: 31c9a0e53e50a4d46b3f81345b79d0c4, type: 2}
+    - {fileID: 11400000, guid: e5a531acfd74d4c478c6e225e260e1dd, type: 2}
+    - {fileID: 11400000, guid: 504e7fd0e3c582a4c974a0e1e100ba96, type: 2}

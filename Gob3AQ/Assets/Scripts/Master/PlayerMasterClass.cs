@@ -1,12 +1,14 @@
-﻿using UnityEngine;
+﻿using Gob3AQ.FixedConfig;
+using Gob3AQ.GameElement.Door;
+using Gob3AQ.GameElement.PlayableChar;
+using Gob3AQ.Libs.Arith;
 using Gob3AQ.VARMAP.PlayerMaster;
 using Gob3AQ.VARMAP.Types;
-using Gob3AQ.FixedConfig;
-using Gob3AQ.Libs.Arith;
-using Gob3AQ.GameElement.PlayableChar;
-using Gob3AQ.GameElement.Door;
 using Gob3AQ.Waypoint;
+using Gob3AQ.Waypoint.Network;
 using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Gob3AQ.PlayerMaster
 {
@@ -19,10 +21,10 @@ namespace Gob3AQ.PlayerMaster
 
 
 
-        public static void InteractPlayerService(CharacterType character, WaypointClass dest, out bool accepted)
+        public static void InteractPlayerService(CharacterType character, int destWp_index, out bool accepted)
         {
             PlayableCharScript instance = GetPlayerInstance(character);
-            accepted = instance.ActionRequest(dest);
+            accepted = instance.ActionRequest(destWp_index);
         }
 
         public static void LockPlayerService(CharacterType character, bool lockPlayer)

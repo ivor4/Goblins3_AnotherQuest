@@ -76,13 +76,13 @@ namespace Gob3AQ.VARMAP.Types
     {
         public readonly GameItem item;
         public readonly GameItemFamily family;
-        public readonly WaypointClass waypoint;
+        public readonly int waypoint;
         public readonly bool active;
 
-        public static readonly LevelElemInfo EMPTY = new(GameItem.ITEM_NONE, GameItemFamily.ITEM_FAMILY_TYPE_NONE, null, false);
-        public static readonly LevelElemInfo DEACTIVATOR = new(GameItem.ITEM_NONE, GameItemFamily.ITEM_FAMILY_TYPE_NONE, null, true);
+        public static readonly LevelElemInfo EMPTY = new(GameItem.ITEM_NONE, GameItemFamily.ITEM_FAMILY_TYPE_NONE, -1, false);
+        public static readonly LevelElemInfo DEACTIVATOR = new(GameItem.ITEM_NONE, GameItemFamily.ITEM_FAMILY_TYPE_NONE, -1, true);
 
-        public LevelElemInfo(GameItem item, GameItemFamily family, WaypointClass waypoint, bool active)
+        public LevelElemInfo(GameItem item, GameItemFamily family, int waypoint, bool active)
         {
             this.item = item;
             this.family = family;
@@ -316,43 +316,43 @@ namespace Gob3AQ.VARMAP.Types
         public readonly CharacterType playerDest;
         public readonly GameItem itemDest;
         public readonly int destListIndex;
-        public readonly WaypointClass destWaypoint;
+        public readonly int destWaypoint_index;
 
-        public static InteractionUsage CreatePlayerMove(CharacterType playerSource, WaypointClass destWp)
+        public static InteractionUsage CreatePlayerMove(CharacterType playerSource, int destWp_index)
         {
             return new InteractionUsage(ItemInteractionType.INTERACTION_MOVE, playerSource, GameItem.ITEM_NONE,
-                CharacterType.CHARACTER_NONE, GameItem.ITEM_NONE, -1, destWp);
+                CharacterType.CHARACTER_NONE, GameItem.ITEM_NONE, -1, destWp_index);
         }
 
-        public static InteractionUsage CreateTakeItem(CharacterType playerSource, GameItem itemDest, WaypointClass destWp)
+        public static InteractionUsage CreateTakeItem(CharacterType playerSource, GameItem itemDest, int destWp_index)
         {
             return new InteractionUsage(ItemInteractionType.INTERACTION_TAKE, playerSource, GameItem.ITEM_NONE,
-                CharacterType.CHARACTER_NONE, itemDest, -1, destWp);
+                CharacterType.CHARACTER_NONE, itemDest, -1, destWp_index);
         }
 
         public static InteractionUsage CreateUseItemWithItem(CharacterType playerSource, GameItem itemSource,
-            GameItem itemDest, WaypointClass destWp)
+            GameItem itemDest, int destWp_index)
         {
             return new InteractionUsage(ItemInteractionType.INTERACTION_USE, playerSource, itemSource,
-                CharacterType.CHARACTER_NONE, itemDest, -1, destWp);
+                CharacterType.CHARACTER_NONE, itemDest, -1, destWp_index);
         }
 
-        public static InteractionUsage CreateObserveItem(CharacterType playerSource, GameItem itemDest, WaypointClass destWp)
+        public static InteractionUsage CreateObserveItem(CharacterType playerSource, GameItem itemDest, int destWp_index)
         {
             return new InteractionUsage(ItemInteractionType.INTERACTION_OBSERVE, playerSource, GameItem.ITEM_NONE,
-                CharacterType.CHARACTER_NONE, itemDest, -1, destWp);
+                CharacterType.CHARACTER_NONE, itemDest, -1, destWp_index);
         }
 
-        public static InteractionUsage CreateTalkItem(CharacterType playerSource, GameItem itemDest, WaypointClass destWp)
+        public static InteractionUsage CreateTalkItem(CharacterType playerSource, GameItem itemDest, int destWp_index)
         {
             return new InteractionUsage(ItemInteractionType.INTERACTION_TALK, playerSource, GameItem.ITEM_NONE,
-                CharacterType.CHARACTER_NONE, itemDest, -1, destWp);
+                CharacterType.CHARACTER_NONE, itemDest, -1, destWp_index);
         }
 
 
 
         public InteractionUsage(ItemInteractionType type, CharacterType playerSource, GameItem itemSource,
-            CharacterType playerDest, GameItem itemDest, int doorIndex, WaypointClass destWaypoint)
+            CharacterType playerDest, GameItem itemDest, int doorIndex, int destWaypoint_index)
         {
             this.type = type;
             this.playerSource = playerSource;
@@ -360,7 +360,7 @@ namespace Gob3AQ.VARMAP.Types
             this.playerDest = playerDest;
             this.itemDest = itemDest;
             this.destListIndex = doorIndex;
-            this.destWaypoint = destWaypoint;
+            this.destWaypoint_index = destWaypoint_index;
         }
     }
 

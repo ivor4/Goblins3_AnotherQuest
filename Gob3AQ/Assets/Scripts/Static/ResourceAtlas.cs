@@ -1,13 +1,14 @@
-using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.Libs.Arith;
 using Gob3AQ.VARMAP.Types;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
+
+
+#if UNITY_EDITOR
+using UnityEditor;
+using UnityEditor.AddressableAssets;
+#endif
 
 namespace Gob3AQ.ResourceAtlas
 {
@@ -60,31 +61,22 @@ namespace Gob3AQ.ResourceAtlas
 
 
 #if UNITY_EDITOR
-        public static AsyncOperationHandle<GameObject> GetPrefab(PrefabEnum prefabId, out bool success)
+        public static GameObject GetPrefab(PrefabEnum prefabId)
         {
             string address = _PrefabList[(int)prefabId];
-            AsyncOperationHandle<GameObject> handle = Addressables.LoadAssetAsync<GameObject>(address);
 
+            var settings = AddressableAssetSettingsDefaultObject.GetSettings(false);
+            var guid = AssetDatabase.AssetPathToGUID(address);
+            UnityEditor.AddressableAssets.Settings.AddressableAssetEntry entry = settings.FindAssetEntry(guid);
+            GameObject prefabAsset = AssetDatabase.LoadAssetAtPath<GameObject>(entry.AssetPath);
 
-            handle.WaitForCompletion();
-
-            if (handle.Status == AsyncOperationStatus.Succeeded)
-            {
-                success = true;
-                return handle;
-            }
-            else
-            {
-                Debug.LogError($"[Milito] Error al cargar el prefab Addressable en el Editor: {address}");
-                success = false;
-                return default;
-            }
+            return prefabAsset;
         }
 
 
         private static readonly string[] _PrefabList = new string[(int)PrefabEnum.PREFAB_TOTAL]
         {
-            "PREFAB_WAYPOINT"
+            "Assets/Prefabs/WaypointClass.prefab"
         };
 #endif
     }

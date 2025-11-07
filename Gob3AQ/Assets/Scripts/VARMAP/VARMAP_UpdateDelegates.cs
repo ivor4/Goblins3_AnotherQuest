@@ -130,10 +130,10 @@ namespace Gob3AQ.VARMAP.Initialization
             _IS_MODULE_LOADED = GameMasterClass.IsModuleLoadedService;
             _ITEM_REGISTER = LevelMasterClass.ItemRegisterService;
             _MONO_REGISTER = LevelMasterClass.MonoRegisterService;
-            _WP_REGISTER = LevelMasterClass.WPRegisterService;
             _DOOR_REGISTER = LevelMasterClass.DoorRegisterService;
             _OBTAIN_SCENARIO_ITEMS = LevelMasterClass.ObtainScenarioItemsService;
             _PLAYER_WAYPOINT_UPDATE = LevelMasterClass.PlayerWaypointUpdateService;
+            _GET_WP_LIST = LevelMasterClass.GetWaypointListService;
             _GAME_ELEMENT_HOVER = LevelMasterClass.GameElementOverService;
             _GET_PLAYER_LIST = LevelMasterClass.GetPlayerListService;
             _GET_NEAREST_WP = LevelMasterClass.GetNearestWPService;

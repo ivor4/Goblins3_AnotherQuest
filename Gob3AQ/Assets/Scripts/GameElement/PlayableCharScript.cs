@@ -6,14 +6,10 @@ using Gob3AQ.ResourceAtlas;
 using Gob3AQ.VARMAP.PlayerMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.Waypoint;
-using Gob3AQ.Waypoint.ProgrammedPath;
-using Gob3AQ.Waypoint.Types;
-using System;
+using Gob3AQ.Waypoint.Network;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 
 namespace Gob3AQ.GameElement.PlayableChar
@@ -49,12 +45,20 @@ namespace Gob3AQ.GameElement.PlayableChar
         private bool selected;
         private WaypointProgrammedPath actualProgrammedPath;
 
-        
+        private IReadOnlyList<Vector2> waypoints;
+        private IReadOnlyList<WaypointSolution> solutions;
 
-        /// <summary>
-        /// This is a preallocated list to avoid unnecessary allocs when asking for a calculated solution
-        /// </summary>
-        private List<WaypointClass> wpsolutionlist;
+        private struct WaypointProgrammedPath
+        {
+            public int target_index;
+            public int final_index;
+
+            public WaypointProgrammedPath(int target, int final)
+            {
+                target_index = target;
+                final_index = final;
+            }
+        }
 
 
         #region "Services"
@@ -80,31 +84,20 @@ namespace Gob3AQ.GameElement.PlayableChar
         }
 
 
-        public bool ActionRequest(WaypointClass dest)
+        public bool ActionRequest(int destWp_index)
         {
             bool requestAccepted;
 
             /* Interact only if not talking or doing an action */
             if (IsAvailable)
             {
-                WaypointSolution solution = dest.Network.GetWaypointSolution(actualWaypoint, dest,
-                    WaypointSkillType.WAYPOINT_SKILL_NORMAL, wpsolutionlist);
+                actualProgrammedPath.final_index = destWp_index;
+                physicalstate = PhysicalState.PHYSICAL_STATE_WALKING;
 
-                if (solution.totalDistance == float.PositiveInfinity)
-                {
-                    Debug.LogError("Point is not reachable from actual waypoint");
-                    physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
-                    requestAccepted = false;
-                }
-                else
-                {
-                    actualProgrammedPath = new WaypointProgrammedPath(solution);
-                    physicalstate = PhysicalState.PHYSICAL_STATE_WALKING;
+                SetActive_Internal(true);
+                Walk_StartNextSegment(false);
 
-                    SetActive_Internal(true);
-                    Walk_StartNextSegment(false);
-                    requestAccepted = true;
-                }
+                requestAccepted = true;
             }
             else
             {
@@ -115,7 +108,7 @@ namespace Gob3AQ.GameElement.PlayableChar
         }
 
 
-        #endregion
+#endregion
 
 
 
@@ -132,8 +125,6 @@ namespace Gob3AQ.GameElement.PlayableChar
             myRigidbody = topParent.GetComponent<Rigidbody2D>();
 
             SetVisible_Internal(false);
-
-            wpsolutionlist = new List<WaypointClass>(GameFixedConfig.MAX_LEVEL_WAYPOINTS);
         }
 
         protected override void Start()
@@ -155,6 +146,7 @@ namespace Gob3AQ.GameElement.PlayableChar
 
             registered = true;
 
+            VARMAP_PlayerMaster.GET_WP_LIST(out waypoints, out solutions);
 
             /* Start loading coroutine */
             _ = StartCoroutine(Execute_Loading_Coroutine());
@@ -199,21 +191,24 @@ namespace Gob3AQ.GameElement.PlayableChar
             if (loadOk)
             {
                 int wpStartIndex = VARMAP_PlayerMaster.GET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)charType);
-                VARMAP_PlayerMaster.GET_NEAREST_WP(_parentTransform.position, float.MaxValue, out WaypointClass nearestWp);
+                VARMAP_PlayerMaster.GET_NEAREST_WP(_parentTransform.position, float.MaxValue, out int nearestWp_index, out _);
 
 
                 if (wpStartIndex == -1)
                 {
-                    actualWaypoint = nearestWp;
+                    actualWaypoint = nearestWp_index;
                 }
                 else
                 {
-                    actualWaypoint = nearestWp.Network.WaypointList[wpStartIndex];
+                    actualWaypoint = wpStartIndex;
                 }
 
-                _parentTransform.position = actualWaypoint.transform.position;
+                _parentTransform.position = waypoints[actualWaypoint];
 
-                VARMAP_PlayerMaster.PLAYER_WAYPOINT_UPDATE(charType, actualWaypoint.IndexInNetwork);
+                actualProgrammedPath.target_index = actualWaypoint;
+                actualProgrammedPath.final_index = actualWaypoint;
+
+                VARMAP_PlayerMaster.PLAYER_WAYPOINT_UPDATE(charType, actualWaypoint);
 
                 SetVisible_Internal(true);
                 PlayerMasterClass.SetPlayerLoaded(CharType);
@@ -258,10 +253,7 @@ namespace Gob3AQ.GameElement.PlayableChar
         private bool Execute_Walk()
         {
             bool continueOp;
-            List<WaypointClass> wplist = actualProgrammedPath.originalSolution.waypointTrace;
-            int seg_index = actualProgrammedPath.crossedWaypointIndex;
-            WaypointClass target_wp = wplist[seg_index];
-            Vector3 target_pos = target_wp.transform.position;
+            Vector3 target_pos = waypoints[actualProgrammedPath.target_index];
             Vector2 deltaPos = target_pos - _parentTransform.position;
 
             /* If delta vector of positions and original velocity vector lose their cos(0deg)=1,
@@ -271,13 +263,14 @@ namespace Gob3AQ.GameElement.PlayableChar
             if(dot <= 0f)
             {
                 /* Store WP Index */
-                VARMAP_PlayerMaster.PLAYER_WAYPOINT_UPDATE(charType, target_wp.IndexInNetwork);
+                VARMAP_PlayerMaster.PLAYER_WAYPOINT_UPDATE(charType, actualProgrammedPath.target_index);
 
                 /* If last segment */
-                if(actualProgrammedPath.crossedWaypointIndex == (wplist.Count - 1))
+                if(actualProgrammedPath.target_index == actualProgrammedPath.final_index)
                 {
-                    physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
+                    actualWaypoint = actualProgrammedPath.target_index;
                     _parentTransform.position = target_pos;
+                    physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
                     myRigidbody.linearVelocity = Vector2.zero;
 
                     continueOp = StartBufferedInteraction();
@@ -324,28 +317,21 @@ namespace Gob3AQ.GameElement.PlayableChar
             return continueOp;
         }
 
+
         private void Walk_StartNextSegment(bool reached)
         {
-            List<WaypointClass> wplist = actualProgrammedPath.originalSolution.waypointTrace;
-            WaypointClass target_wp;
             Vector2 delta;
 
-            if (reached)
+            if(reached)
             {
-                actualProgrammedPath.crossedWaypointIndex++;
-                target_wp = wplist[actualProgrammedPath.crossedWaypointIndex];
-                delta = (target_wp.transform.position - actualWaypoint.transform.position).normalized;
-                _parentTransform.position = actualWaypoint.transform.position;
-            }
-            else
-            {
-                target_wp = wplist[actualProgrammedPath.crossedWaypointIndex];
-                delta = (target_wp.transform.position - _parentTransform.position).normalized;
+                actualWaypoint = actualProgrammedPath.target_index;
+                _parentTransform.position = waypoints[actualWaypoint];
+                actualProgrammedPath.target_index = solutions[actualWaypoint].TravelTo[actualProgrammedPath.final_index];
             }
 
+            delta = (waypoints[actualProgrammedPath.target_index] - waypoints[actualWaypoint]).normalized;
+
             myRigidbody.linearVelocity = GameFixedConfig.CHARACTER_NORMAL_SPEED * delta;
-            
-            actualWaypoint = target_wp;
         }
 
         private bool StartBufferedInteraction()
@@ -366,7 +352,7 @@ namespace Gob3AQ.GameElement.PlayableChar
             actTimeout = 1f;
         }
 
-        #endregion
+#endregion
 
 
         #region "Events"

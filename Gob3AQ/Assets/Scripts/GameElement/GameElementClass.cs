@@ -18,13 +18,13 @@ namespace Gob3AQ.GameElement
         public GameItem ItemID => itemID;
 
         public GameItemFamily GetGameItemFamily => gameElementFamily;
-        public WaypointClass Waypoint => actualWaypoint;
+        public int Waypoint => actualWaypoint;
 
         public bool IsAvailable => isAvailable;
 
         protected GameSprite actualSprite;
         protected GameItemFamily gameElementFamily;
-        protected WaypointClass actualWaypoint;
+        protected int actualWaypoint;
         protected bool isHovered;
         protected GameObject topParent;
         protected Collider2D myCollider;

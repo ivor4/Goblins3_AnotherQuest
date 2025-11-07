@@ -33,6 +33,7 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             ITEM_REGISTER = _ITEM_REGISTER;
             MONO_REGISTER = _MONO_REGISTER;
             PLAYER_WAYPOINT_UPDATE = _PLAYER_WAYPOINT_UPDATE;
+            GET_WP_LIST = _GET_WP_LIST;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
             GET_NEAREST_WP = _GET_NEAREST_WP;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
@@ -95,6 +96,13 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         /// <para> Method: <see cref="LevelMasterClass.PlayerWaypointUpdateService"/> </para> 
         /// </summary>
         public static PLAYER_WAYPOINT_UPDATE_DELEGATE PLAYER_WAYPOINT_UPDATE;
+        /// <summary> 
+        /// Gets list of waypoints and solutions
+        /// <para> Owner: LevelMaster </para> 
+        /// <para> Accessors: PlayerMaster,  </para> 
+        /// <para> Method: <see cref="LevelMasterClass.GetWaypointListService"/> </para> 
+        /// </summary>
+        public static GET_WP_LIST_DELEGATE GET_WP_LIST;
         /// <summary> 
         /// Gets a list of actual players
         /// <para> Owner: LevelMaster </para> 

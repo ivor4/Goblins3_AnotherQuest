@@ -51,6 +51,8 @@ namespace Gob3AQ.VARMAP.GameMenu
             GAME_ELEMENT_HOVER = _GAME_ELEMENT_HOVER;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
+            COMMIT_MEMENTO_NOTIF = _COMMIT_MEMENTO_NOTIF;
+            IS_MEMENTO_UNLOCKED = _IS_MEMENTO_UNLOCKED;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             KEY_SUBSCRIPTION = _KEY_SUBSCRIPTION;
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
@@ -153,6 +155,20 @@ namespace Gob3AQ.VARMAP.GameMenu
         /// <para> Method: <see cref="GameEventMasterClass.CommitEventService"/> </para> 
         /// </summary>
         public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
+        /// <summary> 
+        /// Tells Memento Manager (Menu) a new memento has been unlocked
+        /// <para> Owner: GameMenu </para> 
+        /// <para> Accessors: GameEventMaster,  </para> 
+        /// <para> Method: <see cref="GameMenuClass.CommitMementoNotifService"/> </para> 
+        /// </summary>
+        public static COMMIT_MEMENTO_NOTIF_DELEGATE COMMIT_MEMENTO_NOTIF;
+        /// <summary> 
+        /// Tells if a memento is unlocked
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: GameMenu,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.IsMementoUnlockedService"/> </para> 
+        /// </summary>
+        public static IS_MEMENTO_UNLOCKED_DELEGATE IS_MEMENTO_UNLOCKED;
         /// <summary> 
         /// Cancels selected item
         /// <para> Owner: GameMenu </para> 

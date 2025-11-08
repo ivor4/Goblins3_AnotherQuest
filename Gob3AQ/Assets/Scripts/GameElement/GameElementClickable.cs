@@ -18,9 +18,9 @@ namespace Gob3AQ.GameElement.Clickable
             _onHoverAction?.Invoke(enter);
         }
 
-        public void SetOnClickAction(OnHoverAction onClickAction)
+        public void SetOnHoverAction(OnHoverAction onHoverAction)
         {
-            _onHoverAction = onClickAction;
+            _onHoverAction = onHoverAction;
         }
     }
 }

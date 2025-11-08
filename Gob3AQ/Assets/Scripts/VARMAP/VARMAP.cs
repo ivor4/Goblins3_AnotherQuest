@@ -45,6 +45,15 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPArrayDelegate<MultiBitFieldStruct> _SET_ARRAY_EVENTS_OCCURRED;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<MultiBitFieldStruct> _REG_EVENTS_OCCURRED;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<MultiBitFieldStruct> _UNREG_EVENTS_OCCURRED;
+        protected static GetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> _GET_ELEM_UNLOCKED_MEMENTO;
+        protected static GetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> _GET_SHADOW_ELEM_UNLOCKED_MEMENTO;
+        protected static SetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> _SET_ELEM_UNLOCKED_MEMENTO;
+        protected static GetVARMAPArraySizeDelegate _GET_SIZE_UNLOCKED_MEMENTO;
+        protected static GetVARMAPArrayDelegate<MultiBitFieldStruct> _GET_ARRAY_UNLOCKED_MEMENTO;
+        protected static GetVARMAPArrayDelegate<MultiBitFieldStruct> _GET_SHADOW_ARRAY_UNLOCKED_MEMENTO;
+        protected static SetVARMAPArrayDelegate<MultiBitFieldStruct> _SET_ARRAY_UNLOCKED_MEMENTO;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<MultiBitFieldStruct> _REG_UNLOCKED_MEMENTO;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<MultiBitFieldStruct> _UNREG_UNLOCKED_MEMENTO;
         protected static GetVARMAPArrayElemValueDelegate<CharacterType> _GET_ELEM_PICKABLE_ITEM_OWNER;
         protected static GetVARMAPArrayElemValueDelegate<CharacterType> _GET_SHADOW_ELEM_PICKABLE_ITEM_OWNER;
         protected static SetVARMAPArrayElemValueDelegate<CharacterType> _SET_ELEM_PICKABLE_ITEM_OWNER;
@@ -243,6 +252,20 @@ namespace Gob3AQ.VARMAP
         /// <para> Method: <see cref="GameEventMasterClass.CommitEventService"/> </para> 
         /// </summary>
         protected static COMMIT_EVENT_DELEGATE _COMMIT_EVENT;
+        /// <summary> 
+        /// Tells Memento Manager (Menu) a new memento has been unlocked
+        /// <para> Owner: GameMenu </para> 
+        /// <para> Accessors: GameEventMaster,  </para> 
+        /// <para> Method: <see cref="GameMenuClass.CommitMementoNotifService"/> </para> 
+        /// </summary>
+        protected static COMMIT_MEMENTO_NOTIF_DELEGATE _COMMIT_MEMENTO_NOTIF;
+        /// <summary> 
+        /// Tells if a memento is unlocked
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: GameMenu,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.IsMementoUnlockedService"/> </para> 
+        /// </summary>
+        protected static IS_MEMENTO_UNLOCKED_DELEGATE _IS_MEMENTO_UNLOCKED;
         /// <summary> 
         /// Makes player interact with usage data
         /// <para> Owner: PlayerMaster </para> 

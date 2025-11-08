@@ -31,6 +31,7 @@ namespace Gob3AQ.LevelMaster
         private List<DoorClass> _Door_List;
         private Dictionary<GameItem, GameElementClass> _ItemDictionary;
         private LevelElemInfo _HoveredElem;
+        private HashSet<LevelElemInfo> _HoveredPending;
         private PendingCharacterInteraction[] _PendingCharInteractions;
         private HashSet<IGameObjectHoverable> _RaycastedItems;
         private HashSet<IGameObjectHoverable> _PrevRaycastedItems;
@@ -199,24 +200,35 @@ namespace Gob3AQ.LevelMaster
         {
             if (_singleton != null)
             {
-                /* Overwrite */
+                bool changed = false;
+
+                /* Add/Remove and update */
                 if (info.active)
                 {
-                    if (_singleton._HoveredElem.family < info.family)
-                    {
-                        _singleton._HoveredElem = info;
-                    }
+                    _singleton._HoveredPending.Add(info);
                 }
-                /* Undo if actual family slot was used by this one */
                 else
                 {
                     if ((_singleton._HoveredElem.family == info.family) && (_singleton._HoveredElem.item == info.item))
                     {
                         _singleton._HoveredElem = LevelElemInfo.EMPTY;
+                        changed = true;
                     }
                 }
 
-                VARMAP_LevelMaster.SET_ITEM_HOVER(_singleton._HoveredElem.item);
+                foreach (LevelElemInfo iteratedInfo in _singleton._HoveredPending)
+                {
+                    if (_singleton._HoveredElem.family < iteratedInfo.family)
+                    {
+                        _singleton._HoveredElem = iteratedInfo;
+                        changed = true;
+                    }
+                }
+
+                if (changed)
+                {
+                    VARMAP_LevelMaster.SET_ITEM_HOVER(_singleton._HoveredElem.item);
+                }
             }
         }
 
@@ -269,6 +281,7 @@ namespace Gob3AQ.LevelMaster
             bool events_processed = VARMAP_LevelMaster.GET_EVENTS_BEING_PROCESSED();
             ref readonly MousePropertiesStruct mouse = ref VARMAP_LevelMaster.GET_MOUSE_PROPERTIES();
 
+            _HoveredPending.Clear();
             UpdateHoverElements(in mouse);
 
 
@@ -288,7 +301,7 @@ namespace Gob3AQ.LevelMaster
                         if (keys.isKeyCycleReleased(KeyFunctions.KEYFUNC_INVENTORY))
                         {
                             VARMAP_LevelMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
-                            GameElementOverService(in LevelElemInfo.DEACTIVATOR);
+                            ClearHovered();
                         }
                         break;
 
@@ -325,6 +338,7 @@ namespace Gob3AQ.LevelMaster
 
             _PendingCharInteractions = new PendingCharacterInteraction[(int)CharacterType.CHARACTER_TOTAL];
             _HoveredElem = LevelElemInfo.EMPTY;
+            _HoveredPending = new(GameFixedConfig.MAX_RAYCASTED_ITEMS);
         }
 
 
@@ -414,7 +428,7 @@ namespace Gob3AQ.LevelMaster
                 if ((chosenItem == GameItem.ITEM_NONE) && (playerSelected != CharacterType.CHARACTER_NONE))
                 {
                     VARMAP_LevelMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_ITEM_MENU, out _);
-                    GameElementOverService(in LevelElemInfo.DEACTIVATOR);
+                    ClearHovered();
                 }
                 else
                 {
@@ -610,6 +624,12 @@ namespace Gob3AQ.LevelMaster
             VARMAP_LevelMaster.LOAD_ROOM(door.RoomLead, out _);
         }
 
+        private void ClearHovered()
+        {
+            _HoveredPending.Clear();
+            _HoveredElem = LevelElemInfo.EMPTY;
+            GameElementOverService(in LevelElemInfo.EMPTY);
+        }
         private bool IsItemAvailable(GameItem item)
         {
             bool available;

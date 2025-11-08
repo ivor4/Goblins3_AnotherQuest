@@ -46,6 +46,15 @@ namespace Gob3AQ.GameMenu
         private WaitForSeconds yield_2s;
 
 
+        public static void CommitMementoNotifService(Memento memento)
+        {
+            if(_singleton != null)
+            {
+                _singleton._uicanvas_cls.NewMementoUnlocked(memento, true);
+            }
+        }
+
+
         public static void CancelPickableItemService()
         {
             VARMAP_GameMenu.SET_PICKABLE_ITEM_CHOSEN(GameItem.ITEM_NONE);
@@ -208,6 +217,8 @@ namespace Gob3AQ.GameMenu
 
         private void OnMenuButtonClick(MenuButtonType type)
         {
+            Game_Status gstatus = VARMAP_GameMenu.GET_GAMESTATUS();
+
             switch(type)
             {
                 case MenuButtonType.MENU_BUTTON_SAVE:
@@ -217,7 +228,18 @@ namespace Gob3AQ.GameMenu
                     VARMAP_GameMenu.EXIT_GAME(out _);
                     break;
                 case MenuButtonType.MENU_BUTTON_MEMENTO:
-                    VARMAP_GameMenu.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_MEMENTO, out _);
+                    if (gstatus == Game_Status.GAME_STATUS_PLAY)
+                    {
+                        VARMAP_GameMenu.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_MEMENTO, out _);
+                    }
+                    else if(gstatus == Game_Status.GAME_STATUS_PLAY_MEMENTO)
+                    {
+                        VARMAP_GameMenu.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
+                    }
+                    else
+                    {
+                        /**/
+                    }
                     break;
                 case MenuButtonType.MENU_BUTTON_TAKE:
                     SetUserInteraction(UserInputInteraction.INPUT_INTERACTION_TAKE);
@@ -231,6 +253,11 @@ namespace Gob3AQ.GameMenu
                 default:
                     break;
             }
+        }
+
+        private void OnMementoItemClick(MementoParent mementoParent)
+        {
+
         }
 
         private void StartDialogue(DialogOption option, int totalPhrases)
@@ -321,7 +348,7 @@ namespace Gob3AQ.GameMenu
         private IEnumerator LoadCoroutine()
         {
             Coroutine uicoroutine = StartCoroutine(_uicanvas_cls.Execute_Load_Coroutine(OnDialogOptionClick,
-                OnInventoryItemClick, OnInventoryItemHover, OnMenuButtonClick));
+                OnInventoryItemClick, OnInventoryItemHover, OnMenuButtonClick, OnMementoItemClick));
             yield return uicoroutine;
 
             /* Preset with actual value */

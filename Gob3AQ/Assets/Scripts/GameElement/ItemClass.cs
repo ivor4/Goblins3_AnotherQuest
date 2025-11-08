@@ -41,7 +41,7 @@ namespace Gob3AQ.GameElement.Item
 
             GameElementClickable clickable = topParent.GetComponent<GameElementClickable>();
 
-            clickable.SetOnClickAction(MouseEnterAction);
+            clickable.SetOnHoverAction(MouseEnterAction);
 
             /* Register item as Level element (to be clicked and able to iteract) */
             VARMAP_ItemMaster.ITEM_REGISTER(true, this, clickable);

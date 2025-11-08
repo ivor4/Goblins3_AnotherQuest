@@ -69,11 +69,8 @@ namespace Gob3AQ.VARMAP.Types
         GAME_STATUS_LOADING
     }
 
-
-
-
     
-    public readonly struct LevelElemInfo
+    public readonly struct LevelElemInfo : IEquatable<LevelElemInfo>
     {
         public readonly GameItem item;
         public readonly GameItemFamily family;
@@ -81,7 +78,6 @@ namespace Gob3AQ.VARMAP.Types
         public readonly bool active;
 
         public static readonly LevelElemInfo EMPTY = new(GameItem.ITEM_NONE, GameItemFamily.ITEM_FAMILY_TYPE_NONE, -1, false);
-        public static readonly LevelElemInfo DEACTIVATOR = new(GameItem.ITEM_NONE, GameItemFamily.ITEM_FAMILY_TYPE_NONE, -1, true);
 
         public LevelElemInfo(GameItem item, GameItemFamily family, int waypoint, bool active)
         {
@@ -89,6 +85,21 @@ namespace Gob3AQ.VARMAP.Types
             this.family = family;
             this.waypoint = waypoint;
             this.active = active;
+        }
+
+        public readonly bool Equals(LevelElemInfo other)
+        {
+            return (item == other.item) && (family == other.family);
+        }
+
+        public override readonly bool Equals(object other)
+        {
+            return other is LevelElemInfo info && Equals(info);
+        }
+
+        public override readonly int GetHashCode()
+        {
+            return HashCode.Combine(item, family);
         }
     }
 
@@ -228,15 +239,17 @@ namespace Gob3AQ.VARMAP.Types
 
     public readonly struct MementoParentInfo
     {
-        public readonly ReadOnlyHashSet<Memento> children;
+        public readonly NameType name;
         public readonly GameSprite sprite;
+        public readonly ReadOnlyHashSet<Memento> children;
 
-        public static readonly MementoParentInfo EMPTY = new(new(new HashSet<Memento>(0)), GameSprite.SPRITE_NONE);
+        public static readonly MementoParentInfo EMPTY = new(NameType.NAME_NONE, GameSprite.SPRITE_NONE, new(new HashSet<Memento>(0)));
 
-        public MementoParentInfo(ReadOnlyHashSet<Memento> children, GameSprite sprite)
+        public MementoParentInfo(NameType name, GameSprite sprite, ReadOnlyHashSet<Memento> children)
         {
-            this.children = children;
+            this.name = name;
             this.sprite = sprite;
+            this.children = children;
         }
     }
 
@@ -266,6 +279,7 @@ namespace Gob3AQ.VARMAP.Types
         public readonly GameItem targetItem;
         public readonly GameSprite targetSprite;
         public readonly CharacterType targetCharacter;
+        public readonly Memento targetMemento;
         private readonly GameEventCombi[] targetEvents;
 
         public ReadOnlySpan<GameEventCombi> NeededEvents => neededEvents;
@@ -273,10 +287,11 @@ namespace Gob3AQ.VARMAP.Types
         public ReadOnlySpan<GameEventCombi> TargetEvents => targetEvents;
 
         public static readonly UnchainInfo EMPTY = new(UnchainType.UNCHAIN_TYPE_SET_SPRITE, GameEventCombi.EMPTY,
-            new GameEventCombi[0], GameItem.ITEM_NONE, GameSprite.SPRITE_NONE, CharacterType.CHARACTER_NONE, new GameEventCombi[0]);
+            new GameEventCombi[0], GameItem.ITEM_NONE, GameSprite.SPRITE_NONE, CharacterType.CHARACTER_NONE,
+            Memento.MEMENTO_NONE, new GameEventCombi[0]);
 
         public UnchainInfo(UnchainType type, GameEventCombi ignoreif, GameEventCombi[] neededEvents,
-            GameItem targetItem, GameSprite targetSprite, CharacterType targetCharacter, GameEventCombi[] targetEvents)
+            GameItem targetItem, GameSprite targetSprite, CharacterType targetCharacter, Memento targetMemento, GameEventCombi[] targetEvents)
         {
             this.type = type;
             this.ignoreif = ignoreif;
@@ -284,6 +299,7 @@ namespace Gob3AQ.VARMAP.Types
             this.targetItem = targetItem;
             this.targetSprite = targetSprite;
             this.targetCharacter = targetCharacter;
+            this.targetMemento = targetMemento;
             this.targetEvents = targetEvents;
         }
 
@@ -590,18 +606,6 @@ namespace Gob3AQ.VARMAP.Types
             return retVal;
         }
 
-        public readonly ulong GetValueFromOffset(int offset)
-        {
-            ulong retVal;
-            int offset_corrected;
-
-            offset_corrected = offset & 0x3F;
-
-            retVal = bitfield >> offset_corrected;
-
-
-            return retVal;
-        }
 
         public void SetIndividualBool(int pos, bool value)
         {
@@ -622,15 +626,6 @@ namespace Gob3AQ.VARMAP.Types
             }
         }
 
-        public void SetValueFromOffset(int offset, ulong value, ulong mask)
-        {
-            int offset_corrected;
-
-            offset_corrected = offset & 0x3F;
-
-            bitfield &= ~(mask << offset_corrected);
-            bitfield |= (value & mask) << offset_corrected;
-        }
 
         /// <summary>
         /// Normally used to give a new instance to receive from parsed Bytes

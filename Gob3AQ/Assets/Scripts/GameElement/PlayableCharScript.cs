@@ -144,7 +144,7 @@ namespace Gob3AQ.GameElement.PlayableChar
             VARMAP_PlayerMaster.ITEM_REGISTER(true, this, clickable);
             VARMAP_PlayerMaster.REG_PLAYER_SELECTED(ChangedSelectedPlayerEvent);
 
-            clickable.SetOnClickAction(MouseEnterAction);
+            clickable.SetOnHoverAction(MouseEnterAction);
 
             registered = true;
 

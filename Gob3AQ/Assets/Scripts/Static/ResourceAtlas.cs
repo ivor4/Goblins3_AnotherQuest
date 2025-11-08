@@ -3,6 +3,17 @@ using Gob3AQ.VARMAP.Types;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using Gob3AQ.FixedConfig;
+using System.Collections;
+using Gob3AQ.ResourceSpritesAtlas;
+
+using UnityEngine.AddressableAssets;
+
+
+
+
+
 
 
 #if UNITY_EDITOR
@@ -13,20 +24,30 @@ using UnityEditor.AddressableAssets;
 namespace Gob3AQ.ResourceAtlas
 {
 #if UNITY_EDITOR
-    public enum PrefabEnum
+    public enum PrefabForEditorEnum
     {
-        PREFAB_WAYPOINT,
+        PREFAB_EDITOR_WAYPOINT,
 
-        PREFAB_TOTAL
+        PREFAB_EDITOR_TOTAL
     }
 #endif
 
-    
+    public enum PrefabEnum
+    {
+        PREFAB_MEMENTO_ITEM,
+
+        PREFAB_TOTAL
+    }
 
 
     public static class ResourceAtlasClass
     {
         public static readonly WaitForNextFrameUnit WaitForNextFrame = new WaitForNextFrameUnit();
+
+        private static HashSet<AsyncOperationHandle<GameObject>> _cachedPrefabHandles;
+        private static ReadOnlyHashSet<PrefabEnum> _fixedPrefabsToLoad;
+        private static Dictionary<PrefabEnum, GameObject> _cachedPrefabsFinder;
+
         public static ref readonly RoomInfo GetRoomInfo(Room room)
         {
             if ((uint)room < (uint)Room.ROOMS_TOTAL)
@@ -39,6 +60,100 @@ namespace Gob3AQ.ResourceAtlas
                 return ref RoomInfo.EMPTY;
             }
         }
+
+        public static GameObject GetPrefab(PrefabEnum prefab)
+        {
+            if (_cachedPrefabsFinder.TryGetValue(prefab, out GameObject res_prefab))
+            {
+                return res_prefab;
+            }
+            else
+            {
+                Debug.LogError($"Prefab type {res_prefab} not found in cached prefabs.");
+                return null;
+            }
+        }
+        
+        public static void Initialize()
+        {
+            _cachedPrefabHandles = new(GameFixedConfig.MAX_CACHED_PREFABS);
+
+            HashSet<PrefabEnum> editableHash = new(GameFixedConfig.MAX_CACHED_PREFABS)
+            {
+                PrefabEnum.PREFAB_MEMENTO_ITEM
+            };
+
+            _fixedPrefabsToLoad = new(editableHash);
+
+            _cachedPrefabsFinder = new(GameFixedConfig.MAX_CACHED_PREFABS);
+        }
+
+        public static IEnumerator PreloadPrefabsCoroutine(Room room)
+        {
+            PreloadPrefabsPrepareList(room);
+
+            foreach (PrefabEnum prefab in _fixedPrefabsToLoad)
+            {
+                AsyncOperationHandle<GameObject> handle = LoadPrefabCycle(prefab);
+                yield return handle;
+
+                _cachedPrefabHandles.Add(handle);
+                _cachedPrefabsFinder[prefab] = handle.Result;
+            }
+        }
+
+        public static void UnloadUnusedPrefabs()
+        {
+            foreach(AsyncOperationHandle<GameObject> handle in _cachedPrefabHandles)
+            {
+                handle.Release();
+            }
+            _cachedPrefabHandles.Clear();
+            _cachedPrefabsFinder.Clear();
+        }
+
+        private static void PreloadPrefabsPrepareList(Room room)
+        {
+            _ = room;
+
+            UnloadUnusedPrefabs();
+
+            /* Fixed is actual list to load */
+        }
+
+        private static AsyncOperationHandle<GameObject> LoadPrefabCycle(PrefabEnum prefab)
+        {
+            AsyncOperationHandle<GameObject> handle;
+            handle = Addressables.LoadAssetAsync<GameObject>(_PrefabAddressableName[(int)prefab]);
+
+            return handle;
+        }
+
+#if UNITY_EDITOR
+        public static GameObject GetPrefabForEditor(PrefabForEditorEnum prefabId)
+        {
+            string address = _PrefabForEditorList[(int)prefabId];
+
+            var settings = AddressableAssetSettingsDefaultObject.GetSettings(false);
+            var guid = AssetDatabase.AssetPathToGUID(address);
+            UnityEditor.AddressableAssets.Settings.AddressableAssetEntry entry = settings.FindAssetEntry(guid);
+            GameObject prefabAsset = AssetDatabase.LoadAssetAtPath<GameObject>(entry.AssetPath);
+
+            return prefabAsset;
+        }
+
+
+        private static readonly string[] _PrefabForEditorList = new string[(int)PrefabForEditorEnum.PREFAB_EDITOR_TOTAL]
+        {
+            "Assets/Prefabs/WaypointClass.prefab"
+        };
+#endif
+
+
+        private static readonly string[] _PrefabAddressableName = new string[(int)PrefabEnum.PREFAB_TOTAL]
+        {
+            "PREFAB_MEMENTO"
+        };
 
         private static readonly RoomInfo[] _RoomInfo = new RoomInfo[(int)Room.ROOMS_TOTAL]
         {
@@ -57,27 +172,5 @@ namespace Gob3AQ.ResourceAtlas
             
             /* > ATG 1 END < */
         };
-
-
-
-#if UNITY_EDITOR
-        public static GameObject GetPrefab(PrefabEnum prefabId)
-        {
-            string address = _PrefabList[(int)prefabId];
-
-            var settings = AddressableAssetSettingsDefaultObject.GetSettings(false);
-            var guid = AssetDatabase.AssetPathToGUID(address);
-            UnityEditor.AddressableAssets.Settings.AddressableAssetEntry entry = settings.FindAssetEntry(guid);
-            GameObject prefabAsset = AssetDatabase.LoadAssetAtPath<GameObject>(entry.AssetPath);
-
-            return prefabAsset;
-        }
-
-
-        private static readonly string[] _PrefabList = new string[(int)PrefabEnum.PREFAB_TOTAL]
-        {
-            "Assets/Prefabs/WaypointClass.prefab"
-        };
-#endif
     }
 }

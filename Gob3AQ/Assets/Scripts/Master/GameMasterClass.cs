@@ -290,6 +290,7 @@ namespace Gob3AQ.GameMaster
         {
             ResourceDialogsClass.Initialize(DialogLanguages.DIALOG_LANG_ENGLISH);
             ResourceSpritesClass.Initialize();
+            ResourceAtlasClass.Initialize();
         }
 
         private static IEnumerator UnloadAndLoadRoomCoroutine(Room room)
@@ -320,6 +321,9 @@ namespace Gob3AQ.GameMaster
 
             /* Load sprites */
             yield return ResourceSpritesClass.PreloadRoomSpritesCoroutine(room);
+
+            /* Load prefabs */
+            yield return ResourceAtlasClass.PreloadPrefabsCoroutine(room);
 
             /* Now load desired room and its resources */
             string resourceName = GameFixedConfig.ROOM_TO_SCENE_NAME[(int)room];
@@ -373,6 +377,7 @@ namespace Gob3AQ.GameMaster
 
             ResourceSpritesClass.UnloadUsedSprites();
             ResourceDialogsClass.UnloadUsedTexts();
+            ResourceAtlasClass.UnloadUnusedPrefabs();
 
             /* Just in case */
             yield return Resources.UnloadUnusedAssets();

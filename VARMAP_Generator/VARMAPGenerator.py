@@ -1076,7 +1076,8 @@ for line in ACTIONCONDSinputFile:
         ItemVar["targetItem"] = str(columns[5])
         ItemVar["targetSprite"] = str(columns[6])
         ItemVar["targetCharacter"] = str(columns[7])
-        ItemVar["targetEvents"] = str(columns[8])
+        ItemVar["targetMemento"] = str(columns[8])
+        ItemVar["targetEvents"] = str(columns[9])
         
         # Write in item enum
         stringToWrite = ItemVar["name"]
@@ -1113,7 +1114,8 @@ for line in ACTIONCONDSinputFile:
         
         stringToWrite = item_prefix + ItemVar["targetItem"] +', ' +\
             sprite_prefix + ItemVar["targetSprite"]+','+\
-            character_prefix + ItemVar["targetCharacter"] +',\n'
+            character_prefix + ItemVar["targetCharacter"] +',' +\
+            memento_prefix + ItemVar["targetMemento"] + ", \n"
         items_interaction_lines.InsertLineInATG(1, stringToWrite)
         
         
@@ -1367,18 +1369,21 @@ for line in EVENTSinputFile:
             stringToWrite = 'new(\n'
             items_interaction_lines.InsertLineInATG(6, stringToWrite)
             
+            stringToWrite = name_prefix + columns[2] + ',' 
+            stringToWrite += sprite_prefix + columns[3] + ',\n' 
+            items_interaction_lines.InsertLineInATG(6, stringToWrite)
+
+            
             stringToWrite = 'new(new HashSet<Memento>('
-            options = columns[2].split('|')
+            options = columns[4].split('|')
             num_options = len(options)
             stringToWrite += str(num_options)+'){'
             
             for _option in options:
                 stringToWrite += memento_prefix + _option+','
-            stringToWrite += '}),\n'
+            stringToWrite += '})\n'
             items_interaction_lines.InsertLineInATG(6, stringToWrite)
             
-            stringToWrite = sprite_prefix + columns[3] + '\n'
-            items_interaction_lines.InsertLineInATG(6, stringToWrite)
             items_interaction_lines.InsertLineInATG(6, '),\n')
             items_interaction_lines.InsertLineInATG(6, '\n')
         elif(zone == 3):

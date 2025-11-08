@@ -29,6 +29,14 @@ namespace Gob3AQ.GameEventMaster
         private Dictionary<UnchainConditions, HashSet<GameEvent>> _reversePendingUnchainDict;
 
 
+        public static void IsMementoUnlockedService(Memento memento, out bool occurred)
+        {
+            GetArrayIndexAndPos((int)memento, out int arraypos, out int elembit);
+            ref readonly MultiBitFieldStruct mbfs = ref VARMAP_GameEventMaster.GET_ELEM_UNLOCKED_MEMENTO(arraypos);
+            occurred = mbfs.GetIndividualBool(elembit);
+        }
+
+
         public static void IsEventCombiOccurredService(ReadOnlySpan<GameEventCombi> combi, out bool occurred)
         {
             occurred = true;
@@ -83,6 +91,17 @@ namespace Gob3AQ.GameEventMaster
         }
 
 
+        private static void CommitMementoService(Memento memento)
+        {
+            GetArrayIndexAndPos((int)memento, out int arraypos, out int elembit);
+            MultiBitFieldStruct mbfs = VARMAP_GameEventMaster.GET_SHADOW_ELEM_UNLOCKED_MEMENTO(arraypos);
+            mbfs.SetIndividualBool(elembit, true);
+            VARMAP_GameEventMaster.SET_ELEM_UNLOCKED_MEMENTO(arraypos, in mbfs);
+
+            VARMAP_GameEventMaster.COMMIT_MEMENTO_NOTIF(memento);
+
+            VARMAP_GameEventMaster.SET_EVENTS_BEING_PROCESSED(true);
+        }
 
 
         /// <summary>
@@ -335,6 +354,9 @@ namespace Gob3AQ.GameEventMaster
                 {
                     case UnchainType.UNCHAIN_TYPE_EVENT:
                         CommitEventService(info.TargetEvents);
+                        break;
+                    case UnchainType.UNCHAIN_TYPE_MEMENTO:
+                        CommitMementoService(info.targetMemento);
                         break;
                     default:
                         VARMAP_GameEventMaster.UNCHAIN_TO_ITEM(in info);

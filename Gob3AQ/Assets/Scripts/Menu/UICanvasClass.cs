@@ -1,18 +1,21 @@
 using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameMenu.Dialog;
+using Gob3AQ.GameMenu.MementoItem;
 using Gob3AQ.GameMenu.PickableItemDisplay;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceDialogs;
 using Gob3AQ.ResourceSprites;
-using Gob3AQ.VARMAP.GraphicsMaster;
+using Gob3AQ.VARMAP.GameMenu;
 using Gob3AQ.VARMAP.Types;
-using Gob3AQ.VARMAP.Types.Delegates;
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Text;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR;
 
 namespace Gob3AQ.GameMenu.UICanvas
 {
@@ -69,15 +72,24 @@ namespace Gob3AQ.GameMenu.UICanvas
         private TMP_Text cursor_textobj_text;
 
         private GameObject UICanvas_uppertoolbarObj;
-        private Button saveButton;
-        private Button exitButton;
-        private Button mementoButton;
-        private Button takeButton;
-        private Button talkButton;
-        private Button observeButton;
-        private Image takeButton_img;
-        private Image talkButton_img;
-        private Image observeButton_img;
+        private Button tool_saveButton;
+        private Button tool_exitButton;
+        private Button tool_mementoButton;
+        private Button tool_takeButton;
+        private Button tool_talkButton;
+        private Button tool_observeButton;
+        private Image tool_takeButton_img;
+        private Image tool_talkButton_img;
+        private Image tool_observeButton_img;
+
+        private GameObject memento_ContentObj;
+        private RectTransform memento_ContentRectTransform;
+        private MementoItemClass[] memento_itemClass;
+        private List<MementoParent> memento_activeParentList;
+        private HashSet<MementoParent> memento_totallyCleared;
+        private List<Memento> memento_activeList;
+
+        private bool loaded;
 
 
         private void Awake()
@@ -106,18 +118,27 @@ namespace Gob3AQ.GameMenu.UICanvas
             cursor_userInteraction_cls = cursor_userInteractionSel.GetComponent<UIUserInteractionSelClass>();
 
             UICanvas_uppertoolbarObj = transform.Find("UpperToolbar").gameObject;
-            saveButton = UICanvas_uppertoolbarObj.transform.Find("SaveButton").GetComponent<Button>();
-            exitButton = UICanvas_uppertoolbarObj.transform.Find("ExitButton").GetComponent<Button>();
-            mementoButton = UICanvas_uppertoolbarObj.transform.Find("MementoButton").GetComponent<Button>();
-            takeButton = UICanvas_uppertoolbarObj.transform.Find("TakeButton").GetComponent<Button>();
-            talkButton = UICanvas_uppertoolbarObj.transform.Find("TalkButton").GetComponent<Button>();
-            observeButton = UICanvas_uppertoolbarObj.transform.Find("ObserveButton").GetComponent<Button>();
-            takeButton_img = takeButton.gameObject.GetComponent<Image>();
-            talkButton_img = talkButton.gameObject.GetComponent<Image>();
-            observeButton_img = observeButton.gameObject.GetComponent<Image>();
+            tool_saveButton = UICanvas_uppertoolbarObj.transform.Find("SaveButton").GetComponent<Button>();
+            tool_exitButton = UICanvas_uppertoolbarObj.transform.Find("ExitButton").GetComponent<Button>();
+            tool_mementoButton = UICanvas_uppertoolbarObj.transform.Find("MementoButton").GetComponent<Button>();
+            tool_takeButton = UICanvas_uppertoolbarObj.transform.Find("TakeButton").GetComponent<Button>();
+            tool_talkButton = UICanvas_uppertoolbarObj.transform.Find("TalkButton").GetComponent<Button>();
+            tool_observeButton = UICanvas_uppertoolbarObj.transform.Find("ObserveButton").GetComponent<Button>();
+            tool_takeButton_img = tool_takeButton.gameObject.GetComponent<Image>();
+            tool_talkButton_img = tool_talkButton.gameObject.GetComponent<Image>();
+            tool_observeButton_img = tool_observeButton.gameObject.GetComponent<Image>();
+
+            memento_ContentObj = UICanvas_mementoObj.transform.Find("MementoList/Viewport/Content").gameObject;
+            memento_ContentRectTransform = memento_ContentObj.GetComponent<RectTransform>();
+            memento_activeParentList = new((int)MementoParent.MEMENTO_PARENT_TOTAL);
+            memento_totallyCleared = new((int)MementoParent.MEMENTO_PARENT_TOTAL);
+            memento_activeList = new((int)Memento.MEMENTO_TOTAL);
+            memento_itemClass = new MementoItemClass[(int)MementoParent.MEMENTO_PARENT_TOTAL];
 
             /* Will be enabled at the end of Loading (new display mode) */
             raycaster.enabled = false;
+
+            loaded = false;
         }
 
         public void SetDisplayMode(DisplayMode mode)
@@ -246,19 +267,19 @@ namespace Gob3AQ.GameMenu.UICanvas
             switch(interaction)
             {
                 case UserInputInteraction.INPUT_INTERACTION_TAKE:
-                    takeButton_img.color = Color.white;
-                    talkButton_img.color = Color.gray;
-                    observeButton_img.color = Color.gray;
+                    tool_takeButton_img.color = Color.white;
+                    tool_talkButton_img.color = Color.gray;
+                    tool_observeButton_img.color = Color.gray;
                     break;
                 case UserInputInteraction.INPUT_INTERACTION_TALK:
-                    takeButton_img.color = Color.gray;
-                    talkButton_img.color = Color.white;
-                    observeButton_img.color = Color.gray;
+                    tool_takeButton_img.color = Color.gray;
+                    tool_talkButton_img.color = Color.white;
+                    tool_observeButton_img.color = Color.gray;
                     break;
                 default:
-                    takeButton_img.color = Color.gray;
-                    talkButton_img.color = Color.gray;
-                    observeButton_img.color = Color.white;
+                    tool_takeButton_img.color = Color.gray;
+                    tool_talkButton_img.color = Color.gray;
+                    tool_observeButton_img.color = Color.white;
                     break;
             }
         }
@@ -280,6 +301,7 @@ namespace Gob3AQ.GameMenu.UICanvas
 
             button.SetActive(activate);
         }
+
 
         public void ActivateInventoryItem(int index, bool activate, GameItem item)
         {
@@ -303,20 +325,73 @@ namespace Gob3AQ.GameMenu.UICanvas
             cursor_userInteraction_cls.AnimateNewUserInteraction(interaction);
         }
 
+        public void NewMementoUnlocked(Memento memento, bool sortAndResize)
+        {
+            ref readonly MementoInfo memInfo = ref ItemsInteractionsClass.GetMementoInfo(memento);
+            memento_activeList.Add(memento);
+
+            /* Assumed only one initial per parent Memento */
+            if (memInfo.initial)
+            {
+                memento_activeParentList.Add(memInfo.parent);
+            }
+
+            if (memInfo.final)
+            {
+                memento_totallyCleared.Add(memInfo.parent);
+            }
+
+            if(sortAndResize)
+            {
+                MementoSortAndResizeAll();
+            }
+        }
+
+
+        private void MementoSortAndResizeAll()
+        {
+            /* Fit content to size */
+            Vector2 sizeDelta = memento_ContentRectTransform.sizeDelta;
+            sizeDelta.y = memento_activeParentList.Count * memento_itemClass[0].GetSize.y;
+            memento_ContentRectTransform.sizeDelta = sizeDelta;
+
+            /* Sort active parent list (the ones with a higher ID are supposed to be unlocked laster in game)
+            * Therefore, later unlocked events should appear first */
+            memento_activeParentList.Sort(MementoParentSortMethod);
+
+            /* Activate and give shape to items */
+            for (int i = 0; i < memento_itemClass.Length; i++)
+            {
+                /* Active ones */
+                if (i < memento_activeParentList.Count)
+                {
+                    memento_itemClass[i].SetMementoParent(memento_activeParentList[i],
+                        memento_totallyCleared.Contains(memento_activeParentList[i]));
+                    memento_itemClass[i].Activate(true);
+                }
+                /* Deactivated ones */
+                else
+                {
+                    memento_itemClass[i].Activate(false);
+                }
+            }
+        }
+
         public IEnumerator Execute_Load_Coroutine(DIALOG_OPTION_CLICK_DELEGATE OnDialogOptionClick,
             DISPLAYED_ITEM_CLICK OnItemDisplayClick,
             DISPLAYED_ITEM_HOVER OnHover,
-            MENU_BUTTON_CLICK_DELEGATE OnMenuButtonClick
+            MENU_BUTTON_CLICK_DELEGATE OnMenuButtonClick,
+            MEMENTO_ITEM_CLICK_DELEGATE OnMementoItemClick
             )
         {
             bool sprites_loaded = false;
 
-            saveButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_SAVE));
-            exitButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_EXIT));
-            mementoButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_MEMENTO));
-            takeButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_TAKE));
-            talkButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_TALK));
-            observeButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_OBSERVE));
+            tool_saveButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_SAVE));
+            tool_exitButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_EXIT));
+            tool_mementoButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_MEMENTO));
+            tool_takeButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_TAKE));
+            tool_talkButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_TALK));
+            tool_observeButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_OBSERVE));
 
 
             for (int i = 0; i < GameFixedConfig.MAX_DIALOG_OPTIONS; ++i)
@@ -341,16 +416,74 @@ namespace Gob3AQ.GameMenu.UICanvas
             while (!sprites_loaded)
             {
                 yield return ResourceAtlasClass.WaitForNextFrame;
-                VARMAP_GraphicsMaster.IS_MODULE_LOADED(GameModules.MODULE_GameMaster, out sprites_loaded);
+                VARMAP_GameMenu.IS_MODULE_LOADED(GameModules.MODULE_GameMaster, out sprites_loaded);
             }
 
             UICanvas_itemMenuObj.GetComponent<Image>().sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_INVENTORY);
-            takeButton.image.sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_UI_TAKE);
-            talkButton.image.sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_UI_TALK);
-            observeButton.image.sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_UI_OBSERVE);
+            tool_takeButton.image.sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_UI_TAKE);
+            tool_talkButton.image.sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_UI_TALK);
+            tool_observeButton.image.sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_UI_OBSERVE);
 
             cursor_userInteraction_cls.LoadTask();
+            yield return ResourceAtlasClass.WaitForNextFrame;
+
+            /* Fill memento loaded list */
+            
+ 
+            /* Load memento */
+            GameObject memento_item_prefab = ResourceAtlasClass.GetPrefab(PrefabEnum.PREFAB_MEMENTO_ITEM);
+
+            AsyncInstantiateOperation<GameObject> handle = InstantiateAsync<GameObject>(memento_item_prefab, (int)MementoParent.MEMENTO_PARENT_TOTAL);
+            yield return handle;
+            GameObject[] memento_itemObj = handle.Result;
+
+            StringBuilder stringBuilder = new(16);
+            
+            /* Keep them ready for usage */
+            for (int i=0; i < memento_itemObj.Length; ++i)
+            {
+                memento_itemObj[i].transform.SetParent(memento_ContentObj.transform, false);
+                memento_itemClass[i] = memento_itemObj[i].GetComponent<MementoItemClass>();
+                MementoItemClass itemClass = memento_itemClass[i];
+
+                itemClass.SetPositionAndFunction(i, OnMementoItemClick);
+
+                stringBuilder.Clear();
+                stringBuilder.Append("item");
+                stringBuilder.Append(i);
+                itemClass.SetName(stringBuilder.ToString());
+
+                if ((i & 0xF) == 0xF)
+                {
+                    yield return ResourceAtlasClass.WaitForNextFrame;
+                }
+            }
+
+            /* Update lists */
+            /* Check for all active mementos */
+            for (int i = 0; i < (int)Memento.MEMENTO_TOTAL; ++i)
+            {
+                Memento memento = (Memento)i;
+
+                VARMAP_GameMenu.IS_MEMENTO_UNLOCKED(memento, out bool unlocked);
+
+                if (unlocked)
+                {
+                    NewMementoUnlocked(memento, false);
+                }
+            }
+            yield return ResourceAtlasClass.WaitForNextFrame;
+
+            MementoSortAndResizeAll();
+
+            loaded = true;
         }
 
+ 
+
+        private static int MementoParentSortMethod(MementoParent a, MementoParent b)
+        {
+            return (int)a - (int)b;
+        }
     }
 }

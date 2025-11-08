@@ -49,6 +49,7 @@ namespace Gob3AQ.FixedConfig
         public const int MAX_FIXED_PHRASES_TO_LOAD = (int)Memento.MEMENTO_TOTAL + 8;
         public const int MAX_CACHED_SPRITES = 64 + (int)GamePickableItem.ITEM_PICK_TOTAL + (int)Memento.MEMENTO_TOTAL;
         public const int MAX_CACHED_PHRASES = 64;
+        public const int MAX_CACHED_PREFABS = 16;
         public const int MAX_DIALOG_OPTIONS = 6;
         public const int MAX_POOLED_ITEMS = 32;
         public const int MAX_BUFFERED_EVENTS = 16;

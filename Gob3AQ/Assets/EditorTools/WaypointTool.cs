@@ -244,7 +244,7 @@ namespace Gob3AQ.Waypoint.WaypointTool
 
         private WaypointClass CreateWaypoint(Vector3 position, string name)
         {
-            GameObject prefab = ResourceAtlasClass.GetPrefab(PrefabEnum.PREFAB_WAYPOINT);
+            GameObject prefab = ResourceAtlasClass.GetPrefabForEditor(PrefabForEditorEnum.PREFAB_EDITOR_WAYPOINT);
 
             GameObject wpgameobject = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
             wpgameobject.transform.position = position;

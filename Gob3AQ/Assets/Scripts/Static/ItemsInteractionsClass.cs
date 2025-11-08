@@ -105,37 +105,49 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new( /* UNCHAIN_RED_POTION_TOOK */
             UnchainType.UNCHAIN_TYPE_DESPAWN,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_RED_POTION_TOOK, false),}, 
-            GameItem.ITEM_POTION, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,
+            GameItem.ITEM_POTION, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
             new( /* UNCHAIN_RED_POTION_TOOK_2 */
             UnchainType.UNCHAIN_TYPE_EARN_ITEM,new(GameEvent.EVENT_RED_POTION_TOOK, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_RED_POTION_TOOK, false),}, 
-            GameItem.ITEM_POTION, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_MAIN,
+            GameItem.ITEM_POTION, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* UNCHAIN_RED_POTION_TOOK_3 */
+            UnchainType.UNCHAIN_TYPE_MEMENTO,new(GameEvent.EVENT_RED_POTION_TOOK, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_RED_POTION_TOOK, false),}, 
+            GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_RED_POTION_1, 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
             new( /* UNCHAIN_BLUE_POTION_TOOK */
             UnchainType.UNCHAIN_TYPE_DESPAWN,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_BLUE_POTION_TOOK, false),}, 
-            GameItem.ITEM_POTION_BLUE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,
+            GameItem.ITEM_POTION_BLUE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
             new( /* UNCHAIN_BLUE_POTION_TOOK_2 */
             UnchainType.UNCHAIN_TYPE_EARN_ITEM,new(GameEvent.EVENT_RED_POTION_TOOK, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_BLUE_POTION_TOOK, false),}, 
-            GameItem.ITEM_POTION_BLUE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_PARROT,
+            GameItem.ITEM_POTION_BLUE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_PARROT,Memento.MEMENTO_NONE, 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
             new( /* UNCHAIN_FOUNTAIN_FULL */
             UnchainType.UNCHAIN_TYPE_SET_SPRITE,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_FOUNTAIN_FULL, false),}, 
-            GameItem.ITEM_FOUNTAIN, GameSprite.SPRITE_FOUNTAIN_FULL,CharacterType.CHARACTER_NONE,
+            GameItem.ITEM_FOUNTAIN, GameSprite.SPRITE_FOUNTAIN_FULL,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
             new( /* UNCHAIN_FOUNTAIN_FULL_2 */
             UnchainType.UNCHAIN_TYPE_LOSE_ITEM,new(GameEvent.EVENT_FOUNTAIN_FULL, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_FOUNTAIN_FULL, false),}, 
-            GameItem.ITEM_POTION, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,
+            GameItem.ITEM_POTION, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* UNCHAIN_FOUNTAIN_FULL_3 */
+            UnchainType.UNCHAIN_TYPE_MEMENTO,new(GameEvent.EVENT_FOUNTAIN_FULL, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_FOUNTAIN_FULL, false),}, 
+            GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_RED_POTION_2, 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
             /* > ATG 1 END < */
@@ -275,14 +287,14 @@ namespace Gob3AQ.Brain.ItemsInteraction
             /* > ATG 6 START < */
             /* MEMENTO_PARENT_RED_POTION */
             new(
-            new(new HashSet<Memento>(2){Memento.MEMENTO_RED_POTION_1,Memento.MEMENTO_RED_POTION_2,}),
-            GameSprite.SPRITE_POTION_RED
+            NameType.NAME_ITEM_POTION,GameSprite.SPRITE_POTION_RED,
+            new(new HashSet<Memento>(2){Memento.MEMENTO_RED_POTION_1,Memento.MEMENTO_RED_POTION_2,})
             ),
             
             /* MEMENTO_PARENT_LAST */
             new(
-            new(new HashSet<Memento>(1){Memento.MEMENTO_LAST,}),
-            GameSprite.SPRITE_NONE
+            NameType.NAME_NPC_LAST,GameSprite.SPRITE_NONE,
+            new(new HashSet<Memento>(1){Memento.MEMENTO_LAST,})
             ),
             
             /* > ATG 6 END < */

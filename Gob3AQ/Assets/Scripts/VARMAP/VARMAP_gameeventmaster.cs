@@ -26,6 +26,13 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             GET_ARRAY_EVENTS_OCCURRED = _GET_ARRAY_EVENTS_OCCURRED;
             GET_SHADOW_ARRAY_EVENTS_OCCURRED = _GET_SHADOW_ARRAY_EVENTS_OCCURRED;
             SET_ARRAY_EVENTS_OCCURRED = _SET_ARRAY_EVENTS_OCCURRED;
+            GET_ELEM_UNLOCKED_MEMENTO = _GET_ELEM_UNLOCKED_MEMENTO;
+            GET_SHADOW_ELEM_UNLOCKED_MEMENTO = _GET_SHADOW_ELEM_UNLOCKED_MEMENTO;
+            SET_ELEM_UNLOCKED_MEMENTO = _SET_ELEM_UNLOCKED_MEMENTO;
+            GET_SIZE_UNLOCKED_MEMENTO = _GET_SIZE_UNLOCKED_MEMENTO;
+            GET_ARRAY_UNLOCKED_MEMENTO = _GET_ARRAY_UNLOCKED_MEMENTO;
+            GET_SHADOW_ARRAY_UNLOCKED_MEMENTO = _GET_SHADOW_ARRAY_UNLOCKED_MEMENTO;
+            SET_ARRAY_UNLOCKED_MEMENTO = _SET_ARRAY_UNLOCKED_MEMENTO;
             GET_EVENTS_BEING_PROCESSED = _GET_EVENTS_BEING_PROCESSED;
             GET_SHADOW_EVENTS_BEING_PROCESSED = _GET_SHADOW_EVENTS_BEING_PROCESSED;
             SET_EVENTS_BEING_PROCESSED = _SET_EVENTS_BEING_PROCESSED;
@@ -33,6 +40,8 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
+            COMMIT_MEMENTO_NOTIF = _COMMIT_MEMENTO_NOTIF;
+            IS_MEMENTO_UNLOCKED = _IS_MEMENTO_UNLOCKED;
             UNCHAIN_TO_ITEM = _UNCHAIN_TO_ITEM;
             /* > ATG 1 END */
         }
@@ -49,6 +58,13 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         public static GetVARMAPArrayDelegate<MultiBitFieldStruct> GET_ARRAY_EVENTS_OCCURRED;
         public static GetVARMAPArrayDelegate<MultiBitFieldStruct> GET_SHADOW_ARRAY_EVENTS_OCCURRED;
         public static SetVARMAPArrayDelegate<MultiBitFieldStruct> SET_ARRAY_EVENTS_OCCURRED;
+        public static GetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> GET_ELEM_UNLOCKED_MEMENTO;
+        public static GetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> GET_SHADOW_ELEM_UNLOCKED_MEMENTO;
+        public static SetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> SET_ELEM_UNLOCKED_MEMENTO;
+        public static GetVARMAPArraySizeDelegate GET_SIZE_UNLOCKED_MEMENTO;
+        public static GetVARMAPArrayDelegate<MultiBitFieldStruct> GET_ARRAY_UNLOCKED_MEMENTO;
+        public static GetVARMAPArrayDelegate<MultiBitFieldStruct> GET_SHADOW_ARRAY_UNLOCKED_MEMENTO;
+        public static SetVARMAPArrayDelegate<MultiBitFieldStruct> SET_ARRAY_UNLOCKED_MEMENTO;
         public static GetVARMAPValueDelegate<bool> GET_EVENTS_BEING_PROCESSED;
         public static GetVARMAPValueDelegate<bool> GET_SHADOW_EVENTS_BEING_PROCESSED;
         public static SetVARMAPValueDelegate<bool> SET_EVENTS_BEING_PROCESSED;
@@ -84,6 +100,20 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         /// <para> Method: <see cref="GameEventMasterClass.CommitEventService"/> </para> 
         /// </summary>
         public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
+        /// <summary> 
+        /// Tells Memento Manager (Menu) a new memento has been unlocked
+        /// <para> Owner: GameMenu </para> 
+        /// <para> Accessors: GameEventMaster,  </para> 
+        /// <para> Method: <see cref="GameMenuClass.CommitMementoNotifService"/> </para> 
+        /// </summary>
+        public static COMMIT_MEMENTO_NOTIF_DELEGATE COMMIT_MEMENTO_NOTIF;
+        /// <summary> 
+        /// Tells if a memento is unlocked
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: GameMenu,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.IsMementoUnlockedService"/> </para> 
+        /// </summary>
+        public static IS_MEMENTO_UNLOCKED_DELEGATE IS_MEMENTO_UNLOCKED;
         /// <summary> 
         /// Applies an unchain event to an item such as spawn or setsprite
         /// <para> Owner: ItemMaster </para> 

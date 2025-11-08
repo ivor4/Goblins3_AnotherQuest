@@ -243,14 +243,13 @@ namespace Gob3AQ.GameEventMaster
             bool ended;
 
             /* Retrieve all Unchainers */
-            ReadOnlySpan<UnchainInfo> all_game_unchainers = ItemsInteractionsClass.GET_UNCHAINERS;
             ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(room);
             Span<GameEventCombi> ignoreIfCondition = stackalloc GameEventCombi[1];
 
-            if(index < all_game_unchainers.Length)
+            if(index < (int)UnchainConditions.UNCHAIN_TOTAL)
             {
                 UnchainConditions unchainer = (UnchainConditions)index;
-                ref readonly UnchainInfo unchainer_info = ref all_game_unchainers[index];
+                ref readonly UnchainInfo unchainer_info = ref ItemsInteractionsClass.GetUnchainInfo(unchainer);
                 bool pending;
 
                 /* Check if ignoreif condition comply (NONE means never ignore) */

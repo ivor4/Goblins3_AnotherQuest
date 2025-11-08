@@ -142,6 +142,8 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_OBSERVE_RED_POTION */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_MILITO_1 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_MILITO_2 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_NONE), /* PHRASE_MEMENTO_POTION_1 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_NONE), /* PHRASE_MEMENTO_POTION_2 */ 
             /* > ATG 3 END < */
         };
     }

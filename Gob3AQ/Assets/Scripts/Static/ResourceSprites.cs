@@ -45,6 +45,14 @@ namespace Gob3AQ.ResourceSprites
                 editableHash.Add(ItemsInteractionsClass.GetSpriteFromPickable(i));
             }
 
+            for (MementoParent i = 0; i < MementoParent.MEMENTO_PARENT_TOTAL; i++)
+            {
+                ref readonly MementoParentInfo memparInfo = ref ItemsInteractionsClass.GetMementoParentInfo(i);
+                editableHash.Add(memparInfo.sprite);
+            }
+
+            _ = editableHash.Remove(GameSprite.SPRITE_NONE);
+
             _fixedSpritesArray = new(editableHash);
         }
 
@@ -93,6 +101,8 @@ namespace Gob3AQ.ResourceSprites
                 ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(item);
                 _spritesToLoadArray.UnionWith(itemInfo.sprites);
             }
+
+            _ = _spritesToLoadArray.Remove(GameSprite.SPRITE_NONE);
         }
 
         private static AsyncOperationHandle<Sprite> PreloadRoomSpritesCycle(GameSprite sprite)

@@ -47,6 +47,8 @@ namespace Gob3AQ.VARMAP.Types
         PHRASE_OBSERVE_RED_POTION, 
         PHRASE_ASK_MILITO_1, 
         PHRASE_ASK_MILITO_2, 
+        PHRASE_MEMENTO_POTION_1, 
+        PHRASE_MEMENTO_POTION_2, 
         
         PHRASE_TOTAL
         /* > ATG 3 END < */

@@ -61,6 +61,7 @@ namespace Gob3AQ.VARMAP.Types
         GAME_STATUS_STOPPED,
         GAME_STATUS_PLAY,
         GAME_STATUS_PLAY_DIALOG,
+        GAME_STATUS_PLAY_MEMENTO,
         GAME_STATUS_PLAY_ITEM_MENU,
         GAME_STATUS_PLAY_FREEZE,
         GAME_STATUS_PAUSE,
@@ -222,6 +223,38 @@ namespace Gob3AQ.VARMAP.Types
             this.pickableSprite = pickableSprite;
             this.pickableItem = pickableItem;
             this.conditions = conditions;
+        }
+    }
+
+    public readonly struct MementoParentInfo
+    {
+        public readonly ReadOnlyHashSet<Memento> children;
+        public readonly GameSprite sprite;
+
+        public static readonly MementoParentInfo EMPTY = new(new(new HashSet<Memento>(0)), GameSprite.SPRITE_NONE);
+
+        public MementoParentInfo(ReadOnlyHashSet<Memento> children, GameSprite sprite)
+        {
+            this.children = children;
+            this.sprite = sprite;
+        }
+    }
+
+    public readonly struct MementoInfo
+    {
+        public readonly MementoParent parent;
+        public readonly DialogPhrase phrase;
+        public readonly bool initial;
+        public readonly bool final;
+
+        public static readonly MementoInfo EMPTY = new(MementoParent.MEMENTO_PARENT_NONE, DialogPhrase.PHRASE_NONE, false, false);
+
+        public MementoInfo(MementoParent parent, DialogPhrase phrase, bool initial, bool final)
+        {
+            this.parent = parent;
+            this.phrase = phrase;
+            this.initial = initial;
+            this.final = final;
         }
     }
 

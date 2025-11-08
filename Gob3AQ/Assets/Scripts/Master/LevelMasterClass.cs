@@ -36,6 +36,7 @@ namespace Gob3AQ.LevelMaster
         private HashSet<IGameObjectHoverable> _PrevRaycastedItems;
         private RaycastHit2D[] _RaycastedItemColliders;
         private Dictionary<Collider2D, IGameObjectHoverable> _ItemColliderDictionary;
+        private Camera mainCamera;
 
 
         public struct PendingCharacterInteraction
@@ -259,6 +260,7 @@ namespace Gob3AQ.LevelMaster
         {
             VARMAP_LevelMaster.SET_PLAYER_SELECTED(CharacterType.CHARACTER_NONE);
             VARMAP_LevelMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_LevelMaster);
+            mainCamera = Camera.main;
         }
 
 
@@ -282,6 +284,7 @@ namespace Gob3AQ.LevelMaster
                         Update_Play(gstatus, in mouse, in keys);
                         break;
                     case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
+                    case Game_Status.GAME_STATUS_PLAY_MEMENTO:
                         if (keys.isKeyCycleReleased(KeyFunctions.KEYFUNC_INVENTORY))
                         {
                             VARMAP_LevelMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
@@ -344,7 +347,7 @@ namespace Gob3AQ.LevelMaster
 
         private void UpdateHoverElements(in MousePropertiesStruct mouse)
         {
-            Ray ray = Camera.main.ScreenPointToRay(new(mouse.posPixels.x,mouse.posPixels.y));
+            Ray ray = mainCamera.ScreenPointToRay(new(mouse.posPixels.x,mouse.posPixels.y));
             int matches = Physics2D.RaycastNonAlloc(ray.origin, ray.direction, _RaycastedItemColliders, float.PositiveInfinity, _LayerPlayersAndItemsNPC);
 
             _RaycastedItems.Clear();

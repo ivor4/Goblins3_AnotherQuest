@@ -118,10 +118,10 @@ names_lines = ATGFile(names_text_path, 0)
 rooms_types_lines = ATGFile(rooms_types_path, 1)
 names_types_lines = ATGFile(names_types_path, 1)
 sprite_types_lines = ATGFile(sprite_types_path, 1)
-event_types_lines = ATGFile(event_types_path, 1)
+event_types_lines = ATGFile(event_types_path, 3)
 modules_types_lines = ATGFile(modules_types_path, 1)
 items_types_lines = ATGFile(items_types_path, 4)
-items_interaction_lines = ATGFile(items_interaction_path, 5)
+items_interaction_lines = ATGFile(items_interaction_path, 7)
 dialog_atlas_lines = ATGFile(dialog_atlas_path, 3)
 sprite_atlas_lines = ATGFile(sprite_atlas_path, 1)
 room_atlas_lines = ATGFile(room_atlas_path, 1)
@@ -690,6 +690,8 @@ sprite_prefix = 'GameSprite.'
 name_prefix = 'NameType.'
 family_prefix = 'GameItemFamily.'
 unchain_type_prefix = 'UnchainType.'
+memento_prefix = 'Memento.'
+memento_parent_prefix = 'MementoParent.'
 
 
 print('\n\n------DIALOGS (Custom GOB3) -------\n\n')
@@ -1327,26 +1329,71 @@ for line in EVENTSinputFile:
     
     columns = line.split(',')
     print(columns)
-
+    
     if(linecount == 0):
         continue
-    
+
     if(columns[0] == ''):
-        # Various zones in file, but only needed zone 1
-        break
+        if(zone == 1):
+            stringToWrite = '\n'
+            event_types_lines.InsertLineInATG(1, stringToWrite)
+            stringToWrite = 'EVENT_TOTAL\n'
+            event_types_lines.InsertLineInATG(1, stringToWrite)
+        elif(zone == 2):
+            stringToWrite = '\n'
+            event_types_lines.InsertLineInATG(2, stringToWrite)
+            stringToWrite = 'MEMENTO_PARENT_TOTAL\n'
+            event_types_lines.InsertLineInATG(2, stringToWrite)
+        elif(zone == 3):
+            break
+            
+        zone += 1
+        linecount = -1
+        continue
+    
     
     
     stringToWrite = columns[1]
     if('NONE' in columns[1]):
         stringToWrite += ' = -1'
     stringToWrite += ', \n'
-    event_types_lines.InsertLineInATG(1, stringToWrite)
-
+    event_types_lines.InsertLineInATG(zone, stringToWrite)
+    
+    if('NONE' not in columns[1]):
+        if(zone == 2):
+            stringToWrite = '/* ' + columns[1] + ' */\n'
+            items_interaction_lines.InsertLineInATG(6, stringToWrite)
+            
+            stringToWrite = 'new(\n'
+            items_interaction_lines.InsertLineInATG(6, stringToWrite)
+            
+            stringToWrite = 'new(new HashSet<Memento>('
+            options = columns[2].split('|')
+            num_options = len(options)
+            stringToWrite += str(num_options)+'){'
+            
+            for _option in options:
+                stringToWrite += memento_prefix + _option+','
+            stringToWrite += '}),\n'
+            items_interaction_lines.InsertLineInATG(6, stringToWrite)
+            
+            stringToWrite = sprite_prefix + columns[3] + '\n'
+            items_interaction_lines.InsertLineInATG(6, stringToWrite)
+            items_interaction_lines.InsertLineInATG(6, '),\n')
+            items_interaction_lines.InsertLineInATG(6, '\n')
+        elif(zone == 3):
+            stringToWrite = '/* ' + columns[1] + ' */\n'
+            items_interaction_lines.InsertLineInATG(7, stringToWrite)
+            
+            stringToWrite = 'new('+memento_parent_prefix+columns[2]+','+\
+                phrase_prefix+columns[3]+','+columns[4].lower()+','+\
+                columns[5].lower()+'),\n'
+            items_interaction_lines.InsertLineInATG(7, stringToWrite)
     
 stringToWrite = '\n'
-event_types_lines.InsertLineInATG(1, stringToWrite)
-stringToWrite = 'EVENT_TOTAL\n'
-event_types_lines.InsertLineInATG(1, stringToWrite)
+event_types_lines.InsertLineInATG(3, stringToWrite)
+stringToWrite = 'MEMENTO_TOTAL\n'
+event_types_lines.InsertLineInATG(3, stringToWrite)
     
 
 

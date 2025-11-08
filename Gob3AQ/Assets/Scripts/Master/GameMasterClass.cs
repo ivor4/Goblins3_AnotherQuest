@@ -235,6 +235,7 @@ namespace Gob3AQ.GameMaster
             {
                 case Game_Status.GAME_STATUS_STOPPED:
                 case Game_Status.GAME_STATUS_PLAY_DIALOG:
+                case Game_Status.GAME_STATUS_PLAY_MEMENTO:
                 case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
                 case Game_Status.GAME_STATUS_PLAY_FREEZE:
                 case Game_Status.GAME_STATUS_PAUSE:
@@ -242,6 +243,7 @@ namespace Gob3AQ.GameMaster
                     break;
                 case Game_Status.GAME_STATUS_PLAY:
                     valid = (oldmode == Game_Status.GAME_STATUS_PLAY_DIALOG) ||
+                        (oldmode == Game_Status.GAME_STATUS_PLAY_MEMENTO) ||
                         (oldmode == Game_Status.GAME_STATUS_STOPPED) ||
                         (oldmode == Game_Status.GAME_STATUS_PLAY_ITEM_MENU) ||
                         (oldmode == Game_Status.GAME_STATUS_PLAY_FREEZE)||

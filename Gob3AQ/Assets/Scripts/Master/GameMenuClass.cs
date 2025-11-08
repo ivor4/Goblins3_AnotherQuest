@@ -216,6 +216,9 @@ namespace Gob3AQ.GameMenu
                 case MenuButtonType.MENU_BUTTON_EXIT:
                     VARMAP_GameMenu.EXIT_GAME(out _);
                     break;
+                case MenuButtonType.MENU_BUTTON_MEMENTO:
+                    VARMAP_GameMenu.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_MEMENTO, out _);
+                    break;
                 case MenuButtonType.MENU_BUTTON_TAKE:
                     SetUserInteraction(UserInputInteraction.INPUT_INTERACTION_TAKE);
                     break;

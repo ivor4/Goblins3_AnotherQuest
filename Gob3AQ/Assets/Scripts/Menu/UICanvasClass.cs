@@ -21,7 +21,8 @@ namespace Gob3AQ.GameMenu.UICanvas
     {
         DISPLAY_MODE_NONE,
         DISPLAY_MODE_INVENTORY,
-        DISPLAY_MODE_DIALOG
+        DISPLAY_MODE_DIALOG,
+        DISPLAY_MODE_MEMENTO
     }
 
     public enum DialogMode
@@ -36,6 +37,7 @@ namespace Gob3AQ.GameMenu.UICanvas
         MENU_BUTTON_NONE,
         MENU_BUTTON_SAVE,
         MENU_BUTTON_EXIT,
+        MENU_BUTTON_MEMENTO,
         MENU_BUTTON_TAKE,
         MENU_BUTTON_TALK,
         MENU_BUTTON_OBSERVE
@@ -45,6 +47,7 @@ namespace Gob3AQ.GameMenu.UICanvas
     {
         private GameObject UICanvas_loadingObj;
         private GameObject UICanvas_dialogObj;
+        private GameObject UICanvas_mementoObj;
         private GameObject UICanvas_itemMenuObj;
 
         private TMP_Text UICanvas_dialogObj_sender;
@@ -68,6 +71,7 @@ namespace Gob3AQ.GameMenu.UICanvas
         private GameObject UICanvas_uppertoolbarObj;
         private Button saveButton;
         private Button exitButton;
+        private Button mementoButton;
         private Button takeButton;
         private Button talkButton;
         private Button observeButton;
@@ -84,6 +88,7 @@ namespace Gob3AQ.GameMenu.UICanvas
 
             UICanvas_loadingObj = transform.Find("LoadingObj").gameObject;
             UICanvas_dialogObj = transform.Find("DialogObj").gameObject;
+            UICanvas_mementoObj = transform.Find("MementoObj").gameObject;
             UICanvas_itemMenuObj = transform.Find("ItemMenuObj").gameObject;
 
             UICanvas_dialogObj_sender = UICanvas_dialogObj.transform.Find("DialogSender").GetComponent<TMP_Text>();
@@ -103,6 +108,7 @@ namespace Gob3AQ.GameMenu.UICanvas
             UICanvas_uppertoolbarObj = transform.Find("UpperToolbar").gameObject;
             saveButton = UICanvas_uppertoolbarObj.transform.Find("SaveButton").GetComponent<Button>();
             exitButton = UICanvas_uppertoolbarObj.transform.Find("ExitButton").GetComponent<Button>();
+            mementoButton = UICanvas_uppertoolbarObj.transform.Find("MementoButton").GetComponent<Button>();
             takeButton = UICanvas_uppertoolbarObj.transform.Find("TakeButton").GetComponent<Button>();
             talkButton = UICanvas_uppertoolbarObj.transform.Find("TalkButton").GetComponent<Button>();
             observeButton = UICanvas_uppertoolbarObj.transform.Find("ObserveButton").GetComponent<Button>();
@@ -125,6 +131,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                 case DisplayMode.DISPLAY_MODE_INVENTORY:
                     UICanvas_loadingObj.SetActive(false);
                     UICanvas_dialogObj.SetActive(false);
+                    UICanvas_mementoObj.SetActive(false);
                     UICanvas_itemMenuObj.SetActive(true);
 
                     break;
@@ -132,12 +139,21 @@ namespace Gob3AQ.GameMenu.UICanvas
                 case DisplayMode.DISPLAY_MODE_DIALOG:
                     UICanvas_loadingObj.SetActive(false);
                     UICanvas_dialogObj.SetActive(true);
+                    UICanvas_mementoObj.SetActive(false);
+                    UICanvas_itemMenuObj.SetActive(false);
+                    break;
+
+                case DisplayMode.DISPLAY_MODE_MEMENTO:
+                    UICanvas_loadingObj.SetActive(false);
+                    UICanvas_dialogObj.SetActive(false);
+                    UICanvas_mementoObj.SetActive(true);
                     UICanvas_itemMenuObj.SetActive(false);
                     break;
 
                 default:
                     UICanvas_loadingObj.SetActive(false);
                     UICanvas_dialogObj.SetActive(false);
+                    UICanvas_mementoObj.SetActive(false);
                     UICanvas_itemMenuObj.SetActive(false);
                     break;
             }
@@ -297,6 +313,7 @@ namespace Gob3AQ.GameMenu.UICanvas
 
             saveButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_SAVE));
             exitButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_EXIT));
+            mementoButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_MEMENTO));
             takeButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_TAKE));
             talkButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_TALK));
             observeButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_OBSERVE));

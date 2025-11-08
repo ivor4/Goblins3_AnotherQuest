@@ -7,7 +7,31 @@ namespace Gob3AQ.Brain.ItemsInteraction
 { 
     public static class ItemsInteractionsClass
     {
-        public static ReadOnlySpan<UnchainInfo> GET_UNCHAINERS => _UnchainConditions;
+        public static ref readonly MementoParentInfo GetMementoParentInfo(MementoParent mementoParent)
+        {
+            if ((uint)mementoParent >= (uint)MementoParent.MEMENTO_PARENT_TOTAL)
+            {
+                Debug.LogError($"[ItemsInteractionsClass] GetMementoParentInfo: Invalid memento parent item {mementoParent}");
+                return ref MementoParentInfo.EMPTY;
+            }
+            else
+            {
+                return ref _MementoParentInfo[(int)mementoParent];
+            }
+        }
+
+        public static ref readonly MementoInfo GetMementoInfo(Memento memento)
+        {
+            if ((uint)memento >= (uint)Memento.MEMENTO_TOTAL)
+            {
+                Debug.LogError($"[ItemsInteractionsClass] GetMementoInfo: Invalid memento item {memento}");
+                return ref MementoInfo.EMPTY;
+            }
+            else
+            {
+                return ref _MementoInfo[(int)memento];
+            }
+        }
 
         public static GameItem GetItemFromPickable(GamePickableItem pickable)
         {
@@ -244,6 +268,36 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_POTION_RED,	/* ITEM_PICK_POTION */
             GameSprite.SPRITE_POTION_BLUE,	/* ITEM_PICK_POTION_BLUE */
             /* > ATG 5 END < */
+        };
+
+        private static readonly MementoParentInfo[] _MementoParentInfo = new MementoParentInfo[(int)MementoParent.MEMENTO_PARENT_TOTAL]
+        {
+            /* > ATG 6 START < */
+            /* MEMENTO_PARENT_RED_POTION */
+            new(
+            new(new HashSet<Memento>(2){Memento.MEMENTO_RED_POTION_1,Memento.MEMENTO_RED_POTION_2,}),
+            GameSprite.SPRITE_POTION_RED
+            ),
+            
+            /* MEMENTO_PARENT_LAST */
+            new(
+            new(new HashSet<Memento>(1){Memento.MEMENTO_LAST,}),
+            GameSprite.SPRITE_NONE
+            ),
+            
+            /* > ATG 6 END < */
+        };
+
+        private static readonly MementoInfo[] _MementoInfo = new MementoInfo[(int)Memento.MEMENTO_TOTAL]
+        {
+            /* > ATG 7 START < */
+            /* MEMENTO_RED_POTION_1 */
+            new(MementoParent.MEMENTO_PARENT_RED_POTION,DialogPhrase.PHRASE_MEMENTO_POTION_1,true,false),
+            /* MEMENTO_RED_POTION_2 */
+            new(MementoParent.MEMENTO_PARENT_RED_POTION,DialogPhrase.PHRASE_MEMENTO_POTION_2,false,true),
+            /* MEMENTO_LAST */
+            new(MementoParent.MEMENTO_PARENT_LAST,DialogPhrase.PHRASE_NONE,false,false),
+            /* > ATG 7 END < */
         };
     }
 }

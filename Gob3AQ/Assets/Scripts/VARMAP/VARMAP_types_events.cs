@@ -16,4 +16,27 @@ namespace Gob3AQ.VARMAP.Types
         /* > ATG 1 END < */
     }
 
+    public enum MementoParent
+    {
+        /* > ATG 2 START < */
+        MEMENTO_PARENT_NONE = -1, 
+        MEMENTO_PARENT_RED_POTION, 
+        MEMENTO_PARENT_LAST, 
+        
+        MEMENTO_PARENT_TOTAL
+        /* > ATG 2 END < */
+    }
+
+    public enum Memento
+    {
+        /* > ATG 3 START < */
+        MEMENTO_NONE = -1, 
+        MEMENTO_RED_POTION_1, 
+        MEMENTO_RED_POTION_2, 
+        MEMENTO_LAST, 
+        
+        MEMENTO_TOTAL
+        /* > ATG 3 END < */
+    }
+
 }

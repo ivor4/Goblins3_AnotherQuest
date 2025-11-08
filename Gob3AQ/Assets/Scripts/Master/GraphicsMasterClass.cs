@@ -337,6 +337,9 @@ namespace Gob3AQ.GraphicsMaster
                     case Game_Status.GAME_STATUS_PLAY_DIALOG:
                         uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_DIALOG);
                         break;
+                    case Game_Status.GAME_STATUS_PLAY_MEMENTO:
+                        uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_MEMENTO);
+                        break;
                     case Game_Status.GAME_STATUS_PAUSE:
                         //paused_text.gameObject.SetActive(true);
                         break;

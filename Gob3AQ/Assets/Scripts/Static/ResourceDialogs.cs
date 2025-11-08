@@ -58,11 +58,20 @@ namespace Gob3AQ.ResourceDialogs
                 NameType.NAME_INTERACTION_OBSERVE
             };
 
+            for(Memento i = 0; i < Memento.MEMENTO_TOTAL; ++i)
+            {
+                ref readonly MementoInfo memInfo = ref ItemsInteractionsClass.GetMementoInfo(i);
+                editablePhraseHash.Add(memInfo.phrase);
+            }
+
             for (GamePickableItem i = 0; i < GamePickableItem.ITEM_PICK_TOTAL; i++)
             {
                 ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(ItemsInteractionsClass.GetItemFromPickable(i));
                 editableNameHash.Add(itemInfo.name);
             }
+
+            _ = editablePhraseHash.Remove(DialogPhrase.PHRASE_NONE);
+            _ = editableNameHash.Remove(NameType.NAME_NONE);
 
             _fixedPhrasesArray = new(editablePhraseHash);
             _fixedNamesArray = new(editableNameHash);
@@ -111,7 +120,6 @@ namespace Gob3AQ.ResourceDialogs
         private static void PreloadRoomPhrases_TaskCycle(string[] lines, DialogPhrase phrase)
         {
             ref readonly PhraseConfig phraseConfig = ref ResourceDialogsAtlasClass.GetPhraseConfig(phrase);
-
             /* Retrieve configuration for given phrase */
             ref readonly string row = ref lines[(int)phrase];
             ReadOnlySpan<string> columns = row.Split(',');
@@ -146,10 +154,7 @@ namespace Gob3AQ.ResourceDialogs
                     ref readonly ActionConditionsInfo condition = ref ItemsInteractionsClass.GetActionConditionsInfo(conditionsEnumArray[j]);
 
                     /* Standalone phrases */
-                    if (condition.phraseOK != DialogPhrase.PHRASE_NONE)
-                    {
-                        _phrasesToLoadArray.Add(condition.phraseOK);
-                    }
+                    _phrasesToLoadArray.Add(condition.phraseOK);
 
                     /* Include phrases from dialogs */
                     if (!processedDialogues.Contains(condition.dialogOK))
@@ -189,6 +194,10 @@ namespace Gob3AQ.ResourceDialogs
                     }
                 }
             }
+
+            _ = _namesToLoadArray.Remove(NameType.NAME_NONE);
+            _ = _phrasesToLoadArray.Remove(DialogPhrase.PHRASE_NONE);
+
         }
 
         private static IEnumerator PreloadRoomTextsCoroutine(Room room, string[] names, string[] phrases)

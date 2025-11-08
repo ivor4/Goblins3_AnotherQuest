@@ -56,6 +56,8 @@ namespace Gob3AQ.VARMAP.Types
         UNCHAIN_TYPE_EARN_ITEM, 
         UNCHAIN_TYPE_LOSE_ITEM, 
         UNCHAIN_TYPE_EVENT, 
+        UNCHAIN_TYPE_NOTIF, 
+        UNCHAIN_TYPE_MEMENTO, 
         
         UNCHAIN_TYPE_TOTAL
         /* > ATG 4 END < */

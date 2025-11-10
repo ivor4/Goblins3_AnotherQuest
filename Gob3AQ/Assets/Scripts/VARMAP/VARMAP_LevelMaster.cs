@@ -20,6 +20,9 @@ namespace Gob3AQ.VARMAP.LevelMaster
             GET_GAME_OPTIONS = _GET_GAME_OPTIONS;
             GET_ELAPSED_TIME_MS = _GET_ELAPSED_TIME_MS;
             GET_ACTUAL_ROOM = _GET_ACTUAL_ROOM;
+            GET_ELEM_UNWATCHED_PARENT_MEMENTO = _GET_ELEM_UNWATCHED_PARENT_MEMENTO;
+            GET_SIZE_UNWATCHED_PARENT_MEMENTO = _GET_SIZE_UNWATCHED_PARENT_MEMENTO;
+            GET_ARRAY_UNWATCHED_PARENT_MEMENTO = _GET_ARRAY_UNWATCHED_PARENT_MEMENTO;
             GET_ELEM_PICKABLE_ITEM_OWNER = _GET_ELEM_PICKABLE_ITEM_OWNER;
             GET_SIZE_PICKABLE_ITEM_OWNER = _GET_SIZE_PICKABLE_ITEM_OWNER;
             GET_ARRAY_PICKABLE_ITEM_OWNER = _GET_ARRAY_PICKABLE_ITEM_OWNER;
@@ -76,6 +79,9 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static GetVARMAPValueDelegate<GameOptionsStruct> GET_GAME_OPTIONS;
         public static GetVARMAPValueDelegate<ulong> GET_ELAPSED_TIME_MS;
         public static GetVARMAPValueDelegate<Room> GET_ACTUAL_ROOM;
+        public static GetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> GET_ELEM_UNWATCHED_PARENT_MEMENTO;
+        public static GetVARMAPArraySizeDelegate GET_SIZE_UNWATCHED_PARENT_MEMENTO;
+        public static GetVARMAPArrayDelegate<MultiBitFieldStruct> GET_ARRAY_UNWATCHED_PARENT_MEMENTO;
         public static GetVARMAPArrayElemValueDelegate<CharacterType> GET_ELEM_PICKABLE_ITEM_OWNER;
         public static GetVARMAPArraySizeDelegate GET_SIZE_PICKABLE_ITEM_OWNER;
         public static GetVARMAPArrayDelegate<CharacterType> GET_ARRAY_PICKABLE_ITEM_OWNER;

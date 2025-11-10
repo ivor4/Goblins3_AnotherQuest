@@ -19,13 +19,14 @@ N,SERVICE_ID,SPECIAL_DELEGATE,SERVICE_ROUTE,Description,Separator,GameMaster,Inp
 17,COMMIT_EVENT,COMMIT_EVENT_DELEGATE,GameEventMasterClass.CommitEventService,Activates/Deactivates an event,,-,-,X,-,X,X,X,W
 18,COMMIT_MEMENTO_NOTIF,COMMIT_MEMENTO_NOTIF_DELEGATE,GameMenuClass.CommitMementoNotifService,Tells Memento Manager (Menu) a new memento has been unlocked,,-,-,-,-,W,-,-,X
 19,IS_MEMENTO_UNLOCKED,IS_MEMENTO_UNLOCKED_DELEGATE,GameEventMasterClass.IsMementoUnlockedService,Tells if a memento is unlocked,,-,-,-,-,X,-,-,W
-20,INTERACT_PLAYER,INTERACT_PLAYER_DELEGATE,PlayerMasterClass.InteractPlayerService,Makes player interact with usage data,,-,-,X,-,-,W,-,-
-21,UNCHAIN_TO_ITEM,UNCHAIN_TO_ITEM_DELEGATE,ItemMasterClass.UnchainToItemService,Applies an unchain event to an item such as spawn or setsprite,,-,-,-,-,-,-,W,X
-22,PLAYER_REACHED_WAYPOINT,PLAYER_REACHED_WAYPOINT_DELEGATE,LevelMasterClass.PlayerReachedWaypointService,Tells LevelMaster that player reached Waypoint to start action in case,,-,-,W,-,-,X,-,-
-23,USE_ITEM,USE_ITEM_DELEGATE,ItemMasterClass.UseItemService,Uses an item with something,,-,-,X,-,-,-,W,-
-24,CANCEL_PICKABLE_ITEM,CANCEL_PICKABLE_ITEM_DELEGATE,GameMenuClass.CancelPickableItemService,Cancels selected item,,-,-,X,-,W,-,X,-
-25,KEY_SUBSCRIPTION,KEY_SUBSCRIPTION_DELEGATE,InputMasterClass.KeySubscriptionService,Subscribe to determined key events to avoid polling,,-,W,-,-,X,-,-,-
-26,LOCK_PLAYER,LOCK_PLAYER_DELEGATE,PlayerMasterClass.LockPlayerService,Locks player so it cannot act until an action over it has been done (or removes lock),,-,-,X,-,-,W,-,-
-27,CHANGE_GAME_MODE,CHANGE_GAME_MODE_DELEGATE,GameMasterClass.ChangeGameModeService,Asks Game Master to set game mode,,W,-,X,-,X,-,-,-
-28,SHOW_DIALOGUE,SHOW_DIALOGUE_DELEGATE,GameMenuClass.ShowDialogueService,Second part of start dialogue. Tells Game Menu to prepare menu elements,,-,-,X,-,W,-,-,-
-29,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-
+20,MEMENTO_PARENT_WATCHED,MEMENTO_PARENT_WATCHED_DELEGATE,GameEventMasterClass.MementoParentWatchedService,If a Memento has been analyzed,,-,-,-,-,X,-,-,W
+21,INTERACT_PLAYER,INTERACT_PLAYER_DELEGATE,PlayerMasterClass.InteractPlayerService,Makes player interact with usage data,,-,-,X,-,-,W,-,-
+22,UNCHAIN_TO_ITEM,UNCHAIN_TO_ITEM_DELEGATE,ItemMasterClass.UnchainToItemService,Applies an unchain event to an item such as spawn or setsprite,,-,-,-,-,-,-,W,X
+23,PLAYER_REACHED_WAYPOINT,PLAYER_REACHED_WAYPOINT_DELEGATE,LevelMasterClass.PlayerReachedWaypointService,Tells LevelMaster that player reached Waypoint to start action in case,,-,-,W,-,-,X,-,-
+24,USE_ITEM,USE_ITEM_DELEGATE,ItemMasterClass.UseItemService,Uses an item with something,,-,-,X,-,-,-,W,-
+25,CANCEL_PICKABLE_ITEM,CANCEL_PICKABLE_ITEM_DELEGATE,GameMenuClass.CancelPickableItemService,Cancels selected item,,-,-,X,-,W,-,X,-
+26,KEY_SUBSCRIPTION,KEY_SUBSCRIPTION_DELEGATE,InputMasterClass.KeySubscriptionService,Subscribe to determined key events to avoid polling,,-,W,-,-,X,-,-,-
+27,LOCK_PLAYER,LOCK_PLAYER_DELEGATE,PlayerMasterClass.LockPlayerService,Locks player so it cannot act until an action over it has been done (or removes lock),,-,-,X,-,-,W,-,-
+28,CHANGE_GAME_MODE,CHANGE_GAME_MODE_DELEGATE,GameMasterClass.ChangeGameModeService,Asks Game Master to set game mode,,W,-,X,-,X,-,-,-
+29,SHOW_DIALOGUE,SHOW_DIALOGUE_DELEGATE,GameMenuClass.ShowDialogueService,Second part of start dialogue. Tells Game Menu to prepare menu elements,,-,-,X,-,W,-,-,-
+30,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-

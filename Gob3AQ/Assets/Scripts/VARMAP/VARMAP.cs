@@ -54,6 +54,15 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPArrayDelegate<MultiBitFieldStruct> _SET_ARRAY_UNLOCKED_MEMENTO;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<MultiBitFieldStruct> _REG_UNLOCKED_MEMENTO;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<MultiBitFieldStruct> _UNREG_UNLOCKED_MEMENTO;
+        protected static GetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> _GET_ELEM_UNWATCHED_PARENT_MEMENTO;
+        protected static GetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> _GET_SHADOW_ELEM_UNWATCHED_PARENT_MEMENTO;
+        protected static SetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> _SET_ELEM_UNWATCHED_PARENT_MEMENTO;
+        protected static GetVARMAPArraySizeDelegate _GET_SIZE_UNWATCHED_PARENT_MEMENTO;
+        protected static GetVARMAPArrayDelegate<MultiBitFieldStruct> _GET_ARRAY_UNWATCHED_PARENT_MEMENTO;
+        protected static GetVARMAPArrayDelegate<MultiBitFieldStruct> _GET_SHADOW_ARRAY_UNWATCHED_PARENT_MEMENTO;
+        protected static SetVARMAPArrayDelegate<MultiBitFieldStruct> _SET_ARRAY_UNWATCHED_PARENT_MEMENTO;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<MultiBitFieldStruct> _REG_UNWATCHED_PARENT_MEMENTO;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<MultiBitFieldStruct> _UNREG_UNWATCHED_PARENT_MEMENTO;
         protected static GetVARMAPArrayElemValueDelegate<CharacterType> _GET_ELEM_PICKABLE_ITEM_OWNER;
         protected static GetVARMAPArrayElemValueDelegate<CharacterType> _GET_SHADOW_ELEM_PICKABLE_ITEM_OWNER;
         protected static SetVARMAPArrayElemValueDelegate<CharacterType> _SET_ELEM_PICKABLE_ITEM_OWNER;
@@ -266,6 +275,13 @@ namespace Gob3AQ.VARMAP
         /// <para> Method: <see cref="GameEventMasterClass.IsMementoUnlockedService"/> </para> 
         /// </summary>
         protected static IS_MEMENTO_UNLOCKED_DELEGATE _IS_MEMENTO_UNLOCKED;
+        /// <summary> 
+        /// If a Memento has been analyzed
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: GameMenu,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.MementoParentWatchedService"/> </para> 
+        /// </summary>
+        protected static MEMENTO_PARENT_WATCHED_DELEGATE _MEMENTO_PARENT_WATCHED;
         /// <summary> 
         /// Makes player interact with usage data
         /// <para> Owner: PlayerMaster </para> 

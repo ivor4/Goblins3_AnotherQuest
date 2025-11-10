@@ -53,6 +53,7 @@ namespace Gob3AQ.VARMAP.GameMenu
             COMMIT_EVENT = _COMMIT_EVENT;
             COMMIT_MEMENTO_NOTIF = _COMMIT_MEMENTO_NOTIF;
             IS_MEMENTO_UNLOCKED = _IS_MEMENTO_UNLOCKED;
+            MEMENTO_PARENT_WATCHED = _MEMENTO_PARENT_WATCHED;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             KEY_SUBSCRIPTION = _KEY_SUBSCRIPTION;
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
@@ -169,6 +170,13 @@ namespace Gob3AQ.VARMAP.GameMenu
         /// <para> Method: <see cref="GameEventMasterClass.IsMementoUnlockedService"/> </para> 
         /// </summary>
         public static IS_MEMENTO_UNLOCKED_DELEGATE IS_MEMENTO_UNLOCKED;
+        /// <summary> 
+        /// If a Memento has been analyzed
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: GameMenu,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.MementoParentWatchedService"/> </para> 
+        /// </summary>
+        public static MEMENTO_PARENT_WATCHED_DELEGATE MEMENTO_PARENT_WATCHED;
         /// <summary> 
         /// Cancels selected item
         /// <para> Owner: GameMenu </para> 

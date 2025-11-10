@@ -50,7 +50,7 @@ namespace Gob3AQ.GameMenu
         {
             if(_singleton != null)
             {
-                _singleton._uicanvas_cls.NewMementoUnlocked(memento, true);
+                _singleton._uicanvas_cls.NewMementoUnlocked(memento, true, true);
             }
         }
 
@@ -257,6 +257,16 @@ namespace Gob3AQ.GameMenu
 
         private void OnMementoItemClick(MementoParent mementoParent)
         {
+            /* Set as watched */
+            ref readonly MementoParentInfo memParInfo = ref ItemsInteractionsClass.GetMementoParentInfo(mementoParent);
+
+            _uicanvas_cls.MementoParentWatched(mementoParent);
+            VARMAP_GameMenu.MEMENTO_PARENT_WATCHED(mementoParent);
+
+            /* Display */
+
+
+            /* Combine? -> Event Triggered */
 
         }
 

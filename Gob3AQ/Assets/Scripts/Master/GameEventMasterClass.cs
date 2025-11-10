@@ -29,11 +29,17 @@ namespace Gob3AQ.GameEventMaster
         private Dictionary<UnchainConditions, HashSet<GameEvent>> _reversePendingUnchainDict;
 
 
-        public static void IsMementoUnlockedService(Memento memento, out bool occurred)
+        public static void IsMementoUnlockedService(Memento memento, out bool occurred, out bool unwatched)
         {
             GetArrayIndexAndPos((int)memento, out int arraypos, out int elembit);
             ref readonly MultiBitFieldStruct mbfs = ref VARMAP_GameEventMaster.GET_ELEM_UNLOCKED_MEMENTO(arraypos);
             occurred = mbfs.GetIndividualBool(elembit);
+
+            ref readonly MementoInfo memInfo = ref ItemsInteractionsClass.GetMementoInfo(memento);
+            GetArrayIndexAndPos((int)memInfo.parent, out arraypos, out elembit);
+
+            mbfs = ref VARMAP_GameEventMaster.GET_ELEM_UNWATCHED_PARENT_MEMENTO(arraypos);
+            unwatched = mbfs.GetIndividualBool(elembit);
         }
 
 
@@ -59,6 +65,7 @@ namespace Gob3AQ.GameEventMaster
                 ReadOnlySpan<MultiBitFieldStruct> events_in = VARMAP_GameEventMaster.GET_SHADOW_ARRAY_EVENTS_OCCURRED();
                 Span<MultiBitFieldStruct> events_out = stackalloc MultiBitFieldStruct[events_in.Length];
                 events_in.CopyTo(events_out);
+                bool somethingChanged = false;
 
                 for (int i = 0; i < combi.Length; ++i)
                 {
@@ -81,11 +88,29 @@ namespace Gob3AQ.GameEventMaster
                         if (newValue != prevValue)
                         {
                             _singleton._bufferedEvents.Add(combiInfo.eventType);
+                            somethingChanged = true;
                         }
                     }
                 }
 
-                VARMAP_GameEventMaster.SET_ARRAY_EVENTS_OCCURRED(events_out);
+                if (somethingChanged)
+                {
+                    VARMAP_GameEventMaster.SET_ARRAY_EVENTS_OCCURRED(events_out);
+                    VARMAP_GameEventMaster.SET_EVENTS_BEING_PROCESSED(true);
+                }
+            }
+        }
+
+        public static void MementoParentWatchedService(MementoParent mementoParent)
+        {
+            GetArrayIndexAndPos((int)mementoParent, out int arraypos, out int elembit);
+            MultiBitFieldStruct mbfs = VARMAP_GameEventMaster.GET_SHADOW_ELEM_UNWATCHED_PARENT_MEMENTO(arraypos);
+            bool prevValue = mbfs.GetIndividualBool(elembit);
+            mbfs.SetIndividualBool(elembit, false);
+
+            if (prevValue)
+            {
+                VARMAP_GameEventMaster.SET_ELEM_UNWATCHED_PARENT_MEMENTO(arraypos, in mbfs);
                 VARMAP_GameEventMaster.SET_EVENTS_BEING_PROCESSED(true);
             }
         }
@@ -95,13 +120,26 @@ namespace Gob3AQ.GameEventMaster
         {
             GetArrayIndexAndPos((int)memento, out int arraypos, out int elembit);
             MultiBitFieldStruct mbfs = VARMAP_GameEventMaster.GET_SHADOW_ELEM_UNLOCKED_MEMENTO(arraypos);
+            bool prevValue = mbfs.GetIndividualBool(elembit);
             mbfs.SetIndividualBool(elembit, true);
-            VARMAP_GameEventMaster.SET_ELEM_UNLOCKED_MEMENTO(arraypos, in mbfs);
 
-            VARMAP_GameEventMaster.COMMIT_MEMENTO_NOTIF(memento);
+            if (!prevValue)
+            {
+                VARMAP_GameEventMaster.SET_ELEM_UNLOCKED_MEMENTO(arraypos, in mbfs);
 
-            VARMAP_GameEventMaster.SET_EVENTS_BEING_PROCESSED(true);
+                ref readonly MementoInfo memInfo = ref ItemsInteractionsClass.GetMementoInfo(memento);
+                GetArrayIndexAndPos((int)memInfo.parent, out arraypos, out elembit);
+
+                mbfs = VARMAP_GameEventMaster.GET_SHADOW_ELEM_UNWATCHED_PARENT_MEMENTO(arraypos);
+                mbfs.SetIndividualBool(elembit, true);
+                
+                VARMAP_GameEventMaster.SET_ELEM_UNWATCHED_PARENT_MEMENTO(arraypos, in mbfs);
+                VARMAP_GameEventMaster.COMMIT_MEMENTO_NOTIF(memento);
+                VARMAP_GameEventMaster.SET_EVENTS_BEING_PROCESSED(true);
+            }
         }
+
+        
 
 
         /// <summary>

@@ -576,7 +576,7 @@ namespace Gob3AQ.VARMAP.Types
         }
     }
 
-    public struct MultiBitFieldStruct : IStreamable
+    public struct MultiBitFieldStruct : IStreamable, IEquatable<MultiBitFieldStruct>
     {
         public const int STRUCT_SIZE = sizeof(ulong);
         private ulong bitfield;
@@ -591,6 +591,11 @@ namespace Gob3AQ.VARMAP.Types
         {
             WriteStreamSpan<byte> writeZone = new WriteStreamSpan<byte>(writer);
             BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ulong)), gstruct.bitfield);
+        }
+
+        public MultiBitFieldStruct(MultiBitFieldStruct copyFrom)
+        {
+            bitfield = copyFrom.bitfield;
         }
 
         public readonly bool GetIndividualBool(int pos)
@@ -656,6 +661,11 @@ namespace Gob3AQ.VARMAP.Types
         {
             string str = bitfield.ToString("X16");
             return str;
+        }
+
+        public bool Equals(MultiBitFieldStruct other)
+        {
+            return bitfield == other.bitfield;
         }
     }
 

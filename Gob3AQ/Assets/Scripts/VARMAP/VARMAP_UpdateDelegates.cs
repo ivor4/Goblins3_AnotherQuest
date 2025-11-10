@@ -57,6 +57,15 @@ namespace Gob3AQ.VARMAP.Initialization
             _SET_ARRAY_UNLOCKED_MEMENTO = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_UNLOCKED_MEMENTO]).SetListValues;
             _REG_UNLOCKED_MEMENTO = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_UNLOCKED_MEMENTO]).RegisterChangeEvent;
             _UNREG_UNLOCKED_MEMENTO = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_UNLOCKED_MEMENTO]).UnregisterChangeEvent;
+            _GET_ELEM_UNWATCHED_PARENT_MEMENTO = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_UNWATCHED_PARENT_MEMENTO]).GetListElem;
+            _GET_SHADOW_ELEM_UNWATCHED_PARENT_MEMENTO = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_UNWATCHED_PARENT_MEMENTO]).GetShadowListElem;
+            _SET_ELEM_UNWATCHED_PARENT_MEMENTO = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_UNWATCHED_PARENT_MEMENTO]).SetListElem;
+            _GET_SIZE_UNWATCHED_PARENT_MEMENTO = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_UNWATCHED_PARENT_MEMENTO]).GetListSize;
+            _GET_ARRAY_UNWATCHED_PARENT_MEMENTO = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_UNWATCHED_PARENT_MEMENTO]).GetListCopy;
+            _GET_SHADOW_ARRAY_UNWATCHED_PARENT_MEMENTO = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_UNWATCHED_PARENT_MEMENTO]).GetShadowListCopy;
+            _SET_ARRAY_UNWATCHED_PARENT_MEMENTO = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_UNWATCHED_PARENT_MEMENTO]).SetListValues;
+            _REG_UNWATCHED_PARENT_MEMENTO = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_UNWATCHED_PARENT_MEMENTO]).RegisterChangeEvent;
+            _UNREG_UNWATCHED_PARENT_MEMENTO = ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_UNWATCHED_PARENT_MEMENTO]).UnregisterChangeEvent;
             _GET_ELEM_PICKABLE_ITEM_OWNER = ((VARMAP_Variable_Interface<CharacterType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER]).GetListElem;
             _GET_SHADOW_ELEM_PICKABLE_ITEM_OWNER = ((VARMAP_Variable_Interface<CharacterType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER]).GetShadowListElem;
             _SET_ELEM_PICKABLE_ITEM_OWNER = ((VARMAP_Variable_Interface<CharacterType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER]).SetListElem;
@@ -150,6 +159,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _COMMIT_EVENT = GameEventMasterClass.CommitEventService;
             _COMMIT_MEMENTO_NOTIF = GameMenuClass.CommitMementoNotifService;
             _IS_MEMENTO_UNLOCKED = GameEventMasterClass.IsMementoUnlockedService;
+            _MEMENTO_PARENT_WATCHED = GameEventMasterClass.MementoParentWatchedService;
             _INTERACT_PLAYER = PlayerMasterClass.InteractPlayerService;
             _UNCHAIN_TO_ITEM = ItemMasterClass.UnchainToItemService;
             _PLAYER_REACHED_WAYPOINT = LevelMasterClass.PlayerReachedWaypointService;

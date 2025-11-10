@@ -33,6 +33,13 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             GET_ARRAY_UNLOCKED_MEMENTO = _GET_ARRAY_UNLOCKED_MEMENTO;
             GET_SHADOW_ARRAY_UNLOCKED_MEMENTO = _GET_SHADOW_ARRAY_UNLOCKED_MEMENTO;
             SET_ARRAY_UNLOCKED_MEMENTO = _SET_ARRAY_UNLOCKED_MEMENTO;
+            GET_ELEM_UNWATCHED_PARENT_MEMENTO = _GET_ELEM_UNWATCHED_PARENT_MEMENTO;
+            GET_SHADOW_ELEM_UNWATCHED_PARENT_MEMENTO = _GET_SHADOW_ELEM_UNWATCHED_PARENT_MEMENTO;
+            SET_ELEM_UNWATCHED_PARENT_MEMENTO = _SET_ELEM_UNWATCHED_PARENT_MEMENTO;
+            GET_SIZE_UNWATCHED_PARENT_MEMENTO = _GET_SIZE_UNWATCHED_PARENT_MEMENTO;
+            GET_ARRAY_UNWATCHED_PARENT_MEMENTO = _GET_ARRAY_UNWATCHED_PARENT_MEMENTO;
+            GET_SHADOW_ARRAY_UNWATCHED_PARENT_MEMENTO = _GET_SHADOW_ARRAY_UNWATCHED_PARENT_MEMENTO;
+            SET_ARRAY_UNWATCHED_PARENT_MEMENTO = _SET_ARRAY_UNWATCHED_PARENT_MEMENTO;
             GET_EVENTS_BEING_PROCESSED = _GET_EVENTS_BEING_PROCESSED;
             GET_SHADOW_EVENTS_BEING_PROCESSED = _GET_SHADOW_EVENTS_BEING_PROCESSED;
             SET_EVENTS_BEING_PROCESSED = _SET_EVENTS_BEING_PROCESSED;
@@ -42,6 +49,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             COMMIT_EVENT = _COMMIT_EVENT;
             COMMIT_MEMENTO_NOTIF = _COMMIT_MEMENTO_NOTIF;
             IS_MEMENTO_UNLOCKED = _IS_MEMENTO_UNLOCKED;
+            MEMENTO_PARENT_WATCHED = _MEMENTO_PARENT_WATCHED;
             UNCHAIN_TO_ITEM = _UNCHAIN_TO_ITEM;
             /* > ATG 1 END */
         }
@@ -65,6 +73,13 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         public static GetVARMAPArrayDelegate<MultiBitFieldStruct> GET_ARRAY_UNLOCKED_MEMENTO;
         public static GetVARMAPArrayDelegate<MultiBitFieldStruct> GET_SHADOW_ARRAY_UNLOCKED_MEMENTO;
         public static SetVARMAPArrayDelegate<MultiBitFieldStruct> SET_ARRAY_UNLOCKED_MEMENTO;
+        public static GetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> GET_ELEM_UNWATCHED_PARENT_MEMENTO;
+        public static GetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> GET_SHADOW_ELEM_UNWATCHED_PARENT_MEMENTO;
+        public static SetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> SET_ELEM_UNWATCHED_PARENT_MEMENTO;
+        public static GetVARMAPArraySizeDelegate GET_SIZE_UNWATCHED_PARENT_MEMENTO;
+        public static GetVARMAPArrayDelegate<MultiBitFieldStruct> GET_ARRAY_UNWATCHED_PARENT_MEMENTO;
+        public static GetVARMAPArrayDelegate<MultiBitFieldStruct> GET_SHADOW_ARRAY_UNWATCHED_PARENT_MEMENTO;
+        public static SetVARMAPArrayDelegate<MultiBitFieldStruct> SET_ARRAY_UNWATCHED_PARENT_MEMENTO;
         public static GetVARMAPValueDelegate<bool> GET_EVENTS_BEING_PROCESSED;
         public static GetVARMAPValueDelegate<bool> GET_SHADOW_EVENTS_BEING_PROCESSED;
         public static SetVARMAPValueDelegate<bool> SET_EVENTS_BEING_PROCESSED;
@@ -114,6 +129,13 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         /// <para> Method: <see cref="GameEventMasterClass.IsMementoUnlockedService"/> </para> 
         /// </summary>
         public static IS_MEMENTO_UNLOCKED_DELEGATE IS_MEMENTO_UNLOCKED;
+        /// <summary> 
+        /// If a Memento has been analyzed
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: GameMenu,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.MementoParentWatchedService"/> </para> 
+        /// </summary>
+        public static MEMENTO_PARENT_WATCHED_DELEGATE MEMENTO_PARENT_WATCHED;
         /// <summary> 
         /// Applies an unchain event to an item such as spawn or setsprite
         /// <para> Owner: ItemMaster </para> 

@@ -15,11 +15,14 @@ namespace Gob3AQ.GameMenu.MementoItem
     public class MementoItemClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
     {
         private static readonly Color idleColor = new(0.5f, 0.5f, 0.5f, 0.5f);
+        private static readonly Color textIdleColor = new(0.75f, 0.75f, 0.75f, 1.0f);
         private static readonly Color hoverColor = Color.white;
         private static readonly Color notClearedColor = Color.black;
 
         private int index;
         private bool cleared;
+        private bool unwatched;
+        private GameObject newsObj;
         private RectTransform rectTransform;
         private Image image;
         private TMP_Text text;
@@ -48,9 +51,15 @@ namespace Gob3AQ.GameMenu.MementoItem
             rectTransform.anchoredPosition = anchPos;
         }
 
-        public void SetMementoParent(MementoParent parent, bool totallyCleared)
+        public void SetWatched()
+        {
+            newsObj.SetActive(false);
+        }
+
+        public void SetMementoParent(MementoParent parent, bool totallyCleared, bool unwatched)
         {
             this.parent = parent;
+            this.unwatched = unwatched;
             this.cleared = totallyCleared;
 
             if (parent != MementoParent.MEMENTO_PARENT_NONE)
@@ -72,6 +81,16 @@ namespace Gob3AQ.GameMenu.MementoItem
                     image.color = notClearedColor;
                 }
 
+                text.color = textIdleColor;
+
+                if(unwatched)
+                {
+                    newsObj.SetActive(true);
+                }
+                else
+                {
+                    newsObj.SetActive(false);
+                }
             }
             else
             {
@@ -83,6 +102,7 @@ namespace Gob3AQ.GameMenu.MementoItem
         void Awake()
         {
             image = transform.Find("Icon").GetComponent<Image>();
+            newsObj = image.transform.Find("News").gameObject;
             text = transform.Find("Name").GetComponent<TMP_Text>();
             rectTransform = GetComponent<RectTransform>();
         }
@@ -90,6 +110,7 @@ namespace Gob3AQ.GameMenu.MementoItem
         void Start()
         {
             image.color = idleColor;
+            text.color = textIdleColor;
         }
 
         public void OnPointerClick(PointerEventData eventData)
@@ -106,6 +127,8 @@ namespace Gob3AQ.GameMenu.MementoItem
             {
                 image.color = hoverColor;
             }
+
+            text.color = hoverColor;
         }
 
         public void OnPointerExit(PointerEventData eventData)
@@ -114,6 +137,8 @@ namespace Gob3AQ.GameMenu.MementoItem
             {
                 image.color = idleColor;
             }
+
+            text.color = textIdleColor;
         }
     }
 }

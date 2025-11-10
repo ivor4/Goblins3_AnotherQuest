@@ -86,10 +86,11 @@ namespace Gob3AQ.GameMenu.UICanvas
         private RectTransform memento_ContentRectTransform;
         private MementoItemClass[] memento_itemClass;
         private List<MementoParent> memento_activeParentList;
+        private Dictionary<MementoParent, MementoItemClass> memento_parent_dict;
         private HashSet<MementoParent> memento_totallyCleared;
-        private List<Memento> memento_activeList;
+        private HashSet<MementoParent> memento_unwatched;
+        private HashSet<Memento> memento_unlocked;
 
-        private bool loaded;
 
 
         private void Awake()
@@ -131,14 +132,14 @@ namespace Gob3AQ.GameMenu.UICanvas
             memento_ContentObj = UICanvas_mementoObj.transform.Find("MementoList/Viewport/Content").gameObject;
             memento_ContentRectTransform = memento_ContentObj.GetComponent<RectTransform>();
             memento_activeParentList = new((int)MementoParent.MEMENTO_PARENT_TOTAL);
+            memento_parent_dict = new((int)MementoParent.MEMENTO_PARENT_TOTAL);
             memento_totallyCleared = new((int)MementoParent.MEMENTO_PARENT_TOTAL);
-            memento_activeList = new((int)Memento.MEMENTO_TOTAL);
+            memento_unlocked = new((int)Memento.MEMENTO_TOTAL);
+            memento_unwatched = new((int)MementoParent.MEMENTO_PARENT_TOTAL);
             memento_itemClass = new MementoItemClass[(int)MementoParent.MEMENTO_PARENT_TOTAL];
 
             /* Will be enabled at the end of Loading (new display mode) */
             raycaster.enabled = false;
-
-            loaded = false;
         }
 
         public void SetDisplayMode(DisplayMode mode)
@@ -325,10 +326,15 @@ namespace Gob3AQ.GameMenu.UICanvas
             cursor_userInteraction_cls.AnimateNewUserInteraction(interaction);
         }
 
-        public void NewMementoUnlocked(Memento memento, bool sortAndResize)
+        public void NewMementoUnlocked(Memento memento, bool unwatched, bool sortAndResize)
         {
             ref readonly MementoInfo memInfo = ref ItemsInteractionsClass.GetMementoInfo(memento);
-            memento_activeList.Add(memento);
+            memento_unlocked.Add(memento);
+
+            if(unwatched)
+            {
+                memento_unwatched.Add(memInfo.parent);
+            }
 
             /* Assumed only one initial per parent Memento */
             if (memInfo.initial)
@@ -347,6 +353,14 @@ namespace Gob3AQ.GameMenu.UICanvas
             }
         }
 
+        public void MementoParentWatched(MementoParent parent)
+        {
+            if (memento_unwatched.Contains(parent))
+            {
+                memento_unwatched.Remove(parent);
+                memento_parent_dict[parent].SetWatched();
+            }
+        }
 
         private void MementoSortAndResizeAll()
         {
@@ -359,20 +373,29 @@ namespace Gob3AQ.GameMenu.UICanvas
             * Therefore, later unlocked events should appear first */
             memento_activeParentList.Sort(MementoParentSortMethod);
 
+            memento_parent_dict.Clear();
+
             /* Activate and give shape to items */
             for (int i = 0; i < memento_itemClass.Length; i++)
             {
+                MementoItemClass instance = memento_itemClass[i];
+
                 /* Active ones */
                 if (i < memento_activeParentList.Count)
                 {
-                    memento_itemClass[i].SetMementoParent(memento_activeParentList[i],
-                        memento_totallyCleared.Contains(memento_activeParentList[i]));
-                    memento_itemClass[i].Activate(true);
+                    MementoParent parent = memento_activeParentList[i];
+                    memento_parent_dict[parent] = instance;
+
+                    instance.SetMementoParent(parent,
+                        memento_totallyCleared.Contains(parent),
+                        memento_unwatched.Contains(parent));
+                    instance.Activate(true);
+                    
                 }
                 /* Deactivated ones */
                 else
                 {
-                    memento_itemClass[i].Activate(false);
+                    instance.Activate(false);
                 }
             }
         }
@@ -465,18 +488,16 @@ namespace Gob3AQ.GameMenu.UICanvas
             {
                 Memento memento = (Memento)i;
 
-                VARMAP_GameMenu.IS_MEMENTO_UNLOCKED(memento, out bool unlocked);
+                VARMAP_GameMenu.IS_MEMENTO_UNLOCKED(memento, out bool unlocked, out bool unwatched);
 
                 if (unlocked)
                 {
-                    NewMementoUnlocked(memento, false);
+                    NewMementoUnlocked(memento, unwatched, false);
                 }
             }
             yield return ResourceAtlasClass.WaitForNextFrame;
 
             MementoSortAndResizeAll();
-
-            loaded = true;
         }
 
  

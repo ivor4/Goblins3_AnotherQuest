@@ -15,7 +15,6 @@ using System.Text;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.XR;
 
 namespace Gob3AQ.GameMenu.UICanvas
 {
@@ -83,13 +82,17 @@ namespace Gob3AQ.GameMenu.UICanvas
         private Image tool_observeButton_img;
 
         private GameObject memento_ContentObj;
+        private TMP_Text memento_descrText;
         private RectTransform memento_ContentRectTransform;
+        private MementoItemClass memento_selectedItem;
         private MementoItemClass[] memento_itemClass;
         private List<MementoParent> memento_activeParentList;
         private Dictionary<MementoParent, MementoItemClass> memento_parent_dict;
         private HashSet<MementoParent> memento_totallyCleared;
         private HashSet<MementoParent> memento_unwatched;
         private HashSet<Memento> memento_unlocked;
+
+        private StringBuilder stringBuilder;
 
 
 
@@ -130,6 +133,7 @@ namespace Gob3AQ.GameMenu.UICanvas
             tool_observeButton_img = tool_observeButton.gameObject.GetComponent<Image>();
 
             memento_ContentObj = UICanvas_mementoObj.transform.Find("MementoList/Viewport/Content").gameObject;
+            memento_descrText = UICanvas_mementoObj.transform.Find("MementoDescr").GetComponent<TMP_Text>();
             memento_ContentRectTransform = memento_ContentObj.GetComponent<RectTransform>();
             memento_activeParentList = new((int)MementoParent.MEMENTO_PARENT_TOTAL);
             memento_parent_dict = new((int)MementoParent.MEMENTO_PARENT_TOTAL);
@@ -140,6 +144,8 @@ namespace Gob3AQ.GameMenu.UICanvas
 
             /* Will be enabled at the end of Loading (new display mode) */
             raycaster.enabled = false;
+
+            stringBuilder = new(512);
         }
 
         public void SetDisplayMode(DisplayMode mode)
@@ -326,6 +332,18 @@ namespace Gob3AQ.GameMenu.UICanvas
             cursor_userInteraction_cls.AnimateNewUserInteraction(interaction);
         }
 
+        public void MementoMenuActivated()
+        {
+            memento_descrText.text = string.Empty;
+
+            if(memento_selectedItem != null)
+            {
+                memento_selectedItem.Select(false);
+                memento_selectedItem = null;
+            }
+        }
+
+
         public void NewMementoUnlocked(Memento memento, bool unwatched, bool sortAndResize)
         {
             ref readonly MementoInfo memInfo = ref ItemsInteractionsClass.GetMementoInfo(memento);
@@ -353,13 +371,44 @@ namespace Gob3AQ.GameMenu.UICanvas
             }
         }
 
-        public void MementoParentWatched(MementoParent parent)
+        public void MementoParentClicked(MementoParent parent)
         {
-            if (memento_unwatched.Contains(parent))
+            memento_unwatched.Remove(parent);
+            MementoItemClass itemClass = memento_parent_dict[parent];
+
+            if(memento_selectedItem != null)
             {
-                memento_unwatched.Remove(parent);
-                memento_parent_dict[parent].SetWatched();
+                memento_selectedItem.Select(false);
             }
+
+            itemClass.Select(true);
+            memento_selectedItem = itemClass;
+
+            ref readonly MementoParentInfo memParInfo = ref ItemsInteractionsClass.GetMementoParentInfo(parent);
+            ReadOnlySpan<Memento> children = memParInfo.Children;
+
+            stringBuilder.Clear();
+            bool addedElement = false;
+
+            for (int i = 0; i < children.Length; ++i)
+            {
+                Memento memento = children[i];
+
+                if (memento_unlocked.Contains(memento))
+                {
+                    if (addedElement && (i > 0))
+                    {
+                        stringBuilder.Append("\n\n_____________________________\n\n");
+                    }
+
+                    ref readonly MementoInfo memInfo = ref ItemsInteractionsClass.GetMementoInfo(memento);
+                    ref readonly PhraseContent phraseContent = ref ResourceDialogsClass.GetPhraseContent(memInfo.phrase);
+                    stringBuilder.Append(phraseContent.message);
+                    addedElement = true;
+                }
+            }
+
+            memento_descrText.text = stringBuilder.ToString();
         }
 
         private void MementoSortAndResizeAll()

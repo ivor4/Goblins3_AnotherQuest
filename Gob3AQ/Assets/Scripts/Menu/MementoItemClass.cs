@@ -1,7 +1,6 @@
 using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.ResourceDialogs;
 using Gob3AQ.ResourceSprites;
-using Gob3AQ.ResourceSpritesAtlas;
 using Gob3AQ.VARMAP.Types;
 using TMPro;
 using UnityEngine;
@@ -15,15 +14,18 @@ namespace Gob3AQ.GameMenu.MementoItem
     public class MementoItemClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
     {
         private static readonly Color idleColor = new(0.5f, 0.5f, 0.5f, 0.5f);
-        private static readonly Color textIdleColor = new(0.75f, 0.75f, 0.75f, 1.0f);
+        private static readonly Color textIdleColor = new(0.85f, 0.85f, 0.85f, 1.0f);
         private static readonly Color hoverColor = Color.white;
         private static readonly Color notClearedColor = Color.black;
 
-        private int index;
+        private static readonly Color transparentColor = new(1.0f, 1.0f, 1.0f, 0.0f);
+        private static readonly Color selectedBckgColor = new(0.42f, 0.7f, 1.0f, 1.0f);
+
         private bool cleared;
-        private bool unwatched;
+        private bool selected;
         private GameObject newsObj;
         private RectTransform rectTransform;
+        private Image backgroundImage;
         private Image image;
         private TMP_Text text;
         private MementoParent parent;
@@ -41,9 +43,35 @@ namespace Gob3AQ.GameMenu.MementoItem
             gameObject.name = name;
         }
 
+        public void Select(bool select)
+        {
+            selected = select;
+
+            if(select)
+            {
+                if(cleared)
+                {
+                    image.color = hoverColor;
+                }
+
+                text.color = hoverColor;
+                backgroundImage.color = selectedBckgColor;
+                newsObj.SetActive(false);
+            }
+            else
+            {
+                if(cleared)
+                {
+                    image.color = idleColor;
+                }
+
+                backgroundImage.color = transparentColor;
+                text.color = textIdleColor;
+            }
+        }
+
         public void SetPositionAndFunction(int index, MEMENTO_ITEM_CLICK_DELEGATE onClickFunction)
         {
-            this.index = index;
             this.onClickFunction = onClickFunction;
 
             Vector2 anchPos = rectTransform.anchoredPosition;
@@ -51,15 +79,9 @@ namespace Gob3AQ.GameMenu.MementoItem
             rectTransform.anchoredPosition = anchPos;
         }
 
-        public void SetWatched()
-        {
-            newsObj.SetActive(false);
-        }
-
         public void SetMementoParent(MementoParent parent, bool totallyCleared, bool unwatched)
         {
             this.parent = parent;
-            this.unwatched = unwatched;
             this.cleared = totallyCleared;
 
             if (parent != MementoParent.MEMENTO_PARENT_NONE)
@@ -82,25 +104,20 @@ namespace Gob3AQ.GameMenu.MementoItem
                 }
 
                 text.color = textIdleColor;
-
-                if(unwatched)
-                {
-                    newsObj.SetActive(true);
-                }
-                else
-                {
-                    newsObj.SetActive(false);
-                }
+                newsObj.SetActive(unwatched);
             }
             else
             {
                 image.sprite = null;
                 text.text = string.Empty;
             }
+
+            backgroundImage.color = transparentColor;
         }
 
         void Awake()
         {
+            backgroundImage = GetComponent<Image>();
             image = transform.Find("Icon").GetComponent<Image>();
             newsObj = image.transform.Find("News").gameObject;
             text = transform.Find("Name").GetComponent<TMP_Text>();
@@ -109,8 +126,10 @@ namespace Gob3AQ.GameMenu.MementoItem
 
         void Start()
         {
+            backgroundImage.color = transparentColor;
             image.color = idleColor;
             text.color = textIdleColor;
+            selected = false;
         }
 
         public void OnPointerClick(PointerEventData eventData)
@@ -133,12 +152,15 @@ namespace Gob3AQ.GameMenu.MementoItem
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            if (cleared)
+            if (!selected)
             {
-                image.color = idleColor;
-            }
+                if (cleared)
+                {
+                    image.color = idleColor;
+                }
 
-            text.color = textIdleColor;
+                text.color = textIdleColor;
+            }
         }
     }
 }

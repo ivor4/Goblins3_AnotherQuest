@@ -1374,14 +1374,14 @@ for line in EVENTSinputFile:
             items_interaction_lines.InsertLineInATG(6, stringToWrite)
 
             
-            stringToWrite = 'new(new HashSet<Memento>('
+            stringToWrite = 'new Memento['
             options = columns[4].split('|')
             num_options = len(options)
-            stringToWrite += str(num_options)+'){'
+            stringToWrite += str(num_options)+']{'
             
             for _option in options:
                 stringToWrite += memento_prefix + _option+','
-            stringToWrite += '})\n'
+            stringToWrite += '}\n'
             items_interaction_lines.InsertLineInATG(6, stringToWrite)
             
             items_interaction_lines.InsertLineInATG(6, '),\n')

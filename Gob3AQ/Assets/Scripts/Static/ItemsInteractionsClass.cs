@@ -288,13 +288,13 @@ namespace Gob3AQ.Brain.ItemsInteraction
             /* MEMENTO_PARENT_RED_POTION */
             new(
             NameType.NAME_ITEM_POTION,GameSprite.SPRITE_POTION_RED,
-            new(new HashSet<Memento>(2){Memento.MEMENTO_RED_POTION_1,Memento.MEMENTO_RED_POTION_2,})
+            new Memento[2]{Memento.MEMENTO_RED_POTION_1,Memento.MEMENTO_RED_POTION_2,}
             ),
             
             /* MEMENTO_PARENT_LAST */
             new(
             NameType.NAME_NPC_LAST,GameSprite.SPRITE_NONE,
-            new(new HashSet<Memento>(1){Memento.MEMENTO_LAST,})
+            new Memento[1]{Memento.MEMENTO_LAST,}
             ),
             
             /* > ATG 6 END < */

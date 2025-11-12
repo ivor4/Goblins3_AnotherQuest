@@ -241,11 +241,13 @@ namespace Gob3AQ.VARMAP.Types
     {
         public readonly NameType name;
         public readonly GameSprite sprite;
-        public readonly ReadOnlyHashSet<Memento> children;
+        private readonly Memento[] children;
 
-        public static readonly MementoParentInfo EMPTY = new(NameType.NAME_NONE, GameSprite.SPRITE_NONE, new(new HashSet<Memento>(0)));
+        public readonly ReadOnlySpan<Memento> Children => children;
 
-        public MementoParentInfo(NameType name, GameSprite sprite, ReadOnlyHashSet<Memento> children)
+        public static readonly MementoParentInfo EMPTY = new(NameType.NAME_NONE, GameSprite.SPRITE_NONE, new Memento[0]);
+
+        public MementoParentInfo(NameType name, GameSprite sprite, Memento[] children)
         {
             this.name = name;
             this.sprite = sprite;

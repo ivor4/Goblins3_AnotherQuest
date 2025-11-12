@@ -259,12 +259,10 @@ namespace Gob3AQ.GameMenu
         {
             /* Set as watched */
             ref readonly MementoParentInfo memParInfo = ref ItemsInteractionsClass.GetMementoParentInfo(mementoParent);
-
-            _uicanvas_cls.MementoParentWatched(mementoParent);
             VARMAP_GameMenu.MEMENTO_PARENT_WATCHED(mementoParent);
 
             /* Display */
-
+            _uicanvas_cls.MementoParentClicked(mementoParent);
 
             /* Combine? -> Event Triggered */
 
@@ -521,6 +519,9 @@ namespace Gob3AQ.GameMenu
                         /* Populate menu */
                         RefreshItemMenuElements();
                         _menuOpened = true;
+                        break;
+                    case Game_Status.GAME_STATUS_PLAY_MEMENTO:
+                        _uicanvas_cls.MementoMenuActivated();
                         break;
                     default:
                         break;

@@ -368,7 +368,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             /* MEMENTO_COMBI_POTION_FOUNTAIN */
             new(
             new(new HashSet<Memento>(2){Memento.MEMENTO_RED_POTION_1,Memento.MEMENTO_FOUNTAIN_1}),
-            new GameEventCombi[1]{new(GameEvent.EVENT_FOUNTAIN_THOUGHT_MEMENTO, false),}
+            GameEvent.EVENT_FOUNTAIN_THOUGHT_MEMENTO
             ),
             /* > ATG 8 END */
         };

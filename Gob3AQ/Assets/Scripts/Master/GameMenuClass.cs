@@ -283,11 +283,7 @@ namespace Gob3AQ.GameMenu
             /* Display and get Combined */
             _uicanvas_cls.MementoParentClicked(mementoParent, doubleClick, out ReadOnlyHashSet<MementoParent> combinedMementos);
 
-            Debug.Log("Combined Mementos:");
-            foreach (MementoParent parent in combinedMementos)
-            {
-                Debug.Log(parent);
-            }
+            /* Get one of both, when 2 and check for combis */
         }
 
         private void StartDialogue(DialogOption option, int totalPhrases)

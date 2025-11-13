@@ -20,6 +20,7 @@ namespace Gob3AQ.GameMenu.MementoItem
 
         private static readonly Color color_transparent = new(1.0f, 1.0f, 1.0f, 0.0f);
         private static readonly Color color_background_selected = new(0.42f, 0.7f, 1.0f, 1.0f);
+        private static readonly Color color_background_selected_combi = new(0.94f, 0.83f, 0.29f);
 
         private Color text_color_idle;
         private Color text_color_hover;
@@ -49,8 +50,16 @@ namespace Gob3AQ.GameMenu.MementoItem
         {
             if(select)
             {
-                background_color_idle = color_background_selected;
-                background_color_hover = color_background_selected;
+                if (doubleClick)
+                {
+                    background_color_idle = color_background_selected_combi;
+                    background_color_hover = color_background_selected_combi;
+                }
+                else
+                {
+                    background_color_idle = color_background_selected;
+                    background_color_hover = color_background_selected;
+                }
                 item_color_idle = item_color_reload_hover;
                 text_color_idle = color_all_hover;
 

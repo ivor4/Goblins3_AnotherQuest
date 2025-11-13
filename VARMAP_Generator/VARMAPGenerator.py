@@ -1411,17 +1411,7 @@ for line in EVENTSinputFile:
                 memento_prefix+columns[3]+'}),\n'
             items_interaction_lines.InsertLineInATG(8, stringToWrite)
             
-            stringToWrite = 'new GameEventCombi['
-                
-            options = columns[4].split('|')
-            num_options = len(options)
-            stringToWrite += str(num_options)+']{'
-            
-            for _option in options:
-                _not_ = str('(NOT)' in _option).lower()
-                _option = _option.replace('(NOT)','')
-                stringToWrite += 'new('+event_prefix + _option + ', ' + _not_ + '),'
-            stringToWrite += '}\n'
+            stringToWrite = event_prefix + columns[4] + '\n'
             items_interaction_lines.InsertLineInATG(8, stringToWrite)
             items_interaction_lines.InsertLineInATG(8, '),\n')
 

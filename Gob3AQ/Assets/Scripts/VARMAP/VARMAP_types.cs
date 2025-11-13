@@ -276,16 +276,15 @@ namespace Gob3AQ.VARMAP.Types
     public readonly struct MementoCombiInfo
     {
         public readonly ReadOnlyHashSet<Memento> combination;
-        private readonly GameEventCombi[] triggeredEvents;
+        public readonly GameEvent triggeredEvent;
 
-        public readonly ReadOnlySpan<GameEventCombi> TriggeredEvents => triggeredEvents;
 
-        public static readonly MementoCombiInfo EMPTY = new(new(new HashSet<Memento>(0)), new GameEventCombi[0]);
+        public static readonly MementoCombiInfo EMPTY = new(new(new HashSet<Memento>(0)), GameEvent.EVENT_NONE);
 
-        public MementoCombiInfo(ReadOnlyHashSet<Memento> combination, GameEventCombi[] triggeredEvents)
+        public MementoCombiInfo(ReadOnlyHashSet<Memento> combination, GameEvent triggeredEvent)
         {
             this.combination = combination;
-            this.triggeredEvents = triggeredEvents;
+            this.triggeredEvent = triggeredEvent;
         }
     }
 

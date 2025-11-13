@@ -87,7 +87,7 @@ namespace Gob3AQ.GameMenu.UICanvas
         private GameObject memento_ContentObj;
         private TMP_Text memento_descrText;
         private RectTransform memento_ContentRectTransform;
-        private MementoItemClass memento_selectedItem;
+        private MementoParent memento_selectedItem;
         private HashSet<MementoParent> memento_combinedItems;
         private MementoItemClass[] memento_itemClass;
         private List<MementoParent> memento_activeParentList;
@@ -343,10 +343,10 @@ namespace Gob3AQ.GameMenu.UICanvas
 
             ClearCombinedMementos();
 
-            if (memento_selectedItem != null)
+            if (memento_selectedItem != MementoParent.MEMENTO_PARENT_NONE)
             {
-                memento_selectedItem.Select(false, false);
-                memento_selectedItem = null;
+                memento_parent_dict[memento_selectedItem].Select(false, false);
+                memento_selectedItem = MementoParent.MEMENTO_PARENT_NONE;
             }
         }
 
@@ -383,12 +383,20 @@ namespace Gob3AQ.GameMenu.UICanvas
             memento_unwatched.Remove(parent);
             MementoItemClass itemClass = memento_parent_dict[parent];
 
+            MementoParent prevSelected = memento_selectedItem;
+            if ((memento_selectedItem != MementoParent.MEMENTO_PARENT_NONE) && (!memento_combinedItems.Contains(memento_selectedItem)))
+            {
+                memento_parent_dict[memento_selectedItem].Select(false, false);
+                memento_selectedItem = MementoParent.MEMENTO_PARENT_NONE;
+            }
+
             if (doubleClick && (memento_combinedItems.Count < 2))
             {
-                if (memento_combinedItems.Contains(parent))
+                if (memento_combinedItems.Contains(parent) || (prevSelected != parent))
                 {
                     memento_combinedItems.Remove(parent);
                     itemClass.Select(true, false);
+                    memento_selectedItem = parent;
                 }
                 else
                 {
@@ -398,18 +406,17 @@ namespace Gob3AQ.GameMenu.UICanvas
             }
             else
             {
-                ClearCombinedMementos();
-
-                if (memento_selectedItem != null)
+                if ((memento_combinedItems.Count >= 2) || memento_combinedItems.Contains(parent))
                 {
-                    memento_selectedItem.Select(false, false);
+                    ClearCombinedMementos(); 
                 }
 
                 itemClass.Select(true, false);
+                memento_selectedItem = parent;
             }
 
             combinedMementos = new(memento_combinedItems);
-            memento_selectedItem = itemClass;
+            
 
             ref readonly MementoParentInfo memParInfo = ref ItemsInteractionsClass.GetMementoParentInfo(parent);
             ReadOnlySpan<Memento> children = memParInfo.Children;

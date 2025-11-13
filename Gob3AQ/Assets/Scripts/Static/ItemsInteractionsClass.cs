@@ -7,6 +7,19 @@ namespace Gob3AQ.Brain.ItemsInteraction
 { 
     public static class ItemsInteractionsClass
     {
+        public static ref readonly MementoCombiInfo GetMementoCombiInfo(MementoCombi mementoCombi)
+        {
+            if ((uint)mementoCombi >= (uint)MementoCombi.MEMENTO_COMBI_TOTAL)
+            {
+                Debug.LogError($"[ItemsInteractionsClass] GetMementoCombiInfo: Invalid memento combi item {mementoCombi}");
+                return ref MementoCombiInfo.EMPTY;
+            }
+            else
+            {
+                return ref _MementoCombiInfo[(int)mementoCombi];
+            }
+        }
+
         public static ref readonly MementoParentInfo GetMementoParentInfo(MementoParent mementoParent)
         {
             if ((uint)mementoParent >= (uint)MementoParent.MEMENTO_PARENT_TOTAL)
@@ -132,6 +145,18 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameItem.ITEM_POTION_BLUE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_PARROT,Memento.MEMENTO_NONE, 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
+            new( /* UNCHAIN_FOUNTAIN_OBSERVED */
+            UnchainType.UNCHAIN_TYPE_MEMENTO,new(GameEvent.EVENT_FOUNTAIN_OBSERVED, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_FOUNTAIN_OBSERVED, false),}, 
+            GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_FOUNTAIN_1, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* UNCHAIN_FOUNTAIN_THOUGHT_MEMENTO */
+            UnchainType.UNCHAIN_TYPE_MEMENTO,new(GameEvent.EVENT_FOUNTAIN_THOUGHT_MEMENTO, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_FOUNTAIN_THOUGHT_MEMENTO, false),}, 
+            GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_FOUNTAIN_2, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
             new( /* UNCHAIN_FOUNTAIN_FULL */
             UnchainType.UNCHAIN_TYPE_SET_SPRITE,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_FOUNTAIN_FULL, false),}, 
@@ -148,6 +173,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             UnchainType.UNCHAIN_TYPE_MEMENTO,new(GameEvent.EVENT_FOUNTAIN_FULL, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_FOUNTAIN_FULL, false),}, 
             GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_RED_POTION_2, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* UNCHAIN_FOUNTAIN_FULL_4 */
+            UnchainType.UNCHAIN_TYPE_MEMENTO,new(GameEvent.EVENT_FOUNTAIN_FULL, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_FOUNTAIN_FULL, false),}, 
+            GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_FOUNTAIN_3, 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
             /* > ATG 1 END < */
@@ -179,6 +210,13 @@ namespace Gob3AQ.Brain.ItemsInteraction
             DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_RED_POTION,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
+            new( /* COND_OBSERVE_FOUNTAIN */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
+            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
+            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_FOUNTAIN,
+            new GameEventCombi[1]{new(GameEvent.EVENT_FOUNTAIN_OBSERVED, false),}), 
+            
             new( /* COND_TAKE_POTION_BLUE */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             CharacterType.CHARACTER_PARROT,GameItem.ITEM_POTION_BLUE,ItemInteractionType.INTERACTION_TAKE,
@@ -186,18 +224,18 @@ namespace Gob3AQ.Brain.ItemsInteraction
             DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_BLUE_POTION_TOOK, false),}), 
             
-            new( /* COND_FOUNTAIN */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            new( /* COND_FOUNTAIN_THOUGHT */
+            new GameEventCombi[1]{new(GameEvent.EVENT_FOUNTAIN_THOUGHT_MEMENTO, false),}, 
             CharacterType.CHARACTER_MAIN,GameItem.ITEM_POTION,ItemInteractionType.INTERACTION_USE,
             CharacterAnimation.ITEM_USE_ANIMATION_POUR,
             DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_FOUNTAIN_FULL, false),}), 
             
-            new( /* COND_FOUNTAIN2 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            CharacterType.CHARACTER_PARROT,GameItem.ITEM_POTION_BLUE,ItemInteractionType.INTERACTION_USE,
-            CharacterAnimation.ITEM_USE_ANIMATION_STARE_SCREEN,
-            DialogType.DIALOG_FOUNTAIN,DialogPhrase.PHRASE_NONE,
+            new( /* COND_FOUNTAIN_NOT_THOUGHT */
+            new GameEventCombi[1]{new(GameEvent.EVENT_FOUNTAIN_THOUGHT_MEMENTO, true),}, 
+            CharacterType.CHARACTER_MAIN,GameItem.ITEM_POTION,ItemInteractionType.INTERACTION_USE,
+            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
+            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NONSENSE_NOT_THOUGHT,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
             new( /* COND_TALK_MILITO */
@@ -251,7 +289,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_FOUNTAIN */
             NameType.NAME_ITEM_FOUNTAIN,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(2){GameSprite.SPRITE_FOUNTAIN,GameSprite.SPRITE_FOUNTAIN_FULL,}),
             GameSprite.SPRITE_FOUNTAIN,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
-            new ActionConditions[2]{ActionConditions.COND_FOUNTAIN,ActionConditions.COND_FOUNTAIN2,}),
+            new ActionConditions[3]{ActionConditions.COND_OBSERVE_FOUNTAIN,ActionConditions.COND_FOUNTAIN_THOUGHT,ActionConditions.COND_FOUNTAIN_NOT_THOUGHT,}),
             
             new ( /* ITEM_NPC_MILITO */
             NameType.NAME_NPC_MILITO,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_NPC_MILITO,}),
@@ -291,6 +329,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new Memento[2]{Memento.MEMENTO_RED_POTION_1,Memento.MEMENTO_RED_POTION_2,}
             ),
             
+            /* MEMENTO_PARENT_FOUNTAIN */
+            new(
+            NameType.NAME_ITEM_FOUNTAIN,GameSprite.SPRITE_FOUNTAIN_FULL,
+            new Memento[3]{Memento.MEMENTO_FOUNTAIN_1,Memento.MEMENTO_FOUNTAIN_2,Memento.MEMENTO_FOUNTAIN_3,}
+            ),
+            
             /* MEMENTO_PARENT_LAST */
             new(
             NameType.NAME_NPC_LAST,GameSprite.SPRITE_NONE,
@@ -307,9 +351,26 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new(MementoParent.MEMENTO_PARENT_RED_POTION,DialogPhrase.PHRASE_MEMENTO_POTION_1,true,false),
             /* MEMENTO_RED_POTION_2 */
             new(MementoParent.MEMENTO_PARENT_RED_POTION,DialogPhrase.PHRASE_MEMENTO_POTION_2,false,true),
+            /* MEMENTO_FOUNTAIN_1 */
+            new(MementoParent.MEMENTO_PARENT_FOUNTAIN,DialogPhrase.PHRASE_MEMENTO_FOUNTAIN_1,true,false),
+            /* MEMENTO_FOUNTAIN_2 */
+            new(MementoParent.MEMENTO_PARENT_FOUNTAIN,DialogPhrase.PHRASE_MEMENTO_FOUNTAIN_2,false,false),
+            /* MEMENTO_FOUNTAIN_3 */
+            new(MementoParent.MEMENTO_PARENT_FOUNTAIN,DialogPhrase.PHRASE_MEMENTO_FOUNTAIN_3,false,true),
             /* MEMENTO_LAST */
             new(MementoParent.MEMENTO_PARENT_LAST,DialogPhrase.PHRASE_NONE,false,false),
             /* > ATG 7 END < */
+        };
+
+        private static readonly MementoCombiInfo[] _MementoCombiInfo = new MementoCombiInfo[(int)MementoCombi.MEMENTO_COMBI_TOTAL]
+        {
+            /* > ATG 8 START */
+            /* MEMENTO_COMBI_POTION_FOUNTAIN */
+            new(
+            new(new HashSet<Memento>(2){Memento.MEMENTO_RED_POTION_1,Memento.MEMENTO_FOUNTAIN_1}),
+            new GameEventCombi[1]{new(GameEvent.EVENT_FOUNTAIN_THOUGHT_MEMENTO, false),}
+            ),
+            /* > ATG 8 END */
         };
     }
 }

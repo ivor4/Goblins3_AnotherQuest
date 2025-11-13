@@ -3,6 +3,7 @@ using Gob3AQ.FixedConfig;
 using Gob3AQ.GameMenu.Dialog;
 using Gob3AQ.GameMenu.MementoItem;
 using Gob3AQ.GameMenu.PickableItemDisplay;
+using Gob3AQ.Libs.Arith;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceDialogs;
 using Gob3AQ.ResourceSprites;
@@ -47,6 +48,8 @@ namespace Gob3AQ.GameMenu.UICanvas
 
     public class UICanvasClass : MonoBehaviour
     {
+        private const string SEPARATOR = "\n\n_____________________________\n\n";
+
         private GameObject UICanvas_loadingObj;
         private GameObject UICanvas_dialogObj;
         private GameObject UICanvas_mementoObj;
@@ -85,6 +88,7 @@ namespace Gob3AQ.GameMenu.UICanvas
         private TMP_Text memento_descrText;
         private RectTransform memento_ContentRectTransform;
         private MementoItemClass memento_selectedItem;
+        private HashSet<MementoParent> memento_combinedItems;
         private MementoItemClass[] memento_itemClass;
         private List<MementoParent> memento_activeParentList;
         private Dictionary<MementoParent, MementoItemClass> memento_parent_dict;
@@ -141,6 +145,7 @@ namespace Gob3AQ.GameMenu.UICanvas
             memento_unlocked = new((int)Memento.MEMENTO_TOTAL);
             memento_unwatched = new((int)MementoParent.MEMENTO_PARENT_TOTAL);
             memento_itemClass = new MementoItemClass[(int)MementoParent.MEMENTO_PARENT_TOTAL];
+            memento_combinedItems = new(2);
 
             /* Will be enabled at the end of Loading (new display mode) */
             raycaster.enabled = false;
@@ -336,9 +341,11 @@ namespace Gob3AQ.GameMenu.UICanvas
         {
             memento_descrText.text = string.Empty;
 
-            if(memento_selectedItem != null)
+            ClearCombinedMementos();
+
+            if (memento_selectedItem != null)
             {
-                memento_selectedItem.Select(false);
+                memento_selectedItem.Select(false, false);
                 memento_selectedItem = null;
             }
         }
@@ -371,17 +378,37 @@ namespace Gob3AQ.GameMenu.UICanvas
             }
         }
 
-        public void MementoParentClicked(MementoParent parent)
+        public void MementoParentClicked(MementoParent parent, bool doubleClick, out ReadOnlyHashSet<MementoParent> combinedMementos)
         {
             memento_unwatched.Remove(parent);
             MementoItemClass itemClass = memento_parent_dict[parent];
 
-            if(memento_selectedItem != null)
+            if (doubleClick && (memento_combinedItems.Count < 2))
             {
-                memento_selectedItem.Select(false);
+                if (memento_combinedItems.Contains(parent))
+                {
+                    memento_combinedItems.Remove(parent);
+                    itemClass.Select(true, false);
+                }
+                else
+                {
+                    memento_combinedItems.Add(parent);
+                    itemClass.Select(true, true);
+                }
+            }
+            else
+            {
+                ClearCombinedMementos();
+
+                if (memento_selectedItem != null)
+                {
+                    memento_selectedItem.Select(false, false);
+                }
+
+                itemClass.Select(true, false);
             }
 
-            itemClass.Select(true);
+            combinedMementos = new(memento_combinedItems);
             memento_selectedItem = itemClass;
 
             ref readonly MementoParentInfo memParInfo = ref ItemsInteractionsClass.GetMementoParentInfo(parent);
@@ -398,7 +425,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                 {
                     if (addedElement && (i > 0))
                     {
-                        stringBuilder.Append("\n\n_____________________________\n\n");
+                        stringBuilder.Append(SEPARATOR);
                     }
 
                     ref readonly MementoInfo memInfo = ref ItemsInteractionsClass.GetMementoInfo(memento);
@@ -447,6 +474,16 @@ namespace Gob3AQ.GameMenu.UICanvas
                     instance.Activate(false);
                 }
             }
+        }
+
+        private void ClearCombinedMementos()
+        {
+            foreach (MementoParent mementoParent in memento_combinedItems)
+            {
+                memento_parent_dict[mementoParent].Select(false, false);
+            }
+
+            memento_combinedItems.Clear();
         }
 
         public IEnumerator Execute_Load_Coroutine(DIALOG_OPTION_CLICK_DELEGATE OnDialogOptionClick,
@@ -508,8 +545,6 @@ namespace Gob3AQ.GameMenu.UICanvas
             AsyncInstantiateOperation<GameObject> handle = InstantiateAsync<GameObject>(memento_item_prefab, (int)MementoParent.MEMENTO_PARENT_TOTAL);
             yield return handle;
             GameObject[] memento_itemObj = handle.Result;
-
-            StringBuilder stringBuilder = new(16);
             
             /* Keep them ready for usage */
             for (int i=0; i < memento_itemObj.Length; ++i)
@@ -518,12 +553,11 @@ namespace Gob3AQ.GameMenu.UICanvas
                 memento_itemClass[i] = memento_itemObj[i].GetComponent<MementoItemClass>();
                 MementoItemClass itemClass = memento_itemClass[i];
 
-                itemClass.SetPositionAndFunction(i, OnMementoItemClick);
-
                 stringBuilder.Clear();
                 stringBuilder.Append("item");
                 stringBuilder.Append(i);
-                itemClass.SetName(stringBuilder.ToString());
+
+                itemClass.InitialSetup(i, OnMementoItemClick, stringBuilder.ToString());
 
                 if ((i & 0xF) == 0xF)
                 {

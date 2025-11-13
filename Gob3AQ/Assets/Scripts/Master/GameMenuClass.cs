@@ -1,6 +1,7 @@
 ﻿using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameMenu.UICanvas;
+using Gob3AQ.Libs.Arith;
 using Gob3AQ.ResourceDialogs;
 using Gob3AQ.ResourceDialogsAtlas;
 using Gob3AQ.VARMAP.GameMenu;
@@ -27,6 +28,7 @@ namespace Gob3AQ.GameMenu
 
         private static GameMenuClass _singleton;
         private bool _menuOpened;
+        private float _lastClickTimestamp;
         
 
         private UICanvasClass _uicanvas_cls;
@@ -261,11 +263,31 @@ namespace Gob3AQ.GameMenu
             ref readonly MementoParentInfo memParInfo = ref ItemsInteractionsClass.GetMementoParentInfo(mementoParent);
             VARMAP_GameMenu.MEMENTO_PARENT_WATCHED(mementoParent);
 
-            /* Display */
-            _uicanvas_cls.MementoParentClicked(mementoParent);
+            /* Double click */
+            float timestamp_ms = Time.time;
+            bool doubleClick;
 
-            /* Combine? -> Event Triggered */
+            if(((timestamp_ms - _lastClickTimestamp)*1000) < GameFixedConfig.DOUBLE_CLICK_MS)
+            {
+                doubleClick = true;
 
+                /* Annulate posterior clicks for that timestamp - Take that further in time */
+                _lastClickTimestamp -= GameFixedConfig.DOUBLE_CLICK_MS;
+            }
+            else
+            {
+                doubleClick = false;
+                _lastClickTimestamp = timestamp_ms;
+            }
+
+            /* Display and get Combined */
+            _uicanvas_cls.MementoParentClicked(mementoParent, doubleClick, out ReadOnlyHashSet<MementoParent> combinedMementos);
+
+            Debug.Log("Combined Mementos:");
+            foreach (MementoParent parent in combinedMementos)
+            {
+                Debug.Log(parent);
+            }
         }
 
         private void StartDialogue(DialogOption option, int totalPhrases)
@@ -351,6 +373,8 @@ namespace Gob3AQ.GameMenu
             _uicanvas_cls = UICanvas.GetComponent<UICanvasClass>();
 
             _ = StartCoroutine(LoadCoroutine());
+
+            _lastClickTimestamp = Time.time;
         }
 
         private IEnumerator LoadCoroutine()

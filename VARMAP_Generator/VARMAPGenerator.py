@@ -118,10 +118,10 @@ names_lines = ATGFile(names_text_path, 0)
 rooms_types_lines = ATGFile(rooms_types_path, 1)
 names_types_lines = ATGFile(names_types_path, 1)
 sprite_types_lines = ATGFile(sprite_types_path, 1)
-event_types_lines = ATGFile(event_types_path, 3)
+event_types_lines = ATGFile(event_types_path, 4)
 modules_types_lines = ATGFile(modules_types_path, 1)
 items_types_lines = ATGFile(items_types_path, 4)
-items_interaction_lines = ATGFile(items_interaction_path, 7)
+items_interaction_lines = ATGFile(items_interaction_path, 8)
 dialog_atlas_lines = ATGFile(dialog_atlas_path, 3)
 sprite_atlas_lines = ATGFile(sprite_atlas_path, 1)
 room_atlas_lines = ATGFile(room_atlas_path, 1)
@@ -692,6 +692,7 @@ family_prefix = 'GameItemFamily.'
 unchain_type_prefix = 'UnchainType.'
 memento_prefix = 'Memento.'
 memento_parent_prefix = 'MementoParent.'
+memento_combi_prefix = 'MementoCombi.'
 
 
 print('\n\n------DIALOGS (Custom GOB3) -------\n\n')
@@ -1347,6 +1348,11 @@ for line in EVENTSinputFile:
             stringToWrite = 'MEMENTO_PARENT_TOTAL\n'
             event_types_lines.InsertLineInATG(2, stringToWrite)
         elif(zone == 3):
+            stringToWrite = '\n'
+            event_types_lines.InsertLineInATG(3, stringToWrite)
+            stringToWrite = 'MEMENTO_TOTAL\n'
+            event_types_lines.InsertLineInATG(3, stringToWrite)
+        elif(zone == 4):
             break
             
         zone += 1
@@ -1394,11 +1400,36 @@ for line in EVENTSinputFile:
                 phrase_prefix+columns[3]+','+columns[4].lower()+','+\
                 columns[5].lower()+'),\n'
             items_interaction_lines.InsertLineInATG(7, stringToWrite)
+        elif(zone == 4):
+            stringToWrite = '/* ' + columns[1] + ' */\n'
+            items_interaction_lines.InsertLineInATG(8, stringToWrite)
+            
+            stringToWrite = 'new(\n'
+            items_interaction_lines.InsertLineInATG(8, stringToWrite)
+            
+            stringToWrite = 'new(new HashSet<Memento>(2){'+memento_prefix+columns[2]+','+\
+                memento_prefix+columns[3]+'}),\n'
+            items_interaction_lines.InsertLineInATG(8, stringToWrite)
+            
+            stringToWrite = 'new GameEventCombi['
+                
+            options = columns[4].split('|')
+            num_options = len(options)
+            stringToWrite += str(num_options)+']{'
+            
+            for _option in options:
+                _not_ = str('(NOT)' in _option).lower()
+                _option = _option.replace('(NOT)','')
+                stringToWrite += 'new('+event_prefix + _option + ', ' + _not_ + '),'
+            stringToWrite += '}\n'
+            items_interaction_lines.InsertLineInATG(8, stringToWrite)
+            items_interaction_lines.InsertLineInATG(8, '),\n')
+
     
 stringToWrite = '\n'
-event_types_lines.InsertLineInATG(3, stringToWrite)
-stringToWrite = 'MEMENTO_TOTAL\n'
-event_types_lines.InsertLineInATG(3, stringToWrite)
+event_types_lines.InsertLineInATG(4, stringToWrite)
+stringToWrite = 'MEMENTO_COMBI_TOTAL\n'
+event_types_lines.InsertLineInATG(4, stringToWrite)
     
 
 

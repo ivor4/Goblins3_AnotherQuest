@@ -56,11 +56,6 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new DialogOption[1]{DialogOption.DIALOG_OPTION_SIMPLE, }
             ),
             
-            new( /* DIALOG_FOUNTAIN */
-            new GameItem[1]{GameItem.ITEM_NONE,},
-            new DialogOption[4]{DialogOption.DIALOG_OPTION_ASK_FOUNTAIN_1, DialogOption.DIALOG_OPTION_ASK_FOUNTAIN_2, DialogOption.DIALOG_OPTION_ASK_FOUNTAIN_3, DialogOption.DIALOG_OPTION_ASK_FOUNTAIN_4, }
-            ),
-            
             new( /* DIALOG_MILITO */
             new GameItem[1]{GameItem.ITEM_NONE,},
             new DialogOption[2]{DialogOption.DIALOG_OPTION_ASK_MILITO_1, DialogOption.DIALOG_OPTION_ASK_MILITO_2, }
@@ -82,30 +77,6 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
             DialogType.DIALOG_NONE,
             new DialogPhrase[1]{DialogPhrase.PHRASE_NONE, }
-            ),
-            new( /* DIALOG_OPTION_ASK_FOUNTAIN_1 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
-            DialogType.DIALOG_NONE,
-            new DialogPhrase[2]{DialogPhrase.PHRASE_ASK_FOUNTAIN1_1, DialogPhrase.PHRASE_ASK_FOUNTAIN1_2, }
-            ),
-            new( /* DIALOG_OPTION_ASK_FOUNTAIN_2 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
-            DialogType.DIALOG_NONE,
-            new DialogPhrase[1]{DialogPhrase.PHRASE_ASK_FOUNTAIN2_1, }
-            ),
-            new( /* DIALOG_OPTION_ASK_FOUNTAIN_3 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_FOUNTAIN_FULL, false), },
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
-            DialogType.DIALOG_NONE,
-            new DialogPhrase[1]{DialogPhrase.PHRASE_ASK_FOUNTAIN3_1, }
-            ),
-            new( /* DIALOG_OPTION_ASK_FOUNTAIN_4 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_FOUNTAIN_FULL, true), },
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
-            DialogType.DIALOG_NONE,
-            new DialogPhrase[1]{DialogPhrase.PHRASE_ASK_FOUNTAIN4_1, }
             ),
             new( /* DIALOG_OPTION_ASK_MILITO_1 */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
@@ -134,16 +105,16 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_NONSENSE */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_NONSENSE_OBSERVE */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_NONSENSE_TALK */ 
-            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_FOUNTAIN1_1 */ 
-            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_FOUNTAIN1_2 */ 
-            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_FOUNTAIN2_1 */ 
-            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_FOUNTAIN3_1 */ 
-            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_FOUNTAIN4_1 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_NONSENSE_NOT_THOUGHT */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_OBSERVE_RED_POTION */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_OBSERVE_FOUNTAIN */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_MILITO_1 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_MILITO_2 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_NONE), /* PHRASE_MEMENTO_POTION_1 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_NONE), /* PHRASE_MEMENTO_POTION_2 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_NONE), /* PHRASE_MEMENTO_FOUNTAIN_1 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_NONE), /* PHRASE_MEMENTO_FOUNTAIN_2 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_NONE), /* PHRASE_MEMENTO_FOUNTAIN_3 */ 
             /* > ATG 3 END < */
         };
     }

@@ -4,16 +4,13 @@ using Gob3AQ.FixedConfig;
 using Gob3AQ.GameElement;
 using Gob3AQ.GameElement.Clickable;
 using Gob3AQ.GameElement.Door;
-using Gob3AQ.GameElement.Item;
 using Gob3AQ.GameElement.PlayableChar;
 using Gob3AQ.VARMAP.LevelMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.Waypoint.Network;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace Gob3AQ.LevelMaster
 {

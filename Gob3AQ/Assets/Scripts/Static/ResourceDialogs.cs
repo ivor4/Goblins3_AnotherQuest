@@ -45,7 +45,11 @@ namespace Gob3AQ.ResourceDialogs
             {
                 DialogPhrase.PHRASE_NONSENSE,
                 DialogPhrase.PHRASE_NONSENSE_OBSERVE,
-                DialogPhrase.PHRASE_NONSENSE_TALK
+                DialogPhrase.PHRASE_NONSENSE_TALK,
+                DialogPhrase.PHRASE_NONSENSE_NOT_THOUGHT,
+                DialogPhrase.PHRASE_NONSENSE_COMBI,
+                DialogPhrase.PHRASE_GREAT_IDEA_COMBI,
+                DialogPhrase.PHRASE_ALREADY_COMBI
             };
 
             HashSet<NameType> editableNameHash = new(GameFixedConfig.MAX_FIXED_NAMES_TO_LOAD)

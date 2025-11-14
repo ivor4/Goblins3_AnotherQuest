@@ -403,7 +403,12 @@ namespace Gob3AQ.GameMenu
                     break;
                 }
 
-                if(intersected != MementoCombi.MEMENTO_COMBI_NONE)
+                /* How to get Char item of actual player from here */
+                Span<GameItem> talkers = stackalloc GameItem[2];
+                talkers[0] = GameItem.ITEM_PLAYER_MAIN;
+                talkers[1] = GameItem.ITEM_PLAYER_MAIN;
+
+                if (intersected != MementoCombi.MEMENTO_COMBI_NONE)
                 {
                     /* Check if triggered event is not already triggered */
                     ref readonly MementoCombiInfo memCombiInfo = ref ItemsInteractionsClass.GetMementoCombiInfo(intersected);
@@ -417,18 +422,19 @@ namespace Gob3AQ.GameMenu
                     {
                         VARMAP_GameMenu.COMMIT_EVENT(one_event);
 
-                        Debug.Log("Congratulations!");
+                        ShowDialogueService(talkers, DialogType.DIALOG_SIMPLE, DialogPhrase.PHRASE_GREAT_IDEA_COMBI);
                     }
                     else
                     {
-                        Debug.Log("Already done");
+                        ShowDialogueService(talkers, DialogType.DIALOG_SIMPLE, DialogPhrase.PHRASE_ALREADY_COMBI);
                     }
                 }
                 else
                 {
-                    Debug.Log("That has no sense");
+                    ShowDialogueService(talkers, DialogType.DIALOG_SIMPLE, DialogPhrase.PHRASE_NONSENSE_COMBI);
                 }
-                    
+
+                VARMAP_GameMenu.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_DIALOG, out _);
             }
         }
 

@@ -233,8 +233,10 @@ namespace Gob3AQ.GameMaster
 
             switch (newmode)
             {
-                case Game_Status.GAME_STATUS_STOPPED:
                 case Game_Status.GAME_STATUS_PLAY_DIALOG:
+                    valid = (oldmode == Game_Status.GAME_STATUS_PLAY) || (oldmode == Game_Status.GAME_STATUS_PLAY_MEMENTO);
+                    break;
+                case Game_Status.GAME_STATUS_STOPPED:
                 case Game_Status.GAME_STATUS_PLAY_MEMENTO:
                 case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
                 case Game_Status.GAME_STATUS_PLAY_FREEZE:

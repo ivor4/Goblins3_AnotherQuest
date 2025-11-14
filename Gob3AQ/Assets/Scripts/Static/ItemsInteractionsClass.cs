@@ -348,17 +348,29 @@ namespace Gob3AQ.Brain.ItemsInteraction
         {
             /* > ATG 7 START < */
             /* MEMENTO_RED_POTION_1 */
-            new(MementoParent.MEMENTO_PARENT_RED_POTION,DialogPhrase.PHRASE_MEMENTO_POTION_1,true,false),
+            new(MementoParent.MEMENTO_PARENT_RED_POTION,DialogPhrase.PHRASE_MEMENTO_POTION_1,
+            new(new HashSet<MementoCombi>(1){MementoCombi.MEMENTO_COMBI_POTION_FOUNTAIN,}),
+            true,false),
             /* MEMENTO_RED_POTION_2 */
-            new(MementoParent.MEMENTO_PARENT_RED_POTION,DialogPhrase.PHRASE_MEMENTO_POTION_2,false,true),
+            new(MementoParent.MEMENTO_PARENT_RED_POTION,DialogPhrase.PHRASE_MEMENTO_POTION_2,
+            new(new HashSet<MementoCombi>(1){MementoCombi.MEMENTO_COMBI_NONE,}),
+            false,true),
             /* MEMENTO_FOUNTAIN_1 */
-            new(MementoParent.MEMENTO_PARENT_FOUNTAIN,DialogPhrase.PHRASE_MEMENTO_FOUNTAIN_1,true,false),
+            new(MementoParent.MEMENTO_PARENT_FOUNTAIN,DialogPhrase.PHRASE_MEMENTO_FOUNTAIN_1,
+            new(new HashSet<MementoCombi>(1){MementoCombi.MEMENTO_COMBI_POTION_FOUNTAIN,}),
+            true,false),
             /* MEMENTO_FOUNTAIN_2 */
-            new(MementoParent.MEMENTO_PARENT_FOUNTAIN,DialogPhrase.PHRASE_MEMENTO_FOUNTAIN_2,false,false),
+            new(MementoParent.MEMENTO_PARENT_FOUNTAIN,DialogPhrase.PHRASE_MEMENTO_FOUNTAIN_2,
+            new(new HashSet<MementoCombi>(1){MementoCombi.MEMENTO_COMBI_NONE,}),
+            false,false),
             /* MEMENTO_FOUNTAIN_3 */
-            new(MementoParent.MEMENTO_PARENT_FOUNTAIN,DialogPhrase.PHRASE_MEMENTO_FOUNTAIN_3,false,true),
+            new(MementoParent.MEMENTO_PARENT_FOUNTAIN,DialogPhrase.PHRASE_MEMENTO_FOUNTAIN_3,
+            new(new HashSet<MementoCombi>(1){MementoCombi.MEMENTO_COMBI_NONE,}),
+            false,true),
             /* MEMENTO_LAST */
-            new(MementoParent.MEMENTO_PARENT_LAST,DialogPhrase.PHRASE_NONE,false,false),
+            new(MementoParent.MEMENTO_PARENT_LAST,DialogPhrase.PHRASE_NONE,
+            new(new HashSet<MementoCombi>(1){MementoCombi.MEMENTO_COMBI_NONE,}),
+            false,false),
             /* > ATG 7 END < */
         };
 
@@ -367,7 +379,6 @@ namespace Gob3AQ.Brain.ItemsInteraction
             /* > ATG 8 START */
             /* MEMENTO_COMBI_POTION_FOUNTAIN */
             new(
-            new(new HashSet<Memento>(2){Memento.MEMENTO_RED_POTION_1,Memento.MEMENTO_FOUNTAIN_1}),
             GameEvent.EVENT_FOUNTAIN_THOUGHT_MEMENTO
             ),
             /* > ATG 8 END */

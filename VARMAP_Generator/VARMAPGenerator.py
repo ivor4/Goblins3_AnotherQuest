@@ -1378,7 +1378,7 @@ for line in EVENTSinputFile:
             stringToWrite = name_prefix + columns[2] + ',' 
             stringToWrite += sprite_prefix + columns[3] + ',\n' 
             items_interaction_lines.InsertLineInATG(6, stringToWrite)
-
+            
             
             stringToWrite = 'new Memento['
             options = columns[4].split('|')
@@ -1397,8 +1397,22 @@ for line in EVENTSinputFile:
             items_interaction_lines.InsertLineInATG(7, stringToWrite)
             
             stringToWrite = 'new('+memento_parent_prefix+columns[2]+','+\
-                phrase_prefix+columns[3]+','+columns[4].lower()+','+\
-                columns[5].lower()+'),\n'
+                phrase_prefix+columns[3]+',\n'
+            items_interaction_lines.InsertLineInATG(7, stringToWrite)
+            
+            stringToWrite = 'new(new HashSet<MementoCombi>('
+            options = columns[4].split('|')
+            num_options = len(options)
+            stringToWrite += str(num_options)+'){'
+            
+            for _option in options:
+                stringToWrite += memento_combi_prefix + _option+','
+            stringToWrite += '}),\n'
+            items_interaction_lines.InsertLineInATG(7, stringToWrite)
+                
+                
+            stringToWrite = columns[5].lower()+','+\
+                columns[6].lower()+'),\n'
             items_interaction_lines.InsertLineInATG(7, stringToWrite)
         elif(zone == 4):
             stringToWrite = '/* ' + columns[1] + ' */\n'
@@ -1407,11 +1421,7 @@ for line in EVENTSinputFile:
             stringToWrite = 'new(\n'
             items_interaction_lines.InsertLineInATG(8, stringToWrite)
             
-            stringToWrite = 'new(new HashSet<Memento>(2){'+memento_prefix+columns[2]+','+\
-                memento_prefix+columns[3]+'}),\n'
-            items_interaction_lines.InsertLineInATG(8, stringToWrite)
-            
-            stringToWrite = event_prefix + columns[4] + '\n'
+            stringToWrite = event_prefix + columns[2] + '\n'
             items_interaction_lines.InsertLineInATG(8, stringToWrite)
             items_interaction_lines.InsertLineInATG(8, '),\n')
 

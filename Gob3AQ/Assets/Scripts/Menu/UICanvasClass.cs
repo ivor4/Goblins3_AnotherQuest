@@ -150,6 +150,8 @@ namespace Gob3AQ.GameMenu.UICanvas
             /* Will be enabled at the end of Loading (new display mode) */
             raycaster.enabled = false;
 
+            memento_selectedItem = MementoParent.MEMENTO_PARENT_NONE;
+
             stringBuilder = new(512);
         }
 
@@ -390,7 +392,9 @@ namespace Gob3AQ.GameMenu.UICanvas
                 memento_selectedItem = MementoParent.MEMENTO_PARENT_NONE;
             }
 
-            if (doubleClick && (memento_combinedItems.Count < 2))
+            bool mementoCombinedFull = memento_combinedItems.Count >= 2;
+
+            if (doubleClick && (!mementoCombinedFull))
             {
                 if (memento_combinedItems.Contains(parent) || (prevSelected != parent))
                 {
@@ -406,7 +410,7 @@ namespace Gob3AQ.GameMenu.UICanvas
             }
             else
             {
-                if ((memento_combinedItems.Count >= 2) || memento_combinedItems.Contains(parent))
+                if (mementoCombinedFull || memento_combinedItems.Contains(parent))
                 {
                     ClearCombinedMementos(); 
                 }

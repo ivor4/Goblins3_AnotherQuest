@@ -245,7 +245,7 @@ namespace Gob3AQ.VARMAP.Types
 
         public readonly ReadOnlySpan<Memento> Children => children;
 
-        public static readonly MementoParentInfo EMPTY = new(NameType.NAME_NONE, GameSprite.SPRITE_NONE, new Memento[0]);
+        public static readonly MementoParentInfo EMPTY = new(NameType.NAME_NONE, GameSprite.SPRITE_NONE,new Memento[0]);
 
         public MementoParentInfo(NameType name, GameSprite sprite, Memento[] children)
         {
@@ -259,15 +259,18 @@ namespace Gob3AQ.VARMAP.Types
     {
         public readonly MementoParent parent;
         public readonly DialogPhrase phrase;
+        public readonly ReadOnlyHashSet<MementoCombi> combinations;
         public readonly bool initial;
         public readonly bool final;
 
-        public static readonly MementoInfo EMPTY = new(MementoParent.MEMENTO_PARENT_NONE, DialogPhrase.PHRASE_NONE, false, false);
+        public static readonly MementoInfo EMPTY = new(MementoParent.MEMENTO_PARENT_NONE, DialogPhrase.PHRASE_NONE,
+            new(new HashSet<MementoCombi>(0)),false, false);
 
-        public MementoInfo(MementoParent parent, DialogPhrase phrase, bool initial, bool final)
+        public MementoInfo(MementoParent parent, DialogPhrase phrase, ReadOnlyHashSet<MementoCombi> combinations, bool initial, bool final)
         {
             this.parent = parent;
             this.phrase = phrase;
+            this.combinations = combinations;
             this.initial = initial;
             this.final = final;
         }
@@ -275,15 +278,13 @@ namespace Gob3AQ.VARMAP.Types
 
     public readonly struct MementoCombiInfo
     {
-        public readonly ReadOnlyHashSet<Memento> combination;
         public readonly GameEvent triggeredEvent;
 
 
-        public static readonly MementoCombiInfo EMPTY = new(new(new HashSet<Memento>(0)), GameEvent.EVENT_NONE);
+        public static readonly MementoCombiInfo EMPTY = new(GameEvent.EVENT_NONE);
 
-        public MementoCombiInfo(ReadOnlyHashSet<Memento> combination, GameEvent triggeredEvent)
+        public MementoCombiInfo(GameEvent triggeredEvent)
         {
-            this.combination = combination;
             this.triggeredEvent = triggeredEvent;
         }
     }

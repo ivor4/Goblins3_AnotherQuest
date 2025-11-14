@@ -8,6 +8,7 @@ using Gob3AQ.VARMAP.GameMenu;
 using Gob3AQ.VARMAP.Types;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Gob3AQ.GameMenu
@@ -46,6 +47,9 @@ namespace Gob3AQ.GameMenu
         private WaitUntil yield_custom;
         private DialogCoroutineTaskType dialog_actualTaskType;
         private WaitForSeconds yield_2s;
+
+        private HashSet<MementoCombi> memento_combi_union;
+        private HashSet<MementoCombi> memento_combi_intersection;
 
 
         public static void CommitMementoNotifService(Memento memento)
@@ -284,6 +288,7 @@ namespace Gob3AQ.GameMenu
             _uicanvas_cls.MementoParentClicked(mementoParent, doubleClick, out ReadOnlyHashSet<MementoParent> combinedMementos);
 
             /* Get one of both, when 2 and check for combis */
+            CheckMementoCombination(combinedMementos);
         }
 
         private void StartDialogue(DialogOption option, int totalPhrases)
@@ -338,6 +343,95 @@ namespace Gob3AQ.GameMenu
             }
         }
 
+        private void CheckMementoCombination(ReadOnlyHashSet<MementoParent> combinedParents)
+        {
+            /* In theory, both should be reciprocally related, no matter which of both is examined against the other */
+            MementoParent firstInvolved = MementoParent.MEMENTO_PARENT_NONE;
+            MementoParent secondInvolved = MementoParent.MEMENTO_PARENT_NONE;
+
+            if(combinedParents.Count == 2)
+            {
+                foreach(MementoParent parent in combinedParents)
+                {
+                    if (firstInvolved == MementoParent.MEMENTO_PARENT_NONE)
+                    {
+                        firstInvolved = parent;
+                    }
+                    else
+                    {
+                        secondInvolved = parent;
+                    }
+                }
+
+                ref readonly MementoParentInfo memParInfoFirst = ref ItemsInteractionsClass.GetMementoParentInfo(firstInvolved);
+                ref readonly MementoParentInfo memParInfoSecond = ref ItemsInteractionsClass.GetMementoParentInfo(secondInvolved);
+
+                memento_combi_union.Clear();
+                memento_combi_intersection.Clear();
+
+                foreach(Memento child in memParInfoFirst.Children)
+                {
+                    VARMAP_GameMenu.IS_MEMENTO_UNLOCKED(child, out bool occurred, out _);
+
+                    if(occurred)
+                    {
+                        ref readonly MementoInfo memInfo = ref ItemsInteractionsClass.GetMementoInfo(child);
+                        memento_combi_intersection.UnionWith(memInfo.combinations);
+                    }
+                }
+
+                foreach (Memento child in memParInfoSecond.Children)
+                {
+                    VARMAP_GameMenu.IS_MEMENTO_UNLOCKED(child, out bool occurred, out _);
+
+                    if (occurred)
+                    {
+                        ref readonly MementoInfo memInfo = ref ItemsInteractionsClass.GetMementoInfo(child);
+                        memento_combi_union.UnionWith(memInfo.combinations);
+                    }
+                }
+
+                memento_combi_intersection.IntersectWith(memento_combi_union);
+                memento_combi_intersection.Remove(MementoCombi.MEMENTO_COMBI_NONE);
+
+                /* Take first in intersection (There should be only one, in case) */
+                MementoCombi intersected = MementoCombi.MEMENTO_COMBI_NONE;
+
+                foreach(MementoCombi combiCommon in memento_combi_intersection)
+                {
+                    intersected = combiCommon;
+                    break;
+                }
+
+                if(intersected != MementoCombi.MEMENTO_COMBI_NONE)
+                {
+                    /* Check if triggered event is not already triggered */
+                    ref readonly MementoCombiInfo memCombiInfo = ref ItemsInteractionsClass.GetMementoCombiInfo(intersected);
+
+                    Span<GameEventCombi> one_event = stackalloc GameEventCombi[1];
+                    one_event[0] = new(memCombiInfo.triggeredEvent, false);
+                    VARMAP_GameMenu.IS_EVENT_COMBI_OCCURRED(one_event, out bool occurred);
+
+                    /* Then commit */
+                    if(!occurred)
+                    {
+                        VARMAP_GameMenu.COMMIT_EVENT(one_event);
+
+                        Debug.Log("Congratulations!");
+                    }
+                    else
+                    {
+                        Debug.Log("Already done");
+                    }
+                }
+                else
+                {
+                    Debug.Log("That has no sense");
+                }
+                    
+            }
+        }
+
 
         void Awake()
         {
@@ -371,6 +465,8 @@ namespace Gob3AQ.GameMenu
             _ = StartCoroutine(LoadCoroutine());
 
             _lastClickTimestamp = Time.time;
+            memento_combi_intersection = new(8);
+            memento_combi_union = new(8);
         }
 
         private IEnumerator LoadCoroutine()

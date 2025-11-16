@@ -7,12 +7,5 @@ N,PHRASE_ID,TalkerIndex,Sound,CharAnimation,Text_English,Text_Spanish
 5,PHRASE_NONSENSE_COMBI,0,0,DIALOG_ANIMATION_TALK,I don't get it - Too complicated,No lo pillo - Es demasiado complicado
 6,PHRASE_ALREADY_COMBI,0,0,DIALOG_ANIMATION_TALK,I already thought that,Ya le di una vuelta a aquello
 7,PHRASE_GREAT_IDEA_COMBI,0,0,DIALOG_ANIMATION_TALK,That is a great idea!,Es una genial idea!
-8,PHRASE_OBSERVE_RED_POTION,0,0,DIALOG_ANIMATION_TALK,It looks like a potion with red liquid,Parece una poción con líquido rojo
-9,PHRASE_OBSERVE_FOUNTAIN,0,0,DIALOG_ANIMATION_TALK,This fountain has a strange mechanism inside,Esta fuente tiene un extraño mecanismo dentro
-10,PHRASE_ASK_MILITO_1,0,0,DIALOG_ANIMATION_TALK,Hey are you Milito the mighty?,¿Eres tú Milito el magnífico?
-11,PHRASE_ASK_MILITO_2,0,0,DIALOG_ANIMATION_TALK,They say you are able to compile with your head,Dicen que compilas solo con la mente
-12,PHRASE_MEMENTO_POTION_1,0,0,DIALOG_ANIMATION_NONE,A potion with unknown effects. What will it serve for?,Una poción con efectos desconocidos. Para qué servirá?
-13,PHRASE_MEMENTO_POTION_2,0,0,DIALOG_ANIMATION_NONE,Finally I knew it served to fill fountain,Finalmente descurí que servía para llenar la fuente
-14,PHRASE_MEMENTO_FOUNTAIN_1,0,0,DIALOG_ANIMATION_NONE,There was a fountain with a kind of mechanism,Había una fuente con algún tipo de mecanismo
-15,PHRASE_MEMENTO_FOUNTAIN_2,0,0,DIALOG_ANIMATION_NONE,Maybe some liquid of potion could trigger it,Quizá un poco de líquido de poción podría activarlo
-16,PHRASE_MEMENTO_FOUNTAIN_3,0,0,DIALOG_ANIMATION_NONE,This mechanism was activated when filling fountain,Este mecanismo se activaba cuando la fuente estaba llena
+8,PHRASE_MEMENTO_VICTIM_CASE_0,0,0,DIALOG_ANIMATION_NONE,This mistery is a hard puzzle to solve,Este misterio es un gran rompecabezas que resolver
+9,PHRASE_ROOM1_OBSERVE_VICTIM,0,0,DIALOG_ANIMATION_TALK,Victim is definitely gone! They all claim he was poisoned,La víctima definitivamente ha sucumbido! Todos dicen que ha sido envenenado

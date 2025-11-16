@@ -195,7 +195,7 @@ namespace Gob3AQ.GameMaster
 
             LaunchResourcesInitializations();
 
-            LoadRoomService(Room.ROOM_FIRST, out error);
+            LoadRoomService(Room.ROOM_1, out error);
         }
 
         public static void SaveGameService()

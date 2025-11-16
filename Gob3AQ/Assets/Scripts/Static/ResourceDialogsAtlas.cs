@@ -56,11 +56,6 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new DialogOption[1]{DialogOption.DIALOG_OPTION_SIMPLE, }
             ),
             
-            new( /* DIALOG_MILITO */
-            new GameItem[1]{GameItem.ITEM_NONE,},
-            new DialogOption[2]{DialogOption.DIALOG_OPTION_ASK_MILITO_1, DialogOption.DIALOG_OPTION_ASK_MILITO_2, }
-            ),
-            
             new( /* DIALOG_LAST */
             new GameItem[1]{GameItem.ITEM_NONE,},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE, }
@@ -77,18 +72,6 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
             DialogType.DIALOG_NONE,
             new DialogPhrase[1]{DialogPhrase.PHRASE_NONE, }
-            ),
-            new( /* DIALOG_OPTION_ASK_MILITO_1 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
-            DialogType.DIALOG_NONE,
-            new DialogPhrase[1]{DialogPhrase.PHRASE_ASK_MILITO_1, }
-            ),
-            new( /* DIALOG_OPTION_ASK_MILITO_2 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
-            DialogType.DIALOG_NONE,
-            new DialogPhrase[1]{DialogPhrase.PHRASE_ASK_MILITO_2, }
             ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
@@ -109,15 +92,8 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_NONSENSE_COMBI */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ALREADY_COMBI */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_GREAT_IDEA_COMBI */ 
-            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_OBSERVE_RED_POTION */ 
-            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_OBSERVE_FOUNTAIN */ 
-            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_MILITO_1 */ 
-            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ASK_MILITO_2 */ 
-            new(0,0, DialogAnimation.DIALOG_ANIMATION_NONE), /* PHRASE_MEMENTO_POTION_1 */ 
-            new(0,0, DialogAnimation.DIALOG_ANIMATION_NONE), /* PHRASE_MEMENTO_POTION_2 */ 
-            new(0,0, DialogAnimation.DIALOG_ANIMATION_NONE), /* PHRASE_MEMENTO_FOUNTAIN_1 */ 
-            new(0,0, DialogAnimation.DIALOG_ANIMATION_NONE), /* PHRASE_MEMENTO_FOUNTAIN_2 */ 
-            new(0,0, DialogAnimation.DIALOG_ANIMATION_NONE), /* PHRASE_MEMENTO_FOUNTAIN_3 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_NONE), /* PHRASE_MEMENTO_VICTIM_CASE_0 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_OBSERVE_VICTIM */ 
             /* > ATG 3 END < */
         };
     }

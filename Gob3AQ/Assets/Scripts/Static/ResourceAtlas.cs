@@ -124,7 +124,6 @@ namespace Gob3AQ.ResourceAtlas
             _ = room;
 
             _prefabsLoaded.UnionWith(_cachedPrefabsFinder.Keys);
-            _prefabsToLoad.Clear();
             _prefabsToLoad.UnionWith(_fixedPrefabsToLoad);
 
             UnloadUnusedPrefabs(false);
@@ -170,10 +169,10 @@ namespace Gob3AQ.ResourceAtlas
         private static readonly RoomInfo[] _RoomInfo = new RoomInfo[(int)Room.ROOMS_TOTAL]
         {
             /* > ATG 1 START < */
-            new( /* ROOM_FIRST */
-            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_ROOM_FIRST, }), 
+            new( /* ROOM_1 */
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_ROOM1, GameSprite.SPRITE_ROOM1_DECO_TABLE, }), 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(4){GameItem.ITEM_POTION, GameItem.ITEM_POTION_BLUE, GameItem.ITEM_FOUNTAIN, GameItem.ITEM_NPC_MILITO, }) 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(4){GameItem.ITEM_VICTIM, GameItem.ITEM_WITNESS1, GameItem.ITEM_WITNESS2, GameItem.ITEM_WITNESS3, }) 
             ),
             
             new( /* ROOM_LAST */

@@ -7,11 +7,7 @@ namespace Gob3AQ.VARMAP.Types
     {
         /* > ATG 1 START < */
         EVENT_NONE = -1, 
-        EVENT_RED_POTION_TOOK, 
-        EVENT_BLUE_POTION_TOOK, 
-        EVENT_FOUNTAIN_OBSERVED, 
-        EVENT_FOUNTAIN_THOUGHT_MEMENTO, 
-        EVENT_FOUNTAIN_FULL, 
+        EVENT_FIRST, 
         EVENT_LAST, 
         
         EVENT_TOTAL
@@ -22,8 +18,7 @@ namespace Gob3AQ.VARMAP.Types
     {
         /* > ATG 2 START < */
         MEMENTO_PARENT_NONE = -1, 
-        MEMENTO_PARENT_RED_POTION, 
-        MEMENTO_PARENT_FOUNTAIN, 
+        MEMENTO_PARENT_VICTIM_CASE, 
         MEMENTO_PARENT_LAST, 
         
         MEMENTO_PARENT_TOTAL
@@ -34,11 +29,7 @@ namespace Gob3AQ.VARMAP.Types
     {
         /* > ATG 3 START < */
         MEMENTO_NONE = -1, 
-        MEMENTO_RED_POTION_1, 
-        MEMENTO_RED_POTION_2, 
-        MEMENTO_FOUNTAIN_1, 
-        MEMENTO_FOUNTAIN_2, 
-        MEMENTO_FOUNTAIN_3, 
+        MEMENTO_VICTIM_CASE_0, 
         MEMENTO_LAST, 
         
         MEMENTO_TOTAL
@@ -49,7 +40,6 @@ namespace Gob3AQ.VARMAP.Types
     {
         /* > ATG 4 START < */
         MEMENTO_COMBI_NONE = -1, 
-        MEMENTO_COMBI_POTION_FOUNTAIN, 
         
         MEMENTO_COMBI_TOTAL
         /* > ATG 4 END < */

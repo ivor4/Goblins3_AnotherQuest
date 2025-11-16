@@ -388,6 +388,7 @@ namespace Gob3AQ.GameEventMaster
             /* If occurred, execute it and don't add it to pending */
             if (occurred)
             {
+                Debug.Log("Unchaining something " + info.type);
                 switch(info.type)
                 {
                     case UnchainType.UNCHAIN_TYPE_EVENT:

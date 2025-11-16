@@ -7,7 +7,6 @@ namespace Gob3AQ.VARMAP.Types
         /* > ATG 1 START < */
         DIALOG_NONE = -1, 
         DIALOG_SIMPLE, 
-        DIALOG_MILITO, 
         DIALOG_LAST, 
         
         DIALOG_TOTAL
@@ -19,8 +18,6 @@ namespace Gob3AQ.VARMAP.Types
         /* > ATG 2 START < */
         DIALOG_OPTION_NONE = -1, 
         DIALOG_OPTION_SIMPLE, 
-        DIALOG_OPTION_ASK_MILITO_1, 
-        DIALOG_OPTION_ASK_MILITO_2, 
         DIALOG_OPTION_LAST, 
         
         DIALOG_OPTION_TOTAL
@@ -38,15 +35,8 @@ namespace Gob3AQ.VARMAP.Types
         PHRASE_NONSENSE_COMBI, 
         PHRASE_ALREADY_COMBI, 
         PHRASE_GREAT_IDEA_COMBI, 
-        PHRASE_OBSERVE_RED_POTION, 
-        PHRASE_OBSERVE_FOUNTAIN, 
-        PHRASE_ASK_MILITO_1, 
-        PHRASE_ASK_MILITO_2, 
-        PHRASE_MEMENTO_POTION_1, 
-        PHRASE_MEMENTO_POTION_2, 
-        PHRASE_MEMENTO_FOUNTAIN_1, 
-        PHRASE_MEMENTO_FOUNTAIN_2, 
-        PHRASE_MEMENTO_FOUNTAIN_3, 
+        PHRASE_MEMENTO_VICTIM_CASE_0, 
+        PHRASE_ROOM1_OBSERVE_VICTIM, 
         
         PHRASE_TOTAL
         /* > ATG 3 END < */

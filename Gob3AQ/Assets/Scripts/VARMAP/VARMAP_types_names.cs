@@ -14,10 +14,9 @@ namespace Gob3AQ.VARMAP.Types
         NAME_INTERACTION_TAKE, 
         NAME_INTERACTION_TALK, 
         NAME_INTERACTION_OBSERVE, 
-        NAME_ITEM_POTION, 
-        NAME_ITEM_BLUE_POTION, 
-        NAME_ITEM_FOUNTAIN, 
-        NAME_NPC_MILITO, 
+        NAME_MEMENTO_CASE, 
+        NAME_VICTIM, 
+        NAME_WITNESS, 
         NAME_NPC_LAST, 
         
         NAME_TOTAL

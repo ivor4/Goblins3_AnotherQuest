@@ -31,7 +31,7 @@ namespace Gob3AQ.FixedConfig
 
         /* HUD */
         public const float DISTANCE_MOUSE_FURTHEST_WP = 1.5f;
-        public const float MIN_CAMERA_ORTHO_SIZE = 2.0f;
+        public const float MIN_CAMERA_ORTHO_SIZE = 0.5f;
 
 
         /* Graphics - Mouse */
@@ -74,7 +74,7 @@ namespace Gob3AQ.FixedConfig
         public const string ROOM_LOADING = "SCENE_LOADING";
         private static readonly string[] _ROOM_TO_SCENE_NAME =
         {
-            "SCENE_SAMPLE",
+            "SCENE_ROOM1",
             "House1"
         };
 

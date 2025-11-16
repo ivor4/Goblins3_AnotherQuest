@@ -6,8 +6,7 @@ N,NAME_ID,Name_English,Name_Spanish
 4,NAME_INTERACTION_TAKE,Take,Agarrar
 5,NAME_INTERACTION_TALK,Talk,Hablar
 6,NAME_INTERACTION_OBSERVE,Observe,Observar
-7,NAME_ITEM_POTION,Red Potion,Pocion Roja
-8,NAME_ITEM_BLUE_POTION,Blue Potion,Pocion Azul
-9,NAME_ITEM_FOUNTAIN,Fountain,Fuente
-10,NAME_NPC_MILITO,Militer,Milito
-11,NAME_NPC_LAST,Last,Ultimo
+7,NAME_MEMENTO_CASE,Poisoned Victim,Víctima envenenada
+8,NAME_VICTIM,Victim,Víctima
+9,NAME_WITNESS,Witness,Testigo
+10,NAME_NPC_LAST,Last,Ultimo

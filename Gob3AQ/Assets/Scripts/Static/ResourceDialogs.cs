@@ -20,14 +20,13 @@ namespace Gob3AQ.ResourceDialogs
 
         private static ReadOnlyHashSet<NameType> _fixedNamesArray;
         private static HashSet<NameType> _namesToLoadArray;
+        private static HashSet<NameType> _namesLoadedArray;
         private static ReadOnlyHashSet<DialogPhrase> _fixedPhrasesArray;
         private static HashSet<DialogPhrase> _phrasesToLoadArray;
-        private static Dictionary<DialogPhrase, int> _cachedPhrasesFinder;
+        private static HashSet<DialogPhrase> _phrasesLoadedArray;
+        private static Dictionary<DialogPhrase, PhraseContent> _cachedPhrasesFinder;
         private static Dictionary<NameType, string> _cachedNamesFinder;
-        private static PhraseContent[] _cachedPhrasesArray;
         private static DialogLanguages _language;
-
-        private static int _cachedPhrases;
 
 
 
@@ -39,7 +38,8 @@ namespace Gob3AQ.ResourceDialogs
             
             _phrasesToLoadArray = new(GameFixedConfig.MAX_CACHED_PHRASES);
             _namesToLoadArray = new(GameFixedConfig.MAX_CACHED_PHRASES);
-            _cachedPhrasesArray = new PhraseContent[GameFixedConfig.MAX_CACHED_PHRASES];
+            _phrasesLoadedArray = new(GameFixedConfig.MAX_CACHED_PHRASES);
+            _namesLoadedArray = new(GameFixedConfig.MAX_CACHED_PHRASES);
 
             HashSet<DialogPhrase> editablePhraseHash = new(GameFixedConfig.MAX_FIXED_PHRASES_TO_LOAD)
             {
@@ -79,19 +79,35 @@ namespace Gob3AQ.ResourceDialogs
 
             _fixedPhrasesArray = new(editablePhraseHash);
             _fixedNamesArray = new(editableNameHash);
-
-            _cachedPhrases = 0;
         }
 
-        public static void UnloadUsedTexts()
+        public static void UnloadUsedTexts(bool fullClear)
         {
-            _cachedNamesFinder.Clear();
-            _cachedPhrasesFinder.Clear();
-            _namesToLoadArray.Clear();
-            _phrasesToLoadArray.Clear();
-            Array.Clear(_cachedPhrasesArray, 0, _cachedPhrasesArray.Length);
+            if (fullClear)
+            {
+                _namesToLoadArray.Clear();
+                _phrasesToLoadArray.Clear();
+                _cachedNamesFinder.Clear();
+                _cachedPhrasesFinder.Clear();
+            }
+            else
+            {
+                _namesLoadedArray.ExceptWith(_namesToLoadArray);
+                _phrasesLoadedArray.ExceptWith(_phrasesToLoadArray);
 
-            _cachedPhrases = 0;
+                foreach (NameType name in _namesLoadedArray)
+                {
+                    _cachedNamesFinder.Remove(name);
+                }
+
+                foreach (DialogPhrase phrase in _phrasesToLoadArray)
+                {
+                    _cachedPhrasesFinder.Remove(phrase);
+                }
+            }
+
+            _namesLoadedArray.Clear();
+            _phrasesLoadedArray.Clear();
         }
 
         public static IEnumerator PreloadRoomTextsCoroutine(Room room)
@@ -113,10 +129,6 @@ namespace Gob3AQ.ResourceDialogs
             Addressables.Release(handler1);
             Addressables.Release(handler2);
 
-            /* Empty cached dialogs */
-            UnloadUsedTexts();
-
-
             yield return PreloadRoomTextsCoroutine(room, names, phrases);
         }
 
@@ -128,13 +140,17 @@ namespace Gob3AQ.ResourceDialogs
             ref readonly string row = ref lines[(int)phrase];
             ReadOnlySpan<string> columns = row.Split(',');
 
-            _cachedPhrasesArray[_cachedPhrases] = new(phraseConfig, columns[(int)_language]);
-            _cachedPhrasesFinder[phrase] = _cachedPhrases;
-            ++_cachedPhrases;
+            _cachedPhrasesFinder[phrase] = new(phraseConfig, columns[(int)_language]);
         }
 
         private static void PreloadRoomTextsPrepareList(Room room)
         {
+            /* Move from previous "to load" into "loaded */
+            _namesLoadedArray.UnionWith(_cachedNamesFinder.Keys);
+            _phrasesLoadedArray.UnionWith(_cachedPhrasesFinder.Keys);
+            _namesToLoadArray.Clear();
+            _phrasesToLoadArray.Clear();
+
             /* Copy fixed ones */
             _namesToLoadArray.UnionWith(_fixedNamesArray);
             _phrasesToLoadArray.UnionWith(_fixedPhrasesArray);
@@ -202,11 +218,16 @@ namespace Gob3AQ.ResourceDialogs
             _ = _namesToLoadArray.Remove(NameType.NAME_NONE);
             _ = _phrasesToLoadArray.Remove(DialogPhrase.PHRASE_NONE);
 
+            /* Empty unused names and dialogs */
+            UnloadUsedTexts(false);
+
+            /* Load only the ones which are not already loaded */
+            _namesToLoadArray.ExceptWith(_cachedNamesFinder.Keys);
+            _phrasesToLoadArray.ExceptWith(_cachedPhrasesFinder.Keys);
         }
 
         private static IEnumerator PreloadRoomTextsCoroutine(Room room, string[] names, string[] phrases)
         {
-
             PreloadRoomTextsPrepareList(room);
 
             foreach(NameType name in _namesToLoadArray)
@@ -220,6 +241,9 @@ namespace Gob3AQ.ResourceDialogs
                 PreloadRoomPhrases_TaskCycle(phrases, phrase);
                 yield return ResourceAtlasClass.WaitForNextFrame;
             }
+
+            _namesToLoadArray.Clear();
+            _phrasesToLoadArray.Clear();
         }
 
         private static void PreloadRoomNames_AddName(string[] lines, NameType name)
@@ -233,16 +257,12 @@ namespace Gob3AQ.ResourceDialogs
 
 
 
-        public static ref readonly PhraseContent GetPhraseContent(DialogPhrase phraseType)
+        public static void GetPhraseContent(DialogPhrase phraseType, out PhraseContent phraseContent)
         {
-            if(_cachedPhrasesFinder.TryGetValue(phraseType, out int storedIndex))
-            {
-                return ref _cachedPhrasesArray[storedIndex];
-            }
-            else
+            if(!_cachedPhrasesFinder.TryGetValue(phraseType, out phraseContent))
             {
                 Debug.LogError($"Phrase type {phraseType} not found in cached phrases.");
-                return ref PhraseContent.EMPTY;
+                phraseContent = PhraseContent.EMPTY;
             }
         }
 

@@ -4,10 +4,8 @@ using Gob3AQ.Libs.Arith;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceSpritesAtlas;
 using Gob3AQ.VARMAP.Types;
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -17,16 +15,16 @@ namespace Gob3AQ.ResourceSprites
 {
     public static class ResourceSpritesClass
     {
-        private static HashSet<AsyncOperationHandle<Sprite>> _cachedHandles;
-        private static Dictionary<GameSprite, Sprite> _cachedSpritesFinder;
+        private static Dictionary<GameSprite, AsyncOperationHandle<Sprite>> _cachedHandles;
         private static HashSet<GameSprite> _spritesToLoadArray;
+        private static HashSet<GameSprite> _spritesLoadedArray;
         private static ReadOnlyHashSet<GameSprite> _fixedSpritesArray;
 
         public static void Initialize()
         {
             _cachedHandles = new(GameFixedConfig.MAX_CACHED_SPRITES);
-            _cachedSpritesFinder = new(GameFixedConfig.MAX_CACHED_SPRITES);
             _spritesToLoadArray = new(GameFixedConfig.MAX_CACHED_SPRITES);
+            _spritesLoadedArray = new(GameFixedConfig.MAX_CACHED_SPRITES);
 
             HashSet<GameSprite> editableHash = new(GameFixedConfig.MAX_CACHED_SPRITES)
             {
@@ -63,30 +61,39 @@ namespace Gob3AQ.ResourceSprites
             foreach(GameSprite spriteToLoad in _spritesToLoadArray)
             {
                 AsyncOperationHandle<Sprite> handle = PreloadRoomSpritesCycle(spriteToLoad);
-
                 yield return handle;
-                Sprite spriteRes = handle.Result;
-                _cachedHandles.Add(handle);
-                _cachedSpritesFinder[spriteToLoad] = spriteRes;
+                _cachedHandles[spriteToLoad] = handle;
             }
+
+            _spritesToLoadArray.Clear();
         }
 
-        public static void UnloadUsedSprites()
+        public static void UnloadUsedSprites(bool fullClear)
         {
-            _cachedSpritesFinder.Clear();
-            _spritesToLoadArray.Clear();
-
-            foreach(AsyncOperationHandle<Sprite> handle in _cachedHandles)
+            if (fullClear)
             {
-                Addressables.Release(handle);
+                _spritesLoadedArray.UnionWith(_cachedHandles.Keys);
             }
-            _cachedHandles.Clear();
+            else
+            {
+                /* This gives the ones which are not present in ToLoad, in order to release them */
+                _spritesLoadedArray.ExceptWith(_spritesToLoadArray);
+            }
+
+            foreach(GameSprite sprite in _spritesLoadedArray)
+            {
+                _cachedHandles[sprite].Release();
+                _cachedHandles.Remove(sprite);
+            }
+
+            _spritesLoadedArray.Clear();
         }
 
         private static void PreloadSpritesPrepareList(Room room)
         {
-            /* Clear */
-            UnloadUsedSprites();
+            /* Move previous room "to load" into "loaded" */
+            _spritesLoadedArray.UnionWith(_cachedHandles.Keys);
+            
 
             /* First fixed sprites to load */
             _spritesToLoadArray.UnionWith(_fixedSpritesArray);
@@ -96,13 +103,19 @@ namespace Gob3AQ.ResourceSprites
             _spritesToLoadArray.UnionWith(roomInfo.sprites);
 
             /* Then present room items sprites */
-            foreach(GameItem item in roomInfo.items)
+            foreach (GameItem item in roomInfo.items)
             {
                 ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(item);
                 _spritesToLoadArray.UnionWith(itemInfo.sprites);
             }
 
             _ = _spritesToLoadArray.Remove(GameSprite.SPRITE_NONE);
+
+            /* Clear the ones which are not used */
+            UnloadUsedSprites(false);
+
+            /* Load only the ones which are not yet loaded */
+            _spritesToLoadArray.ExceptWith(_cachedHandles.Keys);
         }
 
         private static AsyncOperationHandle<Sprite> PreloadRoomSpritesCycle(GameSprite sprite)
@@ -117,9 +130,9 @@ namespace Gob3AQ.ResourceSprites
 
         public static Sprite GetSprite(GameSprite sprite)
         {
-            if (_cachedSpritesFinder.TryGetValue(sprite, out Sprite res_sprite))
+            if (_cachedHandles.TryGetValue(sprite, out AsyncOperationHandle<Sprite> handler))
             {
-                return res_sprite;
+                return handler.Result;
             }
             else
             {

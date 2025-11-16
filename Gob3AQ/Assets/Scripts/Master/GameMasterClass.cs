@@ -316,7 +316,7 @@ namespace Gob3AQ.GameMaster
             moduleLoadingDone = 0;
 
             /* Unlaod previous room resources */
-            yield return UnloadPreviousRoomResources();
+            yield return UnloadPreviousRoomResources(false);
 
             /* Load texts */
             yield return ResourceDialogsClass.PreloadRoomTextsCoroutine(room);
@@ -363,11 +363,11 @@ namespace Gob3AQ.GameMaster
             yield return SceneManager.LoadSceneAsync(GameFixedConfig.ROOM_MAINMENU, LoadSceneMode.Single);
 
             /* Unlaod previous room resources */
-            yield return UnloadPreviousRoomResources();
+            yield return UnloadPreviousRoomResources(true);
         }
 
 
-        private static IEnumerable UnloadPreviousRoomResources()
+        private static IEnumerable UnloadPreviousRoomResources(bool fullclear)
         {
             /* Unload previous room (in case) */
             if (prevRoomLoaded)
@@ -377,9 +377,12 @@ namespace Gob3AQ.GameMaster
                 prevRoomLoaded = false;
             }
 
-            ResourceSpritesClass.UnloadUsedSprites();
-            ResourceDialogsClass.UnloadUsedTexts();
-            ResourceAtlasClass.UnloadUnusedPrefabs();
+            if (fullclear)
+            {
+                ResourceSpritesClass.UnloadUsedSprites(true);
+                ResourceDialogsClass.UnloadUsedTexts(true);
+                ResourceAtlasClass.UnloadUnusedPrefabs(true);
+            }
 
             /* Just in case */
             yield return Resources.UnloadUnusedAssets();

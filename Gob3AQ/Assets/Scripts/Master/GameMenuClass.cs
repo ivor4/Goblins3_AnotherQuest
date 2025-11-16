@@ -121,7 +121,7 @@ namespace Gob3AQ.GameMenu
                     {
                         ReadOnlySpan<DialogPhrase> dialogPhrases = dialogOptionConfig.Phrases;
 
-                        ref readonly PhraseContent optionPhraseContent = ref ResourceDialogsClass.GetPhraseContent(dialogPhrases[0]);
+                        ResourceDialogsClass.GetPhraseContent(dialogPhrases[0], out PhraseContent optionPhraseContent);
 
                         _uicanvas_cls.ActivateDialogOption(selectablePhrases, true, dialogOptions[i], optionPhraseContent.message);
 
@@ -303,7 +303,7 @@ namespace Gob3AQ.GameMenu
             /* Preset */
             dialog_tellingInProgress = true;
 
-            ref readonly PhraseContent content = ref ResourceDialogsClass.GetPhraseContent(phrase);
+            ResourceDialogsClass.GetPhraseContent(phrase, out PhraseContent content);
             GameItem talkerItem = dialog_input_talkers[content.config.talkerIndex];
             ref readonly ItemInfo talkerInfo = ref ItemsInteractionsClass.GetItemInfo(talkerItem);
 

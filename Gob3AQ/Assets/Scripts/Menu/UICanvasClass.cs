@@ -440,7 +440,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     }
 
                     ref readonly MementoInfo memInfo = ref ItemsInteractionsClass.GetMementoInfo(memento);
-                    ref readonly PhraseContent phraseContent = ref ResourceDialogsClass.GetPhraseContent(memInfo.phrase);
+                    ResourceDialogsClass.GetPhraseContent(memInfo.phrase, out PhraseContent phraseContent);
                     stringBuilder.Append(phraseContent.message);
                     addedElement = true;
                 }

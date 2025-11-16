@@ -6,12 +6,7 @@ using UnityEngine;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using Gob3AQ.FixedConfig;
 using System.Collections;
-using Gob3AQ.ResourceSpritesAtlas;
-
 using UnityEngine.AddressableAssets;
-
-
-
 
 
 
@@ -44,9 +39,10 @@ namespace Gob3AQ.ResourceAtlas
     {
         public static readonly WaitForNextFrameUnit WaitForNextFrame = new WaitForNextFrameUnit();
 
-        private static HashSet<AsyncOperationHandle<GameObject>> _cachedPrefabHandles;
         private static ReadOnlyHashSet<PrefabEnum> _fixedPrefabsToLoad;
-        private static Dictionary<PrefabEnum, GameObject> _cachedPrefabsFinder;
+        private static HashSet<PrefabEnum> _prefabsToLoad;
+        private static HashSet<PrefabEnum> _prefabsLoaded;
+        private static Dictionary<PrefabEnum, AsyncOperationHandle<GameObject>> _cachedPrefabsFinder;
 
         public static ref readonly RoomInfo GetRoomInfo(Room room)
         {
@@ -63,21 +59,19 @@ namespace Gob3AQ.ResourceAtlas
 
         public static GameObject GetPrefab(PrefabEnum prefab)
         {
-            if (_cachedPrefabsFinder.TryGetValue(prefab, out GameObject res_prefab))
+            if (_cachedPrefabsFinder.TryGetValue(prefab, out AsyncOperationHandle<GameObject> handle))
             {
-                return res_prefab;
+                return handle.Result;
             }
             else
             {
-                Debug.LogError($"Prefab type {res_prefab} not found in cached prefabs.");
+                Debug.LogError($"Prefab type {prefab} not found in cached prefabs.");
                 return null;
             }
         }
         
         public static void Initialize()
         {
-            _cachedPrefabHandles = new(GameFixedConfig.MAX_CACHED_PREFABS);
-
             HashSet<PrefabEnum> editableHash = new(GameFixedConfig.MAX_CACHED_PREFABS)
             {
                 PrefabEnum.PREFAB_MEMENTO_ITEM
@@ -86,6 +80,8 @@ namespace Gob3AQ.ResourceAtlas
             _fixedPrefabsToLoad = new(editableHash);
 
             _cachedPrefabsFinder = new(GameFixedConfig.MAX_CACHED_PREFABS);
+            _prefabsToLoad = new(GameFixedConfig.MAX_CACHED_PREFABS);
+            _prefabsLoaded = new(GameFixedConfig.MAX_CACHED_PREFABS);
         }
 
         public static IEnumerator PreloadPrefabsCoroutine(Room room)
@@ -97,28 +93,44 @@ namespace Gob3AQ.ResourceAtlas
                 AsyncOperationHandle<GameObject> handle = LoadPrefabCycle(prefab);
                 yield return handle;
 
-                _cachedPrefabHandles.Add(handle);
-                _cachedPrefabsFinder[prefab] = handle.Result;
+                _cachedPrefabsFinder[prefab] = handle;
             }
+
+            _prefabsToLoad.Clear();
         }
 
-        public static void UnloadUnusedPrefabs()
+        public static void UnloadUnusedPrefabs(bool fullClear)
         {
-            foreach(AsyncOperationHandle<GameObject> handle in _cachedPrefabHandles)
+            if(fullClear)
             {
-                handle.Release();
+                _prefabsLoaded.UnionWith(_cachedPrefabsFinder.Keys);
             }
-            _cachedPrefabHandles.Clear();
-            _cachedPrefabsFinder.Clear();
+            else
+            {
+                _prefabsLoaded.ExceptWith(_prefabsToLoad);
+            }
+
+            foreach (PrefabEnum handle in _prefabsLoaded)
+            {
+                _cachedPrefabsFinder[handle].Release();
+                _cachedPrefabsFinder.Remove(handle);
+            }
+
+            _prefabsLoaded.Clear();
         }
 
         private static void PreloadPrefabsPrepareList(Room room)
         {
             _ = room;
 
-            UnloadUnusedPrefabs();
+            _prefabsLoaded.UnionWith(_cachedPrefabsFinder.Keys);
+            _prefabsToLoad.Clear();
+            _prefabsToLoad.UnionWith(_fixedPrefabsToLoad);
 
-            /* Fixed is actual list to load */
+            UnloadUnusedPrefabs(false);
+
+            /* Load the ones which are not already loaded */
+            _prefabsToLoad.ExceptWith(_cachedPrefabsFinder.Keys);
         }
 
         private static AsyncOperationHandle<GameObject> LoadPrefabCycle(PrefabEnum prefab)

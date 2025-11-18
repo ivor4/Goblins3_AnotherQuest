@@ -140,14 +140,19 @@ namespace Gob3AQ.GraphicsMaster
                     _maxCameraOrthographicSize = Mathf.Min(constrainedByWidth, constrainedByHeight);
 
                     ref readonly CameraDispositionStruct cameradisp = ref VARMAP_GraphicsMaster.GET_CAMERA_DISPOSITION();
-                    mainCamera.orthographicSize = cameradisp.orthoSize;
+                    Room actualRoom = VARMAP_GraphicsMaster.GET_ACTUAL_ROOM();
 
-                    UpdateCameraBounds();
-                    
-                    Vector3 cameraPosition = cameradisp.position;
-                    cameraPosition.z = mainCameraTransform.position.z;
+                    if (cameradisp.room == actualRoom)
+                    {
+                        mainCamera.orthographicSize = cameradisp.orthoSize;
 
-                    MoveCameraToPosition(in cameraPosition);
+                        UpdateCameraBounds();
+
+                        Vector3 cameraPosition = cameradisp.position;
+                        cameraPosition.z = mainCameraTransform.position.z;
+
+                        MoveCameraToPosition(in cameraPosition);
+                    }
 
                     VARMAP_GraphicsMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GraphicsMaster);
 
@@ -262,7 +267,10 @@ namespace Gob3AQ.GraphicsMaster
 
             mainCameraTransform.position = cameraNewPosition;
 
-            CameraDispositionStruct cameradisp = new() { position = mainCameraTransform.position, orthoSize = mainCamera.orthographicSize };
+            Room actualRoom = VARMAP_GraphicsMaster.GET_ACTUAL_ROOM();
+
+            CameraDispositionStruct cameradisp = new() { position = mainCameraTransform.position,
+                   orthoSize = mainCamera.orthographicSize, room = actualRoom };
 
             VARMAP_GraphicsMaster.SET_CAMERA_DISPOSITION(in cameradisp);
         }

@@ -405,7 +405,7 @@ namespace Gob3AQ.VARMAP.Variable
             else if (_type == typeof(bool))
             {
                 _streamable = true;
-                _elemSize = sizeof(char);
+                _elemSize = sizeof(bool);
             }
             else if (_type == typeof(int))
             {
@@ -420,12 +420,12 @@ namespace Gob3AQ.VARMAP.Variable
             else if (_type == typeof(byte))
             {
                 _streamable = true;
-                _elemSize = sizeof(char);
+                _elemSize = sizeof(byte);
             }
             else if (_type == typeof(sbyte))
             {
                 _streamable = true;
-                _elemSize = sizeof(char);
+                _elemSize = sizeof(sbyte);
             }
             else if (_type == typeof(short))
             {
@@ -901,7 +901,7 @@ namespace Gob3AQ.VARMAP.Variable
             else if (_type == typeof(bool))
             {
                 _streamable = true;
-                _elemSize = sizeof(char);
+                _elemSize = sizeof(bool);
             }
             else if (_type == typeof(int))
             {
@@ -916,12 +916,12 @@ namespace Gob3AQ.VARMAP.Variable
             else if (_type == typeof(byte))
             {
                 _streamable = true;
-                _elemSize = sizeof(char);
+                _elemSize = sizeof(byte);
             }
             else if(_type == typeof(sbyte))
             {
                 _streamable = true;
-                _elemSize = sizeof(char);
+                _elemSize = sizeof(sbyte);
             }
             else if (_type == typeof(short))
             {

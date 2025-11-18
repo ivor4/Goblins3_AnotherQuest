@@ -42,8 +42,8 @@ namespace Gob3AQ.VARMAP.Types
     public enum UnchainConditions
     {
         /* > ATG 4 START < */
-        UNCHAIN_INITIAL, 
-        UNCHAIN_MEMENTO, 
+        UNCHAIN_INITIAL_MEMENTO, 
+        UNCHAIN_INITIAL_EVENT, 
         
         UNCHAIN_TOTAL
         /* > ATG 4 END < */

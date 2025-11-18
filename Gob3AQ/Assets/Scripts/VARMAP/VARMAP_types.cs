@@ -499,9 +499,10 @@ namespace Gob3AQ.VARMAP.Types
 
     public struct CameraDispositionStruct : IStreamable
     {
-        public const int STRUCT_SIZE = 2 * sizeof(float) + sizeof(float);
+        public const int STRUCT_SIZE = 2 * sizeof(float) + sizeof(float) + sizeof(byte);
         public Vector2 position;
         public float orthoSize;
+        public Room room;
 
         public static void StaticParseFromBytes(ref CameraDispositionStruct gstruct, ref ReadOnlySpan<byte> reader)
         {
@@ -510,6 +511,7 @@ namespace Gob3AQ.VARMAP.Types
             gstruct.position.x = BitConverter.ToSingle(readZone.ReadNext(sizeof(float)));
             gstruct.position.y = BitConverter.ToSingle(readZone.ReadNext(sizeof(float)));
             gstruct.orthoSize = BitConverter.ToSingle(readZone.ReadNext(sizeof(float)));
+            gstruct.room = (Room)readZone.ReadNext(sizeof(byte))[0];
         }
 
         public static void StaticParseToBytes(in CameraDispositionStruct gstruct, ref Span<byte> writer)
@@ -519,6 +521,7 @@ namespace Gob3AQ.VARMAP.Types
             BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(float)), gstruct.position.x);
             BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(float)), gstruct.position.y);
             BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(float)), gstruct.orthoSize);
+            writeZone.WriteNext(sizeof(byte))[0] = (byte)gstruct.room;
         }
 
         /// <summary>

@@ -68,6 +68,12 @@ namespace Gob3AQ.ResourceDialogs
                 editablePhraseHash.Add(memInfo.phrase);
             }
 
+            for (MementoParent i = 0; i < MementoParent.MEMENTO_PARENT_TOTAL; ++i)
+            {
+                ref readonly MementoParentInfo memParInfo = ref ItemsInteractionsClass.GetMementoParentInfo(i);
+                editableNameHash.Add(memParInfo.name);
+            }
+
             for (GamePickableItem i = 0; i < GamePickableItem.ITEM_PICK_TOTAL; i++)
             {
                 ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(ItemsInteractionsClass.GetItemFromPickable(i));

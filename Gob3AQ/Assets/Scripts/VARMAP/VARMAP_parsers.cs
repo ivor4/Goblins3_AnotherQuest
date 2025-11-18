@@ -8,11 +8,11 @@ namespace Gob3AQ.VARMAP.Types.Parsers
     {
         public static void CharacterType_ParseToBytes(in CharacterType value, ref Span<byte> writer)
         {
-            BitConverter.TryWriteBytes(writer, (char)value);
+            writer[0] = (byte)value;
         }
         public static void CharacterType_ParseFromBytes(ref CharacterType value, ref ReadOnlySpan<byte> reader)
         {
-            value = (CharacterType)BitConverter.ToChar(reader);
+            value = (CharacterType)reader[0];
         }
 
         public static void GamePickableItem_ParseToBytes(in GamePickableItem value, ref Span<byte> writer)
@@ -79,22 +79,22 @@ namespace Gob3AQ.VARMAP.Types.Parsers
 
         public static void byte_ParseToBytes(in byte value, ref Span<byte> writer)
         {
-            BitConverter.TryWriteBytes(writer, (char)value);
+            writer[0] = value;
         }
 
         public static void byte_ParseFromBytes(ref byte value, ref ReadOnlySpan<byte> reader)
         {
-            value = (byte)BitConverter.ToChar(reader);
+            value = reader[0];
         }
 
         public static void sbyte_ParseToBytes(in sbyte value, ref Span<byte> writer)
         {
-            BitConverter.TryWriteBytes(writer, (char)value);
+            writer[0] = (byte)value;
         }
 
         public static void sbyte_ParseFromBytes(ref sbyte value, ref ReadOnlySpan<byte> reader)
         {
-            value = (sbyte)BitConverter.ToChar(reader);
+            value = (sbyte)reader[0];
         }
 
         public static void bool_ParseToBytes(in bool value, ref Span<byte> writer)

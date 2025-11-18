@@ -115,17 +115,17 @@ namespace Gob3AQ.Brain.ItemsInteraction
         private static readonly UnchainInfo[] _UnchainConditions = new UnchainInfo[(int)UnchainConditions.UNCHAIN_TOTAL]
         {
             /* > ATG 1 START < */
-            new( /* UNCHAIN_INITIAL */
+            new( /* UNCHAIN_INITIAL_MEMENTO */
+            UnchainType.UNCHAIN_TYPE_MEMENTO,new(GameEvent.EVENT_FIRST, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_VICTIM_CASE_0, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* UNCHAIN_INITIAL_EVENT */
             UnchainType.UNCHAIN_TYPE_EVENT,new(GameEvent.EVENT_FIRST, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
             new GameEventCombi[1]{new(GameEvent.EVENT_FIRST, false),}), 
-            
-            new( /* UNCHAIN_MEMENTO */
-            UnchainType.UNCHAIN_TYPE_MEMENTO,new(GameEvent.EVENT_FIRST, false), 
-            new GameEventCombi[1]{new(GameEvent.EVENT_FIRST, false),}, 
-            GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_VICTIM_CASE_0, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
             /* > ATG 1 END < */
         };

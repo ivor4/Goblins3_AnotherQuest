@@ -35,7 +35,8 @@ namespace Gob3AQ.VARMAP.DefaultValues
         public static CameraDispositionStruct CameraDispositionStruct_Default => new()
         {
             position = Vector2.zero,
-            orthoSize = 4f
+            orthoSize = 5f,
+            room = Room.ROOM_NONE
         };
 
         public static MousePropertiesStruct MouseProperties_Default => new MousePropertiesStruct() { pos1 = Vector2.zero, pos2 = Vector2.zero };

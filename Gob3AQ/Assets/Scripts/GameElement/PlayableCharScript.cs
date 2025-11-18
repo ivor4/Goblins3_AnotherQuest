@@ -37,6 +37,7 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         /* GameObject components */
         private Transform _parentTransform;
+        private Vector2 feetOffset;
 
         /* Status */
         private PhysicalState physicalstate;
@@ -215,6 +216,9 @@ namespace Gob3AQ.GameElement.PlayableChar
                 SetVisible_Internal(true);
                 PlayerMasterClass.SetPlayerLoaded(CharType);
 
+                feetOffset = mySpriteRenderer.bounds.extents;
+                feetOffset.x = 0;
+
                 UpdateSortingOrder();
             }
 
@@ -255,7 +259,7 @@ namespace Gob3AQ.GameElement.PlayableChar
         private bool Execute_Walk()
         {
             bool continueOp;
-            Vector3 target_pos = waypoints[actualProgrammedPath.target_index];
+            Vector3 target_pos = waypoints[actualProgrammedPath.target_index] + feetOffset;
             Vector2 deltaPos = target_pos - _parentTransform.position;
 
             /* If delta vector of positions and original velocity vector lose their cos(0deg)=1,
@@ -327,7 +331,7 @@ namespace Gob3AQ.GameElement.PlayableChar
             if(reached)
             {
                 actualWaypoint = actualProgrammedPath.target_index;
-                _parentTransform.position = waypoints[actualWaypoint];
+                _parentTransform.position = waypoints[actualWaypoint] + feetOffset;
                 actualProgrammedPath.target_index = solutions[actualWaypoint].TravelTo[actualProgrammedPath.final_index];
             }
 

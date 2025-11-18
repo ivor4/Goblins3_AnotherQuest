@@ -56,6 +56,11 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new DialogOption[1]{DialogOption.DIALOG_OPTION_SIMPLE, }
             ),
             
+            new( /* DIALOG_WITNESS1 */
+            new GameItem[1]{GameItem.ITEM_NONE,},
+            new DialogOption[1]{DialogOption.DIALOG_OPTION_WITNESS1_INNOCENT, }
+            ),
+            
             new( /* DIALOG_LAST */
             new GameItem[1]{GameItem.ITEM_NONE,},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE, }
@@ -72,6 +77,12 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
             DialogType.DIALOG_NONE,
             new DialogPhrase[1]{DialogPhrase.PHRASE_NONE, }
+            ),
+            new( /* DIALOG_OPTION_WITNESS1_INNOCENT */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            DialogType.DIALOG_NONE,
+            new DialogPhrase[4]{DialogPhrase.PHRASE_ROOM1_WITNESS1_INNOCENT0, DialogPhrase.PHRASE_ROOM1_WITNESS1_INNOCENT1, DialogPhrase.PHRASE_ROOM1_WITNESS1_INNOCENT2, DialogPhrase.PHRASE_ROOM1_WITNESS1_INNOCENT3, }
             ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
@@ -93,7 +104,13 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ALREADY_COMBI */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_GREAT_IDEA_COMBI */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_NONE), /* PHRASE_MEMENTO_VICTIM_CASE_0 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_NONE), /* PHRASE_MEMENTO_VICTIM_CASE_1 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_OBSERVE_VICTIM */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_WITNESS1_INNOCENT0 */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_WITNESS1_INNOCENT1 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_WITNESS1_INNOCENT2 */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_WITNESS1_INNOCENT3 */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_MEMENTO_CHASE_0 */ 
             /* > ATG 3 END < */
         };
     }

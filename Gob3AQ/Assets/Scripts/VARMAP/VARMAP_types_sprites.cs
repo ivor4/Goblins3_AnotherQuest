@@ -20,6 +20,7 @@ namespace Gob3AQ.VARMAP.Types
         SPRITE_ROOM1_WITNESS2, 
         SPRITE_ROOM1_WITNESS3, 
         SPRITE_ROOM1_DECO_TABLE, 
+        SPRITE_MEMENTO_CHASE, 
         SPRITE_LAST, 
         
         SPRITE_TOTAL

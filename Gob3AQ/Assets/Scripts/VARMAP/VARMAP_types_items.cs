@@ -33,6 +33,7 @@ namespace Gob3AQ.VARMAP.Types
         /* > ATG 3 START < */
         COND_OK, 
         COND_OBSERVE_VICTIM, 
+        COND_TALK_WITNESS1, 
         COND_LAST, 
         
         COND_TOTAL
@@ -42,8 +43,10 @@ namespace Gob3AQ.VARMAP.Types
     public enum UnchainConditions
     {
         /* > ATG 4 START < */
-        UNCHAIN_INITIAL_MEMENTO, 
-        UNCHAIN_INITIAL_EVENT, 
+        UNCHAIN_ROOM1_INITIAL_MEMENTO, 
+        UNCHAIN_ROOM1_INITIAL_EVENT, 
+        UNCHAIN_ROOM1_OBSERVE_VICTIM, 
+        UNCHAIN_ROOM1_MEMENTO_CHASE_0, 
         
         UNCHAIN_TOTAL
         /* > ATG 4 END < */

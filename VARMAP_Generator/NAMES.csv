@@ -9,4 +9,5 @@ N,NAME_ID,Name_English,Name_Spanish
 7,NAME_MEMENTO_CASE,Poisoned Victim,Víctima envenenada
 8,NAME_VICTIM,Victim,Víctima
 9,NAME_WITNESS,Witness,Testigo
-10,NAME_NPC_LAST,Last,Ultimo
+10,NAME_MEMENTO_CHASE,Court,Juicio
+11,NAME_NPC_LAST,Last,Ultimo

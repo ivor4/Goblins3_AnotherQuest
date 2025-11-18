@@ -16,44 +16,56 @@ namespace Gob3AQ.ItemMaster
         private IReadOnlyDictionary<GameItem, GameElementClass> _levelItems;
 
 
-        public static void UnchainToItemService(in UnchainInfo unchainInfo)
+        public static void UnchainToItemService(in UnchainInfo unchainInfo, bool spawnPreDisappear)
         {
             if (_singleton != null)
             {
                 GameElementClass instance;
 
-                switch (unchainInfo.type)
+                if (spawnPreDisappear)
                 {
-                    case UnchainType.UNCHAIN_TYPE_EARN_ITEM:
-                        EarnLosePickableItem(unchainInfo.targetCharacter, unchainInfo.targetItem, true);
-                        break;
-                    case UnchainType.UNCHAIN_TYPE_LOSE_ITEM:
-                        EarnLosePickableItem(CharacterType.CHARACTER_NONE, unchainInfo.targetItem, false);
-                        break;
-                    case UnchainType.UNCHAIN_TYPE_SET_SPRITE:
-                        if(_singleton._levelItems.TryGetValue(unchainInfo.targetItem, out instance))
-                        {
-                            instance.SetSprite(unchainInfo.targetSprite);
-                        }
-                        break;
-                    case UnchainType.UNCHAIN_TYPE_SPAWN:
-                        if (_singleton._levelItems.TryGetValue(unchainInfo.targetItem, out instance))
-                        {
-                            instance.SetActive(true);
-                            instance.SetClickable(true);
-                            instance.SetVisible(true);
-                        }
-                        break;
+                    if (_singleton._levelItems.TryGetValue(unchainInfo.targetItem, out instance))
+                    {
+                        instance.SetActive(false);
+                        instance.SetClickable(false);
+                        instance.SetVisible(false);
+                    }
+                }
+                else
+                {
+                    switch (unchainInfo.type)
+                    {
+                        case UnchainType.UNCHAIN_TYPE_EARN_ITEM:
+                            EarnLosePickableItem(unchainInfo.targetCharacter, unchainInfo.targetItem, true);
+                            break;
+                        case UnchainType.UNCHAIN_TYPE_LOSE_ITEM:
+                            EarnLosePickableItem(CharacterType.CHARACTER_NONE, unchainInfo.targetItem, false);
+                            break;
+                        case UnchainType.UNCHAIN_TYPE_SET_SPRITE:
+                            if (_singleton._levelItems.TryGetValue(unchainInfo.targetItem, out instance))
+                            {
+                                instance.SetSprite(unchainInfo.targetSprite);
+                            }
+                            break;
+                        case UnchainType.UNCHAIN_TYPE_SPAWN:
+                            if (_singleton._levelItems.TryGetValue(unchainInfo.targetItem, out instance))
+                            {
+                                instance.SetActive(true);
+                                instance.SetClickable(true);
+                                instance.SetVisible(true);
+                            }
+                            break;
 
-                    case UnchainType.UNCHAIN_TYPE_DESPAWN:
-                        if (_singleton._levelItems.TryGetValue(unchainInfo.targetItem, out instance))
-                        {
-                            instance.VirtualDestroy();
-                        }
-                        break;
+                        case UnchainType.UNCHAIN_TYPE_DESPAWN:
+                            if (_singleton._levelItems.TryGetValue(unchainInfo.targetItem, out instance))
+                            {
+                                instance.VirtualDestroy();
+                            }
+                            break;
 
-                    default:
-                        break;
+                        default:
+                            break;
+                    }
                 }
             }
         }

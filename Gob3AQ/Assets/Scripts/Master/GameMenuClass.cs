@@ -90,10 +90,11 @@ namespace Gob3AQ.GameMenu
 
         private void ShowDialogueExec(DialogType dialog, DialogPhrase phrase)
         {
-            int selectablePhrases;
+            int selectableOptions;
 
             DialogPhrase uniquePhrase = DialogPhrase.PHRASE_NONE;
             DialogOption uniqueOption = DialogOption.DIALOG_OPTION_NONE;
+            int uniqueNumPhrases = 0;
 
             ref readonly DialogConfig dialogConfig = ref ResourceDialogsAtlasClass.GetDialogConfig(dialog);
 
@@ -102,11 +103,12 @@ namespace Gob3AQ.GameMenu
             {
                 uniquePhrase = phrase;
                 uniqueOption = DialogOption.DIALOG_OPTION_SIMPLE;
-                selectablePhrases = 1;
+                selectableOptions = 1;
+                uniqueNumPhrases = 1;
             }
             else
             {
-                selectablePhrases = 0;
+                selectableOptions = 0;
 
                 ReadOnlySpan<DialogOption> dialogOptions = dialogConfig.Options;
 
@@ -123,16 +125,17 @@ namespace Gob3AQ.GameMenu
 
                         ResourceDialogsClass.GetPhraseContent(dialogPhrases[0], out PhraseContent optionPhraseContent);
 
-                        _uicanvas_cls.ActivateDialogOption(selectablePhrases, true, dialogOptions[i], optionPhraseContent.message);
+                        _uicanvas_cls.ActivateDialogOption(selectableOptions, true, dialogOptions[i], optionPhraseContent.message);
 
                         uniquePhrase = dialogPhrases[0];
                         uniqueOption = dialogOptions[i];
-                        ++selectablePhrases;
+                        uniqueNumPhrases = dialogOptionConfig.Phrases.Length;
+                        ++selectableOptions;
                     }
                 }
 
                 /* Clear previous usage data and deactivate */
-                for (int i = selectablePhrases; i < GameFixedConfig.MAX_DIALOG_OPTIONS; ++i)
+                for (int i = selectableOptions; i < GameFixedConfig.MAX_DIALOG_OPTIONS; ++i)
                 {
                     _uicanvas_cls.ActivateDialogOption(i, false, DialogOption.DIALOG_OPTION_NONE, string.Empty);
                 }
@@ -149,19 +152,19 @@ namespace Gob3AQ.GameMenu
 
 
             /* If it is multichoice, enable selectors. If only 1 say it directly */
-            if (selectablePhrases > 1)
+            if (selectableOptions > 1)
             {
                 _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_OPTIONS, string.Empty, string.Empty);
 
                 dialog_optionPending = true;
                 dialog_tellingInProgress = false;
             }
-            else if (selectablePhrases == 1)
+            else if (selectableOptions == 1)
             {
                 /* Initialize phrase index */
                 dialog_optionPending = false;
 
-                StartDialogue(uniqueOption, 1);
+                StartDialogue(uniqueOption, uniqueNumPhrases);
                 StartPhrase(uniquePhrase);
             }
             else

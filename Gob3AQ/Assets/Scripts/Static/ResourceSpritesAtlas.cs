@@ -37,6 +37,7 @@ namespace Gob3AQ.ResourceSpritesAtlas
             new("SPRITE_ATLAS_ROOM1_1[SPRITE_ROOM1_WITNESS2]"), /* SPRITE_ROOM1_WITNESS2 */ 
             new("SPRITE_ATLAS_ROOM1_1[SPRITE_ROOM1_WITNESS3]"), /* SPRITE_ROOM1_WITNESS3 */ 
             new("SPRITE_ATLAS_ROOM1_1[SPRITE_ROOM1_TABLE]"), /* SPRITE_ROOM1_DECO_TABLE */ 
+            new("SPRITE_ATLAS_PICKABLES_0[SPRITE_MEMENTO_CHASE]"), /* SPRITE_MEMENTO_CHASE */ 
             new("SPRITE_LAST"), /* SPRITE_LAST */ 
             /* > ATG 1 END < */
         };

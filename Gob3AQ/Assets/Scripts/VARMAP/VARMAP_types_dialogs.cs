@@ -7,6 +7,7 @@ namespace Gob3AQ.VARMAP.Types
         /* > ATG 1 START < */
         DIALOG_NONE = -1, 
         DIALOG_SIMPLE, 
+        DIALOG_WITNESS1, 
         DIALOG_LAST, 
         
         DIALOG_TOTAL
@@ -18,6 +19,7 @@ namespace Gob3AQ.VARMAP.Types
         /* > ATG 2 START < */
         DIALOG_OPTION_NONE = -1, 
         DIALOG_OPTION_SIMPLE, 
+        DIALOG_OPTION_WITNESS1_INNOCENT, 
         DIALOG_OPTION_LAST, 
         
         DIALOG_OPTION_TOTAL
@@ -36,7 +38,13 @@ namespace Gob3AQ.VARMAP.Types
         PHRASE_ALREADY_COMBI, 
         PHRASE_GREAT_IDEA_COMBI, 
         PHRASE_MEMENTO_VICTIM_CASE_0, 
+        PHRASE_MEMENTO_VICTIM_CASE_1, 
         PHRASE_ROOM1_OBSERVE_VICTIM, 
+        PHRASE_ROOM1_WITNESS1_INNOCENT0, 
+        PHRASE_ROOM1_WITNESS1_INNOCENT1, 
+        PHRASE_ROOM1_WITNESS1_INNOCENT2, 
+        PHRASE_ROOM1_WITNESS1_INNOCENT3, 
+        PHRASE_MEMENTO_CHASE_0, 
         
         PHRASE_TOTAL
         /* > ATG 3 END < */

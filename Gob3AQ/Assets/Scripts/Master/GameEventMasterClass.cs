@@ -338,7 +338,16 @@ namespace Gob3AQ.GameEventMaster
                         (unchainer_info.type == UnchainType.UNCHAIN_TYPE_DESPAWN)
                         )
                     {
-                        if (!roomInfo.items[unchainer_info.targetItem])
+                        if (roomInfo.items[unchainer_info.targetItem])
+                        {
+                            /* If it needs to spawn, make it invisible by the moment */
+                            if(unchainer_info.type == UnchainType.UNCHAIN_TYPE_SPAWN)
+                            {
+                                Debug.Log("Pre-Disappear for posterior Spawn unchainer " + unchainer_info.targetItem);
+                                VARMAP_GameEventMaster.UNCHAIN_TO_ITEM(in UnchainInfo.EMPTY, true);
+                            }
+                        }
+                        else
                         {
                             pending = false;
                         }
@@ -408,7 +417,7 @@ namespace Gob3AQ.GameEventMaster
                         CommitMementoService(info.targetMemento);
                         break;
                     default:
-                        VARMAP_GameEventMaster.UNCHAIN_TO_ITEM(in info);
+                        VARMAP_GameEventMaster.UNCHAIN_TO_ITEM(in info, false);
                         break;
                 }
             }

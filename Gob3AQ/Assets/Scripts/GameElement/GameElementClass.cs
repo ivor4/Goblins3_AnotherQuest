@@ -15,6 +15,10 @@ namespace Gob3AQ.GameElement
         [SerializeField]
         protected GameItem itemID;
 
+        [SerializeField]
+        protected WaypointClass startingWaypoint;
+
+
         public GameItem ItemID => itemID;
 
         public GameItemFamily GetGameItemFamily => gameElementFamily;

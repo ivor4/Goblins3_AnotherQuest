@@ -8,4 +8,10 @@ N,PHRASE_ID,TalkerIndex,Sound,CharAnimation,Text_English,Text_Spanish
 6,PHRASE_ALREADY_COMBI,0,0,DIALOG_ANIMATION_TALK,I already thought that,Ya le di una vuelta a aquello
 7,PHRASE_GREAT_IDEA_COMBI,0,0,DIALOG_ANIMATION_TALK,That is a great idea!,Es una genial idea!
 8,PHRASE_MEMENTO_VICTIM_CASE_0,0,0,DIALOG_ANIMATION_NONE,This mistery is a hard puzzle to solve,Este misterio es un gran rompecabezas que resolver
-9,PHRASE_ROOM1_OBSERVE_VICTIM,0,0,DIALOG_ANIMATION_TALK,Victim is definitely gone! They all claim he was poisoned,La víctima definitivamente ha sucumbido! Todos dicen que ha sido envenenado
+9,PHRASE_MEMENTO_VICTIM_CASE_1,0,0,DIALOG_ANIMATION_NONE,Victim seems to be poisoned. Could be poison is still in kitchen or fest room?,La víctima parece haber sido envenenada. Puede ser que el veneno esté aún en la cocina o el gran salón?
+10,PHRASE_ROOM1_OBSERVE_VICTIM,0,0,DIALOG_ANIMATION_TALK,Victim is definitely gone! They all claim he was poisoned,La víctima definitivamente ha sucumbido! Todos dicen que ha sido envenenado
+11,PHRASE_ROOM1_WITNESS1_INNOCENT0,0,0,DIALOG_ANIMATION_TALK,I'm innocent! I just brought all food this morning! no one more complained,Soy inocente! Solo traje la comida esta mañana! Nadie más se ha quejado
+12,PHRASE_ROOM1_WITNESS1_INNOCENT1,1,0,DIALOG_ANIMATION_TALK,That! Is what you'll need to prove in court when they come after you,Eso! Es lo que tendrás que demostrar en un juicio! En cuanto entren a por ti
+13,PHRASE_ROOM1_WITNESS1_INNOCENT2,0,0,DIALOG_ANIMATION_TALK,I have enough time to demonstrate my innocence,Tengo tiempo suficiente para demostrar mi inocencia
+14,PHRASE_ROOM1_WITNESS1_INNOCENT3,1,0,DIALOG_ANIMATION_TALK,I wish you in jail,Ojalá te vea en prisión
+15,PHRASE_MEMENTO_CHASE_0,1,0,DIALOG_ANIMATION_TALK,There will be a court process and I am the only suspicious,Habrá un juicio y soy el único sospechoso

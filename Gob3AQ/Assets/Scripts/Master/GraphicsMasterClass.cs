@@ -142,17 +142,24 @@ namespace Gob3AQ.GraphicsMaster
                     ref readonly CameraDispositionStruct cameradisp = ref VARMAP_GraphicsMaster.GET_CAMERA_DISPOSITION();
                     Room actualRoom = VARMAP_GraphicsMaster.GET_ACTUAL_ROOM();
 
+                    Vector3 cameraPosition;
+
                     if (cameradisp.room == actualRoom)
                     {
                         mainCamera.orthographicSize = cameradisp.orthoSize;
 
                         UpdateCameraBounds();
 
-                        Vector3 cameraPosition = cameradisp.position;
+                        cameraPosition = cameradisp.position;
                         cameraPosition.z = mainCameraTransform.position.z;
-
-                        MoveCameraToPosition(in cameraPosition);
                     }
+                    else
+                    {
+                        UpdateCameraBounds();
+                        cameraPosition = mainCameraTransform.position;
+                    }
+
+                    MoveCameraToPosition(in cameraPosition);
 
                     VARMAP_GraphicsMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GraphicsMaster);
 

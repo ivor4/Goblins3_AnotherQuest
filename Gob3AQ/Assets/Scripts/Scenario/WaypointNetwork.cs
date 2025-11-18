@@ -104,7 +104,7 @@ namespace Gob3AQ.Waypoint.Network
 
             /* Now algorithm has been executed, distances are necessary no more.
              * Transform those lists into elem to follow */
-            for(int i=0;i<children.Count;++i)
+            for (int i = 0; i < children.Count; ++i)
             {
                 List<int> travelTo = new(children.Count);
 
@@ -120,7 +120,6 @@ namespace Gob3AQ.Waypoint.Network
                     }
                     else
                     {
-
                         travelTo.Add(path_to[n_elems-2].ID_in_Network);
                     }
                 }
@@ -132,7 +131,6 @@ namespace Gob3AQ.Waypoint.Network
 
         private void Propagate(WaypointClass source, float[,] result_distances, List<WaypointClass>[,] result_pathTo)
         {
-            HashSet<WaypointClass> visited = new(children.Count);
             Stack<float> accumDistances = new(children.Count);
             Stack<WaypointClass> accumElems = new(children.Count);
 
@@ -141,7 +139,6 @@ namespace Gob3AQ.Waypoint.Network
             /* Start with self */
             accumDistances.Push(0f);
             accumElems.Push(source);
-            visited.Add(source);
 
             while(accumElems.Count > 0)
             {
@@ -152,11 +149,8 @@ namespace Gob3AQ.Waypoint.Network
                 /* Update distance is less than minimum observed  */
                 int dstindex = actualInspected.ID_in_Network;
 
-                if(distanceFromSrcToInspected < result_distances[srcindex, dstindex])
-                {
-                    result_distances[srcindex, dstindex] = distanceFromSrcToInspected;
-                    result_pathTo[srcindex, dstindex] = new(accumElems);
-                }
+                result_distances[srcindex, dstindex] = distanceFromSrcToInspected;
+                result_pathTo[srcindex, dstindex] = new(accumElems);
 
                 /* If actual inspected elem has unvisited connections, take first found */
                 /* Algorithm will take here to this inspected if that branch is consumed */
@@ -164,14 +158,14 @@ namespace Gob3AQ.Waypoint.Network
                 bool found = false;
                 foreach(WaypointClass connection in actualInspected.ConnectedWaypoints)
                 {
-                    if(!visited.Contains(connection))
-                    {
-                        /* Calculate distance to this point and add to base distance */
-                        float connectionDistance = (connection.transform.position - actualInspected.transform.position).magnitude;
-                        float distanceFromSrcToConnected = distanceFromSrcToInspected + connectionDistance;
+                    /* Calculate distance to this point and add to base distance */
+                    float connectionDistance = (connection.transform.position - actualInspected.transform.position).magnitude;
+                    float distanceFromSrcToConnected = distanceFromSrcToInspected + connectionDistance;
 
+                    /* Continue on this element if distance promises to have an update */
+                    if (distanceFromSrcToConnected < result_distances[srcindex, connection.ID_in_Network])
+                    {
                         /* Add to stack, iteration will inspect this one on next loop */
-                        visited.Add(connection);
                         accumElems.Push(connection);
                         accumDistances.Push(distanceFromSrcToConnected);
                         found = true;

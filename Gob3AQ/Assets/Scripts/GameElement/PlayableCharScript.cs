@@ -206,7 +206,10 @@ namespace Gob3AQ.GameElement.PlayableChar
                     actualWaypoint = wpStartIndex;
                 }
 
-                _parentTransform.position = waypoints[actualWaypoint];
+                feetOffset = mySpriteRenderer.bounds.extents;
+                feetOffset.x = 0;
+
+                _parentTransform.position = waypoints[actualWaypoint] + feetOffset;
 
                 actualProgrammedPath.target_index = actualWaypoint;
                 actualProgrammedPath.final_index = actualWaypoint;
@@ -215,9 +218,6 @@ namespace Gob3AQ.GameElement.PlayableChar
 
                 SetVisible_Internal(true);
                 PlayerMasterClass.SetPlayerLoaded(CharType);
-
-                feetOffset = mySpriteRenderer.bounds.extents;
-                feetOffset.x = 0;
 
                 UpdateSortingOrder();
             }

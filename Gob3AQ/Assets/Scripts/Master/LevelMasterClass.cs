@@ -3,7 +3,7 @@ using Gob3AQ.Brain.LevelOptions;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameElement;
 using Gob3AQ.GameElement.Clickable;
-using Gob3AQ.GameElement.Door;
+using Gob3AQ.GameElement.Item.Door;
 using Gob3AQ.GameElement.PlayableChar;
 using Gob3AQ.VARMAP.LevelMaster;
 using Gob3AQ.VARMAP.Types;

@@ -10,6 +10,7 @@ namespace Gob3AQ.VARMAP.Types
         EVENT_FIRST, 
         EVENT_OBSERVE_VICTIM, 
         EVENT_AWARE_CHASE_1, 
+        EVENT_AWARE_CHASE_2, 
         EVENT_LAST, 
         
         EVENT_TOTAL
@@ -35,6 +36,7 @@ namespace Gob3AQ.VARMAP.Types
         MEMENTO_VICTIM_CASE_0, 
         MEMENTO_VICTIM_CASE_1, 
         MEMENTO_CHASE_0, 
+        MEMENTO_CHASE_1, 
         MEMENTO_LAST, 
         
         MEMENTO_TOTAL

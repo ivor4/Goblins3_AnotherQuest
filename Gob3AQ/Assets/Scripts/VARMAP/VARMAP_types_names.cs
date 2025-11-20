@@ -18,6 +18,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_VICTIM, 
         NAME_WITNESS, 
         NAME_MEMENTO_CHASE, 
+        NAME_DOOR, 
         NAME_NPC_LAST, 
         
         NAME_TOTAL

@@ -1,103 +1,31 @@
-using UnityEngine;
 using Gob3AQ.VARMAP.Types;
-using Gob3AQ.Waypoint;
-using Gob3AQ.VARMAP.LevelMaster;
-using System;
+using UnityEngine;
 
-namespace Gob3AQ.GameElement.Door
+namespace Gob3AQ.GameElement.Item.Door
 {
     [System.Serializable]
-    public class DoorClass : MonoBehaviour
+    public class DoorClass : ItemClass
     {
         [SerializeField]
-        private WaypointClass _waypoint;
+        private Room _roomLeadTo;
+
+        public Room RoomLead => _roomLeadTo;
 
         [SerializeField]
-        private GameEvent _neededEvent;
+        private int _waypointLeadTo;
 
-        [SerializeField]
-        private Room _roomLead;
+        public int RoomAppearPosition => _waypointLeadTo;
 
-        [SerializeField]
-        private int _roomAppearPosition;
-
-        private Collider2D _collider;
-        
-        private SpriteRenderer _sprrend;
-        private Rigidbody2D _rigidbody;
-
-        private bool _subscribed;
-        private bool _registered;
-
-        public Room RoomLead => _roomLead;
-        public int RoomAppearPosition => _roomAppearPosition;
-
-        public Collider2D Collider => _collider;
-
-        public WaypointClass Waypoint => _waypoint;
-
-        private void Awake()
+        protected override void Awake()
         {
-            _collider = GetComponent<Collider2D>();
-            _sprrend = GetComponent<SpriteRenderer>();
-            _rigidbody = GetComponent<Rigidbody2D>();
-
-            _collider.enabled = false;
-            _sprrend.enabled = false;
-
-            _subscribed = false;
-            _registered = false;
+            base.Awake();
         }
 
-        private void Start()
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        protected override void Start()
         {
-            if (_neededEvent != GameEvent.EVENT_NONE)
-            {
-                GameEventCombi combi = new(_neededEvent, false);
-                Span<GameEventCombi> combis = stackalloc GameEventCombi[1] { combi };
-                VARMAP_LevelMaster.IS_EVENT_COMBI_OCCURRED(combis, out bool occurred);
-
-                if(occurred)
-                {
-                    _ActivateDoor();
-                }
-                else
-                {
-                    //VARMAP_LevelMaster.EVENT_SUBSCRIPTION(_neededEvent, _NeededEventChanged, true);
-                    _subscribed = true;
-                }
-            }
+            base.Start();
         }
 
-        private void OnDestroy()
-        {
-            if(_subscribed)
-            {
-                //VARMAP_LevelMaster.EVENT_SUBSCRIPTION(_neededEvent, _NeededEventChanged, false);
-            }
-
-            if(_registered)
-            {
-                VARMAP_LevelMaster.DOOR_REGISTER(this, false);
-            }
-        }
-
-        private void _NeededEventChanged(bool status)
-        {
-            if(status)
-            {
-                _ActivateDoor();
-            }
-        }
-
-        private void _ActivateDoor()
-        {
-            _sprrend.enabled = true;
-            _collider.enabled = true;
-
-            VARMAP_LevelMaster.DOOR_REGISTER(this, true);
-
-            _registered = true;
-        }
     }
 }

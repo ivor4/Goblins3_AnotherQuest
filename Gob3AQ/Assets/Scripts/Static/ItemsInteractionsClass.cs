@@ -139,6 +139,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_CHASE_0, 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
+            new( /* UNCHAIN_ROOM1_MEMENTO_CHASE_1 */
+            UnchainType.UNCHAIN_TYPE_MEMENTO,new(GameEvent.EVENT_AWARE_CHASE_2, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_AWARE_CHASE_2, false),}, 
+            GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_CHASE_1, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
             /* > ATG 1 END < */
         };
 
@@ -167,6 +173,13 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterAnimation.ITEM_USE_ANIMATION_NONE,
             DialogType.DIALOG_WITNESS1,DialogPhrase.PHRASE_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_AWARE_CHASE_1, false),}), 
+            
+            new( /* COND_TALK_WITNESS2 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,
+            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
+            DialogType.DIALOG_WITNESS2,DialogPhrase.PHRASE_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_AWARE_CHASE_2, false),}), 
             
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
@@ -212,11 +225,16 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_WITNESS2 */
             NameType.NAME_WITNESS,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ROOM1_WITNESS2,}),
             GameSprite.SPRITE_ROOM1_WITNESS2,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
-            new ActionConditions[1]{ActionConditions.COND_OK,}),
+            new ActionConditions[1]{ActionConditions.COND_TALK_WITNESS2,}),
             
             new ( /* ITEM_WITNESS3 */
             NameType.NAME_WITNESS,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ROOM1_WITNESS3,}),
             GameSprite.SPRITE_ROOM1_WITNESS3,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_OK,}),
+            
+            new ( /* ITEM_DOOR_NORMAL */
+            NameType.NAME_DOOR,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_NONE,}),
+            GameSprite.SPRITE_NONE,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
             new ActionConditions[1]{ActionConditions.COND_OK,}),
             
             new ( /* ITEM_LAST */
@@ -251,7 +269,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             /* MEMENTO_PARENT_CHASE */
             new(
             NameType.NAME_MEMENTO_CHASE,GameSprite.SPRITE_MEMENTO_CHASE,
-            new Memento[1]{Memento.MEMENTO_CHASE_0,}
+            new Memento[2]{Memento.MEMENTO_CHASE_0,Memento.MEMENTO_CHASE_1,}
             ),
             
             /* MEMENTO_PARENT_LAST */
@@ -278,6 +296,10 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new(MementoParent.MEMENTO_PARENT_CHASE,DialogPhrase.PHRASE_MEMENTO_CHASE_0,
             new(new HashSet<MementoCombi>(1){MementoCombi.MEMENTO_COMBI_NONE,}),
             true,false),
+            /* MEMENTO_CHASE_1 */
+            new(MementoParent.MEMENTO_PARENT_CHASE,DialogPhrase.PHRASE_MEMENTO_CHASE_1,
+            new(new HashSet<MementoCombi>(1){MementoCombi.MEMENTO_COMBI_NONE,}),
+            false,false),
             /* MEMENTO_LAST */
             new(MementoParent.MEMENTO_PARENT_LAST,DialogPhrase.PHRASE_NONE,
             new(new HashSet<MementoCombi>(1){MementoCombi.MEMENTO_COMBI_NONE,}),

@@ -1,9 +1,7 @@
 ﻿using Gob3AQ.GameElement;
 using Gob3AQ.GameElement.Clickable;
-using Gob3AQ.GameElement.Door;
-using Gob3AQ.GameElement.Item;
+using Gob3AQ.GameElement.Item.Door;
 using Gob3AQ.GameElement.PlayableChar;
-using Gob3AQ.Libs.Arith;
 using Gob3AQ.Waypoint;
 using Gob3AQ.Waypoint.Network;
 using System;

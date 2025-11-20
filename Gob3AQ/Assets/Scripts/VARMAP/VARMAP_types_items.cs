@@ -13,6 +13,7 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_WITNESS1, 
         ITEM_WITNESS2, 
         ITEM_WITNESS3, 
+        ITEM_DOOR_NORMAL, 
         ITEM_LAST, 
         
         ITEM_TOTAL
@@ -34,6 +35,7 @@ namespace Gob3AQ.VARMAP.Types
         COND_OK, 
         COND_OBSERVE_VICTIM, 
         COND_TALK_WITNESS1, 
+        COND_TALK_WITNESS2, 
         COND_LAST, 
         
         COND_TOTAL
@@ -47,6 +49,7 @@ namespace Gob3AQ.VARMAP.Types
         UNCHAIN_ROOM1_INITIAL_EVENT, 
         UNCHAIN_ROOM1_OBSERVE_VICTIM, 
         UNCHAIN_ROOM1_MEMENTO_CHASE_0, 
+        UNCHAIN_ROOM1_MEMENTO_CHASE_1, 
         
         UNCHAIN_TOTAL
         /* > ATG 4 END < */

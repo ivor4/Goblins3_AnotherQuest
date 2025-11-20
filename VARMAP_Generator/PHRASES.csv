@@ -14,4 +14,7 @@ N,PHRASE_ID,TalkerIndex,Sound,CharAnimation,Text_English,Text_Spanish
 12,PHRASE_ROOM1_WITNESS1_INNOCENT1,1,0,DIALOG_ANIMATION_TALK,That! Is what you'll need to prove in court when they come after you,Eso! Es lo que tendrás que demostrar en un juicio! En cuanto entren a por ti
 13,PHRASE_ROOM1_WITNESS1_INNOCENT2,0,0,DIALOG_ANIMATION_TALK,I have enough time to demonstrate my innocence,Tengo tiempo suficiente para demostrar mi inocencia
 14,PHRASE_ROOM1_WITNESS1_INNOCENT3,1,0,DIALOG_ANIMATION_TALK,I wish you in jail,Ojalá te vea en prisión
-15,PHRASE_MEMENTO_CHASE_0,1,0,DIALOG_ANIMATION_TALK,There will be a court process and I am the only suspicious,Habrá un juicio y soy el único sospechoso
+15,PHRASE_ROOM1_WITNESS2_GUARDS0,1,0,DIALOG_ANIMATION_TALK,Don't go too far. They are comming after you,No te vayas muy lejos. Ya vienen a por ti
+16,PHRASE_ROOM1_WITNESS2_GUARDS1,0,0,DIALOG_ANIMATION_TALK,I won't move! for sure,No me moveré! Seguro!
+17,PHRASE_MEMENTO_CHASE_0,0,0,DIALOG_ANIMATION_TALK,There will be a court process and I am the only suspicious,Habrá un juicio y soy el único sospechoso
+18,PHRASE_MEMENTO_CHASE_1,0,0,DIALOG_ANIMATION_TALK,By the moment I see the only solution is to flee,Por el momento solo veo la opción de huir

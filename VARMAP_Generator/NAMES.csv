@@ -10,4 +10,5 @@ N,NAME_ID,Name_English,Name_Spanish
 8,NAME_VICTIM,Victim,Víctima
 9,NAME_WITNESS,Witness,Testigo
 10,NAME_MEMENTO_CHASE,Court,Juicio
-11,NAME_NPC_LAST,Last,Ultimo
+11,NAME_DOOR,Cross door,Cruzar puerta
+12,NAME_NPC_LAST,Last,Ultimo

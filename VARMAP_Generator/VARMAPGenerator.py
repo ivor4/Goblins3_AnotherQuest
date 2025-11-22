@@ -1411,8 +1411,7 @@ for line in EVENTSinputFile:
             items_interaction_lines.InsertLineInATG(7, stringToWrite)
                 
                 
-            stringToWrite = columns[5].lower()+','+\
-                columns[6].lower()+'),\n'
+            stringToWrite = columns[5].lower()+'),\n'
             items_interaction_lines.InsertLineInATG(7, stringToWrite)
         elif(zone == 4):
             stringToWrite = '/* ' + columns[1] + ' */\n'

@@ -13,8 +13,8 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_WITNESS1, 
         ITEM_WITNESS2, 
         ITEM_WITNESS3, 
-        ITEM_DOOR_NORMAL, 
-        ITEM_DOOR_NORMAL_2, 
+        ITEM_ROOM1_DOOR_KITCHEN, 
+        ITEM_ROOM1_DOOR_MAIN, 
         ITEM_LAST, 
         
         ITEM_TOTAL
@@ -34,9 +34,11 @@ namespace Gob3AQ.VARMAP.Types
     {
         /* > ATG 3 START < */
         COND_OK, 
-        COND_OBSERVE_VICTIM, 
-        COND_TALK_WITNESS1, 
-        COND_TALK_WITNESS2, 
+        COND_ROOM1_OBSERVE_VICTIM, 
+        COND_ROOM1_TALK_WITNESS1, 
+        COND_ROOM1_TALK_WITNESS2, 
+        COND_ROOM1_NOT_CROSS_DOOR, 
+        COND_ROOM1_NOT_CROSS_MAIN_DOOR, 
         COND_LAST, 
         
         COND_TOTAL
@@ -50,6 +52,8 @@ namespace Gob3AQ.VARMAP.Types
         UNCHAIN_ROOM1_INITIAL_EVENT, 
         UNCHAIN_ROOM1_OBSERVE_VICTIM, 
         UNCHAIN_ROOM1_MEMENTO_CHASE_0, 
+        UNCHAIN_ROOM1_MEMENTO_CHASE_0_bis, 
+        UNCHAIN_ROOM1_NEED_FLEE, 
         UNCHAIN_ROOM1_MEMENTO_CHASE_1, 
         
         UNCHAIN_TOTAL

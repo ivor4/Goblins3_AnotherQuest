@@ -18,3 +18,5 @@ N,PHRASE_ID,TalkerIndex,Sound,CharAnimation,Text_English,Text_Spanish
 16,PHRASE_ROOM1_WITNESS2_GUARDS1,0,0,DIALOG_ANIMATION_TALK,I won't move! for sure,No me moveré! Seguro!
 17,PHRASE_MEMENTO_CHASE_0,0,0,DIALOG_ANIMATION_TALK,There will be a court process and I am the only suspicious,Habrá un juicio y soy el único sospechoso
 18,PHRASE_MEMENTO_CHASE_1,0,0,DIALOG_ANIMATION_TALK,By the moment I see the only solution is to flee,Por el momento solo veo la opción de huir
+19,PHRASE_ROOM1_NOT_CROSS_DOOR,0,0,DIALOG_ANIMATION_TALK,I need to ensure what's the situation before leaving,Necesito asegurarme de cuál es la situación antes de irme
+20,PHRASE_ROOM1_NOT_CROSS_MAIN_DOOR,0,0,DIALOG_ANIMATION_TALK,It's not the best idea to flee from main door as guards are already comming for me,No es la mejor idea huir por la puerta principal ya que seguramente estén buscándome los guardias ahora mismo

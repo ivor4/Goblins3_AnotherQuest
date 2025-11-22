@@ -465,6 +465,7 @@ namespace Gob3AQ.LevelMaster
                     break;
 
                 case GameItemFamily.ITEM_FAMILY_TYPE_OBJECT:
+                case GameItemFamily.ITEM_FAMILY_TYPE_NPC:
                     accepted = InteractWithItem(playerSelected, chosenItem, ref usage, in hovered);
                     break;
 
@@ -524,7 +525,7 @@ namespace Gob3AQ.LevelMaster
 
             if (playerSelected != CharacterType.CHARACTER_NONE)
             {
-                usage = InteractionUsage.CreateTakeItem(playerSelected, hovered.item, hovered.waypoint);
+                usage = InteractionUsage.CreateCrossDoor(playerSelected, hovered.item, hovered.waypoint);
 
                 VARMAP_LevelMaster.INTERACT_PLAYER(playerSelected, hovered.waypoint, out accepted);
                 VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
@@ -562,47 +563,41 @@ namespace Gob3AQ.LevelMaster
             {
                 ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(usage.itemDest);
 
-                switch (itemInfo.family)
+                /* Check if it is available and is still in original position */
+                bool validTransaction = IsItemAvailable(usage.itemDest);
+                validTransaction &= _ItemDictionary[usage.itemDest].Waypoint == usage.destWaypoint_index;
+
+
+                if (validTransaction)
                 {
-                    case GameItemFamily.ITEM_FAMILY_TYPE_DOOR:
-                        if (IsItemAvailable(usage.itemDest))
-                        {
-                            CrossDoor(usage.itemDest);
-                        }
-                        break;
-                    default:
-                        /* Check if it is available and is still in original position */
-                        bool validTransaction = IsItemAvailable(usage.itemDest);
-                        validTransaction &= _ItemDictionary[usage.itemDest].Waypoint == usage.destWaypoint_index;
+                    /* Use Item is also Take Item */
+                    VARMAP_LevelMaster.USE_ITEM(in usage, out InteractionUsageOutcome outcome);
 
+                    if ((usage.type == ItemInteractionType.INTERACTION_CROSS_DOOR) && (!outcome.ok))
+                    {
+                        /* May sound strange, if no special conditions, door can be crossed */
+                        CrossDoor(usage.itemDest);
+                    }
+                    else if (outcome.dialogType != DialogType.DIALOG_NONE)
+                    {
+                        /* Default talkers are own player and itemDest */
+                        talkers[0] = _Player_List[(int)usage.playerSource].ItemID;
+                        talkers[1] = usage.itemDest;
 
-                        if (validTransaction)
-                        {
-                            /* Use Item is also Take Item */
-                            VARMAP_LevelMaster.USE_ITEM(in usage, out InteractionUsageOutcome outcome);
+                        /* No need to know about error, as this function is executed from play mode */
+                        VARMAP_LevelMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_DIALOG, out _);
+                        VARMAP_LevelMaster.SHOW_DIALOGUE(talkers, outcome.dialogType, outcome.dialogPhrase);
+                    }
+                    else if (outcome.animation != CharacterAnimation.ITEM_USE_ANIMATION_NONE)
+                    {
+                        //ActAnimationRequest(outcome.animation);
+                    }
+                    else
+                    {
+                        /**/
+                    }
 
-                            if (outcome.dialogType != DialogType.DIALOG_NONE)
-                            {
-                                /* Default talkers are own player and itemDest */
-                                talkers[0] = _Player_List[(int)usage.playerSource].ItemID;
-                                talkers[1] = usage.itemDest;
-
-                                /* No need to know about error, as this function is executed from play mode */
-                                VARMAP_LevelMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_DIALOG, out _);
-                                VARMAP_LevelMaster.SHOW_DIALOGUE(talkers, outcome.dialogType, outcome.dialogPhrase);
-                            }
-                            else if (outcome.animation != CharacterAnimation.ITEM_USE_ANIMATION_NONE)
-                            {
-                                //ActAnimationRequest(outcome.animation);
-                            }
-                            else
-                            {
-                                /**/
-                            }
-
-                            VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
-                        }
-                        break;
+                    VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
                 }
             }
 

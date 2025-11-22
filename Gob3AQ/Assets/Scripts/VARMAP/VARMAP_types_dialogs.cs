@@ -50,6 +50,8 @@ namespace Gob3AQ.VARMAP.Types
         PHRASE_ROOM1_WITNESS2_GUARDS1, 
         PHRASE_MEMENTO_CHASE_0, 
         PHRASE_MEMENTO_CHASE_1, 
+        PHRASE_ROOM1_NOT_CROSS_DOOR, 
+        PHRASE_ROOM1_NOT_CROSS_MAIN_DOOR, 
         
         PHRASE_TOTAL
         /* > ATG 3 END < */

@@ -1,8 +1,6 @@
 using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.FixedConfig;
-using Gob3AQ.GameElement.PlayableChar;
 using Gob3AQ.GameMenu.UICanvas;
-using Gob3AQ.ResourceDialogs;
 using Gob3AQ.ResourceSprites;
 using Gob3AQ.VARMAP.GraphicsMaster;
 using Gob3AQ.VARMAP.Types;
@@ -38,7 +36,8 @@ namespace Gob3AQ.GraphicsMaster
         private GameObject background;
         private SpriteRenderer background_spr;
 
-        private bool pickableSelected;
+        private bool isPickableSelected;
+        private bool isDoorHovered;
 
         private bool _loaded;
 
@@ -290,7 +289,11 @@ namespace Gob3AQ.GraphicsMaster
             {
                 cursorSprite = GameSprite.SPRITE_CURSOR_DRAG;
             }
-            else if (pickableSelected)
+            else if(isDoorHovered)
+            {
+                cursorSprite = GameSprite.SPRITE_UI_CURSOR_DOOR;
+            }
+            else if (isPickableSelected)
             {
                 cursorSprite = GameSprite.SPRITE_CURSOR_USING;
             }
@@ -308,7 +311,7 @@ namespace Gob3AQ.GraphicsMaster
 
             if (newval != oldval)
             {
-                pickableSelected = newval != GameItem.ITEM_NONE;
+                isPickableSelected = newval != GameItem.ITEM_NONE;
 
                 UpdateCursorBaseSprite();
                 uicanvas_cls.SetCursorItem(newval);
@@ -321,7 +324,18 @@ namespace Gob3AQ.GraphicsMaster
 
             if(oldval != newval)
             {
-                uicanvas_cls.SetCursorLabel(newval);
+                ref readonly ItemInfo itemInfo = ref ItemInfo.EMPTY;
+
+                if (newval != GameItem.ITEM_NONE)
+                {
+                    itemInfo = ref ItemsInteractionsClass.GetItemInfo(newval);
+                }
+
+                isDoorHovered = itemInfo.family == GameItemFamily.ITEM_FAMILY_TYPE_DOOR;
+
+                UpdateCursorBaseSprite();
+
+                uicanvas_cls.SetCursorLabel(newval, in itemInfo);
             }
         }
 

@@ -281,18 +281,16 @@ namespace Gob3AQ.VARMAP.Types
         public readonly MementoParent parent;
         public readonly DialogPhrase phrase;
         public readonly ReadOnlyHashSet<MementoCombi> combinations;
-        public readonly bool initial;
         public readonly bool final;
 
         public static readonly MementoInfo EMPTY = new(MementoParent.MEMENTO_PARENT_NONE, DialogPhrase.PHRASE_NONE,
-            new(new HashSet<MementoCombi>(0)),false, false);
+            new(new HashSet<MementoCombi>(0)), false);
 
-        public MementoInfo(MementoParent parent, DialogPhrase phrase, ReadOnlyHashSet<MementoCombi> combinations, bool initial, bool final)
+        public MementoInfo(MementoParent parent, DialogPhrase phrase, ReadOnlyHashSet<MementoCombi> combinations, bool final)
         {
             this.parent = parent;
             this.phrase = phrase;
             this.combinations = combinations;
-            this.initial = initial;
             this.final = final;
         }
     }
@@ -415,6 +413,12 @@ namespace Gob3AQ.VARMAP.Types
         public static InteractionUsage CreateTakeItem(CharacterType playerSource, GameItem itemDest, int destWp_index)
         {
             return new InteractionUsage(ItemInteractionType.INTERACTION_TAKE, playerSource, GameItem.ITEM_NONE,
+                CharacterType.CHARACTER_NONE, itemDest, -1, destWp_index);
+        }
+
+        public static InteractionUsage CreateCrossDoor(CharacterType playerSource, GameItem itemDest, int destWp_index)
+        {
+            return new InteractionUsage(ItemInteractionType.INTERACTION_CROSS_DOOR, playerSource, GameItem.ITEM_NONE,
                 CharacterType.CHARACTER_NONE, itemDest, -1, destWp_index);
         }
 

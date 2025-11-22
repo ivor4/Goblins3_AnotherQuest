@@ -295,7 +295,7 @@ namespace Gob3AQ.GameMaster
             ResourceAtlasClass.Initialize();
         }
 
-        private static IEnumerator UnloadAndLoadRoomCoroutine(Room room)
+        private IEnumerator UnloadAndLoadRoomCoroutine(Room room)
         {
             AsyncOperationHandle<SceneInstance> nextRoom;
             AsyncOperationHandle<SceneInstance> loadingRoom;
@@ -319,13 +319,17 @@ namespace Gob3AQ.GameMaster
             yield return UnloadPreviousRoomResources(false);
 
             /* Load texts */
-            yield return ResourceDialogsClass.PreloadRoomTextsCoroutine(room);
+            Coroutine dialogsCoroutine = StartCoroutine(ResourceDialogsClass.PreloadRoomTextsCoroutine(room));
 
             /* Load sprites */
-            yield return ResourceSpritesClass.PreloadRoomSpritesCoroutine(room);
+            Coroutine spritesCoroutine = StartCoroutine(ResourceSpritesClass.PreloadRoomSpritesCoroutine(room));
 
             /* Load prefabs */
-            yield return ResourceAtlasClass.PreloadPrefabsCoroutine(room);
+            Coroutine prefabsCoroutine = StartCoroutine(ResourceAtlasClass.PreloadPrefabsCoroutine(room));
+
+            yield return dialogsCoroutine;
+            yield return spritesCoroutine;
+            yield return prefabsCoroutine;
 
             /* Now load desired room and its resources */
             string resourceName = GameFixedConfig.ROOM_TO_SCENE_NAME[(int)room];

@@ -41,7 +41,7 @@ namespace Gob3AQ.ResourceAtlas
 
         private static ReadOnlyHashSet<PrefabEnum> _fixedPrefabsToLoad;
         private static HashSet<PrefabEnum> _prefabsToLoad;
-        private static HashSet<PrefabEnum> _prefabsLoaded;
+        private static HashSet<PrefabEnum> _prefabsToRelease;
         private static Dictionary<PrefabEnum, AsyncOperationHandle<GameObject>> _cachedPrefabsFinder;
 
         public static ref readonly RoomInfo GetRoomInfo(Room room)
@@ -81,7 +81,7 @@ namespace Gob3AQ.ResourceAtlas
 
             _cachedPrefabsFinder = new(GameFixedConfig.MAX_CACHED_PREFABS);
             _prefabsToLoad = new(GameFixedConfig.MAX_CACHED_PREFABS);
-            _prefabsLoaded = new(GameFixedConfig.MAX_CACHED_PREFABS);
+            _prefabsToRelease = new(GameFixedConfig.MAX_CACHED_PREFABS);
         }
 
         public static IEnumerator PreloadPrefabsCoroutine(Room room)
@@ -103,27 +103,27 @@ namespace Gob3AQ.ResourceAtlas
         {
             if(fullClear)
             {
-                _prefabsLoaded.UnionWith(_cachedPrefabsFinder.Keys);
+                _prefabsToRelease.UnionWith(_cachedPrefabsFinder.Keys);
             }
             else
             {
-                _prefabsLoaded.ExceptWith(_prefabsToLoad);
+                _prefabsToRelease.ExceptWith(_prefabsToLoad);
             }
 
-            foreach (PrefabEnum handle in _prefabsLoaded)
+            foreach (PrefabEnum handle in _prefabsToRelease)
             {
                 _cachedPrefabsFinder[handle].Release();
                 _cachedPrefabsFinder.Remove(handle);
             }
 
-            _prefabsLoaded.Clear();
+            _prefabsToRelease.Clear();
         }
 
         private static void PreloadPrefabsPrepareList(Room room)
         {
             _ = room;
 
-            _prefabsLoaded.UnionWith(_cachedPrefabsFinder.Keys);
+            _prefabsToRelease.UnionWith(_cachedPrefabsFinder.Keys);
             _prefabsToLoad.UnionWith(_fixedPrefabsToLoad);
 
             UnloadUnusedPrefabs(false);
@@ -172,7 +172,7 @@ namespace Gob3AQ.ResourceAtlas
             new( /* ROOM_1 */
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_ROOM1, GameSprite.SPRITE_ROOM1_DECO_TABLE, }), 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(6){GameItem.ITEM_VICTIM, GameItem.ITEM_WITNESS1, GameItem.ITEM_WITNESS2, GameItem.ITEM_WITNESS3, GameItem.ITEM_DOOR_NORMAL, GameItem.ITEM_DOOR_NORMAL_2, }) 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(6){GameItem.ITEM_VICTIM, GameItem.ITEM_WITNESS1, GameItem.ITEM_WITNESS2, GameItem.ITEM_WITNESS3, GameItem.ITEM_ROOM1_DOOR_KITCHEN, GameItem.ITEM_ROOM1_DOOR_MAIN, }) 
             ),
             
             new( /* ROOM_LAST */

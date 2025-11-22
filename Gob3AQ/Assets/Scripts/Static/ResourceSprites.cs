@@ -17,14 +17,14 @@ namespace Gob3AQ.ResourceSprites
     {
         private static Dictionary<GameSprite, AsyncOperationHandle<Sprite>> _cachedHandles;
         private static HashSet<GameSprite> _spritesToLoadArray;
-        private static HashSet<GameSprite> _spritesLoadedArray;
+        private static HashSet<GameSprite> _spritesToRelease;
         private static ReadOnlyHashSet<GameSprite> _fixedSpritesArray;
 
         public static void Initialize()
         {
             _cachedHandles = new(GameFixedConfig.MAX_CACHED_SPRITES);
             _spritesToLoadArray = new(GameFixedConfig.MAX_CACHED_SPRITES);
-            _spritesLoadedArray = new(GameFixedConfig.MAX_CACHED_SPRITES);
+            _spritesToRelease = new(GameFixedConfig.MAX_CACHED_SPRITES);
 
             HashSet<GameSprite> editableHash = new(GameFixedConfig.MAX_CACHED_SPRITES)
             {
@@ -35,7 +35,8 @@ namespace Gob3AQ.ResourceSprites
                 GameSprite.SPRITE_UI_TAKE,
                 GameSprite.SPRITE_UI_TALK,
                 GameSprite.SPRITE_UI_OBSERVE,
-                GameSprite.SPRITE_UI_MOUSE_MOVE
+                GameSprite.SPRITE_UI_MOUSE_MOVE,
+                GameSprite.SPRITE_UI_CURSOR_DOOR
             };
 
             for (GamePickableItem i = 0; i < GamePickableItem.ITEM_PICK_TOTAL; i++)
@@ -72,27 +73,27 @@ namespace Gob3AQ.ResourceSprites
         {
             if (fullClear)
             {
-                _spritesLoadedArray.UnionWith(_cachedHandles.Keys);
+                _spritesToRelease.UnionWith(_cachedHandles.Keys);
             }
             else
             {
                 /* This gives the ones which are not present in ToLoad, in order to release them */
-                _spritesLoadedArray.ExceptWith(_spritesToLoadArray);
+                _spritesToRelease.ExceptWith(_spritesToLoadArray);
             }
 
-            foreach(GameSprite sprite in _spritesLoadedArray)
+            foreach(GameSprite sprite in _spritesToRelease)
             {
                 _cachedHandles[sprite].Release();
                 _cachedHandles.Remove(sprite);
             }
 
-            _spritesLoadedArray.Clear();
+            _spritesToRelease.Clear();
         }
 
         private static void PreloadSpritesPrepareList(Room room)
         {
             /* Move previous room "to load" into "loaded" */
-            _spritesLoadedArray.UnionWith(_cachedHandles.Keys);
+            _spritesToRelease.UnionWith(_cachedHandles.Keys);
             
 
             /* First fixed sprites to load */

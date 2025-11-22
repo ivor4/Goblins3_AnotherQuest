@@ -8,9 +8,10 @@ namespace Gob3AQ.VARMAP.Types
         /* > ATG 1 START < */
         EVENT_NONE = -1, 
         EVENT_FIRST, 
-        EVENT_OBSERVE_VICTIM, 
-        EVENT_AWARE_CHASE_1, 
-        EVENT_AWARE_CHASE_2, 
+        EVENT_ROOM1_OBSERVE_VICTIM, 
+        EVENT_ROOM1_AWARE_CHASE_1, 
+        EVENT_ROOM1_AWARE_CHASE_2, 
+        EVENT_ROOM1_NEED_FLEE, 
         EVENT_LAST, 
         
         EVENT_TOTAL

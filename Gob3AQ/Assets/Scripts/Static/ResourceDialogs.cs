@@ -20,10 +20,10 @@ namespace Gob3AQ.ResourceDialogs
 
         private static ReadOnlyHashSet<NameType> _fixedNamesArray;
         private static HashSet<NameType> _namesToLoadArray;
-        private static HashSet<NameType> _namesLoadedArray;
+        private static HashSet<NameType> _namesToRelease;
         private static ReadOnlyHashSet<DialogPhrase> _fixedPhrasesArray;
         private static HashSet<DialogPhrase> _phrasesToLoadArray;
-        private static HashSet<DialogPhrase> _phrasesLoadedArray;
+        private static HashSet<DialogPhrase> _phrasesToRelease;
         private static Dictionary<DialogPhrase, PhraseContent> _cachedPhrasesFinder;
         private static Dictionary<NameType, string> _cachedNamesFinder;
         private static DialogLanguages _language;
@@ -38,8 +38,8 @@ namespace Gob3AQ.ResourceDialogs
             
             _phrasesToLoadArray = new(GameFixedConfig.MAX_CACHED_PHRASES);
             _namesToLoadArray = new(GameFixedConfig.MAX_CACHED_PHRASES);
-            _phrasesLoadedArray = new(GameFixedConfig.MAX_CACHED_PHRASES);
-            _namesLoadedArray = new(GameFixedConfig.MAX_CACHED_PHRASES);
+            _phrasesToRelease = new(GameFixedConfig.MAX_CACHED_PHRASES);
+            _namesToRelease = new(GameFixedConfig.MAX_CACHED_PHRASES);
 
             HashSet<DialogPhrase> editablePhraseHash = new(GameFixedConfig.MAX_FIXED_PHRASES_TO_LOAD)
             {
@@ -98,10 +98,10 @@ namespace Gob3AQ.ResourceDialogs
             }
             else
             {
-                _namesLoadedArray.ExceptWith(_namesToLoadArray);
-                _phrasesLoadedArray.ExceptWith(_phrasesToLoadArray);
+                _namesToRelease.ExceptWith(_namesToLoadArray);
+                _phrasesToRelease.ExceptWith(_phrasesToLoadArray);
 
-                foreach (NameType name in _namesLoadedArray)
+                foreach (NameType name in _namesToRelease)
                 {
                     _cachedNamesFinder.Remove(name);
                 }
@@ -112,8 +112,8 @@ namespace Gob3AQ.ResourceDialogs
                 }
             }
 
-            _namesLoadedArray.Clear();
-            _phrasesLoadedArray.Clear();
+            _namesToRelease.Clear();
+            _phrasesToRelease.Clear();
         }
 
         public static IEnumerator PreloadRoomTextsCoroutine(Room room)
@@ -152,8 +152,8 @@ namespace Gob3AQ.ResourceDialogs
         private static void PreloadRoomTextsPrepareList(Room room)
         {
             /* Move from previous "to load" into "loaded */
-            _namesLoadedArray.UnionWith(_cachedNamesFinder.Keys);
-            _phrasesLoadedArray.UnionWith(_cachedPhrasesFinder.Keys);
+            _namesToRelease.UnionWith(_cachedNamesFinder.Keys);
+            _phrasesToRelease.UnionWith(_cachedPhrasesFinder.Keys);
             _namesToLoadArray.Clear();
             _phrasesToLoadArray.Clear();
 

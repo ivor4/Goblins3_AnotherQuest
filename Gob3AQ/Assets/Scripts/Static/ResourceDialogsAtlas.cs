@@ -85,13 +85,13 @@ namespace Gob3AQ.ResourceDialogsAtlas
             ),
             new( /* DIALOG_OPTION_WITNESS1_INNOCENT */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_AWARE_CHASE_1, false), },
             DialogType.DIALOG_NONE,
             new DialogPhrase[4]{DialogPhrase.PHRASE_ROOM1_WITNESS1_INNOCENT0, DialogPhrase.PHRASE_ROOM1_WITNESS1_INNOCENT1, DialogPhrase.PHRASE_ROOM1_WITNESS1_INNOCENT2, DialogPhrase.PHRASE_ROOM1_WITNESS1_INNOCENT3, }
             ),
             new( /* DIALOG_OPTION_WITNESS2_GUARDS */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
-            new GameEventCombi[1]{new(GameEvent.EVENT_AWARE_CHASE_2, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_AWARE_CHASE_2, false), },
             DialogType.DIALOG_NONE,
             new DialogPhrase[2]{DialogPhrase.PHRASE_ROOM1_WITNESS2_GUARDS0, DialogPhrase.PHRASE_ROOM1_WITNESS2_GUARDS1, }
             ),
@@ -125,6 +125,8 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_WITNESS2_GUARDS1 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_MEMENTO_CHASE_0 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_MEMENTO_CHASE_1 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_NOT_CROSS_DOOR */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_NOT_CROSS_MAIN_DOOR */ 
             /* > ATG 3 END < */
         };
     }

@@ -42,6 +42,7 @@ namespace Gob3AQ.VARMAP.Types
         INTERACTION_TAKE, 
         INTERACTION_OBSERVE, 
         INTERACTION_TALK, 
+        INTERACTION_CROSS_DOOR, 
         
         INTERACTION_TOTAL
         /* > ATG 3 END < */

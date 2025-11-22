@@ -90,7 +90,8 @@ namespace Gob3AQ.GameMenu.UICanvas
         private MementoParent memento_selectedItem;
         private HashSet<MementoParent> memento_combinedItems;
         private MementoItemClass[] memento_itemClass;
-        private List<MementoParent> memento_activeParentList;
+        private List<MementoParent> memento_unlocked_parents_list;
+        private HashSet<MementoParent> memento_unlocked_parents;
         private Dictionary<MementoParent, MementoItemClass> memento_parent_dict;
         private HashSet<MementoParent> memento_totallyCleared;
         private HashSet<MementoParent> memento_unwatched;
@@ -139,7 +140,8 @@ namespace Gob3AQ.GameMenu.UICanvas
             memento_ContentObj = UICanvas_mementoObj.transform.Find("MementoList/Viewport/Content").gameObject;
             memento_descrText = UICanvas_mementoObj.transform.Find("MementoDescr").GetComponent<TMP_Text>();
             memento_ContentRectTransform = memento_ContentObj.GetComponent<RectTransform>();
-            memento_activeParentList = new((int)MementoParent.MEMENTO_PARENT_TOTAL);
+            memento_unlocked_parents_list = new((int)MementoParent.MEMENTO_PARENT_TOTAL);
+            memento_unlocked_parents = new((int)MementoParent.MEMENTO_PARENT_TOTAL);
             memento_parent_dict = new((int)MementoParent.MEMENTO_PARENT_TOTAL);
             memento_totallyCleared = new((int)MementoParent.MEMENTO_PARENT_TOTAL);
             memento_unlocked = new((int)Memento.MEMENTO_TOTAL);
@@ -262,7 +264,7 @@ namespace Gob3AQ.GameMenu.UICanvas
             }
         }
 
-        public void SetCursorLabel(GameItem item)
+        public void SetCursorLabel(GameItem item, in ItemInfo itemInfo)
         {
             if (item == GameItem.ITEM_NONE)
             {
@@ -270,7 +272,7 @@ namespace Gob3AQ.GameMenu.UICanvas
             }
             else
             {
-                ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(item);
+                
                 cursor_textobj_text.text = ResourceDialogsClass.GetName(itemInfo.name);
                 cursor_textobj.SetActive(true);
             }
@@ -364,9 +366,10 @@ namespace Gob3AQ.GameMenu.UICanvas
             }
 
             /* Assumed only one initial per parent Memento */
-            if (memInfo.initial)
+            if (!memento_unlocked_parents.Contains(memInfo.parent))
             {
-                memento_activeParentList.Add(memInfo.parent);
+                memento_unlocked_parents_list.Add(memInfo.parent);
+                memento_unlocked_parents.Add(memInfo.parent);
             }
 
             if (memInfo.final)
@@ -453,12 +456,12 @@ namespace Gob3AQ.GameMenu.UICanvas
         {
             /* Fit content to size */
             Vector2 sizeDelta = memento_ContentRectTransform.sizeDelta;
-            sizeDelta.y = memento_activeParentList.Count * memento_itemClass[0].GetSize.y;
+            sizeDelta.y = memento_unlocked_parents_list.Count * memento_itemClass[0].GetSize.y;
             memento_ContentRectTransform.sizeDelta = sizeDelta;
 
             /* Sort active parent list (the ones with a higher ID are supposed to be unlocked laster in game)
             * Therefore, later unlocked events should appear first */
-            memento_activeParentList.Sort(MementoParentSortMethod);
+            memento_unlocked_parents_list.Sort(MementoParentSortMethod);
 
             memento_parent_dict.Clear();
 
@@ -468,9 +471,9 @@ namespace Gob3AQ.GameMenu.UICanvas
                 MementoItemClass instance = memento_itemClass[i];
 
                 /* Active ones */
-                if (i < memento_activeParentList.Count)
+                if (i < memento_unlocked_parents_list.Count)
                 {
-                    MementoParent parent = memento_activeParentList[i];
+                    MementoParent parent = memento_unlocked_parents_list[i];
                     memento_parent_dict[parent] = instance;
 
                     instance.SetMementoParent(parent,

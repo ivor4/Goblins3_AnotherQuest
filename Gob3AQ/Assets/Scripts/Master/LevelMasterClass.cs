@@ -3,7 +3,6 @@ using Gob3AQ.Brain.LevelOptions;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameElement;
 using Gob3AQ.GameElement.Clickable;
-using Gob3AQ.GameElement.Item.Door;
 using Gob3AQ.GameElement.PlayableChar;
 using Gob3AQ.VARMAP.LevelMaster;
 using Gob3AQ.VARMAP.Types;
@@ -25,7 +24,7 @@ namespace Gob3AQ.LevelMaster
         private IReadOnlyList<Vector2> _WP_List;
         private IReadOnlyList<WaypointSolution> _WP_Solution_List;
         private PlayableCharScript[] _Player_List;
-        private List<DoorClass> _Door_List;
+        private Dictionary<GameItem, DoorInfo> _Door_Dict;
         private Dictionary<GameItem, GameElementClass> _ItemDictionary;
         private LevelElemInfo _HoveredElem;
         private HashSet<LevelElemInfo> _HoveredPending;
@@ -139,16 +138,6 @@ namespace Gob3AQ.LevelMaster
             }
         }
 
-        public static void ItemObtainPickableService(GameItem item)
-        {
-            bool found = _singleton._ItemDictionary.TryGetValue(item, out GameElementClass itemInstance);
-
-            if(found)
-            {
-                itemInstance.VirtualDestroy();
-            }
-        }
-
         public static void MonoRegisterService(PlayableCharScript mono, bool add)
         {
             if (_singleton != null)
@@ -164,17 +153,17 @@ namespace Gob3AQ.LevelMaster
             }
         }
 
-        public static void DoorRegisterService(DoorClass door, bool add)
+        public static void DoorRegisterService(GameItem doorItem, bool add, in DoorInfo doorInfo)
         {
             if (_singleton != null)
             {
                 if (add)
                 {
-                    _singleton._Door_List.Add(door);
+                    _singleton._Door_Dict.Add(doorItem, doorInfo);
                 }
                 else
                 {
-                    _singleton._Door_List.Remove(door);
+                    _singleton._Door_Dict.Remove(doorItem);
                 }
             }
         }
@@ -202,7 +191,7 @@ namespace Gob3AQ.LevelMaster
                 /* Add/Remove and update */
                 if (info.active)
                 {
-                    _singleton._HoveredPending.Add(info);
+                    _ = _singleton._HoveredPending.Add(info);
                 }
                 else
                 {
@@ -321,7 +310,7 @@ namespace Gob3AQ.LevelMaster
         {
             _Player_List = new PlayableCharScript[(int)CharacterType.CHARACTER_TOTAL];
             _ItemDictionary = new Dictionary<GameItem, GameElementClass>(GameFixedConfig.MAX_POOLED_ITEMS);
-            _Door_List = new List<DoorClass>(GameFixedConfig.MAX_SCENE_DOORS);
+            _Door_Dict = new(GameFixedConfig.MAX_SCENE_DOORS);
             _RaycastedItems = new(GameFixedConfig.MAX_RAYCASTED_ITEMS);
             _PrevRaycastedItems = new(GameFixedConfig.MAX_RAYCASTED_ITEMS);
             _RaycastedItemColliders = new RaycastHit2D[GameFixedConfig.MAX_RAYCASTED_ITEMS];
@@ -481,10 +470,7 @@ namespace Gob3AQ.LevelMaster
 
 
                 case GameItemFamily.ITEM_FAMILY_TYPE_DOOR:
-                    usage = InteractionUsage.CreateTakeItem(playerSelected, hovered.item, hovered.waypoint);
-
-                    VARMAP_LevelMaster.INTERACT_PLAYER(playerSelected, hovered.waypoint, out accepted);
-                    VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
+                    accepted = InteractWithDoor(playerSelected, ref usage, in hovered);
                     break;
 
                 default:
@@ -532,6 +518,21 @@ namespace Gob3AQ.LevelMaster
             return accepted;
         }
 
+        private bool InteractWithDoor(CharacterType playerSelected, ref InteractionUsage usage, in LevelElemInfo hovered)
+        {
+            bool accepted = false;
+
+            if (playerSelected != CharacterType.CHARACTER_NONE)
+            {
+                usage = InteractionUsage.CreateTakeItem(playerSelected, hovered.item, hovered.waypoint);
+
+                VARMAP_LevelMaster.INTERACT_PLAYER(playerSelected, hovered.waypoint, out accepted);
+                VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
+            }
+
+            return accepted;
+        }
+
         private void CheckPlayerMovementOrder(in MousePropertiesStruct mouse, CharacterType selectedCharacter)
         {
             GetNearestWPService(mouse.pos1, GameFixedConfig.DISTANCE_MOUSE_FURTHEST_WP, out int candidate_index, out Vector2 candidate_pos);
@@ -564,7 +565,10 @@ namespace Gob3AQ.LevelMaster
                 switch (itemInfo.family)
                 {
                     case GameItemFamily.ITEM_FAMILY_TYPE_DOOR:
-                        CrossDoor(character, usage.destListIndex);
+                        if (IsItemAvailable(usage.itemDest))
+                        {
+                            CrossDoor(usage.itemDest);
+                        }
                         break;
                     default:
                         /* Check if it is available and is still in original position */
@@ -607,18 +611,16 @@ namespace Gob3AQ.LevelMaster
             charPendingAction.ended = false;
         }
 
-        private void CrossDoor(CharacterType character, int doorIndex)
+        private void CrossDoor(GameItem doorItem)
         {
-            DoorClass door = _Door_List[doorIndex];
+            DoorInfo doorInfo = _Door_Dict[doorItem];
 
-            _ = character;  /* TODO: out animation? Or should have been done before calling Cross Door? */
-
-            int waypointIndex = LevelOptionsClass.GetLevelDoorToWaypoint(door.RoomLead, door.RoomAppearPosition);
+            int waypointIndex = LevelOptionsClass.GetLevelDoorToWaypoint(doorInfo.roomLeadTo, doorInfo.waypointLeadTo);
             VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)CharacterType.CHARACTER_MAIN, waypointIndex);
             VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)CharacterType.CHARACTER_PARROT, waypointIndex);
             VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)CharacterType.CHARACTER_SNAKE, waypointIndex);
 
-            VARMAP_LevelMaster.LOAD_ROOM(door.RoomLead, out _);
+            VARMAP_LevelMaster.LOAD_ROOM(doorInfo.roomLeadTo, out _);
         }
 
         private void ClearHovered()

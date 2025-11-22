@@ -1,6 +1,5 @@
 ﻿using Gob3AQ.GameElement;
 using Gob3AQ.GameElement.Clickable;
-using Gob3AQ.GameElement.Item.Door;
 using Gob3AQ.GameElement.PlayableChar;
 using Gob3AQ.Waypoint;
 using Gob3AQ.Waypoint.Network;
@@ -37,7 +36,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void ITEM_REGISTER_DELEGATE(bool register, GameElementClass instance, GameElementClickable clickable);
     public delegate void ITEM_OBTAIN_PICKABLE_DELEGATE(GameItem item);
     public delegate void MONO_REGISTER_DELEGATE(PlayableCharScript mono, bool add);
-    public delegate void DOOR_REGISTER_DELEGATE(DoorClass door, bool add);
+    public delegate void DOOR_REGISTER_DELEGATE(GameItem doorItem, bool add, in DoorInfo doorInfo);
     public delegate void OBTAIN_SCENARIO_ITEMS_DELEGATE(out IReadOnlyDictionary<GameItem, GameElementClass> dict);
     public delegate void MOVE_PLAYER_DELEGATE(CharacterType character, WaypointClass wp);
     public delegate void PLAYER_WAYPOINT_UPDATE_DELEGATE(CharacterType character, int wpIndex);

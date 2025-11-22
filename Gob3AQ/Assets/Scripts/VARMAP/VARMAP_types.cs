@@ -1,18 +1,12 @@
+using Gob3AQ.Libs.Arith;
 using Gob3AQ.VARMAP.Variable.IstreamableNamespace;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using Gob3AQ.VARMAP.Types;
 using UnityEngine;
-using Gob3AQ.Libs.Arith;
-using Gob3AQ.Waypoint;
+
 
 namespace Gob3AQ.VARMAP.Types
 {
-    
-
-
     public enum ChangedEventType
     {
         CHANGED_EVENT_NONE,
@@ -69,7 +63,34 @@ namespace Gob3AQ.VARMAP.Types
         GAME_STATUS_LOADING
     }
 
-    
+    public readonly struct DoorInfo : IEquatable<DoorInfo>
+    {
+        public readonly Room roomLeadTo;
+        public readonly int waypointLeadTo;
+
+        public DoorInfo(Room roomLeadTo, int waypointLeadTo)
+        {
+            this.roomLeadTo = roomLeadTo;
+            this.waypointLeadTo = waypointLeadTo;
+        }
+
+        public readonly bool Equals(DoorInfo other)
+        {
+            return (roomLeadTo == other.roomLeadTo) && (waypointLeadTo == other.waypointLeadTo);
+        }
+
+        public override readonly bool Equals(object other)
+        {
+            return other is LevelElemInfo info && Equals(info);
+        }
+
+        public override readonly int GetHashCode()
+        {
+            return HashCode.Combine(roomLeadTo, waypointLeadTo);
+        }
+    }
+
+
     public readonly struct LevelElemInfo : IEquatable<LevelElemInfo>
     {
         public readonly GameItem item;

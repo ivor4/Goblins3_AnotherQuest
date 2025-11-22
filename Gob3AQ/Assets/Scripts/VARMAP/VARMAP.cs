@@ -201,7 +201,7 @@ namespace Gob3AQ.VARMAP
         /// <summary> 
         /// Registers a door in level
         /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors:  </para> 
+        /// <para> Accessors: ItemMaster,  </para> 
         /// <para> Method: <see cref="LevelMasterClass.DoorRegisterService"/> </para> 
         /// </summary>
         protected static DOOR_REGISTER_DELEGATE _DOOR_REGISTER;

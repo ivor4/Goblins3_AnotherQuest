@@ -1,6 +1,4 @@
 using Gob3AQ.Brain.ItemsInteraction;
-using Gob3AQ.FixedConfig;
-using Gob3AQ.GameElement.Clickable;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceSprites;
 using Gob3AQ.VARMAP.ItemMaster;
@@ -25,9 +23,6 @@ namespace Gob3AQ.GameElement.Item
             myCollider = topParent.GetComponent<Collider2D>();
             myRigidbody = topParent.GetComponent<Rigidbody2D>();
 
-
-            gameElementFamily = GameItemFamily.ITEM_FAMILY_TYPE_OBJECT;
-
             SetVisible_Internal(false);
             SetClickable_Internal(false);
         }
@@ -36,17 +31,6 @@ namespace Gob3AQ.GameElement.Item
         protected override void Start()
         {
             base.Start();
-
-            ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(itemID);
-
-            GameElementClickable clickable = topParent.GetComponent<GameElementClickable>();
-
-            clickable.SetOnHoverAction(MouseEnterAction);
-
-            /* Register item as Level element (to be clicked and able to iteract) */
-            VARMAP_ItemMaster.ITEM_REGISTER(true, this, clickable);
-
-            registered = true;
 
             /* Execute on next Update */
             _ = StartCoroutine(Execute_Loading());

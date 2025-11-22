@@ -1,11 +1,9 @@
 using Gob3AQ.FixedConfig;
-using Gob3AQ.GameElement;
-using Gob3AQ.GameElement.Clickable;
 using Gob3AQ.PlayerMaster;
 using Gob3AQ.ResourceAtlas;
+using Gob3AQ.VARMAP.ItemMaster;
 using Gob3AQ.VARMAP.PlayerMaster;
 using Gob3AQ.VARMAP.Types;
-using Gob3AQ.Waypoint;
 using Gob3AQ.Waypoint.Network;
 using System.Collections;
 using System.Collections.Generic;
@@ -117,8 +115,6 @@ namespace Gob3AQ.GameElement.PlayableChar
         {
             base.Awake();
 
-            gameElementFamily = GameItemFamily.ITEM_FAMILY_TYPE_PLAYER;
-
             topParent = transform.parent.gameObject;
             _parentTransform = topParent.transform;
             mySpriteRenderer = topParent.GetComponent<SpriteRenderer>();
@@ -139,15 +135,8 @@ namespace Gob3AQ.GameElement.PlayableChar
 
             PlayerMasterClass.SetPlayerLoadPresent(CharType);
 
-            GameElementClickable clickable = topParent.GetComponent<GameElementClickable>();
-
             VARMAP_PlayerMaster.MONO_REGISTER(this, true);
-            VARMAP_PlayerMaster.ITEM_REGISTER(true, this, clickable);
             VARMAP_PlayerMaster.REG_PLAYER_SELECTED(ChangedSelectedPlayerEvent);
-
-            clickable.SetOnHoverAction(MouseEnterAction);
-
-            registered = true;
 
             VARMAP_PlayerMaster.GET_WP_LIST(out waypoints, out solutions);
 
@@ -163,9 +152,9 @@ namespace Gob3AQ.GameElement.PlayableChar
 
 
 
-        protected override void OnDestroy()
+        public override void VirtualDestroy()
         {
-            base.OnDestroy();
+            base.VirtualDestroy();
 
             VARMAP_PlayerMaster.MONO_REGISTER(this, false);
             VARMAP_PlayerMaster.UNREG_PLAYER_SELECTED(ChangedSelectedPlayerEvent);
@@ -194,12 +183,18 @@ namespace Gob3AQ.GameElement.PlayableChar
             if (loadOk)
             {
                 int wpStartIndex = VARMAP_PlayerMaster.GET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)charType);
-                VARMAP_PlayerMaster.GET_NEAREST_WP(_parentTransform.position, float.MaxValue, out int nearestWp_index, out _);
 
 
                 if (wpStartIndex == -1)
                 {
-                    actualWaypoint = nearestWp_index;
+                    if (startingWaypoint == null)
+                    {
+                        VARMAP_ItemMaster.GET_NEAREST_WP(transform.position, float.MaxValue, out actualWaypoint, out _);
+                    }
+                    else
+                    {
+                        actualWaypoint = startingWaypoint.ID_in_Network;
+                    }
                 }
                 else
                 {

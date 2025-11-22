@@ -172,7 +172,7 @@ namespace Gob3AQ.ResourceAtlas
             new( /* ROOM_1 */
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_ROOM1, GameSprite.SPRITE_ROOM1_DECO_TABLE, }), 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(4){GameItem.ITEM_VICTIM, GameItem.ITEM_WITNESS1, GameItem.ITEM_WITNESS2, GameItem.ITEM_WITNESS3, }) 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(6){GameItem.ITEM_VICTIM, GameItem.ITEM_WITNESS1, GameItem.ITEM_WITNESS2, GameItem.ITEM_WITNESS3, GameItem.ITEM_DOOR_NORMAL, GameItem.ITEM_DOOR_NORMAL_2, }) 
             ),
             
             new( /* ROOM_LAST */

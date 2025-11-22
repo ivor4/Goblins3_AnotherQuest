@@ -14,6 +14,7 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_WITNESS2, 
         ITEM_WITNESS3, 
         ITEM_DOOR_NORMAL, 
+        ITEM_DOOR_NORMAL_2, 
         ITEM_LAST, 
         
         ITEM_TOTAL

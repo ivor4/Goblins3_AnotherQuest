@@ -1,4 +1,5 @@
 using Gob3AQ.Brain.ItemsInteraction;
+using Gob3AQ.GameElement.Clickable;
 using Gob3AQ.ResourceSprites;
 using Gob3AQ.VARMAP.ItemMaster;
 using Gob3AQ.VARMAP.Types;
@@ -20,8 +21,6 @@ namespace Gob3AQ.GameElement
 
 
         public GameItem ItemID => itemID;
-
-        public GameItemFamily GetGameItemFamily => gameElementFamily;
 
         public Collider2D My2DCollider => myCollider;
         public int Waypoint => actualWaypoint;
@@ -67,6 +66,17 @@ namespace Gob3AQ.GameElement
             ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(itemID);
 
             actualSprite = itemInfo.defaultSprite;
+
+            gameElementFamily = itemInfo.family;
+
+            GameElementClickable clickable = topParent.GetComponent<GameElementClickable>();
+
+            clickable.SetOnHoverAction(MouseEnterAction);
+
+            /* Register item as Level element (to be clicked and able to iteract) */
+            VARMAP_ItemMaster.ITEM_REGISTER(true, this, clickable);
+
+            registered = true;
 
             VARMAP_ItemMaster.REG_GAMESTATUS(ChangedGameStatus);
 

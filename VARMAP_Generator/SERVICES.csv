@@ -8,7 +8,7 @@ N,SERVICE_ID,SPECIAL_DELEGATE,SERVICE_ROUTE,Description,Separator,GameMaster,Inp
 6,IS_MODULE_LOADED,IS_MODULE_LOADED_DELEGATE,GameMasterClass.IsModuleLoadedService,This service returns a bool which tells if given module has been loaded in Room Loading Process,,W,X,X,X,X,X,X,X
 7,ITEM_REGISTER,ITEM_REGISTER_DELEGATE,LevelMasterClass.ItemRegisterService,Registers an item in system,,-,-,W,-,-,X,X,-
 8,MONO_REGISTER,MONO_REGISTER_DELEGATE,LevelMasterClass.MonoRegisterService,Registers a player in scene,,-,-,W,-,-,X,-,-
-9,DOOR_REGISTER,DOOR_REGISTER_DELEGATE,LevelMasterClass.DoorRegisterService,Registers a door in level,,-,-,W,-,-,-,-,-
+9,DOOR_REGISTER,DOOR_REGISTER_DELEGATE,LevelMasterClass.DoorRegisterService,Registers a door in level,,-,-,W,-,-,-,X,-
 10,OBTAIN_SCENARIO_ITEMS,OBTAIN_SCENARIO_ITEMS_DELEGATE,LevelMasterClass.ObtainScenarioItemsService,Obtains dictionary of placed elements in actual Scene,,-,-,W,-,-,-,X,-
 11,PLAYER_WAYPOINT_UPDATE,PLAYER_WAYPOINT_UPDATE_DELEGATE,LevelMasterClass.PlayerWaypointUpdateService,Updates actual player waypoint when crossing or stopping on it,,-,-,W,-,-,X,-,-
 12,GET_WP_LIST,GET_WP_LIST_DELEGATE,LevelMasterClass.GetWaypointListService,Gets list of waypoints and solutions,,-,-,W,-,-,X,-,-

@@ -33,6 +33,7 @@ namespace Gob3AQ.VARMAP.ItemMaster
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             ITEM_REGISTER = _ITEM_REGISTER;
+            DOOR_REGISTER = _DOOR_REGISTER;
             OBTAIN_SCENARIO_ITEMS = _OBTAIN_SCENARIO_ITEMS;
             GAME_ELEMENT_HOVER = _GAME_ELEMENT_HOVER;
             GET_NEAREST_WP = _GET_NEAREST_WP;
@@ -85,6 +86,13 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /// <para> Method: <see cref="LevelMasterClass.ItemRegisterService"/> </para> 
         /// </summary>
         public static ITEM_REGISTER_DELEGATE ITEM_REGISTER;
+        /// <summary> 
+        /// Registers a door in level
+        /// <para> Owner: LevelMaster </para> 
+        /// <para> Accessors: ItemMaster,  </para> 
+        /// <para> Method: <see cref="LevelMasterClass.DoorRegisterService"/> </para> 
+        /// </summary>
+        public static DOOR_REGISTER_DELEGATE DOOR_REGISTER;
         /// <summary> 
         /// Obtains dictionary of placed elements in actual Scene
         /// <para> Owner: LevelMaster </para> 

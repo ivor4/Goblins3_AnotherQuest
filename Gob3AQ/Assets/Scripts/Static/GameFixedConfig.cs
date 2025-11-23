@@ -75,7 +75,7 @@ namespace Gob3AQ.FixedConfig
         private static readonly string[] _ROOM_TO_SCENE_NAME =
         {
             "SCENE_ROOM1",
-            "House1"
+            "SCENE_ROOM1_KITCHEN"
         };
 
         private static readonly string[] _ROOM_TO_ADDRESSABLE_TAG_NAME =

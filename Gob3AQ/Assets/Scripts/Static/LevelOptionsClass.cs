@@ -18,12 +18,17 @@ namespace Gob3AQ.Brain.LevelOptions
         /// </summary>
         private static readonly int[][] _Level_Door2WaypointIndex = new int[(int)Room.ROOMS_TOTAL][]
         {
-            /* LEVEL 0 */
+            /* ROOM1 */
             new int[GameFixedConfig.MAX_SCENE_DOORS]
             {
                 -1, -1
             },
-            /* LEVEL 1 */
+            /* ROOM1 KITCHEN */
+            new int[GameFixedConfig.MAX_SCENE_DOORS]
+            {
+                -1, -1
+            },
+            /* ROOM LAST */
             new int[GameFixedConfig.MAX_SCENE_DOORS]
             {
                 -1, -1

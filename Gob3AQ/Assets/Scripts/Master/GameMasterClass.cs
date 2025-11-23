@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.VARMAP.GameMaster;
@@ -14,7 +13,6 @@ using Gob3AQ.ResourceSprites;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEngine.ResourceManagement.ResourceLocations;
 using Gob3AQ.ResourceAtlas;
 
 namespace Gob3AQ.GameMaster

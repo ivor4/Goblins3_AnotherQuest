@@ -147,7 +147,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             
             new( /* UNCHAIN_ROOM1_NEED_FLEE */
             UnchainType.UNCHAIN_TYPE_EVENT,new(GameEvent.EVENT_ROOM1_NEED_FLEE, false), 
-            new GameEventCombi[2]{new(GameEvent.EVENT_ROOM1_AWARE_CHASE_1, false),new(GameEvent.EVENT_ROOM1_AWARE_CHASE_2, false),}, 
+            new GameEventCombi[3]{new(GameEvent.EVENT_ROOM1_AWARE_CHASE_1, false),new(GameEvent.EVENT_ROOM1_AWARE_CHASE_2, false),new(GameEvent.EVENT_ROOM1_OBSERVE_VICTIM, false),}, 
             GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
             new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_NEED_FLEE, false),}), 
             
@@ -268,6 +268,26 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_NONE,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
             new ActionConditions[2]{ActionConditions.COND_ROOM1_NOT_CROSS_DOOR,ActionConditions.COND_ROOM1_NOT_CROSS_MAIN_DOOR,}),
             
+            new ( /* ITEM_DOOR_UNCONDITIONAL */
+            NameType.NAME_DOOR,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_NONE,}),
+            GameSprite.SPRITE_NONE,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_OK,}),
+            
+            new ( /* ITEM_ROOM1_SPOON */
+            NameType.NAME_SPOON,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ROOM1_SPOON,}),
+            GameSprite.SPRITE_ROOM1_SPOON,true,GameSprite.SPRITE_PICKABLE_SPOON,GamePickableItem.ITEM_PICK_ROOM1_SPOON,
+            new ActionConditions[1]{ActionConditions.COND_OK,}),
+            
+            new ( /* ITEM_ROOM1_DRAWER */
+            NameType.NAME_DRAWER,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ROOM1_DRAWER,}),
+            GameSprite.SPRITE_ROOM1_DRAWER,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_OK,}),
+            
+            new ( /* ITEM_ROOM1_WINDOW */
+            NameType.NAME_WINDOW,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ROOM1_WINDOW_CLOSED,}),
+            GameSprite.SPRITE_ROOM1_WINDOW_CLOSED,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_OK,}),
+            
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST,}),
             GameSprite.SPRITE_LAST,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
@@ -279,12 +299,14 @@ namespace Gob3AQ.Brain.ItemsInteraction
         private static readonly GameItem[] _PickableToItem = new GameItem[(int)GamePickableItem.ITEM_PICK_TOTAL]
         {
             /* > ATG 4 START < */
+            GameItem.ITEM_ROOM1_SPOON,	/* ITEM_PICK_ROOM1_SPOON */
             /* > ATG 4 END < */
         };
 
         private static readonly GameSprite[] _PickableSprite = new GameSprite[(int)GamePickableItem.ITEM_PICK_TOTAL]
         {
             /* > ATG 5 START < */
+            GameSprite.SPRITE_PICKABLE_SPOON,	/* ITEM_PICK_ROOM1_SPOON */
             /* > ATG 5 END < */
         };
 

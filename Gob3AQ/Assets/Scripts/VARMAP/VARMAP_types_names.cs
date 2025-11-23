@@ -19,6 +19,9 @@ namespace Gob3AQ.VARMAP.Types
         NAME_WITNESS, 
         NAME_MEMENTO_CHASE, 
         NAME_DOOR, 
+        NAME_SPOON, 
+        NAME_DRAWER, 
+        NAME_WINDOW, 
         NAME_NPC_LAST, 
         
         NAME_TOTAL

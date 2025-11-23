@@ -234,7 +234,7 @@ namespace Gob3AQ.GameMenu.UICanvas
 
         public void SetCursorBaseSprite(GameSprite spriteID)
         {
-            if (spriteID == GameSprite.SPRITE_CURSOR_DRAG)
+            if ((spriteID == GameSprite.SPRITE_CURSOR_DRAG) || (spriteID == GameSprite.SPRITE_UI_CURSOR_DOOR))
             {
                 cursor_rect.pivot = new Vector2(0.5f, 0.5f);
             }
@@ -601,7 +601,7 @@ namespace Gob3AQ.GameMenu.UICanvas
 
         private static int MementoParentSortMethod(MementoParent a, MementoParent b)
         {
-            return (int)a - (int)b;
+            return (int)b - (int)a;
         }
     }
 }

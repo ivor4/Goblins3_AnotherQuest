@@ -610,7 +610,7 @@ namespace Gob3AQ.LevelMaster
         {
             DoorInfo doorInfo = _Door_Dict[doorItem];
 
-            int waypointIndex = LevelOptionsClass.GetLevelDoorToWaypoint(doorInfo.roomLeadTo, doorInfo.waypointLeadTo);
+            int waypointIndex = doorInfo.waypointLeadTo;
             VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)CharacterType.CHARACTER_MAIN, waypointIndex);
             VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)CharacterType.CHARACTER_PARROT, waypointIndex);
             VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)CharacterType.CHARACTER_SNAKE, waypointIndex);

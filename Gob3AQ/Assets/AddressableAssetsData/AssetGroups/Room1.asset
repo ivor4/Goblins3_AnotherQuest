@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Room1
   m_GUID: 37742bd79ef942d4cb386b77ffda615b
   m_SerializeEntries:
+  - m_GUID: 30c2e45a54da5414cb0f443323b8db90
+    m_Address: SPRITE_ATLAS_ROOM1_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 38eef57b51f043444835d8df7040ddf0
     m_Address: SPRITE_ATLAS_ROOM1_1
     m_ReadOnly: 0
@@ -27,6 +32,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 64914cfa190a832499c2c46eadafde9c
     m_Address: SPRITE_ATLAS_ROOM1_0
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92b4e6e6949672f4684054ff0242bab5
+    m_Address: SCENE_ROOM1_KITCHEN
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

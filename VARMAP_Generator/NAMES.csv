@@ -11,4 +11,7 @@ N,NAME_ID,Name_English,Name_Spanish
 9,NAME_WITNESS,Witness,Testigo
 10,NAME_MEMENTO_CHASE,Court,Juicio
 11,NAME_DOOR,Cross door,Cruzar puerta
-12,NAME_NPC_LAST,Last,Ultimo
+12,NAME_SPOON,Spoon,Cuchara
+13,NAME_DRAWER,Drawer,Cajonera
+14,NAME_WINDOW,Window,Ventana
+15,NAME_NPC_LAST,Last,Ultimo

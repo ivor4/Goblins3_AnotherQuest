@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f9fdc56efdd86414db9f436a91d745b4
+guid: a3dbb5e7e798ec543aceaa3a51840929
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5581004851142430014
-    second: spr_fountain_256_0
+      213: 3358194658969517393
+    second: SPRITE_ROOM1_WINDOW_CLOSED_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SPRITE_ITEM_FOUNTAIN
+      name: SPRITE_ROOM1_WINDOW_CLOSED_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 16
-        width: 246
-        height: 228
+        x: 0
+        y: 0
+        width: 508
+        height: 561
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2c27ce548a94c82b0800000000000000
-      internalID: -5581004851142430014
+      spriteID: 15dfd76ff34ba9e20800000000000000
+      internalID: 3358194658969517393
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8c2a858112e400d489195e9c33ddbd11
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SPRITE_ITEM_FOUNTAIN: -5581004851142430014
+      SPRITE_ROOM1_WINDOW_CLOSED_0: 3358194658969517393
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

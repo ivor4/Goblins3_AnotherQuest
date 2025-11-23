@@ -15,6 +15,10 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_WITNESS3, 
         ITEM_ROOM1_DOOR_KITCHEN, 
         ITEM_ROOM1_DOOR_MAIN, 
+        ITEM_DOOR_UNCONDITIONAL, 
+        ITEM_ROOM1_SPOON, 
+        ITEM_ROOM1_DRAWER, 
+        ITEM_ROOM1_WINDOW, 
         ITEM_LAST, 
         
         ITEM_TOTAL
@@ -25,6 +29,7 @@ namespace Gob3AQ.VARMAP.Types
     {
         /* > ATG 2 START < */
         ITEM_PICK_NONE = -1,
+        ITEM_PICK_ROOM1_SPOON, 
         
         ITEM_PICK_TOTAL
         /* > ATG 2 END < */

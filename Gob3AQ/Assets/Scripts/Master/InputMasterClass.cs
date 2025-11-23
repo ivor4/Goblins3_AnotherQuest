@@ -43,6 +43,7 @@ namespace Gob3AQ.InputMaster
             else
             {
                 _singleton = this;
+
                 keySubscription = new KEY_SUBSCRIPTION_CALL_DELEGATE[(int)KeyFunctionsIndex.KEYFUNC_INDEX_TOTAL];
             }
         }
@@ -56,6 +57,7 @@ namespace Gob3AQ.InputMaster
 
             VARMAP_InputMaster.SET_PRESSED_KEYS(in KeyStruct.KEY_EMPTY);
             VARMAP_InputMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_InputMaster);
+            VARMAP_InputMaster.REG_GAMESTATUS(_GameStatusChanged);
         }
 
         private void Update()
@@ -64,7 +66,7 @@ namespace Gob3AQ.InputMaster
             ref readonly MousePropertiesStruct prevMouseProps = ref VARMAP_InputMaster.GET_MOUSE_PROPERTIES();
             ref readonly GameOptionsStruct gameOptions = ref VARMAP_InputMaster.GET_GAME_OPTIONS();
             ref readonly KeyOptions keyOptions = ref gameOptions.keyOptions;
-            
+
 
             ManageKeyEventsSubscription(in prevCycleKeys);
 
@@ -215,8 +217,26 @@ namespace Gob3AQ.InputMaster
             if (_singleton == this)
             {
                 _singleton = null;
+                VARMAP_InputMaster.UNREG_GAMESTATUS(_GameStatusChanged);
             }
         }
 
+        private void _GameStatusChanged(ChangedEventType evtype, in Game_Status oldval, in Game_Status newval)
+        {
+            _ = evtype;
+
+            if (oldval != newval)
+            {
+                switch (newval)
+                {
+                    case Game_Status.GAME_STATUS_LOADING:
+                        VARMAP_InputMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_InputMaster);
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+        }
     }
 }

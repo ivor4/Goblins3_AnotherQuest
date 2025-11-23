@@ -40,6 +40,9 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             GET_ARRAY_UNWATCHED_PARENT_MEMENTO = _GET_ARRAY_UNWATCHED_PARENT_MEMENTO;
             GET_SHADOW_ARRAY_UNWATCHED_PARENT_MEMENTO = _GET_SHADOW_ARRAY_UNWATCHED_PARENT_MEMENTO;
             SET_ARRAY_UNWATCHED_PARENT_MEMENTO = _SET_ARRAY_UNWATCHED_PARENT_MEMENTO;
+            GET_GAMESTATUS = _GET_GAMESTATUS;
+            REG_GAMESTATUS = _REG_GAMESTATUS;
+            UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             GET_EVENTS_BEING_PROCESSED = _GET_EVENTS_BEING_PROCESSED;
             GET_SHADOW_EVENTS_BEING_PROCESSED = _GET_SHADOW_EVENTS_BEING_PROCESSED;
             SET_EVENTS_BEING_PROCESSED = _SET_EVENTS_BEING_PROCESSED;
@@ -80,6 +83,9 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         public static GetVARMAPArrayDelegate<MultiBitFieldStruct> GET_ARRAY_UNWATCHED_PARENT_MEMENTO;
         public static GetVARMAPArrayDelegate<MultiBitFieldStruct> GET_SHADOW_ARRAY_UNWATCHED_PARENT_MEMENTO;
         public static SetVARMAPArrayDelegate<MultiBitFieldStruct> SET_ARRAY_UNWATCHED_PARENT_MEMENTO;
+        public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
+        public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
+        public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
         public static GetVARMAPValueDelegate<bool> GET_EVENTS_BEING_PROCESSED;
         public static GetVARMAPValueDelegate<bool> GET_SHADOW_EVENTS_BEING_PROCESSED;
         public static SetVARMAPValueDelegate<bool> SET_EVENTS_BEING_PROCESSED;

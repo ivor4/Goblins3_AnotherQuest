@@ -91,33 +91,16 @@ namespace Gob3AQ.ItemMaster
 
         void Start()
         {
-            VARMAP_ItemMaster.OBTAIN_SCENARIO_ITEMS(out _levelItems);
-            _ = StartCoroutine(LoadCoroutine());
-        }
-
-        private IEnumerator LoadCoroutine()
-        {
-            bool masterLoaded = false;
-
-            while (!masterLoaded)
-            {
-                yield return ResourceAtlasClass.WaitForNextFrame;
-                VARMAP_ItemMaster.IS_MODULE_LOADED(GameModules.MODULE_GameMaster, out masterLoaded);
-            }
-
-            /* Ensure items are loaded */
-            yield return ResourceAtlasClass.WaitForNextFrame;
-
+            VARMAP_ItemMaster.REG_GAMESTATUS(_GameStatusChanged);
             VARMAP_ItemMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_ItemMaster);
         }
-
-
 
         private void OnDestroy()
         {
             if(_singleton == this)
             {
                 _singleton = null;
+                VARMAP_ItemMaster.UNREG_GAMESTATUS(_GameStatusChanged);
             }
         }
 
@@ -218,6 +201,25 @@ namespace Gob3AQ.ItemMaster
                     return DialogPhrase.PHRASE_NONSENSE_OBSERVE;
                 default:
                     return DialogPhrase.PHRASE_NONSENSE;
+            }
+        }
+
+        private void _GameStatusChanged(ChangedEventType evtype, in Game_Status oldval, in Game_Status newval)
+        {
+            _ = evtype;
+
+            if (newval != oldval)
+            {
+                switch(newval)
+                {
+                    case Game_Status.GAME_STATUS_LOADING:
+                        VARMAP_ItemMaster.OBTAIN_SCENARIO_ITEMS(out _levelItems);
+                        VARMAP_ItemMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_ItemMaster);
+                        break;
+
+                    default:
+                        break;
+                }
             }
         }
     }

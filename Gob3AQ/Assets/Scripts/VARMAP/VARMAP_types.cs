@@ -126,17 +126,19 @@ namespace Gob3AQ.VARMAP.Types
 
     public readonly struct RoomInfo
     {
+        public readonly GameSprite background;
         public readonly ReadOnlyHashSet<GameSprite> sprites;
         public readonly ReadOnlyHashSet<DialogPhrase> phrases;
         public readonly ReadOnlyHashSet<GameItem> items;
 
 
 
-        public static readonly RoomInfo EMPTY = new(new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(0)),
+        public static readonly RoomInfo EMPTY = new(GameSprite.SPRITE_NONE,new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(0)),
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(0)), new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(0)));
 
-        public RoomInfo(ReadOnlyHashSet<GameSprite> sprites, ReadOnlyHashSet<DialogPhrase> phrases, ReadOnlyHashSet<GameItem> items)
+        public RoomInfo(GameSprite background, ReadOnlyHashSet<GameSprite> sprites, ReadOnlyHashSet<DialogPhrase> phrases, ReadOnlyHashSet<GameItem> items)
         {
+            this.background = background;
             this.sprites = sprites;
             this.phrases = phrases;
             this.items = items;

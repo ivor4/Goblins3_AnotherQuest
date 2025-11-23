@@ -458,6 +458,9 @@ namespace Gob3AQ.GameMenu
                 yield_custom = new WaitUntil(WaitUntilCondition);
                 yield_2s = new WaitForSeconds(2f);
                 dialog_actualTaskType = DialogCoroutineTaskType.DIALOG_TASK_NONE;
+
+                memento_combi_intersection = new(8);
+                memento_combi_union = new(8);
             }
         }
 
@@ -474,8 +477,7 @@ namespace Gob3AQ.GameMenu
             _ = StartCoroutine(LoadCoroutine());
 
             _lastClickTimestamp = Time.time;
-            memento_combi_intersection = new(8);
-            memento_combi_union = new(8);
+            
         }
 
         private IEnumerator LoadCoroutine()
@@ -647,6 +649,12 @@ namespace Gob3AQ.GameMenu
                         break;
                     case Game_Status.GAME_STATUS_PLAY_MEMENTO:
                         _uicanvas_cls.MementoMenuActivated();
+                        break;
+                    case Game_Status.GAME_STATUS_CHANGING_ROOM:
+                        _lastClickTimestamp = Time.time;
+                        break;
+                    case Game_Status.GAME_STATUS_LOADING:
+                        VARMAP_GameMenu.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameMenu);
                         break;
                     default:
                         break;

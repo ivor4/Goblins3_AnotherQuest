@@ -62,13 +62,14 @@ namespace Gob3AQ.PlayerMaster
 
         private void Awake()
         {
-            if(_singleton)
+            if (_singleton)
             {
                 Destroy(gameObject);
             }
             else
             {
                 _singleton = this;
+                VARMAP_PlayerMaster.REG_GAMESTATUS(_GameStatusChanged);
             }
         }
 
@@ -76,15 +77,36 @@ namespace Gob3AQ.PlayerMaster
         {
             playersLoaded = 0;
             playersToLoad = 0;
+            VARMAP_PlayerMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_PlayerMaster);
         }
 
 
 
         private void OnDestroy()
         {
-            if(_singleton == this)
+            if (_singleton == this)
             {
                 _singleton = null;
+                VARMAP_PlayerMaster.UNREG_GAMESTATUS(_GameStatusChanged);
+            }
+        }
+
+        private void _GameStatusChanged(ChangedEventType evtype, in Game_Status oldval, in Game_Status newval)
+        {
+            _ = evtype;
+
+            if (newval != oldval)
+            {
+                switch (newval)
+                {
+                    case Game_Status.GAME_STATUS_CHANGING_ROOM:
+                        playersLoaded = 0;
+                        playersToLoad = 0;
+                        break;
+
+                    default:
+                        break;
+                }
             }
         }
     }

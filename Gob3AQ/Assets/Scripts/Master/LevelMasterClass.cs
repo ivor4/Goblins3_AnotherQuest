@@ -1,5 +1,4 @@
 using Gob3AQ.Brain.ItemsInteraction;
-using Gob3AQ.Brain.LevelOptions;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameElement;
 using Gob3AQ.GameElement.Clickable;
@@ -249,6 +248,7 @@ namespace Gob3AQ.LevelMaster
             else
             {
                 _singleton = this;
+
                 Initializations();
             }
 
@@ -256,9 +256,10 @@ namespace Gob3AQ.LevelMaster
 
         private void Start()
         {
-            VARMAP_LevelMaster.SET_PLAYER_SELECTED(CharacterType.CHARACTER_NONE);
-            VARMAP_LevelMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_LevelMaster);
             mainCamera = Camera.main;
+            VARMAP_LevelMaster.SET_PLAYER_SELECTED(CharacterType.CHARACTER_NONE);
+            VARMAP_LevelMaster.REG_GAMESTATUS(_GameStatusChanged);
+            VARMAP_LevelMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_LevelMaster);
         }
 
 
@@ -302,6 +303,7 @@ namespace Gob3AQ.LevelMaster
             if (_singleton == this)
             {
                 _singleton = null;
+                VARMAP_LevelMaster.UNREG_GAMESTATUS(_GameStatusChanged);
             }
         }
 
@@ -639,6 +641,37 @@ namespace Gob3AQ.LevelMaster
             }
 
             return available;
+        }
+
+        private void _GameStatusChanged(ChangedEventType evtype, in Game_Status oldval, in Game_Status newval)
+        {
+            _ = evtype;
+
+            if (newval != oldval)
+            {
+                switch (newval)
+                {
+                    case Game_Status.GAME_STATUS_CHANGING_ROOM:
+                        Array.Clear(_Player_List, 0, _Player_List.Length);
+                        _ItemDictionary.Clear();
+                        _Door_Dict.Clear();
+                        _RaycastedItems.Clear();
+                        _PrevRaycastedItems.Clear();
+                        Array.Clear(_RaycastedItemColliders, 0, _RaycastedItemColliders.Length);
+                        _ItemColliderDictionary.Clear();
+
+                        Array.Clear(_PendingCharInteractions, 0, _PendingCharInteractions.Length);
+                        _HoveredElem = LevelElemInfo.EMPTY;
+                        _HoveredPending.Clear();
+                        break;
+                    case Game_Status.GAME_STATUS_LOADING:
+                        VARMAP_LevelMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_LevelMaster);
+                        break;
+
+                    default:
+                        break;
+                }
+            }
         }
     }
 }

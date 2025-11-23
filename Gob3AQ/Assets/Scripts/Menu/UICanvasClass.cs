@@ -25,7 +25,8 @@ namespace Gob3AQ.GameMenu.UICanvas
         DISPLAY_MODE_NONE,
         DISPLAY_MODE_INVENTORY,
         DISPLAY_MODE_DIALOG,
-        DISPLAY_MODE_MEMENTO
+        DISPLAY_MODE_MEMENTO,
+        DISPLAY_MODE_LOADING
     }
 
     public enum DialogMode
@@ -184,6 +185,12 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_loadingObj.SetActive(false);
                     UICanvas_dialogObj.SetActive(false);
                     UICanvas_mementoObj.SetActive(true);
+                    UICanvas_itemMenuObj.SetActive(false);
+                    break;
+                case DisplayMode.DISPLAY_MODE_LOADING:
+                    UICanvas_loadingObj.SetActive(true);
+                    UICanvas_dialogObj.SetActive(false);
+                    UICanvas_mementoObj.SetActive(false);
                     UICanvas_itemMenuObj.SetActive(false);
                     break;
 
@@ -558,6 +565,7 @@ namespace Gob3AQ.GameMenu.UICanvas
 
             AsyncInstantiateOperation<GameObject> handle = InstantiateAsync<GameObject>(memento_item_prefab, (int)MementoParent.MEMENTO_PARENT_TOTAL);
             yield return handle;
+
             GameObject[] memento_itemObj = handle.Result;
             
             /* Keep them ready for usage */

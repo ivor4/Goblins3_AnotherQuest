@@ -25,8 +25,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 799d875810ff8af458134750bfd4969c
-    m_Address: SCENE_LOADING
+  - m_GUID: 92d845b6379f4fd45bb81c5c91f0fb6f
+    m_Address: SCENE_BASE
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

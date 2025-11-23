@@ -1,19 +1,19 @@
-using System.Collections;
-using UnityEngine;
-using Gob3AQ.VARMAP.Types;
-using Gob3AQ.VARMAP.GameMaster;
-using UnityEngine.SceneManagement;
-using Gob3AQ.VARMAP.Initialization;
 using Gob3AQ.FixedConfig;
-using Gob3AQ.VARMAP.Safe;
+using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceDialogs;
+using Gob3AQ.ResourceSprites;
+using Gob3AQ.VARMAP.GameMaster;
+using Gob3AQ.VARMAP.Initialization;
+using Gob3AQ.VARMAP.Safe;
+using Gob3AQ.VARMAP.Types;
 using Gob3AQ.VARMAP.Variable;
 using System;
-using Gob3AQ.ResourceSprites;
+using System.Collections;
+using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using Gob3AQ.ResourceAtlas;
+using UnityEngine.ResourceManagement.ResourceProviders;
+using UnityEngine.SceneManagement;
 
 namespace Gob3AQ.GameMaster
 {
@@ -26,6 +26,7 @@ namespace Gob3AQ.GameMaster
         private static Game_Status prevPauseStatus;
         private static uint moduleLoadingDone;
         private static AsyncOperationHandle<SceneInstance> prevRoom;
+        private static AsyncOperationHandle<SceneInstance> baseScene;
         private static bool prevRoomLoaded;
         private static bool saveGamePending;
         private static Room loadScenePending;
@@ -50,6 +51,11 @@ namespace Gob3AQ.GameMaster
                 saveGamePending = false;
                 loadScenePending = Room.ROOM_NONE;
             }
+        }
+
+        private void Start()
+        {
+            LaunchResourcesInitializations();
         }
 
 
@@ -189,11 +195,16 @@ namespace Gob3AQ.GameMaster
 
         public static void StartGameService(out bool error)
         {
-            VARMAP_DataSystem.ResetVARMAP();
-
-            LaunchResourcesInitializations();
-
-            LoadRoomService(Room.ROOM_1, out error);
+            if(_singleton != null)
+            {
+                VARMAP_DataSystem.ResetVARMAP();
+                _singleton.StartCoroutine(_singleton.StartGameOnRoomCoroutine(Room.ROOM_1));
+                error = false;
+            }
+            else
+            {
+                error = true;
+            } 
         }
 
         public static void SaveGameService()
@@ -203,14 +214,45 @@ namespace Gob3AQ.GameMaster
 
         public static void LoadGameService()
         {
-            VARMAP_DataSystem.ResetVARMAP();
-            VARMAP_DataSystem.LoadVARMAPData();
-
-            LaunchResourcesInitializations();
-
-            LoadRoomService(VARMAP_GameMaster.GET_ACTUAL_ROOM(), out _);
+            if(_singleton != null)
+            {
+                VARMAP_DataSystem.ResetVARMAP();
+                VARMAP_DataSystem.LoadVARMAPData();
+                _singleton.StartCoroutine(_singleton.StartGameOnRoomCoroutine(VARMAP_GameMaster.GET_ACTUAL_ROOM()));
+            }
         }
 
+        private IEnumerator StartGameOnRoomCoroutine(Room room)
+        {
+            /* Load sprites (base Room) */
+            Coroutine spritesCoroutine = StartCoroutine(ResourceSpritesClass.PreloadRoomSpritesCoroutine(Room.ROOM_NONE));
+
+            /* Load prefabs (base Room) */
+            Coroutine prefabsCoroutine = StartCoroutine(ResourceAtlasClass.PreloadPrefabsCoroutine(Room.ROOM_NONE));
+
+            /* Load texts (base Room) */
+            Coroutine dialogsCoroutine = StartCoroutine(ResourceDialogsClass.PreloadRoomTextsCoroutine(Room.ROOM_NONE));
+
+            yield return spritesCoroutine;
+            yield return prefabsCoroutine;
+            yield return dialogsCoroutine;
+
+            /* Prepare for next scene loading process bitfield */
+            moduleLoadingDone = 0;
+
+            baseScene = Addressables.LoadSceneAsync(GameFixedConfig.ROOM_BASE, LoadSceneMode.Single, true);
+            yield return baseScene;
+
+            VARMAP_GameMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameMaster);
+
+            /* Ensure Masters have executed their Loading tasks */
+            while (moduleLoadingDone != ALL_MODULES_LOADED_MASK)
+            {
+                yield return ResourceAtlasClass.WaitForNextFrame;
+            }
+
+            LoadRoomService(room, out _);
+        }
 
         public static void LoadingCompletedService(GameModules module)
         {
@@ -296,19 +338,16 @@ namespace Gob3AQ.GameMaster
         private IEnumerator UnloadAndLoadRoomCoroutine(Room room)
         {
             AsyncOperationHandle<SceneInstance> nextRoom;
-            AsyncOperationHandle<SceneInstance> loadingRoom;
 
             /* Operations prepared for next level */
             /* Commit pending changes */
             
             VARMAP_GameMaster.SET_ACTUAL_ROOM(room);
             _SetGameStatus(Game_Status.GAME_STATUS_CHANGING_ROOM);
-            VARMAP_DataSystem.ClearVARMAPChangeEvents();
-            VARMAP_Variable_Indexable.CommitPending();
 
-            /* Load loading room */
-            loadingRoom = Addressables.LoadSceneAsync(GameFixedConfig.ROOM_LOADING, LoadSceneMode.Single, true);
-            yield return loadingRoom;
+            /* Ensure Changing room operations have been performed by masters */
+            yield return ResourceAtlasClass.WaitForNextFrame;
+            yield return ResourceAtlasClass.WaitForNextFrame;
 
             /* Prepare for next scene loading process bitfield */
             moduleLoadingDone = 0;
@@ -329,29 +368,18 @@ namespace Gob3AQ.GameMaster
             yield return spritesCoroutine;
             yield return prefabsCoroutine;
 
+            _SetGameStatus(Game_Status.GAME_STATUS_LOADING);
+
             /* Now load desired room and its resources */
             string resourceName = GameFixedConfig.ROOM_TO_SCENE_NAME[(int)room];
 
             /* Prepare, but not go into next room yet */
-            nextRoom = Addressables.LoadSceneAsync(resourceName, LoadSceneMode.Single, false);
+            nextRoom = Addressables.LoadSceneAsync(resourceName, LoadSceneMode.Additive, true);
             yield return nextRoom;
-
-
-            /* Activate loaded room */
-            yield return nextRoom.Result.ActivateAsync();
-
-            /* Unload loading room */
-            yield return Addressables.UnloadSceneAsync(loadingRoom);
-
 
             /* Move to previous for next load */
             prevRoom = nextRoom;
             prevRoomLoaded = true;
-
-            yield return ResourceAtlasClass.WaitForNextFrame;
-
-            
-            _SetGameStatus(Game_Status.GAME_STATUS_LOADING);
 
             yield return ResourceAtlasClass.WaitForNextFrame;
 
@@ -364,12 +392,14 @@ namespace Gob3AQ.GameMaster
             /* Load bootstrap */
             yield return SceneManager.LoadSceneAsync(GameFixedConfig.ROOM_MAINMENU, LoadSceneMode.Single);
 
-            /* Unlaod previous room resources */
+            yield return Addressables.UnloadSceneAsync(baseScene);
+
+            /* Unlaod all resources */
             yield return UnloadPreviousRoomResources(true);
         }
 
 
-        private static IEnumerable UnloadPreviousRoomResources(bool fullclear)
+        private static IEnumerator UnloadPreviousRoomResources(bool fullclear)
         {
             /* Unload previous room (in case) */
             if (prevRoomLoaded)
@@ -384,13 +414,13 @@ namespace Gob3AQ.GameMaster
                 ResourceSpritesClass.UnloadUsedSprites(true);
                 ResourceDialogsClass.UnloadUsedTexts(true);
                 ResourceAtlasClass.UnloadUnusedPrefabs(true);
+
+                /* Just in case */
+                yield return Resources.UnloadUnusedAssets();
+
+                /* Collect as much as possible */
+                GC.Collect();
             }
-
-            /* Just in case */
-            yield return Resources.UnloadUnusedAssets();
-
-            /* Collect as much as possible */
-            GC.Collect();
         }
 
     }

@@ -20,6 +20,9 @@ namespace Gob3AQ.VARMAP.InputMaster
             /* > ATG 1 START */
             GET_GAME_OPTIONS = _GET_GAME_OPTIONS;
             GET_ELAPSED_TIME_MS = _GET_ELAPSED_TIME_MS;
+            GET_GAMESTATUS = _GET_GAMESTATUS;
+            REG_GAMESTATUS = _REG_GAMESTATUS;
+            UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             GET_PRESSED_KEYS = _GET_PRESSED_KEYS;
             GET_SHADOW_PRESSED_KEYS = _GET_SHADOW_PRESSED_KEYS;
             SET_PRESSED_KEYS = _SET_PRESSED_KEYS;
@@ -38,6 +41,9 @@ namespace Gob3AQ.VARMAP.InputMaster
         /* > ATG 2 START */
         public static GetVARMAPValueDelegate<GameOptionsStruct> GET_GAME_OPTIONS;
         public static GetVARMAPValueDelegate<ulong> GET_ELAPSED_TIME_MS;
+        public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
+        public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
+        public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
         public static GetVARMAPValueDelegate<KeyStruct> GET_PRESSED_KEYS;
         public static GetVARMAPValueDelegate<KeyStruct> GET_SHADOW_PRESSED_KEYS;
         public static SetVARMAPValueDelegate<KeyStruct> SET_PRESSED_KEYS;

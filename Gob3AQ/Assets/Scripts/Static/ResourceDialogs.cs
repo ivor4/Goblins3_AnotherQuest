@@ -162,57 +162,60 @@ namespace Gob3AQ.ResourceDialogs
             _phrasesToLoadArray.UnionWith(_fixedPhrasesArray);
 
             /* Get room info and its linked phrases */
-            ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(room);
-
-            /* Necessary to use heap for this (but it is loading) */
-            HashSet<DialogType> processedDialogues = new(GameFixedConfig.MAX_CACHED_PHRASES);
-            Queue<DialogType> dialoguesToProcess = new(GameFixedConfig.MAX_CACHED_PHRASES);
-
-            foreach(GameItem item in roomInfo.items)
+            if (room != Room.ROOM_NONE)
             {
-                ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(item);
-                _namesToLoadArray.Add(itemInfo.name);
+                ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(room);
 
-                ReadOnlySpan<ActionConditions> conditionsEnumArray = itemInfo.Conditions;
+                /* Necessary to use heap for this (but it is loading) */
+                HashSet<DialogType> processedDialogues = new(GameFixedConfig.MAX_CACHED_PHRASES);
+                Queue<DialogType> dialoguesToProcess = new(GameFixedConfig.MAX_CACHED_PHRASES);
 
-                for (int j = 0; j < conditionsEnumArray.Length; j++)
+                foreach (GameItem item in roomInfo.items)
                 {
-                    ref readonly ActionConditionsInfo condition = ref ItemsInteractionsClass.GetActionConditionsInfo(conditionsEnumArray[j]);
+                    ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(item);
+                    _namesToLoadArray.Add(itemInfo.name);
 
-                    /* Standalone phrases */
-                    _phrasesToLoadArray.Add(condition.phraseOK);
+                    ReadOnlySpan<ActionConditions> conditionsEnumArray = itemInfo.Conditions;
 
-                    /* Include phrases from dialogs */
-                    if (!processedDialogues.Contains(condition.dialogOK))
+                    for (int j = 0; j < conditionsEnumArray.Length; j++)
                     {
-                        dialoguesToProcess.Enqueue(condition.dialogOK);
-                        processedDialogues.Add(condition.dialogOK);
-                    }
+                        ref readonly ActionConditionsInfo condition = ref ItemsInteractionsClass.GetActionConditionsInfo(conditionsEnumArray[j]);
 
-                    while (dialoguesToProcess.TryDequeue(out DialogType remainingDialog))
-                    {
-                        if ((remainingDialog != DialogType.DIALOG_NONE) && (remainingDialog != DialogType.DIALOG_SIMPLE))
+                        /* Standalone phrases */
+                        _phrasesToLoadArray.Add(condition.phraseOK);
+
+                        /* Include phrases from dialogs */
+                        if (!processedDialogues.Contains(condition.dialogOK))
                         {
-                            ref readonly DialogConfig dialogConfig = ref ResourceDialogsAtlasClass.GetDialogConfig(remainingDialog);
-                            ReadOnlySpan<DialogOption> dialogOptions = dialogConfig.Options;
+                            dialoguesToProcess.Enqueue(condition.dialogOK);
+                            processedDialogues.Add(condition.dialogOK);
+                        }
 
-                            for (int k = 0; k < dialogOptions.Length; ++k)
+                        while (dialoguesToProcess.TryDequeue(out DialogType remainingDialog))
+                        {
+                            if ((remainingDialog != DialogType.DIALOG_NONE) && (remainingDialog != DialogType.DIALOG_SIMPLE))
                             {
-                                ref readonly DialogOptionConfig dialogOptionConfig = ref ResourceDialogsAtlasClass.GetDialogOptionConfig(dialogOptions[k]);
-                                ReadOnlySpan<DialogPhrase> dialogPhrases = dialogOptionConfig.Phrases;
+                                ref readonly DialogConfig dialogConfig = ref ResourceDialogsAtlasClass.GetDialogConfig(remainingDialog);
+                                ReadOnlySpan<DialogOption> dialogOptions = dialogConfig.Options;
 
-                                for (int l = 0; l < dialogPhrases.Length; ++l)
+                                for (int k = 0; k < dialogOptions.Length; ++k)
                                 {
-                                    _phrasesToLoadArray.Add(dialogPhrases[l]);
-                                }
+                                    ref readonly DialogOptionConfig dialogOptionConfig = ref ResourceDialogsAtlasClass.GetDialogOptionConfig(dialogOptions[k]);
+                                    ReadOnlySpan<DialogPhrase> dialogPhrases = dialogOptionConfig.Phrases;
 
-                                /* If option triggers another dialog, include its phrases too */
-                                if (dialogOptionConfig.dialogTriggered != DialogType.DIALOG_NONE)
-                                {
-                                    if (!processedDialogues.Contains(dialogOptionConfig.dialogTriggered))
+                                    for (int l = 0; l < dialogPhrases.Length; ++l)
                                     {
-                                        dialoguesToProcess.Enqueue(dialogOptionConfig.dialogTriggered);
-                                        processedDialogues.Add(dialogOptionConfig.dialogTriggered);
+                                        _phrasesToLoadArray.Add(dialogPhrases[l]);
+                                    }
+
+                                    /* If option triggers another dialog, include its phrases too */
+                                    if (dialogOptionConfig.dialogTriggered != DialogType.DIALOG_NONE)
+                                    {
+                                        if (!processedDialogues.Contains(dialogOptionConfig.dialogTriggered))
+                                        {
+                                            dialoguesToProcess.Enqueue(dialogOptionConfig.dialogTriggered);
+                                            processedDialogues.Add(dialogOptionConfig.dialogTriggered);
+                                        }
                                     }
                                 }
                             }

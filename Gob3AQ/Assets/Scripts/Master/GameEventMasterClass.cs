@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace Gob3AQ.GameEventMaster
 {
-    
+
     public class GameEventMasterClass : MonoBehaviour
     {
         private static GameEventMasterClass _singleton;
@@ -132,14 +132,14 @@ namespace Gob3AQ.GameEventMaster
 
                 mbfs = VARMAP_GameEventMaster.GET_SHADOW_ELEM_UNWATCHED_PARENT_MEMENTO(arraypos);
                 mbfs.SetIndividualBool(elembit, true);
-                
+
                 VARMAP_GameEventMaster.SET_ELEM_UNWATCHED_PARENT_MEMENTO(arraypos, in mbfs);
                 VARMAP_GameEventMaster.COMMIT_MEMENTO_NOTIF(memento);
                 VARMAP_GameEventMaster.SET_EVENTS_BEING_PROCESSED(true);
             }
         }
 
-        
+
 
 
         /// <summary>
@@ -190,8 +190,10 @@ namespace Gob3AQ.GameEventMaster
         {
             if (_singleton != null)
             {
+                VARMAP_GameEventMaster.REG_GAMESTATUS(_GameStatusChanged);
                 Room room = VARMAP_GameEventMaster.GET_ACTUAL_ROOM();
-                StartCoroutine(Loading_Task_Coroutine(room));
+                //StartCoroutine(Loading_Task_Coroutine(room));
+                VARMAP_GameEventMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameEventMaster);
             }
         }
 
@@ -268,6 +270,7 @@ namespace Gob3AQ.GameEventMaster
             if (_singleton == this)
             {
                 _singleton = null;
+                VARMAP_GameEventMaster.UNREG_GAMESTATUS(_GameStatusChanged);
             }
         }
 
@@ -311,7 +314,7 @@ namespace Gob3AQ.GameEventMaster
             ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(room);
             Span<GameEventCombi> ignoreIfCondition = stackalloc GameEventCombi[1];
 
-            if(index < (int)UnchainConditions.UNCHAIN_TOTAL)
+            if (index < (int)UnchainConditions.UNCHAIN_TOTAL)
             {
                 UnchainConditions unchainer = (UnchainConditions)index;
                 ref readonly UnchainInfo unchainer_info = ref ItemsInteractionsClass.GetUnchainInfo(unchainer);
@@ -341,7 +344,7 @@ namespace Gob3AQ.GameEventMaster
                         if (roomInfo.items[unchainer_info.targetItem])
                         {
                             /* If it needs to spawn, make it invisible by the moment */
-                            if(unchainer_info.type == UnchainType.UNCHAIN_TYPE_SPAWN)
+                            if (unchainer_info.type == UnchainType.UNCHAIN_TYPE_SPAWN)
                             {
                                 Debug.Log("Pre-Disappear for posterior Spawn unchainer " + unchainer_info.targetItem);
                                 VARMAP_GameEventMaster.UNCHAIN_TO_ITEM(in UnchainInfo.EMPTY, true);
@@ -358,8 +361,8 @@ namespace Gob3AQ.GameEventMaster
                 if (pending)
                 {
                     bool occurred = TryUnchainAction(in unchainer_info);
-    
-                    if(!occurred)
+
+                    if (!occurred)
                     {
                         foreach (GameEventCombi eventCombi in unchainer_info.NeededEvents)
                         {
@@ -374,7 +377,7 @@ namespace Gob3AQ.GameEventMaster
                                 { unchainer };
                             }
 
-                            if(_reversePendingUnchainDict.TryGetValue(unchainer, out HashSet<GameEvent> reverseHash))
+                            if (_reversePendingUnchainDict.TryGetValue(unchainer, out HashSet<GameEvent> reverseHash))
                             {
                                 reverseHash.Add(eventCombi.eventType);
                             }
@@ -405,8 +408,8 @@ namespace Gob3AQ.GameEventMaster
             /* If occurred, execute it and don't add it to pending */
             if (occurred)
             {
-                
-                switch(info.type)
+
+                switch (info.type)
                 {
                     case UnchainType.UNCHAIN_TYPE_EVENT:
                         Debug.Log("Unchaining event " + info.TargetEvents[0].eventType);
@@ -425,5 +428,27 @@ namespace Gob3AQ.GameEventMaster
             return occurred;
         }
 
+        private void _GameStatusChanged(ChangedEventType evtype, in Game_Status oldval, in Game_Status newval)
+        {
+            _ = evtype;
+
+            if (newval != oldval)
+            {
+                switch (newval)
+                {
+                    case Game_Status.GAME_STATUS_LOADING:
+                        _pendingUnchainDict.Clear();
+                        _reversePendingUnchainDict.Clear();
+
+                        _removePendingKey.Clear();
+                        _removePendingHash.Clear();
+                        StartCoroutine(Loading_Task_Coroutine(VARMAP_GameEventMaster.GET_ACTUAL_ROOM()));
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+        }
     }
 }

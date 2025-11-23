@@ -1,6 +1,7 @@
 using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameMenu.UICanvas;
+using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceSprites;
 using Gob3AQ.VARMAP.GraphicsMaster;
 using Gob3AQ.VARMAP.Types;
@@ -13,10 +14,10 @@ namespace Gob3AQ.GraphicsMaster
     public class GraphicsMasterClass : MonoBehaviour
     {
         [SerializeField]
-        private GameSprite backgroundGameSprite;
+        private GameObject UICanvas;
 
         [SerializeField]
-        private GameObject UICanvas;
+        private GameObject EventSystem;
 
         private static GraphicsMasterClass _singleton;
 
@@ -52,6 +53,7 @@ namespace Gob3AQ.GraphicsMaster
             else
             {
                 _singleton = this;
+
                 background = transform.Find("Background").gameObject;
                 background_spr = background.GetComponent<SpriteRenderer>();
             }
@@ -81,6 +83,10 @@ namespace Gob3AQ.GraphicsMaster
             _loaded = false;
 
             _mouseDraggingCamera = false;
+            isPickableSelected = false;
+            isDoorHovered = false;
+
+            VARMAP_GraphicsMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GraphicsMaster);
         }
 
         // Update is called once per frame
@@ -130,7 +136,10 @@ namespace Gob3AQ.GraphicsMaster
 
                 if (gamemasterLoaded && levelmasterLoaded && playermasterLoaded)
                 {
-                    background_spr.sprite = ResourceSpritesClass.GetSprite(_singleton.backgroundGameSprite);
+                    Room actualRoom = VARMAP_GraphicsMaster.GET_ACTUAL_ROOM();
+                    ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(actualRoom);
+
+                    background_spr.sprite = ResourceSpritesClass.GetSprite(roomInfo.background);
                     _levelBounds = background_spr.bounds;
 
                     float constrainedByWidth = _levelBounds.extents.x / mainCamera.aspect;
@@ -139,7 +148,7 @@ namespace Gob3AQ.GraphicsMaster
                     _maxCameraOrthographicSize = Mathf.Min(constrainedByWidth, constrainedByHeight);
 
                     ref readonly CameraDispositionStruct cameradisp = ref VARMAP_GraphicsMaster.GET_CAMERA_DISPOSITION();
-                    Room actualRoom = VARMAP_GraphicsMaster.GET_ACTUAL_ROOM();
+                    
 
                     Vector3 cameraPosition;
 
@@ -371,6 +380,13 @@ namespace Gob3AQ.GraphicsMaster
                         break;
                     case Game_Status.GAME_STATUS_PAUSE:
                         //paused_text.gameObject.SetActive(true);
+                        break;
+                    case Game_Status.GAME_STATUS_CHANGING_ROOM:
+                        uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_LOADING);
+                        _mouseDraggingCamera = false;
+                        isPickableSelected = false;
+                        isDoorHovered = false;
+                        _loaded = false;
                         break;
                     case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
                         uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_INVENTORY);

@@ -170,18 +170,21 @@ namespace Gob3AQ.ResourceAtlas
         {
             /* > ATG 1 START < */
             new( /* ROOM_1 */
+            GameSprite.BACKGROUND_ROOM1,
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_ROOM1, GameSprite.SPRITE_ROOM1_DECO_TABLE, }), 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(6){GameItem.ITEM_VICTIM, GameItem.ITEM_WITNESS1, GameItem.ITEM_WITNESS2, GameItem.ITEM_WITNESS3, GameItem.ITEM_ROOM1_DOOR_KITCHEN, GameItem.ITEM_ROOM1_DOOR_MAIN, }) 
             ),
             
             new( /* ROOM1_KITCHEN */
+            GameSprite.BACKGROUND_ROOM1_KITCHEN,
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(3){GameSprite.BACKGROUND_ROOM1_KITCHEN, GameSprite.SPRITE_ROOM1_JAM, GameSprite.SPRITE_ROOM1_KITCHEN_BASIN, }), 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(4){GameItem.ITEM_ROOM1_SPOON, GameItem.ITEM_ROOM1_DRAWER, GameItem.ITEM_ROOM1_WINDOW, GameItem.ITEM_DOOR_UNCONDITIONAL, }) 
             ),
             
             new( /* ROOM_LAST */
+            GameSprite.SPRITE_NONE,
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST, }), 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(1){GameItem.ITEM_LAST, }) 

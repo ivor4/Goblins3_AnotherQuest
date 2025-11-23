@@ -71,7 +71,7 @@ namespace Gob3AQ.FixedConfig
         /* Scenes */
         public const int MAX_SCENE_DOORS = 2;
         public const string ROOM_MAINMENU = "Boot";
-        public const string ROOM_LOADING = "SCENE_LOADING";
+        public const string ROOM_BASE = "SCENE_BASE";
         private static readonly string[] _ROOM_TO_SCENE_NAME =
         {
             "SCENE_ROOM1",

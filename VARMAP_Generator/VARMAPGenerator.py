@@ -880,7 +880,11 @@ for line in ROOMSinputFile:
         stringToWrite = 'new( /* '+columns[1] + ' */\n'
         room_atlas_lines.InsertLineInATG(1, stringToWrite)
         
-        options = columns[2].split('|')
+        stringToWrite = sprite_prefix + columns[2] + ',\n'
+        room_atlas_lines.InsertLineInATG(1, stringToWrite)
+        
+        
+        options = columns[3].split('|')
         num_options = len(options)
             
         stringToWrite = 'new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>('+str(num_options)+'){'
@@ -889,7 +893,7 @@ for line in ROOMSinputFile:
         stringToWrite += '}), \n'
         room_atlas_lines.InsertLineInATG(1, stringToWrite)
         
-        options = columns[3].split('|')
+        options = columns[4].split('|')
         num_options = len(options)
             
         stringToWrite = 'new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>('+str(num_options)+'){'
@@ -898,7 +902,7 @@ for line in ROOMSinputFile:
         stringToWrite += '}), \n'
         room_atlas_lines.InsertLineInATG(1, stringToWrite)
         
-        options = columns[4].split('|')
+        options = columns[5].split('|')
         num_options = len(options)
             
         stringToWrite = 'new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>('+str(num_options)+'){'

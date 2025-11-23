@@ -100,14 +100,17 @@ namespace Gob3AQ.ResourceSprites
             _spritesToLoadArray.UnionWith(_fixedSpritesArray);
 
             /* Then room sprites */
-            ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(room);
-            _spritesToLoadArray.UnionWith(roomInfo.sprites);
-
-            /* Then present room items sprites */
-            foreach (GameItem item in roomInfo.items)
+            if (room != Room.ROOM_NONE)
             {
-                ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(item);
-                _spritesToLoadArray.UnionWith(itemInfo.sprites);
+                ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(room);
+                _spritesToLoadArray.UnionWith(roomInfo.sprites);
+
+                /* Then present room items sprites */
+                foreach (GameItem item in roomInfo.items)
+                {
+                    ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(item);
+                    _spritesToLoadArray.UnionWith(itemInfo.sprites);
+                }
             }
 
             _ = _spritesToLoadArray.Remove(GameSprite.SPRITE_NONE);

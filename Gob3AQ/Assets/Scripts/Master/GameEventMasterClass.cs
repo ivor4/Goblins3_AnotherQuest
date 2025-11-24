@@ -19,13 +19,26 @@ namespace Gob3AQ.GameEventMaster
         /// Events which were modified on last cycle
         /// </summary>
         private HashSet<GameEvent> _bufferedEvents;
+        /// <summary>
+        /// Entries to remove after processing (auxiliar)
+        /// </summary>
         private HashSet<UnchainConditions> _removePendingHash;
+        /// <summary>
+        /// Keys to remove after processing (auxiliar)
+        /// </summary>
         private HashSet<GameEvent> _removePendingKey;
+        /// <summary>
+        /// Unchain conditions which need to be reviewed on each Scene load
+        /// </summary>
+        private HashSet<UnchainConditions> _itemRelatedUnchainers;
 
-        /* Ok, this is gross. Here goes something which could make you think in opposite directions <noob<->expert> */
-        /* One of (maybe) multiple events necessary for one or multiple unchainers. So several keys could point to same unchainer(s) */
-        /* It is responsability of designer to set correctly "ignoreif" events for events which could happen way further in game */
+        /// <summary>
+        /// Compound conditions of whole game which are still pending and items of this scene
+        /// </summary>
         private Dictionary<GameEvent, HashSet<UnchainConditions>> _pendingUnchainDict;
+        /// <summary>
+        /// Reverse dictionary of pending unchainers to their needed events
+        /// </summary>
         private Dictionary<UnchainConditions, HashSet<GameEvent>> _reversePendingUnchainDict;
 
 
@@ -183,6 +196,8 @@ namespace Gob3AQ.GameEventMaster
                 _removePendingHash = new HashSet<UnchainConditions>(GameFixedConfig.MAX_PENDING_UNCHAINERS);
 
                 _bufferedEvents = new(GameFixedConfig.MAX_BUFFERED_EVENTS);
+
+                _itemRelatedUnchainers = new(GameFixedConfig.MAX_PENDING_UNCHAINERS);
             }
         }
 
@@ -192,8 +207,7 @@ namespace Gob3AQ.GameEventMaster
             {
                 VARMAP_GameEventMaster.REG_GAMESTATUS(_GameStatusChanged);
                 Room room = VARMAP_GameEventMaster.GET_ACTUAL_ROOM();
-                //StartCoroutine(Loading_Task_Coroutine(room));
-                VARMAP_GameEventMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameEventMaster);
+                StartCoroutine(Initial_Loading_Task_Coroutine());
             }
         }
 
@@ -237,24 +251,9 @@ namespace Gob3AQ.GameEventMaster
                     /* Remove outside previous foreach loop */
                     foreach (UnchainConditions unchainerToRemove in _removePendingHash)
                     {
-                        foreach (GameEvent unchainerNeededEvent in _reversePendingUnchainDict[unchainerToRemove])
-                        {
-                            _pendingUnchainDict[unchainerNeededEvent].Remove(unchainerToRemove);
-
-                            if (_pendingUnchainDict[unchainerNeededEvent].Count == 0)
-                            {
-                                _removePendingKey.Add(unchainerNeededEvent);
-                            }
-                        }
-                        _reversePendingUnchainDict.Remove(unchainerToRemove);
+                        RemoveUnchainerEventsFromPending(unchainerToRemove);
                     }
                     _removePendingHash.Clear();
-
-                    foreach (GameEvent gameEventToRemove in _removePendingKey)
-                    {
-                        _pendingUnchainDict.Remove(gameEventToRemove);
-                    }
-                    _removePendingKey.Clear();
                 }
             }
 
@@ -274,7 +273,7 @@ namespace Gob3AQ.GameEventMaster
             }
         }
 
-        private IEnumerator Loading_Task_Coroutine(Room room)
+        private IEnumerator Initial_Loading_Task_Coroutine()
         {
             bool completed = false;
             int unchainer_index = 0;
@@ -299,19 +298,18 @@ namespace Gob3AQ.GameEventMaster
             while (!completed)
             {
                 yield return ResourceAtlasClass.WaitForNextFrame;
-                completed = Loading_Task_Cycle(room, unchainer_index);
+                completed = Initial_Loading_Task_Cycle(unchainer_index);
                 ++unchainer_index;
             }
 
             VARMAP_GameEventMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameEventMaster);
         }
 
-        private bool Loading_Task_Cycle(Room room, int index)
+        private bool Initial_Loading_Task_Cycle(int index)
         {
             bool ended;
 
             /* Retrieve all Unchainers */
-            ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(room);
             Span<GameEventCombi> ignoreIfCondition = stackalloc GameEventCombi[1];
 
             if (index < (int)UnchainConditions.UNCHAIN_TOTAL)
@@ -341,52 +339,12 @@ namespace Gob3AQ.GameEventMaster
                         (unchainer_info.type == UnchainType.UNCHAIN_TYPE_DESPAWN)
                         )
                     {
-                        if (roomInfo.items[unchainer_info.targetItem])
-                        {
-                            /* If it needs to spawn, make it invisible by the moment */
-                            if (unchainer_info.type == UnchainType.UNCHAIN_TYPE_SPAWN)
-                            {
-                                Debug.Log("Pre-Disappear for posterior Spawn unchainer " + unchainer_info.targetItem);
-                                VARMAP_GameEventMaster.UNCHAIN_TO_ITEM(in UnchainInfo.EMPTY, true);
-                            }
-                        }
-                        else
-                        {
-                            pending = false;
-                        }
+                        /* Store for Scene Load (not in initial load) */
+                        _itemRelatedUnchainers.Add(unchainer);
                     }
-                }
-
-                /* Now check if all of its necessary events are complied to execute it */
-                if (pending)
-                {
-                    bool occurred = TryUnchainAction(in unchainer_info);
-
-                    if (!occurred)
+                    else
                     {
-                        foreach (GameEventCombi eventCombi in unchainer_info.NeededEvents)
-                        {
-                            /* If key is already there, add to HashSet (won't duplicate) */
-                            if (_pendingUnchainDict.TryGetValue(eventCombi.eventType, out HashSet<UnchainConditions> hash))
-                            {
-                                hash.Add(unchainer);
-                            }
-                            else
-                            {
-                                _pendingUnchainDict[eventCombi.eventType] = new(GameFixedConfig.MAX_PENDING_UNCHAINERS)
-                                { unchainer };
-                            }
-
-                            if (_reversePendingUnchainDict.TryGetValue(unchainer, out HashSet<GameEvent> reverseHash))
-                            {
-                                reverseHash.Add(eventCombi.eventType);
-                            }
-                            else
-                            {
-                                _reversePendingUnchainDict[unchainer] = new(GameFixedConfig.MAX_PENDING_UNCHAINERS)
-                                { eventCombi.eventType};
-                            }
-                        }
+                        AddUnchainerEventsToPending(unchainer, in unchainer_info);
                     }
                 }
 
@@ -400,6 +358,127 @@ namespace Gob3AQ.GameEventMaster
             return ended;
         }
 
+        
+
+        private IEnumerator Scene_Loading_Task_Coroutine(Room room)
+        {
+            bool completed = false;
+
+            while (!completed)
+            {
+                yield return ResourceAtlasClass.WaitForNextFrame;
+                VARMAP_GameEventMaster.IS_MODULE_LOADED(GameModules.MODULE_ItemMaster, out completed);
+            }
+
+            completed = false;
+
+            while (!completed)
+            {
+                yield return ResourceAtlasClass.WaitForNextFrame;
+                VARMAP_GameEventMaster.IS_MODULE_LOADED(GameModules.MODULE_GameMenu, out completed);
+            }
+
+            foreach(UnchainConditions unchainer in _itemRelatedUnchainers)
+            {
+                Scene_Loading_Task_ItemUnchainers_Cycle(unchainer, room);
+            }
+            yield return ResourceAtlasClass.WaitForNextFrame;
+
+            /* Now it's time to check all pending ones to execute */
+            foreach (KeyValuePair<UnchainConditions, HashSet<GameEvent>> kvp in _reversePendingUnchainDict)
+            {
+                if (TryUnchainAction(in ItemsInteractionsClass.GetUnchainInfo(kvp.Key)))
+                {
+                    _removePendingHash.Add(kvp.Key);
+                }
+            }
+
+            foreach(UnchainConditions unchainer in _removePendingHash)
+            {
+                RemoveUnchainerEventsFromPending(unchainer);
+            }
+            _removePendingHash.Clear();
+
+            VARMAP_GameEventMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameEventMaster);
+        }
+
+        private void Scene_Loading_Task_ItemUnchainers_Cycle(UnchainConditions unchainer, Room room)
+        {
+            ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(room);
+            ref readonly UnchainInfo unchainer_info = ref ItemsInteractionsClass.GetUnchainInfo(unchainer);
+
+            if (roomInfo.items[unchainer_info.targetItem])
+            {
+                /* If it needs to spawn, make it invisible by the moment */
+                if (unchainer_info.type == UnchainType.UNCHAIN_TYPE_SPAWN)
+                {
+                    Debug.Log("Pre-Disappear for posterior Spawn unchainer " + unchainer_info.targetItem);
+                    VARMAP_GameEventMaster.UNCHAIN_TO_ITEM(in UnchainInfo.EMPTY, true);
+                }
+
+                AddUnchainerEventsToPending(unchainer, in unchainer_info);
+            }
+            else
+            {
+                RemoveUnchainerEventsFromPending(unchainer);
+            }
+        }
+
+
+        private void AddUnchainerEventsToPending(UnchainConditions unchainer, in UnchainInfo unchainer_info)
+        {
+            if (!_reversePendingUnchainDict.ContainsKey(unchainer))
+            {
+                foreach (GameEventCombi eventCombi in unchainer_info.NeededEvents)
+                {
+                    /* If key is already there, add to HashSet (won't duplicate) */
+                    if (_pendingUnchainDict.TryGetValue(eventCombi.eventType, out HashSet<UnchainConditions> hash))
+                    {
+                        hash.Add(unchainer);
+                    }
+                    else
+                    {
+                        _pendingUnchainDict[eventCombi.eventType] = new(GameFixedConfig.MAX_PENDING_UNCHAINERS)
+                            { unchainer };
+                    }
+
+                    if (_reversePendingUnchainDict.TryGetValue(unchainer, out HashSet<GameEvent> reverseHash))
+                    {
+                        reverseHash.Add(eventCombi.eventType);
+                    }
+                    else
+                    {
+                        _reversePendingUnchainDict[unchainer] = new(GameFixedConfig.MAX_PENDING_UNCHAINERS)
+                            { eventCombi.eventType};
+                    }
+                }
+            }
+        }
+
+        private void RemoveUnchainerEventsFromPending(UnchainConditions unchainer)
+        {
+            /* Remove from pending, as item is not in this room */
+            if (_reversePendingUnchainDict.TryGetValue(unchainer, out HashSet<GameEvent> reverseHash))
+            {
+                /* Remove outside previous foreach loop */
+                foreach (GameEvent unchainerNeededEvent in reverseHash)
+                {
+                    _pendingUnchainDict[unchainerNeededEvent].Remove(unchainer);
+                    if (_pendingUnchainDict[unchainerNeededEvent].Count == 0)
+                    {
+                        _removePendingKey.Add(unchainerNeededEvent);
+                    }
+                }
+                _reversePendingUnchainDict.Remove(unchainer);
+
+                foreach (GameEvent gameEventToRemove in _removePendingKey)
+                {
+                    _pendingUnchainDict.Remove(gameEventToRemove);
+                }
+                _removePendingKey.Clear();
+            }
+        }
+
         private bool TryUnchainAction(in UnchainInfo info)
         {
             ReadOnlySpan<GameEventCombi> neededEvents = info.NeededEvents;
@@ -408,7 +487,6 @@ namespace Gob3AQ.GameEventMaster
             /* If occurred, execute it and don't add it to pending */
             if (occurred)
             {
-
                 switch (info.type)
                 {
                     case UnchainType.UNCHAIN_TYPE_EVENT:
@@ -437,12 +515,7 @@ namespace Gob3AQ.GameEventMaster
                 switch (newval)
                 {
                     case Game_Status.GAME_STATUS_LOADING:
-                        _pendingUnchainDict.Clear();
-                        _reversePendingUnchainDict.Clear();
-
-                        _removePendingKey.Clear();
-                        _removePendingHash.Clear();
-                        StartCoroutine(Loading_Task_Coroutine(VARMAP_GameEventMaster.GET_ACTUAL_ROOM()));
+                        StartCoroutine(Scene_Loading_Task_Coroutine(VARMAP_GameEventMaster.GET_ACTUAL_ROOM()));
                         break;
 
                     default:

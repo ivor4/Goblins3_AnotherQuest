@@ -378,13 +378,21 @@ namespace Gob3AQ.GameEventMaster
                 VARMAP_GameEventMaster.IS_MODULE_LOADED(GameModules.MODULE_GameMenu, out completed);
             }
 
+            HashSet<UnchainConditions> _itemRelatedUnchainersToRemove = new(GameFixedConfig.MAX_PENDING_UNCHAINERS);
+
             foreach(UnchainConditions unchainer in _itemRelatedUnchainers)
             {
-                Scene_Loading_Task_ItemUnchainers_Cycle(unchainer, room);
+                Scene_Loading_Task_ItemUnchainers_Cycle(unchainer, room, _itemRelatedUnchainersToRemove);
             }
             yield return ResourceAtlasClass.WaitForNextFrame;
 
+            foreach(UnchainConditions unchainerToRemove in _itemRelatedUnchainersToRemove)
+            {
+                _itemRelatedUnchainers.Remove(unchainerToRemove);
+            }
+
             /* Now it's time to check all pending ones to execute */
+            /* Don't insert yields between this for and remove operation, as Update() may interfere */
             foreach (KeyValuePair<UnchainConditions, HashSet<GameEvent>> kvp in _reversePendingUnchainDict)
             {
                 if (TryUnchainAction(in ItemsInteractionsClass.GetUnchainInfo(kvp.Key)))
@@ -402,12 +410,34 @@ namespace Gob3AQ.GameEventMaster
             VARMAP_GameEventMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameEventMaster);
         }
 
-        private void Scene_Loading_Task_ItemUnchainers_Cycle(UnchainConditions unchainer, Room room)
+        private void Scene_Loading_Task_ItemUnchainers_Cycle(UnchainConditions unchainer, Room room, HashSet<UnchainConditions> itemRemoveSet)
         {
             ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(room);
             ref readonly UnchainInfo unchainer_info = ref ItemsInteractionsClass.GetUnchainInfo(unchainer);
+            bool pending;
 
-            if (roomInfo.items[unchainer_info.targetItem])
+            /* Retrieve all Unchainers */
+            Span<GameEventCombi> ignoreIfCondition = stackalloc GameEventCombi[1];
+
+            /* Check if ignoreif condition comply (NONE means never ignore) */
+            if (unchainer_info.ignoreif.eventType != GameEvent.EVENT_NONE)
+            {
+                ignoreIfCondition[0] = unchainer_info.ignoreif;
+                IsEventCombiOccurredService(ignoreIfCondition, out bool occurred);
+
+                pending = !occurred;
+            }
+            else
+            {
+                pending = true;
+            }
+
+            if(!pending)
+            {
+                itemRemoveSet.Add(unchainer);
+            }
+
+            if (roomInfo.items[unchainer_info.targetItem] && pending)
             {
                 /* If it needs to spawn, make it invisible by the moment */
                 if (unchainer_info.type == UnchainType.UNCHAIN_TYPE_SPAWN)

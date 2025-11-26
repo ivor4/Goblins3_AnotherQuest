@@ -169,6 +169,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _LOCK_PLAYER = PlayerMasterClass.LockPlayerService;
             _CHANGE_GAME_MODE = GameMasterClass.ChangeGameModeService;
             _SHOW_DIALOGUE = GameMenuClass.ShowDialogueService;
+            _ZOOM_SUBSCRIPTION = GraphicsMasterClass.ZoomSubscriptionService;
             _LAST_SERVICE = GameMasterClass.ExitGameService;
             /* > ATG 2 END */
         }

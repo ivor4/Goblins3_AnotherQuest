@@ -47,6 +47,8 @@ namespace Gob3AQ.GameElement
         private bool isMotion_int;
         private bool isMotion_ext;
 
+        private bool isUnspawned;
+
         protected virtual void Awake()
         {
             isActive_int = true;
@@ -57,6 +59,7 @@ namespace Gob3AQ.GameElement
             isClickable_ext = true;
             isMotion_int = true;
             isMotion_ext = true;
+            isUnspawned = false;
         }
 
         protected virtual void Start()
@@ -88,6 +91,11 @@ namespace Gob3AQ.GameElement
         {
             VirtualDestroy();
             
+        }
+
+        public void SetUnspawned(bool unspawned)
+        {
+            isUnspawned = unspawned;
         }
 
         public void SetSprite(GameSprite newSprite)
@@ -258,9 +266,12 @@ namespace Gob3AQ.GameElement
                 switch (newval)
                 {
                     case Game_Status.GAME_STATUS_PLAY:
-                        SetActive(true);
-                        SetClickable(true);
-                        SetMotion(true);
+                        if (!isUnspawned)
+                        {
+                            SetActive(true);
+                            SetClickable(true);
+                            SetMotion(true);
+                        }
                         break;
                 }
 

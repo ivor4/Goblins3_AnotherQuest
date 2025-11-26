@@ -10,9 +10,20 @@ using UnityEngine;
 
 namespace Gob3AQ.GameElement.Item
 {
+    [System.Serializable]
     public class ItemClass : GameElementClass
     {
-        
+        [SerializeField]
+        private bool needsZoom;
+
+        [SerializeField]
+        private float maxZoomLevel;
+
+        private float actualZoomLevel;
+
+        private Color transparent_color;
+        private Color original_color;
+
         protected override void Awake()
         {
             base.Awake();
@@ -23,6 +34,10 @@ namespace Gob3AQ.GameElement.Item
             myCollider = topParent.GetComponent<Collider2D>();
             myRigidbody = topParent.GetComponent<Rigidbody2D>();
 
+            original_color = mySpriteRenderer.color;
+            transparent_color = mySpriteRenderer.color;
+            transparent_color.a *= 0.2f;
+
             SetVisible_Internal(false);
             SetClickable_Internal(false);
         }
@@ -31,6 +46,12 @@ namespace Gob3AQ.GameElement.Item
         protected override void Start()
         {
             base.Start();
+
+            if(needsZoom)
+            {
+                VARMAP_ItemMaster.ZOOM_SUBSCRIPTION(true, _OnZoomChanged);
+                actualZoomLevel = 100f;
+            }
 
             /* Execute on next Update */
             _ = StartCoroutine(Execute_Loading());
@@ -67,12 +88,47 @@ namespace Gob3AQ.GameElement.Item
             mySpriteRenderer.sprite = ResourceSpritesClass.GetSprite(actualSprite);
 
             SetVisible_Internal(true);
-            SetClickable_Internal(true);
             SetAvailable(true);
+
+            if ((!needsZoom) || (actualZoomLevel <= maxZoomLevel))
+            {
+                SetClickable_Internal(true);
+            }
+            else
+            {
+                mySpriteRenderer.color = transparent_color;
+                SetClickable_Internal(false);
+            }
 
             UpdateSortingOrder();
 
             loaded = true;
+        }
+
+        public override void VirtualDestroy()
+        {
+            base.VirtualDestroy();
+
+            if (needsZoom)
+            {
+                VARMAP_ItemMaster.ZOOM_SUBSCRIPTION(false, _OnZoomChanged);
+            }
+        }
+
+        private void _OnZoomChanged(float newZoonLevel)
+        {
+            actualZoomLevel = newZoonLevel;
+
+            if (newZoonLevel > maxZoomLevel)
+            {
+                mySpriteRenderer.color = transparent_color;
+                SetClickable_Internal(false);
+            }
+            else
+            {
+                mySpriteRenderer.color = original_color;
+                SetClickable_Internal(true);
+            }
         }
     }
 }

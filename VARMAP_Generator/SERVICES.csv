@@ -29,4 +29,5 @@ N,SERVICE_ID,SPECIAL_DELEGATE,SERVICE_ROUTE,Description,Separator,GameMaster,Inp
 27,LOCK_PLAYER,LOCK_PLAYER_DELEGATE,PlayerMasterClass.LockPlayerService,Locks player so it cannot act until an action over it has been done (or removes lock),,-,-,X,-,-,W,-,-
 28,CHANGE_GAME_MODE,CHANGE_GAME_MODE_DELEGATE,GameMasterClass.ChangeGameModeService,Asks Game Master to set game mode,,W,-,X,-,X,-,-,-
 29,SHOW_DIALOGUE,SHOW_DIALOGUE_DELEGATE,GameMenuClass.ShowDialogueService,Second part of start dialogue. Tells Game Menu to prepare menu elements,,-,-,X,-,W,-,-,-
-30,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-
+30,ZOOM_SUBSCRIPTION,ZOOM_SUBSCRIPTION_DELEGATE,GraphicsMasterClass.ZoomSubscriptionService,Subscribe to zoom changes,,-,-,-,W,-,-,X,-
+31,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-

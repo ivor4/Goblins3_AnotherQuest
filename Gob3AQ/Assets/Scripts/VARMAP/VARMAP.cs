@@ -5,6 +5,7 @@ using Gob3AQ.LevelMaster;
 using Gob3AQ.PlayerMaster;
 using Gob3AQ.InputMaster;
 using Gob3AQ.ItemMaster;
+using Gob3AQ.GraphicsMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.VARMAP.Types.Delegates;
 using Gob3AQ.VARMAP.Variable;
@@ -345,6 +346,13 @@ namespace Gob3AQ.VARMAP
         /// <para> Method: <see cref="GameMenuClass.ShowDialogueService"/> </para> 
         /// </summary>
         protected static SHOW_DIALOGUE_DELEGATE _SHOW_DIALOGUE;
+        /// <summary> 
+        /// Subscribe to zoom changes
+        /// <para> Owner: GraphicsMaster </para> 
+        /// <para> Accessors: ItemMaster,  </para> 
+        /// <para> Method: <see cref="GraphicsMasterClass.ZoomSubscriptionService"/> </para> 
+        /// </summary>
+        protected static ZOOM_SUBSCRIPTION_DELEGATE _ZOOM_SUBSCRIPTION;
         /// <summary> 
         /// Last service
         /// <para> Owner: GameMaster </para> 

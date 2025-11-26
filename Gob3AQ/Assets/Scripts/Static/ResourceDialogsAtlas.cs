@@ -66,6 +66,21 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new DialogOption[1]{DialogOption.DIALOG_OPTION_WITNESS2_GUARDS, }
             ),
             
+            new( /* DIALOG_WITNESS3_PROLOGUE */
+            new GameItem[1]{GameItem.ITEM_NONE,},
+            new DialogOption[1]{DialogOption.DIALOG_OPTION_WITNESS3_PROLO, }
+            ),
+            
+            new( /* DIALOG_WITNESS3_MAIN */
+            new GameItem[1]{GameItem.ITEM_NONE,},
+            new DialogOption[2]{DialogOption.DIALOG_OPTION_WITNESS3_MAIN_1, DialogOption.DIALOG_OPTION_WITNESS3_MAIN_2, }
+            ),
+            
+            new( /* DIALOG_WITNESS3_SPOON */
+            new GameItem[1]{GameItem.ITEM_NONE,},
+            new DialogOption[1]{DialogOption.DIALOG_OPTION_WITNESS3_SPOON, }
+            ),
+            
             new( /* DIALOG_LAST */
             new GameItem[1]{GameItem.ITEM_NONE,},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE, }
@@ -94,6 +109,30 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_AWARE_CHASE_2, false), },
             DialogType.DIALOG_NONE,
             new DialogPhrase[2]{DialogPhrase.PHRASE_ROOM1_WITNESS2_GUARDS0, DialogPhrase.PHRASE_ROOM1_WITNESS2_GUARDS1, }
+            ),
+            new( /* DIALOG_OPTION_WITNESS3_PROLO */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            DialogType.DIALOG_WITNESS3_MAIN,
+            new DialogPhrase[1]{DialogPhrase.PHRASE_ROOM1_WITNESS3_PROLO, }
+            ),
+            new( /* DIALOG_OPTION_WITNESS3_MAIN_1 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            DialogType.DIALOG_NONE,
+            new DialogPhrase[2]{DialogPhrase.PHRASE_ROOM1_WITNESS3_MAIN_1_1, DialogPhrase.PHRASE_ROOM1_WITNESS3_MAIN_1_2, }
+            ),
+            new( /* DIALOG_OPTION_WITNESS3_MAIN_2 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            DialogType.DIALOG_NONE,
+            new DialogPhrase[2]{DialogPhrase.PHRASE_ROOM1_WITNESS3_MAIN_2_1, DialogPhrase.PHRASE_ROOM1_WITNESS3_MAIN_2_2, }
+            ),
+            new( /* DIALOG_OPTION_WITNESS3_SPOON */
+            new GameEventCombi[2]{new(GameEvent.EVENT_ROOM1_SPOON_WITH_POISON_TAKEN, false), new(GameEvent.EVENT_ROOM1_OLD_KEY_TAKEN, true), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_OLD_KEY_TAKEN, false), },
+            DialogType.DIALOG_NONE,
+            new DialogPhrase[5]{DialogPhrase.PHRASE_ROOM1_WITNESS3_SPOON_1, DialogPhrase.PHRASE_ROOM1_WITNESS3_SPOON_2, DialogPhrase.PHRASE_ROOM1_WITNESS3_SPOON_3, DialogPhrase.PHRASE_ROOM1_WITNESS3_SPOON_4, DialogPhrase.PHRASE_ROOM1_WITNESS3_SPOON_5, }
             ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
@@ -127,6 +166,18 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_MEMENTO_CHASE_1 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_NOT_CROSS_DOOR */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_NOT_CROSS_MAIN_DOOR */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_TAKE_SPOON */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_WITNESS3_PROLO */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_WITNESS3_MAIN_1_1 */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_WITNESS3_MAIN_1_2 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_WITNESS3_MAIN_2_1 */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_WITNESS3_MAIN_2_2 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_WITNESS3_SPOON_1 */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_WITNESS3_SPOON_2 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_WITNESS3_SPOON_3 */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_WITNESS3_SPOON_4 */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_WITNESS3_SPOON_5 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_TAKE_SPOON_POISON */ 
             /* > ATG 3 END < */
         };
     }

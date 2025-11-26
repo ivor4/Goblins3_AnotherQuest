@@ -41,6 +41,7 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
+            ZOOM_SUBSCRIPTION = _ZOOM_SUBSCRIPTION;
             /* > ATG 1 END */
         }
 
@@ -93,6 +94,13 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
         /// <para> Method: <see cref="LevelMasterClass.GetPlayerListService"/> </para> 
         /// </summary>
         public static GET_PLAYER_LIST_DELEGATE GET_PLAYER_LIST;
+        /// <summary> 
+        /// Subscribe to zoom changes
+        /// <para> Owner: GraphicsMaster </para> 
+        /// <para> Accessors: ItemMaster,  </para> 
+        /// <para> Method: <see cref="GraphicsMasterClass.ZoomSubscriptionService"/> </para> 
+        /// </summary>
+        public static ZOOM_SUBSCRIPTION_DELEGATE ZOOM_SUBSCRIPTION;
         /* > ATG 3 END */
     }
 }

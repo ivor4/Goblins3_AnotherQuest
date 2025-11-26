@@ -14,4 +14,6 @@ N,NAME_ID,Name_English,Name_Spanish
 12,NAME_SPOON,Spoon,Cuchara
 13,NAME_DRAWER,Drawer,Cajonera
 14,NAME_WINDOW,Window,Ventana
-15,NAME_NPC_LAST,Last,Ultimo
+15,NAME_POISON_REMAIN,Viscous remains,Restos viscosos
+16,NAME_SPOON_POISON,Spoon with poison remains,Cuchara con restos de veneno
+17,NAME_NPC_LAST,Last,Ultimo

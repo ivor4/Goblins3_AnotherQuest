@@ -616,6 +616,8 @@ namespace Gob3AQ.LevelMaster
             VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)CharacterType.CHARACTER_MAIN, waypointIndex);
             VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)CharacterType.CHARACTER_PARROT, waypointIndex);
             VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)CharacterType.CHARACTER_SNAKE, waypointIndex);
+            VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
+            VARMAP_LevelMaster.SET_PLAYER_SELECTED(CharacterType.CHARACTER_NONE);
 
             VARMAP_LevelMaster.LOAD_ROOM(doorInfo.roomLeadTo, out _);
         }

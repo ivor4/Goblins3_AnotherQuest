@@ -5,6 +5,7 @@ using Gob3AQ.LevelMaster;
 using Gob3AQ.PlayerMaster;
 using Gob3AQ.ItemMaster;
 using Gob3AQ.GameEventMaster;
+using Gob3AQ.GraphicsMaster;
 using Gob3AQ.InputMaster;
 
 namespace Gob3AQ.VARMAP.ItemMaster
@@ -42,6 +43,7 @@ namespace Gob3AQ.VARMAP.ItemMaster
             UNCHAIN_TO_ITEM = _UNCHAIN_TO_ITEM;
             USE_ITEM = _USE_ITEM;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
+            ZOOM_SUBSCRIPTION = _ZOOM_SUBSCRIPTION;
             /* > ATG 1 END */
         }
 
@@ -149,6 +151,13 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /// <para> Method: <see cref="GameMenuClass.CancelPickableItemService"/> </para> 
         /// </summary>
         public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
+        /// <summary> 
+        /// Subscribe to zoom changes
+        /// <para> Owner: GraphicsMaster </para> 
+        /// <para> Accessors: ItemMaster,  </para> 
+        /// <para> Method: <see cref="GraphicsMasterClass.ZoomSubscriptionService"/> </para> 
+        /// </summary>
+        public static ZOOM_SUBSCRIPTION_DELEGATE ZOOM_SUBSCRIPTION;
         /* > ATG 3 END */
     }
 }

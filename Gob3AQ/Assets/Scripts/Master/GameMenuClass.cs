@@ -335,13 +335,20 @@ namespace Gob3AQ.GameMenu
                 }
                 else
                 {
-                    /* End of dialog */
-                    _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_NONE, string.Empty, string.Empty);
+                    if (dialogConfig.dialogTriggered != DialogType.DIALOG_NONE)
+                    {
+                        ShowDialogueExec(dialogConfig.dialogTriggered, DialogPhrase.PHRASE_NONE);
+                    }
+                    else
+                    {
+                        /* End of dialog */
+                        _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_NONE, string.Empty, string.Empty);
 
-                    /* If end of conversation triggers an event */
-                    VARMAP_GameMenu.COMMIT_EVENT(dialogConfig.TriggeredEvents);
+                        /* If end of conversation triggers an event */
+                        VARMAP_GameMenu.COMMIT_EVENT(dialogConfig.TriggeredEvents);
 
-                    VARMAP_GameMenu.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
+                        VARMAP_GameMenu.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
+                    }
                 }
             }
         }

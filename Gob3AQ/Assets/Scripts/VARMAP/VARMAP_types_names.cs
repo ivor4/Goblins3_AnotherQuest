@@ -22,6 +22,8 @@ namespace Gob3AQ.VARMAP.Types
         NAME_SPOON, 
         NAME_DRAWER, 
         NAME_WINDOW, 
+        NAME_POISON_REMAIN, 
+        NAME_SPOON_POISON, 
         NAME_NPC_LAST, 
         
         NAME_TOTAL

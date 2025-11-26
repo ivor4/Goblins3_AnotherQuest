@@ -1,11 +1,14 @@
 using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.FixedConfig;
+using Gob3AQ.GameElement.PlayableChar;
 using Gob3AQ.GameMenu.UICanvas;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceSprites;
 using Gob3AQ.VARMAP.GraphicsMaster;
 using Gob3AQ.VARMAP.Types;
+using Gob3AQ.VARMAP.Types.Delegates;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Gob3AQ.GraphicsMaster
@@ -18,6 +21,8 @@ namespace Gob3AQ.GraphicsMaster
 
         [SerializeField]
         private GameObject EventSystem;
+
+        private ZOOM_CHANGED_DELEGATE zoomChangedDelegates;
 
         private static GraphicsMasterClass _singleton;
 
@@ -43,6 +48,20 @@ namespace Gob3AQ.GraphicsMaster
         private bool _loaded;
 
 
+        public static void ZoomSubscriptionService(bool subscribe, ZOOM_CHANGED_DELEGATE callback)
+        {
+            if (_singleton != null)
+            {
+                if (subscribe)
+                {
+                    _singleton.zoomChangedDelegates += callback;
+                }
+                else
+                {
+                    _singleton.zoomChangedDelegates -= callback;
+                }
+            }
+        }
 
         private void Awake()
         {
@@ -56,6 +75,7 @@ namespace Gob3AQ.GraphicsMaster
 
                 background = transform.Find("Background").gameObject;
                 background_spr = background.GetComponent<SpriteRenderer>();
+                zoomChangedDelegates = null;
             }
 
         }
@@ -152,21 +172,22 @@ namespace Gob3AQ.GraphicsMaster
 
                     Vector3 cameraPosition;
 
+                    /* When game is loaded */
                     if (cameradisp.room == actualRoom)
                     {
-                        mainCamera.orthographicSize = cameradisp.orthoSize;
-
-                        UpdateCameraBounds();
-
+                        mainCamera.orthographicSize = Mathf.Min(cameradisp.orthoSize, _maxCameraOrthographicSize);
                         cameraPosition = cameradisp.position;
-                        cameraPosition.z = mainCameraTransform.position.z;
                     }
+                    /* When entering a new room */
                     else
                     {
-                        UpdateCameraBounds();
-                        cameraPosition = mainCameraTransform.position;
+                        mainCamera.orthographicSize = Mathf.Min(5.0f, _maxCameraOrthographicSize);
+                        VARMAP_GraphicsMaster.GET_PLAYER_LIST(out ReadOnlySpan<PlayableCharScript> playerList);
+                        cameraPosition = playerList[0].transform.position;
                     }
 
+                    UpdateCameraBounds();
+                    cameraPosition.z = mainCameraTransform.position.z;
                     MoveCameraToPosition(in cameraPosition);
 
                     VARMAP_GraphicsMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GraphicsMaster);
@@ -185,6 +206,8 @@ namespace Gob3AQ.GraphicsMaster
 
             _cameraCenterLimitBounds = _levelBounds;
             _cameraCenterLimitBounds.size -= new Vector3(_screenToWorldFactor.x * Screen.safeArea.width, _screenToWorldFactor.y * Screen.safeArea.height);
+
+            zoomChangedDelegates?.Invoke(mainCamera.orthographicSize);
         }
 
 
@@ -225,12 +248,12 @@ namespace Gob3AQ.GraphicsMaster
 
                         if(keys.isKeyBeingPressed(KeyFunctions.KEYFUNC_ZOOM_UP))
                         {
-                            mainCamera.orthographicSize = Math.Max(mainCamera.orthographicSize - 0.1f, GameFixedConfig.MIN_CAMERA_ORTHO_SIZE);
+                            mainCamera.orthographicSize = Math.Max(mainCamera.orthographicSize - 0.025f, GameFixedConfig.MIN_CAMERA_ORTHO_SIZE);
                             zoomApplied = true;
                         }
                         else if(keys.isKeyBeingPressed(KeyFunctions.KEYFUNC_ZOOM_DOWN))
                         {
-                            mainCamera.orthographicSize = Math.Min(mainCamera.orthographicSize + 0.1f, _maxCameraOrthographicSize);
+                            mainCamera.orthographicSize = Math.Min(mainCamera.orthographicSize + 0.025f, _maxCameraOrthographicSize);
                             zoomApplied = true;
                         }
                         else

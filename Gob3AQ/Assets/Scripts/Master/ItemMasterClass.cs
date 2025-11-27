@@ -14,6 +14,8 @@ namespace Gob3AQ.ItemMaster
     {
         private static ItemMasterClass _singleton;
         private IReadOnlyDictionary<GameItem, GameElementClass> _levelItems;
+        private int itemsToLoad;
+        private int itemsLoaded;
 
 
         public static void UnchainToItemService(in UnchainInfo unchainInfo, bool spawnPreDisappear)
@@ -82,6 +84,22 @@ namespace Gob3AQ.ItemMaster
             _ = ref ItemInteractionCommon(in usage, out outcome);
         }
 
+        public static void AddOneItemToLoad()
+        {
+            if (_singleton != null)
+            {
+                _singleton.itemsToLoad++;
+            }
+        }
+
+        public static void AddOneItemLoaded()
+        {
+            if (_singleton != null)
+            {
+                _singleton.itemsLoaded++;
+            }
+        }
+
 
 
         void Awake()
@@ -100,6 +118,8 @@ namespace Gob3AQ.ItemMaster
         {
             VARMAP_ItemMaster.REG_GAMESTATUS(_GameStatusChanged);
             VARMAP_ItemMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_ItemMaster);
+            itemsLoaded = 0;
+            itemsToLoad = 0;
         }
 
         private void OnDestroy()
@@ -194,7 +214,25 @@ namespace Gob3AQ.ItemMaster
             return ref itemInfo;
         }
 
+        private IEnumerator LoadingCoroutine()
+        {
+            bool moduleLoaded = false;
 
+            while (!moduleLoaded)
+            {
+                VARMAP_ItemMaster.IS_MODULE_LOADED(GameModules.MODULE_GameMaster, out moduleLoaded);
+                yield return ResourceAtlasClass.WaitForNextFrame;
+            }
+
+            yield return ResourceAtlasClass.WaitForNextFrame;
+
+            while (itemsLoaded < itemsToLoad)
+            {
+                yield return ResourceAtlasClass.WaitForNextFrame;
+            }
+
+            VARMAP_ItemMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_ItemMaster);
+        }
 
 
 
@@ -219,9 +257,13 @@ namespace Gob3AQ.ItemMaster
             {
                 switch(newval)
                 {
+                    case Game_Status.GAME_STATUS_CHANGING_ROOM:
+                        itemsLoaded = 0;
+                        itemsToLoad = 0;
+                        break;
                     case Game_Status.GAME_STATUS_LOADING:
                         VARMAP_ItemMaster.OBTAIN_SCENARIO_ITEMS(out _levelItems);
-                        VARMAP_ItemMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_ItemMaster);
+                        StartCoroutine(LoadingCoroutine());
                         break;
 
                     default:

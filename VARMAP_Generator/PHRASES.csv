@@ -28,7 +28,10 @@ N,PHRASE_ID,TalkerIndex,Sound,CharAnimation,Text_English,Text_Spanish
 26,PHRASE_ROOM1_WITNESS3_MAIN_2_2,1,0,DIALOG_ANIMATION_TALK,Well... I guess the kitchen is faced to a garden which is not commonly transited,Bueno... supongo que la cocina da con un jardín que es poco transitado
 27,PHRASE_ROOM1_WITNESS3_SPOON_1,0,0,DIALOG_ANIMATION_TALK,I'm sure THIS substance has something to do,Estoy seguro de que esta sustancia tuvo algo que ver
 28,PHRASE_ROOM1_WITNESS3_SPOON_2,1,0,DIALOG_ANIMATION_TALK,Hmm... Interesting. Where did you take it?,Hmm.. Interesante. Donde la encontraste?
-29,PHRASE_ROOM1_WITNESS3_SPOON_3,0,0,DIALOG_ANIMATION_TALK,It was spread on the jams served this night,Estaba esparcido en los jamones que se sirvieron esta noche
+29,PHRASE_ROOM1_WITNESS3_SPOON_3,0,0,DIALOG_ANIMATION_TALK,It was spread on the hams served this night,Estaba esparcido en los jamones que se sirvieron esta noche
 30,PHRASE_ROOM1_WITNESS3_SPOON_4,1,0,DIALOG_ANIMATION_TALK,I'm happy for you. You are one step closer to get that one,Me alegro por ti. Estás un paso más cerca de cazarlo
 31,PHRASE_ROOM1_WITNESS3_SPOON_5,1,0,DIALOG_ANIMATION_TALK,If you want to go. Take this key. It's an old one from this house. It can open the window... and I suppose nothing else. As they changed almost all keyholes last year,Si quieres marchar. Toma esta llave. Es una de las antiguas de esta casa. Esta abre la ventana y no sé si alguna cosa más. Ya que cambiaron las cerraduras de casi toda la casa el año pasado
 32,PHRASE_ROOM1_TAKE_SPOON_POISON,0,0,DIALOG_ANIMATION_TALK,I hope it lasts enough time on spoon,Espero que aguante suficiente tiempo en la cuchara
+33,PHRASE_ROOM1_WITNESS3_SPOON_2_1,1,0,DIALOG_ANIMATION_TALK,You already shown it. I think it's time to go,Ya me la enseñaste. Creo que es hora de que te marches
+34,PHRASE_ROOM1_USE_KEY_WINDOW,0,0,DIALOG_ANIMATION_TALK,Tadaaa!,Tan fácil como eso!
+35,PHRASE_ROOM1_TAKE_TROWEL,0,0,DIALOG_ANIMATION_TALK,I always had a builder within,Siempre llevé un albañil dentro

@@ -444,7 +444,7 @@ namespace Gob3AQ.GameEventMaster
                 if (unchainer_info.type == UnchainType.UNCHAIN_TYPE_SPAWN)
                 {
                     Debug.Log("Pre-Disappear for posterior Spawn unchainer " + unchainer_info.targetItem);
-                    VARMAP_GameEventMaster.UNCHAIN_TO_ITEM(in UnchainInfo.EMPTY, true);
+                    VARMAP_GameEventMaster.UNCHAIN_TO_ITEM(in unchainer_info, true);
                 }
 
                 AddUnchainerEventsToPending(unchainer, in unchainer_info);

@@ -266,12 +266,9 @@ namespace Gob3AQ.GameElement
                 switch (newval)
                 {
                     case Game_Status.GAME_STATUS_PLAY:
-                        if (!isUnspawned)
-                        {
-                            SetActive(true);
-                            SetClickable(true);
-                            SetMotion(true);
-                        }
+                        SetActive(!isUnspawned);
+                        SetClickable(!isUnspawned);
+                        SetMotion(!isUnspawned);
                         break;
                 }
 

@@ -24,6 +24,8 @@ namespace Gob3AQ.VARMAP.Types
         NAME_WINDOW, 
         NAME_POISON_REMAIN, 
         NAME_SPOON_POISON, 
+        NAME_OLD_HOUSE_KEY, 
+        NAME_TROWEL, 
         NAME_NPC_LAST, 
         
         NAME_TOTAL

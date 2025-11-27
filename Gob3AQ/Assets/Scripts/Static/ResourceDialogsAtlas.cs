@@ -78,7 +78,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             
             new( /* DIALOG_WITNESS3_SPOON */
             new GameItem[1]{GameItem.ITEM_NONE,},
-            new DialogOption[1]{DialogOption.DIALOG_OPTION_WITNESS3_SPOON, }
+            new DialogOption[2]{DialogOption.DIALOG_OPTION_WITNESS3_SPOON, DialogOption.DIALOG_OPTION_WITNESS3_SPOON_2, }
             ),
             
             new( /* DIALOG_LAST */
@@ -134,6 +134,12 @@ namespace Gob3AQ.ResourceDialogsAtlas
             DialogType.DIALOG_NONE,
             new DialogPhrase[5]{DialogPhrase.PHRASE_ROOM1_WITNESS3_SPOON_1, DialogPhrase.PHRASE_ROOM1_WITNESS3_SPOON_2, DialogPhrase.PHRASE_ROOM1_WITNESS3_SPOON_3, DialogPhrase.PHRASE_ROOM1_WITNESS3_SPOON_4, DialogPhrase.PHRASE_ROOM1_WITNESS3_SPOON_5, }
             ),
+            new( /* DIALOG_OPTION_WITNESS3_SPOON_2 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_OLD_KEY_TAKEN, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            DialogType.DIALOG_NONE,
+            new DialogPhrase[1]{DialogPhrase.PHRASE_ROOM1_WITNESS3_SPOON_2_1, }
+            ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
@@ -178,6 +184,9 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_WITNESS3_SPOON_4 */ 
             new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_WITNESS3_SPOON_5 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_TAKE_SPOON_POISON */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_WITNESS3_SPOON_2_1 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_USE_KEY_WINDOW */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_TAKE_TROWEL */ 
             /* > ATG 3 END < */
         };
     }

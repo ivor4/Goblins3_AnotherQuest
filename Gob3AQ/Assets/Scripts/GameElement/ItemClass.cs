@@ -1,4 +1,5 @@
 using Gob3AQ.Brain.ItemsInteraction;
+using Gob3AQ.ItemMaster;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceSprites;
 using Gob3AQ.VARMAP.ItemMaster;
@@ -53,6 +54,8 @@ namespace Gob3AQ.GameElement.Item
                 actualZoomLevel = 100f;
             }
 
+            ItemMasterClass.AddOneItemToLoad();
+
             /* Execute on next Update */
             _ = StartCoroutine(Execute_Loading());
         }
@@ -101,6 +104,8 @@ namespace Gob3AQ.GameElement.Item
             }
 
             UpdateSortingOrder();
+
+            ItemMasterClass.AddOneItemLoaded();
 
             loaded = true;
         }

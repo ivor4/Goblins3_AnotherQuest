@@ -21,6 +21,8 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_ROOM1_WINDOW, 
         ITEM_ROOM1_POISON_REMAIN, 
         ITEM_ROOM1_SPOON_W_POIS, 
+        ITEM_ROOM1_OLD_KEY, 
+        ITEM_ROOM1_TROWEL, 
         ITEM_LAST, 
         
         ITEM_TOTAL
@@ -33,6 +35,8 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_PICK_NONE = -1,
         ITEM_PICK_ROOM1_SPOON, 
         ITEM_PICK_ROOM1_SPOON_W_POIS, 
+        ITEM_PICK_ROOM1_OLD_KEY, 
+        ITEM_PICK_ROOM1_TROWEL, 
         
         ITEM_PICK_TOTAL
         /* > ATG 2 END < */
@@ -51,6 +55,8 @@ namespace Gob3AQ.VARMAP.Types
         COND_ROOM1_USE_SPOON_POIS_WITN, 
         COND_ROOM1_TALK_WITNESS3, 
         COND_ROOM1_USE_SPOON_W_JAM, 
+        COND_ROOM1_USE_KEY_WINDOW, 
+        COND_ROOM1_TAKE_TROWEL, 
         COND_LAST, 
         
         COND_TOTAL
@@ -72,6 +78,11 @@ namespace Gob3AQ.VARMAP.Types
         UNCHAIN_ROOM1_TAKE_SPOON_POIS_1, 
         UNCHAIN_ROOM1_TAKE_SPOON_POIS_2, 
         UNCHAIN_ROOM1_TAKE_SPOON_POIS_3, 
+        UNCHAIN_ROOM1_TAKE_OLD_KEY, 
+        UNCHAIN_ROOM1_WINDOW_OPENED_1, 
+        UNCHAIN_ROOM1_WINDOW_OPENED_2, 
+        UNCHAIN_ROOM1_TAKE_TROWEL_1, 
+        UNCHAIN_ROOM1_TAKE_TROWEL_2, 
         
         UNCHAIN_TOTAL
         /* > ATG 4 END < */

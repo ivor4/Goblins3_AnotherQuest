@@ -180,7 +180,7 @@ namespace Gob3AQ.ResourceAtlas
             GameSprite.BACKGROUND_ROOM1_KITCHEN,
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(3){GameSprite.BACKGROUND_ROOM1_KITCHEN, GameSprite.SPRITE_ROOM1_JAM, GameSprite.SPRITE_ROOM1_KITCHEN_BASIN, }), 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(6){GameItem.ITEM_ROOM1_SPOON, GameItem.ITEM_ROOM1_DRAWER, GameItem.ITEM_ROOM1_WINDOW, GameItem.ITEM_DOOR_UNCONDITIONAL, GameItem.ITEM_ROOM1_POISON_REMAIN, GameItem.ITEM_ROOM1_SPOON_W_POIS, }) 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(7){GameItem.ITEM_ROOM1_SPOON, GameItem.ITEM_ROOM1_DRAWER, GameItem.ITEM_ROOM1_WINDOW, GameItem.ITEM_DOOR_UNCONDITIONAL, GameItem.ITEM_ROOM1_POISON_REMAIN, GameItem.ITEM_ROOM1_SPOON_W_POIS, GameItem.ITEM_ROOM1_TROWEL, }) 
             ),
             
             new( /* ROOM_LAST */

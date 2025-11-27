@@ -187,6 +187,36 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameItem.ITEM_ROOM1_POISON_REMAIN, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
+            new( /* UNCHAIN_ROOM1_TAKE_OLD_KEY */
+            UnchainType.UNCHAIN_TYPE_EARN_ITEM,new(GameEvent.EVENT_ROOM1_OLD_KEY_TAKEN, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_OLD_KEY_TAKEN, false),}, 
+            GameItem.ITEM_ROOM1_OLD_KEY, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* UNCHAIN_ROOM1_WINDOW_OPENED_1 */
+            UnchainType.UNCHAIN_TYPE_DESPAWN,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_WINDOW_OPENED, false),}, 
+            GameItem.ITEM_ROOM1_WINDOW, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* UNCHAIN_ROOM1_WINDOW_OPENED_2 */
+            UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_ROOM1_TROWEL_TAKEN, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_WINDOW_OPENED, false),}, 
+            GameItem.ITEM_ROOM1_TROWEL, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* UNCHAIN_ROOM1_TAKE_TROWEL_1 */
+            UnchainType.UNCHAIN_TYPE_EARN_ITEM,new(GameEvent.EVENT_ROOM1_TROWEL_TAKEN, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_TROWEL_TAKEN, false),}, 
+            GameItem.ITEM_ROOM1_TROWEL, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* UNCHAIN_ROOM1_TAKE_TROWEL_2 */
+            UnchainType.UNCHAIN_TYPE_DESPAWN,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_TROWEL_TAKEN, false),}, 
+            GameItem.ITEM_ROOM1_TROWEL, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
             /* > ATG 1 END < */
         };
 
@@ -245,7 +275,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_SPOON_TAKEN, false),}), 
             
             new( /* COND_ROOM1_USE_SPOON_POIS_WITN */
-            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_SPOON_WITH_POISON_TAKEN, false),}, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             CharacterType.CHARACTER_MAIN,GameItem.ITEM_ROOM1_SPOON_W_POIS,ItemInteractionType.INTERACTION_USE,
             CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
             DialogType.DIALOG_WITNESS3_SPOON,DialogPhrase.PHRASE_NONE,
@@ -264,6 +294,20 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterAnimation.ITEM_USE_ANIMATION_NONE,
             DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_ROOM1_TAKE_SPOON_POISON,
             new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_SPOON_WITH_POISON_TAKEN, false),}), 
+            
+            new( /* COND_ROOM1_USE_KEY_WINDOW */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            CharacterType.CHARACTER_MAIN,GameItem.ITEM_ROOM1_OLD_KEY,ItemInteractionType.INTERACTION_USE,
+            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
+            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_ROOM1_USE_KEY_WINDOW,
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_WINDOW_OPENED, false),}), 
+            
+            new( /* COND_ROOM1_TAKE_TROWEL */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
+            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
+            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_ROOM1_TAKE_TROWEL,
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_TROWEL_TAKEN, false),}), 
             
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
@@ -344,7 +388,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_ROOM1_WINDOW */
             NameType.NAME_WINDOW,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ROOM1_WINDOW_CLOSED,}),
             GameSprite.SPRITE_ROOM1_WINDOW_CLOSED,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
-            new ActionConditions[1]{ActionConditions.COND_OK,}),
+            new ActionConditions[1]{ActionConditions.COND_ROOM1_USE_KEY_WINDOW,}),
             
             new ( /* ITEM_ROOM1_POISON_REMAIN */
             NameType.NAME_POISON_REMAIN,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ROOM1_POISON_REMAIN,}),
@@ -355,6 +399,16 @@ namespace Gob3AQ.Brain.ItemsInteraction
             NameType.NAME_SPOON_POISON,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PICKABLE_SPOON_POISON,}),
             GameSprite.SPRITE_PICKABLE_SPOON_POISON,true,GameSprite.SPRITE_PICKABLE_SPOON_POISON,GamePickableItem.ITEM_PICK_ROOM1_SPOON_W_POIS,
             new ActionConditions[1]{ActionConditions.COND_OK,}),
+            
+            new ( /* ITEM_ROOM1_OLD_KEY */
+            NameType.NAME_OLD_HOUSE_KEY,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PICKABLE_OLD_HOUSE_KEY,}),
+            GameSprite.SPRITE_PICKABLE_OLD_HOUSE_KEY,true,GameSprite.SPRITE_PICKABLE_OLD_HOUSE_KEY,GamePickableItem.ITEM_PICK_ROOM1_OLD_KEY,
+            new ActionConditions[1]{ActionConditions.COND_OK,}),
+            
+            new ( /* ITEM_ROOM1_TROWEL */
+            NameType.NAME_TROWEL,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ROOM1_TROWEL,}),
+            GameSprite.SPRITE_ROOM1_TROWEL,true,GameSprite.SPRITE_PICKABLE_TROWEL,GamePickableItem.ITEM_PICK_ROOM1_TROWEL,
+            new ActionConditions[1]{ActionConditions.COND_ROOM1_TAKE_TROWEL,}),
             
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST,}),
@@ -369,6 +423,8 @@ namespace Gob3AQ.Brain.ItemsInteraction
             /* > ATG 4 START < */
             GameItem.ITEM_ROOM1_SPOON,	/* ITEM_PICK_ROOM1_SPOON */
             GameItem.ITEM_ROOM1_SPOON_W_POIS,	/* ITEM_PICK_ROOM1_SPOON_W_POIS */
+            GameItem.ITEM_ROOM1_OLD_KEY,	/* ITEM_PICK_ROOM1_OLD_KEY */
+            GameItem.ITEM_ROOM1_TROWEL,	/* ITEM_PICK_ROOM1_TROWEL */
             /* > ATG 4 END < */
         };
 
@@ -377,6 +433,8 @@ namespace Gob3AQ.Brain.ItemsInteraction
             /* > ATG 5 START < */
             GameSprite.SPRITE_PICKABLE_SPOON,	/* ITEM_PICK_ROOM1_SPOON */
             GameSprite.SPRITE_PICKABLE_SPOON_POISON,	/* ITEM_PICK_ROOM1_SPOON_W_POIS */
+            GameSprite.SPRITE_PICKABLE_OLD_HOUSE_KEY,	/* ITEM_PICK_ROOM1_OLD_KEY */
+            GameSprite.SPRITE_PICKABLE_TROWEL,	/* ITEM_PICK_ROOM1_TROWEL */
             /* > ATG 5 END < */
         };
 

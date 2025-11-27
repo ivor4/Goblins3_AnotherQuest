@@ -205,6 +205,24 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameItem.ITEM_ROOM1_TROWEL, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
+            new( /* UNCHAIN_ROOM1_WINDOW_OPENED_3 */
+            UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_WINDOW_OPENED, false),}, 
+            GameItem.ITEM_ROOM1_WINDOW_OP_1, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* UNCHAIN_ROOM1_WINDOW_OPENED_4 */
+            UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_WINDOW_OPENED, false),}, 
+            GameItem.ITEM_ROOM1_WINDOW_OP_2, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* UNCHAIN_ROOM1_WINDOW_OPENED_5 */
+            UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_WINDOW_OPENED, false),}, 
+            GameItem.ITEM_DOOR_UNCONDITIONAL_2, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
             new( /* UNCHAIN_ROOM1_TAKE_TROWEL_1 */
             UnchainType.UNCHAIN_TYPE_EARN_ITEM,new(GameEvent.EVENT_ROOM1_TROWEL_TAKEN, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_TROWEL_TAKEN, false),}, 
@@ -409,6 +427,21 @@ namespace Gob3AQ.Brain.ItemsInteraction
             NameType.NAME_TROWEL,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ROOM1_TROWEL,}),
             GameSprite.SPRITE_ROOM1_TROWEL,true,GameSprite.SPRITE_PICKABLE_TROWEL,GamePickableItem.ITEM_PICK_ROOM1_TROWEL,
             new ActionConditions[1]{ActionConditions.COND_ROOM1_TAKE_TROWEL,}),
+            
+            new ( /* ITEM_ROOM1_WINDOW_OP_1 */
+            NameType.NAME_WINDOW,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ROOM1_WINDOW_OPENED_1,}),
+            GameSprite.SPRITE_ROOM1_WINDOW_OPENED_1,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_OK,}),
+            
+            new ( /* ITEM_ROOM1_WINDOW_OP_2 */
+            NameType.NAME_WINDOW,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ROOM1_WINDOW_OPENED_2,}),
+            GameSprite.SPRITE_ROOM1_WINDOW_OPENED_2,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_OK,}),
+            
+            new ( /* ITEM_DOOR_UNCONDITIONAL_2 */
+            NameType.NAME_DOOR,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_NONE,}),
+            GameSprite.SPRITE_NONE,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_OK,}),
             
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST,}),

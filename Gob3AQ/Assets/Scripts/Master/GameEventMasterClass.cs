@@ -458,7 +458,6 @@ namespace Gob3AQ.GameEventMaster
 
         private void AddUnchainerEventsToPending(UnchainConditions unchainer, in UnchainInfo unchainer_info)
         {
-            Debug.Log("Adding unchainer " + unchainer + " to pending");
             if (!_reversePendingUnchainDict.ContainsKey(unchainer))
             {
                 foreach (GameEventCombi eventCombi in unchainer_info.NeededEvents)
@@ -489,7 +488,6 @@ namespace Gob3AQ.GameEventMaster
 
         private void RemoveUnchainerEventsFromPending(UnchainConditions unchainer)
         {
-            Debug.Log("Removing unchainer " + unchainer + " from pending");
             /* Remove from pending, as item is not in this room */
             if (_reversePendingUnchainDict.TryGetValue(unchainer, out HashSet<GameEvent> reverseHash))
             {

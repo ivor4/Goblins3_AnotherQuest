@@ -63,7 +63,6 @@ namespace Gob3AQ.InputMaster
         private void Update()
         {
             ref readonly KeyStruct prevCycleKeys = ref VARMAP_InputMaster.GET_PRESSED_KEYS();
-            ref readonly MousePropertiesStruct prevMouseProps = ref VARMAP_InputMaster.GET_MOUSE_PROPERTIES();
             ref readonly GameOptionsStruct gameOptions = ref VARMAP_InputMaster.GET_GAME_OPTIONS();
             ref readonly KeyOptions keyOptions = ref gameOptions.keyOptions;
 
@@ -129,15 +128,13 @@ namespace Gob3AQ.InputMaster
                 Vector2 mousePosition = Input.mousePosition;
                 Vector2Int posPixels = new Vector2Int((int)mousePosition.x, (int)mousePosition.y);
 
-                if (posPixels != prevMouseProps.posPixels)
-                {
-                    MousePropertiesStruct mouseProps;
-                    Vector2 mouseWorld = mainCamera.ScreenToWorldPoint(mousePosition);
-                    mouseProps.posPixels = posPixels;
-                    mouseProps.pos1 = mouseWorld;
-                    mouseProps.pos2 = mouseWorld;
-                    VARMAP_InputMaster.SET_MOUSE_PROPERTIES(in mouseProps);
-                }
+
+                MousePropertiesStruct mouseProps;
+                Vector2 mouseWorld = mainCamera.ScreenToWorldPoint(mousePosition);
+                mouseProps.posPixels = posPixels;
+                mouseProps.pos1 = mouseWorld;
+                mouseProps.pos2 = mouseWorld;
+                VARMAP_InputMaster.SET_MOUSE_PROPERTIES(in mouseProps);
             }
 
         }

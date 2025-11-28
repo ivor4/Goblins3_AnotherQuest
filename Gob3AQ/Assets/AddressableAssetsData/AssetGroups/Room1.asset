@@ -15,8 +15,18 @@ MonoBehaviour:
   m_GroupName: Room1
   m_GUID: 37742bd79ef942d4cb386b77ffda615b
   m_SerializeEntries:
+  - m_GUID: 0153bccb1bac99849947019c82e12a4f
+    m_Address: Assets/SpritesAtlas/SPRITE_ATLAS_ROOM1_3.spriteatlasv2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 30c2e45a54da5414cb0f443323b8db90
     m_Address: SPRITE_ATLAS_ROOM1_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 37ae4b6883d1c964b8608da134670a37
+    m_Address: SCENE_ROOM1_GARDEN
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

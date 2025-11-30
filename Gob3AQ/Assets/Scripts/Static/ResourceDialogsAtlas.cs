@@ -190,6 +190,9 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_DOOR_LOCKED */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_CAR_DOOR_OPENED */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_TAKE_MATCHES */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_TAKE_DARKNESS */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_FIRE_CANDLE */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_TAKE_LOCKPICK */ 
             /* > ATG 3 END < */
         };
     }

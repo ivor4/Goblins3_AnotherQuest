@@ -197,6 +197,13 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(2){GameItem.ITEM_ROOM1_MATCHES, GameItem.ITEM_DOOR_UNCONDITIONAL, }) 
             ),
             
+            new( /* ROOM1_CELLAR */
+            GameSprite.BACKGROUND_ROOM1_CELLAR,
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(3){GameSprite.BACKGROUND_ROOM1_CELLAR, GameSprite.FOREGROUND_ROOM1_CELLAR, GameSprite.SPRITE_ROOM1_COLUMN, }), 
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(5){GameItem.ITEM_ROOM1_DARKNESS, GameItem.ITEM_ROOM1_CANDLE, GameItem.ITEM_ROOM1_LOCKPICK, GameItem.ITEM_ROOM1_OIL_BOTTLES, GameItem.ITEM_DOOR_UNCONDITIONAL, }) 
+            ),
+            
             new( /* ROOM_LAST */
             GameSprite.SPRITE_NONE,
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST, }), 

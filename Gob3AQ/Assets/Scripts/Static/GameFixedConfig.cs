@@ -75,7 +75,8 @@ namespace Gob3AQ.FixedConfig
             "SCENE_ROOM1",
             "SCENE_ROOM1_KITCHEN",
             "SCENE_ROOM1_GARDEN",
-            "SCENE_ROOM1_CAR"
+            "SCENE_ROOM1_CAR",
+            "SCENE_ROOM1_CELLAR"
         };
         
     }

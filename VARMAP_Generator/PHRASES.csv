@@ -38,3 +38,6 @@ N,PHRASE_ID,TalkerIndex,Sound,CharAnimation,Text_English,Text_Spanish
 36,PHRASE_ROOM1_DOOR_LOCKED,0,0,DIALOG_ANIMATION_TALK,Door is locked,La puerta está cerrada
 37,PHRASE_ROOM1_CAR_DOOR_OPENED,0,0,DIALOG_ANIMATION_TALK,This key worked here too!,La llave funciona aquí también!
 38,PHRASE_ROOM1_TAKE_MATCHES,0,0,DIALOG_ANIMATION_TALK,This will bring some light to the mystery,Esto arrojará algo de luz a los misterios!
+39,PHRASE_ROOM1_TAKE_DARKNESS,0,0,DIALOG_ANIMATION_TALK,I can't see anything!,No veo un pimiento!
+40,PHRASE_ROOM1_FIRE_CANDLE,0,0,DIALOG_ANIMATION_TALK,A small bit of happiness for this dungeon,Un poco de alegría para esta mazmorra
+41,PHRASE_ROOM1_TAKE_LOCKPICK,0,0,DIALOG_ANIMATION_TALK,Caution! Disposable once used,Ojito! Deshechable tras primer uso

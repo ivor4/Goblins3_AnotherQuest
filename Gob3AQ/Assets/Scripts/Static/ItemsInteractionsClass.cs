@@ -265,6 +265,30 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameItem.ITEM_ROOM1_MATCHES, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE, 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
+            new( /* UNCHAIN_ROOM1_FIRE_CANDLE */
+            UnchainType.UNCHAIN_TYPE_DESPAWN,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_CANDLE_FIRE, false),}, 
+            GameItem.ITEM_ROOM1_DARKNESS, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* UNCHAIN_ROOM1_FIRE_CANDLE_2 */
+            UnchainType.UNCHAIN_TYPE_SET_SPRITE,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_CANDLE_FIRE, false),}, 
+            GameItem.ITEM_ROOM1_CANDLE, GameSprite.SPRITE_ROOM1_CANDLE_LIGHT,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* UNCHAIN_ROOM1_TAKE_LOCKPICK_1 */
+            UnchainType.UNCHAIN_TYPE_DESPAWN,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_TAKE_LOCKPICK, false),}, 
+            GameItem.ITEM_ROOM1_LOCKPICK, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* UNCHAIN_ROOM1_TAKE_LOCKPICK_2 */
+            UnchainType.UNCHAIN_TYPE_EARN_ITEM,new(GameEvent.EVENT_ROOM1_TAKE_LOCKPICK, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_TAKE_LOCKPICK, false),}, 
+            GameItem.ITEM_ROOM1_LOCKPICK, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
             /* > ATG 1 END < */
         };
 
@@ -377,6 +401,27 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
             DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_ROOM1_TAKE_MATCHES,
             new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_MATCHES_TAKEN, false),}), 
+            
+            new( /* COND_ROOM1_TAKE_DARKNESS */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
+            CharacterAnimation.ITEM_USE_ANIMATION_CONFUSE,
+            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_ROOM1_TAKE_DARKNESS,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* COND_ROOM1_USE_MATCHES */
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_CANDLE_FIRE, true),}, 
+            CharacterType.CHARACTER_MAIN,GameItem.ITEM_ROOM1_MATCHES,ItemInteractionType.INTERACTION_USE,
+            CharacterAnimation.ITEM_USE_ANIMATION_POUR,
+            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_ROOM1_FIRE_CANDLE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_CANDLE_FIRE, false),}), 
+            
+            new( /* COND_ROOM1_TAKE_LOCKPICK */
+            new GameEventCombi[2]{new(GameEvent.EVENT_ROOM1_CANDLE_FIRE, false),new(GameEvent.EVENT_ROOM1_TAKE_LOCKPICK, true),}, 
+            CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
+            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
+            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_ROOM1_TAKE_LOCKPICK,
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_TAKE_LOCKPICK, false),}), 
             
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
@@ -500,7 +545,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ActionConditions[1]{ActionConditions.COND_OK,}),
             
             new ( /* ITEM_ROOM1_FOUNTAIN */
-            NameType.NAME_FOUNTAIN,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ROOM1_FOUNTAIN,}),
+            NameType.NAME_FOUNTAIN,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(2){GameSprite.SPRITE_ROOM1_FOUNTAIN,GameSprite.SPRITE_ROOM1_FOUNTAIN_FULL,}),
             GameSprite.SPRITE_ROOM1_FOUNTAIN,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
             new ActionConditions[1]{ActionConditions.COND_OK,}),
             
@@ -544,6 +589,26 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_NONE,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
             new ActionConditions[1]{ActionConditions.COND_OK,}),
             
+            new ( /* ITEM_ROOM1_DARKNESS */
+            NameType.NAME_DARKNESS,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ROOM1_DARKNESS,}),
+            GameSprite.SPRITE_ROOM1_DARKNESS,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_ROOM1_TAKE_DARKNESS,}),
+            
+            new ( /* ITEM_ROOM1_CANDLE */
+            NameType.NAME_CANDLE,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(2){GameSprite.SPRITE_ROOM1_CANDLE,GameSprite.SPRITE_ROOM1_CANDLE_LIGHT,}),
+            GameSprite.SPRITE_ROOM1_CANDLE,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_ROOM1_USE_MATCHES,}),
+            
+            new ( /* ITEM_ROOM1_LOCKPICK */
+            NameType.NAME_LOCKPICK,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ROOM1_LOCKPICK,}),
+            GameSprite.SPRITE_ROOM1_LOCKPICK,true,GameSprite.SPRITE_PICKABLE_LOCKPICK,GamePickableItem.ITEM_PICK_ROOM1_LOCKPICK,
+            new ActionConditions[1]{ActionConditions.COND_ROOM1_TAKE_LOCKPICK,}),
+            
+            new ( /* ITEM_ROOM1_OIL_BOTTLES */
+            NameType.NAME_OIL_BOTTLES,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ROOM1_OIL_BOTTLES,}),
+            GameSprite.SPRITE_ROOM1_OIL_BOTTLES,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_OK,}),
+            
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST,}),
             GameSprite.SPRITE_LAST,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
@@ -560,6 +625,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameItem.ITEM_ROOM1_OLD_KEY,	/* ITEM_PICK_ROOM1_OLD_KEY */
             GameItem.ITEM_ROOM1_TROWEL,	/* ITEM_PICK_ROOM1_TROWEL */
             GameItem.ITEM_ROOM1_MATCHES,	/* ITEM_PICK_ROOM1_MATCHES */
+            GameItem.ITEM_ROOM1_LOCKPICK,	/* ITEM_PICK_ROOM1_LOCKPICK */
             /* > ATG 4 END < */
         };
 
@@ -571,6 +637,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_PICKABLE_OLD_HOUSE_KEY,	/* ITEM_PICK_ROOM1_OLD_KEY */
             GameSprite.SPRITE_PICKABLE_TROWEL,	/* ITEM_PICK_ROOM1_TROWEL */
             GameSprite.SPRITE_PICKABLE_MATCHES,	/* ITEM_PICK_ROOM1_MATCHES */
+            GameSprite.SPRITE_PICKABLE_LOCKPICK,	/* ITEM_PICK_ROOM1_LOCKPICK */
             /* > ATG 5 END < */
         };
 

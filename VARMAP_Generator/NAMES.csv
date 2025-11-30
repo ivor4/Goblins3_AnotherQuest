@@ -25,4 +25,8 @@ N,NAME_ID,Name_English,Name_Spanish
 23,NAME_CAR_DOOR,Car door,Puerta del coche
 24,NAME_KEYHOLE,Keyhole,Cerradura
 25,NAME_MATCHES,Matches,Cerillas
-26,NAME_NPC_LAST,Last,Ultimo
+26,NAME_OIL_BOTTLES,Oil bottles,Botellas de aceite
+27,NAME_LOCKPICK,Disposable lockpick,Ganzúa deshechable
+28,NAME_CANDLE,Candle lamp,Candil
+29,NAME_DARKNESS,Darkness,Oscuridad
+30,NAME_NPC_LAST,Last,Ultimo

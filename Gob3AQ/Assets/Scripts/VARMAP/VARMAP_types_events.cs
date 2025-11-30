@@ -19,6 +19,8 @@ namespace Gob3AQ.VARMAP.Types
         EVENT_ROOM1_TROWEL_TAKEN, 
         EVENT_ROOM1_CAR_OPENED, 
         EVENT_ROOM1_MATCHES_TAKEN, 
+        EVENT_ROOM1_CANDLE_FIRE, 
+        EVENT_ROOM1_TAKE_LOCKPICK, 
         EVENT_LAST, 
         
         EVENT_TOTAL

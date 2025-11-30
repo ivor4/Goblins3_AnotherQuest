@@ -10,6 +10,7 @@ namespace Gob3AQ.VARMAP.Types
         ROOM1_KITCHEN, 
         ROOM1_GARDEN, 
         ROOM1_CAR, 
+        ROOM1_CELLAR, 
         ROOM_LAST, 
         
         ROOMS_TOTAL 

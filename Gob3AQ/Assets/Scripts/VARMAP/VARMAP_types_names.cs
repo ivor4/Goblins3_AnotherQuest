@@ -33,6 +33,10 @@ namespace Gob3AQ.VARMAP.Types
         NAME_CAR_DOOR, 
         NAME_KEYHOLE, 
         NAME_MATCHES, 
+        NAME_OIL_BOTTLES, 
+        NAME_LOCKPICK, 
+        NAME_CANDLE, 
+        NAME_DARKNESS, 
         NAME_NPC_LAST, 
         
         NAME_TOTAL

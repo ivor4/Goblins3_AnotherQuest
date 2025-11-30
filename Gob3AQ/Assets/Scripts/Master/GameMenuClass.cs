@@ -219,7 +219,7 @@ namespace Gob3AQ.GameMenu
         {
             if(_menuOpened)
             {
-                LevelElemInfo info = new(item, GameItemFamily.ITEM_FAMILY_TYPE_OBJECT, -1, hover);
+                LevelElemInfo info = new(item, GameItemFamily.ITEM_FAMILY_TYPE_OBJECT, -1, 0, hover);
                 VARMAP_GameMenu.GAME_ELEMENT_HOVER(in info);
             }
         }

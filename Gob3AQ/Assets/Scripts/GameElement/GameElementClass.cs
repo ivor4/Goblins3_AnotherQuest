@@ -4,8 +4,6 @@ using Gob3AQ.ResourceSprites;
 using Gob3AQ.VARMAP.ItemMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.Waypoint;
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Gob3AQ.GameElement
@@ -18,6 +16,9 @@ namespace Gob3AQ.GameElement
 
         [SerializeField]
         protected WaypointClass startingWaypoint;
+
+        [SerializeField]
+        protected int hoverPriority;
 
 
         public GameItem ItemID => itemID;
@@ -113,7 +114,7 @@ namespace Gob3AQ.GameElement
         {
             /* Prepare LevelInfo struct */
             isHovered = enter;
-            LevelElemInfo info = new(itemID, gameElementFamily, actualWaypoint, enter & isAvailable);
+            LevelElemInfo info = new(itemID, gameElementFamily, actualWaypoint, hoverPriority, enter & isAvailable);
             VARMAP_ItemMaster.GAME_ELEMENT_HOVER(in info);
         }
 

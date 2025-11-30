@@ -16,7 +16,7 @@ MonoBehaviour:
   m_GUID: 37742bd79ef942d4cb386b77ffda615b
   m_SerializeEntries:
   - m_GUID: 0153bccb1bac99849947019c82e12a4f
-    m_Address: Assets/SpritesAtlas/SPRITE_ATLAS_ROOM1_3.spriteatlasv2
+    m_Address: SPRITE_ATLAS_ROOM1_3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

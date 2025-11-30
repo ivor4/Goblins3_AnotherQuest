@@ -26,6 +26,12 @@ namespace Gob3AQ.VARMAP.Types
         NAME_SPOON_POISON, 
         NAME_OLD_HOUSE_KEY, 
         NAME_TROWEL, 
+        NAME_VALVE, 
+        NAME_DOG, 
+        NAME_FOUNTAIN, 
+        NAME_DOOR_DESCR, 
+        NAME_CAR_DOOR, 
+        NAME_KEYHOLE, 
         NAME_NPC_LAST, 
         
         NAME_TOTAL

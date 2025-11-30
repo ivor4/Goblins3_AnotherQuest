@@ -8,6 +8,7 @@ namespace Gob3AQ.VARMAP.Types
         ROOM_NONE = -1, 
         ROOM_1, 
         ROOM1_KITCHEN, 
+        ROOM1_GARDEN, 
         ROOM_LAST, 
         
         ROOMS_TOTAL 

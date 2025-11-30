@@ -183,6 +183,13 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(10){GameItem.ITEM_ROOM1_SPOON, GameItem.ITEM_ROOM1_DRAWER, GameItem.ITEM_ROOM1_WINDOW, GameItem.ITEM_DOOR_UNCONDITIONAL, GameItem.ITEM_ROOM1_POISON_REMAIN, GameItem.ITEM_ROOM1_SPOON_W_POIS, GameItem.ITEM_ROOM1_TROWEL, GameItem.ITEM_ROOM1_WINDOW_OP_1, GameItem.ITEM_ROOM1_WINDOW_OP_2, GameItem.ITEM_DOOR_UNCONDITIONAL_2, }) 
             ),
             
+            new( /* ROOM1_GARDEN */
+            GameSprite.BACKGROUND_ROOM1_GARDEN,
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_ROOM1_GARDEN, GameSprite.SPRITE_ROOM1_DECO_BUSH_LAYER, }), 
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(6){GameItem.ITEM_ROOM1_VALVE, GameItem.ITEM_ROOM1_DOG, GameItem.ITEM_ROOM1_CAR, GameItem.ITEM_ROOM1_CAR_KEYHOLE, GameItem.ITEM_ROOM1_FOUNTAIN, GameItem.ITEM_DOOR_UNCONDITIONAL, }) 
+            ),
+            
             new( /* ROOM_LAST */
             GameSprite.SPRITE_NONE,
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST, }), 

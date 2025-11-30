@@ -12,8 +12,6 @@ namespace Gob3AQ.FixedConfig
         public static ReadOnlySpan<byte> GAME_VERSION => _GAME_VERSION;
         public static ReadOnlySpan<byte> LOAD_SAVE_FILE_FORMAT_VERSION => _LOAD_SAVE_FILE_FORMAT_VERSION;
         public static ReadOnlySpan<string> ROOM_TO_SCENE_NAME => _ROOM_TO_SCENE_NAME;
-        public static ReadOnlySpan<string> ROOM_TO_ADDRESSABLE_TAG_NAME => _ROOM_TO_ADDRESSABLE_TAG_NAME;
-
 
         /* Release data */
         public const bool PERIPH_PC = true;
@@ -69,21 +67,15 @@ namespace Gob3AQ.FixedConfig
 
 
         /* Scenes */
-        public const int MAX_SCENE_DOORS = 2;
+        public const int MAX_SCENE_DOORS = 4;
         public const string ROOM_MAINMENU = "Boot";
         public const string ROOM_BASE = "SCENE_BASE";
         private static readonly string[] _ROOM_TO_SCENE_NAME =
         {
             "SCENE_ROOM1",
-            "SCENE_ROOM1_KITCHEN"
+            "SCENE_ROOM1_KITCHEN",
+            "SCENE_ROOM1_GARDEN"
         };
-
-        private static readonly string[] _ROOM_TO_ADDRESSABLE_TAG_NAME =
-        {
-            "room_first",
-            "room_second"
-        };
-
         
     }
 }

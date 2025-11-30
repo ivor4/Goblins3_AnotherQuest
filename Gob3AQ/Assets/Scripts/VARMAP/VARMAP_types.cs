@@ -95,16 +95,18 @@ namespace Gob3AQ.VARMAP.Types
     {
         public readonly GameItem item;
         public readonly GameItemFamily family;
+        public readonly int hoverPriority;
         public readonly int waypoint;
         public readonly bool active;
 
-        public static readonly LevelElemInfo EMPTY = new(GameItem.ITEM_NONE, GameItemFamily.ITEM_FAMILY_TYPE_NONE, -1, false);
+        public static readonly LevelElemInfo EMPTY = new(GameItem.ITEM_NONE, GameItemFamily.ITEM_FAMILY_TYPE_NONE, -1, -100, false);
 
-        public LevelElemInfo(GameItem item, GameItemFamily family, int waypoint, bool active)
+        public LevelElemInfo(GameItem item, GameItemFamily family, int waypoint, int hoverPriority, bool active)
         {
             this.item = item;
             this.family = family;
             this.waypoint = waypoint;
+            this.hoverPriority = hoverPriority;
             this.active = active;
         }
 

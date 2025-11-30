@@ -26,6 +26,11 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_ROOM1_WINDOW_OP_1, 
         ITEM_ROOM1_WINDOW_OP_2, 
         ITEM_DOOR_UNCONDITIONAL_2, 
+        ITEM_ROOM1_VALVE, 
+        ITEM_ROOM1_FOUNTAIN, 
+        ITEM_ROOM1_DOG, 
+        ITEM_ROOM1_CAR, 
+        ITEM_ROOM1_CAR_KEYHOLE, 
         ITEM_LAST, 
         
         ITEM_TOTAL

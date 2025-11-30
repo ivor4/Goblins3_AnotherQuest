@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4366966609c11414ca654b7c4b824ac5
+guid: 803ea9297fce681479bfafadeac5d98e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6557298251672813177
-    second: BACKGROUND_ROOM1_GARDEN_0
+      213: -8238453649105792288
+    second: SPRITE_ROOM1_DECO_BUSH_LAYER_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BACKGROUND_ROOM1_GARDEN_0
+      name: SPRITE_ROOM1_DECO_BUSH_LAYER_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1920
-        height: 1080
+        width: 185
+        height: 242
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 78180ce6bfbcff4a0800000000000000
-      internalID: -6557298251672813177
+      spriteID: 0e2578a2e022bad80800000000000000
+      internalID: -8238453649105792288
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BACKGROUND_ROOM1_GARDEN_0: -6557298251672813177
+      SPRITE_ROOM1_DECO_BUSH_LAYER_0: -8238453649105792288
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -18,4 +18,10 @@ N,NAME_ID,Name_English,Name_Spanish
 16,NAME_SPOON_POISON,Spoon with poison remains,Cuchara con restos de veneno
 17,NAME_OLD_HOUSE_KEY,Old house key,Llave vieja de la casa
 18,NAME_TROWEL,Trowel,Paleta
-19,NAME_NPC_LAST,Last,Ultimo
+19,NAME_VALVE,Valve,Válvula
+20,NAME_DOG,Dog,Perro
+21,NAME_FOUNTAIN,Fountain,Fuente
+22,NAME_DOOR_DESCR,Door,Puerta
+23,NAME_CAR_DOOR,Car door,Puerta del coche
+24,NAME_KEYHOLE,Keyhole,Cerradura
+25,NAME_NPC_LAST,Last,Ultimo

@@ -20,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2cfccdf2f4ee3ed4c947354ea7ca1148
+    m_Address: SCENE_ROOM1_CAR
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 30c2e45a54da5414cb0f443323b8db90
     m_Address: SPRITE_ATLAS_ROOM1_2
     m_ReadOnly: 0
@@ -47,6 +52,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 92b4e6e6949672f4684054ff0242bab5
     m_Address: SCENE_ROOM1_KITCHEN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc4ca8f1861ec6a42af25f3e3e3d3b03
+    m_Address: SPRITE_ATLAS_ROOM1_4
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -30,7 +30,12 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_ROOM1_FOUNTAIN, 
         ITEM_ROOM1_DOG, 
         ITEM_ROOM1_CAR, 
+        ITEM_ROOM1_CAR_DOOR_CLOSED, 
         ITEM_ROOM1_CAR_KEYHOLE, 
+        ITEM_DOOR_UNCONDITIONAL_3, 
+        ITEM_ROOM1_MATCHES, 
+        ITEM_ROOM1_WINDOW_AS_DOOR, 
+        ITEM_ROOM1_CAR_DOOR_AS_DOOR, 
         ITEM_LAST, 
         
         ITEM_TOTAL
@@ -45,6 +50,7 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_PICK_ROOM1_SPOON_W_POIS, 
         ITEM_PICK_ROOM1_OLD_KEY, 
         ITEM_PICK_ROOM1_TROWEL, 
+        ITEM_PICK_ROOM1_MATCHES, 
         
         ITEM_PICK_TOTAL
         /* > ATG 2 END < */
@@ -65,6 +71,9 @@ namespace Gob3AQ.VARMAP.Types
         COND_ROOM1_USE_SPOON_W_JAM, 
         COND_ROOM1_USE_KEY_WINDOW, 
         COND_ROOM1_TAKE_TROWEL, 
+        COND_ROOM1_TAKE_CAR_DOOR, 
+        COND_ROOM1_USE_KEY_CAR, 
+        COND_ROOM1_TAKE_MATCHES, 
         COND_LAST, 
         
         COND_TOTAL
@@ -94,6 +103,11 @@ namespace Gob3AQ.VARMAP.Types
         UNCHAIN_ROOM1_WINDOW_OPENED_5, 
         UNCHAIN_ROOM1_TAKE_TROWEL_1, 
         UNCHAIN_ROOM1_TAKE_TROWEL_2, 
+        UNCHAIN_ROOM1_OPEN_CAR_DOOR_1, 
+        UNCHAIN_ROOM1_OPEN_CAR_DOOR_2, 
+        UNCHAIN_ROOM1_OPEN_CAR_DOOR_3, 
+        UNCHAIN_ROOM1_TAKE_MATCHES_1, 
+        UNCHAIN_ROOM1_TAKE_MATCHES_2, 
         
         UNCHAIN_TOTAL
         /* > ATG 4 END < */

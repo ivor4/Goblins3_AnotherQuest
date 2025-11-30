@@ -220,7 +220,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new( /* UNCHAIN_ROOM1_WINDOW_OPENED_5 */
             UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_WINDOW_OPENED, false),}, 
-            GameItem.ITEM_DOOR_UNCONDITIONAL_2, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
+            GameItem.ITEM_ROOM1_WINDOW_AS_DOOR, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
             new( /* UNCHAIN_ROOM1_TAKE_TROWEL_1 */
@@ -233,6 +233,36 @@ namespace Gob3AQ.Brain.ItemsInteraction
             UnchainType.UNCHAIN_TYPE_DESPAWN,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_TROWEL_TAKEN, false),}, 
             GameItem.ITEM_ROOM1_TROWEL, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* UNCHAIN_ROOM1_OPEN_CAR_DOOR_1 */
+            UnchainType.UNCHAIN_TYPE_DESPAWN,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_CAR_OPENED, false),}, 
+            GameItem.ITEM_ROOM1_CAR_DOOR_CLOSED, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* UNCHAIN_ROOM1_OPEN_CAR_DOOR_2 */
+            UnchainType.UNCHAIN_TYPE_DESPAWN,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_CAR_OPENED, false),}, 
+            GameItem.ITEM_ROOM1_CAR_KEYHOLE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* UNCHAIN_ROOM1_OPEN_CAR_DOOR_3 */
+            UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_CAR_OPENED, false),}, 
+            GameItem.ITEM_ROOM1_CAR_DOOR_AS_DOOR, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* UNCHAIN_ROOM1_TAKE_MATCHES_1 */
+            UnchainType.UNCHAIN_TYPE_DESPAWN,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_MATCHES_TAKEN, false),}, 
+            GameItem.ITEM_ROOM1_MATCHES, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* UNCHAIN_ROOM1_TAKE_MATCHES_2 */
+            UnchainType.UNCHAIN_TYPE_EARN_ITEM,new(GameEvent.EVENT_ROOM1_MATCHES_TAKEN, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_MATCHES_TAKEN, false),}, 
+            GameItem.ITEM_ROOM1_MATCHES, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE, 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
             /* > ATG 1 END < */
@@ -326,6 +356,27 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
             DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_ROOM1_TAKE_TROWEL,
             new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_TROWEL_TAKEN, false),}), 
+            
+            new( /* COND_ROOM1_TAKE_CAR_DOOR */
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_CAR_OPENED, true),}, 
+            CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
+            CharacterAnimation.ITEM_USE_ANIMATION_NORMAL,
+            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_ROOM1_DOOR_LOCKED,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* COND_ROOM1_USE_KEY_CAR */
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_CAR_OPENED, true),}, 
+            CharacterType.CHARACTER_MAIN,GameItem.ITEM_ROOM1_OLD_KEY,ItemInteractionType.INTERACTION_USE,
+            CharacterAnimation.ITEM_USE_ANIMATION_NORMAL,
+            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_ROOM1_CAR_DOOR_OPENED,
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_CAR_OPENED, false),}), 
+            
+            new( /* COND_ROOM1_TAKE_MATCHES */
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_MATCHES_TAKEN, true),}, 
+            CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
+            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
+            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_ROOM1_TAKE_MATCHES,
+            new GameEventCombi[1]{new(GameEvent.EVENT_ROOM1_MATCHES_TAKEN, false),}), 
             
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
@@ -459,13 +510,38 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ActionConditions[1]{ActionConditions.COND_OK,}),
             
             new ( /* ITEM_ROOM1_CAR */
-            NameType.NAME_CAR_DOOR,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ROOM1_CAR,}),
+            NameType.NAME_CAR_DOOR,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ROOM1_CAR,}),
             GameSprite.SPRITE_ROOM1_CAR,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
             new ActionConditions[1]{ActionConditions.COND_OK,}),
+            
+            new ( /* ITEM_ROOM1_CAR_DOOR_CLOSED */
+            NameType.NAME_CAR_DOOR,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ROOM1_CAR_DOOR,}),
+            GameSprite.SPRITE_ROOM1_CAR_DOOR,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_ROOM1_TAKE_CAR_DOOR,}),
             
             new ( /* ITEM_ROOM1_CAR_KEYHOLE */
             NameType.NAME_KEYHOLE,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ROOM1_CAR_KEYHOLE,}),
             GameSprite.SPRITE_ROOM1_CAR_KEYHOLE,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_ROOM1_USE_KEY_CAR,}),
+            
+            new ( /* ITEM_DOOR_UNCONDITIONAL_3 */
+            NameType.NAME_DOOR,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_NONE,}),
+            GameSprite.SPRITE_NONE,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_OK,}),
+            
+            new ( /* ITEM_ROOM1_MATCHES */
+            NameType.NAME_MATCHES,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ROOM1_MATCHES,}),
+            GameSprite.SPRITE_ROOM1_MATCHES,true,GameSprite.SPRITE_PICKABLE_MATCHES,GamePickableItem.ITEM_PICK_ROOM1_MATCHES,
+            new ActionConditions[1]{ActionConditions.COND_ROOM1_TAKE_MATCHES,}),
+            
+            new ( /* ITEM_ROOM1_WINDOW_AS_DOOR */
+            NameType.NAME_DOOR,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_NONE,}),
+            GameSprite.SPRITE_NONE,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_OK,}),
+            
+            new ( /* ITEM_ROOM1_CAR_DOOR_AS_DOOR */
+            NameType.NAME_DOOR,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_NONE,}),
+            GameSprite.SPRITE_NONE,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
             new ActionConditions[1]{ActionConditions.COND_OK,}),
             
             new ( /* ITEM_LAST */
@@ -483,6 +559,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameItem.ITEM_ROOM1_SPOON_W_POIS,	/* ITEM_PICK_ROOM1_SPOON_W_POIS */
             GameItem.ITEM_ROOM1_OLD_KEY,	/* ITEM_PICK_ROOM1_OLD_KEY */
             GameItem.ITEM_ROOM1_TROWEL,	/* ITEM_PICK_ROOM1_TROWEL */
+            GameItem.ITEM_ROOM1_MATCHES,	/* ITEM_PICK_ROOM1_MATCHES */
             /* > ATG 4 END < */
         };
 
@@ -493,6 +570,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_PICKABLE_SPOON_POISON,	/* ITEM_PICK_ROOM1_SPOON_W_POIS */
             GameSprite.SPRITE_PICKABLE_OLD_HOUSE_KEY,	/* ITEM_PICK_ROOM1_OLD_KEY */
             GameSprite.SPRITE_PICKABLE_TROWEL,	/* ITEM_PICK_ROOM1_TROWEL */
+            GameSprite.SPRITE_PICKABLE_MATCHES,	/* ITEM_PICK_ROOM1_MATCHES */
             /* > ATG 5 END < */
         };
 

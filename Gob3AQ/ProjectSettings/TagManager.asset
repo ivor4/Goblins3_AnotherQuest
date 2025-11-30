@@ -47,6 +47,9 @@ TagManager:
   - name: Char_Items_Bckg
     uniqueID: 1398402993
     locked: 0
+  - name: Char_Items_Backg_2
+    uniqueID: 4228977865
+    locked: 0
   - name: Char_Items
     uniqueID: 2503871013
     locked: 0

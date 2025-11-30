@@ -203,8 +203,12 @@ namespace Gob3AQ.LevelMaster
 
                 foreach (LevelElemInfo iteratedInfo in _singleton._HoveredPending)
                 {
-                    if ((_singleton._HoveredElem.family < iteratedInfo.family) ||
-                        (_singleton._HoveredElem.family == iteratedInfo.family) && (_singleton._HoveredElem.hoverPriority < iteratedInfo.hoverPriority))
+                    if ((iteratedInfo.family > GameItemFamily.ITEM_FAMILY_TYPE_NONE) &&
+                        (
+                        (_singleton._HoveredElem.family < iteratedInfo.family) ||
+                        (_singleton._HoveredElem.family == iteratedInfo.family) && (_singleton._HoveredElem.hoverPriority < iteratedInfo.hoverPriority)
+                        )
+                       )
                     {
                         _singleton._HoveredElem = iteratedInfo;
                         changed = true;

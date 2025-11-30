@@ -24,4 +24,5 @@ N,NAME_ID,Name_English,Name_Spanish
 22,NAME_DOOR_DESCR,Door,Puerta
 23,NAME_CAR_DOOR,Car door,Puerta del coche
 24,NAME_KEYHOLE,Keyhole,Cerradura
-25,NAME_NPC_LAST,Last,Ultimo
+25,NAME_MATCHES,Matches,Cerillas
+26,NAME_NPC_LAST,Last,Ultimo

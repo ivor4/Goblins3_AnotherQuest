@@ -32,6 +32,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_DOOR_DESCR, 
         NAME_CAR_DOOR, 
         NAME_KEYHOLE, 
+        NAME_MATCHES, 
         NAME_NPC_LAST, 
         
         NAME_TOTAL

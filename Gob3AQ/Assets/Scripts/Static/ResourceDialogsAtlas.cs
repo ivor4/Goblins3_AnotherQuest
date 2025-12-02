@@ -81,6 +81,11 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new DialogOption[2]{DialogOption.DIALOG_OPTION_WITNESS3_SPOON, DialogOption.DIALOG_OPTION_WITNESS3_SPOON_2, }
             ),
             
+            new( /* DIALOG_WITNESS3_CONTRACT */
+            new GameItem[1]{GameItem.ITEM_NONE,},
+            new DialogOption[1]{DialogOption.DIALOG_OPTION_WITNESS_CONTRACT, }
+            ),
+            
             new( /* DIALOG_LAST */
             new GameItem[1]{GameItem.ITEM_NONE,},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE, }
@@ -140,6 +145,12 @@ namespace Gob3AQ.ResourceDialogsAtlas
             DialogType.DIALOG_NONE,
             new DialogPhrase[1]{DialogPhrase.PHRASE_ROOM1_WITNESS3_SPOON_2_1, }
             ),
+            new( /* DIALOG_OPTION_WITNESS_CONTRACT */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            DialogType.DIALOG_NONE,
+            new DialogPhrase[3]{DialogPhrase.PHRASE_ROOM1_WITN3_CONTRACT_1, DialogPhrase.PHRASE_ROOM1_WITN3_CONTRACT_2, DialogPhrase.PHRASE_ROOM1_WITN3_CONTRACT_3, }
+            ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
@@ -193,6 +204,15 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_TAKE_DARKNESS */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_FIRE_CANDLE */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_TAKE_LOCKPICK */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_TRY_OPEN_DRAWER */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_USE_LOCKPICK */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_MEMENTO_VICTIM_CASE_2 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_TAKE_CONTRACT */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_TAKE_JAR */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_WITN3_CONTRACT_1 */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_WITN3_CONTRACT_2 */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_WITN3_CONTRACT_3 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ROOM1_TAKE_COIN_STUCK */ 
             /* > ATG 3 END < */
         };
     }

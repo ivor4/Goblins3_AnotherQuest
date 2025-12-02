@@ -187,7 +187,7 @@ namespace Gob3AQ.ResourceAtlas
             GameSprite.BACKGROUND_ROOM1_GARDEN,
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_ROOM1_GARDEN, GameSprite.SPRITE_ROOM1_DECO_BUSH_LAYER, }), 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(8){GameItem.ITEM_ROOM1_VALVE, GameItem.ITEM_ROOM1_DOG, GameItem.ITEM_ROOM1_CAR_DOOR_CLOSED, GameItem.ITEM_ROOM1_CAR_KEYHOLE, GameItem.ITEM_ROOM1_FOUNTAIN, GameItem.ITEM_DOOR_UNCONDITIONAL, GameItem.ITEM_ROOM1_CAR, GameItem.ITEM_ROOM1_CAR_DOOR_AS_DOOR, }) 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(9){GameItem.ITEM_ROOM1_VALVE, GameItem.ITEM_ROOM1_DOG, GameItem.ITEM_ROOM1_CAR_DOOR_CLOSED, GameItem.ITEM_ROOM1_CAR_KEYHOLE, GameItem.ITEM_ROOM1_FOUNTAIN, GameItem.ITEM_DOOR_UNCONDITIONAL, GameItem.ITEM_ROOM1_CAR, GameItem.ITEM_ROOM1_CAR_DOOR_AS_DOOR, GameItem.ITEM_ROOM1_COIN, }) 
             ),
             
             new( /* ROOM1_CAR */

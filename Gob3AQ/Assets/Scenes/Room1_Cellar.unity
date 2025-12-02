@@ -701,6 +701,10 @@ PrefabInstance:
       value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 2757196565734091061, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: hoverPriority
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757196565734091061, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: startingWaypoint
       value: 
       objectReference: {fileID: 287298780}
@@ -3052,7 +3056,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2757196565734091061, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: hoverPriority
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2757196565734091061, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: startingWaypoint
@@ -3163,10 +3167,6 @@ PolygonCollider2D:
       - {x: -0.5012995, y: 0.5}
       - {x: -0.5, y: -0.5}
       - {x: 0.5, y: -0.5}
-    - - {x: 0.36381382, y: 0.19687855}
-      - {x: 0.30263755, y: 0.21203297}
-      - {x: 0.30950004, y: 0.29720798}
-      - {x: 0.354294, y: 0.29237133}
   m_UseDelaunayMesh: 0
 --- !u!1001 &1987132903
 PrefabInstance:

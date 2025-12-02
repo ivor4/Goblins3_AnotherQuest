@@ -21,6 +21,10 @@ namespace Gob3AQ.VARMAP.Types
         EVENT_ROOM1_MATCHES_TAKEN, 
         EVENT_ROOM1_CANDLE_FIRE, 
         EVENT_ROOM1_TAKE_LOCKPICK, 
+        EVENT_ROOM1_DRAWER_OPENED, 
+        EVENT_ROOM1_TAKE_CONTRACT, 
+        EVENT_ROOM1_TAKE_JAR, 
+        EVENT_ROOM1_FOUNTAIN_FULL, 
         EVENT_LAST, 
         
         EVENT_TOTAL
@@ -45,6 +49,7 @@ namespace Gob3AQ.VARMAP.Types
         MEMENTO_NONE = -1, 
         MEMENTO_VICTIM_CASE_0, 
         MEMENTO_VICTIM_CASE_1, 
+        MEMENTO_VICTIM_CASE_2, 
         MEMENTO_CHASE_0, 
         MEMENTO_CHASE_1, 
         MEMENTO_LAST, 

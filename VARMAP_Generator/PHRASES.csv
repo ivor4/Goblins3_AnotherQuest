@@ -41,3 +41,12 @@ N,PHRASE_ID,TalkerIndex,Sound,CharAnimation,Text_English,Text_Spanish
 39,PHRASE_ROOM1_TAKE_DARKNESS,0,0,DIALOG_ANIMATION_TALK,I can't see anything!,No veo un pimiento!
 40,PHRASE_ROOM1_FIRE_CANDLE,0,0,DIALOG_ANIMATION_TALK,A small bit of happiness for this dungeon,Un poco de alegría para esta mazmorra
 41,PHRASE_ROOM1_TAKE_LOCKPICK,0,0,DIALOG_ANIMATION_TALK,Caution! Disposable once used,Ojito! Deshechable tras primer uso
+42,PHRASE_ROOM1_TRY_OPEN_DRAWER,0,0,DIALOG_ANIMATION_TALK,It won't open. Its closed,No se abre. Está cerrado
+43,PHRASE_ROOM1_USE_LOCKPICK,0,0,DIALOG_ANIMATION_TALK,It worked! But lockpick has broken,Funcionó! Pero la ganzúa se ha roto
+44,PHRASE_MEMENTO_VICTIM_CASE_2,0,0,DIALOG_ANIMATION_TALK,There was a well kept contract in house. Is it maybe related to what happened? I need someone trusty to read it,Había un contrato bien guardado en la casa. Quizá este relacionado con lo que pasó? Necesito alguien de confianza para que me lo lea
+45,PHRASE_TAKE_CONTRACT,0,0,DIALOG_ANIMATION_TALK,It's full of letters. But I cannot read,Lleno de letras. Pero no sé leer
+46,PHRASE_TAKE_JAR,0,0,DIALOG_ANIMATION_TALK,A nice jar! I will take it,Una bonita jarra! Me la llevo
+47,PHRASE_ROOM1_WITN3_CONTRACT_1,0,0,DIALOG_ANIMATION_TALK,I found this contract well kept in a drawer,Encontré este contrato bien guardado en un cajón
+48,PHRASE_ROOM1_WITN3_CONTRACT_2,1,0,DIALOG_ANIMATION_TALK,Aren't you gone yet?? You should be miles from here,Aún no te has ido?? Deberías estar a kilómetros de aquí
+49,PHRASE_ROOM1_WITN3_CONTRACT_3,1,0,DIALOG_ANIMATION_TALK,My friend. I cannot read too. I'm affraid I cannot help you,Amigo. Yo tampoco sé leer. Me temo que no puedo ayudarte
+50,PHRASE_ROOM1_TAKE_COIN_STUCK,0,0,DIALOG_ANIMATION_TALK,It's stuck. I cannot take it. Maybe some water could make get loose,Está atascada. No puedo cogerla. Quizá un poco de agua la suelte

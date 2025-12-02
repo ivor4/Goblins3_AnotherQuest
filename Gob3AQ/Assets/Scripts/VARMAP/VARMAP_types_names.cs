@@ -37,6 +37,9 @@ namespace Gob3AQ.VARMAP.Types
         NAME_LOCKPICK, 
         NAME_CANDLE, 
         NAME_DARKNESS, 
+        NAME_CONTRACT, 
+        NAME_JAR, 
+        NAME_COIN, 
         NAME_NPC_LAST, 
         
         NAME_TOTAL

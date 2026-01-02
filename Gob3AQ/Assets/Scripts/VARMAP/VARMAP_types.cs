@@ -3,6 +3,8 @@ using Gob3AQ.VARMAP.Variable.IstreamableNamespace;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 
 
 namespace Gob3AQ.VARMAP.Types
@@ -721,8 +723,9 @@ namespace Gob3AQ.VARMAP.Types
 
     public struct GameOptionsStruct : IStreamable
     {
-        public const int STRUCT_SIZE = KeyOptions.STRUCT_SIZE + sizeof(float) + 4 * sizeof(float);
+        public const int STRUCT_SIZE = KeyOptions.STRUCT_SIZE + MouseOptions.STRUCT_SIZE + sizeof(float) + 4 * sizeof(float);
         public KeyOptions keyOptions;
+        public MouseOptions mouseOptions;
         public float timeMultiplier; /* From computer to game world */
         public Color rectangleSelectionColor;
 
@@ -731,6 +734,7 @@ namespace Gob3AQ.VARMAP.Types
             ReadStreamSpan<byte> readZone = new ReadStreamSpan<byte>(reader);
 
             KeyOptions.StaticParseFromBytes(ref gstruct.keyOptions, ref reader);
+            MouseOptions.StaticParseFromBytes(ref gstruct.mouseOptions, ref reader);
 
             _ = readZone.ReadNext(KeyOptions.STRUCT_SIZE);
 
@@ -747,6 +751,7 @@ namespace Gob3AQ.VARMAP.Types
             WriteStreamSpan<byte> writeZone = new WriteStreamSpan<byte>(writer);
 
             KeyOptions.StaticParseToBytes(in gstruct.keyOptions, ref writer);
+            MouseOptions.StaticParseToBytes(in gstruct.mouseOptions, ref writer);
 
             _ = writeZone.WriteNext(KeyOptions.STRUCT_SIZE);
 
@@ -785,14 +790,9 @@ namespace Gob3AQ.VARMAP.Types
 
     public struct KeyOptions : IStreamable
     {
-        public const int STRUCT_SIZE = 7 * sizeof(ushort);
-        public KeyCode changeActionKey;
-        public KeyCode selectKey;
-        public KeyCode inventoryKey;
-        public KeyCode zoomUpKey;
-        public KeyCode zoomDownKey;
-        public KeyCode dragKey;
-        public KeyCode pauseKey;
+        public const int STRUCT_SIZE = 2 * sizeof(ushort);
+        public Key changeActionKey;
+        public Key pauseKey;
             
             
 
@@ -814,13 +814,8 @@ namespace Gob3AQ.VARMAP.Types
         {
             ReadStreamSpan<byte> readZone = new ReadStreamSpan<byte>(reader);
 
-            gstruct.changeActionKey = (KeyCode)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
-            gstruct.selectKey = (KeyCode)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
-            gstruct.inventoryKey = (KeyCode)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
-            gstruct.zoomUpKey = (KeyCode)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
-            gstruct.zoomDownKey = (KeyCode)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
-            gstruct.dragKey = (KeyCode)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
-            gstruct.pauseKey = (KeyCode)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
+            gstruct.changeActionKey = (Key)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
+            gstruct.pauseKey = (Key)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
         }
 
         public static void StaticParseToBytes(in KeyOptions gstruct, ref Span<byte> writer)
@@ -828,11 +823,6 @@ namespace Gob3AQ.VARMAP.Types
             WriteStreamSpan<byte> writeZone = new WriteStreamSpan<byte>(writer);
 
             BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.changeActionKey);
-            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.selectKey);
-            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.inventoryKey);
-            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.zoomUpKey);
-            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.zoomDownKey);
-            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.dragKey);
             BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.pauseKey);
         }
 
@@ -846,7 +836,65 @@ namespace Gob3AQ.VARMAP.Types
             StaticParseToBytes(in this, ref writer);
         }
     }
-    
+
+    public struct MouseOptions : IStreamable
+    {
+        public const int STRUCT_SIZE = 5 * sizeof(ushort);
+        public MouseButton selectKey;
+        public MouseButton inventoryKey;
+        public MouseButton zoomUpKey;
+        public MouseButton zoomDownKey;
+        public MouseButton dragKey;
+
+
+
+        /// <summary>
+        /// Normally used to give a new instance to receive from parsed Bytes
+        /// </summary>
+        /// <returns>new instance of struct/class</returns>
+        public static IStreamable CreateNewInstance()
+        {
+            return new KeyOptions();
+        }
+
+        public readonly int GetElemSize()
+        {
+            return STRUCT_SIZE;
+        }
+
+        public static void StaticParseFromBytes(ref MouseOptions gstruct, ref ReadOnlySpan<byte> reader)
+        {
+            ReadStreamSpan<byte> readZone = new ReadStreamSpan<byte>(reader);
+
+            gstruct.selectKey = (MouseButton)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
+            gstruct.inventoryKey = (MouseButton)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
+            gstruct.zoomUpKey = (MouseButton)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
+            gstruct.zoomDownKey = (MouseButton)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
+            gstruct.dragKey = (MouseButton)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
+        }
+
+        public static void StaticParseToBytes(in MouseOptions gstruct, ref Span<byte> writer)
+        {
+            WriteStreamSpan<byte> writeZone = new WriteStreamSpan<byte>(writer);
+
+            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.selectKey);
+            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.inventoryKey);
+            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.zoomUpKey);
+            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.zoomDownKey);
+            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.dragKey);
+        }
+
+        public void ParseFromBytes(ref ReadOnlySpan<byte> reader)
+        {
+            StaticParseFromBytes(ref this, ref reader);
+        }
+
+        public readonly void ParseToBytes(ref Span<byte> writer)
+        {
+            StaticParseToBytes(in this, ref writer);
+        }
+    }
+
 
     public struct KeyStruct : IStreamable
     {

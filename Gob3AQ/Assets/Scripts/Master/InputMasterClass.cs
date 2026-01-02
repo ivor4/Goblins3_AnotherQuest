@@ -5,17 +5,20 @@ using Gob3AQ.VARMAP.InputMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.VARMAP.Types.Delegates;
+using UnityEngine.InputSystem;
+using Gob3AQ.InputMaster.InputActions;
 
 namespace Gob3AQ.InputMaster
 {
     public class InputMasterClass : MonoBehaviour
     {
-        private const string MOUSE_WHEEL = "Mouse ScrollWheel";
         private static InputMasterClass _singleton;
         private KEY_SUBSCRIPTION_CALL_DELEGATE[] keySubscription;
         private Camera mainCamera;
         private int wheelDebounce;
         private bool keysHaveChanged;
+        private InputSystem_Actions inputActions;
+        private Mouse mouse;
 
 
         public static void KeySubscriptionService(KeyFunctionsIndex key, KEY_SUBSCRIPTION_CALL_DELEGATE func, bool add)
@@ -45,6 +48,8 @@ namespace Gob3AQ.InputMaster
                 _singleton = this;
 
                 keySubscription = new KEY_SUBSCRIPTION_CALL_DELEGATE[(int)KeyFunctionsIndex.KEYFUNC_INDEX_TOTAL];
+                inputActions = new InputSystem_Actions();
+                mouse = Mouse.current;
             }
         }
 
@@ -58,6 +63,8 @@ namespace Gob3AQ.InputMaster
             VARMAP_InputMaster.SET_PRESSED_KEYS(in KeyStruct.KEY_EMPTY);
             VARMAP_InputMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_InputMaster);
             VARMAP_InputMaster.REG_GAMESTATUS(_GameStatusChanged);
+
+            inputActions.Enable();
         }
 
         private void Update()
@@ -75,20 +82,18 @@ namespace Gob3AQ.InputMaster
                 bool wheelDown;
                 KeyFunctions cycleKeys = 0;
 
-                cycleKeys |= Input.GetKey(keyOptions.changeActionKey) ? KeyFunctions.KEYFUNC_CHANGEACTION : 0;
-                cycleKeys |= Input.GetKey(keyOptions.selectKey) ? KeyFunctions.KEYFUNC_SELECT : 0;
-                cycleKeys |= Input.GetKey(keyOptions.inventoryKey) ? KeyFunctions.KEYFUNC_INVENTORY : 0;
-                cycleKeys |= Input.GetKey(keyOptions.dragKey) ? KeyFunctions.KEYFUNC_DRAG : 0;
+                cycleKeys |= inputActions.Player.ChangeAction.IsPressed() ? KeyFunctions.KEYFUNC_CHANGEACTION : 0;
+                cycleKeys |= inputActions.Player.Select.IsPressed() ? KeyFunctions.KEYFUNC_SELECT : 0;
+                cycleKeys |= inputActions.Player.Inventory.IsPressed() ? KeyFunctions.KEYFUNC_INVENTORY : 0;
+                cycleKeys |= inputActions.Player.Drag.IsPressed() ? KeyFunctions.KEYFUNC_DRAG : 0;
 
-                float mouseWheelFloat = Input.GetAxisRaw(MOUSE_WHEEL);
-
-                if (mouseWheelFloat > 0.0f)
+                if (inputActions.Player.ZoomUp.IsPressed())
                 {
                     wheelUp = true;
                     wheelDown = false;
                     wheelDebounce = 20;
                 }
-                else if (mouseWheelFloat < 0.0f)
+                else if (inputActions.Player.ZoomDown.IsPressed())
                 {
                     wheelUp = false;
                     wheelDown = true;
@@ -125,7 +130,7 @@ namespace Gob3AQ.InputMaster
                     VARMAP_InputMaster.SET_PRESSED_KEYS(in actualOutputKeys);
                 }
 
-                Vector2 mousePosition = Input.mousePosition;
+                Vector2 mousePosition = mouse.position.ReadValue();
                 Vector2Int posPixels = new Vector2Int((int)mousePosition.x, (int)mousePosition.y);
 
 
@@ -214,6 +219,7 @@ namespace Gob3AQ.InputMaster
             if (_singleton == this)
             {
                 _singleton = null;
+                inputActions.Disable();
                 VARMAP_InputMaster.UNREG_GAMESTATUS(_GameStatusChanged);
             }
         }

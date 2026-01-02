@@ -1,7 +1,9 @@
 
 using Gob3AQ.VARMAP.Types;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 namespace Gob3AQ.VARMAP.DefaultValues
 {
@@ -12,13 +14,15 @@ namespace Gob3AQ.VARMAP.DefaultValues
         {
             keyOptions = new KeyOptions()
             {
-                changeActionKey = KeyCode.Tab,
-                selectKey = KeyCode.Mouse0,
-                inventoryKey = KeyCode.Mouse1,
-                dragKey = KeyCode.Mouse2,
-                zoomUpKey = KeyCode.WheelUp,
-                zoomDownKey = KeyCode.WheelDown,
-                pauseKey = KeyCode.P
+                changeActionKey = Key.Tab,
+                pauseKey = Key.P
+            },
+            mouseOptions = new MouseOptions()
+            {
+                selectKey = MouseButton.Left,
+                inventoryKey = MouseButton.Right,
+                dragKey = MouseButton.Middle,
+                zoomUpKey = MouseButton.Forward
             },
             timeMultiplier = 60f*24f,
             rectangleSelectionColor = new Color(0,0,1,0.12f)

@@ -49,6 +49,7 @@ namespace Gob3AQ.GameElement
         private bool isMotion_ext;
 
         private bool isUnspawned;
+        private bool isUnclickable;
 
         protected virtual void Awake()
         {
@@ -61,6 +62,7 @@ namespace Gob3AQ.GameElement
             isMotion_int = true;
             isMotion_ext = true;
             isUnspawned = false;
+            isUnclickable = false;
         }
 
         protected virtual void Start()
@@ -192,6 +194,12 @@ namespace Gob3AQ.GameElement
             myRigidbody.simulated = enable;
         }
 
+        public void SetUnclickable(bool unclickable)
+        {
+            isUnclickable = unclickable;
+            SetClickable(!isUnclickable);
+        }
+
         /// <summary>
         /// Sets clickable externally
         /// </summary>
@@ -268,7 +276,7 @@ namespace Gob3AQ.GameElement
                 {
                     case Game_Status.GAME_STATUS_PLAY:
                         SetActive(!isUnspawned);
-                        SetClickable(!isUnspawned);
+                        SetClickable(!isUnspawned && !isUnclickable);
                         SetMotion(!isUnspawned);
                         break;
                 }

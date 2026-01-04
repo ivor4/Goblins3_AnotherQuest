@@ -30,6 +30,8 @@ namespace Gob3AQ.VARMAP.Types
         /* > ATG 3 START < */
         COND_OK, 
         COND_OPEN_CHEST, 
+        COND_CLOSE_CHEST, 
+        COND_TAKE_CARDS, 
         COND_LAST, 
         
         COND_TOTAL
@@ -42,6 +44,10 @@ namespace Gob3AQ.VARMAP.Types
         UNCHAIN_ROOM1_INITIAL_MEMENTO, 
         UNCHAIN_HIVE1_OPEN_CHEST_1, 
         UNCHAIN_HIVE1_OPEN_CHEST_2, 
+        UNCHAIN_HIVE1_CLOSE_CHEST_1, 
+        UNCHAIN_HIVE1_CLOSE_CHEST_2, 
+        UNCHAIN_CARDS_PICKABLE_TAKE_1, 
+        UNCHAIN_CARDS_PICKABLE_TAKE_2, 
         
         UNCHAIN_TOTAL
         /* > ATG 4 END < */

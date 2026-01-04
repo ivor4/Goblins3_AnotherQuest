@@ -316,6 +316,7 @@ namespace Gob3AQ.VARMAP.Types
 
     public readonly struct UnchainInfo
     {
+        public readonly bool repeat;
         public readonly UnchainType type;
         public readonly GameEventCombi ignoreif;
         private readonly GameEventCombi[] neededEvents;
@@ -329,13 +330,14 @@ namespace Gob3AQ.VARMAP.Types
 
         public ReadOnlySpan<GameEventCombi> TargetEvents => targetEvents;
 
-        public static readonly UnchainInfo EMPTY = new(UnchainType.UNCHAIN_TYPE_SET_SPRITE, GameEventCombi.EMPTY,
+        public static readonly UnchainInfo EMPTY = new(false, UnchainType.UNCHAIN_TYPE_SET_SPRITE, GameEventCombi.EMPTY,
             new GameEventCombi[0], GameItem.ITEM_NONE, GameSprite.SPRITE_NONE, CharacterType.CHARACTER_NONE,
             Memento.MEMENTO_NONE, new GameEventCombi[0]);
 
-        public UnchainInfo(UnchainType type, GameEventCombi ignoreif, GameEventCombi[] neededEvents,
+        public UnchainInfo(bool repeat, UnchainType type, GameEventCombi ignoreif, GameEventCombi[] neededEvents,
             GameItem targetItem, GameSprite targetSprite, CharacterType targetCharacter, Memento targetMemento, GameEventCombi[] targetEvents)
         {
+            this.repeat = repeat;
             this.type = type;
             this.ignoreif = ignoreif;
             this.neededEvents = neededEvents;

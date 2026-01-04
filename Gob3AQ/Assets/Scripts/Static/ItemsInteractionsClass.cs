@@ -116,21 +116,45 @@ namespace Gob3AQ.Brain.ItemsInteraction
         {
             /* > ATG 1 START < */
             new( /* UNCHAIN_ROOM1_INITIAL_MEMENTO */
-            UnchainType.UNCHAIN_TYPE_NOTIF,new(GameEvent.EVENT_FIRST, false), 
+            false,UnchainType.UNCHAIN_TYPE_NOTIF,new(GameEvent.EVENT_FIRST, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
             new( /* UNCHAIN_HIVE1_OPEN_CHEST_1 */
-            UnchainType.UNCHAIN_TYPE_SET_SPRITE,new(GameEvent.EVENT_NONE, false), 
+            true,UnchainType.UNCHAIN_TYPE_SET_SPRITE,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, false),}, 
             GameItem.ITEM_HIVE1_CHEST, GameSprite.SPRITE_ITEM_CHEST_OPENED,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
             new( /* UNCHAIN_HIVE1_OPEN_CHEST_2 */
-            UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
+            true,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, false),}, 
             GameItem.ITEM_CARDS_PICKABLE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* UNCHAIN_HIVE1_CLOSE_CHEST_1 */
+            true,UnchainType.UNCHAIN_TYPE_SET_SPRITE,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, true),}, 
+            GameItem.ITEM_HIVE1_CHEST, GameSprite.SPRITE_ITEM_CHEST_CLOSED,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* UNCHAIN_HIVE1_CLOSE_CHEST_2 */
+            true,UnchainType.UNCHAIN_TYPE_DESPAWN,new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, true),}, 
+            GameItem.ITEM_CARDS_PICKABLE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* UNCHAIN_CARDS_PICKABLE_TAKE_1 */
+            false,UnchainType.UNCHAIN_TYPE_DESTROY,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, false),}, 
+            GameItem.ITEM_CARDS_PICKABLE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* UNCHAIN_CARDS_PICKABLE_TAKE_2 */
+            false,UnchainType.UNCHAIN_TYPE_EARN_ITEM,new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, false),}, 
+            GameItem.ITEM_CARDS_PICKABLE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE, 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
             /* > ATG 1 END < */
@@ -154,6 +178,20 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
             DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, false),}), 
+            
+            new( /* COND_CLOSE_CHEST */
+            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, false),}, 
+            CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
+            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
+            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, true),}), 
+            
+            new( /* COND_TAKE_CARDS */
+            new GameEventCombi[1]{new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, true),}, 
+            CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
+            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
+            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, false),}), 
             
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
@@ -179,12 +217,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_HIVE1_CHEST */
             NameType.NAME_ITEM_SECR_DESK,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(2){GameSprite.SPRITE_ITEM_CHEST_OPENED,GameSprite.SPRITE_ITEM_CHEST_CLOSED,}),
             GameSprite.SPRITE_ITEM_CHEST_CLOSED,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
-            new ActionConditions[1]{ActionConditions.COND_OPEN_CHEST,}),
+            new ActionConditions[2]{ActionConditions.COND_OPEN_CHEST,ActionConditions.COND_CLOSE_CHEST,}),
             
             new ( /* ITEM_CARDS_PICKABLE */
             NameType.NAME_ITEM_CARDS,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ITEM_CARDS,}),
             GameSprite.SPRITE_ITEM_CARDS,true,GameSprite.SPRITE_ITEM_CARDS_PICKABLE,GamePickableItem.ITEM_PICK_CARDS_PICKABLE,
-            new ActionConditions[1]{ActionConditions.COND_OK,}),
+            new ActionConditions[1]{ActionConditions.COND_TAKE_CARDS,}),
             
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST,}),

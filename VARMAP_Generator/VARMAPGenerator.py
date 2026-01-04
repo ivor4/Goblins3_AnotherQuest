@@ -1075,14 +1075,15 @@ for line in ACTIONCONDSinputFile:
         items_interaction_lines.InsertLineInATG(2, '\n')
     elif(zone == 2):
         ItemVar["name"] = str(columns[1])
-        ItemVar["type"] = str(columns[2])
-        ItemVar["ignoreif"] = str(columns[3])
-        ItemVar["neededEvents"] = str(columns[4])
-        ItemVar["targetItem"] = str(columns[5])
-        ItemVar["targetSprite"] = str(columns[6])
-        ItemVar["targetCharacter"] = str(columns[7])
-        ItemVar["targetMemento"] = str(columns[8])
-        ItemVar["targetEvents"] = str(columns[9])
+        ItemVar["repeat"] = str(columns[2])
+        ItemVar["type"] = str(columns[3])
+        ItemVar["ignoreif"] = str(columns[4])
+        ItemVar["neededEvents"] = str(columns[5])
+        ItemVar["targetItem"] = str(columns[6])
+        ItemVar["targetSprite"] = str(columns[7])
+        ItemVar["targetCharacter"] = str(columns[8])
+        ItemVar["targetMemento"] = str(columns[9])
+        ItemVar["targetEvents"] = str(columns[10])
         
         # Write in item enum
         stringToWrite = ItemVar["name"]
@@ -1094,7 +1095,7 @@ for line in ACTIONCONDSinputFile:
         stringToWrite = 'new( /* '+ ItemVar["name"] + ' */\n'
         items_interaction_lines.InsertLineInATG(1, stringToWrite)
         
-        stringToWrite = unchain_type_prefix + ItemVar["type"]+','
+        stringToWrite = ItemVar["repeat"].lower() + ',' + unchain_type_prefix + ItemVar["type"]+','
         
         _not_ = str('(NOT)' in ItemVar["ignoreif"]).lower()
         _option = ItemVar["ignoreif"].replace('(NOT)','')

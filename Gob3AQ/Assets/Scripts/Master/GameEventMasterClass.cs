@@ -244,7 +244,10 @@ namespace Gob3AQ.GameEventMaster
                         /* If it is completed, add to remove list */
                         if (TryUnchainAction(in unchainerInfo))
                         {
-                            _removePendingHash.Add(unchainer);
+                            if (!unchainerInfo.repeat)
+                            {
+                                _removePendingHash.Add(unchainer);
+                            }
                         }
                     }
 
@@ -336,7 +339,9 @@ namespace Gob3AQ.GameEventMaster
                     /* In case this points to an item, check if item is involved in room */
                     if ((unchainer_info.type == UnchainType.UNCHAIN_TYPE_SET_SPRITE) ||
                         (unchainer_info.type == UnchainType.UNCHAIN_TYPE_SPAWN) ||
-                        (unchainer_info.type == UnchainType.UNCHAIN_TYPE_DESPAWN)
+                        (unchainer_info.type == UnchainType.UNCHAIN_TYPE_DESPAWN) ||
+                        (unchainer_info.type == UnchainType.UNCHAIN_TYPE_UNCLICKABLE) ||
+                        (unchainer_info.type == UnchainType.UNCHAIN_TYPE_DESTROY)
                         )
                     {
                         /* Store for Scene Load (not in initial load) */
@@ -396,9 +401,14 @@ namespace Gob3AQ.GameEventMaster
             /* Don't insert yields between this for and remove operation, as Update() may interfere */
             foreach (KeyValuePair<UnchainConditions, HashSet<GameEvent>> kvp in _reversePendingUnchainDict)
             {
-                if (TryUnchainAction(in ItemsInteractionsClass.GetUnchainInfo(kvp.Key)))
+                UnchainInfo unchainer_info = ItemsInteractionsClass.GetUnchainInfo(kvp.Key);
+
+                if (TryUnchainAction(in unchainer_info))
                 {
-                    _removePendingHash.Add(kvp.Key);
+                    if (!unchainer_info.repeat)
+                    {
+                        _removePendingHash.Add(kvp.Key);
+                    }
                 }
             }
 
@@ -444,7 +454,9 @@ namespace Gob3AQ.GameEventMaster
                 if (unchainer_info.type == UnchainType.UNCHAIN_TYPE_SPAWN)
                 {
                     Debug.Log("Pre-Disappear for posterior Spawn unchainer " + unchainer_info.targetItem);
-                    VARMAP_GameEventMaster.UNCHAIN_TO_ITEM(in unchainer_info, true);
+                    UnchainInfo info_copy = new(false, UnchainType.UNCHAIN_TYPE_DESPAWN, GameEventCombi.EMPTY, null,
+                            unchainer_info.targetItem, unchainer_info.targetSprite, unchainer_info.targetCharacter, Memento.MEMENTO_NONE, null);
+                    VARMAP_GameEventMaster.UNCHAIN_TO_ITEM(in info_copy);
                 }
 
                 AddUnchainerEventsToPending(unchainer, in unchainer_info);
@@ -529,7 +541,7 @@ namespace Gob3AQ.GameEventMaster
                         CommitMementoService(info.targetMemento);
                         break;
                     default:
-                        VARMAP_GameEventMaster.UNCHAIN_TO_ITEM(in info, false);
+                        VARMAP_GameEventMaster.UNCHAIN_TO_ITEM(in info);
                         break;
                 }
             }

@@ -55,8 +55,6 @@ namespace Gob3AQ.ResourceDialogs
             HashSet<NameType> editableNameHash = new(GameFixedConfig.MAX_FIXED_NAMES_TO_LOAD)
             {
                 NameType.NAME_CHAR_MAIN,
-                NameType.NAME_CHAR_PARROT,
-                NameType.NAME_CHAR_SNAKE,
                 NameType.NAME_INTERACTION_TAKE,
                 NameType.NAME_INTERACTION_TALK,
                 NameType.NAME_INTERACTION_OBSERVE

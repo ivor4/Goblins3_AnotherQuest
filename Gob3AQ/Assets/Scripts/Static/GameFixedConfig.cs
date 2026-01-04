@@ -72,11 +72,8 @@ namespace Gob3AQ.FixedConfig
         public const string ROOM_BASE = "SCENE_BASE";
         private static readonly string[] _ROOM_TO_SCENE_NAME =
         {
-            "SCENE_ROOM1",
-            "SCENE_ROOM1_KITCHEN",
-            "SCENE_ROOM1_GARDEN",
-            "SCENE_ROOM1_CAR",
-            "SCENE_ROOM1_CELLAR"
+            "SCENE_HIVE1_ROOM_1",
+            "SCENE_HIVE1_CORRIDOR_1",
         };
         
     }

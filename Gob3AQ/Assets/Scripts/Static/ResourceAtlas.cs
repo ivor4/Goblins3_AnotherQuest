@@ -170,38 +170,10 @@ namespace Gob3AQ.ResourceAtlas
         {
             /* > ATG 1 START < */
             new( /* ROOM_1 */
-            GameSprite.BACKGROUND_ROOM1,
-            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_ROOM1, GameSprite.SPRITE_ROOM1_DECO_TABLE, }), 
+            GameSprite.BACKGROUND_HIVE1_ROOM1,
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_HIVE1_ROOM1, }), 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(6){GameItem.ITEM_VICTIM, GameItem.ITEM_WITNESS1, GameItem.ITEM_WITNESS2, GameItem.ITEM_WITNESS3, GameItem.ITEM_ROOM1_DOOR_KITCHEN, GameItem.ITEM_ROOM1_DOOR_MAIN, }) 
-            ),
-            
-            new( /* ROOM1_KITCHEN */
-            GameSprite.BACKGROUND_ROOM1_KITCHEN,
-            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(3){GameSprite.BACKGROUND_ROOM1_KITCHEN, GameSprite.SPRITE_ROOM1_JAM, GameSprite.SPRITE_ROOM1_KITCHEN_BASIN, }), 
-            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(10){GameItem.ITEM_ROOM1_SPOON, GameItem.ITEM_ROOM1_DRAWER, GameItem.ITEM_ROOM1_WINDOW, GameItem.ITEM_DOOR_UNCONDITIONAL, GameItem.ITEM_ROOM1_POISON_REMAIN, GameItem.ITEM_ROOM1_SPOON_W_POIS, GameItem.ITEM_ROOM1_TROWEL, GameItem.ITEM_ROOM1_WINDOW_OP_1, GameItem.ITEM_ROOM1_WINDOW_OP_2, GameItem.ITEM_ROOM1_WINDOW_AS_DOOR, }) 
-            ),
-            
-            new( /* ROOM1_GARDEN */
-            GameSprite.BACKGROUND_ROOM1_GARDEN,
-            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_ROOM1_GARDEN, GameSprite.SPRITE_ROOM1_DECO_BUSH_LAYER, }), 
-            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(9){GameItem.ITEM_ROOM1_VALVE, GameItem.ITEM_ROOM1_DOG, GameItem.ITEM_ROOM1_CAR_DOOR_CLOSED, GameItem.ITEM_ROOM1_CAR_KEYHOLE, GameItem.ITEM_ROOM1_FOUNTAIN, GameItem.ITEM_DOOR_UNCONDITIONAL, GameItem.ITEM_ROOM1_CAR, GameItem.ITEM_ROOM1_CAR_DOOR_AS_DOOR, GameItem.ITEM_ROOM1_COIN, }) 
-            ),
-            
-            new( /* ROOM1_CAR */
-            GameSprite.BACKGROUND_ROOM1_CAR,
-            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_ROOM1_CAR, GameSprite.SPRITE_ROOM1_CLOAK, }), 
-            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(2){GameItem.ITEM_ROOM1_MATCHES, GameItem.ITEM_DOOR_UNCONDITIONAL, }) 
-            ),
-            
-            new( /* ROOM1_CELLAR */
-            GameSprite.BACKGROUND_ROOM1_CELLAR,
-            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(3){GameSprite.BACKGROUND_ROOM1_CELLAR, GameSprite.FOREGROUND_ROOM1_CELLAR, GameSprite.SPRITE_ROOM1_COLUMN, }), 
-            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(5){GameItem.ITEM_ROOM1_DARKNESS, GameItem.ITEM_ROOM1_CANDLE, GameItem.ITEM_ROOM1_LOCKPICK, GameItem.ITEM_ROOM1_OIL_BOTTLES, GameItem.ITEM_DOOR_UNCONDITIONAL, }) 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(1){GameItem.ITEM_CARDS_PICKABLE, }) 
             ),
             
             new( /* ROOM_LAST */

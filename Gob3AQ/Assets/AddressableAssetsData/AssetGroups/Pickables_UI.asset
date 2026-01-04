@@ -20,13 +20,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 49fc62090e4a65e468d40c9652e2bb79
-    m_Address: SPRITE_ATLAS_PICKABLES_0
+  - m_GUID: 92d845b6379f4fd45bb81c5c91f0fb6f
+    m_Address: SCENE_BASE
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 92d845b6379f4fd45bb81c5c91f0fb6f
-    m_Address: SCENE_BASE
+  - m_GUID: ac5d2d7f415d1824f8f71b72b31801f3
+    m_Address: SPRITE_ATLAS_PICKABLE_0
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

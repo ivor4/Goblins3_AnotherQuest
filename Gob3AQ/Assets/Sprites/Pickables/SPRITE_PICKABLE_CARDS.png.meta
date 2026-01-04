@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c9c9a6a8e8ac9864789461bc78b50e31
+guid: 547cdf5fd2ca96c4daf892076adaba75
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8641670005041745056
-    second: SPRITE_ROOM1_COIN_STUCK_0
+      213: 3458862508047341030
+    second: SPRITE_PICKABLE_CARDS_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SPRITE_ROOM1_COIN_STUCK_0
+      name: SPRITE_PICKABLE_CARDS_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 23
-        height: 16
+        x: 3
+        y: 11
+        width: 59
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0ac49a485116de770800000000000000
-      internalID: 8641670005041745056
+      spriteID: 6e5141f0029500030800000000000000
+      internalID: 3458862508047341030
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SPRITE_ROOM1_COIN_STUCK_0: 8641670005041745056
+      SPRITE_PICKABLE_CARDS_0: 3458862508047341030
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

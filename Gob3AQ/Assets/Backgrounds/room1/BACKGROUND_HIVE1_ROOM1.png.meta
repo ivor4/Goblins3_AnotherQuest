@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: aa3915f15479e7848ac6fb088bffac24
+guid: ec779ad506940c6419c4d1e43c66b29c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3729508039651256240
-    second: SPRITE_ROOM1_FOUNTAIN_0
+      213: 5225083678768352548
+    second: BACKGROUND_HIVE1_ROOM1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SPRITE_ROOM1_FOUNTAIN_0
+      name: BACKGROUND_HIVE1_ROOM1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 365
-        height: 332
+        width: 2720
+        height: 1568
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0b760626dcfd1c330800000000000000
-      internalID: 3729508039651256240
+      spriteID: 42dcda21ce9338840800000000000000
+      internalID: 5225083678768352548
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SPRITE_ROOM1_FOUNTAIN_0: 3729508039651256240
+      BACKGROUND_HIVE1_ROOM1_0: 5225083678768352548
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,35 +1,13 @@
 N,NAME_ID,Name_English,Name_Spanish
 0,NAME_NONE,,
-1,NAME_CHAR_MAIN,Blount,Blount
-2,NAME_CHAR_PARROT,Parrot,Loro
-3,NAME_CHAR_SNAKE,Snake,Serpiente
-4,NAME_INTERACTION_TAKE,Take,Agarrar
-5,NAME_INTERACTION_TALK,Talk,Hablar
-6,NAME_INTERACTION_OBSERVE,Observe,Observar
-7,NAME_MEMENTO_CASE,Poisoned Victim,Víctima envenenada
-8,NAME_VICTIM,Victim,Víctima
-9,NAME_WITNESS,Witness,Testigo
-10,NAME_MEMENTO_CHASE,Court,Juicio
-11,NAME_DOOR,Cross door,Cruzar puerta
-12,NAME_SPOON,Spoon,Cuchara
-13,NAME_DRAWER,Drawer,Cajonera
-14,NAME_WINDOW,Window,Ventana
-15,NAME_POISON_REMAIN,Viscous remains,Restos viscosos
-16,NAME_SPOON_POISON,Spoon with poison remains,Cuchara con restos de veneno
-17,NAME_OLD_HOUSE_KEY,Old house key,Llave vieja de la casa
-18,NAME_TROWEL,Trowel,Paleta
-19,NAME_VALVE,Valve,Válvula
-20,NAME_DOG,Dog,Perro
-21,NAME_FOUNTAIN,Fountain,Fuente
-22,NAME_DOOR_DESCR,Door,Puerta
-23,NAME_CAR_DOOR,Car door,Puerta del coche
-24,NAME_KEYHOLE,Keyhole,Cerradura
-25,NAME_MATCHES,Matches,Cerillas
-26,NAME_OIL_BOTTLES,Oil bottles,Botellas de aceite
-27,NAME_LOCKPICK,Disposable lockpick,Ganzúa deshechable
-28,NAME_CANDLE,Candle lamp,Candil
-29,NAME_DARKNESS,Darkness,Oscuridad
-30,NAME_CONTRACT,Contract,Contrato
-31,NAME_JAR,Jar,Tarro
-32,NAME_COIN,Coin,Moneda
-33,NAME_NPC_LAST,Last,Ultimo
+1,NAME_CHAR_MAIN,Constantino,Constantino
+2,NAME_INTERACTION_TALK,Talk,Hablar
+3,NAME_INTERACTION_OBSERVE,Observe,Observar
+4,NAME_INTERACTION_TAKE,Take,Tomar
+5,NAME_ITEM_SECR_DESK,Secretary desk,Cajonera
+6,NAME_NPC_REME,Remedios,Remedios
+7,NAME_ITEM_PERFUME,Perfum,Perfume
+8,NAME_ITEM_CARDS,Card set,Baraja naipes
+9,NAME_ITEM_MATCHES,Matches,Cerillas
+10,NAME_ITEM_DOPP,Dopp kit,Bolsa de aseo
+11,NAME_NPC_LAST,Last,Ultimo

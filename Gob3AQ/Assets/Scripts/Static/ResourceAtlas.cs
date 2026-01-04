@@ -171,9 +171,9 @@ namespace Gob3AQ.ResourceAtlas
             /* > ATG 1 START < */
             new( /* ROOM_1 */
             GameSprite.BACKGROUND_HIVE1_ROOM1,
-            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_HIVE1_ROOM1, }), 
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_HIVE1_ROOM1, GameSprite.SPRITE_ITEM_DECO_BED_LAYER, }), 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(1){GameItem.ITEM_CARDS_PICKABLE, }) 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(2){GameItem.ITEM_CARDS_PICKABLE, GameItem.ITEM_HIVE1_CHEST, }) 
             ),
             
             new( /* ROOM_LAST */

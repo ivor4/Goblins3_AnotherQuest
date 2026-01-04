@@ -58,6 +58,7 @@ namespace Gob3AQ.ItemMaster
                             {
                                 Debug.Log("UnchainToItemService: Spawning item " + unchainInfo.targetItem);
                                 instance.SetUnspawned(false);
+                                instance.SetMotion(true);
                                 instance.SetActive(true);
                                 instance.SetClickable(true);
                                 instance.SetVisible(true);

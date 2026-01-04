@@ -8,6 +8,7 @@ namespace Gob3AQ.VARMAP.Types
         /* > ATG 1 START < */
         EVENT_NONE = -1, 
         EVENT_FIRST, 
+        EVENT_HIVE1_CHEST_OPENED, 
         EVENT_LAST, 
         
         EVENT_TOTAL

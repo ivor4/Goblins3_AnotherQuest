@@ -23,6 +23,7 @@ namespace Gob3AQ.ResourceSpritesAtlas
         private static readonly SpriteConfig[] _SpriteConfig = new SpriteConfig[(int)GameSprite.SPRITE_TOTAL]
         {
             /* > ATG 1 START < */
+            new("SPRITE_ATLAS_UI_0[SPRITE_BLANK]"), /* SPRITE_BLANK */ 
             new("SPRITE_ATLAS_UI_0[SPRITE_CURSOR_NORMAL]"), /* SPRITE_CURSOR_NORMAL */ 
             new("SPRITE_ATLAS_UI_0[SPRITE_CURSOR_USING]"), /* SPRITE_CURSOR_USING */ 
             new("SPRITE_ATLAS_UI_0[SPRITE_CURSOR_DRAG]"), /* SPRITE_CURSOR_DRAG */ 
@@ -33,7 +34,11 @@ namespace Gob3AQ.ResourceSpritesAtlas
             new("SPRITE_ATLAS_UI_0[SPRITE_MOUSE_MOVE]"), /* SPRITE_UI_MOUSE_MOVE */ 
             new("SPRITE_ATLAS_UI_0[SPRITE_CURSOR_DOOR]"), /* SPRITE_UI_CURSOR_DOOR */ 
             new("SPRITE_ATLAS_HIVE1_0[BACKGROUND_HIVE1_ROOM1]"), /* BACKGROUND_HIVE1_ROOM1 */ 
+            new("SPRITE_ATLAS_HIVE1_0[SPRITE_HIVE1_CHEST_CLOSED]"), /* SPRITE_ITEM_CHEST_CLOSED */ 
+            new("SPRITE_ATLAS_HIVE1_0[SPRITE_HIVE1_CHEST_OPENED]"), /* SPRITE_ITEM_CHEST_OPENED */ 
+            new("SPRITE_ATLAS_HIVE1_0[SPRITE_HIVE1_CHEST_CARDS]"), /* SPRITE_ITEM_CARDS */ 
             new("SPRITE_ATLAS_PICKABLE_0[SPRITE_PICKABLE_CARDS]"), /* SPRITE_ITEM_CARDS_PICKABLE */ 
+            new("SPRITE_ATLAS_HIVE1_0[SPRITE_HIVE1_BED_LAYER]"), /* SPRITE_ITEM_DECO_BED_LAYER */ 
             new("SPRITE_LAST"), /* SPRITE_LAST */ 
             /* > ATG 1 END < */
         };

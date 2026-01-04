@@ -28,6 +28,7 @@ namespace Gob3AQ.ResourceSprites
 
             HashSet<GameSprite> editableHash = new(GameFixedConfig.MAX_CACHED_SPRITES)
             {
+                GameSprite.SPRITE_BLANK,
                 GameSprite.SPRITE_CURSOR_NORMAL,
                 GameSprite.SPRITE_CURSOR_USING,
                 GameSprite.SPRITE_CURSOR_DRAG,

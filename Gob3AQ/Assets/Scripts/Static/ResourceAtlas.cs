@@ -169,11 +169,18 @@ namespace Gob3AQ.ResourceAtlas
         private static readonly RoomInfo[] _RoomInfo = new RoomInfo[(int)Room.ROOMS_TOTAL]
         {
             /* > ATG 1 START < */
-            new( /* ROOM_1 */
+            new( /* HIVE1_ROOM_1 */
             GameSprite.BACKGROUND_HIVE1_ROOM1,
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_HIVE1_ROOM1, GameSprite.SPRITE_ITEM_DECO_BED_LAYER, }), 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(4){GameItem.ITEM_CARDS_PICKABLE, GameItem.ITEM_HIVE1_CHEST, GameItem.ITEM_HIVE1_WARDROBE, GameItem.ITEM_HIVE1_WARDROBE_OPENED, }) 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(5){GameItem.ITEM_CARDS_PICKABLE, GameItem.ITEM_HIVE1_CHEST, GameItem.ITEM_HIVE1_WARDROBE, GameItem.ITEM_HIVE1_WARDROBE_OPENED, GameItem.ITEM_GENERIC_DOOR1, }) 
+            ),
+            
+            new( /* HIVE1_CORRIDOR_1 */
+            GameSprite.BACKGROUND_HIVE1_CORRIDOR1,
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_HIVE1_CORRIDOR1, }), 
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(3){GameItem.ITEM_HIVE1_CHEST, GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_HIVE1_NPC_REME, }) 
             ),
             
             new( /* ROOM_LAST */

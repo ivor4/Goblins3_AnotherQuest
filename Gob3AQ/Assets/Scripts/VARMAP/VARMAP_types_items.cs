@@ -11,6 +11,8 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_CARDS_PICKABLE, 
         ITEM_HIVE1_WARDROBE, 
         ITEM_HIVE1_WARDROBE_OPENED, 
+        ITEM_GENERIC_DOOR1, 
+        ITEM_HIVE1_NPC_REME, 
         ITEM_LAST, 
         
         ITEM_TOTAL
@@ -36,6 +38,7 @@ namespace Gob3AQ.VARMAP.Types
         COND_TAKE_CARDS, 
         COND_OPEN_HIVE1_WARDROBE, 
         COND_CLOSE_HIVE1_WARDROBE, 
+        COND_TALK_REME_1, 
         COND_LAST, 
         
         COND_TOTAL

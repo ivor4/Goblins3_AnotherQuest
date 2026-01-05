@@ -198,7 +198,7 @@ namespace Gob3AQ.GameMaster
             if(_singleton != null)
             {
                 VARMAP_DataSystem.ResetVARMAP();
-                _singleton.StartCoroutine(_singleton.StartGameOnRoomCoroutine(Room.ROOM_1));
+                _singleton.StartCoroutine(_singleton.StartGameOnRoomCoroutine(Room.HIVE1_ROOM_1));
                 error = false;
             }
             else

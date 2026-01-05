@@ -66,6 +66,7 @@ namespace Gob3AQ.GameMenu.UICanvas
         private GameObject cursor;
         private GameObject cursor_subobj;
         private GameObject cursor_textobj;
+        private RectTransform cursor_text_rect;
         private GameObject cursor_userInteractionSel;
         private UIUserInteractionSelClass cursor_userInteraction_cls;
         private RectTransform cursor_rect;
@@ -123,6 +124,7 @@ namespace Gob3AQ.GameMenu.UICanvas
             cursor_subobj = cursor.transform.Find("CursorObject").gameObject;
             cursor_subobj_spr = cursor_subobj.GetComponent<Image>();
             cursor_textobj = cursor.transform.Find("CursorText").gameObject;
+            cursor_text_rect = cursor_textobj.GetComponent<RectTransform>();
             cursor_textobj_text = cursor_textobj.transform.Find("Text").gameObject.GetComponent<TMP_Text>();
             cursor_userInteractionSel = cursor.transform.Find("UserInteractionSel").gameObject;
             cursor_userInteraction_cls = cursor_userInteractionSel.GetComponent<UIUserInteractionSelClass>();
@@ -279,10 +281,11 @@ namespace Gob3AQ.GameMenu.UICanvas
             }
             else
             {
-                
                 cursor_textobj_text.text = ResourceDialogsClass.GetName(itemInfo.name);
                 cursor_textobj.SetActive(true);
             }
+
+            LayoutRebuilder.ForceRebuildLayoutImmediate(cursor_text_rect);
         }
 
         public void SetUserInteraction(UserInputInteraction interaction)

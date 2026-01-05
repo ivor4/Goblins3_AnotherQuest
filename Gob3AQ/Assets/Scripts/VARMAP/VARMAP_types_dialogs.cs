@@ -7,6 +7,8 @@ namespace Gob3AQ.VARMAP.Types
         /* > ATG 1 START < */
         DIALOG_NONE = -1, 
         DIALOG_SIMPLE, 
+        DIALOG_REME_INTRO, 
+        DIALOG_REME, 
         DIALOG_LAST, 
         
         DIALOG_TOTAL
@@ -18,6 +20,9 @@ namespace Gob3AQ.VARMAP.Types
         /* > ATG 2 START < */
         DIALOG_OPTION_NONE = -1, 
         DIALOG_OPTION_SIMPLE, 
+        DIALOG_OPTION_REME_INTRO, 
+        DIALOG_OPTION_REME_1, 
+        DIALOG_OPTION_REME_2, 
         DIALOG_OPTION_LAST, 
         
         DIALOG_OPTION_TOTAL
@@ -35,6 +40,13 @@ namespace Gob3AQ.VARMAP.Types
         PHRASE_NONSENSE_COMBI, 
         PHRASE_ALREADY_COMBI, 
         PHRASE_GREAT_IDEA_COMBI, 
+        PHRASE_DIALOG_REME_INTRO_1, 
+        PHRASE_DIALOG_REME_INTRO_2, 
+        PHRASE_DIALOG_REME_INTRO_3, 
+        PHRASE_DIALOG_REME_1_1, 
+        PHRASE_DIALOG_REME_1_2, 
+        PHRASE_DIALOG_REME_1_3, 
+        PHRASE_DIALOG_REME_2_1, 
         
         PHRASE_TOTAL
         /* > ATG 3 END < */

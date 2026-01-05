@@ -11,4 +11,5 @@ N,NAME_ID,Name_English,Name_Spanish
 9,NAME_ITEM_MATCHES,Matches,Cerillas
 10,NAME_ITEM_DOPP,Dopp kit,Bolsa de aseo
 11,NAME_ITEM_WARDROBE,Wardrobe,Armario
-12,NAME_NPC_LAST,Last,Ultimo
+12,NAME_ITEM_CROSS,Cross,Cruzar
+13,NAME_NPC_LAST,Last,Ultimo

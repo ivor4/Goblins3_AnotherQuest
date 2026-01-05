@@ -6,7 +6,8 @@ namespace Gob3AQ.VARMAP.Types
     {
         /* > ATG 1 START < */
         ROOM_NONE = -1, 
-        ROOM_1, 
+        HIVE1_ROOM_1, 
+        HIVE1_CORRIDOR_1, 
         ROOM_LAST, 
         
         ROOMS_TOTAL 

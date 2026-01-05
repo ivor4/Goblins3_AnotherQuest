@@ -56,6 +56,16 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new DialogOption[1]{DialogOption.DIALOG_OPTION_SIMPLE, }
             ),
             
+            new( /* DIALOG_REME_INTRO */
+            new GameItem[1]{GameItem.ITEM_NONE,},
+            new DialogOption[1]{DialogOption.DIALOG_OPTION_REME_INTRO, }
+            ),
+            
+            new( /* DIALOG_REME */
+            new GameItem[1]{GameItem.ITEM_NONE,},
+            new DialogOption[2]{DialogOption.DIALOG_OPTION_REME_1, DialogOption.DIALOG_OPTION_REME_2, }
+            ),
+            
             new( /* DIALOG_LAST */
             new GameItem[1]{GameItem.ITEM_NONE,},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE, }
@@ -72,6 +82,24 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
             DialogType.DIALOG_NONE,
             new DialogPhrase[1]{DialogPhrase.PHRASE_NONE, }
+            ),
+            new( /* DIALOG_OPTION_REME_INTRO */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            DialogType.DIALOG_REME,
+            new DialogPhrase[3]{DialogPhrase.PHRASE_DIALOG_REME_INTRO_1, DialogPhrase.PHRASE_DIALOG_REME_INTRO_2, DialogPhrase.PHRASE_DIALOG_REME_INTRO_3, }
+            ),
+            new( /* DIALOG_OPTION_REME_1 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            DialogType.DIALOG_REME,
+            new DialogPhrase[3]{DialogPhrase.PHRASE_DIALOG_REME_1_1, DialogPhrase.PHRASE_DIALOG_REME_1_2, DialogPhrase.PHRASE_DIALOG_REME_1_3, }
+            ),
+            new( /* DIALOG_OPTION_REME_2 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            DialogType.DIALOG_NONE,
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_REME_2_1, }
             ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
@@ -92,6 +120,13 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_NONSENSE_COMBI */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_ALREADY_COMBI */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_GREAT_IDEA_COMBI */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_REME_INTRO_1 */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_REME_INTRO_2 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_REME_INTRO_3 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_REME_1_1 */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_REME_1_2 */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_REME_1_3 */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_REME_2_1 */ 
             /* > ATG 3 END < */
         };
     }

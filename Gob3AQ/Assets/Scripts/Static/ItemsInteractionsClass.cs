@@ -289,6 +289,16 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_NPC_REME_IDLE,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
             new ActionConditions[1]{ActionConditions.COND_TALK_REME_1,}),
             
+            new ( /* ITEM_GENERIC_DOOR2 */
+            NameType.NAME_ITEM_CROSS,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK,}),
+            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_OK,}),
+            
+            new ( /* ITEM_GENERIC_DOOR3 */
+            NameType.NAME_ITEM_CROSS,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK,}),
+            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_OK,}),
+            
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST,}),
             GameSprite.SPRITE_LAST,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,

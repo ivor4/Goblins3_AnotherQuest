@@ -35,6 +35,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9efdb536fbe3d074cb2e85252bfc6e34
+    m_Address: SCENE_HIVE1_HALL_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a75b7445ea97e974bb97beccacf0f9b0
+    m_Address: SPRITE_ATLAS_HIVE1_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c63f0f3646ca67f4abe7e9d9a952af85, type: 2}
   m_SchemaSet:

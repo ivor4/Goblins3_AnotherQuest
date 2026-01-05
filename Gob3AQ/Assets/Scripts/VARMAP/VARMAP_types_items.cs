@@ -13,6 +13,8 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_HIVE1_WARDROBE_OPENED, 
         ITEM_GENERIC_DOOR1, 
         ITEM_HIVE1_NPC_REME, 
+        ITEM_GENERIC_DOOR2, 
+        ITEM_GENERIC_DOOR3, 
         ITEM_LAST, 
         
         ITEM_TOTAL

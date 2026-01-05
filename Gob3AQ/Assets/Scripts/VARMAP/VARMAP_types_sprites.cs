@@ -25,6 +25,7 @@ namespace Gob3AQ.VARMAP.Types
         SPRITE_ITEM_WARDROBE_OPENED, 
         BACKGROUND_HIVE1_CORRIDOR1, 
         SPRITE_NPC_REME_IDLE, 
+        BACKGROUND_HIVE1_HALL1, 
         SPRITE_LAST, 
         
         SPRITE_TOTAL

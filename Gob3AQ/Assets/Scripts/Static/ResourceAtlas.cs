@@ -180,7 +180,14 @@ namespace Gob3AQ.ResourceAtlas
             GameSprite.BACKGROUND_HIVE1_CORRIDOR1,
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_HIVE1_CORRIDOR1, }), 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(3){GameItem.ITEM_HIVE1_CHEST, GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_HIVE1_NPC_REME, }) 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(2){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_HIVE1_NPC_REME, }) 
+            ),
+            
+            new( /* HIVE1_HALL_1 */
+            GameSprite.BACKGROUND_HIVE1_HALL1,
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_HIVE1_HALL1, }), 
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(3){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_GENERIC_DOOR2, GameItem.ITEM_GENERIC_DOOR3, }) 
             ),
             
             new( /* ROOM_LAST */

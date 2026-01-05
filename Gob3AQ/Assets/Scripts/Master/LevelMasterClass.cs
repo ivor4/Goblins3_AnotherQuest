@@ -20,7 +20,8 @@ namespace Gob3AQ.LevelMaster
 
         private static LevelMasterClass _singleton;
 
-        private IReadOnlyList<Vector2> _WP_List;
+        private IReadOnlyList<Vector2> _WP_Pos_List;
+        private IReadOnlyList<float> _WP_Size_List;
         private IReadOnlyList<WaypointSolution> _WP_Solution_List;
         private PlayableCharScript[] _Player_List;
         private Dictionary<GameItem, DoorInfo> _Door_Dict;
@@ -79,9 +80,9 @@ namespace Gob3AQ.LevelMaster
                 candidate_pos = Vector2.zero;
                 candidate_index = -1;
 
-                for (int i = 0; i < _singleton._WP_List.Count; ++i)
+                for (int i = 0; i < _singleton._WP_Pos_List.Count; ++i)
                 {
-                    Vector2 wp_pos = _singleton._WP_List[i];
+                    Vector2 wp_pos = _singleton._WP_Pos_List[i];
                     float dist = Vector2.Distance(wp_pos, position);
 
                     if (dist < minDistance)
@@ -105,16 +106,18 @@ namespace Gob3AQ.LevelMaster
             }
         }
 
-        public static void GetWaypointListService(out IReadOnlyList<Vector2> waypoints, out IReadOnlyList<WaypointSolution> solutions)
+        public static void GetWaypointListService(out IReadOnlyList<Vector2> positions, out IReadOnlyList<float> sizes, out IReadOnlyList<WaypointSolution> solutions)
         {
             if (_singleton != null)
             {
-                waypoints = _singleton._WP_List;
+                positions = _singleton._WP_Pos_List;
+                sizes = _singleton._WP_Size_List;
                 solutions = _singleton._WP_Solution_List;
             }
             else
             {
-                waypoints = null;
+                positions = null;
+                sizes = null;
                 solutions = null;
             }
         }
@@ -230,11 +233,13 @@ namespace Gob3AQ.LevelMaster
 
         #region "Internal Services"
 
-        public static void WPListRegister(IReadOnlyList<Vector2> waypointList, IReadOnlyList<WaypointSolution> solutions)
+        public static void WPListRegister(IReadOnlyList<Vector2> waypointPosList,
+            IReadOnlyList<float> waypointSizeList, IReadOnlyList<WaypointSolution> solutions)
         {
             if (_singleton != null)
             {
-                _singleton._WP_List = waypointList;
+                _singleton._WP_Pos_List = waypointPosList;
+                _singleton._WP_Size_List = waypointSizeList;
                 _singleton._WP_Solution_List = solutions;
             }
         }

@@ -1,10 +1,8 @@
 
 
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Gob3AQ.LevelMaster;
-using Gob3AQ.VARMAP.LevelMaster;
 
 
 
@@ -48,14 +46,16 @@ namespace Gob3AQ.Waypoint.Network
         private void Awake()
         {
             List<Vector2> waypoints_points = new(children.Count);
+            List<float> waypoints_sizes = new(children.Count);
 
             for (int i = 0; i < children.Count; ++i)
             {
                 waypoints_points.Add(children[i].transform.position);
+                waypoints_sizes.Add(children[i].CharacterSizeFactor);
             }
 
             /* LevelMaster is ensured to be initialized before this */
-            LevelMasterClass.WPListRegister(waypoints_points, solutions);
+            LevelMasterClass.WPListRegister(waypoints_points, waypoints_sizes, solutions);
         }
 
 

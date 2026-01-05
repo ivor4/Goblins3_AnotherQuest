@@ -26,7 +26,12 @@ namespace Gob3AQ.Waypoint
         [Tooltip("Assign Manually or by Tool")]
         private WaypointNetwork network;
 
+        [SerializeField]
+        private float characterSizeFactor;
+
         public WaypointNetwork Network => network;
+
+        public float CharacterSizeFactor => characterSizeFactor;
 
 
 #if UNITY_EDITOR

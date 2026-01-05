@@ -35,7 +35,6 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         /* GameObject components */
         private Transform _parentTransform;
-        private Vector2 feetOffset;
 
         /* Status */
         private PhysicalState physicalstate;
@@ -44,19 +43,19 @@ namespace Gob3AQ.GameElement.PlayableChar
         private bool selected;
         private WaypointProgrammedPath actualProgrammedPath;
 
-        private IReadOnlyList<Vector2> waypoints;
+        private Vector3 sceneOrigSize;
+
+        private IReadOnlyList<Vector2> waypoints_pos;
+        private IReadOnlyList<float> waypoints_sizes;
         private IReadOnlyList<WaypointSolution> solutions;
 
         private struct WaypointProgrammedPath
         {
             public int target_index;
             public int final_index;
-
-            public WaypointProgrammedPath(int target, int final)
-            {
-                target_index = target;
-                final_index = final;
-            }
+            public float wp_distance;
+            public float initial_size;
+            public float delta_size;
         }
 
 
@@ -121,6 +120,8 @@ namespace Gob3AQ.GameElement.PlayableChar
             myCollider = topParent.GetComponent<Collider2D>();
             myRigidbody = topParent.GetComponent<Rigidbody2D>();
 
+            sceneOrigSize = _parentTransform.localScale;
+
             SetVisible_Internal(false);
         }
 
@@ -137,8 +138,7 @@ namespace Gob3AQ.GameElement.PlayableChar
 
             VARMAP_PlayerMaster.MONO_REGISTER(this, true);
             VARMAP_PlayerMaster.REG_PLAYER_SELECTED(ChangedSelectedPlayerEvent);
-
-            VARMAP_PlayerMaster.GET_WP_LIST(out waypoints, out solutions);
+            VARMAP_PlayerMaster.GET_WP_LIST(out waypoints_pos, out waypoints_sizes, out solutions);
 
             /* Start loading coroutine */
             _ = StartCoroutine(Execute_Loading_Coroutine());
@@ -201,13 +201,10 @@ namespace Gob3AQ.GameElement.PlayableChar
                     actualWaypoint = wpStartIndex;
                 }
 
-                feetOffset = mySpriteRenderer.bounds.extents;
-                feetOffset.x = 0;
+                _parentTransform.position = waypoints_pos[actualWaypoint];
 
-                _parentTransform.position = waypoints[actualWaypoint] + feetOffset;
-
-                actualProgrammedPath.target_index = actualWaypoint;
-                actualProgrammedPath.final_index = actualWaypoint;
+                PresetProgrammedPathStruct(actualWaypoint);
+                SetSize(waypoints_sizes[actualWaypoint]);
 
                 VARMAP_PlayerMaster.PLAYER_WAYPOINT_UPDATE(charType, actualWaypoint);
 
@@ -254,14 +251,25 @@ namespace Gob3AQ.GameElement.PlayableChar
         private bool Execute_Walk()
         {
             bool continueOp;
-            Vector3 target_pos = waypoints[actualProgrammedPath.target_index] + feetOffset;
-            Vector2 deltaPos = target_pos - _parentTransform.position;
+            Vector3 target_pos = waypoints_pos[actualProgrammedPath.target_index];
+            Vector3 orig_pos = waypoints_pos[actualWaypoint];
+            Vector2 deltaPos = _parentTransform.position - orig_pos;
+            float crossed_distance = deltaPos.magnitude;
+            float distance_clamped = Mathf.Min(crossed_distance, actualProgrammedPath.wp_distance);
+            float interp_size;
 
-            /* If delta vector of positions and original velocity vector lose their cos(0deg)=1,
-             * it means character crossed the point */
-            float dot = Vector2.Dot(deltaPos, myRigidbody.linearVelocity);
+            if(actualProgrammedPath.wp_distance == 0f)
+            {
+                interp_size = actualProgrammedPath.initial_size;
+            }
+            else
+            {
+                interp_size = actualProgrammedPath.initial_size + (actualProgrammedPath.delta_size * (distance_clamped / actualProgrammedPath.wp_distance));
+            }
+                
+            SetSize(interp_size);
 
-            if(dot <= 0f)
+            if (crossed_distance >= actualProgrammedPath.wp_distance)
             {
                 /* Store WP Index */
                 VARMAP_PlayerMaster.PLAYER_WAYPOINT_UPDATE(charType, actualProgrammedPath.target_index);
@@ -270,9 +278,11 @@ namespace Gob3AQ.GameElement.PlayableChar
                 if(actualProgrammedPath.target_index == actualProgrammedPath.final_index)
                 {
                     actualWaypoint = actualProgrammedPath.target_index;
+                    PresetProgrammedPathStruct(actualWaypoint);
                     _parentTransform.position = target_pos;
                     physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
                     myRigidbody.linearVelocity = Vector2.zero;
+                    SetSize(waypoints_sizes[actualWaypoint]);
 
                     continueOp = StartBufferedInteraction();
                 }
@@ -326,11 +336,16 @@ namespace Gob3AQ.GameElement.PlayableChar
             if(reached)
             {
                 actualWaypoint = actualProgrammedPath.target_index;
-                _parentTransform.position = waypoints[actualWaypoint] + feetOffset;
+                _parentTransform.position = waypoints_pos[actualWaypoint];
                 actualProgrammedPath.target_index = solutions[actualWaypoint].TravelTo[actualProgrammedPath.final_index];
+
+                actualProgrammedPath.wp_distance = (waypoints_pos[actualProgrammedPath.target_index] - waypoints_pos[actualWaypoint]).magnitude;
+                actualProgrammedPath.initial_size = waypoints_sizes[actualWaypoint];
+                actualProgrammedPath.delta_size = waypoints_sizes[actualProgrammedPath.target_index] - waypoints_sizes[actualWaypoint];
+                SetSize(waypoints_sizes[actualWaypoint]);
             }
 
-            delta = (waypoints[actualProgrammedPath.target_index] - waypoints[actualWaypoint]).normalized;
+            delta = (waypoints_pos[actualProgrammedPath.target_index] - waypoints_pos[actualWaypoint]).normalized;
 
             myRigidbody.linearVelocity = GameFixedConfig.CHARACTER_NORMAL_SPEED * delta;
         }
@@ -342,6 +357,21 @@ namespace Gob3AQ.GameElement.PlayableChar
             VARMAP_PlayerMaster.PLAYER_REACHED_WAYPOINT(charType);
 
             return continueOp;
+        }
+
+        private void SetSize(float size)
+        {
+            Vector3 scale = size * sceneOrigSize;
+            _parentTransform.localScale = scale;
+        }
+
+        private void PresetProgrammedPathStruct(int waypoint_index)
+        {
+            actualProgrammedPath.target_index = waypoint_index;
+            actualProgrammedPath.final_index = waypoint_index;
+            actualProgrammedPath.wp_distance = 0f;
+            actualProgrammedPath.initial_size = waypoints_sizes[waypoint_index];
+            actualProgrammedPath.delta_size = 0f;
         }
 
         private void ActAnimationRequest(CharacterAnimation animation)

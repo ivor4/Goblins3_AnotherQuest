@@ -9,6 +9,8 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_PLAYER_MAIN, 
         ITEM_HIVE1_CHEST, 
         ITEM_CARDS_PICKABLE, 
+        ITEM_HIVE1_WARDROBE, 
+        ITEM_HIVE1_WARDROBE_OPENED, 
         ITEM_LAST, 
         
         ITEM_TOTAL
@@ -32,6 +34,8 @@ namespace Gob3AQ.VARMAP.Types
         COND_OPEN_CHEST, 
         COND_CLOSE_CHEST, 
         COND_TAKE_CARDS, 
+        COND_OPEN_HIVE1_WARDROBE, 
+        COND_CLOSE_HIVE1_WARDROBE, 
         COND_LAST, 
         
         COND_TOTAL
@@ -48,6 +52,10 @@ namespace Gob3AQ.VARMAP.Types
         UNCHAIN_HIVE1_CLOSE_CHEST_2, 
         UNCHAIN_CARDS_PICKABLE_TAKE_1, 
         UNCHAIN_CARDS_PICKABLE_TAKE_2, 
+        UNCHAIN_HIVE1_OPEN_WARDROBE_1, 
+        UNCHAIN_HIVE1_OPEN_WARDROBE_2, 
+        UNCHAIN_HIVE1_CLOSE_WARDROBE_1, 
+        UNCHAIN_HIVE1_CLOSE_WARDROBE_2, 
         
         UNCHAIN_TOTAL
         /* > ATG 4 END < */

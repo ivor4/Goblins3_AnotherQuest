@@ -10,6 +10,7 @@ namespace Gob3AQ.VARMAP.Types
         EVENT_FIRST, 
         EVENT_HIVE1_CHEST_OPENED, 
         EVENT_CARDS_PICKABLE_TAKEN, 
+        EVENT_HIVE1_WARDROBE_OPENED, 
         EVENT_LAST, 
         
         EVENT_TOTAL

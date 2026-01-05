@@ -22,6 +22,7 @@ namespace Gob3AQ.VARMAP.Types
         SPRITE_ITEM_CARDS, 
         SPRITE_ITEM_CARDS_PICKABLE, 
         SPRITE_ITEM_DECO_BED_LAYER, 
+        SPRITE_ITEM_WARDROBE_OPENED, 
         SPRITE_LAST, 
         
         SPRITE_TOTAL

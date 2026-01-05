@@ -18,6 +18,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_ITEM_CARDS, 
         NAME_ITEM_MATCHES, 
         NAME_ITEM_DOPP, 
+        NAME_ITEM_WARDROBE, 
         NAME_NPC_LAST, 
         
         NAME_TOTAL

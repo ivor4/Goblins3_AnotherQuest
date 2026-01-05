@@ -157,6 +157,30 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameItem.ITEM_CARDS_PICKABLE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE, 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
+            new( /* UNCHAIN_HIVE1_OPEN_WARDROBE_1 */
+            true,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, false),}, 
+            GameItem.ITEM_HIVE1_WARDROBE_OPENED, GameSprite.SPRITE_ITEM_WARDROBE_OPENED,CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* UNCHAIN_HIVE1_OPEN_WARDROBE_2 */
+            true,UnchainType.UNCHAIN_TYPE_DESPAWN,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, false),}, 
+            GameItem.ITEM_HIVE1_WARDROBE, GameSprite.SPRITE_ITEM_WARDROBE_OPENED,CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* UNCHAIN_HIVE1_CLOSE_WARDROBE_1 */
+            true,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, true),}, 
+            GameItem.ITEM_HIVE1_WARDROBE, GameSprite.SPRITE_BLANK,CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* UNCHAIN_HIVE1_CLOSE_WARDROBE_2 */
+            true,UnchainType.UNCHAIN_TYPE_DESPAWN,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, true),}, 
+            GameItem.ITEM_HIVE1_WARDROBE_OPENED, GameSprite.SPRITE_BLANK,CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
             /* > ATG 1 END < */
         };
 
@@ -193,6 +217,20 @@ namespace Gob3AQ.Brain.ItemsInteraction
             DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, false),}), 
             
+            new( /* COND_OPEN_HIVE1_WARDROBE */
+            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, true),}, 
+            CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
+            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
+            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, false),}), 
+            
+            new( /* COND_CLOSE_HIVE1_WARDROBE */
+            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, false),}, 
+            CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
+            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
+            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, true),}), 
+            
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,
@@ -223,6 +261,16 @@ namespace Gob3AQ.Brain.ItemsInteraction
             NameType.NAME_ITEM_CARDS,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ITEM_CARDS,}),
             GameSprite.SPRITE_ITEM_CARDS,true,GameSprite.SPRITE_ITEM_CARDS_PICKABLE,GamePickableItem.ITEM_PICK_CARDS_PICKABLE,
             new ActionConditions[1]{ActionConditions.COND_TAKE_CARDS,}),
+            
+            new ( /* ITEM_HIVE1_WARDROBE */
+            NameType.NAME_ITEM_WARDROBE,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK,}),
+            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_OPEN_HIVE1_WARDROBE,}),
+            
+            new ( /* ITEM_HIVE1_WARDROBE_OPENED */
+            NameType.NAME_ITEM_WARDROBE,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ITEM_WARDROBE_OPENED,}),
+            GameSprite.SPRITE_ITEM_WARDROBE_OPENED,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_CLOSE_HIVE1_WARDROBE,}),
             
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST,}),

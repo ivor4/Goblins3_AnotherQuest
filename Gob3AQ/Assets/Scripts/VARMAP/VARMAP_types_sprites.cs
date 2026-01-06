@@ -26,6 +26,7 @@ namespace Gob3AQ.VARMAP.Types
         BACKGROUND_HIVE1_CORRIDOR1, 
         SPRITE_NPC_REME_IDLE, 
         BACKGROUND_HIVE1_HALL1, 
+        BACKGROUND_HIVE1_WC, 
         SPRITE_LAST, 
         
         SPRITE_TOTAL

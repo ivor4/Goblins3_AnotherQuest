@@ -43,6 +43,7 @@ namespace Gob3AQ.ResourceSpritesAtlas
             new("SPRITE_ATLAS_HIVE1_1[BACKGROUND_HIVE1_CORRIDOR1]"), /* BACKGROUND_HIVE1_CORRIDOR1 */ 
             new("SPRITE_ATLAS_HIVE1_1[SPRITE_HIVE1_REME_IDLE]"), /* SPRITE_NPC_REME_IDLE */ 
             new("SPRITE_ATLAS_HIVE1_2[BACKGROUND_HIVE1_HALL1]"), /* BACKGROUND_HIVE1_HALL1 */ 
+            new("SPRITE_ATLAS_HIVE1_3[BACKGROUND_HIVE1_WC]"), /* BACKGROUND_HIVE1_WC */ 
             new("SPRITE_LAST"), /* SPRITE_LAST */ 
             /* > ATG 1 END < */
         };

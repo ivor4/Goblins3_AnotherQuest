@@ -190,6 +190,13 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(3){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_GENERIC_DOOR2, GameItem.ITEM_GENERIC_DOOR3, }) 
             ),
             
+            new( /* HIVE1_WC_1 */
+            GameSprite.BACKGROUND_HIVE1_WC,
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_HIVE1_WC, }), 
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(1){GameItem.ITEM_GENERIC_DOOR1, }) 
+            ),
+            
             new( /* ROOM_LAST */
             GameSprite.SPRITE_NONE,
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST, }), 

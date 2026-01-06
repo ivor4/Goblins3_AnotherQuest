@@ -75,6 +75,7 @@ namespace Gob3AQ.FixedConfig
             "SCENE_HIVE1_ROOM_1",
             "SCENE_HIVE1_CORRIDOR_1",
             "SCENE_HIVE1_HALL_1",
+            "SCENE_HIVE1_WC_1"
         };
         
     }

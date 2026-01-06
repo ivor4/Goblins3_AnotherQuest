@@ -20,6 +20,10 @@ namespace Gob3AQ.VARMAP.Types
         NAME_ITEM_DOPP, 
         NAME_ITEM_WARDROBE, 
         NAME_ITEM_CROSS, 
+        NAME_MEMENTO_FIND_JOB_1, 
+        NAME_ITEM_AD_BOARD, 
+        NAME_ITEM_BASIN, 
+        NAME_ITEM_SOAP, 
         NAME_NPC_LAST, 
         
         NAME_TOTAL

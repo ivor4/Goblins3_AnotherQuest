@@ -11,6 +11,10 @@ namespace Gob3AQ.VARMAP.Types
         EVENT_HIVE1_CHEST_OPENED, 
         EVENT_CARDS_PICKABLE_TAKEN, 
         EVENT_HIVE1_WARDROBE_OPENED, 
+        EVENT_HIVE1_AD_BOARD_OBSERVED_1, 
+        EVENT_HIVE1_USED_PERFUME, 
+        EVENT_HIVE1_USED_BASIN, 
+        EVENT_SOAP_PICKABLE_TAKEN, 
         EVENT_LAST, 
         
         EVENT_TOTAL
@@ -21,6 +25,7 @@ namespace Gob3AQ.VARMAP.Types
     {
         /* > ATG 2 START < */
         MEMENTO_PARENT_NONE = -1, 
+        MEMENTO_PARENT_JOB_FIND_1, 
         MEMENTO_PARENT_LAST, 
         
         MEMENTO_PARENT_TOTAL
@@ -31,6 +36,8 @@ namespace Gob3AQ.VARMAP.Types
     {
         /* > ATG 3 START < */
         MEMENTO_NONE = -1, 
+        MEMENTO_JOB_FIND_1_1, 
+        MEMENTO_JOB_FIND_1_2, 
         MEMENTO_LAST, 
         
         MEMENTO_TOTAL

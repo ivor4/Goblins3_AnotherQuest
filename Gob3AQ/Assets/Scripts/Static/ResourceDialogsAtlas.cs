@@ -127,6 +127,12 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_REME_1_2 */ 
             new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_REME_1_3 */ 
             new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_REME_2_1 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_MEMENTO_FIND_JOB_1 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_OBSERVE_HIVE1_AD_BOARD_1 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_NOT_EXIT_HIVE1_HALL_1 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_NOT_EXIT_HIVE1_HALL_2 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_TAKE_HIVE1_BASIN_NO_SOAP */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_TAKE_HIVE1_BASIN_SOAP */ 
             /* > ATG 3 END < */
         };
     }

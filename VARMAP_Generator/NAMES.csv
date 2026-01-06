@@ -12,4 +12,8 @@ N,NAME_ID,Name_English,Name_Spanish
 10,NAME_ITEM_DOPP,Dopp kit,Bolsa de aseo
 11,NAME_ITEM_WARDROBE,Wardrobe,Armario
 12,NAME_ITEM_CROSS,Cross,Cruzar
-13,NAME_NPC_LAST,Last,Ultimo
+13,NAME_MEMENTO_FIND_JOB_1,Find job,Encontrar trabajo
+14,NAME_ITEM_AD_BOARD,Ad board,Tablón de anuncios
+15,NAME_ITEM_BASIN,Basin,Lavabo
+16,NAME_ITEM_SOAP,Soap,Jabón
+17,NAME_NPC_LAST,Last,Ultimo

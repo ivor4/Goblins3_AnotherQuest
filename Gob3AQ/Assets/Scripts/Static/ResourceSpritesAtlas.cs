@@ -44,6 +44,8 @@ namespace Gob3AQ.ResourceSpritesAtlas
             new("SPRITE_ATLAS_HIVE1_1[SPRITE_HIVE1_REME_IDLE]"), /* SPRITE_NPC_REME_IDLE */ 
             new("SPRITE_ATLAS_HIVE1_2[BACKGROUND_HIVE1_HALL1]"), /* BACKGROUND_HIVE1_HALL1 */ 
             new("SPRITE_ATLAS_HIVE1_3[BACKGROUND_HIVE1_WC]"), /* BACKGROUND_HIVE1_WC */ 
+            new("SPRITE_ATLAS_PICKABLE_0[SPRITE_MEMENTO_JOB]"), /* SPRITE_MEMENTO_JOB */ 
+            new("SPRITE_ATLAS_PICKABLE_0[SPRITE_PICKABLE_SOAP]"), /* SPRITE_PICKABLE_SOAP */ 
             new("SPRITE_LAST"), /* SPRITE_LAST */ 
             /* > ATG 1 END < */
         };

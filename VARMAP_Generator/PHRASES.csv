@@ -14,3 +14,9 @@ N,PHRASE_ID,TalkerIndex,Sound,CharAnimation,Text_English,Text_Spanish
 12,PHRASE_DIALOG_REME_1_2,1,0,DIALOG_ANIMATION_TALK,It always works. It's you and all the scum living here who think you are highborn,Claro que funciona. Tú y toda la morralla que vivís aquí os pensáis que sois marqueses
 13,PHRASE_DIALOG_REME_1_3,1,0,DIALOG_ANIMATION_TALK,It's downstairs as always! Be fast. Now there is nobody using it,Está en el piso de abajo como siempre! Sé rápido. Ahora mismo no hay nadie usándolo
 14,PHRASE_DIALOG_REME_2_1,1,0,DIALOG_ANIMATION_TALK,Well! Have a nice day Reme!,Bueno! Que tengas un florido día Reme!
+15,PHRASE_MEMENTO_FIND_JOB_1,0,0,DIALOG_ANIMATION_TALK,I moved to find a job. It is important to find something as soon as possible,Me trasladé aquí para encontrar trabajo. Es importante encontrar algo tan pronto como sea
+16,PHRASE_OBSERVE_HIVE1_AD_BOARD_1,0,0,DIALOG_ANIMATION_TALK,They are offering cooker job in center of city. I don't know how this offer came here. I could try! It's called 'El maño',Se necesita cocinero en el centro de la ciudad. No sé ni cómo este anuncio ha llegado hasta aquí. Se podría intentar! El lugar se llama 'El maño'
+17,PHRASE_NOT_EXIT_HIVE1_HALL_1,0,0,DIALOG_ANIMATION_TALK,First I need to know WHERE to go,Primero necesitaría saber a dónde voy
+18,PHRASE_NOT_EXIT_HIVE1_HALL_2,0,0,DIALOG_ANIMATION_TALK,I need to give a good first impression. Cannot go in this way,Debo dar una buena impresión. No puedo ir así
+19,PHRASE_TAKE_HIVE1_BASIN_NO_SOAP,0,0,DIALOG_ANIMATION_TALK,Self cleaning only with water is a mess,Lavarse solo con agua es una guarrada
+20,PHRASE_TAKE_HIVE1_BASIN_SOAP,0,0,DIALOG_ANIMATION_TALK,Now that's actually self cleaning,Ahora esto sí que es asearse

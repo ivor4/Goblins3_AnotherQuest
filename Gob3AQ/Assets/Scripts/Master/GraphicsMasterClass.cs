@@ -389,6 +389,8 @@ namespace Gob3AQ.GraphicsMaster
             {
                 _mouseDraggingCamera = false;
                 UpdateCursorBaseSprite();
+                uicanvas_cls.SetCursorItem(GameItem.ITEM_NONE);
+                uicanvas_cls.SetCursorLabel(GameItem.ITEM_NONE, in ItemInfo.EMPTY);
 
                 switch (newval)
                 {

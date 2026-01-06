@@ -45,7 +45,7 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         private Vector3 sceneOrigSize;
 
-        private IReadOnlyList<Vector2> waypoints_pos;
+        private IReadOnlyList<Vector3> waypoints_pos;
         private IReadOnlyList<float> waypoints_sizes;
         private IReadOnlyList<WaypointSolution> solutions;
 
@@ -54,6 +54,7 @@ namespace Gob3AQ.GameElement.PlayableChar
             public int target_index;
             public int final_index;
             public float wp_distance;
+            public float wp_distance3D;
             public float initial_size;
             public float delta_size;
         }
@@ -332,14 +333,16 @@ namespace Gob3AQ.GameElement.PlayableChar
         private void Walk_StartNextSegment(bool reached)
         {
             Vector2 delta;
+            float speed_reduction_factor = 1f;
 
-            if(reached)
+            if (reached)
             {
                 actualWaypoint = actualProgrammedPath.target_index;
                 _parentTransform.position = waypoints_pos[actualWaypoint];
                 actualProgrammedPath.target_index = solutions[actualWaypoint].TravelTo[actualProgrammedPath.final_index];
 
-                actualProgrammedPath.wp_distance = (waypoints_pos[actualProgrammedPath.target_index] - waypoints_pos[actualWaypoint]).magnitude;
+                actualProgrammedPath.wp_distance = ((Vector2)waypoints_pos[actualProgrammedPath.target_index] - (Vector2)waypoints_pos[actualWaypoint]).magnitude;
+                actualProgrammedPath.wp_distance3D = (waypoints_pos[actualProgrammedPath.target_index] - waypoints_pos[actualWaypoint]).magnitude;
                 actualProgrammedPath.initial_size = waypoints_sizes[actualWaypoint];
                 actualProgrammedPath.delta_size = waypoints_sizes[actualProgrammedPath.target_index] - waypoints_sizes[actualWaypoint];
                 SetSize(waypoints_sizes[actualWaypoint]);
@@ -347,7 +350,12 @@ namespace Gob3AQ.GameElement.PlayableChar
 
             delta = (waypoints_pos[actualProgrammedPath.target_index] - waypoints_pos[actualWaypoint]).normalized;
 
-            myRigidbody.linearVelocity = GameFixedConfig.CHARACTER_NORMAL_SPEED * delta;
+            if (actualProgrammedPath.wp_distance3D != 0f)
+            {
+                speed_reduction_factor = actualProgrammedPath.wp_distance / actualProgrammedPath.wp_distance3D;
+            }
+
+            myRigidbody.linearVelocity = GameFixedConfig.CHARACTER_NORMAL_SPEED * speed_reduction_factor * delta;
         }
 
         private bool StartBufferedInteraction()
@@ -370,6 +378,7 @@ namespace Gob3AQ.GameElement.PlayableChar
             actualProgrammedPath.target_index = waypoint_index;
             actualProgrammedPath.final_index = waypoint_index;
             actualProgrammedPath.wp_distance = 0f;
+            actualProgrammedPath.wp_distance3D = 0f;
             actualProgrammedPath.initial_size = waypoints_sizes[waypoint_index];
             actualProgrammedPath.delta_size = 0f;
         }

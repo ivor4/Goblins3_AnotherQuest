@@ -41,7 +41,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void OBTAIN_SCENARIO_ITEMS_DELEGATE(out IReadOnlyDictionary<GameItem, GameElementClass> dict);
     public delegate void MOVE_PLAYER_DELEGATE(CharacterType character, WaypointClass wp);
     public delegate void PLAYER_WAYPOINT_UPDATE_DELEGATE(CharacterType character, int wpIndex);
-    public delegate void GET_WP_LIST_DELEGATE(out IReadOnlyList<Vector2> positions, out IReadOnlyList<float> sizes, out IReadOnlyList<WaypointSolution> solutions);
+    public delegate void GET_WP_LIST_DELEGATE(out IReadOnlyList<Vector3> positions, out IReadOnlyList<float> sizes, out IReadOnlyList<WaypointSolution> solutions);
     public delegate void SELECT_PLAYER_DELEGATE(CharacterType character);
     public delegate void GET_PLAYER_LIST_DELEGATE(out ReadOnlySpan<PlayableCharScript> list);
     public delegate void GET_NEAREST_WP_DELEGATE(Vector2 position, float maxRadius, out int candidate_index, out Vector2 candidate_pos);

@@ -3,10 +3,12 @@ using Gob3AQ.FixedConfig;
 using Gob3AQ.GameElement;
 using Gob3AQ.GameElement.Clickable;
 using Gob3AQ.GameElement.PlayableChar;
+using Gob3AQ.ResourceAtlas;
 using Gob3AQ.VARMAP.LevelMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.Waypoint.Network;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,7 +22,7 @@ namespace Gob3AQ.LevelMaster
 
         private static LevelMasterClass _singleton;
 
-        private IReadOnlyList<Vector2> _WP_Pos_List;
+        private IReadOnlyList<Vector3> _WP_Pos_List;
         private IReadOnlyList<float> _WP_Size_List;
         private IReadOnlyList<WaypointSolution> _WP_Solution_List;
         private PlayableCharScript[] _Player_List;
@@ -106,7 +108,7 @@ namespace Gob3AQ.LevelMaster
             }
         }
 
-        public static void GetWaypointListService(out IReadOnlyList<Vector2> positions, out IReadOnlyList<float> sizes, out IReadOnlyList<WaypointSolution> solutions)
+        public static void GetWaypointListService(out IReadOnlyList<Vector3> positions, out IReadOnlyList<float> sizes, out IReadOnlyList<WaypointSolution> solutions)
         {
             if (_singleton != null)
             {
@@ -233,7 +235,7 @@ namespace Gob3AQ.LevelMaster
 
         #region "Internal Services"
 
-        public static void WPListRegister(IReadOnlyList<Vector2> waypointPosList,
+        public static void WPListRegister(IReadOnlyList<Vector3> waypointPosList,
             IReadOnlyList<float> waypointSizeList, IReadOnlyList<WaypointSolution> solutions)
         {
             if (_singleton != null)
@@ -269,6 +271,24 @@ namespace Gob3AQ.LevelMaster
             mainCamera = Camera.main;
             VARMAP_LevelMaster.SET_PLAYER_SELECTED(CharacterType.CHARACTER_NONE);
             VARMAP_LevelMaster.REG_GAMESTATUS(_GameStatusChanged);
+            VARMAP_LevelMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_LevelMaster);
+        }
+
+        private IEnumerator LoadCoroutine()
+        {
+            yield return ResourceAtlasClass.WaitForNextFrame;
+            yield return ResourceAtlasClass.WaitForNextFrame;
+            yield return ResourceAtlasClass.WaitForNextFrame;
+
+            for (int i=0;i< _Player_List.Length; ++i)
+            {
+                if (_Player_List[i] != null)
+                {
+                    VARMAP_LevelMaster.SET_PLAYER_SELECTED(_Player_List[i].CharType);
+                    break;
+                }
+            }
+
             VARMAP_LevelMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_LevelMaster);
         }
 
@@ -677,7 +697,7 @@ namespace Gob3AQ.LevelMaster
                         _HoveredPending.Clear();
                         break;
                     case Game_Status.GAME_STATUS_LOADING:
-                        VARMAP_LevelMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_LevelMaster);
+                        StartCoroutine(LoadCoroutine());
                         break;
 
                     default:

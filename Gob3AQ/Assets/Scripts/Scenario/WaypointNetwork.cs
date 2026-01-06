@@ -45,7 +45,7 @@ namespace Gob3AQ.Waypoint.Network
 
         private void Awake()
         {
-            List<Vector2> waypoints_points = new(children.Count);
+            List<Vector3> waypoints_points = new(children.Count);
             List<float> waypoints_sizes = new(children.Count);
 
             for (int i = 0; i < children.Count; ++i)

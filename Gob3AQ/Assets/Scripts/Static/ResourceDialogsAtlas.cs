@@ -66,6 +66,11 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new DialogOption[2]{DialogOption.DIALOG_OPTION_REME_1, DialogOption.DIALOG_OPTION_REME_2, }
             ),
             
+            new( /* DIALOG_REME_CARDS */
+            new GameItem[1]{GameItem.ITEM_NONE,},
+            new DialogOption[1]{DialogOption.DIALOG_OPTION_REME_CARDS, }
+            ),
+            
             new( /* DIALOG_LAST */
             new GameItem[1]{GameItem.ITEM_NONE,},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE, }
@@ -101,6 +106,12 @@ namespace Gob3AQ.ResourceDialogsAtlas
             DialogType.DIALOG_NONE,
             new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_REME_2_1, }
             ),
+            new( /* DIALOG_OPTION_REME_CARDS */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            DialogType.DIALOG_NONE,
+            new DialogPhrase[2]{DialogPhrase.PHRASE_USE_CARDS_REME_1, DialogPhrase.PHRASE_USE_CARDS_REME_2, }
+            ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
@@ -133,6 +144,11 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_NOT_EXIT_HIVE1_HALL_2 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_TAKE_HIVE1_BASIN_NO_SOAP */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_TAKE_HIVE1_BASIN_SOAP */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_USE_HIVE1_PERFUME */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_USE_HIVE1_PERFUME_NOT_1 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_USE_HIVE1_PERFUME_NOT_2 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_USE_CARDS_REME_1 */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_USE_CARDS_REME_2 */ 
             /* > ATG 3 END < */
         };
     }

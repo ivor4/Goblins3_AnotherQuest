@@ -1532,6 +1532,14 @@ PrefabInstance:
       value: ItemChest
       objectReference: {fileID: 0}
     - target: {fileID: 7615836467117073131, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: m_Size.x
+      value: 2.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 7615836467117073131, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: m_Size.y
+      value: 3.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 7615836467117073131, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 0}
@@ -1590,9 +1598,9 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.033034, y: 0.64214635}
-    oldSize: {x: 1.42, y: 1.8}
-    newSize: {x: 0.32, y: 0.33}
+    pivot: {x: 0, y: 0.8186448}
+    oldSize: {x: 2.37, y: 3.59}
+    newSize: {x: 2.37, y: 3.59}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -1693,6 +1701,87 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6eef9a6e41d44b4ab9699a21c2e62fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gob3AQ.Waypoint.WaypointClass
+--- !u!1001 &1798511241
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 927938798410201299, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 927938798410201299, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 927938798410201299, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 927938798410201299, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 927938798410201299, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 927938798410201299, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 927938798410201299, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 927938798410201299, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 927938798410201299, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 927938798410201299, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1155209953169313766, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: m_Radius
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757196565734091061, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: itemID
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757196565734091061, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: hoverPriority
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757196565734091061, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: startingWaypoint
+      value: 
+      objectReference: {fileID: 971760815}
+    - target: {fileID: 3638331546681014208, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: m_Name
+      value: ItemPerfume
+      objectReference: {fileID: 0}
+    - target: {fileID: 7615836467117073131, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7615836467117073131, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1700,6 +1789,7 @@ SceneRoots:
   - {fileID: 835189427}
   - {fileID: 145606356}
   - {fileID: 1719171382}
+  - {fileID: 1798511241}
   - {fileID: 192353737}
   - {fileID: 1335186666}
   - {fileID: 1323222705}

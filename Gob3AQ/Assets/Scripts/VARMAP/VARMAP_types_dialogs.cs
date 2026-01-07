@@ -9,6 +9,7 @@ namespace Gob3AQ.VARMAP.Types
         DIALOG_SIMPLE, 
         DIALOG_REME_INTRO, 
         DIALOG_REME, 
+        DIALOG_REME_CARDS, 
         DIALOG_LAST, 
         
         DIALOG_TOTAL
@@ -23,6 +24,7 @@ namespace Gob3AQ.VARMAP.Types
         DIALOG_OPTION_REME_INTRO, 
         DIALOG_OPTION_REME_1, 
         DIALOG_OPTION_REME_2, 
+        DIALOG_OPTION_REME_CARDS, 
         DIALOG_OPTION_LAST, 
         
         DIALOG_OPTION_TOTAL
@@ -53,6 +55,11 @@ namespace Gob3AQ.VARMAP.Types
         PHRASE_NOT_EXIT_HIVE1_HALL_2, 
         PHRASE_TAKE_HIVE1_BASIN_NO_SOAP, 
         PHRASE_TAKE_HIVE1_BASIN_SOAP, 
+        PHRASE_USE_HIVE1_PERFUME, 
+        PHRASE_USE_HIVE1_PERFUME_NOT_1, 
+        PHRASE_USE_HIVE1_PERFUME_NOT_2, 
+        PHRASE_USE_CARDS_REME_1, 
+        PHRASE_USE_CARDS_REME_2, 
         
         PHRASE_TOTAL
         /* > ATG 3 END < */

@@ -47,6 +47,9 @@ namespace Gob3AQ.VARMAP.LevelMaster
             SET_ITEM_HOVER = _SET_ITEM_HOVER;
             GET_USER_INPUT_INTERACTION = _GET_USER_INPUT_INTERACTION;
             GET_EVENTS_BEING_PROCESSED = _GET_EVENTS_BEING_PROCESSED;
+            GET_DAY_MOMENT = _GET_DAY_MOMENT;
+            GET_SHADOW_DAY_MOMENT = _GET_SHADOW_DAY_MOMENT;
+            SET_DAY_MOMENT = _SET_DAY_MOMENT;
             SAVE_GAME = _SAVE_GAME;
             LOAD_ROOM = _LOAD_ROOM;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
@@ -106,6 +109,9 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static SetVARMAPValueDelegate<GameItem> SET_ITEM_HOVER;
         public static GetVARMAPValueDelegate<UserInputInteraction> GET_USER_INPUT_INTERACTION;
         public static GetVARMAPValueDelegate<bool> GET_EVENTS_BEING_PROCESSED;
+        public static GetVARMAPValueDelegate<MomentType> GET_DAY_MOMENT;
+        public static GetVARMAPValueDelegate<MomentType> GET_SHADOW_DAY_MOMENT;
+        public static SetVARMAPValueDelegate<MomentType> SET_DAY_MOMENT;
         /* > ATG 2 END */
 
         /* SERVICES */

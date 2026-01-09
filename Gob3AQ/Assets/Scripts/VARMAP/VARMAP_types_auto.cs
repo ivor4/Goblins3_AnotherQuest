@@ -90,5 +90,17 @@ namespace Gob3AQ.VARMAP.Types
         /* > ATG 6 END < */
     }
 
+    public enum MomentType
+    {
+        /* > ATG 7 START < */
+        MOMENT_MORNING, 
+        MOMENT_NIGHT, 
+        MOMENT_ANY, 
+        
+        MOMENT_TOTAL
+        /* > ATG 7 END < */
+
+    }
+
 
 }

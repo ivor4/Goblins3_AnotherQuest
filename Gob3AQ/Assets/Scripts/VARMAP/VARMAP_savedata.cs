@@ -21,6 +21,7 @@ namespace Gob3AQ.VARMAP.SaveData
             VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER,
             VARMAP_Variable_ID.VARMAP_ID_PLAYER_ACTUAL_WAYPOINT,
             VARMAP_Variable_ID.VARMAP_ID_CAMERA_DISPOSITION,
+            VARMAP_Variable_ID.VARMAP_ID_DAY_MOMENT,
             /* > ATG 1 END < */
         };
 

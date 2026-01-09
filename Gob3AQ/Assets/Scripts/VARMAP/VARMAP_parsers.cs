@@ -65,6 +65,16 @@ namespace Gob3AQ.VARMAP.Types.Parsers
             value = (UserInputInteraction)BitConverter.ToInt32(reader);
         }
 
+        public static void MomentType_ParseToBytes(in MomentType value, ref Span<byte> writer)
+        {
+            BitConverter.TryWriteBytes(writer, (int)value);
+        }
+
+        public static void MomentType_ParseFromBytes(ref MomentType value, ref ReadOnlySpan<byte> reader)
+        {
+            value = (MomentType)BitConverter.ToInt32(reader);
+        }
+
 
         public static void Room_ParseToBytes(in Room value, ref Span<byte> writer)
         {

@@ -38,6 +38,7 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
             GET_USER_INPUT_INTERACTION = _GET_USER_INPUT_INTERACTION;
             REG_USER_INPUT_INTERACTION = _REG_USER_INPUT_INTERACTION;
             UNREG_USER_INPUT_INTERACTION = _UNREG_USER_INPUT_INTERACTION;
+            GET_DAY_MOMENT = _GET_DAY_MOMENT;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
@@ -69,6 +70,7 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
         public static GetVARMAPValueDelegate<UserInputInteraction> GET_USER_INPUT_INTERACTION;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<UserInputInteraction> REG_USER_INPUT_INTERACTION;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<UserInputInteraction> UNREG_USER_INPUT_INTERACTION;
+        public static GetVARMAPValueDelegate<MomentType> GET_DAY_MOMENT;
         /* > ATG 2 END */
 
         /* SERVICES */

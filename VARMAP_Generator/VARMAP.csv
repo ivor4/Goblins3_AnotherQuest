@@ -1,19 +1,20 @@
 N,ENUM_ID,TYPE,SAFE,ARRAY,DEFVALUE,SAVE,Separator,GameMaster,InputMaster,LevelMaster,GraphicsMaster,GameMenu,PlayerMaster,ItemMaster,GameEventMaster
-0,GAME_OPTIONS,GameOptionsStruct,2,0,GameOptionsStruct_Default,Y,,-,R,R,R,W,-,-,-
+0,GAME_OPTIONS,GameOptionsStruct,0,0,GameOptionsStruct_Default,Y,,-,R,R,R,W,-,-,-
 1,ELAPSED_TIME_MS,ulong,2,0,0UL,Y,,W,R,R,R,R,-,-,-
 2,ACTUAL_ROOM,Room,2,0,Room.ROOM_NONE,Y,,W,-,R,R,R E,-,-,R
 3,EVENTS_OCCURRED,MultiBitFieldStruct,2,1,default,Y,,-,-,-,-,-,-,-,W
 4,UNLOCKED_MEMENTO,MultiBitFieldStruct,2,1,default,Y,,-,-,-,-,-,-,-,W
 5,UNWATCHED_PARENT_MEMENTO,MultiBitFieldStruct,0,1,default,Y,,-,-,R,-,-,-,-,W
-6,PICKABLE_ITEM_OWNER,CharacterType,2,9,CharacterType.CHARACTER_NONE,Y,,-,-,R,-,R E,-,W,-
+6,PICKABLE_ITEM_OWNER,CharacterType,2,2,CharacterType.CHARACTER_NONE,Y,,-,-,R,-,R E,-,W,-
 7,PLAYER_ACTUAL_WAYPOINT,int,2,3,-1,Y,,-,-,W,-,-,R,-,-
 8,CAMERA_DISPOSITION,CameraDispositionStruct,0,0,CameraDispositionStruct_Default,Y,,-,-,-,W,-,-,-,-
 9,GAMESTATUS,Game_Status,0,0,Game_Status.GAME_STATUS_STOPPED,N,,W,R E,R E,R E,R E,R E,R E,R E
 10,PRESSED_KEYS,KeyStruct,0,0,KeyStruct_Default,N,,R,W,R,R,R,-,-,-
 11,MOUSE_PROPERTIES,MousePropertiesStruct,0,0,MouseProperties_Default,N,,-,W,R,R,R,-,-,-
 12,PLAYER_SELECTED,CharacterType,0,0,CharacterType.CHARACTER_NONE,N,,-,-,W,-,R,R E,R,-
-13,PICKABLE_ITEM_CHOSEN,GameItem,1,0,GameItem.ITEM_NONE,N,,-,-,R,R E,W,-,R,-
+13,PICKABLE_ITEM_CHOSEN,GameItem,2,0,GameItem.ITEM_NONE,N,,-,-,R,R E,W,-,R,-
 14,ITEM_HOVER,GameItem,0,0,GameItem.ITEM_NONE,N,,-,-,W,R E,-,-,-,-
 15,USER_INPUT_INTERACTION,UserInputInteraction,0,0,UserInputInteraction.INPUT_INTERACTION_TAKE,N,,-,-,R,R E,W,-,-,-
 16,EVENTS_BEING_PROCESSED,bool,0,0,false,N,,R,-,R,-,-,-,-,W
-17,LAST_VARMAP_VAL,bool,0,0,false,N,,W,-,-,-,-,-,-,-
+17,DAY_MOMENT,MomentType,0,0,MomentType.MOMENT_MORNING,Y,,-,-,W,R,-,-,-,R E
+18,LAST_VARMAP_VAL,bool,0,0,false,N,,W,-,-,-,-,-,-,-

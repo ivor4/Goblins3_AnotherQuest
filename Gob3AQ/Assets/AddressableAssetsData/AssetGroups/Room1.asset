@@ -20,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1191512f560963f4ea2f49deeab8a0e3
+    m_Address: SPRITE_ATLAS_CITY1_STREET1_0
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2bf1854a514f448499f01863f045329f
     m_Address: SPRITE_ATLAS_HIVE1_0
     m_ReadOnly: 0

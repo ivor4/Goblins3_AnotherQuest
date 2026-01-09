@@ -129,6 +129,11 @@ namespace Gob3AQ.VARMAP.Initialization
             _SET_EVENTS_BEING_PROCESSED = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_BEING_PROCESSED]).SetValue;
             _REG_EVENTS_BEING_PROCESSED = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_BEING_PROCESSED]).RegisterChangeEvent;
             _UNREG_EVENTS_BEING_PROCESSED = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_BEING_PROCESSED]).UnregisterChangeEvent;
+            _GET_DAY_MOMENT = ((VARMAP_Variable_Interface<MomentType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_DAY_MOMENT]).GetValue;
+            _GET_SHADOW_DAY_MOMENT = ((VARMAP_Variable_Interface<MomentType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_DAY_MOMENT]).GetShadowValue;
+            _SET_DAY_MOMENT = ((VARMAP_Variable_Interface<MomentType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_DAY_MOMENT]).SetValue;
+            _REG_DAY_MOMENT = ((VARMAP_Variable_Interface<MomentType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_DAY_MOMENT]).RegisterChangeEvent;
+            _UNREG_DAY_MOMENT = ((VARMAP_Variable_Interface<MomentType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_DAY_MOMENT]).UnregisterChangeEvent;
             _GET_LAST_VARMAP_VAL = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL]).GetValue;
             _GET_SHADOW_LAST_VARMAP_VAL = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL]).GetShadowValue;
             _SET_LAST_VARMAP_VAL = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL]).SetValue;

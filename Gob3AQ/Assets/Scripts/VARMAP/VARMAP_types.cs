@@ -320,6 +320,7 @@ namespace Gob3AQ.VARMAP.Types
         public readonly UnchainType type;
         public readonly GameEventCombi ignoreif;
         private readonly GameEventCombi[] neededEvents;
+        public readonly MomentType momentType;
         public readonly GameItem targetItem;
         public readonly GameSprite targetSprite;
         public readonly CharacterType targetCharacter;
@@ -331,16 +332,17 @@ namespace Gob3AQ.VARMAP.Types
         public ReadOnlySpan<GameEventCombi> TargetEvents => targetEvents;
 
         public static readonly UnchainInfo EMPTY = new(false, UnchainType.UNCHAIN_TYPE_SET_SPRITE, GameEventCombi.EMPTY,
-            new GameEventCombi[0], GameItem.ITEM_NONE, GameSprite.SPRITE_NONE, CharacterType.CHARACTER_NONE,
+            new GameEventCombi[0],MomentType.MOMENT_ANY, GameItem.ITEM_NONE, GameSprite.SPRITE_NONE, CharacterType.CHARACTER_NONE,
             Memento.MEMENTO_NONE, new GameEventCombi[0]);
 
-        public UnchainInfo(bool repeat, UnchainType type, GameEventCombi ignoreif, GameEventCombi[] neededEvents,
+        public UnchainInfo(bool repeat, UnchainType type, GameEventCombi ignoreif, GameEventCombi[] neededEvents, MomentType momentType,
             GameItem targetItem, GameSprite targetSprite, CharacterType targetCharacter, Memento targetMemento, GameEventCombi[] targetEvents)
         {
             this.repeat = repeat;
             this.type = type;
             this.ignoreif = ignoreif;
             this.neededEvents = neededEvents;
+            this.momentType = momentType;
             this.targetItem = targetItem;
             this.targetSprite = targetSprite;
             this.targetCharacter = targetCharacter;

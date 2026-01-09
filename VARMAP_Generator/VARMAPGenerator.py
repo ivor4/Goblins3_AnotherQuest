@@ -111,7 +111,7 @@ defaultvalues_lines = ATGFile(defaultvalues_path, 1)
 enum_lines = ATGFile(enum_path, 1)
 delegateupdate_lines = ATGFile(delegateupdate_path, 2)
 savedata_lines = ATGFile(savedata_path, 1)
-auto_lines = ATGFile(auto_types_path, 6)
+auto_lines = ATGFile(auto_types_path, 7)
 dialogs_types_lines = ATGFile(dialog_types_path, 3)
 phrases_lines = ATGFile(phrases_text_path, 0)
 names_lines = ATGFile(names_text_path, 0)
@@ -693,6 +693,7 @@ unchain_type_prefix = 'UnchainType.'
 memento_prefix = 'Memento.'
 memento_parent_prefix = 'MementoParent.'
 memento_combi_prefix = 'MementoCombi.'
+moment_prefix = 'MomentType.'
 
 
 print('\n\n------DIALOGS (Custom GOB3) -------\n\n')
@@ -964,6 +965,8 @@ for line in AUTOinputFile:
             stringToWrite = 'UNCHAIN_TYPE_TOTAL\n'
         elif(zone == 5):
             stringToWrite = 'DIALOG_ANIMATION_TOTAL\n'
+        elif(zone == 6):
+            stringToWrite = 'ITEM_FAMILY_TYPE_TOTAL\n'
         
         auto_lines.InsertLineInATG(zone, stringToWrite)
         
@@ -978,9 +981,9 @@ for line in AUTOinputFile:
     auto_lines.InsertLineInATG(zone, stringToWrite)
     
 stringToWrite = '\n'
-auto_lines.InsertLineInATG(6, stringToWrite)
-stringToWrite = 'ITEM_FAMILY_TYPE_TOTAL\n'
-auto_lines.InsertLineInATG(6, stringToWrite)
+auto_lines.InsertLineInATG(7, stringToWrite)
+stringToWrite = 'MOMENT_TOTAL\n'
+auto_lines.InsertLineInATG(7, stringToWrite)
     
     
     
@@ -1079,11 +1082,12 @@ for line in ACTIONCONDSinputFile:
         ItemVar["type"] = str(columns[3])
         ItemVar["ignoreif"] = str(columns[4])
         ItemVar["neededEvents"] = str(columns[5])
-        ItemVar["targetItem"] = str(columns[6])
-        ItemVar["targetSprite"] = str(columns[7])
-        ItemVar["targetCharacter"] = str(columns[8])
-        ItemVar["targetMemento"] = str(columns[9])
-        ItemVar["targetEvents"] = str(columns[10])
+        ItemVar["momentOfDay"] = str(columns[6])
+        ItemVar["targetItem"] = str(columns[7])
+        ItemVar["targetSprite"] = str(columns[8])
+        ItemVar["targetCharacter"] = str(columns[9])
+        ItemVar["targetMemento"] = str(columns[10])
+        ItemVar["targetEvents"] = str(columns[11])
         
         # Write in item enum
         stringToWrite = ItemVar["name"]
@@ -1118,7 +1122,7 @@ for line in ACTIONCONDSinputFile:
         items_interaction_lines.InsertLineInATG(1, stringToWrite)
         
         
-        stringToWrite = item_prefix + ItemVar["targetItem"] +', ' +\
+        stringToWrite = moment_prefix + ItemVar["momentOfDay"] + ', ' + item_prefix + ItemVar["targetItem"] +', ' +\
             sprite_prefix + ItemVar["targetSprite"]+','+\
             character_prefix + ItemVar["targetCharacter"] +',' +\
             memento_prefix + ItemVar["targetMemento"] + ", \n"

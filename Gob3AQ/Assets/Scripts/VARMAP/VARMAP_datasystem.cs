@@ -178,23 +178,24 @@ namespace Gob3AQ.VARMAP.Initialization
         private static void InitializeDataSystem()
         {
             /* > ATG 1 START < */
-            DATA[(int)VARMAP_Variable_ID.VARMAP_ID_GAME_OPTIONS] = new VARMAP_SafeVariable<GameOptionsStruct>(VARMAP_Variable_ID.VARMAP_ID_GAME_OPTIONS, true, GameOptionsStruct.StaticParseFromBytes, GameOptionsStruct.StaticParseToBytes);
+            DATA[(int)VARMAP_Variable_ID.VARMAP_ID_GAME_OPTIONS] = new VARMAP_Variable<GameOptionsStruct>(VARMAP_Variable_ID.VARMAP_ID_GAME_OPTIONS, GameOptionsStruct.StaticParseFromBytes, GameOptionsStruct.StaticParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ELAPSED_TIME_MS] = new VARMAP_SafeVariable<ulong>(VARMAP_Variable_ID.VARMAP_ID_ELAPSED_TIME_MS, true, VARMAP_parsers.ulong_ParseFromBytes, VARMAP_parsers.ulong_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ACTUAL_ROOM] = new VARMAP_SafeVariable<Room>(VARMAP_Variable_ID.VARMAP_ID_ACTUAL_ROOM, true, VARMAP_parsers.Room_ParseFromBytes, VARMAP_parsers.Room_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED] = new VARMAP_SafeArray<MultiBitFieldStruct>(VARMAP_Variable_ID.VARMAP_ID_EVENTS_OCCURRED, 1, true, MultiBitFieldStruct.StaticParseFromBytes, MultiBitFieldStruct.StaticParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_UNLOCKED_MEMENTO] = new VARMAP_SafeArray<MultiBitFieldStruct>(VARMAP_Variable_ID.VARMAP_ID_UNLOCKED_MEMENTO, 1, true, MultiBitFieldStruct.StaticParseFromBytes, MultiBitFieldStruct.StaticParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_UNWATCHED_PARENT_MEMENTO] = new VARMAP_Array<MultiBitFieldStruct>(VARMAP_Variable_ID.VARMAP_ID_UNWATCHED_PARENT_MEMENTO, 1, MultiBitFieldStruct.StaticParseFromBytes, MultiBitFieldStruct.StaticParseToBytes);
-            DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER] = new VARMAP_SafeArray<CharacterType>(VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER, 9, true, VARMAP_parsers.CharacterType_ParseFromBytes, VARMAP_parsers.CharacterType_ParseToBytes);
+            DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER] = new VARMAP_SafeArray<CharacterType>(VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER, 2, true, VARMAP_parsers.CharacterType_ParseFromBytes, VARMAP_parsers.CharacterType_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_ACTUAL_WAYPOINT] = new VARMAP_SafeArray<int>(VARMAP_Variable_ID.VARMAP_ID_PLAYER_ACTUAL_WAYPOINT, 3, true, VARMAP_parsers.int_ParseFromBytes, VARMAP_parsers.int_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_CAMERA_DISPOSITION] = new VARMAP_Variable<CameraDispositionStruct>(VARMAP_Variable_ID.VARMAP_ID_CAMERA_DISPOSITION, CameraDispositionStruct.StaticParseFromBytes, CameraDispositionStruct.StaticParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_GAMESTATUS] = new VARMAP_Variable<Game_Status>(VARMAP_Variable_ID.VARMAP_ID_GAMESTATUS, VARMAP_parsers.Game_Status_ParseFromBytes, VARMAP_parsers.Game_Status_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PRESSED_KEYS] = new VARMAP_Variable<KeyStruct>(VARMAP_Variable_ID.VARMAP_ID_PRESSED_KEYS, KeyStruct.StaticParseFromBytes, KeyStruct.StaticParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MOUSE_PROPERTIES] = new VARMAP_Variable<MousePropertiesStruct>(VARMAP_Variable_ID.VARMAP_ID_MOUSE_PROPERTIES, MousePropertiesStruct.StaticParseFromBytes, MousePropertiesStruct.StaticParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_SELECTED] = new VARMAP_Variable<CharacterType>(VARMAP_Variable_ID.VARMAP_ID_PLAYER_SELECTED, VARMAP_parsers.CharacterType_ParseFromBytes, VARMAP_parsers.CharacterType_ParseToBytes);
-            DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_CHOSEN] = new VARMAP_SafeVariable<GameItem>(VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_CHOSEN, false, VARMAP_parsers.GameItem_ParseFromBytes, VARMAP_parsers.GameItem_ParseToBytes);
+            DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_CHOSEN] = new VARMAP_SafeVariable<GameItem>(VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_CHOSEN, true, VARMAP_parsers.GameItem_ParseFromBytes, VARMAP_parsers.GameItem_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_HOVER] = new VARMAP_Variable<GameItem>(VARMAP_Variable_ID.VARMAP_ID_ITEM_HOVER, VARMAP_parsers.GameItem_ParseFromBytes, VARMAP_parsers.GameItem_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_USER_INPUT_INTERACTION] = new VARMAP_Variable<UserInputInteraction>(VARMAP_Variable_ID.VARMAP_ID_USER_INPUT_INTERACTION, VARMAP_parsers.UserInputInteraction_ParseFromBytes, VARMAP_parsers.UserInputInteraction_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_BEING_PROCESSED] = new VARMAP_Variable<bool>(VARMAP_Variable_ID.VARMAP_ID_EVENTS_BEING_PROCESSED, VARMAP_parsers.bool_ParseFromBytes, VARMAP_parsers.bool_ParseToBytes);
+            DATA[(int)VARMAP_Variable_ID.VARMAP_ID_DAY_MOMENT] = new VARMAP_Variable<MomentType>(VARMAP_Variable_ID.VARMAP_ID_DAY_MOMENT, VARMAP_parsers.MomentType_ParseFromBytes, VARMAP_parsers.MomentType_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL] = new VARMAP_Variable<bool>(VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL, VARMAP_parsers.bool_ParseFromBytes, VARMAP_parsers.bool_ParseToBytes);
             /* > ATG 1 END < */
 

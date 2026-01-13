@@ -47,8 +47,6 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             GET_SHADOW_EVENTS_BEING_PROCESSED = _GET_SHADOW_EVENTS_BEING_PROCESSED;
             SET_EVENTS_BEING_PROCESSED = _SET_EVENTS_BEING_PROCESSED;
             GET_DAY_MOMENT = _GET_DAY_MOMENT;
-            REG_DAY_MOMENT = _REG_DAY_MOMENT;
-            UNREG_DAY_MOMENT = _UNREG_DAY_MOMENT;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
@@ -93,8 +91,6 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         public static GetVARMAPValueDelegate<bool> GET_SHADOW_EVENTS_BEING_PROCESSED;
         public static SetVARMAPValueDelegate<bool> SET_EVENTS_BEING_PROCESSED;
         public static GetVARMAPValueDelegate<MomentType> GET_DAY_MOMENT;
-        public static ReUnRegisterVARMAPValueChangeEventDelegate<MomentType> REG_DAY_MOMENT;
-        public static ReUnRegisterVARMAPValueChangeEventDelegate<MomentType> UNREG_DAY_MOMENT;
         /* > ATG 2 END */
 
         /* SERVICES */

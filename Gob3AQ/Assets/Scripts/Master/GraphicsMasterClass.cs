@@ -159,7 +159,18 @@ namespace Gob3AQ.GraphicsMaster
                     Room actualRoom = VARMAP_GraphicsMaster.GET_ACTUAL_ROOM();
                     ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(actualRoom);
 
-                    background_spr.sprite = ResourceSpritesClass.GetSprite(roomInfo.background);
+                    GameSprite background_sprite;
+
+                    if(roomInfo.Backgrounds.Length == 1)
+                    {
+                        background_sprite = roomInfo.Backgrounds[0];
+                    }
+                    else
+                    {
+                        background_sprite = roomInfo.Backgrounds[(int)VARMAP_GraphicsMaster.GET_DAY_MOMENT()];
+                    }
+
+                    background_spr.sprite = ResourceSpritesClass.GetSprite(background_sprite);
                     _levelBounds = background_spr.bounds;
 
                     float constrainedByWidth = _levelBounds.extents.x / mainCamera.aspect;

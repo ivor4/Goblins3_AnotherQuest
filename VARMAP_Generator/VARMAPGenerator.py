@@ -881,7 +881,15 @@ for line in ROOMSinputFile:
         stringToWrite = 'new( /* '+columns[1] + ' */\n'
         room_atlas_lines.InsertLineInATG(1, stringToWrite)
         
-        stringToWrite = sprite_prefix + columns[2] + ',\n'
+        options = columns[2].split('|')
+        num_options = len(options)
+        
+        stringToWrite = 'new GameSprite['+str(num_options)+']{'
+        
+        for _option in options:
+            stringToWrite += sprite_prefix + _option + ', '
+        
+        stringToWrite += '},\n'
         room_atlas_lines.InsertLineInATG(1, stringToWrite)
         
         

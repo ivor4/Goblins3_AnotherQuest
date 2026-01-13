@@ -16,5 +16,5 @@ N,ENUM_ID,TYPE,SAFE,ARRAY,DEFVALUE,SAVE,Separator,GameMaster,InputMaster,LevelMa
 14,ITEM_HOVER,GameItem,0,0,GameItem.ITEM_NONE,N,,-,-,W,R E,-,-,-,-
 15,USER_INPUT_INTERACTION,UserInputInteraction,0,0,UserInputInteraction.INPUT_INTERACTION_TAKE,N,,-,-,R,R E,W,-,-,-
 16,EVENTS_BEING_PROCESSED,bool,0,0,false,N,,R,-,R,-,-,-,-,W
-17,DAY_MOMENT,MomentType,0,0,MomentType.MOMENT_MORNING,Y,,-,-,W,R,-,-,-,R E
+17,DAY_MOMENT,MomentType,0,0,MomentType.MOMENT_MORNING,Y,,W,-,-,R,-,-,-,R
 18,LAST_VARMAP_VAL,bool,0,0,false,N,,W,-,-,-,-,-,-,-

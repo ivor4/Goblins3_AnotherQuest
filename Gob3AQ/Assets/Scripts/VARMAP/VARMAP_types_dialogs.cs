@@ -60,6 +60,9 @@ namespace Gob3AQ.VARMAP.Types
         PHRASE_USE_HIVE1_PERFUME_NOT_2, 
         PHRASE_USE_CARDS_REME_1, 
         PHRASE_USE_CARDS_REME_2, 
+        PHRASE_DECISION_NOT_SLEEP, 
+        PHRASE_DECISION_SLEEP_NAP, 
+        PHRASE_DECISION_SLEEP_LONG, 
         
         PHRASE_TOTAL
         /* > ATG 3 END < */

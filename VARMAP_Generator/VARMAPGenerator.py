@@ -19,6 +19,7 @@ names_text_path = "./../Gob3AQ/Assets/Dialogs/NAMES_CSV.csv"
 #This is Custom part
 auto_types_path = atg_path + "VARMAP_types_auto.cs"
 dialog_types_path = atg_path + "VARMAP_types_dialogs.cs"
+decision_types_path = atg_path + "VARMAP_types_decisions.cs"
 rooms_types_path = atg_path + "VARMAP_types_rooms.cs"
 modules_types_path = atg_path + "VARMAP_types_modules.cs"
 items_types_path = atg_path + "VARMAP_types_items.cs"
@@ -27,6 +28,7 @@ sprite_types_path = atg_path + "VARMAP_types_sprites.cs"
 event_types_path = atg_path + "VARMAP_types_events.cs"
 items_interaction_path = atg_path + "../Static/ItemsInteractionsClass.cs"
 dialog_atlas_path = atg_path + "../Static/ResourceDialogsAtlas.cs"
+decision_atlas_path = atg_path + "../Static/ResourceDecisionsAtlas.cs"
 sprite_atlas_path = atg_path + "../Static/ResourceSpritesAtlas.cs"
 room_atlas_path = atg_path + "../Static/ResourceAtlas.cs"
 
@@ -113,6 +115,7 @@ delegateupdate_lines = ATGFile(delegateupdate_path, 2)
 savedata_lines = ATGFile(savedata_path, 1)
 auto_lines = ATGFile(auto_types_path, 7)
 dialogs_types_lines = ATGFile(dialog_types_path, 3)
+decisions_types_lines = ATGFile(decision_types_path, 2)
 phrases_lines = ATGFile(phrases_text_path, 0)
 names_lines = ATGFile(names_text_path, 0)
 rooms_types_lines = ATGFile(rooms_types_path, 1)
@@ -123,6 +126,7 @@ modules_types_lines = ATGFile(modules_types_path, 1)
 items_types_lines = ATGFile(items_types_path, 4)
 items_interaction_lines = ATGFile(items_interaction_path, 8)
 dialog_atlas_lines = ATGFile(dialog_atlas_path, 3)
+decision_atlas_lines = ATGFile(decision_atlas_path, 2)
 sprite_atlas_lines = ATGFile(sprite_atlas_path, 1)
 room_atlas_lines = ATGFile(room_atlas_path, 1)
 
@@ -140,6 +144,7 @@ ITEMSinputFile = open("ITEMS.csv", "r")
 ACTIONCONDSinputFile = open("ACTION_CONDS.csv", "r")
 AUTOinputFile = open("TYPES.csv", "r")
 DIALOGSinputFile = open("DIALOGS.csv", "r")
+DECISIONSinputFile = open("DECISIONS.csv", "r")
 PHRASESinputFile = open("PHRASES.csv", "r")
 ROOMSinputFile = open("ROOMS.csv", "r")
 NAMESinputFile = open("NAMES.csv", "r")
@@ -812,6 +817,122 @@ stringToWrite = 'DIALOG_OPTION_TOTAL\n'
 dialogs_types_lines.InsertLineInATG(2, stringToWrite)
 
 
+print('\n\n------DECISIONS (Custom GOB3) -------\n\n')
+linecount = -1
+zone = 1
+for line in DECISIONSinputFile:
+    linecount += 1
+    
+    line = line.replace('\n','')
+    line = line.replace('\r','')
+    line = line.replace('"','')
+    
+    line = line.replace(', ','|')
+    columns = line.split(',')
+    print(columns)
+
+    if(linecount == 0):
+        continue
+    
+    if(columns[0] == ''):
+        stringToWrite = '\n'
+        decisions_types_lines.InsertLineInATG(zone, stringToWrite)
+        
+        if(zone == 1):
+            stringToWrite = 'DECISION_TOTAL\n'
+        
+        decisions_types_lines.InsertLineInATG(zone, stringToWrite)
+        
+        zone +=1
+        linecount = -1
+        continue
+    
+    stringToWrite = columns[1]
+    if('NONE' in columns[1]):
+        stringToWrite += ' = -1'
+    stringToWrite += ', \n'
+    decisions_types_lines.InsertLineInATG(zone, stringToWrite)
+    
+    if(not 'NONE' in columns[1]):
+        if(zone == 1):
+            stringToWrite = 'new( /* '+columns[1] + ' */\n'
+            decision_atlas_lines.InsertLineInATG(1, stringToWrite)
+            
+            options = columns[2].split('|')
+            num_options = len(options)
+            stringToWrite = 'new GameItem['+str(num_options)+']{'
+            for _option in options:
+                stringToWrite += item_prefix+_option+','
+            stringToWrite += '},\n'
+            decision_atlas_lines.InsertLineInATG(1, stringToWrite)
+            
+            options = columns[3].split('|')
+            num_options = len(options)
+                
+            stringToWrite = 'new DialogOption['+str(num_options)+']{'
+            for _option in options:
+                stringToWrite += dialog_option_prefix + _option + ', '
+            stringToWrite += '}\n'
+            decision_atlas_lines.InsertLineInATG(1, stringToWrite)
+            decision_atlas_lines.InsertLineInATG(1, '),\n')
+            decision_atlas_lines.InsertLineInATG(1, '\n')
+        elif(zone == 2):
+            stringToWrite = 'new( /* '+columns[1]+' */\n'
+            decision_atlas_lines.InsertLineInATG(2, stringToWrite)
+            
+            options = columns[2].split('|')
+            num_options = len(options)
+            
+            stringToWrite = 'new GameEventCombi['+str(num_options)+']{'
+            
+            for _option in options:
+                _not = str('(NOT)' in _option).lower()
+                _option = _option.replace('(NOT)','')
+                stringToWrite += 'new('+event_prefix+_option+', '+_not+'), '
+                
+            stringToWrite += '},\n'
+            decision_atlas_lines.InsertLineInATG(2, stringToWrite)
+            
+            
+            options = columns[3].split('|')
+            num_options = len(options)
+            
+            stringToWrite = 'new GameEventCombi['+str(num_options)+']{'
+            
+            for _option in options:
+                _not = str('(NOT)' in _option).lower()
+                _option = _option.replace('(NOT)','')
+                stringToWrite += 'new('+event_prefix+_option+', '+_not+'), '
+                
+            stringToWrite += '},\n'
+            decision_atlas_lines.InsertLineInATG(2, stringToWrite)
+            
+            
+            
+            stringToWrite = dialog_prefix+columns[4]+',\n'
+            decision_atlas_lines.InsertLineInATG(2, stringToWrite)
+            
+            options = columns[5].split('|')
+            num_options = len(options)
+            
+            stringToWrite = 'new DialogPhrase['+str(num_options)+']{'
+
+            for _option in options:
+                stringToWrite += phrase_prefix+_option+', '
+                
+            stringToWrite += '}\n'
+            decision_atlas_lines.InsertLineInATG(2, stringToWrite)
+            stringToWrite = '),\n'
+            decision_atlas_lines.InsertLineInATG(2, stringToWrite)
+        
+        
+    
+stringToWrite = '\n'
+decisions_types_lines.InsertLineInATG(2, stringToWrite)
+stringToWrite = 'DECISION_OPTION_TOTAL\n'
+decisions_types_lines.InsertLineInATG(2, stringToWrite)
+
+
 print('\n\n------PHRASES (Custom GOB3) -------\n\n')
 linecount = -1
 zone = 1
@@ -1481,6 +1602,7 @@ savedata_lines.SaveFile()
 #Custom classes
 auto_lines.SaveFile()
 dialogs_types_lines.SaveFile()
+decisions_types_lines.SaveFile()
 phrases_lines.SaveFile()
 names_lines.SaveFile()
 rooms_types_lines.SaveFile()
@@ -1488,6 +1610,7 @@ modules_types_lines.SaveFile()
 items_types_lines.SaveFile()
 items_interaction_lines.SaveFile()
 dialog_atlas_lines.SaveFile()
+decision_atlas_lines.SaveFile()
 names_types_lines.SaveFile()
 sprite_types_lines.SaveFile()
 event_types_lines.SaveFile()

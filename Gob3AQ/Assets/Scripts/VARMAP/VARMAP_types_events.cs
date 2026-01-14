@@ -15,6 +15,8 @@ namespace Gob3AQ.VARMAP.Types
         EVENT_HIVE1_USED_PERFUME, 
         EVENT_HIVE1_USED_BASIN, 
         EVENT_SOAP_PICKABLE_TAKEN, 
+        EVENT_PENDING_SLEEP_NAP, 
+        EVENT_PENDING_SLEEP_LONG, 
         EVENT_LAST, 
         
         EVENT_TOTAL

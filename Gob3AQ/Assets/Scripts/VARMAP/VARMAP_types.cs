@@ -200,6 +200,35 @@ namespace Gob3AQ.VARMAP.Types
         }
     }
 
+    public readonly struct DecisionConfig
+    {
+        private readonly DecisionOption[] options;
+
+        public ReadOnlySpan<DecisionOption> Options => options;
+
+        public static DecisionConfig EMPTY = new(new DecisionOption[0]);
+
+        public DecisionConfig(DecisionOption[] options)
+        {
+            this.options = options;
+        }
+    }
+
+    public readonly struct DecisionOptionConfig
+    {
+        public readonly DialogPhrase phrase;
+        private readonly GameEventCombi[] triggeredEvents;
+        public ReadOnlySpan<GameEventCombi> TriggeredEvents => triggeredEvents;
+
+        public static DecisionOptionConfig EMPTY = new(DialogPhrase.PHRASE_NONE, new GameEventCombi[0]);
+
+        public DecisionOptionConfig(DialogPhrase phrase, GameEventCombi[] triggeredEvents)
+        {
+            this.phrase = phrase;
+            this.triggeredEvents = triggeredEvents;
+        }
+    }
+
 
     public readonly struct PhraseConfig
     {

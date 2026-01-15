@@ -688,6 +688,8 @@ conditiontype_prefix = 'ActionConditions.'
 spawnconditiontype_prefix = 'SpawnConditions.'
 dialog_prefix = 'DialogType.'
 dialog_option_prefix = 'DialogOption.'
+decision_prefix = 'DecisionType.'
+decision_option_prefix = 'DecisionOption.'
 phrase_prefix = 'DialogPhrase.'
 item_prefix = 'GameItem.'
 room_prefix = 'Room.'
@@ -860,37 +862,16 @@ for line in DECISIONSinputFile:
             
             options = columns[2].split('|')
             num_options = len(options)
-            stringToWrite = 'new GameItem['+str(num_options)+']{'
+            stringToWrite = 'new DecisionOption['+str(num_options)+']{'
             for _option in options:
-                stringToWrite += item_prefix+_option+','
-            stringToWrite += '},\n'
+                stringToWrite += decision_option_prefix+_option+','
+            stringToWrite += '}),\n'
             decision_atlas_lines.InsertLineInATG(1, stringToWrite)
-            
-            options = columns[3].split('|')
-            num_options = len(options)
-                
-            stringToWrite = 'new DialogOption['+str(num_options)+']{'
-            for _option in options:
-                stringToWrite += dialog_option_prefix + _option + ', '
-            stringToWrite += '}\n'
-            decision_atlas_lines.InsertLineInATG(1, stringToWrite)
-            decision_atlas_lines.InsertLineInATG(1, '),\n')
-            decision_atlas_lines.InsertLineInATG(1, '\n')
         elif(zone == 2):
             stringToWrite = 'new( /* '+columns[1]+' */\n'
             decision_atlas_lines.InsertLineInATG(2, stringToWrite)
             
-            options = columns[2].split('|')
-            num_options = len(options)
-            
-            stringToWrite = 'new GameEventCombi['+str(num_options)+']{'
-            
-            for _option in options:
-                _not = str('(NOT)' in _option).lower()
-                _option = _option.replace('(NOT)','')
-                stringToWrite += 'new('+event_prefix+_option+', '+_not+'), '
-                
-            stringToWrite += '},\n'
+            stringToWrite = phrase_prefix + columns[2] + ',\n'
             decision_atlas_lines.InsertLineInATG(2, stringToWrite)
             
             
@@ -904,26 +885,9 @@ for line in DECISIONSinputFile:
                 _option = _option.replace('(NOT)','')
                 stringToWrite += 'new('+event_prefix+_option+', '+_not+'), '
                 
-            stringToWrite += '},\n'
+            stringToWrite += '}),\n'
             decision_atlas_lines.InsertLineInATG(2, stringToWrite)
             
-            
-            
-            stringToWrite = dialog_prefix+columns[4]+',\n'
-            decision_atlas_lines.InsertLineInATG(2, stringToWrite)
-            
-            options = columns[5].split('|')
-            num_options = len(options)
-            
-            stringToWrite = 'new DialogPhrase['+str(num_options)+']{'
-
-            for _option in options:
-                stringToWrite += phrase_prefix+_option+', '
-                
-            stringToWrite += '}\n'
-            decision_atlas_lines.InsertLineInATG(2, stringToWrite)
-            stringToWrite = '),\n'
-            decision_atlas_lines.InsertLineInATG(2, stringToWrite)
         
         
     

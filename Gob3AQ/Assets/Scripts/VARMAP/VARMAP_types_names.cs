@@ -24,6 +24,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_ITEM_AD_BOARD, 
         NAME_ITEM_BASIN, 
         NAME_ITEM_SOAP, 
+        NAME_ITEM_BED, 
         NAME_NPC_LAST, 
         
         NAME_TOTAL

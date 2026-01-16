@@ -119,115 +119,148 @@ namespace Gob3AQ.Brain.ItemsInteraction
             false,UnchainType.UNCHAIN_TYPE_EVENT,new(GameEvent.EVENT_FIRST, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_ANY, GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_FIRST, false),}), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_FIRST, false),}, 
+            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             
             new( /* UNCHAIN_ROOM1_INITIAL_MEMENTO_2 */
             false,UnchainType.UNCHAIN_TYPE_MEMENTO,new(GameEvent.EVENT_FIRST, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_FIRST, false),}, 
             MomentType.MOMENT_ANY, GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_JOB_FIND_1_1, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             
             new( /* UNCHAIN_HIVE1_OPEN_CHEST_1 */
             true,UnchainType.UNCHAIN_TYPE_SET_SPRITE,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, false),}, 
             MomentType.MOMENT_ANY, GameItem.ITEM_HIVE1_CHEST, GameSprite.SPRITE_ITEM_CHEST_OPENED,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             
             new( /* UNCHAIN_HIVE1_OPEN_CHEST_2 */
             true,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, false),}, 
             MomentType.MOMENT_ANY, GameItem.ITEM_CARDS_PICKABLE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             
             new( /* UNCHAIN_HIVE1_OPEN_CHEST_3 */
             true,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, false),}, 
             MomentType.MOMENT_ANY, GameItem.ITEM_HIVE1_PERFUME, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             
             new( /* UNCHAIN_HIVE1_CLOSE_CHEST_1 */
             true,UnchainType.UNCHAIN_TYPE_SET_SPRITE,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, true),}, 
             MomentType.MOMENT_ANY, GameItem.ITEM_HIVE1_CHEST, GameSprite.SPRITE_ITEM_CHEST_CLOSED,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             
             new( /* UNCHAIN_HIVE1_CLOSE_CHEST_2 */
             true,UnchainType.UNCHAIN_TYPE_DESPAWN,new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, true),}, 
             MomentType.MOMENT_ANY, GameItem.ITEM_CARDS_PICKABLE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             
             new( /* UNCHAIN_HIVE1_CLOSE_CHEST_3 */
             true,UnchainType.UNCHAIN_TYPE_DESPAWN,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, true),}, 
             MomentType.MOMENT_ANY, GameItem.ITEM_HIVE1_PERFUME, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             
             new( /* UNCHAIN_CARDS_PICKABLE_TAKE_1 */
             false,UnchainType.UNCHAIN_TYPE_DESTROY,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, false),}, 
             MomentType.MOMENT_ANY, GameItem.ITEM_CARDS_PICKABLE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             
             new( /* UNCHAIN_CARDS_PICKABLE_TAKE_2 */
             false,UnchainType.UNCHAIN_TYPE_EARN_ITEM,new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, false),}, 
             MomentType.MOMENT_ANY, GameItem.ITEM_CARDS_PICKABLE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             
             new( /* UNCHAIN_HIVE1_OPEN_WARDROBE_1 */
             true,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, false),}, 
             MomentType.MOMENT_ANY, GameItem.ITEM_HIVE1_WARDROBE_OPENED, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             
             new( /* UNCHAIN_HIVE1_OPEN_WARDROBE_2 */
             true,UnchainType.UNCHAIN_TYPE_DESPAWN,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, false),}, 
             MomentType.MOMENT_ANY, GameItem.ITEM_HIVE1_WARDROBE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             
             new( /* UNCHAIN_HIVE1_OPEN_WARDROBE_3 */
             true,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_SOAP_PICKABLE_TAKEN, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, false),}, 
             MomentType.MOMENT_ANY, GameItem.ITEM_SOAP_PICKABLE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             
             new( /* UNCHAIN_HIVE1_CLOSE_WARDROBE_1 */
             true,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, true),}, 
             MomentType.MOMENT_ANY, GameItem.ITEM_HIVE1_WARDROBE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             
             new( /* UNCHAIN_HIVE1_CLOSE_WARDROBE_2 */
             true,UnchainType.UNCHAIN_TYPE_DESPAWN,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, true),}, 
             MomentType.MOMENT_ANY, GameItem.ITEM_HIVE1_WARDROBE_OPENED, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             
             new( /* UNCHAIN_HIVE1_CLOSE_WARDROBE_3 */
             true,UnchainType.UNCHAIN_TYPE_DESPAWN,new(GameEvent.EVENT_SOAP_PICKABLE_TAKEN, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, true),}, 
             MomentType.MOMENT_ANY, GameItem.ITEM_SOAP_PICKABLE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             
             new( /* UNCHAIN_OBSERVE_HIVE1_AD_BOARD_1 */
             false,UnchainType.UNCHAIN_TYPE_MEMENTO,new(GameEvent.EVENT_HIVE1_AD_BOARD_OBSERVED_1, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_AD_BOARD_OBSERVED_1, false),}, 
             MomentType.MOMENT_ANY, GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_JOB_FIND_1_2, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             
             new( /* UNCHAIN_SOAP_PICKABLE_TAKE_1 */
             false,UnchainType.UNCHAIN_TYPE_DESTROY,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_SOAP_PICKABLE_TAKEN, false),}, 
             MomentType.MOMENT_ANY, GameItem.ITEM_SOAP_PICKABLE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             
             new( /* UNCHAIN_SOAP_PICKABLE_TAKE_2 */
             false,UnchainType.UNCHAIN_TYPE_EARN_ITEM,new(GameEvent.EVENT_SOAP_PICKABLE_TAKEN, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_SOAP_PICKABLE_TAKEN, false),}, 
             MomentType.MOMENT_ANY, GameItem.ITEM_SOAP_PICKABLE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            
+            new( /* UNCHAIN_SLEEP_DECISION */
+            true,UnchainType.UNCHAIN_TYPE_DECISION,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_LAUNCH_SLEEP_DECISION, false),}, 
+            MomentType.MOMENT_ANY, GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_SLEEP_1, MomentType.MOMENT_ANY),
+            
+            new( /* UNCHAIN_SLEEP_DECISION_2 */
+            true,UnchainType.UNCHAIN_TYPE_EVENT,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_LAUNCH_SLEEP_DECISION, false),}, 
+            MomentType.MOMENT_ANY, GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_LAUNCH_SLEEP_DECISION, true),}, 
+            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             
             /* > ATG 1 END < */
         };
@@ -370,6 +403,13 @@ namespace Gob3AQ.Brain.ItemsInteraction
             DialogType.DIALOG_REME_CARDS,DialogPhrase.PHRASE_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
+            new( /* COND_USE_HIVE1_BED */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
+            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
+            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_LAUNCH_SLEEP_DECISION, false),}), 
+            
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,
@@ -438,23 +478,28 @@ namespace Gob3AQ.Brain.ItemsInteraction
             
             new ( /* ITEM_HIVE1_AD_BOARD */
             NameType.NAME_ITEM_AD_BOARD,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK,}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_BLANK,GamePickableItem.ITEM_PICK_NONE,
+            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
             new ActionConditions[1]{ActionConditions.COND_OBSERVE_HIVE1_AD_BOARD_1,}),
             
             new ( /* ITEM_HIVE1_EXIT_DOOR */
             NameType.NAME_ITEM_CROSS,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK,}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_BLANK,GamePickableItem.ITEM_PICK_NONE,
+            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
             new ActionConditions[3]{ActionConditions.COND_EXIT_HIVE1_HALL_1,ActionConditions.COND_EXIT_HIVE1_HALL_2,ActionConditions.COND_EXIT_HIVE1_HALL_3,}),
             
             new ( /* ITEM_HIVE1_BASIN */
             NameType.NAME_ITEM_BASIN,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK,}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_BLANK,GamePickableItem.ITEM_PICK_NONE,
+            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
             new ActionConditions[3]{ActionConditions.COND_USE_HIVE1_BASIN_NO_SOAP,ActionConditions.COND_USE_HIVE1_BASIN_W_SOAP,ActionConditions.COND_USE_HIVE1_BASIN_W_SOAP_REPEAT,}),
             
             new ( /* ITEM_SOAP_PICKABLE */
             NameType.NAME_ITEM_SOAP,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK,}),
             GameSprite.SPRITE_BLANK,true,GameSprite.SPRITE_PICKABLE_SOAP,GamePickableItem.ITEM_PICK_SOAP_PICKABLE,
             new ActionConditions[1]{ActionConditions.COND_TAKE_SOAP,}),
+            
+            new ( /* ITEM_HIVE1_BED */
+            NameType.NAME_ITEM_BED,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK,}),
+            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_USE_HIVE1_BED,}),
             
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST,}),

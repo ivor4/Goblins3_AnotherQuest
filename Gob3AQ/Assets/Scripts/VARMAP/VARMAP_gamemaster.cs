@@ -42,7 +42,9 @@ namespace Gob3AQ.VARMAP.GameMaster
             EXIT_GAME = _EXIT_GAME;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
+            COMMIT_EVENT = _COMMIT_EVENT;
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
+            CHANGE_DAY_MOMENT = _CHANGE_DAY_MOMENT;
             LAST_SERVICE = _LAST_SERVICE;
             /* > ATG 1 END */
         }
@@ -122,12 +124,26 @@ namespace Gob3AQ.VARMAP.GameMaster
         /// </summary>
         public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
         /// <summary> 
+        /// Activates/Deactivates an event
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: GameMaster, LevelMaster, GameMenu, PlayerMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.CommitEventService"/> </para> 
+        /// </summary>
+        public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
+        /// <summary> 
         /// Asks Game Master to set game mode
         /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu,  </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, GameEventMaster,  </para> 
         /// <para> Method: <see cref="GameMasterClass.ChangeGameModeService"/> </para> 
         /// </summary>
         public static CHANGE_GAME_MODE_DELEGATE CHANGE_GAME_MODE;
+        /// <summary> 
+        /// Requests to change moment of day to a given one
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: GameEventMaster,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.ChangeDayMomentService"/> </para> 
+        /// </summary>
+        public static CHANGE_DAY_MOMENT_DELEGATE CHANGE_DAY_MOMENT;
         /// <summary> 
         /// Last service
         /// <para> Owner: GameMaster </para> 

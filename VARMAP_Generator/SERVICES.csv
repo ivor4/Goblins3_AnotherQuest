@@ -16,7 +16,7 @@ N,SERVICE_ID,SPECIAL_DELEGATE,SERVICE_ROUTE,Description,Separator,GameMaster,Inp
 14,GET_PLAYER_LIST,GET_PLAYER_LIST_DELEGATE,LevelMasterClass.GetPlayerListService,Gets a list of actual players,,-,-,W,X,-,X,-,-
 15,GET_NEAREST_WP,GET_NEAREST_WP_DELEGATE,LevelMasterClass.GetNearestWPService,Gets nearest WP from a given coordinates of level,,-,-,W,-,-,X,X,-
 16,IS_EVENT_COMBI_OCCURRED,IS_EVENT_COMBI_OCCURRED_DELEGATE,GameEventMasterClass.IsEventCombiOccurredService,Checks if a combination of events is totally complied (event absence can also be requested),,-,-,X,-,X,X,X,W
-17,COMMIT_EVENT,COMMIT_EVENT_DELEGATE,GameEventMasterClass.CommitEventService,Activates/Deactivates an event,,-,-,X,-,X,X,X,W
+17,COMMIT_EVENT,COMMIT_EVENT_DELEGATE,GameEventMasterClass.CommitEventService,Activates/Deactivates an event,,X,-,X,-,X,X,X,W
 18,COMMIT_MEMENTO_NOTIF,COMMIT_MEMENTO_NOTIF_DELEGATE,GameMenuClass.CommitMementoNotifService,Tells Memento Manager (Menu) a new memento has been unlocked,,-,-,-,-,W,-,-,X
 19,IS_MEMENTO_UNLOCKED,IS_MEMENTO_UNLOCKED_DELEGATE,GameEventMasterClass.IsMementoUnlockedService,Tells if a memento is unlocked,,-,-,-,-,X,-,-,W
 20,MEMENTO_PARENT_WATCHED,MEMENTO_PARENT_WATCHED_DELEGATE,GameEventMasterClass.MementoParentWatchedService,If a Memento has been analyzed,,-,-,-,-,X,-,-,W
@@ -27,7 +27,9 @@ N,SERVICE_ID,SPECIAL_DELEGATE,SERVICE_ROUTE,Description,Separator,GameMaster,Inp
 25,CANCEL_PICKABLE_ITEM,CANCEL_PICKABLE_ITEM_DELEGATE,GameMenuClass.CancelPickableItemService,Cancels selected item,,-,-,X,-,W,-,X,-
 26,KEY_SUBSCRIPTION,KEY_SUBSCRIPTION_DELEGATE,InputMasterClass.KeySubscriptionService,Subscribe to determined key events to avoid polling,,-,W,-,-,X,-,-,-
 27,LOCK_PLAYER,LOCK_PLAYER_DELEGATE,PlayerMasterClass.LockPlayerService,Locks player so it cannot act until an action over it has been done (or removes lock),,-,-,X,-,-,W,-,-
-28,CHANGE_GAME_MODE,CHANGE_GAME_MODE_DELEGATE,GameMasterClass.ChangeGameModeService,Asks Game Master to set game mode,,W,-,X,-,X,-,-,-
+28,CHANGE_GAME_MODE,CHANGE_GAME_MODE_DELEGATE,GameMasterClass.ChangeGameModeService,Asks Game Master to set game mode,,W,-,X,-,X,-,-,X
 29,SHOW_DIALOGUE,SHOW_DIALOGUE_DELEGATE,GameMenuClass.ShowDialogueService,Second part of start dialogue. Tells Game Menu to prepare menu elements,,-,-,X,-,W,-,-,-
 30,ZOOM_SUBSCRIPTION,ZOOM_SUBSCRIPTION_DELEGATE,GraphicsMasterClass.ZoomSubscriptionService,Subscribe to zoom changes,,-,-,-,W,-,-,X,-
-31,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-
+31,SHOW_DECISION,SHOW_DECISION_DELEGATE,GameMenuClass.ShowDecisionService,Shows a set of decisions,,-,-,-,-,W,-,-,X
+32,CHANGE_DAY_MOMENT,CHANGE_DAY_MOMENT_DELEGATE,GameMasterClass.ChangeDayMomentService,Requests to change moment of day to a given one,,W,-,-,-,-,-,-,X
+33,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-

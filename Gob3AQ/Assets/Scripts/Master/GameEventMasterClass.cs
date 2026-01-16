@@ -455,7 +455,8 @@ namespace Gob3AQ.GameEventMaster
                 {
                     Debug.Log("Pre-Disappear for posterior Spawn unchainer " + unchainer_info.targetItem);
                     UnchainInfo info_copy = new(false, UnchainType.UNCHAIN_TYPE_DESPAWN, GameEventCombi.EMPTY, null, unchainer_info.momentType,
-                            unchainer_info.targetItem, unchainer_info.targetSprite, unchainer_info.targetCharacter, Memento.MEMENTO_NONE, null);
+                            unchainer_info.targetItem, unchainer_info.targetSprite, unchainer_info.targetCharacter,
+                            Memento.MEMENTO_NONE, null, DecisionType.DECISION_NONE, MomentType.MOMENT_ANY);
                     VARMAP_GameEventMaster.UNCHAIN_TO_ITEM(in info_copy);
                 }
 
@@ -526,6 +527,7 @@ namespace Gob3AQ.GameEventMaster
         {
             ReadOnlySpan<GameEventCombi> neededEvents = info.NeededEvents;
             IsEventCombiOccurredService(neededEvents, out bool occurred);
+            occurred &= IsMomentValid(info.momentType);
 
             /* If occurred, execute it and don't add it to pending */
             if (occurred)
@@ -540,6 +542,18 @@ namespace Gob3AQ.GameEventMaster
                         Debug.Log("Unchaining Memento " + info.targetMemento);
                         CommitMementoService(info.targetMemento);
                         break;
+                    case UnchainType.UNCHAIN_TYPE_CHANGE_MOMENT_DAY:
+                        Debug.Log("Changing moment of day to " + info.targetMomentOfDay);
+                        VARMAP_GameEventMaster.CHANGE_DAY_MOMENT(info.targetMomentOfDay);
+                        break;
+                    case UnchainType.UNCHAIN_TYPE_DECISION:
+                        Debug.Log("Unchaining Decision " + info.targetDecision);
+                        VARMAP_GameEventMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_DECISION, out bool error);
+                        if (!error)
+                        {
+                            VARMAP_GameEventMaster.SHOW_DECISION(info.targetDecision);
+                        }
+                        break;
                     default:
                         VARMAP_GameEventMaster.UNCHAIN_TO_ITEM(in info);
                         break;
@@ -547,6 +561,21 @@ namespace Gob3AQ.GameEventMaster
             }
 
             return occurred;
+        }
+
+        private bool IsMomentValid(MomentType momentType)
+        {
+            bool valid;
+            MomentType currentMoment = VARMAP_GameEventMaster.GET_DAY_MOMENT();
+            if (momentType == MomentType.MOMENT_ANY)
+            {
+                valid = true;
+            }
+            else
+            {
+                valid = momentType == currentMoment;
+            }
+            return valid;
         }
 
         private void _GameStatusChanged(ChangedEventType evtype, in Game_Status oldval, in Game_Status newval)

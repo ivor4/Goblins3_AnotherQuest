@@ -65,9 +65,9 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void KEY_SUBSCRIPTION_DELEGATE(KeyFunctionsIndex key, KEY_SUBSCRIPTION_CALL_DELEGATE callable, bool add);
     public delegate void SET_PLAYER_ANIMATION_DELEGATE(CharacterType character, CharacterAnimation animation);
     public delegate void EVENT_SUBSCRIPTION_DELEGATE(GameEvent gevent, EVENT_SUBSCRIPTION_CALL_DELEGATE callable, bool add);
-    public delegate void CROSS_DOOR_DELEGATE(CharacterType character, int doorIndex);
     public delegate void ZOOM_SUBSCRIPTION_DELEGATE(bool subscribe, ZOOM_CHANGED_DELEGATE callable);
-    public delegate void INTERACT_PLAYER_NPC_DELEGATE(CharacterType character, int npcindex);
     public delegate void LOCK_PLAYER_DELEGATE(CharacterType character, bool lockPlayer);
+    public delegate void SHOW_DECISION_DELEGATE(DecisionType decision);
+    public delegate void CHANGE_DAY_MOMENT_DELEGATE(MomentType dayMoment);
 
 }

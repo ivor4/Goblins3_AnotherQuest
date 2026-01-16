@@ -168,6 +168,8 @@ namespace Gob3AQ.ResourceDialogs
                 HashSet<DialogType> processedDialogues = new(GameFixedConfig.MAX_CACHED_PHRASES);
                 Queue<DialogType> dialoguesToProcess = new(GameFixedConfig.MAX_CACHED_PHRASES);
 
+                _phrasesToLoadArray.UnionWith(roomInfo.phrases);
+
                 foreach (GameItem item in roomInfo.items)
                 {
                     ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(item);

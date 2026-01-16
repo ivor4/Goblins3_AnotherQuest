@@ -58,6 +58,7 @@ namespace Gob3AQ.VARMAP.GameMenu
             KEY_SUBSCRIPTION = _KEY_SUBSCRIPTION;
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
             SHOW_DIALOGUE = _SHOW_DIALOGUE;
+            SHOW_DECISION = _SHOW_DECISION;
             /* > ATG 1 END */
         }
 
@@ -152,7 +153,7 @@ namespace Gob3AQ.VARMAP.GameMenu
         /// <summary> 
         /// Activates/Deactivates an event
         /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, ItemMaster,  </para> 
+        /// <para> Accessors: GameMaster, LevelMaster, GameMenu, PlayerMaster, ItemMaster,  </para> 
         /// <para> Method: <see cref="GameEventMasterClass.CommitEventService"/> </para> 
         /// </summary>
         public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
@@ -194,7 +195,7 @@ namespace Gob3AQ.VARMAP.GameMenu
         /// <summary> 
         /// Asks Game Master to set game mode
         /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu,  </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, GameEventMaster,  </para> 
         /// <para> Method: <see cref="GameMasterClass.ChangeGameModeService"/> </para> 
         /// </summary>
         public static CHANGE_GAME_MODE_DELEGATE CHANGE_GAME_MODE;
@@ -205,6 +206,13 @@ namespace Gob3AQ.VARMAP.GameMenu
         /// <para> Method: <see cref="GameMenuClass.ShowDialogueService"/> </para> 
         /// </summary>
         public static SHOW_DIALOGUE_DELEGATE SHOW_DIALOGUE;
+        /// <summary> 
+        /// Shows a set of decisions
+        /// <para> Owner: GameMenu </para> 
+        /// <para> Accessors: GameEventMaster,  </para> 
+        /// <para> Method: <see cref="GameMenuClass.ShowDecisionService"/> </para> 
+        /// </summary>
+        public static SHOW_DECISION_DELEGATE SHOW_DECISION;
         /* > ATG 3 END */
     }
 }

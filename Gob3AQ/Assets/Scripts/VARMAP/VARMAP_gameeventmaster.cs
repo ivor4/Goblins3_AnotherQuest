@@ -6,6 +6,7 @@ using Gob3AQ.LevelMaster;
 using Gob3AQ.PlayerMaster;
 using Gob3AQ.ItemMaster;
 using Gob3AQ.GameEventMaster;
+using Gob3AQ.GameMenu;
 
 namespace Gob3AQ.VARMAP.GameEventMaster
 {
@@ -55,6 +56,9 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             IS_MEMENTO_UNLOCKED = _IS_MEMENTO_UNLOCKED;
             MEMENTO_PARENT_WATCHED = _MEMENTO_PARENT_WATCHED;
             UNCHAIN_TO_ITEM = _UNCHAIN_TO_ITEM;
+            CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
+            SHOW_DECISION = _SHOW_DECISION;
+            CHANGE_DAY_MOMENT = _CHANGE_DAY_MOMENT;
             /* > ATG 1 END */
         }
 
@@ -119,7 +123,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         /// <summary> 
         /// Activates/Deactivates an event
         /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, ItemMaster,  </para> 
+        /// <para> Accessors: GameMaster, LevelMaster, GameMenu, PlayerMaster, ItemMaster,  </para> 
         /// <para> Method: <see cref="GameEventMasterClass.CommitEventService"/> </para> 
         /// </summary>
         public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
@@ -151,6 +155,27 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         /// <para> Method: <see cref="ItemMasterClass.UnchainToItemService"/> </para> 
         /// </summary>
         public static UNCHAIN_TO_ITEM_DELEGATE UNCHAIN_TO_ITEM;
+        /// <summary> 
+        /// Asks Game Master to set game mode
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, GameEventMaster,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.ChangeGameModeService"/> </para> 
+        /// </summary>
+        public static CHANGE_GAME_MODE_DELEGATE CHANGE_GAME_MODE;
+        /// <summary> 
+        /// Shows a set of decisions
+        /// <para> Owner: GameMenu </para> 
+        /// <para> Accessors: GameEventMaster,  </para> 
+        /// <para> Method: <see cref="GameMenuClass.ShowDecisionService"/> </para> 
+        /// </summary>
+        public static SHOW_DECISION_DELEGATE SHOW_DECISION;
+        /// <summary> 
+        /// Requests to change moment of day to a given one
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: GameEventMaster,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.ChangeDayMomentService"/> </para> 
+        /// </summary>
+        public static CHANGE_DAY_MOMENT_DELEGATE CHANGE_DAY_MOMENT;
         /* > ATG 3 END */
     }
 }

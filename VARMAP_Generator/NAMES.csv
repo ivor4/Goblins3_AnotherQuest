@@ -16,4 +16,5 @@ N,NAME_ID,Name_English,Name_Spanish
 14,NAME_ITEM_AD_BOARD,Ad board,Tablón de anuncios
 15,NAME_ITEM_BASIN,Basin,Lavabo
 16,NAME_ITEM_SOAP,Soap,Jabón
-17,NAME_NPC_LAST,Last,Ultimo
+17,NAME_ITEM_BED,Bed,Cama
+18,NAME_NPC_LAST,Last,Ultimo

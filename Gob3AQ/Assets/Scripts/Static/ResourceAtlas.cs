@@ -172,8 +172,8 @@ namespace Gob3AQ.ResourceAtlas
             new( /* HIVE1_ROOM_1 */
             new GameSprite[1]{GameSprite.BACKGROUND_HIVE1_ROOM1, },
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_HIVE1_ROOM1, GameSprite.SPRITE_ITEM_DECO_BED_LAYER, }), 
-            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(7){GameItem.ITEM_CARDS_PICKABLE, GameItem.ITEM_HIVE1_CHEST, GameItem.ITEM_HIVE1_WARDROBE, GameItem.ITEM_HIVE1_WARDROBE_OPENED, GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_HIVE1_PERFUME, GameItem.ITEM_SOAP_PICKABLE, }) 
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(4){DialogPhrase.PHRASE_NONSENSE, DialogPhrase.PHRASE_DECISION_NOT_SLEEP, DialogPhrase.PHRASE_DECISION_SLEEP_NAP, DialogPhrase.PHRASE_DECISION_SLEEP_LONG, }), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(8){GameItem.ITEM_CARDS_PICKABLE, GameItem.ITEM_HIVE1_CHEST, GameItem.ITEM_HIVE1_WARDROBE, GameItem.ITEM_HIVE1_WARDROBE_OPENED, GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_HIVE1_PERFUME, GameItem.ITEM_SOAP_PICKABLE, GameItem.ITEM_HIVE1_BED, }) 
             ),
             
             new( /* HIVE1_CORRIDOR_1 */

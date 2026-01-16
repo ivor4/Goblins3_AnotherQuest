@@ -1181,6 +1181,8 @@ for line in ACTIONCONDSinputFile:
         ItemVar["targetCharacter"] = str(columns[9])
         ItemVar["targetMemento"] = str(columns[10])
         ItemVar["targetEvents"] = str(columns[11])
+        ItemVar["targetDecision"] = str(columns[12])
+        ItemVar["targetMoment"] = str(columns[13])
         
         # Write in item enum
         stringToWrite = ItemVar["name"]
@@ -1232,8 +1234,13 @@ for line in ACTIONCONDSinputFile:
             _option = _option.replace('(NOT)','')
             stringToWrite += 'new('+event_prefix + _option + ', ' + _not_ + '),'
             
-        stringToWrite += '}), \n'
+        stringToWrite += '}, \n'
         items_interaction_lines.InsertLineInATG(1, stringToWrite)
+        
+        stringToWrite = decision_prefix + ItemVar["targetDecision"] + ', '
+        stringToWrite += moment_prefix + ItemVar["targetMoment"] + '),\n'
+        items_interaction_lines.InsertLineInATG(1, stringToWrite)
+        
         items_interaction_lines.InsertLineInATG(1, '\n')
         
         

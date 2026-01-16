@@ -211,7 +211,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// <summary> 
         /// Activates/Deactivates an event
         /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, ItemMaster,  </para> 
+        /// <para> Accessors: GameMaster, LevelMaster, GameMenu, PlayerMaster, ItemMaster,  </para> 
         /// <para> Method: <see cref="GameEventMasterClass.CommitEventService"/> </para> 
         /// </summary>
         public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
@@ -253,7 +253,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// <summary> 
         /// Asks Game Master to set game mode
         /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu,  </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, GameEventMaster,  </para> 
         /// <para> Method: <see cref="GameMasterClass.ChangeGameModeService"/> </para> 
         /// </summary>
         public static CHANGE_GAME_MODE_DELEGATE CHANGE_GAME_MODE;

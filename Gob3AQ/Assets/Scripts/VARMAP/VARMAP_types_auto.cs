@@ -61,6 +61,8 @@ namespace Gob3AQ.VARMAP.Types
         UNCHAIN_TYPE_EVENT, 
         UNCHAIN_TYPE_NOTIF, 
         UNCHAIN_TYPE_MEMENTO, 
+        UNCHAIN_TYPE_DECISION, 
+        UNCHAIN_TYPE_CHANGE_MOMENT_DAY, 
         
         UNCHAIN_TYPE_TOTAL
         /* > ATG 4 END < */

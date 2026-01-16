@@ -20,6 +20,7 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_HIVE1_EXIT_DOOR, 
         ITEM_HIVE1_BASIN, 
         ITEM_SOAP_PICKABLE, 
+        ITEM_HIVE1_BED, 
         ITEM_LAST, 
         
         ITEM_TOTAL
@@ -59,6 +60,7 @@ namespace Gob3AQ.VARMAP.Types
         COND_USE_HIVE1_PERFUME_NOT_1, 
         COND_USE_HIVE1_PERFUME_NOT_2, 
         COND_USE_CARDS_REME, 
+        COND_USE_HIVE1_BED, 
         COND_LAST, 
         
         COND_TOTAL
@@ -87,6 +89,8 @@ namespace Gob3AQ.VARMAP.Types
         UNCHAIN_OBSERVE_HIVE1_AD_BOARD_1, 
         UNCHAIN_SOAP_PICKABLE_TAKE_1, 
         UNCHAIN_SOAP_PICKABLE_TAKE_2, 
+        UNCHAIN_SLEEP_DECISION, 
+        UNCHAIN_SLEEP_DECISION_2, 
         
         UNCHAIN_TOTAL
         /* > ATG 4 END < */

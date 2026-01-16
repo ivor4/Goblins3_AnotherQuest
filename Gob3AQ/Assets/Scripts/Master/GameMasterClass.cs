@@ -30,6 +30,7 @@ namespace Gob3AQ.GameMaster
         private static bool prevRoomLoaded;
         private static bool saveGamePending;
         private static Room loadScenePending;
+        private static MomentType changeMomentPending;
 
         void Awake()
         {
@@ -50,6 +51,7 @@ namespace Gob3AQ.GameMaster
                 prevRoomLoaded = false;
                 saveGamePending = false;
                 loadScenePending = Room.ROOM_NONE;
+                changeMomentPending = MomentType.MOMENT_ANY;
             }
         }
 
@@ -77,11 +79,33 @@ namespace Gob3AQ.GameMaster
                     VARMAP_DataSystem.SaveVARMAPData();
                 }
 
-                if (loadScenePending != Room.ROOM_NONE)
+                if (changeMomentPending != MomentType.MOMENT_ANY)
+                {
+                    Room loadRoom;
+                    MomentType moment = changeMomentPending;
+                    
+                    bool changeRoomEvent = false;
+
+                    if (loadScenePending == Room.ROOM_NONE)
+                    {
+                        loadRoom = VARMAP_GameMaster.GET_ACTUAL_ROOM();
+                    }
+                    else
+                    {
+                        loadRoom = loadScenePending;
+                        changeRoomEvent = true;
+                    }
+                    loadScenePending = Room.ROOM_NONE;
+                    changeMomentPending = MomentType.MOMENT_ANY;
+
+                    _singleton.StartCoroutine(UnloadAndLoadRoomCoroutine(loadRoom, true, changeRoomEvent, moment));
+                }
+                else if (loadScenePending != Room.ROOM_NONE)
                 {
                     Room loadRoom = loadScenePending;
                     loadScenePending = Room.ROOM_NONE;
-                    _singleton.StartCoroutine(UnloadAndLoadRoomCoroutine(loadRoom));
+                    changeMomentPending = MomentType.MOMENT_ANY;
+                    _singleton.StartCoroutine(UnloadAndLoadRoomCoroutine(loadRoom, false, true, VARMAP_GameMaster.GET_DAY_MOMENT()));
                 }
             }
 
@@ -276,6 +300,9 @@ namespace Gob3AQ.GameMaster
                 case Game_Status.GAME_STATUS_PLAY_DIALOG:
                     valid = (oldmode == Game_Status.GAME_STATUS_PLAY) || (oldmode == Game_Status.GAME_STATUS_PLAY_MEMENTO);
                     break;
+                case Game_Status.GAME_STATUS_PLAY_DECISION:
+                    valid = (oldmode == Game_Status.GAME_STATUS_PLAY) || (oldmode == Game_Status.GAME_STATUS_PLAY_MEMENTO);
+                    break;
                 case Game_Status.GAME_STATUS_STOPPED:
                 case Game_Status.GAME_STATUS_PLAY_MEMENTO:
                 case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
@@ -285,6 +312,7 @@ namespace Gob3AQ.GameMaster
                     break;
                 case Game_Status.GAME_STATUS_PLAY:
                     valid = (oldmode == Game_Status.GAME_STATUS_PLAY_DIALOG) ||
+                        (oldmode == Game_Status.GAME_STATUS_PLAY_DECISION) ||
                         (oldmode == Game_Status.GAME_STATUS_PLAY_MEMENTO) ||
                         (oldmode == Game_Status.GAME_STATUS_STOPPED) ||
                         (oldmode == Game_Status.GAME_STATUS_PLAY_ITEM_MENU) ||
@@ -302,6 +330,14 @@ namespace Gob3AQ.GameMaster
             }
 
             error = !valid;
+        }
+
+        public static void ChangeDayMomentService(MomentType moment)
+        {
+            if(VARMAP_GameMaster.GET_SHADOW_GAMESTATUS() != Game_Status.GAME_STATUS_STOPPED)
+            {
+                changeMomentPending = moment;
+            }
         }
 
 
@@ -335,13 +371,15 @@ namespace Gob3AQ.GameMaster
             ResourceAtlasClass.Initialize();
         }
 
-        private IEnumerator UnloadAndLoadRoomCoroutine(Room room)
+        private IEnumerator UnloadAndLoadRoomCoroutine(Room room, bool changeDayEvent, bool changeRoomEvent, MomentType moment)
         {
             AsyncOperationHandle<SceneInstance> nextRoom;
 
             /* Operations prepared for next level */
             /* Commit pending changes */
-            
+
+            ManageChangeRoomEvents(changeDayEvent, changeRoomEvent);
+            VARMAP_GameMaster.SET_DAY_MOMENT(moment);
             VARMAP_GameMaster.SET_ACTUAL_ROOM(room);
             _SetGameStatus(Game_Status.GAME_STATUS_CHANGING_ROOM);
 
@@ -384,6 +422,23 @@ namespace Gob3AQ.GameMaster
             yield return ResourceAtlasClass.WaitForNextFrame;
 
             VARMAP_GameMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameMaster);
+        }
+
+        private static void ManageChangeRoomEvents(bool changeDayEvent, bool changeRoomEvent)
+        {
+            Span<GameEventCombi> combiStack = stackalloc GameEventCombi[1];
+
+            if(changeDayEvent)
+            {
+                combiStack[0] = new GameEventCombi(GameEvent.EVENT_MASTER_CHANGE_MOMENT_DAY, true);
+                VARMAP_GameMaster.COMMIT_EVENT(combiStack);
+            }
+
+            if (changeRoomEvent)
+            {
+                combiStack[0] = new GameEventCombi(GameEvent.EVENT_MASTER_CHANGE_ROOM, true);
+                VARMAP_GameMaster.COMMIT_EVENT(combiStack);
+            }
         }
 
 

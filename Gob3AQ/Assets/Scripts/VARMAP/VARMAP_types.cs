@@ -356,6 +356,8 @@ namespace Gob3AQ.VARMAP.Types
         public readonly CharacterType targetCharacter;
         public readonly Memento targetMemento;
         private readonly GameEventCombi[] targetEvents;
+        public readonly DecisionType targetDecision;
+        public readonly MomentType targetMomentOfDay;
 
         public ReadOnlySpan<GameEventCombi> NeededEvents => neededEvents;
 
@@ -363,10 +365,11 @@ namespace Gob3AQ.VARMAP.Types
 
         public static readonly UnchainInfo EMPTY = new(false, UnchainType.UNCHAIN_TYPE_SET_SPRITE, GameEventCombi.EMPTY,
             new GameEventCombi[0],MomentType.MOMENT_ANY, GameItem.ITEM_NONE, GameSprite.SPRITE_NONE, CharacterType.CHARACTER_NONE,
-            Memento.MEMENTO_NONE, new GameEventCombi[0]);
+            Memento.MEMENTO_NONE, new GameEventCombi[0], DecisionType.DECISION_NONE, MomentType.MOMENT_ANY);
 
         public UnchainInfo(bool repeat, UnchainType type, GameEventCombi ignoreif, GameEventCombi[] neededEvents, MomentType momentType,
-            GameItem targetItem, GameSprite targetSprite, CharacterType targetCharacter, Memento targetMemento, GameEventCombi[] targetEvents)
+            GameItem targetItem, GameSprite targetSprite, CharacterType targetCharacter, Memento targetMemento,
+            GameEventCombi[] targetEvents, DecisionType targetDecision, MomentType targetMomentOfDay)
         {
             this.repeat = repeat;
             this.type = type;
@@ -378,6 +381,8 @@ namespace Gob3AQ.VARMAP.Types
             this.targetCharacter = targetCharacter;
             this.targetMemento = targetMemento;
             this.targetEvents = targetEvents;
+            this.targetDecision = targetDecision;
+            this.targetMomentOfDay = targetMomentOfDay;
         }
 
     }

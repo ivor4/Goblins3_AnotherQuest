@@ -121,6 +121,12 @@ namespace Gob3AQ.GameMenu
                 _uicanvas_cls.ActivateDecisionOption(i, true, option, optionPhraseContent.message);
             }
 
+            /* Clear previous usage data and deactivate */
+            for (int i = decisionConfig.Options.Length; i < GameFixedConfig.MAX_DIALOG_OPTIONS; ++i)
+            {
+                _uicanvas_cls.ActivateDecisionOption(i, false, DecisionOption.DECISION_OPTION_NONE, string.Empty);
+            }
+
             decision_optionPending = true;
         }
 
@@ -238,8 +244,10 @@ namespace Gob3AQ.GameMenu
 
                 decision_optionPending = false;
 
-                /* If option is permitted, show it */
-                
+                /* Trigger linked events */
+                VARMAP_GameMenu.COMMIT_EVENT(dialogOptionConfig.TriggeredEvents);
+
+                VARMAP_GameMenu.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
             }
         }
 

@@ -2,6 +2,7 @@
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameMenu.UICanvas;
 using Gob3AQ.Libs.Arith;
+using Gob3AQ.ResourceDecisionsAtlas;
 using Gob3AQ.ResourceDialogs;
 using Gob3AQ.ResourceDialogsAtlas;
 using Gob3AQ.VARMAP.GameMenu;
@@ -22,6 +23,12 @@ namespace Gob3AQ.GameMenu
             DIALOG_TASK_NONE,
             DIALOG_TASK_START,
             DIALOG_TASK_ENDPHRASE
+        }
+
+        private enum DecisionCoroutineTaskType
+        {
+            DECISION_TASK_NONE,
+            DECISION_TASK_START
         }
 
         [SerializeField]
@@ -47,6 +54,10 @@ namespace Gob3AQ.GameMenu
         private WaitUntil yield_custom;
         private DialogCoroutineTaskType dialog_actualTaskType;
         private WaitForSeconds yield_2s;
+
+        private bool decision_optionPending;
+        private DecisionCoroutineTaskType decision_actualTaskType;
+        private DecisionType decision_input_type;
 
         private HashSet<MementoCombi> memento_combi_union;
         private HashSet<MementoCombi> memento_combi_intersection;
@@ -86,6 +97,31 @@ namespace Gob3AQ.GameMenu
                 _singleton.dialog_input_phrase = phrase;
                 _singleton.dialog_actualTaskType = DialogCoroutineTaskType.DIALOG_TASK_START;
            }
+        }
+
+        public static void ShowDecisionService(DecisionType decision)
+        {
+            if (_singleton != null)
+            {
+                _singleton.decision_input_type = decision;
+                _singleton.decision_actualTaskType = DecisionCoroutineTaskType.DECISION_TASK_START;
+            }
+        }
+
+        private void ShowDecisionExec(DecisionType decision)
+        {
+            ref readonly DecisionConfig decisionConfig = ref ResourceDecisionsAtlasClass.GetDecisionConfig(decision);
+
+            for(int i = 0; i < decisionConfig.Options.Length; i++)
+            {
+                DecisionOption option = decisionConfig.Options[i];
+                ref readonly DecisionOptionConfig decisionOptionConfig = ref ResourceDecisionsAtlasClass.GetDecisionOptionConfig(option);
+
+                ResourceDialogsClass.GetPhraseContent(decisionOptionConfig.phrase, out PhraseContent optionPhraseContent);
+                _uicanvas_cls.ActivateDecisionOption(i, true, option, optionPhraseContent.message);
+            }
+
+            decision_optionPending = true;
         }
 
         private void ShowDialogueExec(DialogType dialog, DialogPhrase phrase)
@@ -191,6 +227,19 @@ namespace Gob3AQ.GameMenu
                     StartDialogue(option, dialogPhrases.Length);
                     StartPhrase(dialogPhrases[0]);
                 }
+            }
+        }
+
+        private void OnDecisionOptionClick(DecisionOption option)
+        {
+            if ((VARMAP_GameMenu.GET_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY_DECISION) && decision_optionPending)
+            {
+                ref readonly DecisionOptionConfig dialogOptionConfig = ref ResourceDecisionsAtlasClass.GetDecisionOptionConfig(option);
+
+                decision_optionPending = false;
+
+                /* If option is permitted, show it */
+                
             }
         }
 
@@ -466,6 +515,9 @@ namespace Gob3AQ.GameMenu
                 yield_2s = new WaitForSeconds(2f);
                 dialog_actualTaskType = DialogCoroutineTaskType.DIALOG_TASK_NONE;
 
+                decision_optionPending = false;
+                decision_actualTaskType = DecisionCoroutineTaskType.DECISION_TASK_NONE;
+
                 memento_combi_intersection = new(8);
                 memento_combi_union = new(8);
             }
@@ -490,7 +542,7 @@ namespace Gob3AQ.GameMenu
         private IEnumerator LoadCoroutine()
         {
             Coroutine uicoroutine = StartCoroutine(_uicanvas_cls.Execute_Load_Coroutine(OnDialogOptionClick,
-                OnInventoryItemClick, OnInventoryItemHover, OnMenuButtonClick, OnMementoItemClick));
+                OnDecisionOptionClick, OnInventoryItemClick, OnInventoryItemHover, OnMenuButtonClick, OnMementoItemClick));
             yield return uicoroutine;
 
             /* Preset with actual value */
@@ -505,7 +557,7 @@ namespace Gob3AQ.GameMenu
 
         private bool WaitUntilCondition()
         {
-            return dialog_actualTaskType != DialogCoroutineTaskType.DIALOG_TASK_NONE;
+            return (dialog_actualTaskType != DialogCoroutineTaskType.DIALOG_TASK_NONE) || (decision_actualTaskType != DecisionCoroutineTaskType.DECISION_TASK_NONE);
         }
 
         /// <summary>
@@ -531,6 +583,17 @@ namespace Gob3AQ.GameMenu
 
                     default:
                         dialog_actualTaskType = DialogCoroutineTaskType.DIALOG_TASK_NONE;
+                        break;
+                }
+
+                switch(decision_actualTaskType)
+                {
+                    case DecisionCoroutineTaskType.DECISION_TASK_START:
+                        decision_actualTaskType = DecisionCoroutineTaskType.DECISION_TASK_NONE;
+                        ShowDecisionExec(decision_input_type);
+                        break;
+                    default:
+                        decision_actualTaskType = DecisionCoroutineTaskType.DECISION_TASK_NONE;
                         break;
                 }
 
@@ -677,6 +740,11 @@ namespace Gob3AQ.GameMenu
                         dialog_actualTaskType = DialogCoroutineTaskType.DIALOG_TASK_NONE;
                         dialog_tellingInProgress = false;
                         dialog_optionPending = false;
+                        break;
+
+                    case Game_Status.GAME_STATUS_PLAY_DECISION:
+                        decision_optionPending = false;
+                        decision_actualTaskType = DecisionCoroutineTaskType.DECISION_TASK_NONE;
                         break;
                 }
             }

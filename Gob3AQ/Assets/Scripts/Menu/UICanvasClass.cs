@@ -1,6 +1,7 @@
 using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameMenu.Dialog;
+using Gob3AQ.GameMenu.Decision;
 using Gob3AQ.GameMenu.MementoItem;
 using Gob3AQ.GameMenu.PickableItemDisplay;
 using Gob3AQ.Libs.Arith;
@@ -25,6 +26,7 @@ namespace Gob3AQ.GameMenu.UICanvas
         DISPLAY_MODE_NONE,
         DISPLAY_MODE_INVENTORY,
         DISPLAY_MODE_DIALOG,
+        DISPLAY_MODE_DECISION,
         DISPLAY_MODE_MEMENTO,
         DISPLAY_MODE_LOADING
     }
@@ -53,6 +55,7 @@ namespace Gob3AQ.GameMenu.UICanvas
 
         private GameObject UICanvas_loadingObj;
         private GameObject UICanvas_dialogObj;
+        private GameObject UICanvas_decisionObj;
         private GameObject UICanvas_mementoObj;
         private GameObject UICanvas_itemMenuObj;
 
@@ -61,6 +64,10 @@ namespace Gob3AQ.GameMenu.UICanvas
         private GameObject UICanvas_dialogOptions;
         private DialogOptionButtonClass[] UICanvas_dialogOptionButtons;
         private PickableItemDisplayClass[] UICanvas_inventoryButtons;
+
+        private GameObject UICanvas_decisionOptions;
+        private DecisionOptionButtonClass[] UICanvas_decisionOptionButtons;
+
         private GraphicRaycaster raycaster;
 
         private GameObject cursor;
@@ -106,17 +113,21 @@ namespace Gob3AQ.GameMenu.UICanvas
         private void Awake()
         {
             UICanvas_dialogOptionButtons = new DialogOptionButtonClass[GameFixedConfig.MAX_DIALOG_OPTIONS];
+            UICanvas_decisionOptionButtons = new DecisionOptionButtonClass[GameFixedConfig.MAX_DIALOG_OPTIONS];
             UICanvas_inventoryButtons = new PickableItemDisplayClass[GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS];
             raycaster = GetComponent<GraphicRaycaster>();
 
             UICanvas_loadingObj = transform.Find("LoadingObj").gameObject;
             UICanvas_dialogObj = transform.Find("DialogObj").gameObject;
+            UICanvas_decisionObj = transform.Find("DecisionObj").gameObject;
             UICanvas_mementoObj = transform.Find("MementoObj").gameObject;
             UICanvas_itemMenuObj = transform.Find("ItemMenuObj").gameObject;
 
             UICanvas_dialogObj_sender = UICanvas_dialogObj.transform.Find("DialogSender").GetComponent<TMP_Text>();
             UICanvas_dialogObj_msg = UICanvas_dialogObj.transform.Find("DialogMsg").GetComponent<TMP_Text>();
             UICanvas_dialogOptions = UICanvas_dialogObj.transform.Find("DialogOptions").gameObject;
+
+            UICanvas_decisionOptions = UICanvas_decisionObj.transform.Find("DecisionOptions").gameObject;
 
             cursor = transform.Find("Cursor").gameObject;
             cursor_spr = cursor.GetComponent<Image>();
@@ -171,6 +182,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                 case DisplayMode.DISPLAY_MODE_INVENTORY:
                     UICanvas_loadingObj.SetActive(false);
                     UICanvas_dialogObj.SetActive(false);
+                    UICanvas_decisionObj.SetActive(false);
                     UICanvas_mementoObj.SetActive(false);
                     UICanvas_itemMenuObj.SetActive(true);
 
@@ -179,6 +191,15 @@ namespace Gob3AQ.GameMenu.UICanvas
                 case DisplayMode.DISPLAY_MODE_DIALOG:
                     UICanvas_loadingObj.SetActive(false);
                     UICanvas_dialogObj.SetActive(true);
+                    UICanvas_decisionObj.SetActive(false);
+                    UICanvas_mementoObj.SetActive(false);
+                    UICanvas_itemMenuObj.SetActive(false);
+                    break;
+
+                case DisplayMode.DISPLAY_MODE_DECISION:
+                    UICanvas_loadingObj.SetActive(false);
+                    UICanvas_dialogObj.SetActive(false);
+                    UICanvas_decisionObj.SetActive(true);
                     UICanvas_mementoObj.SetActive(false);
                     UICanvas_itemMenuObj.SetActive(false);
                     break;
@@ -186,12 +207,14 @@ namespace Gob3AQ.GameMenu.UICanvas
                 case DisplayMode.DISPLAY_MODE_MEMENTO:
                     UICanvas_loadingObj.SetActive(false);
                     UICanvas_dialogObj.SetActive(false);
+                    UICanvas_decisionObj.SetActive(false);
                     UICanvas_mementoObj.SetActive(true);
                     UICanvas_itemMenuObj.SetActive(false);
                     break;
                 case DisplayMode.DISPLAY_MODE_LOADING:
                     UICanvas_loadingObj.SetActive(true);
                     UICanvas_dialogObj.SetActive(false);
+                    UICanvas_decisionObj.SetActive(false);
                     UICanvas_mementoObj.SetActive(false);
                     UICanvas_itemMenuObj.SetActive(false);
                     break;
@@ -199,6 +222,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                 default:
                     UICanvas_loadingObj.SetActive(false);
                     UICanvas_dialogObj.SetActive(false);
+                    UICanvas_decisionObj.SetActive(false);
                     UICanvas_mementoObj.SetActive(false);
                     UICanvas_itemMenuObj.SetActive(false);
                     break;
@@ -325,6 +349,22 @@ namespace Gob3AQ.GameMenu.UICanvas
                 button.SetOptionText(in string.Empty);
             }
 
+            button.SetActive(activate);
+        }
+
+        public void ActivateDecisionOption(int index, bool activate, DecisionOption option, string text)
+        {
+            ref readonly DecisionOptionButtonClass button = ref UICanvas_decisionOptionButtons[index];
+            if (activate)
+            {
+                button.SetDecisionOption(option);
+                button.SetOptionText(in text);
+            }
+            else
+            {
+                button.SetDecisionOption(DecisionOption.DECISION_OPTION_NONE);
+                button.SetOptionText(in string.Empty);
+            }
             button.SetActive(activate);
         }
 
@@ -511,6 +551,7 @@ namespace Gob3AQ.GameMenu.UICanvas
         }
 
         public IEnumerator Execute_Load_Coroutine(DIALOG_OPTION_CLICK_DELEGATE OnDialogOptionClick,
+            DECISION_OPTION_CLICK_DELEGATE OnDecisionOptionClick,
             DISPLAYED_ITEM_CLICK OnItemDisplayClick,
             DISPLAYED_ITEM_HOVER OnHover,
             MENU_BUTTON_CLICK_DELEGATE OnMenuButtonClick,
@@ -532,6 +573,14 @@ namespace Gob3AQ.GameMenu.UICanvas
                 Transform btnTransf = UICanvas_dialogOptions.transform.Find("DialogOption" + (i + 1).ToString());
                 UICanvas_dialogOptionButtons[i] = btnTransf.Find("ActiveArea").gameObject.GetComponent<DialogOptionButtonClass>();
                 UICanvas_dialogOptionButtons[i].SetClickDelegate(OnDialogOptionClick);
+                yield return ResourceAtlasClass.WaitForNextFrame;
+            }
+
+            for (int i = 0; i < GameFixedConfig.MAX_DIALOG_OPTIONS; ++i)
+            {
+                Transform btnTransf = UICanvas_decisionOptions.transform.Find("DecisionOption" + (i + 1).ToString());
+                UICanvas_decisionOptionButtons[i] = btnTransf.Find("ActiveArea").gameObject.GetComponent<DecisionOptionButtonClass>();
+                UICanvas_decisionOptionButtons[i].SetClickDelegate(OnDecisionOptionClick);
                 yield return ResourceAtlasClass.WaitForNextFrame;
             }
 

@@ -7,6 +7,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.AdaptivePerformance.Provider.AdaptivePerformanceSubsystemDescriptor;
 
 namespace Gob3AQ.GameEventMaster
 {
@@ -257,6 +258,55 @@ namespace Gob3AQ.GameEventMaster
                         RemoveUnchainerEventsFromPending(unchainerToRemove);
                     }
                     _removePendingHash.Clear();
+                }
+            }
+            else
+            {
+                /* Master pending events (when there is no pending work) */
+                Span<GameEventCombi> stackCheck = stackalloc GameEventCombi[2];
+                stackCheck[0] = new GameEventCombi(GameEvent.EVENT_MASTER_PENDING_SLEEP_LONG, false);
+                IsEventCombiOccurredService(stackCheck[..1], out bool sleepLongPending);
+                stackCheck[0] = new GameEventCombi(GameEvent.EVENT_MASTER_PENDING_SLEEP_NAP, false);
+                IsEventCombiOccurredService(stackCheck[..1], out bool sleepNapPending);
+
+                
+
+                if (sleepLongPending || sleepNapPending)
+                {
+                    MomentType moment;
+                    if(sleepLongPending || (VARMAP_GameEventMaster.GET_DAY_MOMENT() == MomentType.MOMENT_NIGHT))
+                    {
+                        moment = MomentType.MOMENT_MORNING;
+                    }
+                    else
+                    {
+                        moment = MomentType.MOMENT_NIGHT;
+                    }
+
+                    Debug.Log("Changing moment of day to " + moment);
+                    VARMAP_GameEventMaster.CHANGE_DAY_MOMENT(moment);
+
+                    /* Clear them */
+                    stackCheck[0] = new GameEventCombi(GameEvent.EVENT_MASTER_PENDING_SLEEP_LONG, true);
+                    stackCheck[1] = new GameEventCombi(GameEvent.EVENT_MASTER_PENDING_SLEEP_NAP, true);
+                    CommitEventService(stackCheck);
+
+                    processingEvents = true;
+                }
+
+                stackCheck[0] = new GameEventCombi(GameEvent.EVENT_MASTER_CHANGE_MOMENT_DAY, false);
+                IsEventCombiOccurredService(stackCheck[..1], out bool aftermath_change_day);
+                stackCheck[0] = new GameEventCombi(GameEvent.EVENT_MASTER_CHANGE_ROOM, false);
+                IsEventCombiOccurredService(stackCheck[..1], out bool aftermath_change_room);
+
+                if((aftermath_change_day || aftermath_change_room) && (VARMAP_GameEventMaster.GET_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY))
+                {
+                    Debug.Log("Clearing master events after change room/day moment");
+                    stackCheck[0] = new GameEventCombi(GameEvent.EVENT_MASTER_CHANGE_MOMENT_DAY, true);
+                    stackCheck[1] = new GameEventCombi(GameEvent.EVENT_MASTER_CHANGE_ROOM, true);
+                    CommitEventService(stackCheck);
+
+                    processingEvents = true;
                 }
             }
 

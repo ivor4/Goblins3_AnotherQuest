@@ -240,13 +240,13 @@ namespace Gob3AQ.GameMenu
         {
             if ((VARMAP_GameMenu.GET_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY_DECISION) && decision_optionPending)
             {
-                ref readonly DecisionOptionConfig dialogOptionConfig = ref ResourceDecisionsAtlasClass.GetDecisionOptionConfig(option);
+                Debug.Log("Took decision " + option);
+                ref readonly DecisionOptionConfig decisionOptionConfig = ref ResourceDecisionsAtlasClass.GetDecisionOptionConfig(option);
 
                 decision_optionPending = false;
 
                 /* Trigger linked events */
-                VARMAP_GameMenu.COMMIT_EVENT(dialogOptionConfig.TriggeredEvents);
-
+                VARMAP_GameMenu.COMMIT_EVENT(decisionOptionConfig.TriggeredEvents);
                 VARMAP_GameMenu.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
             }
         }

@@ -52,10 +52,10 @@ namespace Gob3AQ.ResourceDecisionsAtlas
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), }),
             new( /* DECISION_OPTION_SLEEP_NAP */
             DialogPhrase.PHRASE_DECISION_SLEEP_NAP,
-            new GameEventCombi[1]{new(GameEvent.EVENT_PENDING_SLEEP_NAP, false), }),
+            new GameEventCombi[1]{new(GameEvent.EVENT_MASTER_PENDING_SLEEP_NAP, false), }),
             new( /* DECISION_OPTION_SLEEP_LONG */
             DialogPhrase.PHRASE_DECISION_SLEEP_LONG,
-            new GameEventCombi[1]{new(GameEvent.EVENT_PENDING_SLEEP_LONG, false), }),
+            new GameEventCombi[1]{new(GameEvent.EVENT_MASTER_PENDING_SLEEP_LONG, false), }),
             new( /* DECISION_OPTION_LAST */
             DialogPhrase.PHRASE_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), }),

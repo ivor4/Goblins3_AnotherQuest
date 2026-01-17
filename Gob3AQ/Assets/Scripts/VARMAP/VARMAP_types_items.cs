@@ -91,6 +91,7 @@ namespace Gob3AQ.VARMAP.Types
         UNCHAIN_SOAP_PICKABLE_TAKE_2, 
         UNCHAIN_SLEEP_DECISION, 
         UNCHAIN_SLEEP_DECISION_2, 
+        UNCHAIN_REME_DAY, 
         
         UNCHAIN_TOTAL
         /* > ATG 4 END < */

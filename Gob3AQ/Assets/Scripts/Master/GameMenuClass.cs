@@ -2,6 +2,7 @@
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameMenu.UICanvas;
 using Gob3AQ.Libs.Arith;
+using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceDecisionsAtlas;
 using Gob3AQ.ResourceDialogs;
 using Gob3AQ.ResourceDialogsAtlas;
@@ -28,7 +29,8 @@ namespace Gob3AQ.GameMenu
         private enum DecisionCoroutineTaskType
         {
             DECISION_TASK_NONE,
-            DECISION_TASK_START
+            DECISION_TASK_START,
+            DECISION_TASK_END
         }
 
         [SerializeField]
@@ -126,6 +128,8 @@ namespace Gob3AQ.GameMenu
             {
                 _uicanvas_cls.ActivateDecisionOption(i, false, DecisionOption.DECISION_OPTION_NONE, string.Empty);
             }
+
+            _uicanvas_cls.SetDecisionNumElems(decisionConfig.Options.Length);
 
             decision_optionPending = true;
         }
@@ -242,12 +246,12 @@ namespace Gob3AQ.GameMenu
             {
                 Debug.Log("Took decision " + option);
                 ref readonly DecisionOptionConfig decisionOptionConfig = ref ResourceDecisionsAtlasClass.GetDecisionOptionConfig(option);
-
                 decision_optionPending = false;
 
                 /* Trigger linked events */
                 VARMAP_GameMenu.COMMIT_EVENT(decisionOptionConfig.TriggeredEvents);
-                VARMAP_GameMenu.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
+
+                decision_actualTaskType = DecisionCoroutineTaskType.DECISION_TASK_END;
             }
         }
 
@@ -599,6 +603,13 @@ namespace Gob3AQ.GameMenu
                     case DecisionCoroutineTaskType.DECISION_TASK_START:
                         decision_actualTaskType = DecisionCoroutineTaskType.DECISION_TASK_NONE;
                         ShowDecisionExec(decision_input_type);
+                        break;
+                    case DecisionCoroutineTaskType.DECISION_TASK_END:
+                        decision_actualTaskType = DecisionCoroutineTaskType.DECISION_TASK_NONE;
+                        /* This avoid this click itself is used in next playing game cycle
+                         * (user clicks this option and room object behind) */
+                        yield return ResourceAtlasClass.WaitForNextFrame;
+                        VARMAP_GameMenu.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
                         break;
                     default:
                         decision_actualTaskType = DecisionCoroutineTaskType.DECISION_TASK_NONE;

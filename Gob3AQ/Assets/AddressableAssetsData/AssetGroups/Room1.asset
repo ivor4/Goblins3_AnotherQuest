@@ -25,6 +25,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 28c646fae8308ad488a1a03e5db58752
+    m_Address: SPRITE_ATLAS_HIVE1_4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2bf1854a514f448499f01863f045329f
     m_Address: SPRITE_ATLAS_HIVE1_0
     m_ReadOnly: 0
@@ -52,6 +57,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d813509abde52554b9a9b0193a292716
     m_Address: SCENE_HIVE1_WC_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f70bf93d3f18c3c48826dff133252650
+    m_Address: SPRITE_ATLAS_HIVE1_5
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

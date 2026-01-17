@@ -29,6 +29,8 @@ namespace Gob3AQ.VARMAP.Types
         BACKGROUND_HIVE1_WC, 
         SPRITE_MEMENTO_JOB, 
         SPRITE_PICKABLE_SOAP, 
+        BACKGROUND_HIVE1_CORRIDOR1_N, 
+        BACKGROUND_HIVE1_HALL1_N, 
         SPRITE_LAST, 
         
         SPRITE_TOTAL

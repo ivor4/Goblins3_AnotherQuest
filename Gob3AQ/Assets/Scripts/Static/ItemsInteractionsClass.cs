@@ -262,6 +262,13 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameEventCombi[1]{new(GameEvent.EVENT_LAUNCH_SLEEP_DECISION, true),}, 
             DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             
+            new( /* UNCHAIN_REME_DAY */
+            true,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            MomentType.MOMENT_MORNING, GameItem.ITEM_HIVE1_NPC_REME, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            
             /* > ATG 1 END < */
         };
 

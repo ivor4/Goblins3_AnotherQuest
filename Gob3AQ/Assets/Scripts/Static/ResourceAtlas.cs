@@ -177,15 +177,15 @@ namespace Gob3AQ.ResourceAtlas
             ),
             
             new( /* HIVE1_CORRIDOR_1 */
-            new GameSprite[1]{GameSprite.BACKGROUND_HIVE1_CORRIDOR1, },
-            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_HIVE1_CORRIDOR1, }), 
+            new GameSprite[2]{GameSprite.BACKGROUND_HIVE1_CORRIDOR1, GameSprite.BACKGROUND_HIVE1_CORRIDOR1_N, },
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_HIVE1_CORRIDOR1, GameSprite.BACKGROUND_HIVE1_CORRIDOR1_N, }), 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(2){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_HIVE1_NPC_REME, }) 
             ),
             
             new( /* HIVE1_HALL_1 */
-            new GameSprite[1]{GameSprite.BACKGROUND_HIVE1_HALL1, },
-            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_HIVE1_HALL1, }), 
+            new GameSprite[2]{GameSprite.BACKGROUND_HIVE1_HALL1, GameSprite.BACKGROUND_HIVE1_HALL1_N, },
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_HIVE1_HALL1, GameSprite.BACKGROUND_HIVE1_HALL1_N, }), 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(4){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_GENERIC_DOOR2, GameItem.ITEM_HIVE1_AD_BOARD, GameItem.ITEM_HIVE1_EXIT_DOOR, }) 
             ),

@@ -67,6 +67,7 @@ namespace Gob3AQ.GameMenu.UICanvas
 
         private GameObject UICanvas_decisionOptions;
         private DecisionOptionButtonClass[] UICanvas_decisionOptionButtons;
+        private RectTransform UICanvas_deicsionObj_rect;
 
         private GraphicRaycaster raycaster;
 
@@ -128,6 +129,7 @@ namespace Gob3AQ.GameMenu.UICanvas
             UICanvas_dialogOptions = UICanvas_dialogObj.transform.Find("DialogOptions").gameObject;
 
             UICanvas_decisionOptions = UICanvas_decisionObj.transform.Find("DecisionOptions").gameObject;
+            UICanvas_deicsionObj_rect = UICanvas_decisionObj.GetComponent<RectTransform>();
 
             cursor = transform.Find("Cursor").gameObject;
             cursor_spr = cursor.GetComponent<Image>();
@@ -366,6 +368,12 @@ namespace Gob3AQ.GameMenu.UICanvas
                 button.SetOptionText(in string.Empty);
             }
             button.SetActive(activate);
+        }
+
+        public void SetDecisionNumElems(int numElems)
+        {
+            UICanvas_deicsionObj_rect.sizeDelta = new Vector2(UICanvas_deicsionObj_rect.sizeDelta.x,
+                numElems * 50f);
         }
 
 

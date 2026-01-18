@@ -191,10 +191,17 @@ namespace Gob3AQ.ResourceAtlas
             ),
             
             new( /* HIVE1_WC_1 */
-            new GameSprite[1]{GameSprite.BACKGROUND_HIVE1_WC, },
-            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_HIVE1_WC, }), 
+            new GameSprite[2]{GameSprite.BACKGROUND_HIVE1_WC, GameSprite.BACKGROUND_HIVE1_WC_N, },
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_HIVE1_WC, GameSprite.BACKGROUND_HIVE1_WC_N, }), 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(2){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_HIVE1_BASIN, }) 
+            ),
+            
+            new( /* CITY1_STREET_1 */
+            new GameSprite[2]{GameSprite.BACKGROUND_CITY1_STREET1, GameSprite.BACKGROUND_CITY1_STREET1_N, },
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_CITY1_STREET1, GameSprite.BACKGROUND_CITY1_STREET1_N, }), 
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(1){GameItem.ITEM_GENERIC_DOOR1, }) 
             ),
             
             new( /* ROOM_LAST */

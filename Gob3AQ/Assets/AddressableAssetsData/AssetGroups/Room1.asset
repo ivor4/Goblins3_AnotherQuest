@@ -21,7 +21,12 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1191512f560963f4ea2f49deeab8a0e3
-    m_Address: SPRITE_ATLAS_CITY1_STREET1_0
+    m_Address: SPRITE_ATLAS_CITY1_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 228a22083e10aa741b5fb145fe93470c
+    m_Address: SPRITE_ATLAS_HIVE1_6
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -45,6 +50,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9207e99b07d624542a014701b6a4a133
+    m_Address: SCENE_CITY1_STREET_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9efdb536fbe3d074cb2e85252bfc6e34
     m_Address: SCENE_HIVE1_HALL_1
     m_ReadOnly: 0
@@ -52,6 +62,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a75b7445ea97e974bb97beccacf0f9b0
     m_Address: SPRITE_ATLAS_HIVE1_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf8a67485de98d44b8a707860c61f5ff
+    m_Address: SPRITE_ATLAS_CITY1_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

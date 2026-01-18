@@ -10,6 +10,7 @@ namespace Gob3AQ.VARMAP.Types
         HIVE1_CORRIDOR_1, 
         HIVE1_HALL_1, 
         HIVE1_WC_1, 
+        CITY1_STREET_1, 
         ROOM_LAST, 
         
         ROOMS_TOTAL 

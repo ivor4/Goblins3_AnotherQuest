@@ -417,6 +417,13 @@ namespace Gob3AQ.Brain.ItemsInteraction
             DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_LAUNCH_SLEEP_DECISION, false),}), 
             
+            new( /* COND_GO_STREET1_SOUTH_NEIGH */
+            new GameEventCombi[1]{new(GameEvent.EVENT_CAN_GO_SOUTH_NEIGH, true),}, 
+            CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_CROSS_DOOR,
+            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
+            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_WONT_GO_SOUTH_NEIGH,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,
@@ -507,6 +514,21 @@ namespace Gob3AQ.Brain.ItemsInteraction
             NameType.NAME_ITEM_BED,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK,}),
             GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
             new ActionConditions[1]{ActionConditions.COND_USE_HIVE1_BED,}),
+            
+            new ( /* ITEM_STREET1_STH_DOOR */
+            NameType.NAME_SOUTH_NEIGHBORHOOD,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK,}),
+            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_GO_STREET1_SOUTH_NEIGH,}),
+            
+            new ( /* ITEM_STREET1_CENTER_DOOR */
+            NameType.NAME_CITY_CENTER,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK,}),
+            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_OK,}),
+            
+            new ( /* ITEM_STREET2_PERIPH_DOOR */
+            NameType.NAME_CITY_PERIPH,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK,}),
+            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_OK,}),
             
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST,}),

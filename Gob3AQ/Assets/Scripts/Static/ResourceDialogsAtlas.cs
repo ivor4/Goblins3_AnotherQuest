@@ -152,6 +152,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DECISION_NOT_SLEEP */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DECISION_SLEEP_NAP */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DECISION_SLEEP_LONG */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_WONT_GO_SOUTH_NEIGH */ 
             /* > ATG 3 END < */
         };
     }

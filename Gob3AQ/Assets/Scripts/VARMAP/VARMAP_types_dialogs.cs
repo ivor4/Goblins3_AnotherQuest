@@ -63,6 +63,7 @@ namespace Gob3AQ.VARMAP.Types
         PHRASE_DECISION_NOT_SLEEP, 
         PHRASE_DECISION_SLEEP_NAP, 
         PHRASE_DECISION_SLEEP_LONG, 
+        PHRASE_WONT_GO_SOUTH_NEIGH, 
         
         PHRASE_TOTAL
         /* > ATG 3 END < */

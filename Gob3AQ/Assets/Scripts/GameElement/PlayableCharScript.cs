@@ -348,12 +348,15 @@ namespace Gob3AQ.GameElement.PlayableChar
                 SetSize(waypoints_sizes[actualWaypoint]);
             }
 
-            delta = (waypoints_pos[actualProgrammedPath.target_index] - waypoints_pos[actualWaypoint]).normalized;
+            delta = ((Vector2)waypoints_pos[actualProgrammedPath.target_index] - (Vector2)waypoints_pos[actualWaypoint]).normalized;
 
             if (actualProgrammedPath.wp_distance3D != 0f)
             {
                 speed_reduction_factor = actualProgrammedPath.wp_distance / actualProgrammedPath.wp_distance3D;
             }
+
+            /* Remove after debugging */
+            speed_reduction_factor = 1f;
 
             myRigidbody.linearVelocity = GameFixedConfig.CHARACTER_NORMAL_SPEED * speed_reduction_factor * delta;
         }

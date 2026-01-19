@@ -28,3 +28,4 @@ N,PHRASE_ID,TalkerIndex,Sound,CharAnimation,Text_English,Text_Spanish
 26,PHRASE_DECISION_NOT_SLEEP,0,0,DIALOG_ANIMATION_TALK,Don't sleep,No dormir
 27,PHRASE_DECISION_SLEEP_NAP,0,0,DIALOG_ANIMATION_TALK,Sleep for a while,Echarse un rato
 28,PHRASE_DECISION_SLEEP_LONG,0,0,DIALOG_ANIMATION_TALK,Sleep until next day,Dormir hasta el día siguiente
+29,PHRASE_WONT_GO_SOUTH_NEIGH,0,0,DIALOG_ANIMATION_TALK,That neighborhood is dangerous. Don't need to go there,Ese barrio es muy peligroso. No necesito pasar por ahí

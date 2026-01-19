@@ -201,7 +201,14 @@ namespace Gob3AQ.ResourceAtlas
             new GameSprite[2]{GameSprite.BACKGROUND_CITY1_STREET1, GameSprite.BACKGROUND_CITY1_STREET1_N, },
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_CITY1_STREET1, GameSprite.BACKGROUND_CITY1_STREET1_N, }), 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(1){GameItem.ITEM_GENERIC_DOOR1, }) 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(3){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_STREET1_STH_DOOR, GameItem.ITEM_STREET1_CENTER_DOOR, }) 
+            ),
+            
+            new( /* CITY1_STREET_2 */
+            new GameSprite[2]{GameSprite.BACKGROUND_CITY1_STREET2, GameSprite.BACKGROUND_CITY1_STREET2_N, },
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_CITY1_STREET2, GameSprite.BACKGROUND_CITY1_STREET2_N, }), 
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(1){GameItem.ITEM_STREET2_PERIPH_DOOR, }) 
             ),
             
             new( /* ROOM_LAST */

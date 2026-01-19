@@ -21,6 +21,9 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_HIVE1_BASIN, 
         ITEM_SOAP_PICKABLE, 
         ITEM_HIVE1_BED, 
+        ITEM_STREET1_STH_DOOR, 
+        ITEM_STREET1_CENTER_DOOR, 
+        ITEM_STREET2_PERIPH_DOOR, 
         ITEM_LAST, 
         
         ITEM_TOTAL
@@ -61,6 +64,7 @@ namespace Gob3AQ.VARMAP.Types
         COND_USE_HIVE1_PERFUME_NOT_2, 
         COND_USE_CARDS_REME, 
         COND_USE_HIVE1_BED, 
+        COND_GO_STREET1_SOUTH_NEIGH, 
         COND_LAST, 
         
         COND_TOTAL

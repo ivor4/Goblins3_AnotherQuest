@@ -17,4 +17,7 @@ N,NAME_ID,Name_English,Name_Spanish
 15,NAME_ITEM_BASIN,Basin,Lavabo
 16,NAME_ITEM_SOAP,Soap,Jabón
 17,NAME_ITEM_BED,Bed,Cama
-18,NAME_NPC_LAST,Last,Ultimo
+18,NAME_SOUTH_NEIGHBORHOOD,South neighborhood,Barrio sur
+19,NAME_CITY_CENTER,City center,Centro de la ciudad
+20,NAME_CITY_PERIPH,City periphery,Barrio periferia
+21,NAME_NPC_LAST,Last,Ultimo

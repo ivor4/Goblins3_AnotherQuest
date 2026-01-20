@@ -215,7 +215,7 @@ namespace Gob3AQ.ResourceAtlas
             new GameSprite[1]{GameSprite.BACKGROUND_PHARMACY1, },
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_PHARMACY1, }), 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(1){GameItem.ITEM_GENERIC_DOOR1, }) 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(3){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_PHARMACY_NPC_QUEUE, GameItem.ITEM_PHARMACY_NPC_OWNER, }) 
             ),
             
             new( /* ROOM_LAST */

@@ -25,6 +25,8 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_STREET1_CENTER_DOOR, 
         ITEM_STREET2_PERIPH_DOOR, 
         ITEM_PHARMACY_DOOR, 
+        ITEM_PHARMACY_NPC_QUEUE, 
+        ITEM_PHARMACY_NPC_OWNER, 
         ITEM_LAST, 
         
         ITEM_TOTAL

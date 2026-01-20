@@ -21,4 +21,6 @@ N,NAME_ID,Name_English,Name_Spanish
 19,NAME_CITY_CENTER,City center,Centro de la ciudad
 20,NAME_CITY_PERIPH,City periphery,Barrio periferia
 21,NAME_PHARMACY,Pharmacy,Botica
-22,NAME_NPC_LAST,Last,Ultimo
+22,NAME_QUEUE_PEOPLE,Client queue,Cola de clientes
+23,NAME_PHARMACIST,Pharmacist,Boticario
+24,NAME_NPC_LAST,Last,Ultimo

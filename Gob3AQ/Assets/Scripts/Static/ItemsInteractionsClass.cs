@@ -542,6 +542,16 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
             new ActionConditions[1]{ActionConditions.COND_OK,}),
             
+            new ( /* ITEM_PHARMACY_NPC_QUEUE */
+            NameType.NAME_QUEUE_PEOPLE,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_NPC_PHARMACY_QUEUE,}),
+            GameSprite.SPRITE_NPC_PHARMACY_QUEUE,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_OK,}),
+            
+            new ( /* ITEM_PHARMACY_NPC_OWNER */
+            NameType.NAME_PHARMACIST,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_NPC_PHARMACY_OWNER,}),
+            GameSprite.SPRITE_NPC_PHARMACY_OWNER,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_OK,}),
+            
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST,}),
             GameSprite.SPRITE_LAST,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,

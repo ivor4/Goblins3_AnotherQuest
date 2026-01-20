@@ -24,6 +24,7 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_STREET1_STH_DOOR, 
         ITEM_STREET1_CENTER_DOOR, 
         ITEM_STREET2_PERIPH_DOOR, 
+        ITEM_PHARMACY_DOOR, 
         ITEM_LAST, 
         
         ITEM_TOTAL
@@ -96,6 +97,7 @@ namespace Gob3AQ.VARMAP.Types
         UNCHAIN_SLEEP_DECISION, 
         UNCHAIN_SLEEP_DECISION_2, 
         UNCHAIN_REME_DAY, 
+        UNCHAIN_PHARMACY_DOOR_AVAIL, 
         
         UNCHAIN_TOTAL
         /* > ATG 4 END < */

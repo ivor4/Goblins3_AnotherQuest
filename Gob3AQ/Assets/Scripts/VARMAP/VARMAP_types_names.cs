@@ -28,6 +28,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_SOUTH_NEIGHBORHOOD, 
         NAME_CITY_CENTER, 
         NAME_CITY_PERIPH, 
+        NAME_PHARMACY, 
         NAME_NPC_LAST, 
         
         NAME_TOTAL

@@ -30,6 +30,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 237b550567e79ac4c915acf3a6e06bc3
+    m_Address: SCENE_PHARMACY1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 28c646fae8308ad488a1a03e5db58752
     m_Address: SPRITE_ATLAS_HIVE1_4
     m_ReadOnly: 0
@@ -72,6 +77,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a85cc1a46a7990940b8e5a28d00b13ef
     m_Address: SCENE_CITY1_STREET_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aba4ff5aa30dda246a6ac7f301874162
+    m_Address: SPRITE_ATLAS_PHARMACY1_1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

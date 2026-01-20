@@ -12,6 +12,7 @@ namespace Gob3AQ.VARMAP.Types
         HIVE1_WC_1, 
         CITY1_STREET_1, 
         CITY1_STREET_2, 
+        PHARMACY_1, 
         ROOM_LAST, 
         
         ROOMS_TOTAL 

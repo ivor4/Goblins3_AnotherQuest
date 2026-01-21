@@ -6,11 +6,12 @@ using UnityEngine.EventSystems;
 
 namespace Gob3AQ.GameMenu.Dialog
 {
-    public delegate void DIALOG_OPTION_CLICK_DELEGATE(DialogOption option);
+    public delegate void DIALOG_OPTION_CLICK_DELEGATE(DialogOption option, DialogPhrase phrase);
 
     public class DialogOptionButtonClass : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
         private DialogOption dialogOption;
+        private DialogPhrase dialogPhrase;
         private TMP_Text optionText;
         private GameObject optionParent;
         private DIALOG_OPTION_CLICK_DELEGATE clickDelegate;
@@ -20,8 +21,9 @@ namespace Gob3AQ.GameMenu.Dialog
             dialogOption = option;
         }
 
-        public void SetOptionText(in string text)
+        public void SetDialogPhrase(DialogPhrase phrase, string text)
         {
+            dialogPhrase = phrase;
             optionText.text = text;
         }
 
@@ -38,7 +40,7 @@ namespace Gob3AQ.GameMenu.Dialog
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            clickDelegate?.Invoke(dialogOption);
+            clickDelegate?.Invoke(dialogOption, dialogPhrase);
         }
 
         public void OnPointerEnter(PointerEventData eventData)

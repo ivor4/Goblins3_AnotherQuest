@@ -188,15 +188,18 @@ namespace Gob3AQ.VARMAP.Types
         private readonly GameEventCombi[] conditionEvents;
         private readonly GameEventCombi[] triggeredEvents;
         public readonly DialogType dialogTriggered;
+        public readonly bool randomized;
         private readonly DialogPhrase[] phrases;
 
-        public static readonly DialogOptionConfig EMPTY = new(new GameEventCombi[0], new GameEventCombi[0], DialogType.DIALOG_NONE, new DialogPhrase[0]);
+        public static readonly DialogOptionConfig EMPTY = new(new GameEventCombi[0], new GameEventCombi[0], DialogType.DIALOG_NONE, false, new DialogPhrase[0]);
 
-        public DialogOptionConfig(GameEventCombi[] conditionEvents, GameEventCombi[] triggeredEvents, DialogType dialogTriggered, DialogPhrase[] phrases)
+        public DialogOptionConfig(GameEventCombi[] conditionEvents, GameEventCombi[] triggeredEvents, DialogType dialogTriggered,
+            bool randomized, DialogPhrase[] phrases)
         {
             this.conditionEvents = conditionEvents;
             this.triggeredEvents = triggeredEvents;
             this.dialogTriggered = dialogTriggered;
+            this.randomized = randomized;
             this.phrases = phrases;
         }
     }

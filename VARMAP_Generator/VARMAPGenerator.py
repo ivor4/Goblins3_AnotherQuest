@@ -795,10 +795,10 @@ for line in DIALOGSinputFile:
             
             
             
-            stringToWrite = dialog_prefix+columns[4]+',\n'
+            stringToWrite = dialog_prefix+columns[4]+','+columns[5].lower()+',\n'
             dialog_atlas_lines.InsertLineInATG(2, stringToWrite)
             
-            options = columns[5].split('|')
+            options = columns[6].split('|')
             num_options = len(options)
             
             stringToWrite = 'new DialogPhrase['+str(num_options)+']{'

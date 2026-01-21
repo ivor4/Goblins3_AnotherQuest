@@ -21,6 +21,7 @@ namespace Gob3AQ.VARMAP.Types
         EVENT_SOAP_PICKABLE_TAKEN, 
         EVENT_LAUNCH_SLEEP_DECISION, 
         EVENT_CAN_GO_SOUTH_NEIGH, 
+        EVENT_PHARMACY_EMPTY, 
         EVENT_LAST, 
         
         EVENT_TOTAL

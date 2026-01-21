@@ -29,3 +29,6 @@ N,PHRASE_ID,TalkerIndex,Sound,CharAnimation,Text_English,Text_Spanish
 27,PHRASE_DECISION_SLEEP_NAP,0,0,DIALOG_ANIMATION_TALK,Sleep for a while,Echarse un rato
 28,PHRASE_DECISION_SLEEP_LONG,0,0,DIALOG_ANIMATION_TALK,Sleep until next day,Dormir hasta el día siguiente
 29,PHRASE_WONT_GO_SOUTH_NEIGH,0,0,DIALOG_ANIMATION_TALK,That neighborhood is dangerous. Don't need to go there,Ese barrio es muy peligroso. No necesito pasar por ahí
+30,PHRASE_TRY_TALK_PHARMACIST_BUSY,0,0,DIALOG_ANIMATION_TALK,Excuse me sir. It will be only one second,Disculpe. Solo será un segundo
+31,PHRASE_PHARMACIST_BUSY_1,1,0,DIALOG_ANIMATION_TALK,Young! Don't you see I'm busy?,Joven! No ves que estoy ocupado?
+32,PHRASE_PHARMACIST_BUSY_2,1,0,DIALOG_ANIMATION_TALK,Please go to queue if you want something,Por favor. A la cola si quieres algo

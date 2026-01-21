@@ -336,19 +336,19 @@ namespace Gob3AQ.GameMenu.UICanvas
             }
         }
 
-        public void ActivateDialogOption(int index, bool activate, DialogOption option, string text)
+        public void ActivateDialogOption(int index, bool activate, DialogOption option, DialogPhrase phrase, string text)
         {
             ref readonly DialogOptionButtonClass button = ref UICanvas_dialogOptionButtons[index];
 
             if (activate)
             {
                 button.SetDialogOption(option);
-                button.SetOptionText(in text);
+                button.SetDialogPhrase(phrase, text);
             }
             else
             {
                 button.SetDialogOption(DialogOption.DIALOG_OPTION_NONE);
-                button.SetOptionText(in string.Empty);
+                button.SetDialogPhrase(DialogPhrase.PHRASE_NONE, string.Empty);
             }
 
             button.SetActive(activate);

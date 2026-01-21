@@ -168,14 +168,25 @@ namespace Gob3AQ.GameMenu
                     if (valid)
                     {
                         ReadOnlySpan<DialogPhrase> dialogPhrases = dialogOptionConfig.Phrases;
+                        DialogPhrase headPhrase;
 
-                        ResourceDialogsClass.GetPhraseContent(dialogPhrases[0], out PhraseContent optionPhraseContent);
+                        if (dialogOptionConfig.randomized)
+                        {
+                            headPhrase = dialogPhrases[UnityEngine.Random.Range(0, dialogPhrases.Length)];
+                            uniqueNumPhrases = 1;
+                        }
+                        else
+                        {
+                            headPhrase = dialogPhrases[0];
+                            uniqueNumPhrases = dialogOptionConfig.Phrases.Length;
+                        }
 
-                        _uicanvas_cls.ActivateDialogOption(selectableOptions, true, dialogOptions[i], optionPhraseContent.message);
-
-                        uniquePhrase = dialogPhrases[0];
+                        uniquePhrase = headPhrase;
                         uniqueOption = dialogOptions[i];
-                        uniqueNumPhrases = dialogOptionConfig.Phrases.Length;
+
+                        ResourceDialogsClass.GetPhraseContent(headPhrase, out PhraseContent optionPhraseContent);
+                        _uicanvas_cls.ActivateDialogOption(selectableOptions, true, dialogOptions[i], headPhrase, optionPhraseContent.message);
+                        
                         ++selectableOptions;
                     }
                 }
@@ -183,7 +194,7 @@ namespace Gob3AQ.GameMenu
                 /* Clear previous usage data and deactivate */
                 for (int i = selectableOptions; i < GameFixedConfig.MAX_DIALOG_OPTIONS; ++i)
                 {
-                    _uicanvas_cls.ActivateDialogOption(i, false, DialogOption.DIALOG_OPTION_NONE, string.Empty);
+                    _uicanvas_cls.ActivateDialogOption(i, false, DialogOption.DIALOG_OPTION_NONE, DialogPhrase.PHRASE_NONE, string.Empty);
                 }
             }
 
@@ -221,7 +232,7 @@ namespace Gob3AQ.GameMenu
             }
         }
 
-        private void OnDialogOptionClick(DialogOption option)
+        private void OnDialogOptionClick(DialogOption option, DialogPhrase phrase)
         {
             if ((VARMAP_GameMenu.GET_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY_DIALOG) && dialog_optionPending)
             {
@@ -234,8 +245,10 @@ namespace Gob3AQ.GameMenu
                 if (valid)
                 {
                     ReadOnlySpan<DialogPhrase> dialogPhrases = dialogOptionConfig.Phrases;
-                    StartDialogue(option, dialogPhrases.Length);
-                    StartPhrase(dialogPhrases[0]);
+                    int length = dialogOptionConfig.randomized ? 1 : dialogPhrases.Length;
+
+                    StartDialogue(option, length);
+                    StartPhrase(phrase);
                 }
             }
         }
@@ -407,7 +420,6 @@ namespace Gob3AQ.GameMenu
 
                         /* If end of conversation triggers an event */
                         VARMAP_GameMenu.COMMIT_EVENT(dialogConfig.TriggeredEvents);
-
                         VARMAP_GameMenu.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
                     }
                 }

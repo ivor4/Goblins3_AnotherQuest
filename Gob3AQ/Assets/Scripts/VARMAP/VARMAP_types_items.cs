@@ -68,6 +68,7 @@ namespace Gob3AQ.VARMAP.Types
         COND_USE_CARDS_REME, 
         COND_USE_HIVE1_BED, 
         COND_GO_STREET1_SOUTH_NEIGH, 
+        COND_TRY_TALK_PHARMACIST, 
         COND_LAST, 
         
         COND_TOTAL

@@ -78,7 +78,8 @@ namespace Gob3AQ.FixedConfig
             "SCENE_HIVE1_WC_1",
             "SCENE_CITY1_STREET_1",
             "SCENE_CITY1_STREET_2",
-            "SCENE_PHARMACY1"
+            "SCENE_PHARMACY1",
+            "SCENE_MANYO1"
         };
         
     }

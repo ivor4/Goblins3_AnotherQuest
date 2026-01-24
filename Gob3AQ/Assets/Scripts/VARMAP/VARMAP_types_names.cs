@@ -32,6 +32,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_QUEUE_PEOPLE, 
         NAME_PHARMACIST, 
         NAME_UMBRELLA, 
+        NAME_ELMANYO, 
         NAME_NPC_LAST, 
         
         NAME_TOTAL

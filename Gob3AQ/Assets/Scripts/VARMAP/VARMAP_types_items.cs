@@ -28,6 +28,7 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_PHARMACY_NPC_QUEUE, 
         ITEM_PHARMACY_NPC_OWNER, 
         ITEM_CITY1_UMBRELLA, 
+        ITEM_ELMANYO_DOOR, 
         ITEM_LAST, 
         
         ITEM_TOTAL

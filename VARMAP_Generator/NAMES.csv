@@ -23,4 +23,5 @@ N,NAME_ID,Name_English,Name_Spanish
 21,NAME_PHARMACY,Pharmacy,Botica
 22,NAME_QUEUE_PEOPLE,Client queue,Cola de clientes
 23,NAME_PHARMACIST,Pharmacist,Boticario
-24,NAME_NPC_LAST,Last,Ultimo
+24,NAME_UMBRELLA,Umbrella,Paraguas
+25,NAME_NPC_LAST,Last,Ultimo

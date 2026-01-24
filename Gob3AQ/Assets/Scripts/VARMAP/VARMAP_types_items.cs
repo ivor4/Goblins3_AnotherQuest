@@ -27,6 +27,7 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_PHARMACY_DOOR, 
         ITEM_PHARMACY_NPC_QUEUE, 
         ITEM_PHARMACY_NPC_OWNER, 
+        ITEM_CITY1_UMBRELLA, 
         ITEM_LAST, 
         
         ITEM_TOTAL
@@ -39,6 +40,7 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_PICK_NONE = -1,
         ITEM_PICK_CARDS_PICKABLE, 
         ITEM_PICK_SOAP_PICKABLE, 
+        ITEM_PICK_CITY1_UMBRELLA, 
         
         ITEM_PICK_TOTAL
         /* > ATG 2 END < */

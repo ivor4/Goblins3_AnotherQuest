@@ -85,6 +85,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b5bcf86eb656486478fc990376c70fa5
+    m_Address: SPRITE_ATLAS_MANYO_0
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bf8a67485de98d44b8a707860c61f5ff
     m_Address: SPRITE_ATLAS_CITY1_2
     m_ReadOnly: 0

@@ -25,4 +25,6 @@ N,NAME_ID,Name_English,Name_Spanish
 23,NAME_PHARMACIST,Pharmacist,Boticario
 24,NAME_UMBRELLA,Umbrella,Paraguas
 25,NAME_ELMANYO,Restaurant El Maño,Restaurante El Maño
-26,NAME_NPC_LAST,Last,Ultimo
+26,NAME_OWNER,Owner,Propietario
+27,NAME_STUFFED_DEER,Stuffed deer,Ciervo disecado
+28,NAME_NPC_LAST,Last,Ultimo

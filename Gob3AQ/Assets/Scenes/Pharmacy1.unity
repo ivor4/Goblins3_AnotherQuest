@@ -1435,12 +1435,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC Queue
       objectReference: {fileID: 0}
+    - target: {fileID: 6869328664999452173, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 7.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 6869328664999452173, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 5.65
+      objectReference: {fileID: 0}
     - target: {fileID: 7615836467117073131, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 88d3d208d6af4504f97306f35f749731, type: 3}
     m_RemovedComponents:
     - {fileID: 1155209953169313766, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+    - {fileID: 6869328664999452173, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1919,6 +1928,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC Owner
       objectReference: {fileID: 0}
+    - target: {fileID: 6869328664999452173, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 6869328664999452173, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.14
+      objectReference: {fileID: 0}
     - target: {fileID: 7615836467117073131, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1933,6 +1950,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1155209953169313766, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+    - {fileID: 6869328664999452173, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

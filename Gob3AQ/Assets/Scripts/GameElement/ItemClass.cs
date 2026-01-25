@@ -20,6 +20,9 @@ namespace Gob3AQ.GameElement.Item
         [SerializeField]
         private float maxZoomLevel;
 
+        [SerializeField]
+        private Color nightColor;
+
         private float actualZoomLevel;
 
         private Color transparent_color;
@@ -35,8 +38,16 @@ namespace Gob3AQ.GameElement.Item
             myCollider = topParent.GetComponent<Collider2D>();
             myRigidbody = topParent.GetComponent<Rigidbody2D>();
 
-            original_color = mySpriteRenderer.color;
-            transparent_color = mySpriteRenderer.color;
+            if (VARMAP_ItemMaster.GET_DAY_MOMENT() == MomentType.MOMENT_MORNING)
+            {
+                original_color = mySpriteRenderer.color;
+            }
+            else
+            {
+                original_color = mySpriteRenderer.color * nightColor;
+            }
+
+            transparent_color = original_color;
             transparent_color.a *= 0.2f;
 
             SetVisible_Internal(false);
@@ -95,6 +106,7 @@ namespace Gob3AQ.GameElement.Item
 
             if ((!needsZoom) || (actualZoomLevel <= maxZoomLevel))
             {
+                mySpriteRenderer.color = original_color;
                 SetClickable_Internal(true);
             }
             else

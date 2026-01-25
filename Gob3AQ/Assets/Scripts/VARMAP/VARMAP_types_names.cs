@@ -33,6 +33,8 @@ namespace Gob3AQ.VARMAP.Types
         NAME_PHARMACIST, 
         NAME_UMBRELLA, 
         NAME_ELMANYO, 
+        NAME_OWNER, 
+        NAME_STUFFED_DEER, 
         NAME_NPC_LAST, 
         
         NAME_TOTAL

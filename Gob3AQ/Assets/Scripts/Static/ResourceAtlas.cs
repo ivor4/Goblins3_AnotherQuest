@@ -222,7 +222,7 @@ namespace Gob3AQ.ResourceAtlas
             new GameSprite[2]{GameSprite.BACKGROUND_CITY1_MANYO, GameSprite.BACKGROUND_CITY1_MANYO_NIGHT, },
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_CITY1_MANYO, GameSprite.BACKGROUND_CITY1_MANYO_NIGHT, }), 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(2){GameItem.ITEM_CITY1_UMBRELLA, GameItem.ITEM_GENERIC_DOOR1, }) 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(4){GameItem.ITEM_CITY1_UMBRELLA, GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_ELMANYO_OWNER, GameItem.ITEM_STUFFED_DEER, }) 
             ),
             
             new( /* ROOM_LAST */

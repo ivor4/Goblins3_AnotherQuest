@@ -276,6 +276,13 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             
+            new( /* UNCHAIN_MANYO_OWNER */
+            true,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            MomentType.MOMENT_MORNING, GameItem.ITEM_ELMANYO_OWNER, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            
             /* > ATG 1 END < */
         };
 
@@ -566,6 +573,16 @@ namespace Gob3AQ.Brain.ItemsInteraction
             
             new ( /* ITEM_ELMANYO_DOOR */
             NameType.NAME_ELMANYO,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK,}),
+            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_OK,}),
+            
+            new ( /* ITEM_ELMANYO_OWNER */
+            NameType.NAME_OWNER,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_MANYO_OWNER,}),
+            GameSprite.SPRITE_MANYO_OWNER,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_OK,}),
+            
+            new ( /* ITEM_STUFFED_DEER */
+            NameType.NAME_STUFFED_DEER,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK,}),
             GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
             new ActionConditions[1]{ActionConditions.COND_OK,}),
             

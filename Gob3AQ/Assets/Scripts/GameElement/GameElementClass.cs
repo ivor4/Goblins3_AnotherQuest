@@ -86,7 +86,7 @@ namespace Gob3AQ.GameElement
 
             VARMAP_ItemMaster.REG_GAMESTATUS(ChangedGameStatus);
 
-            /* Update sorting order here has no sense, sprite is not yet loaded */
+            
         }
 
 

@@ -29,6 +29,8 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_PHARMACY_NPC_OWNER, 
         ITEM_CITY1_UMBRELLA, 
         ITEM_ELMANYO_DOOR, 
+        ITEM_ELMANYO_OWNER, 
+        ITEM_STUFFED_DEER, 
         ITEM_LAST, 
         
         ITEM_TOTAL
@@ -104,6 +106,7 @@ namespace Gob3AQ.VARMAP.Types
         UNCHAIN_SLEEP_DECISION_2, 
         UNCHAIN_REME_DAY, 
         UNCHAIN_PHARMACY_DOOR_AVAIL, 
+        UNCHAIN_MANYO_OWNER, 
         
         UNCHAIN_TOTAL
         /* > ATG 4 END < */

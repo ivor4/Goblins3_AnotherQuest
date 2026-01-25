@@ -283,6 +283,20 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             
+            new( /* UNCHAIN_MANYO_OWNER_NIGHT */
+            true,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            MomentType.MOMENT_NIGHT, GameItem.ITEM_ELMANYO_OWNER_NIGHT, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            
+            new( /* UNCHAIN_RECEIPT_MISSION_MEMENTO */
+            false,UnchainType.UNCHAIN_TYPE_MEMENTO,new(GameEvent.EVENT_MANYO_LOOK_FOR_RECIPE_MISSION, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_MANYO_LOOK_FOR_RECIPE_MISSION, false),}, 
+            MomentType.MOMENT_ANY, GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_RECIPE_MISSION_1, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            
             /* > ATG 1 END < */
         };
 
@@ -600,6 +614,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
             new ActionConditions[1]{ActionConditions.COND_TALK_DEER,}),
             
+            new ( /* ITEM_ELMANYO_OWNER_NIGHT */
+            NameType.NAME_OWNER,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK,}),
+            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new ActionConditions[1]{ActionConditions.COND_TALK_MANYO_OWNER,}),
+            
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST,}),
             GameSprite.SPRITE_LAST,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
@@ -635,6 +654,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new Memento[2]{Memento.MEMENTO_JOB_FIND_1_1,Memento.MEMENTO_JOB_FIND_1_2,}
             ),
             
+            /* MEMENTO_PARENT_RECIPE_MISSION */
+            new(
+            NameType.NAME_MEMENTO_RECIPE_MISSION,GameSprite.SPRITE_MEMENTO_RECIPE,
+            new Memento[1]{Memento.MEMENTO_RECIPE_MISSION_1,}
+            ),
+            
             /* MEMENTO_PARENT_LAST */
             new(
             NameType.NAME_NPC_LAST,GameSprite.SPRITE_NONE,
@@ -653,6 +678,10 @@ namespace Gob3AQ.Brain.ItemsInteraction
             false),
             /* MEMENTO_JOB_FIND_1_2 */
             new(MementoParent.MEMENTO_PARENT_JOB_FIND_1,DialogPhrase.PHRASE_OBSERVE_HIVE1_AD_BOARD_1,
+            new(new HashSet<MementoCombi>(1){MementoCombi.MEMENTO_COMBI_NONE,}),
+            false),
+            /* MEMENTO_RECIPE_MISSION_1 */
+            new(MementoParent.MEMENTO_PARENT_RECIPE_MISSION,DialogPhrase.PHRASE_MEMENTO_RECIPE_MISSION_1,
             new(new HashSet<MementoCombi>(1){MementoCombi.MEMENTO_COMBI_NONE,}),
             false),
             /* MEMENTO_LAST */

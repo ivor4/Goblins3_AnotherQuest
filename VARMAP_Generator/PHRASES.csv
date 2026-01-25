@@ -47,4 +47,10 @@ N,PHRASE_ID,TalkerIndex,Sound,CharAnimation,Text_English,Text_Spanish
 45,PHRASE_DIALOG_MANYO_MENU_DAY_4,0,0,DIALOG_ANIMATION_TALK,Yuuk,Puaj
 46,PHRASE_DIALOG_MANYO_MENU_DAY_5,1,0,DIALOG_ANIMATION_TALK,Are you eating here today?,Comerás aquí hoy?
 47,PHRASE_DIALOG_MANYO_MENU_DAY_6,0,0,DIALOG_ANIMATION_TALK,Nope,No
-48,PHRASE_DIALOG_MANYO_BYE_1,0,0,DIALOG_ANIMATION_TALK,Have a nice day!,Que tenga un buen día!
+48,PHRASE_DIALOG_MANYO_CROWD_1,0,0,DIALOG_ANIMATION_TALK,It's incredible. There is no free place this night!,Impresionante. No queda un hueco esta noche
+49,PHRASE_DIALOG_MANYO_CROWD_2,1,0,DIALOG_ANIMATION_TALK,They are tasting boar with potatoes! But I fear they won't come again if we don't offer new menus,Están probando el jabalí con patatas! Pero temo que no volverán hasta que no ofrezcamos menus nuevos
+50,PHRASE_DIALOG_MANYO_CROWD_3,1,0,DIALOG_ANIMATION_TALK,"Do you know of a new receipt for this restaurant? You wanted to be cooker, right?","Conoces nuevas recetas para el restaurante? Tú querías ser cocinero, verdad?"
+51,PHRASE_DIALOG_MANYO_CROWD_4,1,0,DIALOG_ANIMATION_TALK,If you find out new recipes. Don't hesitate and come one morning and tell me. I will reward you,Si averiguas nuevas recetas. No dudes en acercarte una mañana y contarme. Te recompensaré
+52,PHRASE_DIALOG_MANYO_CROWD_5,0,0,DIALOG_ANIMATION_TALK,I'll review my sources and keep you informed. Sir!,Revisaré mis fuentes y te mantendré informado. Señor!
+53,PHRASE_DIALOG_MANYO_BYE_1,0,0,DIALOG_ANIMATION_TALK,Have a nice day!,Que tenga un buen día!
+54,PHRASE_MEMENTO_RECIPE_MISSION_1,0,0,DIALOG_ANIMATION_TALK,Restaurant owner needs a new recipe to have new customers. He promises a reward,El dueño del restaurante necesita una nueva receta para tener nuevos clientes. Él promete una recompensa

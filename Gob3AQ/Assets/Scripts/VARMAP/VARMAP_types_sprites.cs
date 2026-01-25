@@ -44,6 +44,7 @@ namespace Gob3AQ.VARMAP.Types
         SPRITE_CITY1_MANYO_UMBRELLA, 
         SPRITE_PICKABLE_UMBRELLA, 
         SPRITE_MANYO_OWNER, 
+        SPRITE_MEMENTO_RECIPE, 
         SPRITE_LAST, 
         
         SPRITE_TOTAL

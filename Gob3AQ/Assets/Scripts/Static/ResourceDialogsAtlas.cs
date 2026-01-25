@@ -88,7 +88,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             
             new( /* DIALOG_MANYO_OWNER */
             new GameItem[1]{GameItem.ITEM_NONE,},
-            new DialogOption[4]{DialogOption.DIALOG_OPTION_MANYO_WORK_NOTE, DialogOption.DIALOG_OPTION_MANYO_WORKS_CITY, DialogOption.DIALOG_OPTION_MANYO_MENU_DAY, DialogOption.DIALOG_OPTION_MANYO_BYE, }
+            new DialogOption[5]{DialogOption.DIALOG_OPTION_MANYO_WORK_NOTE, DialogOption.DIALOG_OPTION_MANYO_WORKS_CITY, DialogOption.DIALOG_OPTION_MANYO_MENU_DAY, DialogOption.DIALOG_OPTION_MANYO_CROWD, DialogOption.DIALOG_OPTION_MANYO_BYE, }
             ),
             
             new( /* DIALOG_LAST */
@@ -160,14 +160,14 @@ namespace Gob3AQ.ResourceDialogsAtlas
             ),
             new( /* DIALOG_OPTION_MANYO_WORK_NOTE */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
-            MomentType.MOMENT_ANY,
+            MomentType.MOMENT_MORNING,
             new GameEventCombi[1]{new(GameEvent.EVENT_MANYO_REFUSED_WORK, false), },
             DialogType.DIALOG_MANYO_OWNER,false,
             new DialogPhrase[4]{DialogPhrase.PHRASE_DIALOG_MANYO_WORK_NOTE_1, DialogPhrase.PHRASE_DIALOG_MANYO_WORK_NOTE_2, DialogPhrase.PHRASE_DIALOG_MANYO_WORK_NOTE_3, DialogPhrase.PHRASE_DIALOG_MANYO_WORK_NOTE_4, }
             ),
             new( /* DIALOG_OPTION_MANYO_WORKS_CITY */
             new GameEventCombi[1]{new(GameEvent.EVENT_MANYO_REFUSED_WORK, false), },
-            MomentType.MOMENT_ANY,
+            MomentType.MOMENT_MORNING,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
             DialogType.DIALOG_MANYO_OWNER,false,
             new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_MANYO_WORKS_CITY_1, DialogPhrase.PHRASE_DIALOG_MANYO_WORKS_CITY_2, }
@@ -178,6 +178,13 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
             DialogType.DIALOG_MANYO_OWNER,false,
             new DialogPhrase[6]{DialogPhrase.PHRASE_DIALOG_MANYO_MENU_DAY_1, DialogPhrase.PHRASE_DIALOG_MANYO_MENU_DAY_2, DialogPhrase.PHRASE_DIALOG_MANYO_MENU_DAY_3, DialogPhrase.PHRASE_DIALOG_MANYO_MENU_DAY_4, DialogPhrase.PHRASE_DIALOG_MANYO_MENU_DAY_5, DialogPhrase.PHRASE_DIALOG_MANYO_MENU_DAY_6, }
+            ),
+            new( /* DIALOG_OPTION_MANYO_CROWD */
+            new GameEventCombi[1]{new(GameEvent.EVENT_MANYO_REFUSED_WORK, false), },
+            MomentType.MOMENT_NIGHT,
+            new GameEventCombi[1]{new(GameEvent.EVENT_MANYO_LOOK_FOR_RECIPE_MISSION, false), },
+            DialogType.DIALOG_MANYO_OWNER,false,
+            new DialogPhrase[5]{DialogPhrase.PHRASE_DIALOG_MANYO_CROWD_1, DialogPhrase.PHRASE_DIALOG_MANYO_CROWD_2, DialogPhrase.PHRASE_DIALOG_MANYO_CROWD_3, DialogPhrase.PHRASE_DIALOG_MANYO_CROWD_4, DialogPhrase.PHRASE_DIALOG_MANYO_CROWD_5, }
             ),
             new( /* DIALOG_OPTION_MANYO_BYE */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
@@ -246,7 +253,13 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_MANYO_MENU_DAY_4 */ 
             new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_MANYO_MENU_DAY_5 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_MANYO_MENU_DAY_6 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_MANYO_CROWD_1 */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_MANYO_CROWD_2 */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_MANYO_CROWD_3 */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_MANYO_CROWD_4 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_MANYO_CROWD_5 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_MANYO_BYE_1 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_MEMENTO_RECIPE_MISSION_1 */ 
             /* > ATG 3 END < */
         };
     }

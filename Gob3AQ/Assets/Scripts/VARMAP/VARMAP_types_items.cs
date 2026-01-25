@@ -31,6 +31,7 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_ELMANYO_DOOR, 
         ITEM_ELMANYO_OWNER, 
         ITEM_STUFFED_DEER, 
+        ITEM_ELMANYO_OWNER_NIGHT, 
         ITEM_LAST, 
         
         ITEM_TOTAL
@@ -109,6 +110,8 @@ namespace Gob3AQ.VARMAP.Types
         UNCHAIN_REME_DAY, 
         UNCHAIN_PHARMACY_DOOR_AVAIL, 
         UNCHAIN_MANYO_OWNER, 
+        UNCHAIN_MANYO_OWNER_NIGHT, 
+        UNCHAIN_RECEIPT_MISSION_MEMENTO, 
         
         UNCHAIN_TOTAL
         /* > ATG 4 END < */

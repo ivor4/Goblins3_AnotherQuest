@@ -23,6 +23,7 @@ namespace Gob3AQ.VARMAP.Types
         EVENT_CAN_GO_SOUTH_NEIGH, 
         EVENT_PHARMACY_EMPTY, 
         EVENT_MANYO_REFUSED_WORK, 
+        EVENT_MANYO_LOOK_FOR_RECIPE_MISSION, 
         EVENT_LAST, 
         
         EVENT_TOTAL
@@ -34,6 +35,7 @@ namespace Gob3AQ.VARMAP.Types
         /* > ATG 2 START < */
         MEMENTO_PARENT_NONE = -1, 
         MEMENTO_PARENT_JOB_FIND_1, 
+        MEMENTO_PARENT_RECIPE_MISSION, 
         MEMENTO_PARENT_LAST, 
         
         MEMENTO_PARENT_TOTAL
@@ -46,6 +48,7 @@ namespace Gob3AQ.VARMAP.Types
         MEMENTO_NONE = -1, 
         MEMENTO_JOB_FIND_1_1, 
         MEMENTO_JOB_FIND_1_2, 
+        MEMENTO_RECIPE_MISSION_1, 
         MEMENTO_LAST, 
         
         MEMENTO_TOTAL

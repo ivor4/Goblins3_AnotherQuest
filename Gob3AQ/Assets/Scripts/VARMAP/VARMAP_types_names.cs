@@ -35,6 +35,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_ELMANYO, 
         NAME_OWNER, 
         NAME_STUFFED_DEER, 
+        NAME_MEMENTO_RECIPE_MISSION, 
         NAME_NPC_LAST, 
         
         NAME_TOTAL

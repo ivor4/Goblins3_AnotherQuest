@@ -32,3 +32,19 @@ N,PHRASE_ID,TalkerIndex,Sound,CharAnimation,Text_English,Text_Spanish
 30,PHRASE_TRY_TALK_PHARMACIST_BUSY,0,0,DIALOG_ANIMATION_TALK,Excuse me sir. It will be only one second,Disculpe. Solo será un segundo
 31,PHRASE_PHARMACIST_BUSY_1,1,0,DIALOG_ANIMATION_TALK,Young! Don't you see I'm busy?,Joven! No ves que estoy ocupado?
 32,PHRASE_PHARMACIST_BUSY_2,1,0,DIALOG_ANIMATION_TALK,Please go to queue if you want something,Por favor. A la cola si quieres algo
+33,PHRASE_HELLO_DEER,0,0,DIALOG_ANIMATION_TALK,Hello!,Hola!
+34,PHRASE_DIALOG_MANYO_INTRO_1,0,0,DIALOG_ANIMATION_TALK,How is it going sir?,Cómo va la cosa señor?
+35,PHRASE_DIALOG_MANYO_INTRO_2,1,0,DIALOG_ANIMATION_TALK,Did you do a reservation?,Hizo reserva para hoy?
+36,PHRASE_DIALOG_MANYO_WORK_NOTE_1,0,0,DIALOG_ANIMATION_TALK,I saw a note out there. You are searching for a cooker. Right?,Vi una nota. Estáis buscando un cocinero. Verdad?
+37,PHRASE_DIALOG_MANYO_WORK_NOTE_2,1,0,DIALOG_ANIMATION_TALK,Yes. That was six months ago! We have a cooker and things are going on quite good,Sí. Eso fue hace seis meses! Tenemos cocinero y las cosas están yendo bastante bien
+38,PHRASE_DIALOG_MANYO_WORK_NOTE_3,0,0,DIALOG_ANIMATION_TALK,I see... Ok. So you are not looking for any worker here,Ya veo... Ok. Entonces no estáis buscando a ningún trabajador aquí
+39,PHRASE_DIALOG_MANYO_WORK_NOTE_4,1,0,DIALOG_ANIMATION_TALK,I'm sorry for you. By the moment is all covered here,Lo siento por ti. Por el momento aquí está todo cubierto
+40,PHRASE_DIALOG_MANYO_WORKS_CITY_1,0,0,DIALOG_ANIMATION_TALK,Do you know about some business here looking for a worker?,Conoces de algún negocio por aquí que busquen trabajadores?
+41,PHRASE_DIALOG_MANYO_WORKS_CITY_2,1,0,DIALOG_ANIMATION_TALK,By the moment... Just wait. I guess Pharmacist in this street was looking for help,Por el momento... Espera. Creo que el boticario de esta calle estaba buscando ayuda
+42,PHRASE_DIALOG_MANYO_MENU_DAY_1,0,0,DIALOG_ANIMATION_TALK,What are you cooking today?,Qué cocináis para hoy?
+43,PHRASE_DIALOG_MANYO_MENU_DAY_2,1,0,DIALOG_ANIMATION_TALK,How good is you are asking for it!,Qué bueno que lo preguntes!
+44,PHRASE_DIALOG_MANYO_MENU_DAY_3,1,0,DIALOG_ANIMATION_TALK,We have boar from La Mancha with potatoes. Also carrot for dessert,Tenemos jabalí manchego con patatas. Y de postre zanahoria
+45,PHRASE_DIALOG_MANYO_MENU_DAY_4,0,0,DIALOG_ANIMATION_TALK,Yuuk,Puaj
+46,PHRASE_DIALOG_MANYO_MENU_DAY_5,1,0,DIALOG_ANIMATION_TALK,Are you eating here today?,Comerás aquí hoy?
+47,PHRASE_DIALOG_MANYO_MENU_DAY_6,0,0,DIALOG_ANIMATION_TALK,Nope,No
+48,PHRASE_DIALOG_MANYO_BYE_1,0,0,DIALOG_ANIMATION_TALK,Have a nice day!,Que tenga un buen día!

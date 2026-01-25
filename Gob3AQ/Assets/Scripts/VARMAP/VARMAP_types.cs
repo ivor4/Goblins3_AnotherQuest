@@ -186,17 +186,19 @@ namespace Gob3AQ.VARMAP.Types
         public readonly ReadOnlySpan<DialogPhrase> Phrases => phrases;
 
         private readonly GameEventCombi[] conditionEvents;
+        public readonly MomentType momentType;
         private readonly GameEventCombi[] triggeredEvents;
         public readonly DialogType dialogTriggered;
         public readonly bool randomized;
         private readonly DialogPhrase[] phrases;
 
-        public static readonly DialogOptionConfig EMPTY = new(new GameEventCombi[0], new GameEventCombi[0], DialogType.DIALOG_NONE, false, new DialogPhrase[0]);
+        public static readonly DialogOptionConfig EMPTY = new(new GameEventCombi[0], MomentType.MOMENT_ANY, new GameEventCombi[0], DialogType.DIALOG_NONE, false, new DialogPhrase[0]);
 
-        public DialogOptionConfig(GameEventCombi[] conditionEvents, GameEventCombi[] triggeredEvents, DialogType dialogTriggered,
+        public DialogOptionConfig(GameEventCombi[] conditionEvents, MomentType momentType, GameEventCombi[] triggeredEvents, DialogType dialogTriggered,
             bool randomized, DialogPhrase[] phrases)
         {
             this.conditionEvents = conditionEvents;
+            this.momentType = momentType;
             this.triggeredEvents = triggeredEvents;
             this.dialogTriggered = dialogTriggered;
             this.randomized = randomized;

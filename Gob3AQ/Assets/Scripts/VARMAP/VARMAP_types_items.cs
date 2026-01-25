@@ -74,6 +74,8 @@ namespace Gob3AQ.VARMAP.Types
         COND_USE_HIVE1_BED, 
         COND_GO_STREET1_SOUTH_NEIGH, 
         COND_TRY_TALK_PHARMACIST, 
+        COND_TALK_DEER, 
+        COND_TALK_MANYO_OWNER, 
         COND_LAST, 
         
         COND_TOTAL

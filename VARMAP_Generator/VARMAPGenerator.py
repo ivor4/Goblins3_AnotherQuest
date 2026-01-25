@@ -779,8 +779,10 @@ for line in DIALOGSinputFile:
             stringToWrite += '},\n'
             dialog_atlas_lines.InsertLineInATG(2, stringToWrite)
             
+            stringToWrite = moment_prefix + columns[3] + ',\n'
+            dialog_atlas_lines.InsertLineInATG(2, stringToWrite)
             
-            options = columns[3].split('|')
+            options = columns[4].split('|')
             num_options = len(options)
             
             stringToWrite = 'new GameEventCombi['+str(num_options)+']{'
@@ -795,10 +797,10 @@ for line in DIALOGSinputFile:
             
             
             
-            stringToWrite = dialog_prefix+columns[4]+','+columns[5].lower()+',\n'
+            stringToWrite = dialog_prefix+columns[5]+','+columns[6].lower()+',\n'
             dialog_atlas_lines.InsertLineInATG(2, stringToWrite)
             
-            options = columns[6].split('|')
+            options = columns[7].split('|')
             num_options = len(options)
             
             stringToWrite = 'new DialogPhrase['+str(num_options)+']{'

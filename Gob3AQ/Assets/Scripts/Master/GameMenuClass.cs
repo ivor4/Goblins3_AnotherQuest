@@ -141,6 +141,7 @@ namespace Gob3AQ.GameMenu
             DialogPhrase uniquePhrase = DialogPhrase.PHRASE_NONE;
             DialogOption uniqueOption = DialogOption.DIALOG_OPTION_NONE;
             int uniqueNumPhrases = 0;
+            MomentType currentMoment = VARMAP_GameMenu.GET_DAY_MOMENT();
 
             ref readonly DialogConfig dialogConfig = ref ResourceDialogsAtlasClass.GetDialogConfig(dialog);
 
@@ -165,7 +166,7 @@ namespace Gob3AQ.GameMenu
 
                     VARMAP_GameMenu.IS_EVENT_COMBI_OCCURRED(dialogOptionConfig.ConditionEvents, out bool valid);
 
-                    if (valid)
+                    if (valid && ((currentMoment == dialogOptionConfig.momentType) || (dialogOptionConfig.momentType == MomentType.MOMENT_ANY)))
                     {
                         ReadOnlySpan<DialogPhrase> dialogPhrases = dialogOptionConfig.Phrases;
                         DialogPhrase headPhrase;
@@ -242,7 +243,10 @@ namespace Gob3AQ.GameMenu
 
                 /* If option is permitted, show it */
                 VARMAP_GameMenu.IS_EVENT_COMBI_OCCURRED(dialogOptionConfig.ConditionEvents, out bool valid);
-                if (valid)
+                MomentType currentMoment = VARMAP_GameMenu.GET_DAY_MOMENT();
+
+
+                if (valid && ((currentMoment == dialogOptionConfig.momentType) || (dialogOptionConfig.momentType == MomentType.MOMENT_ANY)))
                 {
                     ReadOnlySpan<DialogPhrase> dialogPhrases = dialogOptionConfig.Phrases;
                     int length = dialogOptionConfig.randomized ? 1 : dialogPhrases.Length;
@@ -394,13 +398,13 @@ namespace Gob3AQ.GameMenu
 
 
 
-        private void EndPhrase_Action()
+        private IEnumerator EndPhrase_Action()
         {
             if (dialog_tellingInProgress)
             {
                 dialog_tellingInProgress = false;
                 ++dialog_currentPhraseIndex;
-                ref readonly DialogOptionConfig dialogConfig = ref ResourceDialogsAtlasClass.GetDialogOptionConfig(dialog_optionPhrases);
+                DialogOptionConfig dialogConfig = ResourceDialogsAtlasClass.GetDialogOptionConfig(dialog_optionPhrases);
 
                 if (dialog_totalPhrases > dialog_currentPhraseIndex)
                 {
@@ -409,17 +413,18 @@ namespace Gob3AQ.GameMenu
                 }
                 else
                 {
+                    /* If end of conversation triggers an event */
+                    VARMAP_GameMenu.COMMIT_EVENT(dialogConfig.TriggeredEvents);
+
                     if (dialogConfig.dialogTriggered != DialogType.DIALOG_NONE)
                     {
+                        yield return ResourceAtlasClass.WaitForNextFrame;
                         ShowDialogueExec(dialogConfig.dialogTriggered, DialogPhrase.PHRASE_NONE);
                     }
                     else
                     {
                         /* End of dialog */
                         _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_NONE, string.Empty, string.Empty);
-
-                        /* If end of conversation triggers an event */
-                        VARMAP_GameMenu.COMMIT_EVENT(dialogConfig.TriggeredEvents);
                         VARMAP_GameMenu.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
                     }
                 }
@@ -602,7 +607,7 @@ namespace Gob3AQ.GameMenu
                     case DialogCoroutineTaskType.DIALOG_TASK_ENDPHRASE:
                         dialog_actualTaskType = DialogCoroutineTaskType.DIALOG_TASK_NONE;
                         yield return yield_2s;
-                        EndPhrase_Action();
+                        yield return EndPhrase_Action();
                         break;
 
                     default:

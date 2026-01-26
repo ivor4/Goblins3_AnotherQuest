@@ -177,6 +177,7 @@ namespace Gob3AQ.ItemMaster
             animation = CharacterAnimation.ITEM_USE_ANIMATION_NONE;
             dialog = DialogType.DIALOG_SIMPLE;
             phrase = GetDefaultNegativePhrase(usage.type);
+            MomentType actualMoment = VARMAP_ItemMaster.GET_DAY_MOMENT();
 
 
             /* Retrieve item info and conditions */
@@ -196,6 +197,7 @@ namespace Gob3AQ.ItemMaster
                 
                 /* Validation if, check if interaction slot is the one which fits actual conditions */
                 if ((usage.playerSource == condition.srcChar) && (condition.actionOK == usage.type) &&
+                    ((condition.momentType == MomentType.MOMENT_ANY) || (condition.momentType == actualMoment)) &&
                     ((usage.type != ItemInteractionType.INTERACTION_USE) ||
                     ((usage.itemSource == condition.srcItem) && srcItemInfo.isPickable && (owners[(int)srcItemInfo.pickableItem] == usage.playerSource))
                     ))

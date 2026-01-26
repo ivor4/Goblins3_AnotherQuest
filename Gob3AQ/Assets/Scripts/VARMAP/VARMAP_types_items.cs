@@ -77,6 +77,8 @@ namespace Gob3AQ.VARMAP.Types
         COND_TRY_TALK_PHARMACIST, 
         COND_TALK_DEER, 
         COND_TALK_MANYO_OWNER, 
+        COND_TAKE_UMBRELLA_MORNING, 
+        COND_TAKE_UMBRELLA_NIGHT, 
         COND_LAST, 
         
         COND_TOTAL
@@ -112,6 +114,8 @@ namespace Gob3AQ.VARMAP.Types
         UNCHAIN_MANYO_OWNER, 
         UNCHAIN_MANYO_OWNER_NIGHT, 
         UNCHAIN_RECEIPT_MISSION_MEMENTO, 
+        UNCHAIN_UMBRELLA_TAKE_1, 
+        UNCHAIN_UMBRELLA_TAKE_2, 
         
         UNCHAIN_TOTAL
         /* > ATG 4 END < */

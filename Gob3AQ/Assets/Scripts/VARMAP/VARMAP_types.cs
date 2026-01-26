@@ -396,6 +396,7 @@ namespace Gob3AQ.VARMAP.Types
     public readonly struct ActionConditionsInfo
     {
         private readonly GameEventCombi[] neededEvents;
+        public readonly MomentType momentType;
         public readonly CharacterType srcChar;
         public readonly GameItem srcItem;
         public readonly ItemInteractionType actionOK;
@@ -408,15 +409,16 @@ namespace Gob3AQ.VARMAP.Types
         public ReadOnlySpan<GameEventCombi> UnchainEvents => unchainEvents;
 
 
-        public static readonly ActionConditionsInfo EMPTY = new(new GameEventCombi[0], CharacterType.CHARACTER_NONE,
+        public static readonly ActionConditionsInfo EMPTY = new(new GameEventCombi[0], MomentType.MOMENT_ANY, CharacterType.CHARACTER_NONE,
             GameItem.ITEM_NONE, ItemInteractionType.INTERACTION_NONE, CharacterAnimation.ITEM_USE_ANIMATION_NONE,
             DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, new GameEventCombi[0]);
 
-        public ActionConditionsInfo(GameEventCombi[] events, CharacterType srcChar, GameItem srcItem,
+        public ActionConditionsInfo(GameEventCombi[] events, MomentType momentType, CharacterType srcChar, GameItem srcItem,
             ItemInteractionType actionOK, CharacterAnimation animationOK,DialogType dialogOK, DialogPhrase phraseOK,
             GameEventCombi[] unchainEvents)
         {
             this.neededEvents = events;
+            this.momentType = momentType;
             this.srcChar = srcChar;
             this.srcItem = srcItem;
             this.actionOK = actionOK;

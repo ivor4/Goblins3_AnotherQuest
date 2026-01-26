@@ -91,6 +91,11 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new DialogOption[5]{DialogOption.DIALOG_OPTION_MANYO_WORK_NOTE, DialogOption.DIALOG_OPTION_MANYO_WORKS_CITY, DialogOption.DIALOG_OPTION_MANYO_MENU_DAY, DialogOption.DIALOG_OPTION_MANYO_CROWD, DialogOption.DIALOG_OPTION_MANYO_BYE, }
             ),
             
+            new( /* DIALOG_MANYO_UMBRELLA */
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_ELMANYO_OWNER,},
+            new DialogOption[1]{DialogOption.DIALOG_OPTION_MANYO_UMBRELLA, }
+            ),
+            
             new( /* DIALOG_LAST */
             new GameItem[1]{GameItem.ITEM_NONE,},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE, }
@@ -193,6 +198,13 @@ namespace Gob3AQ.ResourceDialogsAtlas
             DialogType.DIALOG_NONE,false,
             new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_MANYO_BYE_1, }
             ),
+            new( /* DIALOG_OPTION_MANYO_UMBRELLA */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            MomentType.MOMENT_ANY,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            DialogType.DIALOG_NONE,false,
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_MANYO_UMBRELLA_NOT_1, }
+            ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
             MomentType.MOMENT_ANY,
@@ -260,6 +272,8 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_MANYO_CROWD_5 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_MANYO_BYE_1 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_MEMENTO_RECIPE_MISSION_1 */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_MANYO_UMBRELLA_NOT_1 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_UMBRELLA_TAKEN */ 
             /* > ATG 3 END < */
         };
     }

@@ -75,6 +75,7 @@ namespace Gob3AQ.GameMenu.UICanvas
         private GameObject cursor_subobj;
         private GameObject cursor_textobj;
         private RectTransform cursor_text_rect;
+        private float cursor_text_rect_initialX;
         private GameObject cursor_userInteractionSel;
         private UIUserInteractionSelClass cursor_userInteraction_cls;
         private RectTransform cursor_rect;
@@ -138,6 +139,7 @@ namespace Gob3AQ.GameMenu.UICanvas
             cursor_subobj_spr = cursor_subobj.GetComponent<Image>();
             cursor_textobj = cursor.transform.Find("CursorText").gameObject;
             cursor_text_rect = cursor_textobj.GetComponent<RectTransform>();
+            cursor_text_rect_initialX = cursor_text_rect.localPosition.x;
             cursor_textobj_text = cursor_textobj.transform.Find("Text").gameObject.GetComponent<TMP_Text>();
             cursor_userInteractionSel = cursor.transform.Find("UserInteractionSel").gameObject;
             cursor_userInteraction_cls = cursor_userInteractionSel.GetComponent<UIUserInteractionSelClass>();
@@ -301,6 +303,8 @@ namespace Gob3AQ.GameMenu.UICanvas
 
         public void SetCursorLabel(GameItem item, in ItemInfo itemInfo)
         {
+            ref readonly MousePropertiesStruct mouseProps = ref VARMAP_GameMenu.GET_MOUSE_PROPERTIES();
+
             if (item == GameItem.ITEM_NONE)
             {
                 cursor_textobj.SetActive(false);
@@ -312,6 +316,15 @@ namespace Gob3AQ.GameMenu.UICanvas
             }
 
             LayoutRebuilder.ForceRebuildLayoutImmediate(cursor_text_rect);
+
+            if((mouseProps.posPixels.x + cursor_text_rect.sizeDelta.x + 100) > Screen.width)
+            {
+                cursor_text_rect.localPosition = new Vector2(-cursor_text_rect_initialX*2f, cursor_text_rect.localPosition.y);
+            }
+            else
+            {
+                cursor_text_rect.localPosition = new Vector2(cursor_text_rect_initialX, cursor_text_rect.localPosition.y);
+            }
         }
 
         public void SetUserInteraction(UserInputInteraction interaction)

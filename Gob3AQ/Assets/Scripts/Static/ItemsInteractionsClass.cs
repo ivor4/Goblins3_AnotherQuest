@@ -263,28 +263,28 @@ namespace Gob3AQ.Brain.ItemsInteraction
             DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             
             new( /* UNCHAIN_REME_DAY */
-            true,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
+            false,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_MORNING, GameItem.ITEM_HIVE1_NPC_REME, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             
             new( /* UNCHAIN_PHARMACY_DOOR_AVAIL */
-            true,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
+            false,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_MORNING, GameItem.ITEM_PHARMACY_DOOR, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             
             new( /* UNCHAIN_MANYO_OWNER */
-            true,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
+            false,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_MORNING, GameItem.ITEM_ELMANYO_OWNER, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             
             new( /* UNCHAIN_MANYO_OWNER_NIGHT */
-            true,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
+            false,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_NIGHT, GameItem.ITEM_ELMANYO_OWNER_NIGHT, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
@@ -308,6 +308,13 @@ namespace Gob3AQ.Brain.ItemsInteraction
             false,UnchainType.UNCHAIN_TYPE_EARN_ITEM,new(GameEvent.EVENT_UMBRELLA_PICKABLE_TAKEN, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_UMBRELLA_PICKABLE_TAKEN, false),}, 
             MomentType.MOMENT_ANY, GameItem.ITEM_CITY1_UMBRELLA, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            
+            new( /* UNCHAIN_LAST */
+            false,UnchainType.UNCHAIN_TYPE_EVENT,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            MomentType.MOMENT_ANY, GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             

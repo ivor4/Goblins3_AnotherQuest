@@ -1,4 +1,4 @@
-N,SERVICE_ID,SPECIAL_DELEGATE,SERVICE_ROUTE,Description,Separator,GameMaster,InputMaster,LevelMaster,GraphicsMaster,GameMenu,PlayerMaster,ItemMaster,GameEventMaster
+﻿N,SERVICE_ID,SPECIAL_DELEGATE,SERVICE_ROUTE,Description,Separator,GameMaster,InputMaster,LevelMaster,GraphicsMaster,GameMenu,PlayerMaster,ItemMaster,GameEventMaster
 0,START_GAME,START_GAME_DELEGATE,GameMasterClass.StartGameService,Starts game from main menu,,W,-,-,-,X,-,-,-
 1,SAVE_GAME,SAVE_GAME_DELEGATE,GameMasterClass.SaveGameService,Saves game at any moment,,W,-,X,-,X,-,-,-
 2,LOAD_GAME,LOAD_GAME_DELEGATE,GameMasterClass.LoadGameService,Loads game from any moment,,W,-,-,-,X,-,-,-

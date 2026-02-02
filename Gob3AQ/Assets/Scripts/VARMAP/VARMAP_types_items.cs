@@ -116,6 +116,7 @@ namespace Gob3AQ.VARMAP.Types
         UNCHAIN_RECEIPT_MISSION_MEMENTO, 
         UNCHAIN_UMBRELLA_TAKE_1, 
         UNCHAIN_UMBRELLA_TAKE_2, 
+        UNCHAIN_LAST, 
         
         UNCHAIN_TOTAL
         /* > ATG 4 END < */

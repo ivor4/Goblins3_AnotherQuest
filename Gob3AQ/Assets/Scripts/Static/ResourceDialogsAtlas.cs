@@ -274,6 +274,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_MEMENTO_RECIPE_MISSION_1 */ 
             new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_MANYO_UMBRELLA_NOT_1 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_UMBRELLA_TAKEN */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };
     }

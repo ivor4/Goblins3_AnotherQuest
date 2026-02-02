@@ -1,0 +1,11 @@
+﻿NewItem,NewName,NewSprite,Pickable,Spawn,Picker_Character,ObservationPhrase,TakePhrase,Room,Output
+ITEM_NEW_ITEM,NAME_NEW_NAME,SPRITE_NEW_SPRITE,True,True,CHARACTER_MAIN,It was a new item!,I took it!,CITY1_STREET_1,
+,,,,,,,,,
+NewRoom,Background,BackgroundNight,Output,,,,,,
+ROOM_NEW_ROOM,BACKGROUND_NEW,BACKGROUND_NEW_NIGHT,,,,,,,
+,,,,,,,,,
+NewDialog,IntroPhrase,Talkers,Option1,Option2,Option3,Option4,Option5,Option6,
+DIALOG_NEW_DIALOG,"Hey My friend!, Are you still there?",ITEM_NONE,"Are you ok?, really?","Yes you are, aha","He he, no no","Yo que se, primo",,,
+,,,,,,,,,
+NewMementoParent,MementoIconSprite,MementoParentPhrase,Mementos,MementoPhrases,,,,,
+MEMENTO_PARENT_NEW_MEMENTO,SPRITE_NEW_MEMENTO_SPRITE,A new fresh idea came,"MEMENTO_NEW_1, MEMENTO_NEW_2","Event 1 required for this, Event 2 required for this",,,,,

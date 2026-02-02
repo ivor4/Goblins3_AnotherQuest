@@ -105,6 +105,7 @@ namespace Gob3AQ.VARMAP.Types
         PHRASE_MEMENTO_RECIPE_MISSION_1, 
         PHRASE_DIALOG_MANYO_UMBRELLA_NOT_1, 
         PHRASE_DIALOG_UMBRELLA_TAKEN, 
+        PHRASE_DIALOG_LAST, 
         
         PHRASE_TOTAL
         /* > ATG 3 END < */

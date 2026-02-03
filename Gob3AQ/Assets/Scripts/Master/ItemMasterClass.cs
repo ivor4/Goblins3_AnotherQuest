@@ -1,4 +1,5 @@
 using Gob3AQ.Brain.ItemsInteraction;
+using Gob3AQ.FixedConfig;
 using Gob3AQ.GameElement;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.VARMAP.ItemMaster;
@@ -14,6 +15,7 @@ namespace Gob3AQ.ItemMaster
     {
         private static ItemMasterClass _singleton;
         private IReadOnlyDictionary<GameItem, GameElementClass> _levelItems;
+        private Dictionary<GameItem, GameElementClass> _activeLevelItems;
         private int itemsToLoad;
         private int itemsLoaded;
 
@@ -50,6 +52,9 @@ namespace Gob3AQ.ItemMaster
                             instance.SetActive(true);
                             instance.SetClickable(true);
                             instance.SetVisible(true);
+
+                            /* Move to active list */
+                            _singleton._activeLevelItems[unchainInfo.targetItem] = instance;
                         }
                         break;
 
@@ -62,6 +67,9 @@ namespace Gob3AQ.ItemMaster
                             instance.SetActive(false);
                             instance.SetClickable(false);
                             instance.SetVisible(false);
+
+                            /* Remove from active list */
+                            _singleton._activeLevelItems.Remove(unchainInfo.targetItem);
                         }
                         break;
 
@@ -69,6 +77,8 @@ namespace Gob3AQ.ItemMaster
                         if (_singleton._levelItems.TryGetValue(unchainInfo.targetItem, out instance))
                         {
                             Debug.Log("UnchainToItemService: Destroying item " + unchainInfo.targetItem);
+                            /* Remove from active list */
+                            _singleton._activeLevelItems.Remove(unchainInfo.targetItem);
                             instance.VirtualDestroy();
                         }
                         break;
@@ -89,6 +99,23 @@ namespace Gob3AQ.ItemMaster
         public static void UseItemService(in InteractionUsage usage, out InteractionUsageOutcome outcome)
         {
             _ = ref ItemInteractionCommon(in usage, out outcome);
+        }
+
+        public static void BackgroundItemTaskService(ItemInteractionType autoType, CharacterType character, int waypointIndex, out InteractionUsageOutcome outcome)
+        {
+            if(_singleton != null)
+            {
+                InteractionUsage usage = new(autoType, character, GameItem.ITEM_NONE, CharacterType.CHARACTER_NONE,
+                    GameItem.ITEM_NONE, -1, waypointIndex);
+
+                /* TODO: Foreach looking for active items with auto actions */
+
+                _ = ref ItemInteractionCommon(in usage, out outcome);
+            }
+            else
+            {
+                outcome = new InteractionUsageOutcome(CharacterAnimation.ITEM_USE_ANIMATION_NONE, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, false);
+            }
         }
 
         public static void AddOneItemToLoad()
@@ -118,6 +145,7 @@ namespace Gob3AQ.ItemMaster
             else
             {
                 _singleton = this;
+                _activeLevelItems = new(GameFixedConfig.MAX_POOLED_ITEMS);
             }
         }
 
@@ -127,6 +155,7 @@ namespace Gob3AQ.ItemMaster
             VARMAP_ItemMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_ItemMaster);
             itemsLoaded = 0;
             itemsToLoad = 0;
+            _activeLevelItems.Clear();
         }
 
         private void OnDestroy()
@@ -240,6 +269,12 @@ namespace Gob3AQ.ItemMaster
                 yield return ResourceAtlasClass.WaitForNextFrame;
             }
 
+            /* Copy from whole scenario items */
+            foreach(KeyValuePair<GameItem, GameElementClass> kvp in _levelItems)
+            {
+                _activeLevelItems.Add(kvp.Key, kvp.Value);
+            }
+
             VARMAP_ItemMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_ItemMaster);
         }
 
@@ -269,6 +304,7 @@ namespace Gob3AQ.ItemMaster
                     case Game_Status.GAME_STATUS_CHANGING_ROOM:
                         itemsLoaded = 0;
                         itemsToLoad = 0;
+                        _activeLevelItems.Clear();
                         break;
                     case Game_Status.GAME_STATUS_LOADING:
                         VARMAP_ItemMaster.OBTAIN_SCENARIO_ITEMS(out _levelItems);

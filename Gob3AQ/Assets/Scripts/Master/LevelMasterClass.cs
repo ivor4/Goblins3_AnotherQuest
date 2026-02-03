@@ -618,7 +618,7 @@ namespace Gob3AQ.LevelMaster
 
                         /* No need to know about error, as this function is executed from play mode */
                         VARMAP_LevelMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_DIALOG, out _);
-                        VARMAP_LevelMaster.SHOW_DIALOGUE(talkers, outcome.dialogType, outcome.dialogPhrase);
+                        VARMAP_LevelMaster.SHOW_DIALOGUE(talkers, outcome.dialogType, outcome.dialogPhrase, false);
                     }
                     else if (outcome.animation != CharacterAnimation.ITEM_USE_ANIMATION_NONE)
                     {

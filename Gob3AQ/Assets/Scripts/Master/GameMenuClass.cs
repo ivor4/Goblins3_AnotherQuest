@@ -46,12 +46,14 @@ namespace Gob3AQ.GameMenu
         private GameItem[] dialog_input_talkers;
         private DialogType dialog_input_type;
         private DialogPhrase dialog_input_phrase;
+        private bool dialog_input_backgroundDialog;
 
         private int dialog_currentPhraseIndex;
         private int dialog_totalPhrases;
         private DialogOption dialog_optionPhrases;
         private bool dialog_optionPending;
         private bool dialog_tellingInProgress;
+        private bool dialog_background;
         private Coroutine dialog_main_coroutine;
         private WaitUntil yield_custom;
         private DialogCoroutineTaskType dialog_actualTaskType;
@@ -89,7 +91,8 @@ namespace Gob3AQ.GameMenu
         /// <param name="defaultTalkers">Default list of talkers (Player and ItemDest)</param>
         /// <param name="dialog">The type of dialogue to display, which determines the structure and options available.</param>
         /// <param name="phrase">The initial phrase to display if the dialogue type is simple.</param>
-        public static void ShowDialogueService(ReadOnlySpan<GameItem> defaultTalkers, DialogType dialog, DialogPhrase phrase)
+        /// <param name="backgroundDialog">If background does not need user interaction (as a background conversation).</param>
+        public static void ShowDialogueService(ReadOnlySpan<GameItem> defaultTalkers, DialogType dialog, DialogPhrase phrase, bool backgroundDialog)
         {
            if(_singleton != null)
            {
@@ -97,6 +100,7 @@ namespace Gob3AQ.GameMenu
                 defaultTalkers.CopyTo(_singleton.dialog_input_talkers);
                 _singleton.dialog_input_type = dialog;
                 _singleton.dialog_input_phrase = phrase;
+                _singleton.dialog_input_backgroundDialog = backgroundDialog;
                 _singleton.dialog_actualTaskType = DialogCoroutineTaskType.DIALOG_TASK_START;
            }
         }
@@ -134,7 +138,7 @@ namespace Gob3AQ.GameMenu
             decision_optionPending = true;
         }
 
-        private void ShowDialogueExec(DialogType dialog, DialogPhrase phrase)
+        private void ShowDialogueExec(DialogType dialog, DialogPhrase phrase, bool background)
         {
             int selectableOptions;
 
@@ -152,6 +156,31 @@ namespace Gob3AQ.GameMenu
                 uniqueOption = DialogOption.DIALOG_OPTION_SIMPLE;
                 selectableOptions = 1;
                 uniqueNumPhrases = 1;
+            }
+            /* A dialog with only one option should be given. But, in case, take always first option for background mode */
+            else if(background)
+            {
+                ReadOnlySpan<DialogOption> dialogOptions = dialogConfig.Options;
+                ref readonly DialogOptionConfig dialogOptionConfig = ref ResourceDialogsAtlasClass.GetDialogOptionConfig(dialogOptions[0]);
+
+                ReadOnlySpan<DialogPhrase> dialogPhrases = dialogOptionConfig.Phrases;
+                DialogPhrase headPhrase;
+
+                if (dialogOptionConfig.randomized)
+                {
+                    headPhrase = dialogPhrases[UnityEngine.Random.Range(0, dialogPhrases.Length)];
+                    uniqueNumPhrases = 1;
+                }
+                else
+                {
+                    headPhrase = dialogPhrases[0];
+                    uniqueNumPhrases = dialogOptionConfig.Phrases.Length;
+                }
+
+                uniquePhrase = headPhrase;
+                uniqueOption = dialogOptions[0];
+
+                selectableOptions = 1;
             }
             else
             {
@@ -187,7 +216,7 @@ namespace Gob3AQ.GameMenu
 
                         ResourceDialogsClass.GetPhraseContent(headPhrase, out PhraseContent optionPhraseContent);
                         _uicanvas_cls.ActivateDialogOption(selectableOptions, true, dialogOptions[i], headPhrase, optionPhraseContent.message);
-                        
+
                         ++selectableOptions;
                     }
                 }
@@ -222,7 +251,7 @@ namespace Gob3AQ.GameMenu
                 /* Initialize phrase index */
                 dialog_optionPending = false;
 
-                StartDialogue(uniqueOption, uniqueNumPhrases);
+                StartDialogue(uniqueOption, uniqueNumPhrases, background);
                 StartPhrase(uniquePhrase);
             }
             else
@@ -251,7 +280,7 @@ namespace Gob3AQ.GameMenu
                     ReadOnlySpan<DialogPhrase> dialogPhrases = dialogOptionConfig.Phrases;
                     int length = dialogOptionConfig.randomized ? 1 : dialogPhrases.Length;
 
-                    StartDialogue(option, length);
+                    StartDialogue(option, length, false);
                     StartPhrase(phrase);
                 }
             }
@@ -372,11 +401,12 @@ namespace Gob3AQ.GameMenu
             CheckMementoCombination(combinedMementos);
         }
 
-        private void StartDialogue(DialogOption option, int totalPhrases)
+        private void StartDialogue(DialogOption option, int totalPhrases, bool background)
         {
             dialog_optionPhrases = option;
             dialog_totalPhrases = totalPhrases;
             dialog_currentPhraseIndex = 0;
+            dialog_background = background;
         }
 
         private void StartPhrase(DialogPhrase phrase)
@@ -391,7 +421,14 @@ namespace Gob3AQ.GameMenu
             string sender = ResourceDialogsClass.GetName(talkerInfo.name);
             string msg = content.message;
 
-            _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_PHRASE, sender, msg);
+            if(dialog_background)
+            {
+                _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_BACKGROUND, sender, msg);
+            }
+            else
+            {
+                _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_PHRASE, sender, msg);
+            }
 
             dialog_actualTaskType = DialogCoroutineTaskType.DIALOG_TASK_ENDPHRASE;
         }
@@ -419,13 +456,17 @@ namespace Gob3AQ.GameMenu
                     if (dialogConfig.dialogTriggered != DialogType.DIALOG_NONE)
                     {
                         yield return ResourceAtlasClass.WaitForNextFrame;
-                        ShowDialogueExec(dialogConfig.dialogTriggered, DialogPhrase.PHRASE_NONE);
+                        ShowDialogueExec(dialogConfig.dialogTriggered, DialogPhrase.PHRASE_NONE, dialog_background);
                     }
                     else
                     {
                         /* End of dialog */
                         _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_NONE, string.Empty, string.Empty);
-                        VARMAP_GameMenu.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
+
+                        if (!dialog_background)
+                        {
+                            VARMAP_GameMenu.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
+                        }
                     }
                 }
             }
@@ -510,16 +551,16 @@ namespace Gob3AQ.GameMenu
                     {
                         VARMAP_GameMenu.COMMIT_EVENT(one_event);
 
-                        ShowDialogueService(talkers, DialogType.DIALOG_SIMPLE, DialogPhrase.PHRASE_GREAT_IDEA_COMBI);
+                        ShowDialogueService(talkers, DialogType.DIALOG_SIMPLE, DialogPhrase.PHRASE_GREAT_IDEA_COMBI, false);
                     }
                     else
                     {
-                        ShowDialogueService(talkers, DialogType.DIALOG_SIMPLE, DialogPhrase.PHRASE_ALREADY_COMBI);
+                        ShowDialogueService(talkers, DialogType.DIALOG_SIMPLE, DialogPhrase.PHRASE_ALREADY_COMBI, false);
                     }
                 }
                 else
                 {
-                    ShowDialogueService(talkers, DialogType.DIALOG_SIMPLE, DialogPhrase.PHRASE_NONSENSE_COMBI);
+                    ShowDialogueService(talkers, DialogType.DIALOG_SIMPLE, DialogPhrase.PHRASE_NONSENSE_COMBI, false);
                 }
 
                 VARMAP_GameMenu.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_DIALOG, out _);
@@ -601,7 +642,7 @@ namespace Gob3AQ.GameMenu
                 {
                     case DialogCoroutineTaskType.DIALOG_TASK_START:
                         dialog_actualTaskType = DialogCoroutineTaskType.DIALOG_TASK_NONE;
-                        ShowDialogueExec(dialog_input_type, dialog_input_phrase);
+                        ShowDialogueExec(dialog_input_type, dialog_input_phrase, dialog_input_backgroundDialog);
                         break;
 
                     case DialogCoroutineTaskType.DIALOG_TASK_ENDPHRASE:

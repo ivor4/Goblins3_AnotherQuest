@@ -425,14 +425,6 @@ namespace Gob3AQ.GameEventMaster
                 VARMAP_GameEventMaster.IS_MODULE_LOADED(GameModules.MODULE_ItemMaster, out completed);
             }
 
-            completed = false;
-
-            while (!completed)
-            {
-                yield return ResourceAtlasClass.WaitForNextFrame;
-                VARMAP_GameEventMaster.IS_MODULE_LOADED(GameModules.MODULE_GameMenu, out completed);
-            }
-
             HashSet<UnchainConditions> _itemRelatedUnchainersToRemove = new(GameFixedConfig.MAX_PENDING_UNCHAINERS);
 
             foreach(UnchainConditions unchainer in _itemRelatedUnchainers)

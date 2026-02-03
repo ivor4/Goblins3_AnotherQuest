@@ -373,6 +373,13 @@ namespace Gob3AQ.VARMAP
         /// </summary>
         protected static CHANGE_DAY_MOMENT_DELEGATE _CHANGE_DAY_MOMENT;
         /// <summary> 
+        /// Unchains automatic background actions and gives result (as if user used item)
+        /// <para> Owner: ItemMaster </para> 
+        /// <para> Accessors: LevelMaster,  </para> 
+        /// <para> Method: <see cref="ItemMasterClass.BackgroundItemTaskService"/> </para> 
+        /// </summary>
+        protected static BACKGROUND_ITEM_TASK_DELEGATE _BACKGROUND_ITEM_TASK;
+        /// <summary> 
         /// Last service
         /// <para> Owner: GameMaster </para> 
         /// <para> Accessors:  </para> 

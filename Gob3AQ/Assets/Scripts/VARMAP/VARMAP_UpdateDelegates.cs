@@ -177,6 +177,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _ZOOM_SUBSCRIPTION = GraphicsMasterClass.ZoomSubscriptionService;
             _SHOW_DECISION = GameMenuClass.ShowDecisionService;
             _CHANGE_DAY_MOMENT = GameMasterClass.ChangeDayMomentService;
+            _BACKGROUND_ITEM_TASK = ItemMasterClass.BackgroundItemTaskService;
             _LAST_SERVICE = GameMasterClass.ExitGameService;
             /* > ATG 2 END */
         }

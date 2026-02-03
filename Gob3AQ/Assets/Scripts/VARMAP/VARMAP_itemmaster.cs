@@ -45,6 +45,7 @@ namespace Gob3AQ.VARMAP.ItemMaster
             USE_ITEM = _USE_ITEM;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             ZOOM_SUBSCRIPTION = _ZOOM_SUBSCRIPTION;
+            BACKGROUND_ITEM_TASK = _BACKGROUND_ITEM_TASK;
             /* > ATG 1 END */
         }
 
@@ -160,6 +161,13 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /// <para> Method: <see cref="GraphicsMasterClass.ZoomSubscriptionService"/> </para> 
         /// </summary>
         public static ZOOM_SUBSCRIPTION_DELEGATE ZOOM_SUBSCRIPTION;
+        /// <summary> 
+        /// Unchains automatic background actions and gives result (as if user used item)
+        /// <para> Owner: ItemMaster </para> 
+        /// <para> Accessors: LevelMaster,  </para> 
+        /// <para> Method: <see cref="ItemMasterClass.BackgroundItemTaskService"/> </para> 
+        /// </summary>
+        public static BACKGROUND_ITEM_TASK_DELEGATE BACKGROUND_ITEM_TASK;
         /* > ATG 3 END */
     }
 }

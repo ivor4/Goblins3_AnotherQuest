@@ -35,7 +35,8 @@ namespace Gob3AQ.GameMenu.UICanvas
     {
         DIALOG_MODE_NONE,
         DIALOG_MODE_OPTIONS,
-        DIALOG_MODE_PHRASE
+        DIALOG_MODE_PHRASE,
+        DIALOG_MODE_BACKGROUND
     }
 
     public enum MenuButtonType
@@ -59,6 +60,7 @@ namespace Gob3AQ.GameMenu.UICanvas
         private GameObject UICanvas_mementoObj;
         private GameObject UICanvas_itemMenuObj;
 
+        private Image UICanvas_dialogObj_background;
         private TMP_Text UICanvas_dialogObj_sender;
         private TMP_Text UICanvas_dialogObj_msg;
         private GameObject UICanvas_dialogOptions;
@@ -125,6 +127,7 @@ namespace Gob3AQ.GameMenu.UICanvas
             UICanvas_mementoObj = transform.Find("MementoObj").gameObject;
             UICanvas_itemMenuObj = transform.Find("ItemMenuObj").gameObject;
 
+            UICanvas_dialogObj_background = UICanvas_dialogObj.GetComponent<Image>();
             UICanvas_dialogObj_sender = UICanvas_dialogObj.transform.Find("DialogSender").GetComponent<TMP_Text>();
             UICanvas_dialogObj_msg = UICanvas_dialogObj.transform.Find("DialogMsg").GetComponent<TMP_Text>();
             UICanvas_dialogOptions = UICanvas_dialogObj.transform.Find("DialogOptions").gameObject;
@@ -238,11 +241,23 @@ namespace Gob3AQ.GameMenu.UICanvas
             switch (mode)
             {
                 case DialogMode.DIALOG_MODE_OPTIONS:
+                    UICanvas_dialogObj_background.enabled = true;
                     UICanvas_dialogObj_sender.gameObject.SetActive(false);
                     UICanvas_dialogObj_msg.gameObject.SetActive(false);
                     UICanvas_dialogOptions.SetActive(true);
                     break;
                 case DialogMode.DIALOG_MODE_PHRASE:
+                    UICanvas_dialogObj_background.enabled = true;
+                    UICanvas_dialogObj_sender.gameObject.SetActive(true);
+                    UICanvas_dialogObj_msg.gameObject.SetActive(true);
+                    UICanvas_dialogOptions.SetActive(false);
+
+                    UICanvas_dialogObj_sender.text = sender;
+                    UICanvas_dialogObj_msg.text = msg;
+                    break;
+
+                case DialogMode.DIALOG_MODE_BACKGROUND:
+                    UICanvas_dialogObj_background.enabled = false;
                     UICanvas_dialogObj_sender.gameObject.SetActive(true);
                     UICanvas_dialogObj_msg.gameObject.SetActive(true);
                     UICanvas_dialogOptions.SetActive(false);
@@ -252,6 +267,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     break;
 
                 default:
+                    UICanvas_dialogObj_background.enabled = true;
                     UICanvas_dialogObj_sender.gameObject.SetActive(false);
                     UICanvas_dialogObj_msg.gameObject.SetActive(false);
                     UICanvas_dialogOptions.SetActive(false);

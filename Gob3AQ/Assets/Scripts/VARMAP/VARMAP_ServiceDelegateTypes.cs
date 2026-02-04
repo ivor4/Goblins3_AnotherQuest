@@ -69,6 +69,6 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void LOCK_PLAYER_DELEGATE(CharacterType character, bool lockPlayer);
     public delegate void SHOW_DECISION_DELEGATE(DecisionType decision);
     public delegate void CHANGE_DAY_MOMENT_DELEGATE(MomentType dayMoment);
-    public delegate void BACKGROUND_ITEM_TASK_DELEGATE(ItemInteractionType autoType, CharacterType character, int waypointIndex, out InteractionUsageOutcome outcome);
+    public delegate void BACKGROUND_ITEM_TASK_DELEGATE(ItemInteractionType autoType, CharacterType character, out InteractionUsageOutcome outcome);
 
 }

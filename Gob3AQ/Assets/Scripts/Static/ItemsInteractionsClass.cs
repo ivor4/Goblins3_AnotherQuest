@@ -508,6 +508,13 @@ namespace Gob3AQ.Brain.ItemsInteraction
             DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_DIALOG_UMBRELLA_TAKEN,
             new GameEventCombi[1]{new(GameEvent.EVENT_UMBRELLA_PICKABLE_TAKEN, false),}), 
             
+            new( /* COND_BACKGROUND_DIALOGUE_MANYO */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            MomentType.MOMENT_NIGHT,CharacterType.CHARACTER_NONE,GameItem.ITEM_ELMANYO_OWNER_NIGHT,ItemInteractionType.INTERACTION_AUTO_6s,
+            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
+            DialogType.DIALOG_MANYO_UMBRELLA,DialogPhrase.PHRASE_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,
@@ -652,7 +659,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_ELMANYO_OWNER_NIGHT */
             NameType.NAME_OWNER,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK,}),
             GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
-            new ActionConditions[1]{ActionConditions.COND_TALK_MANYO_OWNER,}),
+            new ActionConditions[2]{ActionConditions.COND_TALK_MANYO_OWNER,ActionConditions.COND_BACKGROUND_DIALOGUE_MANYO,}),
             
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST,}),

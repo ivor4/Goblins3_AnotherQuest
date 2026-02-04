@@ -98,23 +98,27 @@ namespace Gob3AQ.ItemMaster
 
         public static void UseItemService(in InteractionUsage usage, out InteractionUsageOutcome outcome)
         {
-            _ = ref ItemInteractionCommon(in usage, out outcome);
+            ItemInteractionCommon(in usage, out outcome);
         }
 
-        public static void BackgroundItemTaskService(ItemInteractionType autoType, CharacterType character, int waypointIndex, out InteractionUsageOutcome outcome)
+        public static void BackgroundItemTaskService(ItemInteractionType autoType, CharacterType character, out InteractionUsageOutcome outcome)
         {
-            if(_singleton != null)
-            {
-                InteractionUsage usage = new(autoType, character, GameItem.ITEM_NONE, CharacterType.CHARACTER_NONE,
-                    GameItem.ITEM_NONE, -1, waypointIndex);
+            outcome = new InteractionUsageOutcome(CharacterAnimation.ITEM_USE_ANIMATION_NONE, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, false);
 
-                /* TODO: Foreach looking for active items with auto actions */
-
-                _ = ref ItemInteractionCommon(in usage, out outcome);
-            }
-            else
+            if (_singleton != null)
             {
-                outcome = new InteractionUsageOutcome(CharacterAnimation.ITEM_USE_ANIMATION_NONE, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, false);
+                foreach (GameItem item in _singleton._activeLevelItems.Keys)
+                {
+                    InteractionUsage usage = new(autoType, character, GameItem.ITEM_NONE, CharacterType.CHARACTER_NONE,
+                    item, -1, -1);
+                    ItemInteractionCommon(in usage, out InteractionUsageOutcome tempOutcome);
+
+                    if(tempOutcome.ok)
+                    {
+                        outcome = tempOutcome;
+                        break;
+                    }
+                }
             }
         }
 
@@ -194,7 +198,7 @@ namespace Gob3AQ.ItemMaster
             }
         }
 
-        private static ref readonly ItemInfo ItemInteractionCommon(in InteractionUsage usage, out InteractionUsageOutcome outcome)
+        private static void ItemInteractionCommon(in InteractionUsage usage, out InteractionUsageOutcome outcome)
         {
             bool conditionOK;
             CharacterAnimation animation;
@@ -225,7 +229,7 @@ namespace Gob3AQ.ItemMaster
                 ref readonly ActionConditionsInfo condition = ref ItemsInteractionsClass.GetActionConditionsInfo(conditionsEnumArray[i]);
                 
                 /* Validation if, check if interaction slot is the one which fits actual conditions */
-                if ((usage.playerSource == condition.srcChar) && (condition.actionOK == usage.type) &&
+                if (((usage.playerSource == condition.srcChar)||(condition.srcChar == CharacterType.CHARACTER_NONE)) && (condition.actionOK == usage.type) &&
                     ((condition.momentType == MomentType.MOMENT_ANY) || (condition.momentType == actualMoment)) &&
                     ((usage.type != ItemInteractionType.INTERACTION_USE) ||
                     ((usage.itemSource == condition.srcItem) && srcItemInfo.isPickable && (owners[(int)srcItemInfo.pickableItem] == usage.playerSource))
@@ -248,8 +252,6 @@ namespace Gob3AQ.ItemMaster
             }
 
             outcome = new(animation, dialog, phrase, conditionOK);
-
-            return ref itemInfo;
         }
 
         private IEnumerator LoadingCoroutine()

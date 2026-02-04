@@ -36,6 +36,7 @@ namespace Gob3AQ.LevelMaster
         private RaycastHit2D[] _RaycastedItemColliders;
         private Dictionary<Collider2D, IGameObjectHoverable> _ItemColliderDictionary;
         private Camera mainCamera;
+        private ulong _backgroundItemTaskTimestamp;
 
 
         public struct PendingCharacterInteraction
@@ -375,6 +376,25 @@ namespace Gob3AQ.LevelMaster
                 }
             }
             UpdateMouseEvents(gstatus, in mouse, in keys);
+
+            /* Background dialogue triggering */
+            ulong actualTimestamp = VARMAP_LevelMaster.GET_ELAPSED_TIME_MS();
+
+            if((actualTimestamp - _backgroundItemTaskTimestamp) > GameFixedConfig.BACKGROUND_ITEM_ACTIONS_MS)
+            {
+                VARMAP_LevelMaster.BACKGROUND_ITEM_TASK(ItemInteractionType.INTERACTION_AUTO_6s,
+                    VARMAP_LevelMaster.GET_PLAYER_SELECTED(), out InteractionUsageOutcome outcome);
+
+                if(outcome.ok && (outcome.dialogType != DialogType.DIALOG_NONE))
+                {
+                    Span<GameItem> talkers = stackalloc GameItem[2];
+                    talkers[0] = GameItem.ITEM_NONE;
+                    talkers[1] = GameItem.ITEM_NONE;
+                    VARMAP_LevelMaster.SHOW_DIALOGUE(talkers, outcome.dialogType, outcome.dialogPhrase, true);
+                }
+
+                _backgroundItemTaskTimestamp = actualTimestamp;
+            }
         }
 
         private void UpdateHoverElements(in MousePropertiesStruct mouse)
@@ -629,6 +649,9 @@ namespace Gob3AQ.LevelMaster
                         /**/
                     }
 
+                    /* Renew timestamp for background actions */
+                    _backgroundItemTaskTimestamp = VARMAP_LevelMaster.GET_ELAPSED_TIME_MS();
+
                     VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
                 }
             }
@@ -698,6 +721,12 @@ namespace Gob3AQ.LevelMaster
                         break;
                     case Game_Status.GAME_STATUS_LOADING:
                         StartCoroutine(LoadCoroutine());
+                        break;
+
+                    case Game_Status.GAME_STATUS_PLAY:
+                        /* Force new status */
+                        _PrevRaycastedItems.Clear();
+                        _backgroundItemTaskTimestamp = VARMAP_LevelMaster.GET_ELAPSED_TIME_MS();
                         break;
 
                     default:

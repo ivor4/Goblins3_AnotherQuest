@@ -257,6 +257,8 @@ namespace Gob3AQ.GameMenu.UICanvas
                     break;
 
                 case DialogMode.DIALOG_MODE_BACKGROUND:
+                    /* Exception for background mode */
+                    UICanvas_dialogObj.SetActive(true);
                     UICanvas_dialogObj_background.enabled = false;
                     UICanvas_dialogObj_sender.gameObject.SetActive(true);
                     UICanvas_dialogObj_msg.gameObject.SetActive(true);
@@ -267,6 +269,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     break;
 
                 default:
+                    UICanvas_dialogObj.SetActive(false);
                     UICanvas_dialogObj_background.enabled = true;
                     UICanvas_dialogObj_sender.gameObject.SetActive(false);
                     UICanvas_dialogObj_msg.gameObject.SetActive(false);

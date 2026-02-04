@@ -60,6 +60,7 @@ namespace Gob3AQ.FixedConfig
         public const int MAX_DISPLAYED_PICKED_ITEMS = 16;
         public const int MAX_DISPLAYED_HOR_PICKED_ITEMS = 4;
         public const int MAX_SUBSCRIBED_EVENTS_PER_ITEM = 8;
+        public const ulong BACKGROUND_ITEM_ACTIONS_MS = 6000;
 
 
         /* File routes */

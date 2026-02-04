@@ -79,6 +79,7 @@ namespace Gob3AQ.VARMAP.Types
         COND_TALK_MANYO_OWNER, 
         COND_TAKE_UMBRELLA_MORNING, 
         COND_TAKE_UMBRELLA_NIGHT, 
+        COND_BACKGROUND_DIALOGUE_MANYO, 
         COND_LAST, 
         
         COND_TOTAL

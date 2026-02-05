@@ -327,6 +327,10 @@ namespace Gob3AQ.LevelMaster
                         break;
                 }
             }
+            else
+            {
+                _backgroundItemTaskTimestamp = VARMAP_LevelMaster.GET_ELAPSED_TIME_MS();
+            }
         }
 
         private void OnDestroy()
@@ -375,26 +379,9 @@ namespace Gob3AQ.LevelMaster
                     ExecutePlayerEndOfInteraction((CharacterType)i);
                 }
             }
+
             UpdateMouseEvents(gstatus, in mouse, in keys);
-
-            /* Background dialogue triggering */
-            ulong actualTimestamp = VARMAP_LevelMaster.GET_ELAPSED_TIME_MS();
-
-            if((actualTimestamp - _backgroundItemTaskTimestamp) > GameFixedConfig.BACKGROUND_ITEM_ACTIONS_MS)
-            {
-                VARMAP_LevelMaster.BACKGROUND_ITEM_TASK(ItemInteractionType.INTERACTION_AUTO_6s,
-                    VARMAP_LevelMaster.GET_PLAYER_SELECTED(), out InteractionUsageOutcome outcome);
-
-                if(outcome.ok && (outcome.dialogType != DialogType.DIALOG_NONE))
-                {
-                    Span<GameItem> talkers = stackalloc GameItem[2];
-                    talkers[0] = GameItem.ITEM_NONE;
-                    talkers[1] = GameItem.ITEM_NONE;
-                    VARMAP_LevelMaster.SHOW_DIALOGUE(talkers, outcome.dialogType, outcome.dialogPhrase, true);
-                }
-
-                _backgroundItemTaskTimestamp = actualTimestamp;
-            }
+            ProcessBackgroundEvents();
         }
 
         private void UpdateHoverElements(in MousePropertiesStruct mouse)
@@ -661,6 +648,28 @@ namespace Gob3AQ.LevelMaster
             charPendingAction.ended = false;
         }
 
+        private void ProcessBackgroundEvents()
+        {
+            /* Background dialogue triggering */
+            ulong actualTimestamp = VARMAP_LevelMaster.GET_ELAPSED_TIME_MS();
+
+            if ((actualTimestamp - _backgroundItemTaskTimestamp) >= GameFixedConfig.BACKGROUND_ITEM_ACTIONS_MS)
+            {
+                VARMAP_LevelMaster.BACKGROUND_ITEM_TASK(ItemInteractionType.INTERACTION_AUTO_6s,
+                    VARMAP_LevelMaster.GET_PLAYER_SELECTED(), out InteractionUsageOutcome outcome);
+
+                if (outcome.ok && (outcome.dialogType != DialogType.DIALOG_NONE))
+                {
+                    Span<GameItem> talkers = stackalloc GameItem[2];
+                    talkers[0] = GameItem.ITEM_NONE;
+                    talkers[1] = GameItem.ITEM_NONE;
+                    VARMAP_LevelMaster.SHOW_DIALOGUE(talkers, outcome.dialogType, outcome.dialogPhrase, true);
+                }
+
+                _backgroundItemTaskTimestamp = actualTimestamp;
+            }
+        }
+
         private void CrossDoor(GameItem doorItem)
         {
             DoorInfo doorInfo = _Door_Dict[doorItem];
@@ -718,6 +727,8 @@ namespace Gob3AQ.LevelMaster
                         Array.Clear(_PendingCharInteractions, 0, _PendingCharInteractions.Length);
                         _HoveredElem = LevelElemInfo.EMPTY;
                         _HoveredPending.Clear();
+                        VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
+                        VARMAP_LevelMaster.SET_ITEM_HOVER(_HoveredElem.item);
                         break;
                     case Game_Status.GAME_STATUS_LOADING:
                         StartCoroutine(LoadCoroutine());

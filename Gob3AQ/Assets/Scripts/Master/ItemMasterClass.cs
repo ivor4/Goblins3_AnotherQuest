@@ -8,6 +8,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Gob3AQ.Libs.Arith;
 
 namespace Gob3AQ.ItemMaster
 {
@@ -15,7 +16,6 @@ namespace Gob3AQ.ItemMaster
     {
         private static ItemMasterClass _singleton;
         private IReadOnlyDictionary<GameItem, GameElementClass> _levelItems;
-        private Dictionary<GameItem, GameElementClass> _activeLevelItems;
         private int itemsToLoad;
         private int itemsLoaded;
 
@@ -52,9 +52,6 @@ namespace Gob3AQ.ItemMaster
                             instance.SetActive(true);
                             instance.SetClickable(true);
                             instance.SetVisible(true);
-
-                            /* Move to active list */
-                            _singleton._activeLevelItems[unchainInfo.targetItem] = instance;
                         }
                         break;
 
@@ -67,9 +64,6 @@ namespace Gob3AQ.ItemMaster
                             instance.SetActive(false);
                             instance.SetClickable(false);
                             instance.SetVisible(false);
-
-                            /* Remove from active list */
-                            _singleton._activeLevelItems.Remove(unchainInfo.targetItem);
                         }
                         break;
 
@@ -77,8 +71,6 @@ namespace Gob3AQ.ItemMaster
                         if (_singleton._levelItems.TryGetValue(unchainInfo.targetItem, out instance))
                         {
                             Debug.Log("UnchainToItemService: Destroying item " + unchainInfo.targetItem);
-                            /* Remove from active list */
-                            _singleton._activeLevelItems.Remove(unchainInfo.targetItem);
                             instance.VirtualDestroy();
                         }
                         break;
@@ -101,26 +93,6 @@ namespace Gob3AQ.ItemMaster
             ItemInteractionCommon(in usage, out outcome);
         }
 
-        public static void BackgroundItemTaskService(ItemInteractionType autoType, CharacterType character, out InteractionUsageOutcome outcome)
-        {
-            outcome = new InteractionUsageOutcome(CharacterAnimation.ITEM_USE_ANIMATION_NONE, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, false);
-
-            if (_singleton != null)
-            {
-                foreach (GameItem item in _singleton._activeLevelItems.Keys)
-                {
-                    InteractionUsage usage = new(autoType, character, GameItem.ITEM_NONE, CharacterType.CHARACTER_NONE,
-                    item, -1, -1);
-                    ItemInteractionCommon(in usage, out InteractionUsageOutcome tempOutcome);
-
-                    if(tempOutcome.ok)
-                    {
-                        outcome = tempOutcome;
-                        break;
-                    }
-                }
-            }
-        }
 
         public static void AddOneItemToLoad()
         {
@@ -149,7 +121,6 @@ namespace Gob3AQ.ItemMaster
             else
             {
                 _singleton = this;
-                _activeLevelItems = new(GameFixedConfig.MAX_POOLED_ITEMS);
             }
         }
 
@@ -159,7 +130,6 @@ namespace Gob3AQ.ItemMaster
             VARMAP_ItemMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_ItemMaster);
             itemsLoaded = 0;
             itemsToLoad = 0;
-            _activeLevelItems.Clear();
         }
 
         private void OnDestroy()
@@ -220,31 +190,31 @@ namespace Gob3AQ.ItemMaster
                 srcItemInfo = ref ItemsInteractionsClass.GetItemInfo(usage.itemSource);
             }
             ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(usage.itemDest);
-            ReadOnlySpan<ActionConditions> conditionsEnumArray = itemInfo.Conditions;
+            ReadOnlyHashSet<ActionConditions> conditionsEnumArray = itemInfo.conditions;
             ReadOnlySpan<CharacterType> owners = VARMAP_ItemMaster.GET_SHADOW_ARRAY_PICKABLE_ITEM_OWNER();
 
             /* Search for the first condition which matches (char and/or srcItem) */
-            for (int i = 0; i < conditionsEnumArray.Length; i++)
+            foreach(ActionConditions condition in conditionsEnumArray)
             {
-                ref readonly ActionConditionsInfo condition = ref ItemsInteractionsClass.GetActionConditionsInfo(conditionsEnumArray[i]);
+                ref readonly ActionConditionsInfo conditionInfo = ref ItemsInteractionsClass.GetActionConditionsInfo(condition);
                 
                 /* Validation if, check if interaction slot is the one which fits actual conditions */
-                if (((usage.playerSource == condition.srcChar)||(condition.srcChar == CharacterType.CHARACTER_NONE)) && (condition.actionOK == usage.type) &&
-                    ((condition.momentType == MomentType.MOMENT_ANY) || (condition.momentType == actualMoment)) &&
+                if (((usage.playerSource == conditionInfo.srcChar)||(conditionInfo.srcChar == CharacterType.CHARACTER_NONE)) && (conditionInfo.actionOK == usage.type) &&
+                    ((conditionInfo.momentType == MomentType.MOMENT_ANY) || (conditionInfo.momentType == actualMoment)) &&
                     ((usage.type != ItemInteractionType.INTERACTION_USE) ||
-                    ((usage.itemSource == condition.srcItem) && srcItemInfo.isPickable && (owners[(int)srcItemInfo.pickableItem] == usage.playerSource))
+                    ((usage.itemSource == conditionInfo.srcItem) && srcItemInfo.isPickable && (owners[(int)srcItemInfo.pickableItem] == usage.playerSource))
                     ))
                 {
-                    VARMAP_ItemMaster.IS_EVENT_COMBI_OCCURRED(condition.NeededEvents, out bool occurred);
+                    VARMAP_ItemMaster.IS_EVENT_COMBI_OCCURRED(conditionInfo.NeededEvents, out bool occurred);
 
                     if (occurred)
                     {
                         /* Trigger additional event (in case) */
-                        VARMAP_ItemMaster.COMMIT_EVENT(condition.UnchainEvents);
-
-                        animation = condition.animationOK;
-                        dialog = condition.dialogOK;
-                        phrase = condition.phraseOK;
+                        VARMAP_ItemMaster.COMMIT_EVENT(conditionInfo.UnchainEvents);
+        
+                        animation = conditionInfo.animationOK;
+                        dialog = conditionInfo.dialogOK;
+                        phrase = conditionInfo.phraseOK;
                         conditionOK = true;
                         break;
                     }
@@ -269,12 +239,6 @@ namespace Gob3AQ.ItemMaster
             while (itemsLoaded < itemsToLoad)
             {
                 yield return ResourceAtlasClass.WaitForNextFrame;
-            }
-
-            /* Copy from whole scenario items */
-            foreach(KeyValuePair<GameItem, GameElementClass> kvp in _levelItems)
-            {
-                _activeLevelItems.Add(kvp.Key, kvp.Value);
             }
 
             VARMAP_ItemMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_ItemMaster);
@@ -306,7 +270,6 @@ namespace Gob3AQ.ItemMaster
                     case Game_Status.GAME_STATUS_CHANGING_ROOM:
                         itemsLoaded = 0;
                         itemsToLoad = 0;
-                        _activeLevelItems.Clear();
                         break;
                     case Game_Status.GAME_STATUS_LOADING:
                         VARMAP_ItemMaster.OBTAIN_SCENARIO_ITEMS(out _levelItems);

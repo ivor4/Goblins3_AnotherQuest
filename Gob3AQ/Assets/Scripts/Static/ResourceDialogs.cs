@@ -169,53 +169,56 @@ namespace Gob3AQ.ResourceDialogs
                 Queue<DialogType> dialoguesToProcess = new(GameFixedConfig.MAX_CACHED_PHRASES);
 
                 _phrasesToLoadArray.UnionWith(roomInfo.phrases);
+                _namesToLoadArray.UnionWith(roomInfo.names);
+
+                HashSet<ActionConditions> usedActionConditions = new();
+                usedActionConditions.UnionWith(roomInfo.actionConditions);
 
                 foreach (GameItem item in roomInfo.items)
                 {
                     ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(item);
                     _namesToLoadArray.Add(itemInfo.name);
+                    usedActionConditions.UnionWith(itemInfo.conditions);
+                }
 
-                    ReadOnlySpan<ActionConditions> conditionsEnumArray = itemInfo.Conditions;
+                foreach(ActionConditions actionCond in usedActionConditions)
+                {
+                    ref readonly ActionConditionsInfo condition = ref ItemsInteractionsClass.GetActionConditionsInfo(actionCond);
 
-                    for (int j = 0; j < conditionsEnumArray.Length; j++)
+                    /* Standalone phrases */
+                    _phrasesToLoadArray.Add(condition.phraseOK);
+
+                    /* Include phrases from dialogs */
+                    if (!processedDialogues.Contains(condition.dialogOK))
                     {
-                        ref readonly ActionConditionsInfo condition = ref ItemsInteractionsClass.GetActionConditionsInfo(conditionsEnumArray[j]);
+                        dialoguesToProcess.Enqueue(condition.dialogOK);
+                        processedDialogues.Add(condition.dialogOK);
+                    }
 
-                        /* Standalone phrases */
-                        _phrasesToLoadArray.Add(condition.phraseOK);
-
-                        /* Include phrases from dialogs */
-                        if (!processedDialogues.Contains(condition.dialogOK))
+                    while (dialoguesToProcess.TryDequeue(out DialogType remainingDialog))
+                    {
+                        if ((remainingDialog != DialogType.DIALOG_NONE) && (remainingDialog != DialogType.DIALOG_SIMPLE))
                         {
-                            dialoguesToProcess.Enqueue(condition.dialogOK);
-                            processedDialogues.Add(condition.dialogOK);
-                        }
+                            ref readonly DialogConfig dialogConfig = ref ResourceDialogsAtlasClass.GetDialogConfig(remainingDialog);
+                            ReadOnlySpan<DialogOption> dialogOptions = dialogConfig.Options;
 
-                        while (dialoguesToProcess.TryDequeue(out DialogType remainingDialog))
-                        {
-                            if ((remainingDialog != DialogType.DIALOG_NONE) && (remainingDialog != DialogType.DIALOG_SIMPLE))
+                            for (int j = 0; j < dialogOptions.Length; ++j)
                             {
-                                ref readonly DialogConfig dialogConfig = ref ResourceDialogsAtlasClass.GetDialogConfig(remainingDialog);
-                                ReadOnlySpan<DialogOption> dialogOptions = dialogConfig.Options;
+                                ref readonly DialogOptionConfig dialogOptionConfig = ref ResourceDialogsAtlasClass.GetDialogOptionConfig(dialogOptions[j]);
+                                ReadOnlySpan<DialogPhrase> dialogPhrases = dialogOptionConfig.Phrases;
 
-                                for (int k = 0; k < dialogOptions.Length; ++k)
+                                for (int k = 0; k < dialogPhrases.Length; ++k)
                                 {
-                                    ref readonly DialogOptionConfig dialogOptionConfig = ref ResourceDialogsAtlasClass.GetDialogOptionConfig(dialogOptions[k]);
-                                    ReadOnlySpan<DialogPhrase> dialogPhrases = dialogOptionConfig.Phrases;
+                                    _phrasesToLoadArray.Add(dialogPhrases[k]);
+                                }
 
-                                    for (int l = 0; l < dialogPhrases.Length; ++l)
+                                /* If option triggers another dialog, include its phrases too */
+                                if (dialogOptionConfig.dialogTriggered != DialogType.DIALOG_NONE)
+                                {
+                                    if (!processedDialogues.Contains(dialogOptionConfig.dialogTriggered))
                                     {
-                                        _phrasesToLoadArray.Add(dialogPhrases[l]);
-                                    }
-
-                                    /* If option triggers another dialog, include its phrases too */
-                                    if (dialogOptionConfig.dialogTriggered != DialogType.DIALOG_NONE)
-                                    {
-                                        if (!processedDialogues.Contains(dialogOptionConfig.dialogTriggered))
-                                        {
-                                            dialoguesToProcess.Enqueue(dialogOptionConfig.dialogTriggered);
-                                            processedDialogues.Add(dialogOptionConfig.dialogTriggered);
-                                        }
+                                        dialoguesToProcess.Enqueue(dialogOptionConfig.dialogTriggered);
+                                        processedDialogues.Add(dialogOptionConfig.dialogTriggered);
                                     }
                                 }
                             }

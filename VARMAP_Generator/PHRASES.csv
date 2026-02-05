@@ -56,4 +56,7 @@
 54,PHRASE_MEMENTO_RECIPE_MISSION_1,0,0,DIALOG_ANIMATION_TALK,Restaurant owner needs a new recipe to have new customers. He promises a reward,El dueño del restaurante necesita una nueva receta para tener nuevos clientes. Él promete una recompensa
 55,PHRASE_DIALOG_MANYO_UMBRELLA_NOT_1,1,0,DIALOG_ANIMATION_TALK,Is this umbrella yours? Somebody left it days ago. God people don't take what doesn't belong to them,Es tuyo el paraguas? Alguien se lo dejó hace días. La gente de Dios no se apropia de lo que no es suyo
 56,PHRASE_DIALOG_UMBRELLA_TAKEN,0,0,DIALOG_ANIMATION_TALK,I'll give you back some day!,Te lo traeré de vuelta algún día!
-57,PHRASE_DIALOG_LAST,0,0,DIALOG_ANIMATION_TALK,Last one,Last one
+57,PHRASE_DIALOG_MANYO_BCKG_CROWD_1,0,0,DIALOG_ANIMATION_NONE,You must try the wine,Tienes que probar el vino!
+58,PHRASE_DIALOG_MANYO_BCKG_CROWD_2,0,0,DIALOG_ANIMATION_NONE,For sure! I'm getting dry with this meat,Desde luego! Me estoy quedando seco con esta carne
+59,PHRASE_DIALOG_MANYO_BCKG_CROWD_3,0,0,DIALOG_ANIMATION_NONE,Card match is promising this night,La partida de naipes esta noche va a ser de cine
+60,PHRASE_DIALOG_LAST,0,0,DIALOG_ANIMATION_TALK,Last one,Last one

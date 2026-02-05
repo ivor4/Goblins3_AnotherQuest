@@ -592,7 +592,7 @@ namespace Gob3AQ.LevelMaster
         private void ExecutePlayerEndOfInteraction(CharacterType character)
         {
             /* Generate stack array of 2 talkers, player and dst */
-            Span<GameItem> talkers = stackalloc GameItem[2];
+            Span<NameType> talkers = stackalloc NameType[2];
 
             ref PendingCharacterInteraction charPendingAction = ref _PendingCharInteractions[(int)character];
             ref readonly InteractionUsage usage = ref charPendingAction.usage;
@@ -620,8 +620,8 @@ namespace Gob3AQ.LevelMaster
                     else if (outcome.dialogType != DialogType.DIALOG_NONE)
                     {
                         /* Default talkers are own player and itemDest */
-                        talkers[0] = _Player_List[(int)usage.playerSource].ItemID;
-                        talkers[1] = usage.itemDest;
+                        talkers[0] = ItemsInteractionsClass.GetItemInfo(_Player_List[(int)usage.playerSource].ItemID).name;
+                        talkers[1] = ItemsInteractionsClass.GetItemInfo(usage.itemDest).name;
 
                         /* No need to know about error, as this function is executed from play mode */
                         VARMAP_LevelMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_DIALOG, out _);
@@ -655,15 +655,19 @@ namespace Gob3AQ.LevelMaster
 
             if ((actualTimestamp - _backgroundItemTaskTimestamp) >= GameFixedConfig.BACKGROUND_ITEM_ACTIONS_MS)
             {
-                VARMAP_LevelMaster.BACKGROUND_ITEM_TASK(ItemInteractionType.INTERACTION_AUTO_6s,
-                    VARMAP_LevelMaster.GET_PLAYER_SELECTED(), out InteractionUsageOutcome outcome);
+                ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(VARMAP_LevelMaster.GET_ACTUAL_ROOM());
 
-                if (outcome.ok && (outcome.dialogType != DialogType.DIALOG_NONE))
+                foreach(ActionConditions cond in roomInfo.actionConditions)
                 {
-                    Span<GameItem> talkers = stackalloc GameItem[2];
-                    talkers[0] = GameItem.ITEM_NONE;
-                    talkers[1] = GameItem.ITEM_NONE;
-                    VARMAP_LevelMaster.SHOW_DIALOGUE(talkers, outcome.dialogType, outcome.dialogPhrase, true);
+                    ref readonly ActionConditionsInfo condInfo = ref ItemsInteractionsClass.GetActionConditionsInfo(cond);
+                    if((condInfo.actionOK == ItemInteractionType.INTERACTION_AUTO_6s)&&(condInfo.dialogOK != DialogType.DIALOG_NONE))
+                    {
+                        Span<NameType> talkers = stackalloc NameType[2];
+                        talkers[0] = NameType.NAME_NONE;
+                        talkers[1] = NameType.NAME_NONE;
+                        VARMAP_LevelMaster.SHOW_DIALOGUE(talkers, condInfo.dialogOK, condInfo.phraseOK, true);
+                        break;
+                    }
                 }
 
                 _backgroundItemTaskTimestamp = actualTimestamp;

@@ -135,18 +135,25 @@ namespace Gob3AQ.VARMAP.Types
         public readonly ReadOnlyHashSet<GameSprite> sprites;
         public readonly ReadOnlyHashSet<DialogPhrase> phrases;
         public readonly ReadOnlyHashSet<GameItem> items;
+        public readonly ReadOnlyHashSet<NameType> names;
+        public readonly ReadOnlyHashSet<ActionConditions> actionConditions;
 
         public ReadOnlySpan<GameSprite> Backgrounds => backgrounds;
 
         public static readonly RoomInfo EMPTY = new(new GameSprite[0],new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(0)),
-            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(0)), new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(0)));
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(0)), new ReadOnlyHashSet<NameType>(new HashSet<NameType>(0)),
+            new ReadOnlyHashSet<ActionConditions>(new HashSet<ActionConditions>(0)), new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(0)));
 
-        public RoomInfo(GameSprite[] backgrounds, ReadOnlyHashSet<GameSprite> sprites, ReadOnlyHashSet<DialogPhrase> phrases, ReadOnlyHashSet<GameItem> items)
+        public RoomInfo(GameSprite[] backgrounds, ReadOnlyHashSet<GameSprite> sprites,
+            ReadOnlyHashSet<GameItem> items, ReadOnlyHashSet<NameType> names, 
+            ReadOnlyHashSet<ActionConditions> actionConditions, ReadOnlyHashSet<DialogPhrase> phrases)
         {
             this.backgrounds = backgrounds;
             this.sprites = sprites;
             this.phrases = phrases;
             this.items = items;
+            this.names = names;
+            this.actionConditions = actionConditions;
         }
     }
 
@@ -164,15 +171,15 @@ namespace Gob3AQ.VARMAP.Types
 
     public readonly struct DialogConfig
     {
-        public ReadOnlySpan<GameItem> Talkers => talkers;
+        public ReadOnlySpan<NameType> Talkers => talkers;
         public ReadOnlySpan<DialogOption> Options => options;
 
-        private readonly GameItem[] talkers;
+        private readonly NameType[] talkers;
         private readonly DialogOption[] options;
 
-        public static readonly DialogConfig EMPTY = new(new GameItem[0],new DialogOption[0]);
+        public static readonly DialogConfig EMPTY = new(new NameType[0],new DialogOption[0]);
 
-        public DialogConfig(GameItem[] talkers, DialogOption[] options)
+        public DialogConfig(NameType[] talkers, DialogOption[] options)
         {
             this.talkers = talkers;
             this.options = options;
@@ -277,16 +284,15 @@ namespace Gob3AQ.VARMAP.Types
         public readonly bool isPickable;
         public readonly GameSprite pickableSprite;
         public readonly GamePickableItem pickableItem;
-        private readonly ActionConditions[] conditions;
+        public readonly ReadOnlyHashSet<ActionConditions> conditions;
 
 
-        public ReadOnlySpan<ActionConditions> Conditions => conditions;
 
         public static readonly ItemInfo EMPTY = new(NameType.NAME_NONE,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(0)),
-            GameSprite.SPRITE_NONE,false,GameSprite.SPRITE_NONE, GamePickableItem.ITEM_PICK_NONE, new ActionConditions[0]);
+            GameSprite.SPRITE_NONE,false,GameSprite.SPRITE_NONE, GamePickableItem.ITEM_PICK_NONE, new(new HashSet<ActionConditions>(0)));
 
         public ItemInfo(NameType name, GameItemFamily family, ReadOnlyHashSet<GameSprite> sprites,
-            GameSprite defaultSprite, bool isPickable, GameSprite pickableSprite, GamePickableItem pickableItem, ActionConditions[] conditions)
+            GameSprite defaultSprite, bool isPickable, GameSprite pickableSprite, GamePickableItem pickableItem, ReadOnlyHashSet<ActionConditions> conditions)
         {
             this.name = name;
             this.family = family;

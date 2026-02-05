@@ -746,9 +746,9 @@ for line in DIALOGSinputFile:
             
             options = columns[2].split('|')
             num_options = len(options)
-            stringToWrite = 'new GameItem['+str(num_options)+']{'
+            stringToWrite = 'new NameType['+str(num_options)+']{'
             for _option in options:
-                stringToWrite += item_prefix+_option+','
+                stringToWrite += name_prefix+_option+','
             stringToWrite += '},\n'
             dialog_atlas_lines.InsertLineInATG(1, stringToWrite)
             
@@ -992,20 +992,40 @@ for line in ROOMSinputFile:
         options = columns[4].split('|')
         num_options = len(options)
             
-        stringToWrite = 'new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>('+str(num_options)+'){'
+        stringToWrite = 'new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>('+str(num_options)+'){'
         for _option in options:
-            stringToWrite += phrase_prefix + _option + ', '
+            stringToWrite += item_prefix + _option + ', '
         stringToWrite += '}), \n'
         room_atlas_lines.InsertLineInATG(1, stringToWrite)
         
         options = columns[5].split('|')
         num_options = len(options)
             
-        stringToWrite = 'new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>('+str(num_options)+'){'
+        stringToWrite = 'new ReadOnlyHashSet<NameType>(new HashSet<NameType>('+str(num_options)+'){'
         for _option in options:
-            stringToWrite += item_prefix + _option + ', '
+            stringToWrite += name_prefix + _option + ', '
+        stringToWrite += '}), \n'
+        room_atlas_lines.InsertLineInATG(1, stringToWrite)
+        
+        options = columns[6].split('|')
+        num_options = len(options)
+            
+        stringToWrite = 'new ReadOnlyHashSet<ActionConditions>(new HashSet<ActionConditions>('+str(num_options)+'){'
+        for _option in options:
+            stringToWrite += conditiontype_prefix + _option + ', '
+        stringToWrite += '}), \n'
+        room_atlas_lines.InsertLineInATG(1, stringToWrite)
+        
+        options = columns[7].split('|')
+        num_options = len(options)
+            
+        stringToWrite = 'new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>('+str(num_options)+'){'
+        for _option in options:
+            stringToWrite += phrase_prefix + _option + ', '
         stringToWrite += '}) \n'
         room_atlas_lines.InsertLineInATG(1, stringToWrite)
+        
+        
         
         stringToWrite = '),\n'
         room_atlas_lines.InsertLineInATG(1, stringToWrite)
@@ -1333,14 +1353,14 @@ for line in ITEMSinputFile:
             pickable_prefix+pickname+',\n'
         items_interaction_lines.InsertLineInATG(3, stringToWrite)
         
-        stringToWrite = 'new ActionConditions['
+        stringToWrite = 'new(new HashSet<ActionConditions>('
         options = ItemVar["conditions"].split('|')
         num_options = len(options)
-        stringToWrite += str(num_options)+']{'
+        stringToWrite += str(num_options)+'){'
         
         for _option in options:
             stringToWrite += conditiontype_prefix+_option+','
-        stringToWrite += '}),\n'
+        stringToWrite += '})),\n'
         items_interaction_lines.InsertLineInATG(3, stringToWrite)
         items_interaction_lines.InsertLineInATG(3, '\n')
         

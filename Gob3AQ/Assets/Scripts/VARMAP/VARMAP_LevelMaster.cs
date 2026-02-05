@@ -69,7 +69,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
             LOCK_PLAYER = _LOCK_PLAYER;
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
             SHOW_DIALOGUE = _SHOW_DIALOGUE;
-            BACKGROUND_ITEM_TASK = _BACKGROUND_ITEM_TASK;
             /* > ATG 1 END */
         }
 
@@ -265,13 +264,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// <para> Method: <see cref="GameMenuClass.ShowDialogueService"/> </para> 
         /// </summary>
         public static SHOW_DIALOGUE_DELEGATE SHOW_DIALOGUE;
-        /// <summary> 
-        /// Unchains automatic background actions and gives result (as if user used item)
-        /// <para> Owner: ItemMaster </para> 
-        /// <para> Accessors: LevelMaster,  </para> 
-        /// <para> Method: <see cref="ItemMasterClass.BackgroundItemTaskService"/> </para> 
-        /// </summary>
-        public static BACKGROUND_ITEM_TASK_DELEGATE BACKGROUND_ITEM_TASK;
         /* > ATG 3 END */
     }
 }

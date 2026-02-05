@@ -43,7 +43,7 @@ namespace Gob3AQ.GameMenu
 
         private UICanvasClass _uicanvas_cls;
 
-        private GameItem[] dialog_input_talkers;
+        private NameType[] dialog_input_talkers;
         private DialogType dialog_input_type;
         private DialogPhrase dialog_input_phrase;
         private bool dialog_input_backgroundDialog;
@@ -92,7 +92,7 @@ namespace Gob3AQ.GameMenu
         /// <param name="dialog">The type of dialogue to display, which determines the structure and options available.</param>
         /// <param name="phrase">The initial phrase to display if the dialogue type is simple.</param>
         /// <param name="backgroundDialog">If background does not need user interaction (as a background conversation).</param>
-        public static void ShowDialogueService(ReadOnlySpan<GameItem> defaultTalkers, DialogType dialog, DialogPhrase phrase, bool backgroundDialog)
+        public static void ShowDialogueService(ReadOnlySpan<NameType> defaultTalkers, DialogType dialog, DialogPhrase phrase, bool backgroundDialog)
         {
            if(_singleton != null)
            {
@@ -158,6 +158,7 @@ namespace Gob3AQ.GameMenu
                 uniqueNumPhrases = 1;
             }
             /* A dialog with only one option should be given. But, in case, take always first option for background mode */
+            /* This is inconditional, even if option would not be available due to Needed Events */
             else if(background)
             {
                 ReadOnlySpan<DialogOption> dialogOptions = dialogConfig.Options;
@@ -232,7 +233,7 @@ namespace Gob3AQ.GameMenu
 
             /* Chose between default talkers or imposed */
 
-            if (dialogConfig.Talkers[0] != GameItem.ITEM_NONE)
+            if (dialogConfig.Talkers[0] != NameType.NAME_NONE)
             {
                 dialogConfig.Talkers.CopyTo(dialog_input_talkers);
             }
@@ -415,10 +416,9 @@ namespace Gob3AQ.GameMenu
             dialog_tellingInProgress = true;
 
             ResourceDialogsClass.GetPhraseContent(phrase, out PhraseContent content);
-            GameItem talkerItem = dialog_input_talkers[content.config.talkerIndex];
-            ref readonly ItemInfo talkerInfo = ref ItemsInteractionsClass.GetItemInfo(talkerItem);
+            NameType talkerName = dialog_input_talkers[content.config.talkerIndex];
 
-            string sender = ResourceDialogsClass.GetName(talkerInfo.name);
+            string sender = ResourceDialogsClass.GetName(talkerName);
             string msg = content.message;
 
             if(dialog_background)
@@ -533,9 +533,9 @@ namespace Gob3AQ.GameMenu
                 }
 
                 /* How to get Char item of actual player from here */
-                Span<GameItem> talkers = stackalloc GameItem[2];
-                talkers[0] = GameItem.ITEM_PLAYER_MAIN;
-                talkers[1] = GameItem.ITEM_PLAYER_MAIN;
+                Span<NameType> talkers = stackalloc NameType[2];
+                talkers[0] = NameType.NAME_CHAR_MAIN;
+                talkers[1] = NameType.NAME_CHAR_MAIN;
 
                 if (intersected != MementoCombi.MEMENTO_COMBI_NONE)
                 {
@@ -579,7 +579,7 @@ namespace Gob3AQ.GameMenu
                 _singleton = this;
 
                 float menuHeight = Screen.safeArea.height * GameFixedConfig.MENU_TOP_SCREEN_HEIGHT_PERCENT;
-                dialog_input_talkers = new GameItem[GameFixedConfig.MAX_DIALOG_TALKERS];
+                dialog_input_talkers = new NameType[GameFixedConfig.MAX_DIALOG_TALKERS];
 
                 yield_custom = new WaitUntil(WaitUntilCondition);
                 yield_2s = new WaitForSeconds(2f);

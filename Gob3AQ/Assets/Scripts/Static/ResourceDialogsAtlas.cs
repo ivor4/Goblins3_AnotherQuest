@@ -52,52 +52,57 @@ namespace Gob3AQ.ResourceDialogsAtlas
         {
             /* > ATG 1 START < */
             new( /* DIALOG_SIMPLE */
-            new GameItem[1]{GameItem.ITEM_NONE,},
+            new NameType[1]{NameType.NAME_NONE,},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_SIMPLE, }
             ),
             
             new( /* DIALOG_REME_INTRO */
-            new GameItem[1]{GameItem.ITEM_NONE,},
+            new NameType[1]{NameType.NAME_NONE,},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_REME_INTRO, }
             ),
             
             new( /* DIALOG_REME */
-            new GameItem[1]{GameItem.ITEM_NONE,},
+            new NameType[1]{NameType.NAME_NONE,},
             new DialogOption[2]{DialogOption.DIALOG_OPTION_REME_1, DialogOption.DIALOG_OPTION_REME_2, }
             ),
             
             new( /* DIALOG_REME_CARDS */
-            new GameItem[1]{GameItem.ITEM_NONE,},
+            new NameType[1]{NameType.NAME_NONE,},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_REME_CARDS, }
             ),
             
             new( /* DIALOG_TRY_TALK_PHARMACIST_1 */
-            new GameItem[1]{GameItem.ITEM_NONE,},
+            new NameType[1]{NameType.NAME_NONE,},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_TRY_TALK_PHARMACIST, }
             ),
             
             new( /* DIALOG_TRY_TALK_PHARMACIST_2 */
-            new GameItem[1]{GameItem.ITEM_NONE,},
+            new NameType[1]{NameType.NAME_NONE,},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_PHARMACIST_BUSY, }
             ),
             
             new( /* DIALOG_MANYO_OWNER_INTRO */
-            new GameItem[1]{GameItem.ITEM_NONE,},
+            new NameType[1]{NameType.NAME_NONE,},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_MANYO_ONWER_INTRO, }
             ),
             
             new( /* DIALOG_MANYO_OWNER */
-            new GameItem[1]{GameItem.ITEM_NONE,},
+            new NameType[1]{NameType.NAME_NONE,},
             new DialogOption[5]{DialogOption.DIALOG_OPTION_MANYO_WORK_NOTE, DialogOption.DIALOG_OPTION_MANYO_WORKS_CITY, DialogOption.DIALOG_OPTION_MANYO_MENU_DAY, DialogOption.DIALOG_OPTION_MANYO_CROWD, DialogOption.DIALOG_OPTION_MANYO_BYE, }
             ),
             
             new( /* DIALOG_MANYO_UMBRELLA */
-            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_ELMANYO_OWNER,},
+            new NameType[2]{NameType.NAME_CHAR_MAIN,NameType.NAME_OWNER,},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_MANYO_UMBRELLA, }
             ),
             
+            new( /* DIALOG_MANYO_BCKG_CROWD */
+            new NameType[1]{NameType.NAME_CROWD,},
+            new DialogOption[1]{DialogOption.DIALOG_OPTION_MANYO_BCKG_CROWD, }
+            ),
+            
             new( /* DIALOG_LAST */
-            new GameItem[1]{GameItem.ITEM_NONE,},
+            new NameType[1]{NameType.NAME_NONE,},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE, }
             ),
             
@@ -205,6 +210,13 @@ namespace Gob3AQ.ResourceDialogsAtlas
             DialogType.DIALOG_NONE,false,
             new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_MANYO_UMBRELLA_NOT_1, }
             ),
+            new( /* DIALOG_OPTION_MANYO_BCKG_CROWD */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            MomentType.MOMENT_ANY,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            DialogType.DIALOG_NONE,true,
+            new DialogPhrase[3]{DialogPhrase.PHRASE_DIALOG_MANYO_BCKG_CROWD_1, DialogPhrase.PHRASE_DIALOG_MANYO_BCKG_CROWD_2, DialogPhrase.PHRASE_DIALOG_MANYO_BCKG_CROWD_3, }
+            ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
             MomentType.MOMENT_ANY,
@@ -274,6 +286,9 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_MEMENTO_RECIPE_MISSION_1 */ 
             new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_MANYO_UMBRELLA_NOT_1 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_UMBRELLA_TAKEN */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_NONE), /* PHRASE_DIALOG_MANYO_BCKG_CROWD_1 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_NONE), /* PHRASE_DIALOG_MANYO_BCKG_CROWD_2 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_NONE), /* PHRASE_DIALOG_MANYO_BCKG_CROWD_3 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

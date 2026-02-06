@@ -20,7 +20,6 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void SetVARMAPArrayDelegate<T>(ReadOnlySpan<T> newvals);
     public delegate void EVENT_SUBSCRIPTION_CALL_DELEGATE(bool newStatus);
     public delegate void KEY_SUBSCRIPTION_CALL_DELEGATE(KeyFunctionsIndex key, bool pressed);
-    public delegate void GAME_ELEMENT_HOVER_DELEGATE(in LevelElemInfo info);
     public delegate void ZOOM_CHANGED_DELEGATE(float newZoomLevel);
 
 

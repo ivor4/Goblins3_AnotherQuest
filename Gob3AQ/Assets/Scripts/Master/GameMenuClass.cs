@@ -67,6 +67,7 @@ namespace Gob3AQ.GameMenu
         private HashSet<MementoCombi> memento_combi_intersection;
 
         private ulong dialog_timestamp;
+        private Dictionary<DialogOption, List<int>> dialog_randomized_left_indexes;
 
 
         public static void CommitMementoNotifService(Memento memento)
@@ -171,7 +172,8 @@ namespace Gob3AQ.GameMenu
 
                 if (dialogOptionConfig.randomized)
                 {
-                    headPhrase = dialogPhrases[UnityEngine.Random.Range(0, dialogPhrases.Length)];
+                    int randomIndex = GetRandomizedOption(dialogOptions[0], in dialogOptionConfig);
+                    headPhrase = dialogPhrases[randomIndex];
                     uniqueNumPhrases = 1;
                 }
                 else
@@ -205,7 +207,8 @@ namespace Gob3AQ.GameMenu
 
                         if (dialogOptionConfig.randomized)
                         {
-                            headPhrase = dialogPhrases[UnityEngine.Random.Range(0, dialogPhrases.Length)];
+                            int randomIndex = GetRandomizedOption(dialogOptions[i], in dialogOptionConfig);
+                            headPhrase = dialogPhrases[randomIndex];
                             uniqueNumPhrases = 1;
                         }
                         else
@@ -593,6 +596,8 @@ namespace Gob3AQ.GameMenu
 
                 memento_combi_intersection = new(8);
                 memento_combi_union = new(8);
+
+                dialog_randomized_left_indexes = new();
             }
         }
 
@@ -694,7 +699,39 @@ namespace Gob3AQ.GameMenu
         }
 
 
+        private int GetRandomizedOption(DialogOption option, in DialogOptionConfig dialogOptionConfig)
+        {
+            int optionIndex;
 
+            if(!dialog_randomized_left_indexes.TryGetValue(option, out List<int> leftIndexes))
+            {
+                List<int> newList = new List<int>(dialogOptionConfig.Phrases.Length);
+                dialog_randomized_left_indexes[option] = newList;
+                leftIndexes = newList;
+            }
+
+            if (leftIndexes.Count == 0)
+            {
+                /* Refill and reshuffle */
+                for (int i = 0; i < dialogOptionConfig.Phrases.Length; i++)
+                {
+                    int j = UnityEngine.Random.Range(0, 2);
+
+                    if(j == 0)
+                    {
+                        leftIndexes.Insert(0, i);
+                    }
+                    else
+                    {
+                        leftIndexes.Add(i);
+                    }
+                }
+            }
+            optionIndex = leftIndexes[0];
+            leftIndexes.RemoveAt(0);
+
+            return optionIndex;
+        }
 
         private void RefreshItemMenuElements()
         {

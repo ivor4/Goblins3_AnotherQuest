@@ -34,7 +34,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void FREEZE_PLAY_DELEGATE(bool freeze);
     public delegate void CHANGE_GAME_MODE_DELEGATE(Game_Status mode, out bool error);
     public delegate void SHOW_DIALOGUE_DELEGATE(ReadOnlySpan<NameType> talkers, DialogType dialog, DialogPhrase phrase, bool backgroundDialog);
-    public delegate void ITEM_REGISTER_DELEGATE(bool register, GameElementClass instance, GameElementClickable clickable);
+    public delegate void ITEM_REGISTER_DELEGATE(bool register, GameElementClass instance);
     public delegate void ITEM_OBTAIN_PICKABLE_DELEGATE(GameItem item);
     public delegate void MONO_REGISTER_DELEGATE(PlayableCharScript mono, bool add);
     public delegate void DOOR_REGISTER_DELEGATE(GameItem doorItem, bool add, in DoorInfo doorInfo);

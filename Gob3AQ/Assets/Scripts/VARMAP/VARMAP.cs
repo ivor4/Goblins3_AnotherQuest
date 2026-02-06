@@ -87,6 +87,11 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPValueDelegate<CameraDispositionStruct> _SET_CAMERA_DISPOSITION;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<CameraDispositionStruct> _REG_CAMERA_DISPOSITION;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<CameraDispositionStruct> _UNREG_CAMERA_DISPOSITION;
+        protected static GetVARMAPValueDelegate<GameItem> _GET_ITEM_MENU_HOVER;
+        protected static GetVARMAPValueDelegate<GameItem> _GET_SHADOW_ITEM_MENU_HOVER;
+        protected static SetVARMAPValueDelegate<GameItem> _SET_ITEM_MENU_HOVER;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> _REG_ITEM_MENU_HOVER;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> _UNREG_ITEM_MENU_HOVER;
         protected static GetVARMAPValueDelegate<Game_Status> _GET_GAMESTATUS;
         protected static GetVARMAPValueDelegate<Game_Status> _GET_SHADOW_GAMESTATUS;
         protected static SetVARMAPValueDelegate<Game_Status> _SET_GAMESTATUS;
@@ -232,13 +237,6 @@ namespace Gob3AQ.VARMAP
         /// <para> Method: <see cref="LevelMasterClass.GetWaypointListService"/> </para> 
         /// </summary>
         protected static GET_WP_LIST_DELEGATE _GET_WP_LIST;
-        /// <summary> 
-        /// Any of Game Elements (Player or Item or Door) will call with essential info
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: GameMenu, ItemMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.GameElementOverService"/> </para> 
-        /// </summary>
-        protected static GAME_ELEMENT_HOVER_DELEGATE _GAME_ELEMENT_HOVER;
         /// <summary> 
         /// Gets a list of actual players
         /// <para> Owner: LevelMaster </para> 

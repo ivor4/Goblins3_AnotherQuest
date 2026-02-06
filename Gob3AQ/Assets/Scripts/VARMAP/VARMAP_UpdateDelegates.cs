@@ -89,6 +89,11 @@ namespace Gob3AQ.VARMAP.Initialization
             _SET_CAMERA_DISPOSITION = ((VARMAP_Variable_Interface<CameraDispositionStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_CAMERA_DISPOSITION]).SetValue;
             _REG_CAMERA_DISPOSITION = ((VARMAP_Variable_Interface<CameraDispositionStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_CAMERA_DISPOSITION]).RegisterChangeEvent;
             _UNREG_CAMERA_DISPOSITION = ((VARMAP_Variable_Interface<CameraDispositionStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_CAMERA_DISPOSITION]).UnregisterChangeEvent;
+            _GET_ITEM_MENU_HOVER = ((VARMAP_Variable_Interface<GameItem>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_HOVER]).GetValue;
+            _GET_SHADOW_ITEM_MENU_HOVER = ((VARMAP_Variable_Interface<GameItem>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_HOVER]).GetShadowValue;
+            _SET_ITEM_MENU_HOVER = ((VARMAP_Variable_Interface<GameItem>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_HOVER]).SetValue;
+            _REG_ITEM_MENU_HOVER = ((VARMAP_Variable_Interface<GameItem>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_HOVER]).RegisterChangeEvent;
+            _UNREG_ITEM_MENU_HOVER = ((VARMAP_Variable_Interface<GameItem>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_HOVER]).UnregisterChangeEvent;
             _GET_GAMESTATUS = ((VARMAP_Variable_Interface<Game_Status>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_GAMESTATUS]).GetValue;
             _GET_SHADOW_GAMESTATUS = ((VARMAP_Variable_Interface<Game_Status>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_GAMESTATUS]).GetShadowValue;
             _SET_GAMESTATUS = ((VARMAP_Variable_Interface<Game_Status>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_GAMESTATUS]).SetValue;
@@ -157,7 +162,6 @@ namespace Gob3AQ.VARMAP.Initialization
             _OBTAIN_SCENARIO_ITEMS = LevelMasterClass.ObtainScenarioItemsService;
             _PLAYER_WAYPOINT_UPDATE = LevelMasterClass.PlayerWaypointUpdateService;
             _GET_WP_LIST = LevelMasterClass.GetWaypointListService;
-            _GAME_ELEMENT_HOVER = LevelMasterClass.GameElementOverService;
             _GET_PLAYER_LIST = LevelMasterClass.GetPlayerListService;
             _GET_NEAREST_WP = LevelMasterClass.GetNearestWPService;
             _IS_EVENT_COMBI_OCCURRED = GameEventMasterClass.IsEventCombiOccurredService;

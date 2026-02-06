@@ -325,10 +325,13 @@ namespace Gob3AQ.GameMenu
 
         private void OnInventoryItemHover(GameItem item, bool hover)
         {
-            if(_menuOpened)
+            if(_menuOpened && hover)
             {
-                LevelElemInfo info = new(item, GameItemFamily.ITEM_FAMILY_TYPE_OBJECT, -1, 0, hover);
-                VARMAP_GameMenu.GAME_ELEMENT_HOVER(in info);
+                VARMAP_GameMenu.SET_ITEM_MENU_HOVER(item);
+            }
+            else
+            {
+                VARMAP_GameMenu.SET_ITEM_MENU_HOVER(GameItem.ITEM_NONE);
             }
         }
 
@@ -811,6 +814,7 @@ namespace Gob3AQ.GameMenu
                 {
                     case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
                         _menuOpened = false;
+                        VARMAP_GameMenu.SET_ITEM_MENU_HOVER(GameItem.ITEM_NONE);
                         break;
                     case Game_Status.GAME_STATUS_PLAY_DIALOG:
                         /* If dialog was in progress, stop it */

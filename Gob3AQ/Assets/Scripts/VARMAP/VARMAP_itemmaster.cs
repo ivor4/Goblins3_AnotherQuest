@@ -37,7 +37,6 @@ namespace Gob3AQ.VARMAP.ItemMaster
             ITEM_REGISTER = _ITEM_REGISTER;
             DOOR_REGISTER = _DOOR_REGISTER;
             OBTAIN_SCENARIO_ITEMS = _OBTAIN_SCENARIO_ITEMS;
-            GAME_ELEMENT_HOVER = _GAME_ELEMENT_HOVER;
             GET_NEAREST_WP = _GET_NEAREST_WP;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
@@ -104,13 +103,6 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /// <para> Method: <see cref="LevelMasterClass.ObtainScenarioItemsService"/> </para> 
         /// </summary>
         public static OBTAIN_SCENARIO_ITEMS_DELEGATE OBTAIN_SCENARIO_ITEMS;
-        /// <summary> 
-        /// Any of Game Elements (Player or Item or Door) will call with essential info
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: GameMenu, ItemMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.GameElementOverService"/> </para> 
-        /// </summary>
-        public static GAME_ELEMENT_HOVER_DELEGATE GAME_ELEMENT_HOVER;
         /// <summary> 
         /// Gets nearest WP from a given coordinates of level
         /// <para> Owner: LevelMaster </para> 

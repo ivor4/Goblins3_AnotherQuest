@@ -30,6 +30,9 @@ namespace Gob3AQ.VARMAP.GameMenu
             GET_ARRAY_PICKABLE_ITEM_OWNER = _GET_ARRAY_PICKABLE_ITEM_OWNER;
             REG_PICKABLE_ITEM_OWNER = _REG_PICKABLE_ITEM_OWNER;
             UNREG_PICKABLE_ITEM_OWNER = _UNREG_PICKABLE_ITEM_OWNER;
+            GET_ITEM_MENU_HOVER = _GET_ITEM_MENU_HOVER;
+            GET_SHADOW_ITEM_MENU_HOVER = _GET_SHADOW_ITEM_MENU_HOVER;
+            SET_ITEM_MENU_HOVER = _SET_ITEM_MENU_HOVER;
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
@@ -49,7 +52,6 @@ namespace Gob3AQ.VARMAP.GameMenu
             EXIT_GAME = _EXIT_GAME;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
-            GAME_ELEMENT_HOVER = _GAME_ELEMENT_HOVER;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
             COMMIT_MEMENTO_NOTIF = _COMMIT_MEMENTO_NOTIF;
@@ -79,6 +81,9 @@ namespace Gob3AQ.VARMAP.GameMenu
         public static GetVARMAPArrayDelegate<CharacterType> GET_ARRAY_PICKABLE_ITEM_OWNER;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<CharacterType> REG_PICKABLE_ITEM_OWNER;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<CharacterType> UNREG_PICKABLE_ITEM_OWNER;
+        public static GetVARMAPValueDelegate<GameItem> GET_ITEM_MENU_HOVER;
+        public static GetVARMAPValueDelegate<GameItem> GET_SHADOW_ITEM_MENU_HOVER;
+        public static SetVARMAPValueDelegate<GameItem> SET_ITEM_MENU_HOVER;
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
@@ -138,13 +143,6 @@ namespace Gob3AQ.VARMAP.GameMenu
         /// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
         /// </summary>
         public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
-        /// <summary> 
-        /// Any of Game Elements (Player or Item or Door) will call with essential info
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: GameMenu, ItemMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.GameElementOverService"/> </para> 
-        /// </summary>
-        public static GAME_ELEMENT_HOVER_DELEGATE GAME_ELEMENT_HOVER;
         /// <summary> 
         /// Checks if a combination of events is totally complied (event absence can also be requested)
         /// <para> Owner: GameEventMaster </para> 

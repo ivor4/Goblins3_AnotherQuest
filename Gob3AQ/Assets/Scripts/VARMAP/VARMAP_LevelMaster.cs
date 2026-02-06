@@ -33,6 +33,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
             GET_ARRAY_PLAYER_ACTUAL_WAYPOINT = _GET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
             GET_SHADOW_ARRAY_PLAYER_ACTUAL_WAYPOINT = _GET_SHADOW_ARRAY_PLAYER_ACTUAL_WAYPOINT;
             SET_ARRAY_PLAYER_ACTUAL_WAYPOINT = _SET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
+            GET_ITEM_MENU_HOVER = _GET_ITEM_MENU_HOVER;
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
@@ -57,7 +58,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
             OBTAIN_SCENARIO_ITEMS = _OBTAIN_SCENARIO_ITEMS;
             PLAYER_WAYPOINT_UPDATE = _PLAYER_WAYPOINT_UPDATE;
             GET_WP_LIST = _GET_WP_LIST;
-            GAME_ELEMENT_HOVER = _GAME_ELEMENT_HOVER;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
             GET_NEAREST_WP = _GET_NEAREST_WP;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
@@ -92,6 +92,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static GetVARMAPArrayDelegate<int> GET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
         public static GetVARMAPArrayDelegate<int> GET_SHADOW_ARRAY_PLAYER_ACTUAL_WAYPOINT;
         public static SetVARMAPArrayDelegate<int> SET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
+        public static GetVARMAPValueDelegate<GameItem> GET_ITEM_MENU_HOVER;
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
@@ -180,13 +181,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// <para> Method: <see cref="LevelMasterClass.GetWaypointListService"/> </para> 
         /// </summary>
         public static GET_WP_LIST_DELEGATE GET_WP_LIST;
-        /// <summary> 
-        /// Any of Game Elements (Player or Item or Door) will call with essential info
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: GameMenu, ItemMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.GameElementOverService"/> </para> 
-        /// </summary>
-        public static GAME_ELEMENT_HOVER_DELEGATE GAME_ELEMENT_HOVER;
         /// <summary> 
         /// Gets a list of actual players
         /// <para> Owner: LevelMaster </para> 

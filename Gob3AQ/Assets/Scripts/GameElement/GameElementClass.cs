@@ -9,7 +9,7 @@ using UnityEngine;
 namespace Gob3AQ.GameElement
 {
     [System.Serializable]
-    public class GameElementClass : MonoBehaviour
+    public class GameElementClass : MonoBehaviour, IGameObjectHoverable
     {
         [SerializeField]
         protected GameItem itemID;
@@ -31,7 +31,7 @@ namespace Gob3AQ.GameElement
         protected GameSprite actualSprite;
         protected GameItemFamily gameElementFamily;
         protected int actualWaypoint;
-        protected bool isHovered;
+        protected LevelElemInfo hoverInfo;
         protected GameObject topParent;
         protected Collider2D myCollider;
         protected SpriteRenderer mySpriteRenderer;
@@ -63,6 +63,8 @@ namespace Gob3AQ.GameElement
             isMotion_ext = true;
             isUnspawned = false;
             isUnclickable = false;
+
+            hoverInfo = new(itemID, gameElementFamily, actualWaypoint, hoverPriority, false);
         }
 
         protected virtual void Start()
@@ -75,18 +77,14 @@ namespace Gob3AQ.GameElement
 
             gameElementFamily = itemInfo.family;
 
-            GameElementClickable clickable = topParent.GetComponent<GameElementClickable>();
-
-            clickable.SetOnHoverAction(MouseEnterAction);
-
             /* Register item as Level element (to be clicked and able to iteract) */
-            VARMAP_ItemMaster.ITEM_REGISTER(true, this, clickable);
+            VARMAP_ItemMaster.ITEM_REGISTER(true, this);
 
             registered = true;
 
             VARMAP_ItemMaster.REG_GAMESTATUS(ChangedGameStatus);
 
-            
+            /* Children actions (Clickable, Hoverable) will be executed afterwards */
         }
 
 
@@ -111,14 +109,6 @@ namespace Gob3AQ.GameElement
             }
         }
 
-
-        protected void MouseEnterAction(bool enter)
-        {
-            /* Prepare LevelInfo struct */
-            isHovered = enter;
-            LevelElemInfo info = new(itemID, gameElementFamily, actualWaypoint, hoverPriority, enter & isAvailable);
-            VARMAP_ItemMaster.GAME_ELEMENT_HOVER(in info);
-        }
 
         protected void SetAvailable(bool available)
         {
@@ -230,12 +220,7 @@ namespace Gob3AQ.GameElement
             compound = isAvailable;
             compound &= isClickable_ext & isClickable_int;
 
-            if (isHovered && !compound)
-            {
-                /* Update hover state */
-                MouseEnterAction(false);
-                isHovered = false;
-            }
+            hoverInfo = new(itemID, gameElementFamily, actualWaypoint, hoverPriority, compound);           
         }
 
         protected void UpdateSortingOrder()
@@ -253,15 +238,13 @@ namespace Gob3AQ.GameElement
             SetMotion(false);
             SetVisible(false);
 
-            _Hover_Refresh();
-
             topParent.SetActive(false);
 
             VARMAP_ItemMaster.UNREG_GAMESTATUS(ChangedGameStatus);
 
             if (registered)
             {
-                VARMAP_ItemMaster.ITEM_REGISTER(false, this, null);
+                VARMAP_ItemMaster.ITEM_REGISTER(false, this);
             }
         }
 
@@ -292,5 +275,9 @@ namespace Gob3AQ.GameElement
             }
         }
 
+        public ref readonly LevelElemInfo GetHoverableLevelElemInfo()
+        {
+            return ref hoverInfo;
+        }
     }
 }

@@ -35,6 +35,7 @@ namespace Gob3AQ.LevelMaster
         private HashSet<IGameObjectHoverable> _PrevRaycastedItems;
         private RaycastHit2D[] _RaycastedItemColliders;
         private Dictionary<Collider2D, IGameObjectHoverable> _ItemColliderDictionary;
+        private ItemMenuHoverable itemMenuHoverable;
         private Camera mainCamera;
         private ulong _backgroundItemTaskTimestamp;
 
@@ -126,14 +127,14 @@ namespace Gob3AQ.LevelMaster
         }
 
 
-        public static void ItemRegisterService(bool register, GameElementClass instance, GameElementClickable clickable)
+        public static void ItemRegisterService(bool register, GameElementClass instance)
         {
             if (_singleton != null)
             {
                 if (register)
                 {
                     _singleton._ItemDictionary.Add(instance.ItemID, instance);
-                    _singleton._ItemColliderDictionary[instance.My2DCollider] = clickable;
+                    _singleton._ItemColliderDictionary[instance.My2DCollider] = instance;
                 }
                 else
                 {
@@ -187,44 +188,41 @@ namespace Gob3AQ.LevelMaster
 
         
 
-        public static void GameElementOverService(in LevelElemInfo info)
+        private void GameElementOverService(in LevelElemInfo info, bool enableMask)
         {
-            if (_singleton != null)
+            bool changed = false;
+
+            /* Add/Remove and update */
+            if (info.active & enableMask)
             {
-                bool changed = false;
+                _ = _HoveredPending.Add(info);
+            }
+            else
+            {
+                if ((_HoveredElem.family == info.family) && (_HoveredElem.item == info.item))
+                {
+                    _HoveredElem = LevelElemInfo.EMPTY;
+                    changed = true;
+                }
+            }
 
-                /* Add/Remove and update */
-                if (info.active)
+            foreach (LevelElemInfo iteratedInfo in _HoveredPending)
+            {
+                if ((iteratedInfo.family > GameItemFamily.ITEM_FAMILY_TYPE_NONE) &&
+                    (
+                    (_HoveredElem.family < iteratedInfo.family) ||
+                    (_HoveredElem.family == iteratedInfo.family) && (_HoveredElem.hoverPriority < iteratedInfo.hoverPriority)
+                    )
+                    )
                 {
-                    _ = _singleton._HoveredPending.Add(info);
+                    _HoveredElem = iteratedInfo;
+                    changed = true;
                 }
-                else
-                {
-                    if ((_singleton._HoveredElem.family == info.family) && (_singleton._HoveredElem.item == info.item))
-                    {
-                        _singleton._HoveredElem = LevelElemInfo.EMPTY;
-                        changed = true;
-                    }
-                }
+            }
 
-                foreach (LevelElemInfo iteratedInfo in _singleton._HoveredPending)
-                {
-                    if ((iteratedInfo.family > GameItemFamily.ITEM_FAMILY_TYPE_NONE) &&
-                        (
-                        (_singleton._HoveredElem.family < iteratedInfo.family) ||
-                        (_singleton._HoveredElem.family == iteratedInfo.family) && (_singleton._HoveredElem.hoverPriority < iteratedInfo.hoverPriority)
-                        )
-                       )
-                    {
-                        _singleton._HoveredElem = iteratedInfo;
-                        changed = true;
-                    }
-                }
-
-                if (changed)
-                {
-                    VARMAP_LevelMaster.SET_ITEM_HOVER(_singleton._HoveredElem.item);
-                }
+            if (changed)
+            {
+                VARMAP_LevelMaster.SET_ITEM_HOVER(_HoveredElem.item);
             }
         }
 
@@ -362,6 +360,8 @@ namespace Gob3AQ.LevelMaster
             _PendingCharInteractions = new PendingCharacterInteraction[(int)CharacterType.CHARACTER_TOTAL];
             _HoveredElem = LevelElemInfo.EMPTY;
             _HoveredPending = new(GameFixedConfig.MAX_RAYCASTED_ITEMS);
+
+            itemMenuHoverable = new();
         }
 
 
@@ -399,6 +399,14 @@ namespace Gob3AQ.LevelMaster
                 }
             }
 
+            /* Add Item menu selected element as one more */
+            GameItem menuItemHovered = VARMAP_LevelMaster.GET_ITEM_MENU_HOVER();
+            if(menuItemHovered != GameItem.ITEM_NONE)
+            {
+                itemMenuHoverable.SetHoverInfo(new LevelElemInfo(menuItemHovered, GameItemFamily.ITEM_FAMILY_TYPE_OBJECT, -1, 0, true));
+                _RaycastedItems.Add(itemMenuHoverable);
+            }
+
             /* Remain only items which are not common between previous and actual cycle  */
             /* This will make system forget about elements which are in continuous hover or absence of */
             _PrevRaycastedItems.SymmetricExceptWith(_RaycastedItems);
@@ -411,15 +419,17 @@ namespace Gob3AQ.LevelMaster
 
                 foreach (IGameObjectHoverable hoverable in _PrevRaycastedItems)
                 {
+                    LevelElemInfo hoverableInfo = hoverable.GetHoverableLevelElemInfo();
+
                     /* Enter (or ReEnter) */
                     if (_RaycastedItems.Contains(hoverable))
                     {
-                        hoverable.OnHover(true);
+                        GameElementOverService(in hoverableInfo, true);
                     }
                     /* Exit */
                     else
                     {
-                        hoverable.OnHover(false);
+                        GameElementOverService(in hoverableInfo, false);
                     }
                 }
             }
@@ -692,7 +702,7 @@ namespace Gob3AQ.LevelMaster
         {
             _HoveredPending.Clear();
             _HoveredElem = LevelElemInfo.EMPTY;
-            GameElementOverService(in LevelElemInfo.EMPTY);
+            GameElementOverService(in LevelElemInfo.EMPTY, false);
         }
         private bool IsItemAvailable(GameItem item)
         {

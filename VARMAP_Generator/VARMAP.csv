@@ -8,13 +8,14 @@
 6,PICKABLE_ITEM_OWNER,CharacterType,2,3,CharacterType.CHARACTER_NONE,Y,,-,-,R,-,R E,-,W,-
 7,PLAYER_ACTUAL_WAYPOINT,int,2,3,-1,Y,,-,-,W,-,-,R,-,-
 8,CAMERA_DISPOSITION,CameraDispositionStruct,0,0,CameraDispositionStruct_Default,Y,,-,-,-,W,-,-,-,-
-9,GAMESTATUS,Game_Status,0,0,Game_Status.GAME_STATUS_STOPPED,N,,W,R E,R E,R E,R E,R E,R E,R E
-10,PRESSED_KEYS,KeyStruct,0,0,KeyStruct_Default,N,,R,W,R,R,R,-,-,-
-11,MOUSE_PROPERTIES,MousePropertiesStruct,0,0,MouseProperties_Default,N,,-,W,R,R,R,-,-,-
-12,PLAYER_SELECTED,CharacterType,0,0,CharacterType.CHARACTER_NONE,N,,-,-,W,-,R,R E,R,-
-13,PICKABLE_ITEM_CHOSEN,GameItem,2,0,GameItem.ITEM_NONE,N,,-,-,R,R E,W,-,R,-
-14,ITEM_HOVER,GameItem,0,0,GameItem.ITEM_NONE,N,,-,-,W,R E,-,-,-,-
-15,USER_INPUT_INTERACTION,UserInputInteraction,0,0,UserInputInteraction.INPUT_INTERACTION_TAKE,N,,-,-,R,R E,W,-,-,-
-16,EVENTS_BEING_PROCESSED,bool,0,0,false,N,,R,-,R,-,-,-,-,W
-17,DAY_MOMENT,MomentType,0,0,MomentType.MOMENT_MORNING,Y,,W,-,-,R,R,-,R,R
-18,LAST_VARMAP_VAL,bool,0,0,false,N,,W,-,-,-,-,-,-,-
+9,ITEM_MENU_HOVER,GameItem,0,0,GameItem.ITEM_NONE,N,,-,-,R,-,W,-,-,-
+10,GAMESTATUS,Game_Status,0,0,Game_Status.GAME_STATUS_STOPPED,N,,W,R E,R E,R E,R E,R E,R E,R E
+11,PRESSED_KEYS,KeyStruct,0,0,KeyStruct_Default,N,,R,W,R,R,R,-,-,-
+12,MOUSE_PROPERTIES,MousePropertiesStruct,0,0,MouseProperties_Default,N,,-,W,R,R,R,-,-,-
+13,PLAYER_SELECTED,CharacterType,0,0,CharacterType.CHARACTER_NONE,N,,-,-,W,-,R,R E,R,-
+14,PICKABLE_ITEM_CHOSEN,GameItem,2,0,GameItem.ITEM_NONE,N,,-,-,R,R E,W,-,R,-
+15,ITEM_HOVER,GameItem,0,0,GameItem.ITEM_NONE,N,,-,-,W,R E,-,-,-,-
+16,USER_INPUT_INTERACTION,UserInputInteraction,0,0,UserInputInteraction.INPUT_INTERACTION_TAKE,N,,-,-,R,R E,W,-,-,-
+17,EVENTS_BEING_PROCESSED,bool,0,0,false,N,,R,-,R,-,-,-,-,W
+18,DAY_MOMENT,MomentType,0,0,MomentType.MOMENT_MORNING,Y,,W,-,-,R,R,-,R,R
+19,LAST_VARMAP_VAL,bool,0,0,false,N,,W,-,-,-,-,-,-,-

@@ -1,26 +1,24 @@
+using Gob3AQ.VARMAP.Types;
 using UnityEngine;
 
 namespace Gob3AQ.GameElement.Clickable
 {
-    public delegate void OnHoverAction(bool enter);
-
     public interface IGameObjectHoverable
     {
-        public void OnHover(bool enter);
+        public ref readonly LevelElemInfo GetHoverableLevelElemInfo();
     }
 
-    public class GameElementClickable : MonoBehaviour, IGameObjectHoverable
+    public class ItemMenuHoverable : IGameObjectHoverable
     {
-        private OnHoverAction _onHoverAction;
-
-        public void OnHover(bool enter)
+        private LevelElemInfo hoverInfo;
+        
+        public void SetHoverInfo(in LevelElemInfo info)
         {
-            _onHoverAction?.Invoke(enter);
+            hoverInfo = info;
         }
-
-        public void SetOnHoverAction(OnHoverAction onHoverAction)
+        public ref readonly LevelElemInfo GetHoverableLevelElemInfo()
         {
-            _onHoverAction = onHoverAction;
+            return ref hoverInfo;
         }
     }
 }

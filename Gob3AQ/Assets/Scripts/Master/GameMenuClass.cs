@@ -19,18 +19,20 @@ namespace Gob3AQ.GameMenu
     [System.Serializable]
     public class GameMenuClass : MonoBehaviour
     {
-        private enum DialogCoroutineTaskType
+        private enum DialogTaskType
         {
-            DIALOG_TASK_NONE,
-            DIALOG_TASK_START,
-            DIALOG_TASK_ENDPHRASE
+            DIALOG_STATE_NONE,
+            DIALOG_STATE_STARTING,
+            DIALOG_STATE_SAYING,
+            DIALOG_STATE_DEAD_TIME
         }
 
-        private enum DecisionCoroutineTaskType
+        private enum DecisionTaskType
         {
             DECISION_TASK_NONE,
-            DECISION_TASK_START,
-            DECISION_TASK_END
+            DECISION_TASK_STARTING,
+            DECISION_TASK_DECIDING,
+            DECISION_TASK_ENDING
         }
 
         [SerializeField]
@@ -54,17 +56,17 @@ namespace Gob3AQ.GameMenu
         private bool dialog_optionPending;
         private bool dialog_tellingInProgress;
         private bool dialog_background;
-        private Coroutine dialog_main_coroutine;
-        private WaitUntil yield_custom;
-        private DialogCoroutineTaskType dialog_actualTaskType;
-        private WaitForSeconds yield_2s;
 
         private bool decision_optionPending;
-        private DecisionCoroutineTaskType decision_actualTaskType;
         private DecisionType decision_input_type;
+
+        private DialogTaskType dialog_actualTaskType;
+        private DecisionTaskType decision_actualTaskType;
 
         private HashSet<MementoCombi> memento_combi_union;
         private HashSet<MementoCombi> memento_combi_intersection;
+
+        private ulong dialog_timestamp;
 
 
         public static void CommitMementoNotifService(Memento memento)
@@ -101,7 +103,7 @@ namespace Gob3AQ.GameMenu
                 _singleton.dialog_input_type = dialog;
                 _singleton.dialog_input_phrase = phrase;
                 _singleton.dialog_input_backgroundDialog = backgroundDialog;
-                _singleton.dialog_actualTaskType = DialogCoroutineTaskType.DIALOG_TASK_START;
+                _singleton.dialog_actualTaskType = DialogTaskType.DIALOG_STATE_STARTING;
            }
         }
 
@@ -110,7 +112,7 @@ namespace Gob3AQ.GameMenu
             if (_singleton != null)
             {
                 _singleton.decision_input_type = decision;
-                _singleton.decision_actualTaskType = DecisionCoroutineTaskType.DECISION_TASK_START;
+                _singleton.decision_actualTaskType = DecisionTaskType.DECISION_TASK_STARTING;
             }
         }
 
@@ -298,7 +300,7 @@ namespace Gob3AQ.GameMenu
                 /* Trigger linked events */
                 VARMAP_GameMenu.COMMIT_EVENT(decisionOptionConfig.TriggeredEvents);
 
-                decision_actualTaskType = DecisionCoroutineTaskType.DECISION_TASK_END;
+                decision_actualTaskType = DecisionTaskType.DECISION_TASK_DECIDING;
             }
         }
 
@@ -433,12 +435,12 @@ namespace Gob3AQ.GameMenu
                 _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_PHRASE, sender, msg);
             }
 
-            dialog_actualTaskType = DialogCoroutineTaskType.DIALOG_TASK_ENDPHRASE;
+            dialog_actualTaskType = DialogTaskType.DIALOG_STATE_SAYING;
         }
 
 
 
-        private IEnumerator EndPhrase_Action()
+        private void EndPhrase_Action()
         {
             if (dialog_tellingInProgress)
             {
@@ -458,7 +460,6 @@ namespace Gob3AQ.GameMenu
 
                     if (dialogConfig.dialogTriggered != DialogType.DIALOG_NONE)
                     {
-                        yield return ResourceAtlasClass.WaitForNextFrame;
                         ShowDialogueExec(dialogConfig.dialogTriggered, DialogPhrase.PHRASE_NONE, dialog_background);
                     }
                     else
@@ -584,12 +585,11 @@ namespace Gob3AQ.GameMenu
                 float menuHeight = Screen.safeArea.height * GameFixedConfig.MENU_TOP_SCREEN_HEIGHT_PERCENT;
                 dialog_input_talkers = new NameType[GameFixedConfig.MAX_DIALOG_TALKERS];
 
-                yield_custom = new WaitUntil(WaitUntilCondition);
-                yield_2s = new WaitForSeconds(2f);
-                dialog_actualTaskType = DialogCoroutineTaskType.DIALOG_TASK_NONE;
+
+                dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
 
                 decision_optionPending = false;
-                decision_actualTaskType = DecisionCoroutineTaskType.DECISION_TASK_NONE;
+                decision_actualTaskType = DecisionTaskType.DECISION_TASK_NONE;
 
                 memento_combi_intersection = new(8);
                 memento_combi_union = new(8);
@@ -622,62 +622,59 @@ namespace Gob3AQ.GameMenu
             UserInputInteraction interaction = VARMAP_GameMenu.GET_SHADOW_USER_INPUT_INTERACTION();
             _uicanvas_cls.SetUserInteraction(interaction);
 
-            /* This is as a deferred Update function */
-            dialog_main_coroutine = StartCoroutine(UpdateDialog_Coroutine());
-
             VARMAP_GameMenu.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameMenu);
         }
 
-        private bool WaitUntilCondition()
-        {
-            return (dialog_actualTaskType != DialogCoroutineTaskType.DIALOG_TASK_NONE) || (decision_actualTaskType != DecisionCoroutineTaskType.DECISION_TASK_NONE);
-        }
 
-        /// <summary>
-        /// Periodic Task, but interrupted when no active dialog
-        /// </summary>
-        /// <returns></returns>
-        private IEnumerator UpdateDialog_Coroutine()
+
+
+        private void Update()
         {
-            while(true)
+            ulong actualTimestamp = VARMAP_GameMenu.GET_ELAPSED_TIME_MS();
+
+            switch (dialog_actualTaskType)
             {
-                switch(dialog_actualTaskType)
-                {
-                    case DialogCoroutineTaskType.DIALOG_TASK_START:
-                        dialog_actualTaskType = DialogCoroutineTaskType.DIALOG_TASK_NONE;
-                        ShowDialogueExec(dialog_input_type, dialog_input_phrase, dialog_input_backgroundDialog);
-                        break;
+                case DialogTaskType.DIALOG_STATE_STARTING:
+                    dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
+                    ShowDialogueExec(dialog_input_type, dialog_input_phrase, dialog_input_backgroundDialog);
+                    break;
 
-                    case DialogCoroutineTaskType.DIALOG_TASK_ENDPHRASE:
-                        dialog_actualTaskType = DialogCoroutineTaskType.DIALOG_TASK_NONE;
-                        yield return yield_2s;
-                        yield return EndPhrase_Action();
-                        break;
+                case DialogTaskType.DIALOG_STATE_SAYING:
+                    dialog_actualTaskType = DialogTaskType.DIALOG_STATE_DEAD_TIME;
+                    dialog_timestamp = actualTimestamp;
+                    break;
 
-                    default:
-                        dialog_actualTaskType = DialogCoroutineTaskType.DIALOG_TASK_NONE;
-                        break;
-                }
+                case DialogTaskType.DIALOG_STATE_DEAD_TIME:
+                    if ((actualTimestamp - dialog_timestamp) >= 2000)
+                    {
+                        dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
+                        EndPhrase_Action();
+                    }
+                    break;
 
-                switch(decision_actualTaskType)
-                {
-                    case DecisionCoroutineTaskType.DECISION_TASK_START:
-                        decision_actualTaskType = DecisionCoroutineTaskType.DECISION_TASK_NONE;
-                        ShowDecisionExec(decision_input_type);
-                        break;
-                    case DecisionCoroutineTaskType.DECISION_TASK_END:
-                        decision_actualTaskType = DecisionCoroutineTaskType.DECISION_TASK_NONE;
-                        /* This avoid this click itself is used in next playing game cycle
-                         * (user clicks this option and room object behind) */
-                        yield return ResourceAtlasClass.WaitForNextFrame;
-                        VARMAP_GameMenu.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
-                        break;
-                    default:
-                        decision_actualTaskType = DecisionCoroutineTaskType.DECISION_TASK_NONE;
-                        break;
-                }
+                default:
+                    dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
+                    break;
+            }
 
-                yield return yield_custom;
+            switch(decision_actualTaskType)
+            {
+                case DecisionTaskType.DECISION_TASK_STARTING:
+                    decision_actualTaskType = DecisionTaskType.DECISION_TASK_NONE;
+                    ShowDecisionExec(decision_input_type);
+                    break;
+                case DecisionTaskType.DECISION_TASK_DECIDING:
+                    decision_actualTaskType = DecisionTaskType.DECISION_TASK_ENDING;
+                    /* This avoid this click itself is used in next playing game cycle
+                     * (user clicks this option and room object behind) */
+                    break;
+                case DecisionTaskType.DECISION_TASK_ENDING:
+                    VARMAP_GameMenu.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
+                    decision_actualTaskType = DecisionTaskType.DECISION_TASK_NONE;
+                    break;
+                default:
+                    decision_actualTaskType = DecisionTaskType.DECISION_TASK_NONE;
+                    break;
             }
         }
 
@@ -689,11 +686,6 @@ namespace Gob3AQ.GameMenu
             if(_singleton == this)
             {
                 _singleton = null;
-
-                if (dialog_main_coroutine != null)
-                {
-                    StopCoroutine(dialog_main_coroutine);
-                }
 
                 VARMAP_GameMenu.UNREG_PICKABLE_ITEM_OWNER(_OnItemOwnerChanged);
                 VARMAP_GameMenu.UNREG_GAMESTATUS(_OnGameStatusChanged);
@@ -818,14 +810,14 @@ namespace Gob3AQ.GameMenu
                         break;
                     case Game_Status.GAME_STATUS_PLAY_DIALOG:
                         /* If dialog was in progress, stop it */
-                        dialog_actualTaskType = DialogCoroutineTaskType.DIALOG_TASK_NONE;
+                        dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
                         dialog_tellingInProgress = false;
                         dialog_optionPending = false;
                         break;
 
                     case Game_Status.GAME_STATUS_PLAY_DECISION:
                         decision_optionPending = false;
-                        decision_actualTaskType = DecisionCoroutineTaskType.DECISION_TASK_NONE;
+                        decision_actualTaskType = DecisionTaskType.DECISION_TASK_NONE;
                         break;
                 }
             }

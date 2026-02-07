@@ -171,15 +171,15 @@ namespace Gob3AQ.VARMAP.Types
 
     public readonly struct DialogConfig
     {
-        public ReadOnlySpan<NameType> Talkers => talkers;
+        public ReadOnlySpan<GameItem> Talkers => talkers;
         public ReadOnlySpan<DialogOption> Options => options;
 
-        private readonly NameType[] talkers;
+        private readonly GameItem[] talkers;
         private readonly DialogOption[] options;
 
-        public static readonly DialogConfig EMPTY = new(new NameType[0],new DialogOption[0]);
+        public static readonly DialogConfig EMPTY = new(new GameItem[0],new DialogOption[0]);
 
-        public DialogConfig(NameType[] talkers, DialogOption[] options)
+        public DialogConfig(GameItem[] talkers, DialogOption[] options)
         {
             this.talkers = talkers;
             this.options = options;

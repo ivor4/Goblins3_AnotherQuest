@@ -29,15 +29,12 @@ namespace Gob3AQ.ItemMaster
                 switch (unchainInfo.type)
                 {
                     case UnchainType.UNCHAIN_TYPE_EARN_ITEM:
-                        Debug.Log("UnchainToItemService: Earning item " + unchainInfo.targetItem + " to character " + unchainInfo.targetCharacter);
                         EarnLosePickableItem(unchainInfo.targetCharacter, unchainInfo.targetItem, true);
                         break;
                     case UnchainType.UNCHAIN_TYPE_LOSE_ITEM:
-                        Debug.Log("UnchainToItemService: Losing item " + unchainInfo.targetItem);
                         EarnLosePickableItem(CharacterType.CHARACTER_NONE, unchainInfo.targetItem, false);
                         break;
                     case UnchainType.UNCHAIN_TYPE_SET_SPRITE:
-                        Debug.Log("UnchainToItemService: Set srpite " + unchainInfo.targetItem + " to " + unchainInfo.targetSprite);
                         if (_singleton._levelItems.TryGetValue(unchainInfo.targetItem, out instance))
                         {
                             instance.SetSprite(unchainInfo.targetSprite);
@@ -46,7 +43,6 @@ namespace Gob3AQ.ItemMaster
                     case UnchainType.UNCHAIN_TYPE_SPAWN:
                         if (_singleton._levelItems.TryGetValue(unchainInfo.targetItem, out instance))
                         {
-                            Debug.Log("UnchainToItemService: Spawning item " + unchainInfo.targetItem);
                             instance.SetUnspawned(false);
                             instance.SetMotion(true);
                             instance.SetActive(true);
@@ -58,7 +54,6 @@ namespace Gob3AQ.ItemMaster
                     case UnchainType.UNCHAIN_TYPE_DESPAWN:
                         if (_singleton._levelItems.TryGetValue(unchainInfo.targetItem, out instance))
                         {
-                            Debug.Log("UnchainToItemService: Despawning item " + unchainInfo.targetItem);
                             instance.SetUnspawned(true);
                             instance.SetMotion(false);
                             instance.SetActive(false);
@@ -70,14 +65,12 @@ namespace Gob3AQ.ItemMaster
                     case UnchainType.UNCHAIN_TYPE_DESTROY:
                         if (_singleton._levelItems.TryGetValue(unchainInfo.targetItem, out instance))
                         {
-                            Debug.Log("UnchainToItemService: Destroying item " + unchainInfo.targetItem);
                             instance.VirtualDestroy();
                         }
                         break;
                     case UnchainType.UNCHAIN_TYPE_UNCLICKABLE:
                         if (_singleton._levelItems.TryGetValue(unchainInfo.targetItem, out instance))
                         {
-                            Debug.Log("UnchainToItemService: Setting unclickable item " + unchainInfo.targetItem);
                             instance.SetUnclickable(true);
                         }
                         break;

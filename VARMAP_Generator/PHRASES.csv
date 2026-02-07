@@ -59,4 +59,9 @@
 57,PHRASE_DIALOG_MANYO_BCKG_CROWD_1,0,0,DIALOG_ANIMATION_NONE,You must try the wine,Tienes que probar el vino!
 58,PHRASE_DIALOG_MANYO_BCKG_CROWD_2,0,0,DIALOG_ANIMATION_NONE,For sure! I'm getting dry with this meat,Desde luego! Me estoy quedando seco con esta carne
 59,PHRASE_DIALOG_MANYO_BCKG_CROWD_3,0,0,DIALOG_ANIMATION_NONE,Card match is promising this night,La partida de naipes esta noche va a ser de cine
-60,PHRASE_DIALOG_LAST,0,0,DIALOG_ANIMATION_TALK,Last one,Last one
+60,PHRASE_OBSERVE_ITEM_HIVE1_POOR_MAN_WC,0,0,DIALOG_ANIMATION_TALK,It was a poor man suffering of a bad dinner,Era un pobre hombre sufriendo de una mala cena
+61,PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_0_0,0,0,DIALOG_ANIMATION_TALK,(Prrrrr),(Prrrrr)
+62,PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_1_0,0,0,DIALOG_ANIMATION_TALK,Is this going to end somewhen?,Is this going to end somewhen?
+63,PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_2_0,0,0,DIALOG_ANIMATION_TALK,This is torture,This is torture
+64,PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_3_0,0,0,DIALOG_ANIMATION_TALK,I should have never eat that dinner,I should have never eat that dinner
+65,PHRASE_DIALOG_LAST,0,0,DIALOG_ANIMATION_TALK,Last one,Last one

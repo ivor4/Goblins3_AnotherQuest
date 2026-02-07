@@ -746,9 +746,9 @@ for line in DIALOGSinputFile:
             
             options = columns[2].split('|')
             num_options = len(options)
-            stringToWrite = 'new NameType['+str(num_options)+']{'
+            stringToWrite = 'new GameItem['+str(num_options)+']{'
             for _option in options:
-                stringToWrite += name_prefix+_option+','
+                stringToWrite += item_prefix+_option+','
             stringToWrite += '},\n'
             dialog_atlas_lines.InsertLineInATG(1, stringToWrite)
             

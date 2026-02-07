@@ -1,11 +1,11 @@
 ﻿NewItem,NewName,NewSprite,Pickable,Spawn,Picker_Character,ObservationPhrase,TakePhrase,Room,Output
-ITEM_NEW_ITEM,NAME_NEW_NAME,SPRITE_NEW_SPRITE,True,True,CHARACTER_MAIN,It was a new item!,I took it!,CITY1_STREET_1,
+ITEM_HIVE1_POOR_MAN_WC,NAME_POOR_MAN_WC,SPRITE_HIVE1_POOR_MAN_STEADY,False,True,CHARACTER_NONE,It was a poor man suffering of a bad dinner,,HIVE1_WC_1,
 ,,,,,,,,,
 NewRoom,Background,BackgroundNight,Output,,,,,,
 ROOM_NEW_ROOM,BACKGROUND_NEW,BACKGROUND_NEW_NIGHT,,,,,,,
 ,,,,,,,,,
 NewDialog,IntroPhrase,Talkers,Option1,Option2,Option3,Option4,Option5,Option6,
-DIALOG_NEW_DIALOG,"Hey My friend!, Are you still there?",ITEM_NONE,"Are you ok?, really?","Yes you are, aha","He he, no no","Yo que se, primo",,,
+DIALOG_HIVE1_BCKG_POOR_MAN_WC,,ITEM_HIVE1_POOR_MAN_WC,(Prrrrr),Is this going to end somewhen?,This is torture,I should have never eat that dinner,,,
 ,,,,,,,,,
 NewMementoParent,MementoIconSprite,MementoParentPhrase,Mementos,MementoPhrases,,,,,
 MEMENTO_PARENT_NEW_MEMENTO,SPRITE_NEW_MEMENTO_SPRITE,A new fresh idea came,"MEMENTO_NEW_1, MEMENTO_NEW_2","Event 1 required for this, Event 2 required for this",,,,,

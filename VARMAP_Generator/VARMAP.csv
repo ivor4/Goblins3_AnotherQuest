@@ -17,5 +17,5 @@
 15,ITEM_HOVER,GameItem,0,0,GameItem.ITEM_NONE,N,,-,-,W,R E,-,-,-,-
 16,USER_INPUT_INTERACTION,UserInputInteraction,0,0,UserInputInteraction.INPUT_INTERACTION_TAKE,N,,-,-,R,R E,W,-,-,-
 17,EVENTS_BEING_PROCESSED,bool,0,0,false,N,,R,-,R,-,-,-,-,W
-18,DAY_MOMENT,MomentType,0,0,MomentType.MOMENT_MORNING,Y,,W,-,-,R,R,-,R,R
+18,DAY_MOMENT,MomentType,0,0,MomentType.MOMENT_MORNING,Y,,W,-,R,R,R,-,R,R
 19,LAST_VARMAP_VAL,bool,0,0,false,N,,W,-,-,-,-,-,-,-

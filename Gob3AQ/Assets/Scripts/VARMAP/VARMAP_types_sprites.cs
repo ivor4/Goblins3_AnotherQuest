@@ -45,6 +45,7 @@ namespace Gob3AQ.VARMAP.Types
         SPRITE_PICKABLE_UMBRELLA, 
         SPRITE_MANYO_OWNER, 
         SPRITE_MEMENTO_RECIPE, 
+        SPRITE_HIVE1_POOR_MAN_STEADY, 
         SPRITE_LAST, 
         
         SPRITE_TOTAL

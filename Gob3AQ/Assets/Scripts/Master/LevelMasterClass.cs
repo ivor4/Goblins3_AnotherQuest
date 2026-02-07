@@ -4,6 +4,7 @@ using Gob3AQ.GameElement;
 using Gob3AQ.GameElement.Clickable;
 using Gob3AQ.GameElement.PlayableChar;
 using Gob3AQ.ResourceAtlas;
+using Gob3AQ.VARMAP.ItemMaster;
 using Gob3AQ.VARMAP.LevelMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.Waypoint.Network;
@@ -602,7 +603,7 @@ namespace Gob3AQ.LevelMaster
         private void ExecutePlayerEndOfInteraction(CharacterType character)
         {
             /* Generate stack array of 2 talkers, player and dst */
-            Span<NameType> talkers = stackalloc NameType[2];
+            Span<GameItem> talkers = stackalloc GameItem[2];
 
             ref PendingCharacterInteraction charPendingAction = ref _PendingCharInteractions[(int)character];
             ref readonly InteractionUsage usage = ref charPendingAction.usage;
@@ -630,8 +631,8 @@ namespace Gob3AQ.LevelMaster
                     else if (outcome.dialogType != DialogType.DIALOG_NONE)
                     {
                         /* Default talkers are own player and itemDest */
-                        talkers[0] = ItemsInteractionsClass.GetItemInfo(_Player_List[(int)usage.playerSource].ItemID).name;
-                        talkers[1] = ItemsInteractionsClass.GetItemInfo(usage.itemDest).name;
+                        talkers[0] = _Player_List[(int)usage.playerSource].ItemID;
+                        talkers[1] = usage.itemDest;
 
                         /* No need to know about error, as this function is executed from play mode */
                         VARMAP_LevelMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_DIALOG, out _);
@@ -666,17 +667,28 @@ namespace Gob3AQ.LevelMaster
             if ((actualTimestamp - _backgroundItemTaskTimestamp) >= GameFixedConfig.BACKGROUND_ITEM_ACTIONS_MS)
             {
                 ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(VARMAP_LevelMaster.GET_ACTUAL_ROOM());
+                MomentType actualMoment = VARMAP_LevelMaster.GET_DAY_MOMENT();
+                CharacterType playerSelected = VARMAP_LevelMaster.GET_PLAYER_SELECTED();
 
-                foreach(ActionConditions cond in roomInfo.actionConditions)
+                foreach (ActionConditions cond in roomInfo.actionConditions)
                 {
                     ref readonly ActionConditionsInfo condInfo = ref ItemsInteractionsClass.GetActionConditionsInfo(cond);
-                    if((condInfo.actionOK == ItemInteractionType.INTERACTION_AUTO_6s)&&(condInfo.dialogOK != DialogType.DIALOG_NONE))
+
+                    if (
+                        ((condInfo.momentType == MomentType.MOMENT_ANY) || (condInfo.momentType == actualMoment)) &&
+                        (playerSelected == condInfo.srcChar) && (condInfo.actionOK == ItemInteractionType.INTERACTION_AUTO_6s) &&
+                        (condInfo.dialogOK != DialogType.DIALOG_NONE)
+                       )
                     {
-                        Span<NameType> talkers = stackalloc NameType[2];
-                        talkers[0] = NameType.NAME_NONE;
-                        talkers[1] = NameType.NAME_NONE;
-                        VARMAP_LevelMaster.SHOW_DIALOGUE(talkers, condInfo.dialogOK, condInfo.phraseOK, true);
-                        break;
+                        VARMAP_ItemMaster.IS_EVENT_COMBI_OCCURRED(condInfo.NeededEvents, out bool occurred);
+                        if (occurred)
+                        {
+                            Span<GameItem> talkers = stackalloc GameItem[2];
+                            talkers[0] = GameItem.ITEM_NONE;
+                            talkers[1] = GameItem.ITEM_NONE;
+                            VARMAP_LevelMaster.SHOW_DIALOGUE(talkers, condInfo.dialogOK, condInfo.phraseOK, true);
+                            break;
+                        }
                     }
                 }
 

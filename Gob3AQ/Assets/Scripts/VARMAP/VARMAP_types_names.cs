@@ -37,6 +37,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_STUFFED_DEER, 
         NAME_MEMENTO_RECIPE_MISSION, 
         NAME_CROWD, 
+        NAME_POOR_MAN_WC, 
         NAME_NPC_LAST, 
         
         NAME_TOTAL

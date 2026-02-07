@@ -7,7 +7,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.AdaptivePerformance.Provider.AdaptivePerformanceSubsystemDescriptor;
 
 namespace Gob3AQ.GameEventMaster
 {
@@ -283,7 +282,6 @@ namespace Gob3AQ.GameEventMaster
                         moment = MomentType.MOMENT_NIGHT;
                     }
 
-                    Debug.Log("Changing moment of day to " + moment);
                     VARMAP_GameEventMaster.CHANGE_DAY_MOMENT(moment);
 
                     /* Clear them */
@@ -301,7 +299,6 @@ namespace Gob3AQ.GameEventMaster
 
                 if((aftermath_change_day || aftermath_change_room) && (VARMAP_GameEventMaster.GET_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY))
                 {
-                    Debug.Log("Clearing master events after change room/day moment");
                     stackCheck[0] = new GameEventCombi(GameEvent.EVENT_MASTER_CHANGE_MOMENT_DAY, true);
                     stackCheck[1] = new GameEventCombi(GameEvent.EVENT_MASTER_CHANGE_ROOM, true);
                     CommitEventService(stackCheck);
@@ -495,7 +492,6 @@ namespace Gob3AQ.GameEventMaster
                 /* If it needs to spawn, make it invisible by the moment */
                 if (unchainer_info.type == UnchainType.UNCHAIN_TYPE_SPAWN)
                 {
-                    Debug.Log("Pre-Disappear for posterior Spawn unchainer " + unchainer_info.targetItem);
                     UnchainInfo info_copy = new(false, UnchainType.UNCHAIN_TYPE_DESPAWN, GameEventCombi.EMPTY, null, unchainer_info.momentType,
                             unchainer_info.targetItem, unchainer_info.targetSprite, unchainer_info.targetCharacter,
                             Memento.MEMENTO_NONE, null, DecisionType.DECISION_NONE, MomentType.MOMENT_ANY);
@@ -577,19 +573,15 @@ namespace Gob3AQ.GameEventMaster
                 switch (info.type)
                 {
                     case UnchainType.UNCHAIN_TYPE_EVENT:
-                        Debug.Log("Unchaining event " + info.TargetEvents[0].eventType);
                         CommitEventService(info.TargetEvents);
                         break;
                     case UnchainType.UNCHAIN_TYPE_MEMENTO:
-                        Debug.Log("Unchaining Memento " + info.targetMemento);
                         CommitMementoService(info.targetMemento);
                         break;
                     case UnchainType.UNCHAIN_TYPE_CHANGE_MOMENT_DAY:
-                        Debug.Log("Changing moment of day to " + info.targetMomentOfDay);
                         VARMAP_GameEventMaster.CHANGE_DAY_MOMENT(info.targetMomentOfDay);
                         break;
                     case UnchainType.UNCHAIN_TYPE_DECISION:
-                        Debug.Log("Unchaining Decision " + info.targetDecision);
                         VARMAP_GameEventMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_DECISION, out bool error);
                         if (!error)
                         {

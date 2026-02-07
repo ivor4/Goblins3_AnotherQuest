@@ -63,6 +63,7 @@ namespace Gob3AQ.ResourceSpritesAtlas
             new("SPRITE_ATLAS_MANYO_0[SPRITE_MANYO_OWNER]"), /* SPRITE_MANYO_OWNER */ 
             new("SPRITE_ATLAS_PICKABLE_0[SPRITE_MEMENTO_RECIPE]"), /* SPRITE_MEMENTO_RECIPE */ 
             new("SPRITE_ATLAS_HIVE1_6[SPRITE_HIVE1_POOR_MAN_STEADY]"), /* SPRITE_HIVE1_POOR_MAN_STEADY */ 
+            new("SPRITE_ATLAS_PICKABLE_0[SPRITE_MEMENTO_JOB]"), /* SPRITE_MEMENTO_POOR_MAN_WC */ 
             new("SPRITE_LAST"), /* SPRITE_LAST */ 
             /* > ATG 1 END < */
         };

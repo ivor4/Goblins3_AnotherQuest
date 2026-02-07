@@ -14,6 +14,7 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
+using UnityEngine.U2D;
 
 namespace Gob3AQ.GameMaster
 {
@@ -54,6 +55,8 @@ namespace Gob3AQ.GameMaster
                 loadScenePending = Room.ROOM_NONE;
                 loadScenePendingFromGameLoad = false;
                 changeMomentPending = MomentType.MOMENT_ANY;
+
+                SpriteAtlasManager.atlasRequested += RequestAtlas;
             }
         }
 
@@ -487,6 +490,13 @@ namespace Gob3AQ.GameMaster
                 /* Collect as much as possible */
                 GC.Collect();
             }
+        }
+
+        void RequestAtlas(string tag, Action<SpriteAtlas> callback)
+        {
+            _ = tag;
+            _ = callback;
+            /* Just for testing, not used */
         }
 
     }

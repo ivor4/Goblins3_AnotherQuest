@@ -67,7 +67,7 @@ namespace Gob3AQ.GameMenu
         private HashSet<MementoCombi> memento_combi_intersection;
 
         private ulong dialog_timestamp;
-        private Dictionary<DialogOption, List<int>> dialog_randomized_left_indexes;
+        private Dictionary<DialogOption, List<byte>> dialog_randomized_left_indexes;
 
 
         public static void CommitMementoNotifService(Memento memento)
@@ -296,7 +296,6 @@ namespace Gob3AQ.GameMenu
         {
             if ((VARMAP_GameMenu.GET_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY_DECISION) && decision_optionPending)
             {
-                Debug.Log("Took decision " + option);
                 ref readonly DecisionOptionConfig decisionOptionConfig = ref ResourceDecisionsAtlasClass.GetDecisionOptionConfig(option);
                 decision_optionPending = false;
 
@@ -705,9 +704,9 @@ namespace Gob3AQ.GameMenu
         {
             int optionIndex;
 
-            if(!dialog_randomized_left_indexes.TryGetValue(option, out List<int> leftIndexes))
+            if(!dialog_randomized_left_indexes.TryGetValue(option, out List<byte> leftIndexes))
             {
-                List<int> newList = new List<int>(dialogOptionConfig.Phrases.Length);
+                List<byte> newList = new(dialogOptionConfig.Phrases.Length);
                 dialog_randomized_left_indexes[option] = newList;
                 leftIndexes = newList;
             }
@@ -715,7 +714,7 @@ namespace Gob3AQ.GameMenu
             if (leftIndexes.Count == 0)
             {
                 /* Refill and reshuffle */
-                for (int i = 0; i < dialogOptionConfig.Phrases.Length; i++)
+                for (byte i = 0; i < dialogOptionConfig.Phrases.Length; i++)
                 {
                     int j = UnityEngine.Random.Range(0, 2);
 

@@ -106,6 +106,16 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new DialogOption[1]{DialogOption.DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTIONS, }
             ),
             
+            new( /* DIALOG_HIVE1_POOR_MAN_WC */
+            new GameItem[1]{GameItem.ITEM_NONE,},
+            new DialogOption[4]{DialogOption.DIALOG_HIVE1_POOR_MAN_WC_OPTION_0, DialogOption.DIALOG_HIVE1_POOR_MAN_WC_OPTION_1, DialogOption.DIALOG_HIVE1_POOR_MAN_WC_OPTION_2, DialogOption.DIALOG_HIVE1_POOR_MAN_WC_OPTION_3, }
+            ),
+            
+            new( /* DIALOG_HIVE1_POOR_MAN_WC_INTRO */
+            new GameItem[1]{GameItem.ITEM_NONE,},
+            new DialogOption[1]{DialogOption.DIALOG_HIVE1_POOR_MAN_WC_OPTION_INTRO, }
+            ),
+            
             new( /* DIALOG_LAST */
             new GameItem[1]{GameItem.ITEM_NONE,},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE, }
@@ -229,6 +239,41 @@ namespace Gob3AQ.ResourceDialogsAtlas
             DialogType.DIALOG_NONE,true,
             new DialogPhrase[4]{DialogPhrase.PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_1_0, DialogPhrase.PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_2_0, DialogPhrase.PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_3_0, }
             ),
+            new( /* DIALOG_HIVE1_POOR_MAN_WC_OPTION_0 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            MomentType.MOMENT_ANY,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            DialogType.DIALOG_HIVE1_POOR_MAN_WC,false,
+            new DialogPhrase[4]{DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_1, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_2, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_3, }
+            ),
+            new( /* DIALOG_HIVE1_POOR_MAN_WC_OPTION_1 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            MomentType.MOMENT_ANY,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            DialogType.DIALOG_HIVE1_POOR_MAN_WC,false,
+            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_1_0, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_1_1, }
+            ),
+            new( /* DIALOG_HIVE1_POOR_MAN_WC_OPTION_2 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            MomentType.MOMENT_ANY,
+            new GameEventCombi[1]{new(GameEvent.EVENT_POOR_MAN_WC_NEED_WATER, false), },
+            DialogType.DIALOG_HIVE1_POOR_MAN_WC,false,
+            new DialogPhrase[5]{DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_0, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_1, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_2, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_3, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_4, }
+            ),
+            new( /* DIALOG_HIVE1_POOR_MAN_WC_OPTION_3 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            MomentType.MOMENT_ANY,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            DialogType.DIALOG_NONE,false,
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_3_0, }
+            ),
+            new( /* DIALOG_HIVE1_POOR_MAN_WC_OPTION_INTRO */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            MomentType.MOMENT_ANY,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            DialogType.DIALOG_HIVE1_POOR_MAN_WC,true,
+            new DialogPhrase[3]{DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_0, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_1, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_2, }
+            ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
             MomentType.MOMENT_ANY,
@@ -306,6 +351,24 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_1_0 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_2_0 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_3_0 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_0 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_1 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_2 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_3 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_1_0 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_1_1 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_0 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_1 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_2 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_3 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_4 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_3_0 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_0 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_1 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_2 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_MEMENTO_POOR_MAN_WC_1 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_MEMENTO_POOR_MAN_WC_2 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_MEMENTO_POOR_MAN_WC_3 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

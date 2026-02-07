@@ -352,23 +352,26 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_2_0 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_3_0 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_0 */ 
-            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_1 */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_1 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_2 */ 
-            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_3 */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_3 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_1_0 */ 
-            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_1_1 */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_1_1 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_0 */ 
-            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_1 */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_1 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_2 */ 
-            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_3 */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_3 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_4 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_3_0 */ 
-            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_0 */ 
-            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_1 */ 
-            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_2 */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_0 */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_1 */ 
+            new(1,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_2 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_MEMENTO_POOR_MAN_WC_1 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_MEMENTO_POOR_MAN_WC_2 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_MEMENTO_POOR_MAN_WC_3 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_OBSERVE_ITEM_HIVE1_ROACH */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_OBSERVE_ITEM_HIVE1_PIPE */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_TAKE_ITEM_HIVE1_ROACH_HEAD */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

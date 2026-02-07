@@ -1,8 +1,8 @@
 ﻿NewItem,NewName,NewSprite,Pickable,Spawn,Picker_Character,ObservationPhrase,TakePhrase,Room,Output
-ITEM_HIVE1_POOR_MAN_WC,NAME_POOR_MAN_WC,SPRITE_HIVE1_POOR_MAN_STEADY,False,True,CHARACTER_NONE,It was a poor man suffering of a bad dinner,,HIVE1_WC_1,
+ITEM_HIVE1_PIPE,NAME_PIPE,SPRITE_BLANK,False,False,CHARACTER_MAIN,This pipe may bring water to toilets and is comming from outside,,HIVE1_WC_1,
 ,,,,,,,,,
 NewRoom,Background,BackgroundNight,Output,,,,,,
-ROOM_NEW_ROOM,BACKGROUND_NEW,BACKGROUND_NEW_NIGHT,,,,,,,
+HIVE1_BACKALLEY,BACKGROUND_BACKALLEY,BACKGROUND_BACKALLEY_NIGHT,,,,,,,
 ,,,,,,,,,
 NewDialog,IntroPhrase,Talkers,Option1,Option2,Option3,Option4,Option5,Option6,
 DIALOG_HIVE1_POOR_MAN_WC,"Did you come to laugh at my disgrace?, Did I wake you up?, Are you from health department?",ITEM_NONE,"Terrible night. Ah?, It was that Maño restaurant. Boar was terrible, I saw it full of people. Don't think it was in bad state, Well. Maybe my stomach is not in mood!","Are you going to end today?, Haha. Very funny. If I could. I would be out there. Night is young","How can I help you?, This nasty Inn is cutting water at night. I cannot let this in this state, Ahh. I see..., Could you please talk to someone to bring water again?, I will see what can I do. But personnel is absent during day. Even worse at night",I need to go. Sorry for your situation!,,,

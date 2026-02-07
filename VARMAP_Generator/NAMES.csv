@@ -30,5 +30,7 @@
 28,NAME_MEMENTO_RECIPE_MISSION,New recipe for El Maño,Nueva receta para El Maño
 29,NAME_CROWD,Crowd,Gentío
 30,NAME_POOR_MAN_WC,Poor man in WC,Pobre hombre en letrina
-31,NAME_MEMENTO_PARENT_POOR_MAN_WC,A poor man in WC,A poor man in WC
-32,NAME_NPC_LAST,Last,Ultimo
+31,NAME_MEMENTO_PARENT_POOR_MAN_WC,A poor man in WC,Un pobre hombre en la letrina
+32,NAME_ROACH,Cockroach,Cucaracha
+33,NAME_PIPE,Pipe,Tubería
+34,NAME_NPC_LAST,Last,Ultimo

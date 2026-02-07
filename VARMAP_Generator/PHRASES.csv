@@ -65,21 +65,24 @@
 63,PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_2_0,0,0,DIALOG_ANIMATION_TALK,This is torture,This is torture
 64,PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_3_0,0,0,DIALOG_ANIMATION_TALK,I should have never eat that dinner,I should have never eat that dinner
 65,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_0,0,0,DIALOG_ANIMATION_TALK,Terrible night. Ah?,Terrible night. Ah?
-66,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_1,0,0,DIALOG_ANIMATION_TALK,It was that Maño restaurant. Boar was terrible,It was that Maño restaurant. Boar was terrible
+66,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_1,1,0,DIALOG_ANIMATION_TALK,It was that Maño restaurant. Boar was terrible,It was that Maño restaurant. Boar was terrible
 67,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_2,0,0,DIALOG_ANIMATION_TALK,I saw it full of people. Don't think it was in bad state,I saw it full of people. Don't think it was in bad state
-68,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_3,0,0,DIALOG_ANIMATION_TALK,Well. Maybe my stomach is not in mood!,Well. Maybe my stomach is not in mood!
+68,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_3,1,0,DIALOG_ANIMATION_TALK,Well. Maybe my stomach is not in mood!,Well. Maybe my stomach is not in mood!
 69,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_1_0,0,0,DIALOG_ANIMATION_TALK,Are you going to end today?,Are you going to end today?
-70,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_1_1,0,0,DIALOG_ANIMATION_TALK,Haha. Very funny. If I could. I would be out there. Night is young,Haha. Very funny. If I could. I would be out there. Night is young
+70,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_1_1,1,0,DIALOG_ANIMATION_TALK,Haha. Very funny. If I could. I would be out there. Night is young,Haha. Very funny. If I could. I would be out there. Night is young
 71,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_0,0,0,DIALOG_ANIMATION_TALK,How can I help you?,How can I help you?
-72,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_1,0,0,DIALOG_ANIMATION_TALK,This nasty Inn is cutting water at night. I cannot let this in this state,This nasty Inn is cutting water at night. I cannot let this in this state
+72,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_1,1,0,DIALOG_ANIMATION_TALK,This nasty Inn is cutting water at night. I cannot let this in this state,This nasty Inn is cutting water at night. I cannot let this in this state
 73,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_2,0,0,DIALOG_ANIMATION_TALK,Ahh. I see...,Ahh. I see...
-74,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_3,0,0,DIALOG_ANIMATION_TALK,Could you please talk to someone to bring water again?,Could you please talk to someone to bring water again?
+74,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_3,1,0,DIALOG_ANIMATION_TALK,Could you please talk to someone to bring water again?,Could you please talk to someone to bring water again?
 75,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_4,0,0,DIALOG_ANIMATION_TALK,I will see what can I do. But personnel is absent during day. Even worse at night,I will see what can I do. But personnel is absent during day. Even worse at night
 76,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_3_0,0,0,DIALOG_ANIMATION_TALK,I need to go. Sorry for your situation!,I need to go. Sorry for your situation!
-77,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_0,0,0,DIALOG_ANIMATION_TALK,Did you come to laugh at my disgrace?,Did you come to laugh at my disgrace?
-78,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_1,0,0,DIALOG_ANIMATION_TALK,Did I wake you up?,Did I wake you up?
-79,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_2,0,0,DIALOG_ANIMATION_TALK,Are you from health department?,Are you from health department?
-80,PHRASE_MEMENTO_POOR_MAN_WC_1,0,0,DIALOG_ANIMATION_TALK,A poor man can't leave WC because there is no water,A poor man can't leave WC because there is no water
-81,PHRASE_MEMENTO_POOR_MAN_WC_2,0,0,DIALOG_ANIMATION_TALK,It seems to be a valve in back alley but is closed,It seems to be a valve in back alley but is closed
-82,PHRASE_MEMENTO_POOR_MAN_WC_3,0,0,DIALOG_ANIMATION_TALK,When water came back. This man gave me an invitation to a Pub where I could meet someone for a job,When water came back. This man gave me an invitation to a Pub where I could meet someone for a job
-83,PHRASE_DIALOG_LAST,0,0,DIALOG_ANIMATION_TALK,Last one,Last one
+77,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_0,1,0,DIALOG_ANIMATION_TALK,Did you come to laugh at my disgrace?,Did you come to laugh at my disgrace?
+78,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_1,1,0,DIALOG_ANIMATION_TALK,Did I wake you up?,Did I wake you up?
+79,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_2,1,0,DIALOG_ANIMATION_TALK,Are you from health department?,Are you from health department?
+80,PHRASE_MEMENTO_POOR_MAN_WC_1,0,0,DIALOG_ANIMATION_TALK,A poor man can't leave WC because there is no water in toilet system,El pobre hombre no puede irse porque no hay agua en las cisternas de los inodoros
+81,PHRASE_MEMENTO_POOR_MAN_WC_2,0,0,DIALOG_ANIMATION_TALK,It seems to be a valve in back alley but is closed,Parece haber una válvula en el callejón de atrás pero está cerrada
+82,PHRASE_MEMENTO_POOR_MAN_WC_3,0,0,DIALOG_ANIMATION_TALK,When water came back. This man gave me an invitation to a Pub where I could meet someone for a job,Cuando el agua volvió. Este hombre me dio una invitación a un Pub donde podría conocer a alguien para un trabajo
+83,PHRASE_OBSERVE_ITEM_HIVE1_ROACH,0,0,DIALOG_ANIMATION_TALK,It is a tiny cockroach! The only living being human is terrified of,Es una cucarachita pequeña! El único ser vivo al que el ser humano teme
+84,PHRASE_OBSERVE_ITEM_HIVE1_PIPE,0,0,DIALOG_ANIMATION_TALK,This pipe may bring water to toilets and is comming from outside,This pipe may bring water to toilets and is comming from outside
+85,PHRASE_TAKE_ITEM_HIVE1_ROACH_HEAD,0,0,DIALOG_ANIMATION_TALK,It squeezed! I need to try it again or be smarter,Se escapó! Necesito volver a intentarlo o ser más listo que ella
+86,PHRASE_DIALOG_LAST,0,0,DIALOG_ANIMATION_TALK,Last one,Last one

@@ -14,6 +14,7 @@ namespace Gob3AQ.VARMAP.Types
         CITY1_STREET_2, 
         PHARMACY_1, 
         MANYO_1, 
+        HIVE1_BACKALLEY, 
         ROOM_LAST, 
         
         ROOMS_TOTAL 

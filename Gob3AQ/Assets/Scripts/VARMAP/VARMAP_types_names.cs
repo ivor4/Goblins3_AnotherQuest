@@ -41,6 +41,8 @@ namespace Gob3AQ.VARMAP.Types
         NAME_MEMENTO_PARENT_POOR_MAN_WC, 
         NAME_ROACH, 
         NAME_PIPE, 
+        NAME_VALVE_BOX, 
+        NAME_SHOELACE, 
         NAME_NPC_LAST, 
         
         NAME_TOTAL

@@ -372,6 +372,14 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_OBSERVE_ITEM_HIVE1_ROACH */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_OBSERVE_ITEM_HIVE1_PIPE */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_TAKE_ITEM_HIVE1_ROACH_HEAD */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_OBSERVE_ITEM_HIVE1_VALVE_BOX */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_OBSERVE_ITEM_HIVE1_BACKALLEY_PIPE */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_OBSERVE_ITEM_HIVE1_BACKALLEY_PIPE_2 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_OBSERVE_ITEM_HIVE1_VALVE_BOX_2 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_TAKE_VALVE_BOX_CLOSED */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_TAKE_VALVE_BOX_CLOSED_MORNING */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_OBSERVE_ITEM_HIVE1_SHOELACE */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_TAKE_ITEM_HIVE1_SHOELACE */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

@@ -392,20 +392,24 @@ namespace Gob3AQ.LevelMaster
 
             _RaycastedItems.Clear();
 
-            for(int i=0;i<matches;++i)
+            if (_playMouseArea.Contains(mouse.posPixels))
             {
-                if (_ItemColliderDictionary.TryGetValue(_RaycastedItemColliders[i].collider, out IGameObjectHoverable hoverable))
+                for (int i = 0; i < matches; ++i)
                 {
-                    _RaycastedItems.Add(hoverable);
+                    if (_ItemColliderDictionary.TryGetValue(_RaycastedItemColliders[i].collider, out IGameObjectHoverable hoverable))
+                    {
+                        _RaycastedItems.Add(hoverable);
+                    }
                 }
-            }
 
-            /* Add Item menu selected element as one more */
-            GameItem menuItemHovered = VARMAP_LevelMaster.GET_ITEM_MENU_HOVER();
-            if(menuItemHovered != GameItem.ITEM_NONE)
-            {
-                itemMenuHoverable.SetHoverInfo(new LevelElemInfo(menuItemHovered, GameItemFamily.ITEM_FAMILY_TYPE_OBJECT, -1, 0, true));
-                _RaycastedItems.Add(itemMenuHoverable);
+
+                /* Add Item menu selected element as one more */
+                GameItem menuItemHovered = VARMAP_LevelMaster.GET_ITEM_MENU_HOVER();
+                if (menuItemHovered != GameItem.ITEM_NONE)
+                {
+                    itemMenuHoverable.SetHoverInfo(new LevelElemInfo(menuItemHovered, GameItemFamily.ITEM_FAMILY_TYPE_OBJECT, -1, 0, true));
+                    _RaycastedItems.Add(itemMenuHoverable);
+                }
             }
 
             /* Remain only items which are not common between previous and actual cycle  */

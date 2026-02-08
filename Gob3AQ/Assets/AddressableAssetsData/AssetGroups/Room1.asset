@@ -55,6 +55,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59fb20c7317ffa9449e12d4ad2bfc7b3
+    m_Address: SPRITE_ATLAS_HIVE1_8
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 60bd4ba515d601e4ca23a495ae80226f
     m_Address: SCENE_HIVE1_CORRIDOR_1
     m_ReadOnly: 0
@@ -67,6 +72,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9207e99b07d624542a014701b6a4a133
     m_Address: SCENE_CITY1_STREET_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9bbf37c7441a0b04fa6aafb48d41d76b
+    m_Address: SPRITE_ATLAS_HIVE1_7
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -102,6 +112,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c542d0bd3f9689b4b9aacbcf0ffd4c6f
     m_Address: SPRITE_ATLAS_MANYO_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cdb83b99c714a254ab1a2c0e497a23dd
+    m_Address: SCENE_HIVE1_BACKALLEY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

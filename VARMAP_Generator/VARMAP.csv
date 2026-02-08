@@ -5,7 +5,7 @@
 3,EVENTS_OCCURRED,MultiBitFieldStruct,2,1,default,Y,,-,-,-,-,-,-,-,W
 4,UNLOCKED_MEMENTO,MultiBitFieldStruct,2,1,default,Y,,-,-,-,-,-,-,-,W
 5,UNWATCHED_PARENT_MEMENTO,MultiBitFieldStruct,0,1,default,Y,,-,-,R,-,-,-,-,W
-6,PICKABLE_ITEM_OWNER,CharacterType,2,3,CharacterType.CHARACTER_NONE,Y,,-,-,R,-,R E,-,W,-
+6,PICKABLE_ITEM_OWNER,CharacterType,2,4,CharacterType.CHARACTER_NONE,Y,,-,-,R,-,R E,-,W,-
 7,PLAYER_ACTUAL_WAYPOINT,int,2,3,-1,Y,,-,-,W,-,-,R,-,-
 8,CAMERA_DISPOSITION,CameraDispositionStruct,0,0,CameraDispositionStruct_Default,Y,,-,-,-,W,-,-,-,-
 9,ITEM_MENU_HOVER,GameItem,0,0,GameItem.ITEM_NONE,N,,-,-,R,-,W,-,-,-

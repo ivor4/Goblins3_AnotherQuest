@@ -190,7 +190,7 @@ namespace Gob3AQ.ResourceAtlas
             new( /* HIVE1_HALL_1 */
             new GameSprite[2]{GameSprite.BACKGROUND_HIVE1_HALL1, GameSprite.BACKGROUND_HIVE1_HALL1_N, },
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_HIVE1_HALL1, GameSprite.BACKGROUND_HIVE1_HALL1_N, }), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(5){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_GENERIC_DOOR2, GameItem.ITEM_HIVE1_AD_BOARD, GameItem.ITEM_HIVE1_EXIT_DOOR, GameItem.ITEM_HIVE1_POOR_MAN_WC, }), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(6){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_GENERIC_DOOR2, GameItem.ITEM_HIVE1_AD_BOARD, GameItem.ITEM_HIVE1_EXIT_DOOR, GameItem.ITEM_HIVE1_POOR_MAN_WC, GameItem.ITEM_HIVE1_SHOELACE, }), 
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
             new ReadOnlyHashSet<ActionConditions>(new HashSet<ActionConditions>(1){ActionConditions.COND_DIALOGUE_POOR_MAN_WC_BCKG, }), 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }) 
@@ -244,7 +244,7 @@ namespace Gob3AQ.ResourceAtlas
             new( /* HIVE1_BACKALLEY */
             new GameSprite[2]{GameSprite.BACKGROUND_BACKALLEY, GameSprite.BACKGROUND_BACKALLEY_NIGHT, },
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_BACKALLEY, GameSprite.BACKGROUND_BACKALLEY_NIGHT, }), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(1){GameItem.ITEM_GENERIC_DOOR1, }), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(3){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_HIVE1_VALVE_BOX, GameItem.ITEM_HIVE1_BACKALLEY_PIPE, }), 
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
             new ReadOnlyHashSet<ActionConditions>(new HashSet<ActionConditions>(1){ActionConditions.COND_OK, }), 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }) 

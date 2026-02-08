@@ -85,4 +85,12 @@
 83,PHRASE_OBSERVE_ITEM_HIVE1_ROACH,0,0,DIALOG_ANIMATION_TALK,It is a tiny cockroach! The only living being human is terrified of,Es una cucarachita pequeña! El único ser vivo al que el ser humano teme
 84,PHRASE_OBSERVE_ITEM_HIVE1_PIPE,0,0,DIALOG_ANIMATION_TALK,This pipe may bring water to toilets and is comming from outside,This pipe may bring water to toilets and is comming from outside
 85,PHRASE_TAKE_ITEM_HIVE1_ROACH_HEAD,0,0,DIALOG_ANIMATION_TALK,It squeezed! I need to try it again or be smarter,Se escapó! Necesito volver a intentarlo o ser más listo que ella
-86,PHRASE_DIALOG_LAST,0,0,DIALOG_ANIMATION_TALK,Last one,Last one
+86,PHRASE_OBSERVE_ITEM_HIVE1_VALVE_BOX,0,0,DIALOG_ANIMATION_TALK,It seems like a closed box for some mechanism,Parece una caja de control de algún mecanismo
+87,PHRASE_OBSERVE_ITEM_HIVE1_BACKALLEY_PIPE,0,0,DIALOG_ANIMATION_TALK,Its a normal pipe,Es una tubería normal
+88,PHRASE_OBSERVE_ITEM_HIVE1_BACKALLEY_PIPE_2,0,0,DIALOG_ANIMATION_TALK,This is the next part of toilets pipe. Therefore Its valve should be in that box,Esta es la continuación de la tubería de los aseos. Por lo que la válvula debería estar en ese cuadro
+89,PHRASE_OBSERVE_ITEM_HIVE1_VALVE_BOX_2,0,0,DIALOG_ANIMATION_TALK,Valve to activate water should be inside that box,La válvula para abrir el agua debería estar dentro de ese cuadro
+90,PHRASE_TAKE_VALVE_BOX_CLOSED,0,0,DIALOG_ANIMATION_TALK,Door is unlocked. But its hard to open. I can't put my fingers inside and open,La cerradura está abierta. Pero es difícil de abrir. No me caben los dedos en la rendija para abrir
+91,PHRASE_TAKE_VALVE_BOX_CLOSED_MORNING,0,0,DIALOG_ANIMATION_TALK,I don't want to be seen manipulating things at this hour,No quiero que me vean manipulando cosas a esta hora del día
+92,PHRASE_OBSERVE_ITEM_HIVE1_SHOELACE,0,0,DIALOG_ANIMATION_TALK,It's a shoelace lost from some guest,It's a shoelace lost from some guest
+93,PHRASE_TAKE_ITEM_HIVE1_SHOELACE,0,0,DIALOG_ANIMATION_TALK,I don't think he will miss it,I don't think he will miss it
+94,PHRASE_DIALOG_LAST,0,0,DIALOG_ANIMATION_TALK,Last one,Last one

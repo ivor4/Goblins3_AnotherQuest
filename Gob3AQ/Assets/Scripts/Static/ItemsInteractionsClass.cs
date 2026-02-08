@@ -313,7 +313,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             
             new( /* UNCHAINER_ITEM_HIVE1_POOR_MAN_WC_SPAWN */
             false,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
-            new GameEventCombi[1]{new(GameEvent.EVENT_MANYO_LOOK_FOR_RECIPE_MISSION, false),}, 
+            new GameEventCombi[2]{new(GameEvent.EVENT_MANYO_LOOK_FOR_RECIPE_MISSION, false),new(GameEvent.EVENT_HIVE1_VALVE_ACTIVATED, true),}, 
             MomentType.MOMENT_NIGHT, GameItem.ITEM_HIVE1_POOR_MAN_WC, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
@@ -371,6 +371,13 @@ namespace Gob3AQ.Brain.ItemsInteraction
             false,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_VALVE_BOX_OPENED, false),}, 
             MomentType.MOMENT_ANY, GameItem.ITEM_HIVE1_VALVE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            
+            new( /* UNCHAINER_ITEM_HIVE1_MAN_WC_CURED_SPAWN */
+            false,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[2]{new(GameEvent.EVENT_HIVE1_VALVE_ACTIVATED, false),new(GameEvent.EVENT_TALKED_ARTURO_HALL_INN_COMPLETED, true),}, 
+            MomentType.MOMENT_NIGHT, GameItem.ITEM_HIVE1_MAN_WC_CURED, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             
@@ -586,7 +593,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
             new( /* COND_DIALOGUE_POOR_MAN_WC_BCKG */
-            new GameEventCombi[1]{new(GameEvent.EVENT_MANYO_LOOK_FOR_RECIPE_MISSION, false),}, 
+            new GameEventCombi[2]{new(GameEvent.EVENT_MANYO_LOOK_FOR_RECIPE_MISSION, false),new(GameEvent.EVENT_HIVE1_VALVE_ACTIVATED, true),}, 
             MomentType.MOMENT_NIGHT,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_AUTO_6s,
             CharacterAnimation.ITEM_USE_ANIMATION_NONE,
             DialogType.DIALOG_HIVE1_BCKG_POOR_MAN_WC,DialogPhrase.PHRASE_NONE,
@@ -723,6 +730,20 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
             CharacterAnimation.ITEM_USE_ANIMATION_CONFUSE,
             DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_HIVE1_VALVE_NOT,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* COND_OBSERVE_ITEM_HIVE1_MAN_WC_CURED */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
+            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
+            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_MAN_WC_CURED,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* COND_TALK_ITEM_HIVE1_MAN_WC_CURED */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,
+            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
+            DialogType.DIALOG_ARTURO_HALL_INN_INTRO,DialogPhrase.PHRASE_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
             new( /* COND_LAST */
@@ -877,7 +898,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK,})),
             
             new ( /* ITEM_HIVE1_POOR_MAN_WC */
-            NameType.NAME_POOR_MAN_WC,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_HIVE1_POOR_MAN_STEADY,}),
+            NameType.NAME_POOR_MAN_WC,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_HIVE1_POOR_MAN_STEADY,}),
             GameSprite.SPRITE_HIVE1_POOR_MAN_STEADY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_HIVE1_POOR_MAN_WC,ActionConditions.COND_TALK_POOR_MAN_WC,})),
             
@@ -910,6 +931,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
             NameType.NAME_VALVE,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_HIVE1_VALVE_BOX_OPENED,}),
             GameSprite.SPRITE_HIVE1_VALVE_BOX_OPENED,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
             new(new HashSet<ActionConditions>(3){ActionConditions.COND_OBSERVE_ITEM_HIVE1_VALVE,ActionConditions.COND_TAKE_HIVE1_VALVE,ActionConditions.COND_TAKE_HIVE1_VALVE_2,})),
+            
+            new ( /* ITEM_HIVE1_MAN_WC_CURED */
+            NameType.NAME_ARTURO,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ARTURO_STANDING,}),
+            GameSprite.SPRITE_ARTURO_STANDING,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_HIVE1_MAN_WC_CURED,ActionConditions.COND_TALK_ITEM_HIVE1_MAN_WC_CURED,})),
             
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST,}),

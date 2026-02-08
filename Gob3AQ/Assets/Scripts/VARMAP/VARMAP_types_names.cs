@@ -44,6 +44,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_VALVE_BOX, 
         NAME_SHOELACE, 
         NAME_VALVE, 
+        NAME_ARTURO, 
         NAME_NPC_LAST, 
         
         NAME_TOTAL

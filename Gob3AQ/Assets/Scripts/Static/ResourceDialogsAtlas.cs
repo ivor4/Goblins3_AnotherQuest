@@ -116,6 +116,16 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new DialogOption[1]{DialogOption.DIALOG_HIVE1_POOR_MAN_WC_OPTION_INTRO, }
             ),
             
+            new( /* DIALOG_ARTURO_HALL_INN */
+            new GameItem[1]{GameItem.ITEM_NONE,},
+            new DialogOption[3]{DialogOption.DIALOG_ARTURO_HALL_INN_OPTION_0, DialogOption.DIALOG_ARTURO_HALL_INN_OPTION_1, DialogOption.DIALOG_ARTURO_HALL_INN_OPTION_2, }
+            ),
+            
+            new( /* DIALOG_ARTURO_HALL_INN_INTRO */
+            new GameItem[1]{GameItem.ITEM_NONE,},
+            new DialogOption[1]{DialogOption.DIALOG_ARTURO_HALL_INN_OPTION_INTRO, }
+            ),
+            
             new( /* DIALOG_LAST */
             new GameItem[1]{GameItem.ITEM_NONE,},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE, }
@@ -274,6 +284,34 @@ namespace Gob3AQ.ResourceDialogsAtlas
             DialogType.DIALOG_HIVE1_POOR_MAN_WC,true,
             new DialogPhrase[3]{DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_0, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_1, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_2, }
             ),
+            new( /* DIALOG_ARTURO_HALL_INN_OPTION_0 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            MomentType.MOMENT_ANY,
+            new GameEventCombi[1]{new(GameEvent.EVENT_TALKED_ARTURO_HALL_PUB, false), },
+            DialogType.DIALOG_ARTURO_HALL_INN,false,
+            new DialogPhrase[4]{DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_1, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_2, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_3, }
+            ),
+            new( /* DIALOG_ARTURO_HALL_INN_OPTION_1 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_TALKED_ARTURO_HALL_PUB, false), },
+            MomentType.MOMENT_ANY,
+            new GameEventCombi[1]{new(GameEvent.EVENT_TALKED_ARTURO_HALL_INN_COMPLETED, false), },
+            DialogType.DIALOG_ARTURO_HALL_INN,false,
+            new DialogPhrase[7]{DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_0, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_1, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_2, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_3, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_4, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_5, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_6, }
+            ),
+            new( /* DIALOG_ARTURO_HALL_INN_OPTION_2 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            MomentType.MOMENT_ANY,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            DialogType.DIALOG_NONE,false,
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_2_0, }
+            ),
+            new( /* DIALOG_ARTURO_HALL_INN_OPTION_INTRO */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            MomentType.MOMENT_ANY,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            DialogType.DIALOG_ARTURO_HALL_INN,false,
+            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_INTRO_0, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_INTRO_1, }
+            ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
             MomentType.MOMENT_ANY,
@@ -385,6 +423,21 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,0, DialogAnimation.DIALOG_ANIMATION_NONE), /* PHRASE_USE_SHOELACE_VALVE_BOX */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_USE_HIVE1_VALVE */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_USE_HIVE1_VALVE_NOT */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_OBSERVE_ITEM_HIVE1_MAN_WC_CURED */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_0 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_1 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_2 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_3 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_0 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_1 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_2 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_3 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_4 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_5 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_6 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_2_0 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_ARTURO_HALL_INN_INTRO_0 */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_ARTURO_HALL_INN_INTRO_1 */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

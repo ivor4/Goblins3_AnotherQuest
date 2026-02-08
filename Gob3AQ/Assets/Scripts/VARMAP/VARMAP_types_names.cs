@@ -43,6 +43,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_PIPE, 
         NAME_VALVE_BOX, 
         NAME_SHOELACE, 
+        NAME_VALVE, 
         NAME_NPC_LAST, 
         
         NAME_TOTAL

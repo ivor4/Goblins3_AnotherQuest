@@ -1,5 +1,5 @@
 ﻿NewItem,NewName,NewSprite,Pickable,Spawn,Picker_Character,ObservationPhrase,TakePhrase,Room,Output
-ITEM_HIVE1_SHOELACE,NAME_SHOELACE,SPRITE_SHOELACE,True,False,CHARACTER_MAIN,It's a shoelace lost from some guest,I don't think he will miss it,HIVE1_HALL_1,
+ITEM_HIVE1_VALVE,NAME_VALVE,SPRITE_HIVE1_VALVE_BOX_OPENED,False,True,CHARACTER_MAIN,This valve seems to control water flow to Inn building,,HIVE1_BACKALLEY,
 ,,,,,,,,,
 NewRoom,Background,BackgroundNight,Output,,,,,,
 HIVE1_BACKALLEY,BACKGROUND_BACKALLEY,BACKGROUND_BACKALLEY_NIGHT,,,,,,,

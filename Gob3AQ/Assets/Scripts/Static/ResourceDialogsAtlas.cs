@@ -379,7 +379,12 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_TAKE_VALVE_BOX_CLOSED */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_TAKE_VALVE_BOX_CLOSED_MORNING */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_OBSERVE_ITEM_HIVE1_SHOELACE */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_NO_REASON_TO_DO */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_TAKE_ITEM_HIVE1_SHOELACE */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_OBSERVE_ITEM_HIVE1_VALVE */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_NONE), /* PHRASE_USE_SHOELACE_VALVE_BOX */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_USE_HIVE1_VALVE */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_USE_HIVE1_VALVE_NOT */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

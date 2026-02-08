@@ -2081,7 +2081,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7285149739629647594, guid: 7d3dc241ee35f624293e1691ed3e54f0, type: 3}
       propertyPath: _waypointLeadTo
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7285149739629647594, guid: 7d3dc241ee35f624293e1691ed3e54f0, type: 3}
       propertyPath: startingWaypoint

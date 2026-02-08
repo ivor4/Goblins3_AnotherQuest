@@ -360,6 +360,20 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
             
+            new( /* UNCHAINER_ITEM_HIVE1_VALVE_BOX_DESPAWN */
+            false,UnchainType.UNCHAIN_TYPE_DESTROY,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_VALVE_BOX_OPENED, false),}, 
+            MomentType.MOMENT_ANY, GameItem.ITEM_HIVE1_VALVE_BOX, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            
+            new( /* UNCHAINER_ITEM_HIVE1_VALVE_SPAWN */
+            false,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_VALVE_BOX_OPENED, false),}, 
+            MomentType.MOMENT_ANY, GameItem.ITEM_HIVE1_VALVE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            
             new( /* UNCHAIN_LAST */
             false,UnchainType.UNCHAIN_TYPE_EVENT,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
@@ -662,11 +676,53 @@ namespace Gob3AQ.Brain.ItemsInteraction
             DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_SHOELACE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
-            new( /* COND_TAKE_ITEM_HIVE1_SHOELACE */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            new( /* COND_TAKE_ITEM_HIVE1_SHOELACE_NOT */
+            new GameEventCombi[1]{new(GameEvent.EVENT_VALVE_BOX_NEED_OPEN, true),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
             CharacterAnimation.ITEM_USE_ANIMATION_NONE,
+            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NO_REASON_TO_DO,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* COND_TAKE_ITEM_HIVE1_SHOELACE_NOT_2 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_VALVE_BOX_NEED_OPEN, false),}, 
+            MomentType.MOMENT_MORNING,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
+            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
+            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NO_REASON_TO_DO,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* COND_TAKE_ITEM_HIVE1_SHOELACE */
+            new GameEventCombi[1]{new(GameEvent.EVENT_VALVE_BOX_NEED_OPEN, false),}, 
+            MomentType.MOMENT_NIGHT,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
+            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
             DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_TAKE_ITEM_HIVE1_SHOELACE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_ITEM_HIVE1_SHOELACE_PICKABLE_TAKEN, false),}), 
+            
+            new( /* COND_OBSERVE_ITEM_HIVE1_VALVE */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
+            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
+            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_VALVE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* COND_USE_SHOELACE_VALVE_BOX */
+            new GameEventCombi[1]{new(GameEvent.EVENT_VALVE_BOX_OPENED, true),}, 
+            MomentType.MOMENT_NIGHT,CharacterType.CHARACTER_MAIN,GameItem.ITEM_HIVE1_SHOELACE,ItemInteractionType.INTERACTION_USE,
+            CharacterAnimation.ITEM_USE_ANIMATION_POUR,
+            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_SHOELACE_VALVE_BOX,
+            new GameEventCombi[1]{new(GameEvent.EVENT_VALVE_BOX_OPENED, false),}), 
+            
+            new( /* COND_TAKE_HIVE1_VALVE */
+            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_VALVE_ACTIVATED, true),}, 
+            MomentType.MOMENT_NIGHT,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
+            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
+            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_HIVE1_VALVE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_VALVE_ACTIVATED, false),}), 
+            
+            new( /* COND_TAKE_HIVE1_VALVE_2 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_VALVE_ACTIVATED, false),}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
+            CharacterAnimation.ITEM_USE_ANIMATION_CONFUSE,
+            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_HIVE1_VALVE_NOT,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
             new( /* COND_LAST */
@@ -838,7 +894,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_HIVE1_VALVE_BOX */
             NameType.NAME_VALVE_BOX,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK,}),
             GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
-            new(new HashSet<ActionConditions>(4){ActionConditions.COND_OBSERVE_ITEM_HIVE1_VALVE_BOX,ActionConditions.COND_OBSERVE_ITEM_HIVE1_VALVE_BOX_2,ActionConditions.COND_TAKE_VALVE_BOX_1,ActionConditions.COND_TAKE_VALVE_BOX_MORNING,})),
+            new(new HashSet<ActionConditions>(5){ActionConditions.COND_OBSERVE_ITEM_HIVE1_VALVE_BOX,ActionConditions.COND_OBSERVE_ITEM_HIVE1_VALVE_BOX_2,ActionConditions.COND_TAKE_VALVE_BOX_1,ActionConditions.COND_TAKE_VALVE_BOX_MORNING,ActionConditions.COND_USE_SHOELACE_VALVE_BOX,})),
             
             new ( /* ITEM_HIVE1_BACKALLEY_PIPE */
             NameType.NAME_PIPE,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK,}),
@@ -848,7 +904,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_HIVE1_SHOELACE */
             NameType.NAME_SHOELACE,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_HIVE1_SHOELACE,}),
             GameSprite.SPRITE_HIVE1_SHOELACE,true,GameSprite.SPRITE_SHOELACE_PICKABLE,GamePickableItem.ITEM_PICK_HIVE1_SHOELACE,
-            new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_HIVE1_SHOELACE,ActionConditions.COND_TAKE_ITEM_HIVE1_SHOELACE,})),
+            new(new HashSet<ActionConditions>(4){ActionConditions.COND_OBSERVE_ITEM_HIVE1_SHOELACE,ActionConditions.COND_TAKE_ITEM_HIVE1_SHOELACE,ActionConditions.COND_TAKE_ITEM_HIVE1_SHOELACE_NOT,ActionConditions.COND_TAKE_ITEM_HIVE1_SHOELACE_NOT_2,})),
+            
+            new ( /* ITEM_HIVE1_VALVE */
+            NameType.NAME_VALVE,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_HIVE1_VALVE_BOX_OPENED,}),
+            GameSprite.SPRITE_HIVE1_VALVE_BOX_OPENED,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,
+            new(new HashSet<ActionConditions>(3){ActionConditions.COND_OBSERVE_ITEM_HIVE1_VALVE,ActionConditions.COND_TAKE_HIVE1_VALVE,ActionConditions.COND_TAKE_HIVE1_VALVE_2,})),
             
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST,}),

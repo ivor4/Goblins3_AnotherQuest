@@ -100,17 +100,17 @@
 98,PHRASE_USE_HIVE1_VALVE_NOT,0,0,DIALOG_ANIMATION_TALK,I am not manipulating that thing again,No pienso volver a manipular eso
 99,PHRASE_OBSERVE_ITEM_HIVE1_MAN_WC_CURED,0,0,DIALOG_ANIMATION_TALK,He was the man suffering in WC. Now in a better and less embarrassing state,Era el hombre que sufría en el aseo. Ahora en un mejor y menos lamentable estado
 100,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_0,0,0,DIALOG_ANIMATION_TALK,So. Isn't it the end of the night for you?,So. Isn't it the end of the night for you?
-101,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_1,0,0,DIALOG_ANIMATION_TALK,Nope. As I told you night is so young,Nope. As I told you night is so young
+101,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_1,1,0,DIALOG_ANIMATION_TALK,Nope. As I told you night is so young,Nope. As I told you night is so young
 102,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_2,0,0,DIALOG_ANIMATION_TALK,Where are you facing to?,Where are you facing to?
-103,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_3,0,0,DIALOG_ANIMATION_TALK,There is a club in the south neighborhood ,There is a club in the south neighborhood 
+103,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_3,1,0,DIALOG_ANIMATION_TALK,There is a club in the south neighborhood ,There is a club in the south neighborhood 
 104,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_0,0,0,DIALOG_ANIMATION_TALK,This pub you mentioned...,This pub you mentioned...
-105,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_1,0,0,DIALOG_ANIMATION_TALK,Aha?,Aha?
+105,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_1,1,0,DIALOG_ANIMATION_TALK,Aha?,Aha?
 106,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_2,0,0,DIALOG_ANIMATION_TALK,You think I could meet people there or ask for job?,You think I could meet people there or ask for job?
-107,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_3,0,0,DIALOG_ANIMATION_TALK,For sure gentleman. Even if it's in south neighborhood. Some business are running well there. You should go some day,For sure gentleman. Even if it's in south neighborhood. Some business are running well there. You should go some day
+107,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_3,1,0,DIALOG_ANIMATION_TALK,For sure gentleman. Even if it's in south neighborhood. Some business are running well there. You should go some day,For sure gentleman. Even if it's in south neighborhood. Some business are running well there. You should go some day
 108,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_4,0,0,DIALOG_ANIMATION_TALK,I would be pleased,I would be pleased
-109,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_5,0,0,DIALOG_ANIMATION_TALK,For sure. Take this invitation. It's kind of private and they won't let strangers go inside,For sure. Take this invitation. It's kind of private and they won't let strangers go inside
+109,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_5,1,0,DIALOG_ANIMATION_TALK,For sure. Take this invitation. It's kind of private and they won't let strangers go inside,For sure. Take this invitation. It's kind of private and they won't let strangers go inside
 110,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_6,0,0,DIALOG_ANIMATION_TALK,Thank you!,Thank you!
 111,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_2_0,0,0,DIALOG_ANIMATION_TALK,Well. See you there!,Well. See you there!
 112,PHRASE_DIALOG_ARTURO_HALL_INN_INTRO_0,0,0,DIALOG_ANIMATION_TALK,I'm happy to see you in a better state!,I'm happy to see you in a better state!
-113,PHRASE_DIALOG_ARTURO_HALL_INN_INTRO_1,0,0,DIALOG_ANIMATION_TALK,I really appreciate your help this night,I really appreciate your help this night
+113,PHRASE_DIALOG_ARTURO_HALL_INN_INTRO_1,1,0,DIALOG_ANIMATION_TALK,I really appreciate your help this night,I really appreciate your help this night
 114,PHRASE_DIALOG_LAST,0,0,DIALOG_ANIMATION_TALK,Last one,Last one

@@ -45,6 +45,7 @@ namespace Gob3AQ.VARMAP.GameMenu
             GET_USER_INPUT_INTERACTION = _GET_USER_INPUT_INTERACTION;
             GET_SHADOW_USER_INPUT_INTERACTION = _GET_SHADOW_USER_INPUT_INTERACTION;
             SET_USER_INPUT_INTERACTION = _SET_USER_INPUT_INTERACTION;
+            GET_EVENTS_BEING_PROCESSED = _GET_EVENTS_BEING_PROCESSED;
             GET_DAY_MOMENT = _GET_DAY_MOMENT;
             START_GAME = _START_GAME;
             SAVE_GAME = _SAVE_GAME;
@@ -96,6 +97,7 @@ namespace Gob3AQ.VARMAP.GameMenu
         public static GetVARMAPValueDelegate<UserInputInteraction> GET_USER_INPUT_INTERACTION;
         public static GetVARMAPValueDelegate<UserInputInteraction> GET_SHADOW_USER_INPUT_INTERACTION;
         public static SetVARMAPValueDelegate<UserInputInteraction> SET_USER_INPUT_INTERACTION;
+        public static GetVARMAPValueDelegate<bool> GET_EVENTS_BEING_PROCESSED;
         public static GetVARMAPValueDelegate<MomentType> GET_DAY_MOMENT;
         /* > ATG 2 END */
 

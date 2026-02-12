@@ -24,7 +24,8 @@ namespace Gob3AQ.GameMenu
             DIALOG_STATE_NONE,
             DIALOG_STATE_STARTING,
             DIALOG_STATE_SAYING,
-            DIALOG_STATE_DEAD_TIME
+            DIALOG_STATE_DEAD_TIME,
+            DIALOG_STATE_WAITING_EVENTS
         }
 
         private enum DecisionTaskType
@@ -464,7 +465,7 @@ namespace Gob3AQ.GameMenu
 
                     if (dialogConfig.dialogTriggered != DialogType.DIALOG_NONE)
                     {
-                        ShowDialogueExec(dialogConfig.dialogTriggered, DialogPhrase.PHRASE_NONE, dialog_background);
+                        dialog_actualTaskType = DialogTaskType.DIALOG_STATE_WAITING_EVENTS;
                     }
                     else
                     {
@@ -655,6 +656,15 @@ namespace Gob3AQ.GameMenu
                     {
                         dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
                         EndPhrase_Action();
+                    }
+                    break;
+
+                case DialogTaskType.DIALOG_STATE_WAITING_EVENTS:
+                    if(!VARMAP_GameMenu.GET_EVENTS_BEING_PROCESSED())
+                    {
+                        dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
+                        DialogOptionConfig dialogConfig = ResourceDialogsAtlasClass.GetDialogOptionConfig(dialog_optionPhrases);
+                        ShowDialogueExec(dialogConfig.dialogTriggered, DialogPhrase.PHRASE_NONE, dialog_background);
                     }
                     break;
 

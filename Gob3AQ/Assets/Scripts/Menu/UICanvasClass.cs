@@ -28,6 +28,7 @@ namespace Gob3AQ.GameMenu.UICanvas
         DISPLAY_MODE_DIALOG,
         DISPLAY_MODE_DECISION,
         DISPLAY_MODE_MEMENTO,
+        DISPLAY_MODE_DETAIL,
         DISPLAY_MODE_LOADING
     }
 
@@ -59,6 +60,7 @@ namespace Gob3AQ.GameMenu.UICanvas
         private GameObject UICanvas_decisionObj;
         private GameObject UICanvas_mementoObj;
         private GameObject UICanvas_itemMenuObj;
+        private GameObject UICanvas_detailObj;
 
         private Image UICanvas_dialogObj_background;
         private TMP_Text UICanvas_dialogObj_sender;
@@ -110,6 +112,9 @@ namespace Gob3AQ.GameMenu.UICanvas
         private HashSet<MementoParent> memento_unwatched;
         private HashSet<Memento> memento_unlocked;
 
+        private GameObject detailObj_detailImg;
+        private Image detail_img;
+
         private StringBuilder stringBuilder;
 
 
@@ -126,6 +131,7 @@ namespace Gob3AQ.GameMenu.UICanvas
             UICanvas_decisionObj = transform.Find("DecisionObj").gameObject;
             UICanvas_mementoObj = transform.Find("MementoObj").gameObject;
             UICanvas_itemMenuObj = transform.Find("ItemMenuObj").gameObject;
+            UICanvas_detailObj = transform.Find("DetailObj").gameObject;
 
             UICanvas_dialogObj_background = UICanvas_dialogObj.GetComponent<Image>();
             UICanvas_dialogObj_sender = UICanvas_dialogObj.transform.Find("DialogSender").GetComponent<TMP_Text>();
@@ -170,6 +176,9 @@ namespace Gob3AQ.GameMenu.UICanvas
             memento_itemClass = new MementoItemClass[(int)MementoParent.MEMENTO_PARENT_TOTAL];
             memento_combinedItems = new(2);
 
+            detailObj_detailImg = UICanvas_detailObj.transform.Find("DetailImg").gameObject;
+            detail_img = detailObj_detailImg.GetComponent<Image>();
+
             /* Will be enabled at the end of Loading (new display mode) */
             raycaster.enabled = false;
 
@@ -192,6 +201,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_decisionObj.SetActive(false);
                     UICanvas_mementoObj.SetActive(false);
                     UICanvas_itemMenuObj.SetActive(true);
+                    UICanvas_detailObj.SetActive(false);
 
                     break;
 
@@ -201,6 +211,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_decisionObj.SetActive(false);
                     UICanvas_mementoObj.SetActive(false);
                     UICanvas_itemMenuObj.SetActive(false);
+                    UICanvas_detailObj.SetActive(false);
                     break;
 
                 case DisplayMode.DISPLAY_MODE_DECISION:
@@ -209,6 +220,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_decisionObj.SetActive(true);
                     UICanvas_mementoObj.SetActive(false);
                     UICanvas_itemMenuObj.SetActive(false);
+                    UICanvas_detailObj.SetActive(false);
                     break;
 
                 case DisplayMode.DISPLAY_MODE_MEMENTO:
@@ -217,13 +229,25 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_decisionObj.SetActive(false);
                     UICanvas_mementoObj.SetActive(true);
                     UICanvas_itemMenuObj.SetActive(false);
+                    UICanvas_detailObj.SetActive(false);
                     break;
+
+                case DisplayMode.DISPLAY_MODE_DETAIL:
+                    UICanvas_loadingObj.SetActive(false);
+                    UICanvas_dialogObj.SetActive(false);
+                    UICanvas_decisionObj.SetActive(false);
+                    UICanvas_mementoObj.SetActive(false);
+                    UICanvas_itemMenuObj.SetActive(false);
+                    UICanvas_detailObj.SetActive(true);
+                    break;
+
                 case DisplayMode.DISPLAY_MODE_LOADING:
                     UICanvas_loadingObj.SetActive(true);
                     UICanvas_dialogObj.SetActive(false);
                     UICanvas_decisionObj.SetActive(false);
                     UICanvas_mementoObj.SetActive(false);
                     UICanvas_itemMenuObj.SetActive(false);
+                    UICanvas_detailObj.SetActive(false);
                     break;
 
                 default:
@@ -232,6 +256,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_decisionObj.SetActive(false);
                     UICanvas_mementoObj.SetActive(false);
                     UICanvas_itemMenuObj.SetActive(false);
+                    UICanvas_detailObj.SetActive(false);
                     break;
             }
         }

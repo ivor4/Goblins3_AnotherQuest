@@ -294,7 +294,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new( /* DIALOG_ARTURO_HALL_INN_OPTION_1 */
             new GameEventCombi[1]{new(GameEvent.EVENT_TALKED_ARTURO_HALL_PUB, false), },
             MomentType.MOMENT_ANY,
-            new GameEventCombi[1]{new(GameEvent.EVENT_TALKED_ARTURO_HALL_INN_COMPLETED, false), },
+            new GameEventCombi[2]{new(GameEvent.EVENT_TALKED_ARTURO_HALL_INN_COMPLETED, false), new(GameEvent.EVENT_ITEM_EXTRAPERLO_INVITATION_PICKABLE_TAKEN, false), },
             DialogType.DIALOG_ARTURO_HALL_INN,false,
             new DialogPhrase[7]{DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_0, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_1, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_2, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_3, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_4, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_5, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_6, }
             ),

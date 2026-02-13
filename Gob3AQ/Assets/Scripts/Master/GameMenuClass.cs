@@ -312,18 +312,29 @@ namespace Gob3AQ.GameMenu
             if (_menuOpened)
             {
                 GameItem prevChoosen = VARMAP_GameMenu.GET_PICKABLE_ITEM_CHOSEN();
+                ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(item);
 
+                float timestamp_ms = Time.time;
+                bool doubleClick = DoubleClickDetect(timestamp_ms);
 
-                if (prevChoosen == item)
+                if(doubleClick && (itemInfo.detailPrefab != string.Empty))
+                {
+                    _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_DETAIL);
+                }
+                else if (prevChoosen == item)
                 {
                     VARMAP_GameMenu.CANCEL_PICKABLE_ITEM();
                 }
                 else
                 {
-                    /* Possible interaction of item combine ? */
-                    _ = prevChoosen;
-
-                    VARMAP_GameMenu.SET_PICKABLE_ITEM_CHOSEN(item);
+                    if ((itemInfo.detailPrefab != string.Empty) && (prevChoosen != GameItem.ITEM_NONE))
+                    {
+                        _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_DETAIL);
+                    }
+                    else
+                    {
+                        VARMAP_GameMenu.SET_PICKABLE_ITEM_CHOSEN(item);
+                    }
                 }
             }
         }
@@ -388,20 +399,7 @@ namespace Gob3AQ.GameMenu
 
             /* Double click */
             float timestamp_ms = Time.time;
-            bool doubleClick;
-
-            if(((timestamp_ms - _lastClickTimestamp)*1000) < GameFixedConfig.DOUBLE_CLICK_MS)
-            {
-                doubleClick = true;
-
-                /* Annulate posterior clicks for that timestamp - Take that further in time */
-                _lastClickTimestamp -= GameFixedConfig.DOUBLE_CLICK_MS;
-            }
-            else
-            {
-                doubleClick = false;
-                _lastClickTimestamp = timestamp_ms;
-            }
+            bool doubleClick = DoubleClickDetect(timestamp_ms);
 
             /* Display and get Combined */
             _uicanvas_cls.MementoParentClicked(mementoParent, doubleClick, out ReadOnlyHashSet<MementoParent> combinedMementos);
@@ -821,6 +819,27 @@ namespace Gob3AQ.GameMenu
                 default:
                     break;
             }
+        }
+
+        private bool DoubleClickDetect(float timestamp_ms)
+        {
+            bool doubleClick;
+
+            /* Double click */
+            if (((timestamp_ms - _lastClickTimestamp) * 1000) < GameFixedConfig.DOUBLE_CLICK_MS)
+            {
+                doubleClick = true;
+
+                /* Annulate posterior clicks for that timestamp - Take that further in time */
+                _lastClickTimestamp -= GameFixedConfig.DOUBLE_CLICK_MS;
+            }
+            else
+            {
+                doubleClick = false;
+                _lastClickTimestamp = timestamp_ms;
+            }
+
+            return doubleClick;
         }
   
 

@@ -284,15 +284,18 @@ namespace Gob3AQ.VARMAP.Types
         public readonly bool isPickable;
         public readonly GameSprite pickableSprite;
         public readonly GamePickableItem pickableItem;
+        public readonly string detailPrefab;
         public readonly ReadOnlyHashSet<ActionConditions> conditions;
 
 
 
         public static readonly ItemInfo EMPTY = new(NameType.NAME_NONE,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(0)),
-            GameSprite.SPRITE_NONE,false,GameSprite.SPRITE_NONE, GamePickableItem.ITEM_PICK_NONE, new(new HashSet<ActionConditions>(0)));
+            GameSprite.SPRITE_NONE,false,GameSprite.SPRITE_NONE, GamePickableItem.ITEM_PICK_NONE,
+            string.Empty, new(new HashSet<ActionConditions>(0)));
 
         public ItemInfo(NameType name, GameItemFamily family, ReadOnlyHashSet<GameSprite> sprites,
-            GameSprite defaultSprite, bool isPickable, GameSprite pickableSprite, GamePickableItem pickableItem, ReadOnlyHashSet<ActionConditions> conditions)
+            GameSprite defaultSprite, bool isPickable, GameSprite pickableSprite, GamePickableItem pickableItem,
+            string detailPrefab, ReadOnlyHashSet<ActionConditions> conditions)
         {
             this.name = name;
             this.family = family;
@@ -301,6 +304,7 @@ namespace Gob3AQ.VARMAP.Types
             this.isPickable = isPickable;
             this.pickableSprite = pickableSprite;
             this.pickableItem = pickableItem;
+            this.detailPrefab = detailPrefab;
             this.conditions = conditions;
         }
     }

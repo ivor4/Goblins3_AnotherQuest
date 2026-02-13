@@ -1,5 +1,5 @@
 ﻿NewItem,NewName,NewSprite,Pickable,Spawn,Picker_Character,ObservationPhrase,TakePhrase,Room,Output
-ITEM_HIVE1_MAN_WC_CURED,NAME_ARTURO,SPRITE_ARTURO_STANDING,False,True,CHARACTER_MAIN,He was the man suffering in WC. Now in a better and less embarrassing state,,HIVE1_HALL_1,
+ITEM_EXTRAPERLO_INVITATION,NAME_INVITATION,SPRITE_BLANK,True,False,CHARACTER_MAIN,,,ROOM_NONE,
 ,,,,,,,,,
 NewRoom,Background,BackgroundNight,Output,,,,,,
 HIVE1_BACKALLEY,BACKGROUND_BACKALLEY,BACKGROUND_BACKALLEY_NIGHT,,,,,,,

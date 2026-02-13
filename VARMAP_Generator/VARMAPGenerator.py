@@ -1305,8 +1305,13 @@ for line in ITEMSinputFile:
     ItemVar["defaultSprite"] = columns[5]
     ItemVar["pickable"] = 'true' in columns[6].lower()
     ItemVar["pickablesprite"] = columns[7]
-    ItemVar["conditions"] = columns[8]
+    ItemVar["detailPrefab"] = columns[8]
+    ItemVar["conditions"] = columns[9]
     
+    if(len(ItemVar["detailPrefab"]) == 0):
+        ItemVar["detailPrefab"] = 'string.Empty'
+    else:
+        ItemVar["detailPrefab"] = '"' + ItemVar["detailPrefab"] + '"'
     
     # Write in item enum
     stringToWrite = ItemVar["name"]
@@ -1350,7 +1355,8 @@ for line in ITEMSinputFile:
         stringToWrite = sprite_prefix + ItemVar["defaultSprite"] + ','
         stringToWrite += str(ItemVar["pickable"]).lower()+','+\
             sprite_prefix+ItemVar["pickablesprite"]+','+\
-            pickable_prefix+pickname+',\n'
+            pickable_prefix+pickname+','+\
+            ItemVar["detailPrefab"]+',\n'
         items_interaction_lines.InsertLineInATG(3, stringToWrite)
         
         stringToWrite = 'new(new HashSet<ActionConditions>('

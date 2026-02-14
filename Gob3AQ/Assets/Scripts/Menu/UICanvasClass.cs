@@ -1,7 +1,7 @@
 using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.FixedConfig;
-using Gob3AQ.GameMenu.Dialog;
 using Gob3AQ.GameMenu.Decision;
+using Gob3AQ.GameMenu.Dialog;
 using Gob3AQ.GameMenu.MementoItem;
 using Gob3AQ.GameMenu.PickableItemDisplay;
 using Gob3AQ.Libs.Arith;
@@ -16,6 +16,8 @@ using System.Collections.Generic;
 using System.Text;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.UI;
 
 namespace Gob3AQ.GameMenu.UICanvas
@@ -113,8 +115,9 @@ namespace Gob3AQ.GameMenu.UICanvas
         private HashSet<MementoParent> memento_unwatched;
         private HashSet<Memento> memento_unlocked;
 
-        private GameObject detailObj_detailImg;
-        private Image detail_img;
+        private AsyncOperationHandle detailObj_asyncHandle;
+        private bool detailObj_asyncHandlePresent;
+        private GameObject detailObj_instance;
         private Button detail_returnButton;
 
         private StringBuilder stringBuilder;
@@ -178,8 +181,6 @@ namespace Gob3AQ.GameMenu.UICanvas
             memento_itemClass = new MementoItemClass[(int)MementoParent.MEMENTO_PARENT_TOTAL];
             memento_combinedItems = new(2);
 
-            detailObj_detailImg = UICanvas_detailObj.transform.Find("DetailImg").gameObject;
-            detail_img = detailObj_detailImg.GetComponent<Image>();
             detail_returnButton = UICanvas_detailObj.transform.Find("ReturnButton").GetComponent<Button>();
 
             /* Will be enabled at the end of Loading (new display mode) */
@@ -195,6 +196,7 @@ namespace Gob3AQ.GameMenu.UICanvas
             /* On every change of dispaly mode, abort any animation of User Interaction change and hide related objects */
             cursor_userInteraction_cls.Disable();
             raycaster.enabled = true;
+            DestroyDetailPrefab();
 
             switch (mode)
             {
@@ -303,6 +305,38 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_dialogObj_msg.gameObject.SetActive(false);
                     UICanvas_dialogOptions.SetActive(false);
                     break;
+            }
+        }
+
+        public void SetDetailPrefab(string prefabAddressable)
+        {
+            DestroyDetailPrefab();
+            if (prefabAddressable != string.Empty)
+            {
+                AsyncOperationHandle handle = Addressables.LoadAssetAsync<GameObject>(prefabAddressable);
+                handle.Completed += OnDetailPrefabLoad;
+            }
+        }
+
+        private void OnDetailPrefabLoad(AsyncOperationHandle handle)
+        {
+            if (handle.Status == AsyncOperationStatus.Succeeded)
+            {
+                detailObj_asyncHandle = handle;
+                GameObject prefab = handle.Result as GameObject;
+                detailObj_instance = Instantiate(prefab, UICanvas_detailObj.transform, false);
+                detailObj_asyncHandlePresent = true;
+            }
+        }
+
+        private void DestroyDetailPrefab()
+        {
+            if(detailObj_asyncHandlePresent)
+            {
+                Destroy(detailObj_instance);
+                detailObj_instance = null;
+                Addressables.Release(detailObj_asyncHandle);
+                detailObj_asyncHandlePresent = false;
             }
         }
 

@@ -326,8 +326,7 @@ namespace Gob3AQ.GameMenu
                         {
                             if ((itemInfo.detailPrefab != string.Empty) && (prevChoosen != GameItem.ITEM_NONE))
                             {
-                                _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_DETAIL);
-                                VARMAP_GameMenu.SET_ITEM_MENU_HOVER(GameItem.ITEM_NONE);
+                                StartDetail(itemInfo.detailPrefab);
                             }
                             else
                             {
@@ -341,8 +340,7 @@ namespace Gob3AQ.GameMenu
                         if (itemInfo.detailPrefab != string.Empty)
                         {
                             VARMAP_GameMenu.CANCEL_PICKABLE_ITEM();
-                            _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_DETAIL);
-                            VARMAP_GameMenu.SET_ITEM_MENU_HOVER(GameItem.ITEM_NONE);
+                            StartDetail(itemInfo.detailPrefab);
                         }
                         /* Simple observation phrase */
                         else
@@ -440,6 +438,13 @@ namespace Gob3AQ.GameMenu
 
             /* Get one of both, when 2 and check for combis */
             CheckMementoCombination(combinedMementos);
+        }
+
+        private void StartDetail(string prefabDetail)
+        {
+            _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_DETAIL);
+            _uicanvas_cls.SetDetailPrefab(prefabDetail);
+            VARMAP_GameMenu.SET_ITEM_MENU_HOVER(GameItem.ITEM_NONE);
         }
 
         private void StartDialogue(DialogOption option, int totalPhrases, bool background)
@@ -884,12 +889,13 @@ namespace Gob3AQ.GameMenu
             if (newVal != oldVal)
             {
                 /* Set to default action (most common) */
-                SetUserInteraction(UserInputInteraction.INPUT_INTERACTION_TAKE);
+                
 
                 switch(newVal)
                 {
                     case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
                         /* Populate menu */
+                        SetUserInteraction(UserInputInteraction.INPUT_INTERACTION_TAKE);
                         RefreshItemMenuElements();
                         _itemMenuOpened = true;
                         break;
@@ -897,6 +903,7 @@ namespace Gob3AQ.GameMenu
                         _uicanvas_cls.MementoMenuActivated();
                         break;
                     case Game_Status.GAME_STATUS_CHANGING_ROOM:
+                        SetUserInteraction(UserInputInteraction.INPUT_INTERACTION_TAKE);
                         _lastClickTimestamp = Time.time;
                         break;
                     case Game_Status.GAME_STATUS_LOADING:
@@ -909,6 +916,7 @@ namespace Gob3AQ.GameMenu
                 switch(oldVal)
                 {
                     case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
+                        SetUserInteraction(UserInputInteraction.INPUT_INTERACTION_TAKE);
                         _itemMenuOpened = false;
                         VARMAP_GameMenu.SET_ITEM_MENU_HOVER(GameItem.ITEM_NONE);
                         break;

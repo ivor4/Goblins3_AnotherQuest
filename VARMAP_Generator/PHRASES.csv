@@ -61,24 +61,24 @@
 59,PHRASE_DIALOG_MANYO_BCKG_CROWD_3,0,0,DIALOG_ANIMATION_NONE,Card match is promising this night,La partida de naipes esta noche va a ser de cine
 60,PHRASE_OBSERVE_ITEM_HIVE1_POOR_MAN_WC,0,0,DIALOG_ANIMATION_TALK,It was a poor man suffering of a bad dinner,Era un pobre hombre sufriendo de una mala cena
 61,PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_0_0,0,0,DIALOG_ANIMATION_TALK,(Prrrrr),(Prrrrr)
-62,PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_1_0,0,0,DIALOG_ANIMATION_TALK,Is this going to end somewhen?,Is this going to end somewhen?
-63,PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_2_0,0,0,DIALOG_ANIMATION_TALK,This is torture,This is torture
-64,PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_3_0,0,0,DIALOG_ANIMATION_TALK,I should have never eat that dinner,I should have never eat that dinner
-65,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_0,0,0,DIALOG_ANIMATION_TALK,Terrible night. Ah?,Terrible night. Ah?
-66,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_1,1,0,DIALOG_ANIMATION_TALK,It was that Maño restaurant. Boar was terrible,It was that Maño restaurant. Boar was terrible
-67,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_2,0,0,DIALOG_ANIMATION_TALK,I saw it full of people. Don't think it was in bad state,I saw it full of people. Don't think it was in bad state
-68,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_3,1,0,DIALOG_ANIMATION_TALK,Well. Maybe my stomach is not in mood!,Well. Maybe my stomach is not in mood!
-69,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_1_0,0,0,DIALOG_ANIMATION_TALK,Are you going to end today?,Are you going to end today?
-70,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_1_1,1,0,DIALOG_ANIMATION_TALK,Haha. Very funny. If I could. I would be out there. Night is young,Haha. Very funny. If I could. I would be out there. Night is young
-71,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_0,0,0,DIALOG_ANIMATION_TALK,How can I help you?,How can I help you?
-72,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_1,1,0,DIALOG_ANIMATION_TALK,This nasty Inn is cutting water at night. I cannot let this in this state,This nasty Inn is cutting water at night. I cannot let this in this state
-73,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_2,0,0,DIALOG_ANIMATION_TALK,Ahh. I see...,Ahh. I see...
-74,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_3,1,0,DIALOG_ANIMATION_TALK,Could you please talk to someone to bring water again?,Could you please talk to someone to bring water again?
-75,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_4,0,0,DIALOG_ANIMATION_TALK,I will see what can I do. But personnel is absent during day. Even worse at night,I will see what can I do. But personnel is absent during day. Even worse at night
-76,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_3_0,0,0,DIALOG_ANIMATION_TALK,I need to go. Sorry for your situation!,I need to go. Sorry for your situation!
-77,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_0,1,0,DIALOG_ANIMATION_TALK,Did you come to laugh at my disgrace?,Did you come to laugh at my disgrace?
-78,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_1,1,0,DIALOG_ANIMATION_TALK,Did I wake you up?,Did I wake you up?
-79,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_2,1,0,DIALOG_ANIMATION_TALK,Are you from health department?,Are you from health department?
+62,PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_1_0,0,0,DIALOG_ANIMATION_TALK,Is this going to end somewhen?,Esto va a acabar algún día?
+63,PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_2_0,0,0,DIALOG_ANIMATION_TALK,This is torture,Esto es una tortura
+64,PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_3_0,0,0,DIALOG_ANIMATION_TALK,I should have never eat that dinner,Nunca debí cenar allí
+65,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_0,0,0,DIALOG_ANIMATION_TALK,Terrible night. Ah?,Terrible noche. No?
+66,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_1,1,0,DIALOG_ANIMATION_TALK,It was that Maño restaurant. Boar was terrible,Era el restaurante del Maño. El jabalí estaba horrible
+67,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_2,0,0,DIALOG_ANIMATION_TALK,I saw it full of people. Don't think it was in bad state,Lo vi a reventar de gente. No creo que estuviera precisamente malo
+68,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_3,1,0,DIALOG_ANIMATION_TALK,Well. Maybe my stomach is not in mood!,Bueno. Mi estómago no está por la labor
+69,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_1_0,0,0,DIALOG_ANIMATION_TALK,Are you going to end today?,Piensas terminar algún día?
+70,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_1_1,1,0,DIALOG_ANIMATION_TALK,Haha. Very funny. If I could. I would be out there. Night is young,Jaja. Muy gracioso. Si pudiera. Estaría por allí. La noche es joven
+71,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_0,0,0,DIALOG_ANIMATION_TALK,How can I help you?,Como podría ayudarte?
+72,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_1,1,0,DIALOG_ANIMATION_TALK,This nasty Inn is cutting water at night. I cannot let this in this state,Esta asquerosa pocilga está cortando el agua por las noches. No puedo dejar esto así
+73,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_2,0,0,DIALOG_ANIMATION_TALK,Ahh. I see...,Ahh. Ya veo..
+74,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_3,1,0,DIALOG_ANIMATION_TALK,Could you please talk to someone to bring water again?,Podrías por favor hablar con alguien para que vuelva el agua?
+75,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_4,0,0,DIALOG_ANIMATION_TALK,I will see what can I do. But personnel is absent during day. Even worse at night,Veré lo que puedo hacer. Pero si ya el personal está ausente durante el día. Imagina por la noche
+76,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_3_0,0,0,DIALOG_ANIMATION_TALK,I need to go. Sorry for your situation!,Necesito irme. Lamento la situación!
+77,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_0,1,0,DIALOG_ANIMATION_TALK,Did you come to laugh at my disgrace?,Viniste a reirte de mi desgracia?
+78,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_1,1,0,DIALOG_ANIMATION_TALK,Did I wake you up?,Te desperté?
+79,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_2,1,0,DIALOG_ANIMATION_TALK,Are you from health department?,Eres del ministerio de sanidad?
 80,PHRASE_MEMENTO_POOR_MAN_WC_1,0,0,DIALOG_ANIMATION_TALK,A poor man can't leave WC because there is no water in toilet system,El pobre hombre no puede irse porque no hay agua en las cisternas de los inodoros
 81,PHRASE_MEMENTO_POOR_MAN_WC_2,0,0,DIALOG_ANIMATION_TALK,It seems to be a valve in back alley but is closed,Parece haber una válvula en el callejón de atrás pero está cerrada
 82,PHRASE_MEMENTO_POOR_MAN_WC_3,0,0,DIALOG_ANIMATION_TALK,When water came back. This man gave me an invitation to a Pub where I could meet someone for a job,Cuando el agua volvió. Este hombre me dio una invitación a un Pub donde podría conocer a alguien para un trabajo
@@ -91,7 +91,7 @@
 89,PHRASE_OBSERVE_ITEM_HIVE1_VALVE_BOX_2,0,0,DIALOG_ANIMATION_TALK,Valve to activate water should be inside that box,La válvula para abrir el agua debería estar dentro de ese cuadro
 90,PHRASE_TAKE_VALVE_BOX_CLOSED,0,0,DIALOG_ANIMATION_TALK,Door is unlocked. But its hard to open. I can't put my fingers inside and open,La cerradura está abierta. Pero es difícil de abrir. No me caben los dedos en la rendija para abrir
 91,PHRASE_TAKE_VALVE_BOX_CLOSED_MORNING,0,0,DIALOG_ANIMATION_TALK,I don't want to be seen manipulating things at this hour,No quiero que me vean manipulando cosas a esta hora del día
-92,PHRASE_OBSERVE_ITEM_HIVE1_SHOELACE,0,0,DIALOG_ANIMATION_TALK,It's a shoelace lost from some guest,It's a shoelace lost from some guest
+92,PHRASE_OBSERVE_ITEM_HIVE1_SHOELACE,0,0,DIALOG_ANIMATION_TALK,It's a shoelace lost from some guest,Es el cordón de bota de algún huesped
 93,PHRASE_NO_REASON_TO_DO,0,0,DIALOG_ANIMATION_TALK,I don't have a reason to take it,No tengo razón para cogerlo
 94,PHRASE_TAKE_ITEM_HIVE1_SHOELACE,0,0,DIALOG_ANIMATION_TALK,Maybe it could be useful to open things,Podría ser útil para abrir cosas
 95,PHRASE_OBSERVE_ITEM_HIVE1_VALVE,0,0,DIALOG_ANIMATION_TALK,This valve seems to control water flow to Inn building,Esta válvula parece controlar el flujo de agua a la pensión
@@ -99,18 +99,18 @@
 97,PHRASE_USE_HIVE1_VALVE,0,0,DIALOG_ANIMATION_TALK,Water should be flowing now inside!,El agua ahora debería fluir hacia la pensión
 98,PHRASE_USE_HIVE1_VALVE_NOT,0,0,DIALOG_ANIMATION_TALK,I am not manipulating that thing again,No pienso volver a manipular eso
 99,PHRASE_OBSERVE_ITEM_HIVE1_MAN_WC_CURED,0,0,DIALOG_ANIMATION_TALK,He was the man suffering in WC. Now in a better and less embarrassing state,Era el hombre que sufría en el aseo. Ahora en un mejor y menos lamentable estado
-100,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_0,0,0,DIALOG_ANIMATION_TALK,So. Isn't it the end of the night for you?,So. Isn't it the end of the night for you?
-101,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_1,1,0,DIALOG_ANIMATION_TALK,Nope. As I told you night is so young,Nope. As I told you night is so young
-102,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_2,0,0,DIALOG_ANIMATION_TALK,Where are you facing to?,Where are you facing to?
-103,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_3,1,0,DIALOG_ANIMATION_TALK,There is a club in the south neighborhood ,There is a club in the south neighborhood 
-104,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_0,0,0,DIALOG_ANIMATION_TALK,This pub you mentioned...,This pub you mentioned...
+100,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_0,0,0,DIALOG_ANIMATION_TALK,So. Isn't it the end of the night for you?,Entonces. La noche no acaba aquí?
+101,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_1,1,0,DIALOG_ANIMATION_TALK,Nope. As I told you night is so young,No. Como te dije la noche es joven
+102,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_2,0,0,DIALOG_ANIMATION_TALK,Where are you facing to?,A dónde irás ahora?
+103,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_3,1,0,DIALOG_ANIMATION_TALK,There is a club in the south neighborhood ,Hay un club en el barrio sur
+104,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_0,0,0,DIALOG_ANIMATION_TALK,This pub you mentioned...,Este club que comentas...
 105,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_1,1,0,DIALOG_ANIMATION_TALK,Aha?,Aha?
-106,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_2,0,0,DIALOG_ANIMATION_TALK,You think I could meet people there or ask for job?,You think I could meet people there or ask for job?
-107,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_3,1,0,DIALOG_ANIMATION_TALK,For sure gentleman. Even if it's in south neighborhood. Some business are running well there. You should go some day,For sure gentleman. Even if it's in south neighborhood. Some business are running well there. You should go some day
-108,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_4,0,0,DIALOG_ANIMATION_TALK,I would be pleased,I would be pleased
-109,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_5,1,0,DIALOG_ANIMATION_TALK,For sure. Take this invitation. It's kind of private and they won't let strangers go inside,For sure. Take this invitation. It's kind of private and they won't let strangers go inside
-110,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_6,0,0,DIALOG_ANIMATION_TALK,Thank you!,Thank you!
-111,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_2_0,0,0,DIALOG_ANIMATION_TALK,Well. See you there!,Well. See you there!
-112,PHRASE_DIALOG_ARTURO_HALL_INN_INTRO_0,0,0,DIALOG_ANIMATION_TALK,I'm happy to see you in a better state!,I'm happy to see you in a better state!
-113,PHRASE_DIALOG_ARTURO_HALL_INN_INTRO_1,1,0,DIALOG_ANIMATION_TALK,I really appreciate your help this night,I really appreciate your help this night
+106,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_2,0,0,DIALOG_ANIMATION_TALK,You think I could meet people there or ask for job?,Crees que puedo conocer a gente allí o encontrar trabajo?
+107,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_3,1,0,DIALOG_ANIMATION_TALK,For sure gentleman. Even if it's in south neighborhood. Some business are running well there. You should go some day,Por supuesto caballero. Incluso siendo el barrio sur. Algunos negocios están yendo bien. Deberías pasarte un día
+108,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_4,0,0,DIALOG_ANIMATION_TALK,I would be pleased,Me encantaría
+109,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_5,1,0,DIALOG_ANIMATION_TALK,For sure. Take this invitation. It's kind of private and they won't let strangers go inside,Por supuesto. Toma esta invitación. Es un poco privado y no dejan entrar a desconocidos
+110,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_6,0,0,DIALOG_ANIMATION_TALK,Thank you!,Gracias!
+111,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_2_0,0,0,DIALOG_ANIMATION_TALK,Well. See you there!,Bueno. Nos vemos pronto!
+112,PHRASE_DIALOG_ARTURO_HALL_INN_INTRO_0,0,0,DIALOG_ANIMATION_TALK,I'm happy to see you in a better state!,Me alegro de verte en mejor estado
+113,PHRASE_DIALOG_ARTURO_HALL_INN_INTRO_1,1,0,DIALOG_ANIMATION_TALK,I really appreciate your help this night,Agradezco en verdad tu ayuda esta noche
 114,PHRASE_DIALOG_LAST,0,0,DIALOG_ANIMATION_TALK,Last one,Last one

@@ -22,7 +22,7 @@
 20,INTERACT_PLAYER,INTERACT_PLAYER_DELEGATE,PlayerMasterClass.InteractPlayerService,Makes player interact with usage data,,-,-,X,-,-,W,-,-
 21,UNCHAIN_TO_ITEM,UNCHAIN_TO_ITEM_DELEGATE,ItemMasterClass.UnchainToItemService,Applies an unchain event to an item such as spawn or setsprite,,-,-,-,-,-,-,W,X
 22,PLAYER_REACHED_WAYPOINT,PLAYER_REACHED_WAYPOINT_DELEGATE,LevelMasterClass.PlayerReachedWaypointService,Tells LevelMaster that player reached Waypoint to start action in case,,-,-,W,-,-,X,-,-
-23,USE_ITEM,USE_ITEM_DELEGATE,ItemMasterClass.UseItemService,Uses an item with something,,-,-,X,-,-,-,W,-
+23,USE_ITEM,USE_ITEM_DELEGATE,ItemMasterClass.UseItemService,Uses an item with something,,-,-,X,-,X,-,W,-
 24,CANCEL_PICKABLE_ITEM,CANCEL_PICKABLE_ITEM_DELEGATE,GameMenuClass.CancelPickableItemService,Cancels selected item,,-,-,X,-,W,-,X,-
 25,KEY_SUBSCRIPTION,KEY_SUBSCRIPTION_DELEGATE,InputMasterClass.KeySubscriptionService,Subscribe to determined key events to avoid polling,,-,W,-,-,X,-,-,-
 26,LOCK_PLAYER,LOCK_PLAYER_DELEGATE,PlayerMasterClass.LockPlayerService,Locks player so it cannot act until an action over it has been done (or removes lock),,-,-,X,-,-,W,-,-

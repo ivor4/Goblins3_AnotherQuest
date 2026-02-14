@@ -310,7 +310,7 @@ namespace Gob3AQ.VARMAP
         /// <summary> 
         /// Uses an item with something
         /// <para> Owner: ItemMaster </para> 
-        /// <para> Accessors: LevelMaster,  </para> 
+        /// <para> Accessors: LevelMaster, GameMenu,  </para> 
         /// <para> Method: <see cref="ItemMasterClass.UseItemService"/> </para> 
         /// </summary>
         protected static USE_ITEM_DELEGATE _USE_ITEM;

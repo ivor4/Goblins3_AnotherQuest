@@ -137,6 +137,7 @@ namespace Gob3AQ.GameMaster
             {
                 case Game_Status.GAME_STATUS_PLAY:
                 case Game_Status.GAME_STATUS_PLAY_DIALOG:
+                case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
                     if (pausePressed)
                     {
                         PauseGame(true);
@@ -380,7 +381,7 @@ namespace Gob3AQ.GameMaster
 
         private static void LaunchResourcesInitializations()
         {
-            ResourceDialogsClass.Initialize(DialogLanguages.DIALOG_LANG_ENGLISH);
+            ResourceDialogsClass.Initialize(DialogLanguages.DIALOG_LANG_SPANISH);
             ResourceSpritesClass.Initialize();
             ResourceAtlasClass.Initialize();
         }

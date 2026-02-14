@@ -134,7 +134,7 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /// <summary> 
         /// Uses an item with something
         /// <para> Owner: ItemMaster </para> 
-        /// <para> Accessors: LevelMaster,  </para> 
+        /// <para> Accessors: LevelMaster, GameMenu,  </para> 
         /// <para> Method: <see cref="ItemMasterClass.UseItemService"/> </para> 
         /// </summary>
         public static USE_ITEM_DELEGATE USE_ITEM;

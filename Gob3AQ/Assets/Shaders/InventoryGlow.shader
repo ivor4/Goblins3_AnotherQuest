@@ -52,6 +52,7 @@ Shader "Custom/2D Outline Vertex"
             {
                 fixed4 col = tex2D(_MainTex, i.uv);
                 col.rgb = _OutlineColor.rgb; // Cambiamos el color al del borde
+                clip(col.a - 0.5); // Solo dibujar píxeles con suficiente opacidad
                 return col; // Siempre pinta del color del borde
             }
             ENDCG

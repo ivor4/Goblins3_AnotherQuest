@@ -58,6 +58,7 @@ namespace Gob3AQ.VARMAP.GameMenu
             COMMIT_MEMENTO_NOTIF = _COMMIT_MEMENTO_NOTIF;
             IS_MEMENTO_UNLOCKED = _IS_MEMENTO_UNLOCKED;
             MEMENTO_PARENT_WATCHED = _MEMENTO_PARENT_WATCHED;
+            USE_ITEM = _USE_ITEM;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             KEY_SUBSCRIPTION = _KEY_SUBSCRIPTION;
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
@@ -180,6 +181,13 @@ namespace Gob3AQ.VARMAP.GameMenu
         /// <para> Method: <see cref="GameEventMasterClass.MementoParentWatchedService"/> </para> 
         /// </summary>
         public static MEMENTO_PARENT_WATCHED_DELEGATE MEMENTO_PARENT_WATCHED;
+        /// <summary> 
+        /// Uses an item with something
+        /// <para> Owner: ItemMaster </para> 
+        /// <para> Accessors: LevelMaster, GameMenu,  </para> 
+        /// <para> Method: <see cref="ItemMasterClass.UseItemService"/> </para> 
+        /// </summary>
+        public static USE_ITEM_DELEGATE USE_ITEM;
         /// <summary> 
         /// Cancels selected item
         /// <para> Owner: GameMenu </para> 

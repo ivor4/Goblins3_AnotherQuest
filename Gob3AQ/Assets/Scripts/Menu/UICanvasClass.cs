@@ -48,7 +48,8 @@ namespace Gob3AQ.GameMenu.UICanvas
         MENU_BUTTON_MEMENTO,
         MENU_BUTTON_TAKE,
         MENU_BUTTON_TALK,
-        MENU_BUTTON_OBSERVE
+        MENU_BUTTON_OBSERVE,
+        MENU_BUTTON_DETAIL_RETURN
     }
 
     public class UICanvasClass : MonoBehaviour
@@ -114,6 +115,7 @@ namespace Gob3AQ.GameMenu.UICanvas
 
         private GameObject detailObj_detailImg;
         private Image detail_img;
+        private Button detail_returnButton;
 
         private StringBuilder stringBuilder;
 
@@ -178,6 +180,7 @@ namespace Gob3AQ.GameMenu.UICanvas
 
             detailObj_detailImg = UICanvas_detailObj.transform.Find("DetailImg").gameObject;
             detail_img = detailObj_detailImg.GetComponent<Image>();
+            detail_returnButton = UICanvas_detailObj.transform.Find("ReturnButton").GetComponent<Button>();
 
             /* Will be enabled at the end of Loading (new display mode) */
             raycaster.enabled = false;
@@ -631,6 +634,7 @@ namespace Gob3AQ.GameMenu.UICanvas
             tool_takeButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_TAKE));
             tool_talkButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_TALK));
             tool_observeButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_OBSERVE));
+            detail_returnButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_DETAIL_RETURN));
 
 
             for (int i = 0; i < GameFixedConfig.MAX_DIALOG_OPTIONS; ++i)

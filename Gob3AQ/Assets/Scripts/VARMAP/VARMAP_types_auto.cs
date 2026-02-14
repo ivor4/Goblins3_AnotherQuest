@@ -42,6 +42,7 @@ namespace Gob3AQ.VARMAP.Types
         INTERACTION_TAKE, 
         INTERACTION_OBSERVE, 
         INTERACTION_TALK, 
+        INTERACTION_COMBINE, 
         INTERACTION_AUTO_6s, 
         INTERACTION_CROSS_DOOR, 
         

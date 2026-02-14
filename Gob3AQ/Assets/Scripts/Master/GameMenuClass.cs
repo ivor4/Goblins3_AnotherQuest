@@ -2,7 +2,6 @@
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameMenu.UICanvas;
 using Gob3AQ.Libs.Arith;
-using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceDecisionsAtlas;
 using Gob3AQ.ResourceDialogs;
 using Gob3AQ.ResourceDialogsAtlas;
@@ -40,7 +39,7 @@ namespace Gob3AQ.GameMenu
         private GameObject UICanvas;
 
         private static GameMenuClass _singleton;
-        private bool _menuOpened;
+        private bool _itemMenuOpened;
         private float _lastClickTimestamp;
         
 
@@ -309,39 +308,68 @@ namespace Gob3AQ.GameMenu
 
         private void OnInventoryItemClick(GameItem item)
         {
-            if (_menuOpened)
+            if (_itemMenuOpened)
             {
-                GameItem prevChoosen = VARMAP_GameMenu.GET_PICKABLE_ITEM_CHOSEN();
+                UserInputInteraction currentInteraction = VARMAP_GameMenu.GET_USER_INPUT_INTERACTION();
                 ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(item);
 
-                float timestamp_ms = Time.time;
-                bool doubleClick = DoubleClickDetect(timestamp_ms);
+                switch (currentInteraction)
+                {
+                    case UserInputInteraction.INPUT_INTERACTION_TAKE:
+                        GameItem prevChoosen = VARMAP_GameMenu.GET_PICKABLE_ITEM_CHOSEN();
 
-                if(doubleClick && (itemInfo.detailPrefab != string.Empty))
-                {
-                    _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_DETAIL);
-                }
-                else if (prevChoosen == item)
-                {
-                    VARMAP_GameMenu.CANCEL_PICKABLE_ITEM();
-                }
-                else
-                {
-                    if ((itemInfo.detailPrefab != string.Empty) && (prevChoosen != GameItem.ITEM_NONE))
-                    {
-                        _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_DETAIL);
-                    }
-                    else
-                    {
-                        VARMAP_GameMenu.SET_PICKABLE_ITEM_CHOSEN(item);
-                    }
+                        if (prevChoosen == item)
+                        {
+                            VARMAP_GameMenu.CANCEL_PICKABLE_ITEM();
+                        }
+                        else
+                        {
+                            if ((itemInfo.detailPrefab != string.Empty) && (prevChoosen != GameItem.ITEM_NONE))
+                            {
+                                _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_DETAIL);
+                                VARMAP_GameMenu.SET_ITEM_MENU_HOVER(GameItem.ITEM_NONE);
+                            }
+                            else
+                            {
+                                VARMAP_GameMenu.SET_PICKABLE_ITEM_CHOSEN(item);
+                            }
+                        }
+                        break;
+
+                    case UserInputInteraction.INPUT_INTERACTION_OBSERVE:
+                        /* Observe in detail */
+                        if (itemInfo.detailPrefab != string.Empty)
+                        {
+                            VARMAP_GameMenu.CANCEL_PICKABLE_ITEM();
+                            _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_DETAIL);
+                            VARMAP_GameMenu.SET_ITEM_MENU_HOVER(GameItem.ITEM_NONE);
+                        }
+                        /* Simple observation phrase */
+                        else
+                        {
+                            CharacterType playerSelected = VARMAP_GameMenu.GET_PLAYER_SELECTED();
+                            InteractionUsage usage = InteractionUsage.CreateObserveItem(playerSelected, item, -1);
+                            VARMAP_GameMenu.USE_ITEM(in usage, out InteractionUsageOutcome outcome);
+
+                            if (outcome.ok && (outcome.dialogType != DialogType.DIALOG_NONE))
+                            {
+                                Span<GameItem> talkers = stackalloc GameItem[2];
+                                talkers[0] = (GameItem)playerSelected;
+                                talkers[1] = (GameItem)playerSelected;
+                                VARMAP_GameMenu.SHOW_DIALOGUE(talkers, outcome.dialogType, outcome.dialogPhrase, true);
+                            }
+                        }
+                        break;
+
+                    default:
+                        break;
                 }
             }
         }
 
         private void OnInventoryItemHover(GameItem item, bool hover)
         {
-            if(_menuOpened && hover)
+            if(_itemMenuOpened && hover)
             {
                 VARMAP_GameMenu.SET_ITEM_MENU_HOVER(item);
             }
@@ -385,6 +413,12 @@ namespace Gob3AQ.GameMenu
                     break;
                 case MenuButtonType.MENU_BUTTON_OBSERVE:
                     SetUserInteraction(UserInputInteraction.INPUT_INTERACTION_OBSERVE);
+                    break;
+                case MenuButtonType.MENU_BUTTON_DETAIL_RETURN:
+                    if(_itemMenuOpened)
+                    {
+                        _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_INVENTORY);
+                    }
                     break;
                 default:
                     break;
@@ -794,7 +828,7 @@ namespace Gob3AQ.GameMenu
 
             /* Populate menu */
 
-            if (_menuOpened)
+            if (_itemMenuOpened)
             {
                 RefreshItemMenuElements();
             }
@@ -849,12 +883,15 @@ namespace Gob3AQ.GameMenu
 
             if (newVal != oldVal)
             {
+                /* Set to default action (most common) */
+                SetUserInteraction(UserInputInteraction.INPUT_INTERACTION_TAKE);
+
                 switch(newVal)
                 {
                     case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
                         /* Populate menu */
                         RefreshItemMenuElements();
-                        _menuOpened = true;
+                        _itemMenuOpened = true;
                         break;
                     case Game_Status.GAME_STATUS_PLAY_MEMENTO:
                         _uicanvas_cls.MementoMenuActivated();
@@ -872,7 +909,7 @@ namespace Gob3AQ.GameMenu
                 switch(oldVal)
                 {
                     case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
-                        _menuOpened = false;
+                        _itemMenuOpened = false;
                         VARMAP_GameMenu.SET_ITEM_MENU_HOVER(GameItem.ITEM_NONE);
                         break;
                     case Game_Status.GAME_STATUS_PLAY_DIALOG:

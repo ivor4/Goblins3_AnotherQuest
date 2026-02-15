@@ -1,4 +1,5 @@
 using Gob3AQ.FixedConfig;
+using Gob3AQ.Libs.Arith;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceDialogs;
 using Gob3AQ.ResourceSprites;
@@ -351,6 +352,11 @@ namespace Gob3AQ.GameMaster
             {
                 changeMomentPending = moment;
             }
+        }
+
+        public static void LoadAdditionalResourcesService(bool load, ReadOnlyHashSet<NameType> names, ReadOnlyHashSet<DialogPhrase> phrases)
+        {
+
         }
 
 

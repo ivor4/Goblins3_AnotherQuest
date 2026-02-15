@@ -1,6 +1,7 @@
 ﻿using Gob3AQ.GameElement;
 using Gob3AQ.GameElement.Clickable;
 using Gob3AQ.GameElement.PlayableChar;
+using Gob3AQ.Libs.Arith;
 using Gob3AQ.Waypoint;
 using Gob3AQ.Waypoint.Network;
 using System;
@@ -68,6 +69,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void LOCK_PLAYER_DELEGATE(CharacterType character, bool lockPlayer);
     public delegate void SHOW_DECISION_DELEGATE(DecisionType decision);
     public delegate void CHANGE_DAY_MOMENT_DELEGATE(MomentType dayMoment);
+    public delegate void LOAD_ADDITIONAL_RESOURCES(bool load, ReadOnlyHashSet<NameType> names, ReadOnlyHashSet<DialogPhrase> phrases);
     public delegate void BACKGROUND_ITEM_TASK_DELEGATE(ItemInteractionType autoType, CharacterType character, out InteractionUsageOutcome outcome);
 
 }

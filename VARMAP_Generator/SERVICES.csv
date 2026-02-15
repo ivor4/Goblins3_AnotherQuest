@@ -31,4 +31,5 @@
 29,ZOOM_SUBSCRIPTION,ZOOM_SUBSCRIPTION_DELEGATE,GraphicsMasterClass.ZoomSubscriptionService,Subscribe to zoom changes,,-,-,-,W,-,-,X,-
 30,SHOW_DECISION,SHOW_DECISION_DELEGATE,GameMenuClass.ShowDecisionService,Shows a set of decisions,,-,-,-,-,W,-,-,X
 31,CHANGE_DAY_MOMENT,CHANGE_DAY_MOMENT_DELEGATE,GameMasterClass.ChangeDayMomentService,Requests to change moment of day to a given one,,W,-,-,-,-,-,-,X
-32,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-
+32,LOAD_ADDITIONAL_RESOURCES,LOAD_ADDITIONAL_RESOURCES,GameMasterClass.LoadAdditionalResourcesService,Loads/Unloads a set of names and Phrases,,W,-,-,-,X,-,-,-
+33,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-

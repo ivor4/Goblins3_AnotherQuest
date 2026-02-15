@@ -324,9 +324,9 @@ namespace Gob3AQ.GameMenu
                         }
                         else
                         {
-                            if ((itemInfo.detailPrefab != string.Empty) && (prevChoosen != GameItem.ITEM_NONE))
+                            if ((itemInfo.detailType != DetailType.DETAIL_NONE) && (prevChoosen != GameItem.ITEM_NONE))
                             {
-                                StartDetail(itemInfo.detailPrefab);
+                                StartDetail(itemInfo.detailType);
                             }
                             else
                             {
@@ -337,10 +337,10 @@ namespace Gob3AQ.GameMenu
 
                     case UserInputInteraction.INPUT_INTERACTION_OBSERVE:
                         /* Observe in detail */
-                        if (itemInfo.detailPrefab != string.Empty)
+                        if (itemInfo.detailType != DetailType.DETAIL_NONE)
                         {
                             VARMAP_GameMenu.CANCEL_PICKABLE_ITEM();
-                            StartDetail(itemInfo.detailPrefab);
+                            StartDetail(itemInfo.detailType);
                         }
                         /* Simple observation phrase */
                         else
@@ -440,10 +440,11 @@ namespace Gob3AQ.GameMenu
             CheckMementoCombination(combinedMementos);
         }
 
-        private void StartDetail(string prefabDetail)
+        private void StartDetail(DetailType detailType)
         {
+            ref readonly DetailInfo dinfo = ref ItemsInteractionsClass.GetDetailInfo(detailType);
             _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_DETAIL);
-            _uicanvas_cls.SetDetailPrefab(prefabDetail);
+            _uicanvas_cls.SetDetailPrefab(dinfo.prefabPath);
             VARMAP_GameMenu.SET_ITEM_MENU_HOVER(GameItem.ITEM_NONE);
         }
 

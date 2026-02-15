@@ -1,32 +1,32 @@
 ﻿TASK,PRIO,DONE,ONGOING
-Talk with characters,1.0,True,True
-Plot (1st part),1.0,False,True
-Improve Waypoint Tool (naming),3.0,True,True
-Language files,1.0,True,True
-Background objects layers,3.0,True,True
-Bug with menu of items (not selecting),3.0,True,True
-Loading screen between rooms,5.0,True,True
-Main event list (Tomba style),4.0,True,True
-Parry - Notifications - Max 4 queue,5.0,False,False
-Trophies,4.0,False,False
-"Observe items, NPCs, trigger events",1.0,True,True
-Seealso in services. Add owner in descr,4.0,True,True
-Avoid services modifying VARMAP,1.0,True,True
-Normalize menu items with dialog opts,2.0,True,True
-Use Dictionaries for LevelManager,3.0,True,True
-State change deactivation/activation,2.0,True,True
-Adressables instead of Resources,2.0,True,True
-Sprite Atlas addressable,2.0,True,True
-Enshorten stack,2.0,True,True
-"Re-think usage of ITEM_TAKE, USE_TALK",3.0,True,True
-Spawn/Despawn conditions,2.0,True,True
-Drag with mouse,2.0,True,True
-Zoom,2.0,True,True
-More upper button commands,2.0,True,True
-Waypoint numeration in Editor,2.0,True,True
-Use one raycast for all objets (Input),2.0,True,True
-Make character go slower on far depths,2.0,False,False
-Waypoints only reachable for actions,4.0,False,False
-Decission actions (like dialogs),2.0,False,False
-Reduce stackallocs (they use JIT),,False,False
-Last,5.0,False,False
+Talk with characters,1,True,True
+Plot (1st part),1,True,True
+Improve Waypoint Tool (naming),3,True,True
+Language files,1,True,True
+Background objects layers,3,True,True
+Bug with menu of items (not selecting),3,True,True
+Loading screen between rooms,5,True,True
+Main event list (Tomba style),4,True,True
+Parry - Notifications - Max 4 queue,5,False,False
+Trophies,4,False,False
+"Observe items, NPCs, trigger events",1,True,True
+Seealso in services. Add owner in descr,4,True,True
+Avoid services modifying VARMAP,1,True,True
+Normalize menu items with dialog opts,2,True,True
+Use Dictionaries for LevelManager,3,True,True
+State change deactivation/activation,2,True,True
+Adressables instead of Resources,2,True,True
+Sprite Atlas addressable,2,True,True
+Enshorten stack,2,True,True
+"Re-think usage of ITEM_TAKE, USE_TALK",3,True,True
+Spawn/Despawn conditions,2,True,True
+Drag with mouse,2,True,True
+Zoom,2,True,True
+More upper button commands,2,True,True
+Waypoint numeration in Editor,2,True,True
+Use one raycast for all objets (Input),2,True,True
+Make character go slower on far depths,2,True,True
+Waypoints only reachable for actions,4,False,False
+Decission actions (like dialogs),2,True,True
+Reduce cond stackallocs (they use JIT),3,False,False
+Last,5,False,False

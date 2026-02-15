@@ -45,6 +45,7 @@ namespace Gob3AQ.VARMAP.GameMaster
             COMMIT_EVENT = _COMMIT_EVENT;
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
             CHANGE_DAY_MOMENT = _CHANGE_DAY_MOMENT;
+            LOAD_ADDITIONAL_RESOURCES = _LOAD_ADDITIONAL_RESOURCES;
             LAST_SERVICE = _LAST_SERVICE;
             /* > ATG 1 END */
         }
@@ -144,6 +145,13 @@ namespace Gob3AQ.VARMAP.GameMaster
         /// <para> Method: <see cref="GameMasterClass.ChangeDayMomentService"/> </para> 
         /// </summary>
         public static CHANGE_DAY_MOMENT_DELEGATE CHANGE_DAY_MOMENT;
+        /// <summary> 
+        /// Loads/Unloads a set of names and Phrases
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: GameMenu,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.LoadAdditionalResourcesService"/> </para> 
+        /// </summary>
+        public static LOAD_ADDITIONAL_RESOURCES LOAD_ADDITIONAL_RESOURCES;
         /// <summary> 
         /// Last service
         /// <para> Owner: GameMaster </para> 

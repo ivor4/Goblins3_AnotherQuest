@@ -123,8 +123,8 @@ names_types_lines = ATGFile(names_types_path, 1)
 sprite_types_lines = ATGFile(sprite_types_path, 1)
 event_types_lines = ATGFile(event_types_path, 4)
 modules_types_lines = ATGFile(modules_types_path, 1)
-items_types_lines = ATGFile(items_types_path, 4)
-items_interaction_lines = ATGFile(items_interaction_path, 8)
+items_types_lines = ATGFile(items_types_path, 5)
+items_interaction_lines = ATGFile(items_interaction_path, 9)
 dialog_atlas_lines = ATGFile(dialog_atlas_path, 3)
 decision_atlas_lines = ATGFile(decision_atlas_path, 2)
 sprite_atlas_lines = ATGFile(sprite_atlas_path, 1)
@@ -150,6 +150,7 @@ ROOMSinputFile = open("ROOMS.csv", "r")
 NAMESinputFile = open("NAMES.csv", "r")
 SPRITESinputFile = open("SPRITES.csv", "r")
 EVENTSinputFile = open("EVENTS.csv", "r")
+DETAILSinputFile = open("DETAILS.csv", "r")
 
 VARMAPPermissionFile = []
 
@@ -701,6 +702,7 @@ memento_prefix = 'Memento.'
 memento_parent_prefix = 'MementoParent.'
 memento_combi_prefix = 'MementoCombi.'
 moment_prefix = 'MomentType.'
+detail_prefix = 'DetailType.'
 
 
 print('\n\n------DIALOGS (Custom GOB3) -------\n\n')
@@ -1308,11 +1310,6 @@ for line in ITEMSinputFile:
     ItemVar["detailPrefab"] = columns[8]
     ItemVar["conditions"] = columns[9]
     
-    if(len(ItemVar["detailPrefab"]) == 0):
-        ItemVar["detailPrefab"] = 'string.Empty'
-    else:
-        ItemVar["detailPrefab"] = '"' + ItemVar["detailPrefab"] + '"'
-    
     # Write in item enum
     stringToWrite = ItemVar["name"]
     if('NONE' in ItemVar["name"]):
@@ -1356,7 +1353,7 @@ for line in ITEMSinputFile:
         stringToWrite += str(ItemVar["pickable"]).lower()+','+\
             sprite_prefix+ItemVar["pickablesprite"]+','+\
             pickable_prefix+pickname+','+\
-            ItemVar["detailPrefab"]+',\n'
+            detail_prefix + ItemVar["detailPrefab"]+',\n'
         items_interaction_lines.InsertLineInATG(3, stringToWrite)
         
         stringToWrite = 'new(new HashSet<ActionConditions>('
@@ -1567,6 +1564,66 @@ stringToWrite = '\n'
 event_types_lines.InsertLineInATG(4, stringToWrite)
 stringToWrite = 'MEMENTO_COMBI_TOTAL\n'
 event_types_lines.InsertLineInATG(4, stringToWrite)
+
+
+print('\n\n------DETAILS (Custom GOB3) -------\n\n')
+linecount = -1
+zone = 1
+
+for line in DETAILSinputFile:
+    linecount += 1
+    
+    line = line.replace('\n','')
+    line = line.replace('\r','')
+    line = line.replace(', ','|')
+    
+    
+    columns = line.split(',')
+    print(columns)
+
+    if(linecount == 0):
+        continue
+    
+    
+    stringToWrite = columns[1]
+    if('NONE' in columns[1]):
+        stringToWrite += ' = -1'
+    stringToWrite += ', \n'
+    items_types_lines.InsertLineInATG(5, stringToWrite)
+    
+    columns[2] = columns[2].replace('"""', '"')
+    
+    if(not 'NONE' in columns[1]):        
+        stringToWrite = 'new('+columns[2]+', /* '+columns[1]+' */ \n'
+        items_interaction_lines.InsertLineInATG(9, stringToWrite)
+        
+        stringToWrite = 'new(new HashSet<NameType>('
+        
+        options = columns[3].split('|')
+        num_options = len(options)
+        stringToWrite += str(num_options)+'){'
+        
+        for _option in options:
+            stringToWrite += name_prefix+_option+','
+        stringToWrite += '}),\n'
+        items_interaction_lines.InsertLineInATG(9, stringToWrite)
+        
+        stringToWrite = 'new(new HashSet<DialogPhrase>('
+        
+        options = columns[4].split('|')
+        num_options = len(options)
+        stringToWrite += str(num_options)+'){'
+        
+        for _option in options:
+            stringToWrite += phrase_prefix+_option+','
+        stringToWrite += '})),\n\n'
+        items_interaction_lines.InsertLineInATG(9, stringToWrite)
+
+    
+stringToWrite = '\n'
+items_types_lines.InsertLineInATG(5, stringToWrite)
+stringToWrite = 'DETAIL_TOTAL\n'
+items_types_lines.InsertLineInATG(5, stringToWrite)
     
 
 

@@ -30,7 +30,6 @@ namespace Gob3AQ.ResourceAtlas
     public enum PrefabEnum
     {
         PREFAB_MEMENTO_ITEM,
-        PREFAB_DETAIL_EXTRAPERLO,
 
         PREFAB_TOTAL
     }
@@ -165,7 +164,6 @@ namespace Gob3AQ.ResourceAtlas
         private static readonly string[] _PrefabAddressableName = new string[(int)PrefabEnum.PREFAB_TOTAL]
         {
             "PREFAB_MEMENTO",
-            "PREFAB_DETAIL_EXTRAPERLO"
         };
 
         private static readonly RoomInfo[] _RoomInfo = new RoomInfo[(int)Room.ROOMS_TOTAL]

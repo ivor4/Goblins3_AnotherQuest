@@ -284,18 +284,18 @@ namespace Gob3AQ.VARMAP.Types
         public readonly bool isPickable;
         public readonly GameSprite pickableSprite;
         public readonly GamePickableItem pickableItem;
-        public readonly string detailPrefab;
+        public readonly DetailType detailType;
         public readonly ReadOnlyHashSet<ActionConditions> conditions;
 
 
 
         public static readonly ItemInfo EMPTY = new(NameType.NAME_NONE,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(0)),
             GameSprite.SPRITE_NONE,false,GameSprite.SPRITE_NONE, GamePickableItem.ITEM_PICK_NONE,
-            string.Empty, new(new HashSet<ActionConditions>(0)));
+            DetailType.DETAIL_NONE, new(new HashSet<ActionConditions>(0)));
 
         public ItemInfo(NameType name, GameItemFamily family, ReadOnlyHashSet<GameSprite> sprites,
             GameSprite defaultSprite, bool isPickable, GameSprite pickableSprite, GamePickableItem pickableItem,
-            string detailPrefab, ReadOnlyHashSet<ActionConditions> conditions)
+            DetailType detailType, ReadOnlyHashSet<ActionConditions> conditions)
         {
             this.name = name;
             this.family = family;
@@ -304,7 +304,7 @@ namespace Gob3AQ.VARMAP.Types
             this.isPickable = isPickable;
             this.pickableSprite = pickableSprite;
             this.pickableItem = pickableItem;
-            this.detailPrefab = detailPrefab;
+            this.detailType = detailType;
             this.conditions = conditions;
         }
     }
@@ -436,6 +436,22 @@ namespace Gob3AQ.VARMAP.Types
             this.dialogOK = dialogOK;
             this.phraseOK = phraseOK;
             this.unchainEvents = unchainEvents;
+        }
+    }
+
+    public readonly struct DetailInfo
+    {
+        public readonly string prefabPath;
+        public readonly ReadOnlyHashSet<NameType> names;
+        public readonly ReadOnlyHashSet<DialogPhrase> phrases;
+
+        public static readonly DetailInfo EMPTY = new(string.Empty, new ReadOnlyHashSet<NameType>(new HashSet<NameType>(0)),
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(0)));
+        public DetailInfo(string prefabPath, ReadOnlyHashSet<NameType> names, ReadOnlyHashSet<DialogPhrase> phrases)
+        {
+            this.prefabPath = prefabPath;
+            this.names = names;
+            this.phrases = phrases;
         }
     }
 

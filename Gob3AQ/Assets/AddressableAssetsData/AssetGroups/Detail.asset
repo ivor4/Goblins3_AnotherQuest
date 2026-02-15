@@ -20,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 57a6eb85111e37041b767d6118de1d55
+    m_Address: SPRITE_DETAIL_EXTRAPERLO_REVERSED
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6b0b7172efd4f6043b54c77bc1255034
     m_Address: PREFAB_DETAIL_EXTRAPERLO
     m_ReadOnly: 0

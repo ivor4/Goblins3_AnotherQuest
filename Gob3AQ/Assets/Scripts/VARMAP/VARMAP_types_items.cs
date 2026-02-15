@@ -168,4 +168,15 @@ namespace Gob3AQ.VARMAP.Types
         UNCHAIN_TOTAL
         /* > ATG 4 END < */
     }
+
+    public enum DetailType
+    {
+        /* > ATG 5 START < */
+        DETAIL_NONE = -1, 
+        DETAIL_EXTRAPERLO, 
+        DETAIL_LAST, 
+        
+        DETAIL_TOTAL
+        /* > ATG 5 END < */
+    }
 }

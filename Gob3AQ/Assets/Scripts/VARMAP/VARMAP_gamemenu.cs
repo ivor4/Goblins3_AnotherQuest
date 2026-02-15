@@ -64,6 +64,7 @@ namespace Gob3AQ.VARMAP.GameMenu
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
             SHOW_DIALOGUE = _SHOW_DIALOGUE;
             SHOW_DECISION = _SHOW_DECISION;
+            LOAD_ADDITIONAL_RESOURCES = _LOAD_ADDITIONAL_RESOURCES;
             /* > ATG 1 END */
         }
 
@@ -223,6 +224,13 @@ namespace Gob3AQ.VARMAP.GameMenu
         /// <para> Method: <see cref="GameMenuClass.ShowDecisionService"/> </para> 
         /// </summary>
         public static SHOW_DECISION_DELEGATE SHOW_DECISION;
+        /// <summary> 
+        /// Loads/Unloads a set of names and Phrases
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: GameMenu,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.LoadAdditionalResourcesService"/> </para> 
+        /// </summary>
+        public static LOAD_ADDITIONAL_RESOURCES LOAD_ADDITIONAL_RESOURCES;
         /* > ATG 3 END */
     }
 }

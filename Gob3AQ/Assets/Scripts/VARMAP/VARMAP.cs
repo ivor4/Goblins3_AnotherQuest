@@ -371,6 +371,13 @@ namespace Gob3AQ.VARMAP
         /// </summary>
         protected static CHANGE_DAY_MOMENT_DELEGATE _CHANGE_DAY_MOMENT;
         /// <summary> 
+        /// Loads/Unloads a set of names and Phrases
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: GameMenu,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.LoadAdditionalResourcesService"/> </para> 
+        /// </summary>
+        protected static LOAD_ADDITIONAL_RESOURCES _LOAD_ADDITIONAL_RESOURCES;
+        /// <summary> 
         /// Last service
         /// <para> Owner: GameMaster </para> 
         /// <para> Accessors:  </para> 

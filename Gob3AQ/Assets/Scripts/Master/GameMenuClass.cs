@@ -66,6 +66,8 @@ namespace Gob3AQ.GameMenu
         private HashSet<MementoCombi> memento_combi_union;
         private HashSet<MementoCombi> memento_combi_intersection;
 
+        private DetailType detail_loaded;
+
         private ulong dialog_timestamp;
         private Dictionary<DialogOption, List<byte>> dialog_randomized_left_indexes;
 
@@ -326,7 +328,7 @@ namespace Gob3AQ.GameMenu
                         {
                             if ((itemInfo.detailType != DetailType.DETAIL_NONE) && (prevChoosen != GameItem.ITEM_NONE))
                             {
-                                StartDetail(itemInfo.detailType);
+                                CreateDetail(itemInfo.detailType);
                             }
                             else
                             {
@@ -340,7 +342,7 @@ namespace Gob3AQ.GameMenu
                         if (itemInfo.detailType != DetailType.DETAIL_NONE)
                         {
                             VARMAP_GameMenu.CANCEL_PICKABLE_ITEM();
-                            StartDetail(itemInfo.detailType);
+                            CreateDetail(itemInfo.detailType);
                         }
                         /* Simple observation phrase */
                         else
@@ -415,6 +417,7 @@ namespace Gob3AQ.GameMenu
                 case MenuButtonType.MENU_BUTTON_DETAIL_RETURN:
                     if(_itemMenuOpened)
                     {
+                        DestroyLoadedDetail();
                         _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_INVENTORY);
                     }
                     break;
@@ -440,11 +443,28 @@ namespace Gob3AQ.GameMenu
             CheckMementoCombination(combinedMementos);
         }
 
-        private void StartDetail(DetailType detailType)
+        private void CreateDetail(DetailType detailType)
         {
             ref readonly DetailInfo dinfo = ref ItemsInteractionsClass.GetDetailInfo(detailType);
+            detail_loaded = detailType;
+            VARMAP_GameMenu.LOAD_ADDITIONAL_RESOURCES(true, dinfo.prefabPath, dinfo.names, dinfo.phrases, DetailLoaded);
+        }
+
+        private void DestroyLoadedDetail()
+        {
+            if (detail_loaded != DetailType.DETAIL_NONE)
+            {
+                ref readonly DetailInfo dinfo = ref ItemsInteractionsClass.GetDetailInfo(detail_loaded);
+                VARMAP_GameMenu.LOAD_ADDITIONAL_RESOURCES(false, dinfo.prefabPath, dinfo.names, dinfo.phrases, null);
+            }
+
+            detail_loaded = DetailType.DETAIL_NONE;
+        }
+
+        private void DetailLoaded(GameObject prefab)
+        {
             _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_DETAIL);
-            _uicanvas_cls.SetDetailPrefab(dinfo.prefabPath);
+            _uicanvas_cls.SetDetailPrefab(prefab);
             VARMAP_GameMenu.SET_ITEM_MENU_HOVER(GameItem.ITEM_NONE);
         }
 
@@ -638,6 +658,8 @@ namespace Gob3AQ.GameMenu
                 memento_combi_union = new(8);
 
                 dialog_randomized_left_indexes = new();
+
+                detail_loaded = DetailType.DETAIL_NONE;
             }
         }
 
@@ -904,6 +926,7 @@ namespace Gob3AQ.GameMenu
                         _uicanvas_cls.MementoMenuActivated();
                         break;
                     case Game_Status.GAME_STATUS_CHANGING_ROOM:
+                        detail_loaded = DetailType.DETAIL_NONE;
                         SetUserInteraction(UserInputInteraction.INPUT_INTERACTION_TAKE);
                         _lastClickTimestamp = Time.time;
                         break;
@@ -917,6 +940,7 @@ namespace Gob3AQ.GameMenu
                 switch(oldVal)
                 {
                     case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
+                        DestroyLoadedDetail();
                         SetUserInteraction(UserInputInteraction.INPUT_INTERACTION_TAKE);
                         _itemMenuOpened = false;
                         VARMAP_GameMenu.SET_ITEM_MENU_HOVER(GameItem.ITEM_NONE);

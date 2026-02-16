@@ -1,17 +1,8 @@
-using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.FixedConfig;
-using Gob3AQ.GameMenu.Dialog;
-using Gob3AQ.GameMenu.PickableItemDisplay;
-using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceDialogs;
 using Gob3AQ.ResourceSprites;
-using Gob3AQ.ResourceSpritesAtlas;
-using Gob3AQ.VARMAP.GraphicsMaster;
 using Gob3AQ.VARMAP.Types;
-using System;
-using System.Collections;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 

@@ -354,11 +354,26 @@ namespace Gob3AQ.GameMaster
             }
         }
 
-        public static void LoadAdditionalResourcesService(bool load, ReadOnlyHashSet<NameType> names, ReadOnlyHashSet<DialogPhrase> phrases)
+        public static void LoadAdditionalResourcesService(bool load, PrefabEnum prefabAddressable,
+            ReadOnlyHashSet<NameType> names, ReadOnlyHashSet<DialogPhrase> phrases, Action<GameObject> callback)
         {
-
+            _singleton.StartCoroutine(LoadAdditionalResourcesCouroutine(load, prefabAddressable, names, phrases, callback));
         }
 
+        private static IEnumerator LoadAdditionalResourcesCouroutine(bool load, PrefabEnum prefabAddressable,
+            ReadOnlyHashSet<NameType> names, ReadOnlyHashSet<DialogPhrase> phrases, Action<GameObject> callback)
+        {
+            IEnumerator textsEnumerator = ResourceDialogsClass.LoadSpecificTexts(load, names, phrases);
+            IEnumerator prefabsEnumerator = ResourceAtlasClass.LoadSpecificPrefab(load, prefabAddressable);
+
+            if (load)
+            {
+                yield return textsEnumerator;
+                yield return prefabsEnumerator;
+
+                callback?.Invoke(ResourceAtlasClass.GetPrefab(prefabAddressable));
+            }
+        }
 
         public static void ExitGameService(out bool error)
         {

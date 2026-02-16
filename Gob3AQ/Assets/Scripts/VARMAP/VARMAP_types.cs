@@ -66,6 +66,15 @@ namespace Gob3AQ.VARMAP.Types
         GAME_STATUS_LOADING
     }
 
+    public enum PrefabEnum
+    {
+        PREFAB_NONE = -1,
+        PREFAB_MEMENTO_ITEM,
+        PREFAB_DETAIL_EXTRAPERLO,
+
+        PREFAB_TOTAL
+    }
+
     public readonly struct DoorInfo : IEquatable<DoorInfo>
     {
         public readonly Room roomLeadTo;
@@ -441,15 +450,15 @@ namespace Gob3AQ.VARMAP.Types
 
     public readonly struct DetailInfo
     {
-        public readonly string prefabPath;
+        public readonly PrefabEnum prefabPath;
         public readonly ReadOnlyHashSet<NameType> names;
         public readonly ReadOnlyHashSet<DialogPhrase> phrases;
 
-        public static readonly DetailInfo EMPTY = new(string.Empty, new ReadOnlyHashSet<NameType>(new HashSet<NameType>(0)),
+        public static readonly DetailInfo EMPTY = new(PrefabEnum.PREFAB_NONE, new ReadOnlyHashSet<NameType>(new HashSet<NameType>(0)),
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(0)));
-        public DetailInfo(string prefabPath, ReadOnlyHashSet<NameType> names, ReadOnlyHashSet<DialogPhrase> phrases)
+        public DetailInfo(PrefabEnum prefabEnum, ReadOnlyHashSet<NameType> names, ReadOnlyHashSet<DialogPhrase> phrases)
         {
-            this.prefabPath = prefabPath;
+            this.prefabPath = prefabEnum;
             this.names = names;
             this.phrases = phrases;
         }

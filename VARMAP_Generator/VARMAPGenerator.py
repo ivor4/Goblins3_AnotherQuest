@@ -1591,8 +1591,6 @@ for line in DETAILSinputFile:
     stringToWrite += ', \n'
     items_types_lines.InsertLineInATG(5, stringToWrite)
     
-    columns[2] = columns[2].replace('"""', '"')
-    
     if(not 'NONE' in columns[1]):        
         stringToWrite = 'new('+columns[2]+', /* '+columns[1]+' */ \n'
         items_interaction_lines.InsertLineInATG(9, stringToWrite)

@@ -136,6 +136,56 @@ namespace Gob3AQ.ResourceDialogs
             yield return PreloadRoomTextsCoroutine(room, names, phrases);
         }
 
+        public static IEnumerator LoadSpecificTexts(bool load, ReadOnlyHashSet<NameType> namesToLoad, ReadOnlyHashSet<DialogPhrase> phrasesToLoad)
+        {
+            if (load)
+            {
+                TextAsset textAsset;
+                AsyncOperationHandle<TextAsset> handler1 = Addressables.LoadAssetAsync<TextAsset>(PHRASES_PATH);
+                AsyncOperationHandle<TextAsset> handler2 = Addressables.LoadAssetAsync<TextAsset>(NAMES_PATH);
+
+                yield return handler1;
+                yield return handler2;
+
+                textAsset = handler1.Result;
+                string[] phrases = textAsset.text.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+
+                textAsset = handler2.Result;
+                string[] names = textAsset.text.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+
+                Addressables.Release(handler1);
+                Addressables.Release(handler2);
+
+                foreach (NameType name in namesToLoad)
+                {
+                    if ((!_cachedNamesFinder.ContainsKey(name)) && (name != NameType.NAME_NONE))
+                    {
+                        PreloadRoomNames_AddName(names, name);
+                    }
+                }
+
+                foreach (DialogPhrase phrase in phrasesToLoad)
+                {
+                    if ((!_cachedPhrasesFinder.ContainsKey(phrase)) && (phrase != DialogPhrase.PHRASE_NONE))
+                    {
+                        PreloadRoomPhrases_TaskCycle(phrases, phrase);
+                    }
+                }
+            }
+            else
+            {
+                foreach (NameType name in namesToLoad)
+                {
+                    _cachedNamesFinder.Remove(name);
+                }
+
+                foreach (DialogPhrase phrase in phrasesToLoad)
+                {
+                    _cachedPhrasesFinder.Remove(phrase);
+                }
+            }
+        }
+
 
         private static void PreloadRoomPhrases_TaskCycle(string[] lines, DialogPhrase phrase)
         {

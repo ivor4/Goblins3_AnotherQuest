@@ -1,14 +1,14 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Gob3AQ.GameMenu.DetailActiveElem
 {
-    public delegate void DETAIL_ACTIVE_ELEM_CLICK();
     public delegate void DETAIL_ACTIVE_ELEM_HOVER(bool enter);
 
     public class DetailActiveElemScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
     {
-        private DETAIL_ACTIVE_ELEM_CLICK _call_click;
+        private Action _call_click;
         private DETAIL_ACTIVE_ELEM_HOVER _call_hover;
 
         public void OnPointerClick(PointerEventData eventData)
@@ -31,7 +31,7 @@ namespace Gob3AQ.GameMenu.DetailActiveElem
 
 
 
-        public void SetClickCall(DETAIL_ACTIVE_ELEM_CLICK call_click)
+        public void SetClickCall(Action call_click)
         {
             _call_click = call_click;
         }

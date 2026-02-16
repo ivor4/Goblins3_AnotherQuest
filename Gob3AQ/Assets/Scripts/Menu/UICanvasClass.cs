@@ -115,8 +115,6 @@ namespace Gob3AQ.GameMenu.UICanvas
         private HashSet<MementoParent> memento_unwatched;
         private HashSet<Memento> memento_unlocked;
 
-        private AsyncOperationHandle detailObj_asyncHandle;
-        private bool detailObj_asyncHandlePresent;
         private GameObject detailObj_instance;
         private Button detail_returnButton;
 
@@ -308,35 +306,23 @@ namespace Gob3AQ.GameMenu.UICanvas
             }
         }
 
-        public void SetDetailPrefab(string prefabAddressable)
+        public void SetDetailPrefab(GameObject prefab)
         {
             DestroyDetailPrefab();
-            if (prefabAddressable != string.Empty)
+
+            if (prefab != null)
             {
-                AsyncOperationHandle handle = Addressables.LoadAssetAsync<GameObject>(prefabAddressable);
-                handle.Completed += OnDetailPrefabLoad;
+                detailObj_instance = Instantiate(prefab, UICanvas_detailObj.transform, false);
             }
         }
 
-        private void OnDetailPrefabLoad(AsyncOperationHandle handle)
-        {
-            if (handle.Status == AsyncOperationStatus.Succeeded)
-            {
-                detailObj_asyncHandle = handle;
-                GameObject prefab = handle.Result as GameObject;
-                detailObj_instance = Instantiate(prefab, UICanvas_detailObj.transform, false);
-                detailObj_asyncHandlePresent = true;
-            }
-        }
 
         private void DestroyDetailPrefab()
         {
-            if(detailObj_asyncHandlePresent)
+            if(detailObj_instance != null)
             {
                 Destroy(detailObj_instance);
                 detailObj_instance = null;
-                Addressables.Release(detailObj_asyncHandle);
-                detailObj_asyncHandlePresent = false;
             }
         }
 

@@ -1065,11 +1065,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
         private static readonly DetailInfo[] _DetailInfo = new DetailInfo[(int)DetailType.DETAIL_TOTAL]
         {
             /* > ATG 9 START < */
-            new("PREFAB_DETAIL_EXTRAPERLO", /* DETAIL_EXTRAPERLO */ 
+            new(PrefabEnum.PREFAB_DETAIL_EXTRAPERLO, /* DETAIL_EXTRAPERLO */ 
             new(new HashSet<NameType>(1){NameType.NAME_NONE,}),
             new(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONE,})),
 
-            new(string.Empty, /* DETAIL_LAST */ 
+            new(PrefabEnum.PREFAB_NONE, /* DETAIL_LAST */ 
             new(new HashSet<NameType>(1){NameType.NAME_NONE,}),
             new(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONE,})),
 

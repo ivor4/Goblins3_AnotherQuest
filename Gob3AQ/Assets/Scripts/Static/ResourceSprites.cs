@@ -4,6 +4,7 @@ using Gob3AQ.Libs.Arith;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceSpritesAtlas;
 using Gob3AQ.VARMAP.Types;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -63,8 +64,15 @@ namespace Gob3AQ.ResourceSprites
             foreach(GameSprite spriteToLoad in _spritesToLoadArray)
             {
                 AsyncOperationHandle<Sprite> handle = PreloadRoomSpritesCycle(spriteToLoad);
-                yield return handle;
                 _cachedHandles[spriteToLoad] = handle;
+            }
+
+            foreach(AsyncOperationHandle<Sprite> handle in _cachedHandles.Values)
+            {
+                if(!handle.IsDone)
+                {
+                    yield return handle;
+                }
             }
 
             _spritesToLoadArray.Clear();

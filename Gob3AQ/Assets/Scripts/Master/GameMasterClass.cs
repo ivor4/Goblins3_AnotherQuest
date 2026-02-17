@@ -268,7 +268,7 @@ namespace Gob3AQ.GameMaster
             Coroutine prefabsCoroutine = StartCoroutine(ResourceAtlasClass.PreloadPrefabsCoroutine(Room.ROOM_NONE));
 
             /* Load texts (base Room) */
-            Coroutine dialogsCoroutine = StartCoroutine(ResourceDialogsClass.PreloadRoomTextsCoroutine(Room.ROOM_NONE));
+            Coroutine dialogsCoroutine = StartCoroutine(ResourceDialogsClass.PreloadTextsCoroutine(DialogLanguages.DIALOG_LANG_SPANISH));
 
             yield return spritesCoroutine;
             yield return prefabsCoroutine;
@@ -354,21 +354,17 @@ namespace Gob3AQ.GameMaster
             }
         }
 
-        public static void LoadAdditionalResourcesService(bool load, PrefabEnum prefabAddressable,
-            ReadOnlyHashSet<NameType> names, ReadOnlyHashSet<DialogPhrase> phrases, Action<GameObject> callback)
+        public static void LoadAdditionalResourcesService(bool load, PrefabEnum prefabAddressable, Action<GameObject> callback)
         {
-            _singleton.StartCoroutine(LoadAdditionalResourcesCouroutine(load, prefabAddressable, names, phrases, callback));
+            _singleton.StartCoroutine(LoadAdditionalResourcesCouroutine(load, prefabAddressable, callback));
         }
 
-        private static IEnumerator LoadAdditionalResourcesCouroutine(bool load, PrefabEnum prefabAddressable,
-            ReadOnlyHashSet<NameType> names, ReadOnlyHashSet<DialogPhrase> phrases, Action<GameObject> callback)
+        private static IEnumerator LoadAdditionalResourcesCouroutine(bool load, PrefabEnum prefabAddressable, Action<GameObject> callback)
         {
-            IEnumerator textsEnumerator = ResourceDialogsClass.LoadSpecificTexts(load, names, phrases);
             IEnumerator prefabsEnumerator = ResourceAtlasClass.LoadSpecificPrefab(load, prefabAddressable);
 
             if (load)
             {
-                yield return textsEnumerator;
                 yield return prefabsEnumerator;
 
                 callback?.Invoke(ResourceAtlasClass.GetPrefab(prefabAddressable));
@@ -402,7 +398,7 @@ namespace Gob3AQ.GameMaster
 
         private static void LaunchResourcesInitializations()
         {
-            ResourceDialogsClass.Initialize(DialogLanguages.DIALOG_LANG_SPANISH);
+            ResourceDialogsClass.Initialize();
             ResourceSpritesClass.Initialize();
             ResourceAtlasClass.Initialize();
         }
@@ -430,7 +426,7 @@ namespace Gob3AQ.GameMaster
             yield return UnloadPreviousRoomResources(false);
 
             /* Load texts */
-            Coroutine dialogsCoroutine = StartCoroutine(ResourceDialogsClass.PreloadRoomTextsCoroutine(room));
+            Coroutine dialogsCoroutine = StartCoroutine(ResourceDialogsClass.PreloadTextsCoroutine(DialogLanguages.DIALOG_LANG_SPANISH));
 
             /* Load sprites */
             Coroutine spritesCoroutine = StartCoroutine(ResourceSpritesClass.PreloadRoomSpritesCoroutine(room));

@@ -46,6 +46,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_VALVE, 
         NAME_ARTURO, 
         NAME_INVITATION, 
+        NAME_ANNOTATION, 
         NAME_NPC_LAST, 
         
         NAME_TOTAL

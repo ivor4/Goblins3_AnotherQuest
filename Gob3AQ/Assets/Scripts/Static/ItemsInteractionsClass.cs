@@ -766,6 +766,13 @@ namespace Gob3AQ.Brain.ItemsInteraction
             DialogType.DIALOG_ARTURO_HALL_INN_INTRO,DialogPhrase.PHRASE_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
+            new( /* COND_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
+            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
+            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,
@@ -961,6 +968,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
             NameType.NAME_INVITATION,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK,}),
             GameSprite.SPRITE_BLANK,true,GameSprite.SPRITE_PICKABLE_EXTRAPERLO,GamePickableItem.ITEM_PICK_EXTRAPERLO_INVITATION,DetailType.DETAIL_EXTRAPERLO,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK,})),
+            
+            new ( /* ITEM_EXTRAPERLO_INVITATION_DETAIL */
+            NameType.NAME_ANNOTATION,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK,}),
+            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
+            new(new HashSet<ActionConditions>(1){ActionConditions.COND_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL,})),
             
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST,}),

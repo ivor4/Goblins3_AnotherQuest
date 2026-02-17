@@ -1,5 +1,6 @@
 ﻿using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.FixedConfig;
+using Gob3AQ.GameMenu.DetailActiveElem;
 using Gob3AQ.GameMenu.UICanvas;
 using Gob3AQ.Libs.Arith;
 using Gob3AQ.ResourceDecisionsAtlas;
@@ -308,7 +309,7 @@ namespace Gob3AQ.GameMenu
             }
         }
 
-        private void OnInventoryItemClick(GameItem item)
+        public void OnInventoryItemClick(GameItem item)
         {
             if (_itemMenuOpened)
             {
@@ -330,7 +331,7 @@ namespace Gob3AQ.GameMenu
                             {
                                 CreateDetail(itemInfo.detailType);
                             }
-                            else
+                            else if(itemInfo.isPickable)
                             {
                                 VARMAP_GameMenu.SET_PICKABLE_ITEM_CHOSEN(item);
                             }
@@ -445,9 +446,10 @@ namespace Gob3AQ.GameMenu
 
         private void CreateDetail(DetailType detailType)
         {
+            DestroyLoadedDetail();
             ref readonly DetailInfo dinfo = ref ItemsInteractionsClass.GetDetailInfo(detailType);
             detail_loaded = detailType;
-            VARMAP_GameMenu.LOAD_ADDITIONAL_RESOURCES(true, dinfo.prefabPath, dinfo.names, dinfo.phrases, DetailLoaded);
+            VARMAP_GameMenu.LOAD_ADDITIONAL_RESOURCES(true, dinfo.prefabPath, DetailLoaded);
         }
 
         private void DestroyLoadedDetail()
@@ -455,7 +457,7 @@ namespace Gob3AQ.GameMenu
             if (detail_loaded != DetailType.DETAIL_NONE)
             {
                 ref readonly DetailInfo dinfo = ref ItemsInteractionsClass.GetDetailInfo(detail_loaded);
-                VARMAP_GameMenu.LOAD_ADDITIONAL_RESOURCES(false, dinfo.prefabPath, dinfo.names, dinfo.phrases, null);
+                VARMAP_GameMenu.LOAD_ADDITIONAL_RESOURCES(false, dinfo.prefabPath, null);
             }
 
             detail_loaded = DetailType.DETAIL_NONE;
@@ -464,7 +466,12 @@ namespace Gob3AQ.GameMenu
         private void DetailLoaded(GameObject prefab)
         {
             _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_DETAIL);
-            _uicanvas_cls.SetDetailPrefab(prefab);
+
+            GameObject createdInstance = _uicanvas_cls.SetDetailPrefab(prefab);
+            IDetailScript scr = createdInstance.GetComponent<IDetailScript>();
+            scr.SetItemClickAction(OnInventoryItemClick);
+            scr.SetItemHoverAction(OnInventoryItemHover);
+
             VARMAP_GameMenu.SET_ITEM_MENU_HOVER(GameItem.ITEM_NONE);
         }
 

@@ -10,14 +10,13 @@ using Gob3AQ.ResourceDialogs;
 using Gob3AQ.ResourceSprites;
 using Gob3AQ.VARMAP.GameMenu;
 using Gob3AQ.VARMAP.Types;
+using Gob3AQ.VARMAP.Types.Delegates;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using TMPro;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.UI;
 
 namespace Gob3AQ.GameMenu.UICanvas
@@ -306,14 +305,19 @@ namespace Gob3AQ.GameMenu.UICanvas
             }
         }
 
-        public void SetDetailPrefab(GameObject prefab)
+        public GameObject SetDetailPrefab(GameObject prefab)
         {
+            GameObject retVal = null;
+
             DestroyDetailPrefab();
 
             if (prefab != null)
             {
                 detailObj_instance = Instantiate(prefab, UICanvas_detailObj.transform, false);
+                retVal = detailObj_instance;
             }
+
+            return retVal;
         }
 
 

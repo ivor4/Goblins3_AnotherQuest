@@ -1,17 +1,14 @@
 using UnityEngine;
 using Gob3AQ.VARMAP.Types;
-using Gob3AQ.ResourceAtlas;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Gob3AQ.ResourceSprites;
-using Gob3AQ.ResourceSpritesAtlas;
 using Gob3AQ.Brain.ItemsInteraction;
+using Gob3AQ.VARMAP.Types.Delegates;
 
 namespace Gob3AQ.GameMenu.PickableItemDisplay
 {
-    public delegate void DISPLAYED_ITEM_CLICK(GameItem item);
-    public delegate void DISPLAYED_ITEM_HOVER(GameItem item, bool hover);
-
+   
     public class PickableItemDisplayClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
     {
         private Image _spr;

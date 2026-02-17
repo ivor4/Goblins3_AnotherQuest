@@ -22,6 +22,8 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void EVENT_SUBSCRIPTION_CALL_DELEGATE(bool newStatus);
     public delegate void KEY_SUBSCRIPTION_CALL_DELEGATE(KeyFunctionsIndex key, bool pressed);
     public delegate void ZOOM_CHANGED_DELEGATE(float newZoomLevel);
+    public delegate void DISPLAYED_ITEM_CLICK(GameItem item);
+    public delegate void DISPLAYED_ITEM_HOVER(GameItem item, bool hover);
 
 
     public delegate void START_GAME_DELEGATE(out bool error);
@@ -69,8 +71,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void LOCK_PLAYER_DELEGATE(CharacterType character, bool lockPlayer);
     public delegate void SHOW_DECISION_DELEGATE(DecisionType decision);
     public delegate void CHANGE_DAY_MOMENT_DELEGATE(MomentType dayMoment);
-    public delegate void LOAD_ADDITIONAL_RESOURCES(bool load, PrefabEnum prefabEnum,
-            ReadOnlyHashSet<NameType> names, ReadOnlyHashSet<DialogPhrase> phrases, Action<GameObject> callback);
+    public delegate void LOAD_ADDITIONAL_RESOURCES(bool load, PrefabEnum prefabEnum, Action<GameObject> callback);
     public delegate void BACKGROUND_ITEM_TASK_DELEGATE(ItemInteractionType autoType, CharacterType character, out InteractionUsageOutcome outcome);
 
 }

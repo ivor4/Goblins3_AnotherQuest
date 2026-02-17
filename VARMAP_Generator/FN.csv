@@ -1,5 +1,5 @@
 ﻿NewItem,NewName,NewSprite,Pickable,Spawn,Picker_Character,ObservationPhrase,TakePhrase,Room,Output
-ITEM_EXTRAPERLO_INVITATION_DETAIL,NAME_DETAIL,SPRITE_BLANK,False,False,CHARACTER_MAIN,Una inscripción que decía <<Menos cuento y más pan>>. Quizá solo sea una frase dicha,,ROOM_NONE,
+ITEM_PHARMACY_INK,NAME_INK,SPRITE_PHARMACY_INKWELL_WASTED,False,False,CHARACTER_MAIN,El bote al volcar dejó un charco de tinta,Créeme que se daría cuenta si lo cojo,PHARMACY_1,
 ,,,,,,,,,
 NewRoom,Background,BackgroundNight,Output,,,,,,
 HIVE1_BACKALLEY,BACKGROUND_BACKALLEY,BACKGROUND_BACKALLEY_NIGHT,,,,,,,

@@ -47,6 +47,8 @@ namespace Gob3AQ.VARMAP.Types
         NAME_ARTURO, 
         NAME_INVITATION, 
         NAME_ANNOTATION, 
+        NAME_INKWELL, 
+        NAME_INK, 
         NAME_NPC_LAST, 
         
         NAME_TOTAL

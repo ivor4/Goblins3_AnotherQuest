@@ -1,4 +1,3 @@
-using Gob3AQ.VARMAP.GameMenu;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.VARMAP.Types.Delegates;
 using System;
@@ -11,8 +10,8 @@ namespace Gob3AQ.GameMenu.DetailActiveElem
     {
         public void SetItemClickAction(DISPLAYED_ITEM_CLICK action);
         public void SetItemHoverAction(DISPLAYED_ITEM_HOVER action);
-
     }
+
     public class DetailExtraperloScript : MonoBehaviour, IDetailScript
     {
         private GameObject forward;

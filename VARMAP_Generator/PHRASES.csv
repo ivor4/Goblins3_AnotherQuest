@@ -113,5 +113,8 @@
 111,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_2_0,0,0,DIALOG_ANIMATION_TALK,Well. See you there!,Bueno. Nos vemos pronto!
 112,PHRASE_DIALOG_ARTURO_HALL_INN_INTRO_0,0,0,DIALOG_ANIMATION_TALK,I'm happy to see you in a better state!,Me alegro de verte en mejor estado
 113,PHRASE_DIALOG_ARTURO_HALL_INN_INTRO_1,1,0,DIALOG_ANIMATION_TALK,I really appreciate your help this night,Agradezco en verdad tu ayuda esta noche
-114,PHRASE_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL,0,0,DIALOG_ANIMATION_TALK,An annotation which said <<Less tales and more bread>>. Maybe it was only a coloquialism,Una inscripción que decía <<Menos cuento y más pan>>. Quizá solo sea una frase dicha
-115,PHRASE_DIALOG_LAST,0,0,DIALOG_ANIMATION_TALK,Last one,Last one
+114,PHRASE_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL_BLURR,0,0,DIALOG_ANIMATION_TALK,It seems something was written over the invitation and a relief remains. Maybe I could guess what was written,Parece que se escribió algo sobre la invitación y queda algo de relieve. Quizá pudiera averiguar qué se escribió
+115,PHRASE_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL,0,0,DIALOG_ANIMATION_TALK,An annotation which said <<Less tales and more bread>>. Maybe it was only a coloquialism,Una inscripción que decía <<Menos cuento y más pan>>. Quizá solo sea una frase dicha
+116,PHRASE_OBSERVE_ITEM_PHARMACY_INKWELL,0,0,DIALOG_ANIMATION_TALK,It's an inkwell which pharmacist uses,Es un bote de tinta que usa el farmacéutico
+117,PHRASE_OBSERVE_ITEM_PHARMACY_INK,0,0,DIALOG_ANIMATION_TALK,When inkwell flipped left a drop of ink,El bote al volcar dejó un charco de tinta
+118,PHRASE_DIALOG_LAST,0,0,DIALOG_ANIMATION_TALK,Last one,Last one

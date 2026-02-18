@@ -279,6 +279,10 @@ PrefabInstance:
       value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 2757196565734091061, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: hoverPriority
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757196565734091061, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: startingWaypoint
       value: 
       objectReference: {fileID: 490060889}
@@ -345,6 +349,14 @@ PrefabInstance:
     - target: {fileID: 6869328664999452173, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].y
       value: -0.14972304
+      objectReference: {fileID: 0}
+    - target: {fileID: 7615836467117073131, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: m_Size.x
+      value: 2.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 7615836467117073131, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: m_Size.y
+      value: 1.04
       objectReference: {fileID: 0}
     - target: {fileID: 7615836467117073131, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: m_Sprite
@@ -485,11 +497,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7958157023190005571, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.8
+      value: -9.11
       objectReference: {fileID: 0}
     - target: {fileID: 7958157023190005571, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.28
+      value: -4.49
       objectReference: {fileID: 0}
     - target: {fileID: 7958157023190005571, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -786,6 +798,10 @@ PrefabInstance:
     - target: {fileID: 2757196565734091061, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: itemID
       value: 37
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757196565734091061, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: hoverPriority
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2757196565734091061, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: startingWaypoint
@@ -2335,6 +2351,14 @@ PrefabInstance:
       value: 3.14
       objectReference: {fileID: 0}
     - target: {fileID: 7615836467117073131, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: m_Size.x
+      value: 2.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 7615836467117073131, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: m_Size.y
+      value: 3.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7615836467117073131, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 0}
@@ -2404,7 +2428,7 @@ PolygonCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 2.76, y: 3.14}
-    newSize: {x: 0.32, y: 0.33}
+    newSize: {x: 2.76, y: 3.14}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

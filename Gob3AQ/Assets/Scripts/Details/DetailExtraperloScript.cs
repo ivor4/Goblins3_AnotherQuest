@@ -1,3 +1,4 @@
+using Gob3AQ.VARMAP.GameMenu;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.VARMAP.Types.Delegates;
 using System;
@@ -14,9 +15,13 @@ namespace Gob3AQ.GameMenu.DetailActiveElem
 
     public class DetailExtraperloScript : MonoBehaviour, IDetailScript
     {
+        private static readonly Color DETAIL_SHOWN = new(1.0f, 1.0f, 1.0f, 1.0f);
+        private static readonly Color DETAIL_HIDDEN = new(1.0f, 1.0f, 1.0f, 0.1f);
+
         private GameObject forward;
         private GameObject backward;
         private Button flipButton;
+        private Image activeElemImage;
         private bool isFlipped;
         private DetailActiveElemScript activeElemScript;
         private DISPLAYED_ITEM_CLICK itemClickAction;
@@ -29,6 +34,7 @@ namespace Gob3AQ.GameMenu.DetailActiveElem
             backward = transform.Find("BACKWARD").gameObject;
             flipButton = transform.Find("FlipButton").GetComponent<Button>();
             activeElemScript = backward.transform.Find("ObserveElem").GetComponent<DetailActiveElemScript>();
+            activeElemImage = activeElemScript.gameObject.GetComponent<Image>();
 
             flipButton.onClick.AddListener(Flip);
 
@@ -37,11 +43,29 @@ namespace Gob3AQ.GameMenu.DetailActiveElem
 
             activeElemScript.SetClickCall(ObserveElemClick);
             activeElemScript.SetHoverCall(ObserveElemHover);
+
+            RefreshActiveElemDetail();
         }
 
         private void ObserveElemClick(GameItem item)
         {
             itemClickAction(item);
+        }
+
+        private void RefreshActiveElemDetail()
+        {
+            Span<GameEventCombi> gameEventCombi = stackalloc GameEventCombi[1] { new(GameEvent.EVENT_INVITATION_REVEALED, false)};
+            VARMAP_GameMenu.IS_EVENT_COMBI_OCCURRED(gameEventCombi, out bool occurred);
+
+
+            if(occurred)
+            {
+                activeElemImage.color = DETAIL_SHOWN;
+            }
+            else
+            {
+                activeElemImage.color = DETAIL_HIDDEN;
+            }
         }
 
         private void ObserveElemHover(GameItem item, bool enter)

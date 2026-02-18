@@ -126,6 +126,16 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new DialogOption[1]{DialogOption.DIALOG_ARTURO_HALL_INN_OPTION_INTRO, }
             ),
             
+            new( /* DIALOG_PHARMACIST_NOT_TAKE_INKWELL */
+            new GameItem[1]{GameItem.ITEM_PHARMACY_NPC_OWNER,},
+            new DialogOption[1]{DialogOption.DIALOG_PHARMACIST_NOT_TAKE_INKWELL_OPTION_INTRO, }
+            ),
+            
+            new( /* DIALOG_USE_UMBRELLA_WITH_INKWELL */
+            new GameItem[1]{GameItem.ITEM_NONE,},
+            new DialogOption[1]{DialogOption.DIALOG_OPTION_USE_UMBRELLA_WITH_INKWELL, }
+            ),
+            
             new( /* DIALOG_LAST */
             new GameItem[1]{GameItem.ITEM_NONE,},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE, }
@@ -312,6 +322,20 @@ namespace Gob3AQ.ResourceDialogsAtlas
             DialogType.DIALOG_ARTURO_HALL_INN,false,
             new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_INTRO_0, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_INTRO_1, }
             ),
+            new( /* DIALOG_PHARMACIST_NOT_TAKE_INKWELL_OPTION_INTRO */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            MomentType.MOMENT_ANY,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            DialogType.DIALOG_NONE,false,
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_PHARMACIST_NOT_TAKE_INKWELL_INTRO, }
+            ),
+            new( /* DIALOG_OPTION_USE_UMBRELLA_WITH_INKWELL */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            MomentType.MOMENT_ANY,
+            new GameEventCombi[1]{new(GameEvent.EVENT_INKWELL_WASTED, false), },
+            DialogType.DIALOG_NONE,false,
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_USE_UMBRELLA_WITH_INKWELL, }
+            ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
             MomentType.MOMENT_ANY,
@@ -442,6 +466,8 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_OBSERVE_ITEM_PHARMACY_INKWELL */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_OBSERVE_ITEM_PHARMACY_INK */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_PHARMACIST_NOT_TAKE_INKWELL_INTRO */ 
+            new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_USE_UMBRELLA_WITH_INKWELL */ 
             new(0,0, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

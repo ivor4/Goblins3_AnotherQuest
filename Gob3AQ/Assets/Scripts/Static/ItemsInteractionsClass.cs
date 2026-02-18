@@ -801,6 +801,34 @@ namespace Gob3AQ.Brain.ItemsInteraction
             DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_PHARMACY_INK,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
             
+            new( /* COND_TAKE_INKWELL_NOT_1 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_OBSERVED_INVITATION_RELIEF, true),}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
+            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
+            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NO_REASON_TO_DO,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
+            new( /* COND_TAKE_INKWELL_NOT_2 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_OBSERVED_INVITATION_RELIEF, false),}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
+            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
+            DialogType.DIALOG_PHARMACIST_NOT_TAKE_INKWELL,DialogPhrase.PHRASE_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_INKWELL_NOT_TOUCH_WARN, false),}), 
+            
+            new( /* COND_TAKE_INKWELL_NOT_3 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_OBSERVED_INVITATION_RELIEF, false),}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_EXTRAPERLO_INVITATION,ItemInteractionType.INTERACTION_USE,
+            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
+            DialogType.DIALOG_PHARMACIST_NOT_TAKE_INKWELL,DialogPhrase.PHRASE_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_INKWELL_NOT_TOUCH_WARN, false),}), 
+            
+            new( /* COND_USE_UMBRELLA_INKWELL */
+            new GameEventCombi[1]{new(GameEvent.EVENT_INKWELL_NOT_TOUCH_WARN, false),}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_CITY1_UMBRELLA,ItemInteractionType.INTERACTION_USE,
+            CharacterAnimation.ITEM_USE_ANIMATION_POUR,
+            DialogType.DIALOG_USE_UMBRELLA_WITH_INKWELL,DialogPhrase.PHRASE_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,
@@ -1000,12 +1028,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_EXTRAPERLO_INVITATION_DETAIL */
             NameType.NAME_ANNOTATION,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK,}),
             GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
-            new(new HashSet<ActionConditions>(1){ActionConditions.COND_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL,})),
+            new(new HashSet<ActionConditions>(1){ActionConditions.COND_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL_1,})),
             
             new ( /* ITEM_PHARMACY_INKWELL */
             NameType.NAME_INKWELL,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PHARMACY_INKWELL_NORMAL,}),
             GameSprite.SPRITE_PHARMACY_INKWELL_NORMAL,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
-            new(new HashSet<ActionConditions>(1){ActionConditions.COND_OBSERVE_ITEM_PHARMACY_INKWELL,})),
+            new(new HashSet<ActionConditions>(5){ActionConditions.COND_OBSERVE_ITEM_PHARMACY_INKWELL,ActionConditions.COND_TAKE_INKWELL_NOT_1,ActionConditions.COND_TAKE_INKWELL_NOT_2,ActionConditions.COND_TAKE_INKWELL_NOT_3,ActionConditions.COND_USE_UMBRELLA_INKWELL,})),
             
             new ( /* ITEM_PHARMACY_INK */
             NameType.NAME_INK,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PHARMACY_INKWELL_WASTED,}),

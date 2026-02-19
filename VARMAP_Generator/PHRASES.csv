@@ -119,4 +119,8 @@
 117,PHRASE_OBSERVE_ITEM_PHARMACY_INK,0,0,DIALOG_ANIMATION_TALK,When inkwell flipped left a drop of ink,El bote al volcar dejó un charco de tinta
 118,PHRASE_DIALOG_PHARMACIST_NOT_TAKE_INKWELL_INTRO,0,0,DIALOG_ANIMATION_TALK,Don't annoy and don't lift my things!,No molestes ni cojas cosas que no son tuyas!
 119,PHRASE_DIALOG_USE_UMBRELLA_WITH_INKWELL,0,0,DIALOG_ANIMATION_TALK,Maybe if I reach it from far with umbrella...,Quizá si lo alcanzo de lejos con el paraguas...
-120,PHRASE_DIALOG_LAST,0,0,DIALOG_ANIMATION_TALK,Last one,Last one
+120,PHRASE_DIALOG_USE_UMBRELLA_WITH_INKWELL_OWNER,0,0,DIALOG_ANIMATION_TALK,Stop doing things! IDIOT,Estate quieto! IMBÉCIL
+121,PHRASE_DIALOG_USE_UMBRELLA_WITH_INKWELL_OWNER_2,0,0,DIALOG_ANIMATION_TALK,Are you swipping this?,Lo vas a fregar tú?
+122,PHRASE_USE_INVITATION_WITH_INK,0,0,DIALOG_ANIMATION_TALK,Maybe ink could reveal that annotation,Quizá la tinta revele la anotación
+123,PHRASE_USE_INVITATION_WITH_INK_ALREADY,0,0,DIALOG_ANIMATION_TALK,It has enough ink,Ya tiene suficiente tinta
+124,PHRASE_DIALOG_LAST,0,0,DIALOG_ANIMATION_TALK,Last one,Last one

@@ -1,5 +1,4 @@
 using Gob3AQ.FixedConfig;
-using Gob3AQ.Libs.Arith;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceDialogs;
 using Gob3AQ.ResourceSprites;

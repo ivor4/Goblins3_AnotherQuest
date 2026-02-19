@@ -37,6 +37,7 @@ namespace Gob3AQ.ResourceDialogs
             {
                 _cachedPhrasesFinder.Clear();
                 _cachedNamesFinder.Clear();
+                _language = DialogLanguages.DIALOG_LANG_NONE;
             }
         }
 

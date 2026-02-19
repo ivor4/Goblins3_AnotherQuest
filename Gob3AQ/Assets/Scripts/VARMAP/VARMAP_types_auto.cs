@@ -86,9 +86,9 @@ namespace Gob3AQ.VARMAP.Types
         /* > ATG 6 START < */
         ITEM_FAMILY_TYPE_NONE = -1, 
         ITEM_FAMILY_TYPE_DOOR, 
-        ITEM_FAMILY_TYPE_OBJECT, 
-        ITEM_FAMILY_TYPE_NPC, 
         ITEM_FAMILY_TYPE_PLAYER, 
+        ITEM_FAMILY_TYPE_NPC, 
+        ITEM_FAMILY_TYPE_OBJECT, 
         
         ITEM_FAMILY_TYPE_TOTAL
         /* > ATG 6 END < */

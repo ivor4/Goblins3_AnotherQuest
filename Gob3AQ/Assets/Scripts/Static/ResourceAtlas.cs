@@ -267,6 +267,33 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }) 
             ),
             
+            new( /* CITY1_SOUTH_STREET_1 */
+            new GameSprite[2]{GameSprite.BACKGROUND_CITY1_SOUTH_STREET_1, GameSprite.BACKGROUND_CITY1_SOUTH_STREET_1_NIGHT, },
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_CITY1_SOUTH_STREET_1, GameSprite.BACKGROUND_CITY1_SOUTH_STREET_1_NIGHT, }), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(1){GameItem.ITEM_GENERIC_DOOR1, }), 
+            new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
+            new ReadOnlyHashSet<ActionConditions>(new HashSet<ActionConditions>(1){ActionConditions.COND_OK, }), 
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }) 
+            ),
+            
+            new( /* CITY1_SOUTH_STREET_2 */
+            new GameSprite[2]{GameSprite.BACKGROUND_CITY1_SOUTH_STREET_2, GameSprite.BACKGROUND_CITY1_SOUTH_STREET_2_NIGHT, },
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_CITY1_SOUTH_STREET_2, GameSprite.BACKGROUND_CITY1_SOUTH_STREET_2_NIGHT, }), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(1){GameItem.ITEM_GENERIC_DOOR1, }), 
+            new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
+            new ReadOnlyHashSet<ActionConditions>(new HashSet<ActionConditions>(1){ActionConditions.COND_OK, }), 
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }) 
+            ),
+            
+            new( /* CITY1_EXTRAPERLO1 */
+            new GameSprite[2]{GameSprite.BACKGROUND_CITY1_EXTRAPERLO, GameSprite.BACKGROUND_CITY1_EXTRAPERLO, },
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_CITY1_EXTRAPERLO, GameSprite.BACKGROUND_CITY1_EXTRAPERLO, }), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(1){GameItem.ITEM_GENERIC_DOOR1, }), 
+            new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
+            new ReadOnlyHashSet<ActionConditions>(new HashSet<ActionConditions>(1){ActionConditions.COND_OK, }), 
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }) 
+            ),
+            
             new( /* ROOM_LAST */
             new GameSprite[1]{GameSprite.SPRITE_NONE, },
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST, }), 

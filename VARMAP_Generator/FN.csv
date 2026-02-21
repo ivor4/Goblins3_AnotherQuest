@@ -2,7 +2,7 @@
 ITEM_PHARMACY_INK,NAME_INK,SPRITE_PHARMACY_INKWELL_WASTED,False,False,CHARACTER_MAIN,El bote al volcar dejó un charco de tinta,Créeme que se daría cuenta si lo cojo,PHARMACY_1,
 ,,,,,,,,,
 NewRoom,Background,BackgroundNight,Output,,,,,,
-HIVE1_BACKALLEY,BACKGROUND_BACKALLEY,BACKGROUND_BACKALLEY_NIGHT,,,,,,,
+CITY1_EXTRAPERLO1,BACKGROUND_CITY1_EXTRAPERLO,BACKGROUND_CITY1_EXTRAPERLO,,,,,,,
 ,,,,,,,,,
 NewDialog,IntroPhrase,Talkers,Option1,Option2,Option3,Option4,Option5,Option6,
 DIALOG_PHARMACIST_NOT_TAKE_INKWELL,No molestes ni cojas cosas que no son tuyas!,ITEM_PHARMACY_NPC_OWNER,,,,,,,

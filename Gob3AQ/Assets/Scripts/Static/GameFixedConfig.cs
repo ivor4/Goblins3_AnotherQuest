@@ -79,7 +79,10 @@ namespace Gob3AQ.FixedConfig
             "SCENE_CITY1_STREET_2",
             "SCENE_PHARMACY1",
             "SCENE_MANYO1",
-            "SCENE_HIVE1_BACKALLEY"
+            "SCENE_HIVE1_BACKALLEY",
+            "SCENE_CITY1_SOUTH_STREET_1",
+            "SCENE_CITY1_SOUTH_STREET_2",
+            "SCENE_EXTRAPERLO",
         };
         
     }

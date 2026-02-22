@@ -25,11 +25,13 @@ modules_types_path = atg_path + "VARMAP_types_modules.cs"
 items_types_path = atg_path + "VARMAP_types_items.cs"
 names_types_path = atg_path + "VARMAP_types_names.cs"
 sprite_types_path = atg_path + "VARMAP_types_sprites.cs"
+sound_types_path = atg_path + "VARMAP_types_sounds.cs"
 event_types_path = atg_path + "VARMAP_types_events.cs"
 items_interaction_path = atg_path + "../Static/ItemsInteractionsClass.cs"
 dialog_atlas_path = atg_path + "../Static/ResourceDialogsAtlas.cs"
 decision_atlas_path = atg_path + "../Static/ResourceDecisionsAtlas.cs"
 sprite_atlas_path = atg_path + "../Static/ResourceSpritesAtlas.cs"
+sound_atlas_path = atg_path + "../Static/ResourceSoundsAtlas.cs"
 room_atlas_path = atg_path + "../Static/ResourceAtlas.cs"
 
 MODULES_START_COLUMN = 8
@@ -121,6 +123,7 @@ names_lines = ATGFile(names_text_path, 0)
 rooms_types_lines = ATGFile(rooms_types_path, 1)
 names_types_lines = ATGFile(names_types_path, 1)
 sprite_types_lines = ATGFile(sprite_types_path, 1)
+sound_types_lines = ATGFile(sound_types_path, 1)
 event_types_lines = ATGFile(event_types_path, 4)
 modules_types_lines = ATGFile(modules_types_path, 1)
 items_types_lines = ATGFile(items_types_path, 5)
@@ -128,6 +131,7 @@ items_interaction_lines = ATGFile(items_interaction_path, 9)
 dialog_atlas_lines = ATGFile(dialog_atlas_path, 3)
 decision_atlas_lines = ATGFile(decision_atlas_path, 2)
 sprite_atlas_lines = ATGFile(sprite_atlas_path, 1)
+sound_atlas_lines = ATGFile(sound_atlas_path, 1)
 room_atlas_lines = ATGFile(room_atlas_path, 1)
 
 
@@ -149,6 +153,7 @@ PHRASESinputFile = open("PHRASES.csv", "r")
 ROOMSinputFile = open("ROOMS.csv", "r")
 NAMESinputFile = open("NAMES.csv", "r")
 SPRITESinputFile = open("SPRITES.csv", "r")
+SOUNDSinputFile = open("SOUNDS.csv", "r")
 EVENTSinputFile = open("EVENTS.csv", "r")
 DETAILSinputFile = open("DETAILS.csv", "r")
 
@@ -695,6 +700,7 @@ phrase_prefix = 'DialogPhrase.'
 item_prefix = 'GameItem.'
 room_prefix = 'Room.'
 sprite_prefix = 'GameSprite.'
+sound_prefix = 'GameSound.'
 name_prefix = 'NameType.'
 family_prefix = 'GameItemFamily.'
 unchain_type_prefix = 'UnchainType.'
@@ -1012,13 +1018,22 @@ for line in ROOMSinputFile:
         options = columns[6].split('|')
         num_options = len(options)
             
+        stringToWrite = 'new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>('+str(num_options)+'){'
+        for _option in options:
+            stringToWrite += sound_prefix + _option + ', '
+        stringToWrite += '}), \n'
+        room_atlas_lines.InsertLineInATG(1, stringToWrite)
+        
+        options = columns[7].split('|')
+        num_options = len(options)
+            
         stringToWrite = 'new ReadOnlyHashSet<ActionConditions>(new HashSet<ActionConditions>('+str(num_options)+'){'
         for _option in options:
             stringToWrite += conditiontype_prefix + _option + ', '
         stringToWrite += '}), \n'
         room_atlas_lines.InsertLineInATG(1, stringToWrite)
         
-        options = columns[7].split('|')
+        options = columns[8].split('|')
         num_options = len(options)
             
         stringToWrite = 'new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>('+str(num_options)+'){'
@@ -1454,6 +1469,43 @@ stringToWrite = 'SPRITE_TOTAL\n'
 sprite_types_lines.InsertLineInATG(1, stringToWrite)
 
 
+
+
+print('\n\n------SOUNDS (Custom GOB3) -------\n\n')
+linecount = -1
+zone = 1
+
+for line in SOUNDSinputFile:
+    linecount += 1
+    
+    line = line.replace('\n','')
+    line = line.replace('\r','')
+    
+    
+    columns = line.split(',')
+    print(columns)
+
+    if(linecount == 0):
+        continue
+    
+    
+    stringToWrite = columns[1]
+    if('NONE' in columns[1]):
+        stringToWrite += ' = -1'
+    stringToWrite += ', \n'
+    sound_types_lines.InsertLineInATG(1, stringToWrite)
+    
+    if(not 'NONE' in columns[1]):        
+        stringToWrite = 'new("'+columns[2]+'"), /* '+columns[1]+' */ \n'
+        sound_atlas_lines.InsertLineInATG(1, stringToWrite)
+
+    
+stringToWrite = '\n'
+sound_types_lines.InsertLineInATG(1, stringToWrite)
+stringToWrite = 'SOUND_TOTAL\n'
+sound_types_lines.InsertLineInATG(1, stringToWrite)
+
+
 print('\n\n------EVENTS (Custom GOB3) -------\n\n')
 linecount = -1
 zone = 1
@@ -1636,6 +1688,7 @@ PHRASESinputFile.close()
 ROOMSinputFile.close()
 NAMESinputFile.close()
 SPRITESinputFile.close()
+SOUNDSinputFile.close()
 
 
 
@@ -1668,7 +1721,9 @@ dialog_atlas_lines.SaveFile()
 decision_atlas_lines.SaveFile()
 names_types_lines.SaveFile()
 sprite_types_lines.SaveFile()
+sound_types_lines.SaveFile()
 event_types_lines.SaveFile()
 sprite_atlas_lines.SaveFile()
+sound_atlas_lines.SaveFile()
 room_atlas_lines.SaveFile()
 

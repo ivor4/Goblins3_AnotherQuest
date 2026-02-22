@@ -9,6 +9,7 @@ namespace Gob3AQ.VARMAP.Types
         MODULE_InputMaster,
         MODULE_LevelMaster,
         MODULE_GraphicsMaster,
+        MODULE_SoundMaster,
         MODULE_GameMenu,
         MODULE_PlayerMaster,
         MODULE_ItemMaster,

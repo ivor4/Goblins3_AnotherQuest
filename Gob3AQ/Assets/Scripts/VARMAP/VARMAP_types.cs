@@ -75,6 +75,20 @@ namespace Gob3AQ.VARMAP.Types
         PREFAB_TOTAL
     }
 
+    public readonly struct InitialWalkInfo
+    {
+        public readonly byte waypointFrom;
+        public readonly byte waypointTo;
+
+        public static readonly InitialWalkInfo EMPTY = new(0, 0);
+
+        public InitialWalkInfo(byte from, byte to)
+        {
+            waypointFrom = from;
+            waypointTo = to;
+        }
+    }
+
     public readonly struct DoorInfo : IEquatable<DoorInfo>
     {
         public readonly Room roomLeadTo;
@@ -144,6 +158,7 @@ namespace Gob3AQ.VARMAP.Types
         public readonly ReadOnlyHashSet<GameSprite> sprites;
         public readonly ReadOnlyHashSet<DialogPhrase> phrases;
         public readonly ReadOnlyHashSet<GameItem> items;
+        public readonly ReadOnlyHashSet<GameSound> sounds;
         public readonly ReadOnlyHashSet<NameType> names;
         public readonly ReadOnlyHashSet<ActionConditions> actionConditions;
 
@@ -151,10 +166,11 @@ namespace Gob3AQ.VARMAP.Types
 
         public static readonly RoomInfo EMPTY = new(new GameSprite[0],new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(0)),
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(0)), new ReadOnlyHashSet<NameType>(new HashSet<NameType>(0)),
+                new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(0)),
             new ReadOnlyHashSet<ActionConditions>(new HashSet<ActionConditions>(0)), new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(0)));
 
         public RoomInfo(GameSprite[] backgrounds, ReadOnlyHashSet<GameSprite> sprites,
-            ReadOnlyHashSet<GameItem> items, ReadOnlyHashSet<NameType> names, 
+            ReadOnlyHashSet<GameItem> items, ReadOnlyHashSet<NameType> names, ReadOnlyHashSet<GameSound> sounds,
             ReadOnlyHashSet<ActionConditions> actionConditions, ReadOnlyHashSet<DialogPhrase> phrases)
         {
             this.backgrounds = backgrounds;
@@ -162,6 +178,7 @@ namespace Gob3AQ.VARMAP.Types
             this.phrases = phrases;
             this.items = items;
             this.names = names;
+            this.sounds = sounds;
             this.actionConditions = actionConditions;
         }
     }
@@ -173,6 +190,17 @@ namespace Gob3AQ.VARMAP.Types
         public static readonly SpriteConfig EMPTY = new(string.Empty);
 
         public SpriteConfig(string path)
+        {
+            this.path = path;
+        }
+    }
+
+    public readonly struct SoundConfig
+    {
+        public readonly string path;
+        public static readonly SoundConfig EMPTY = new(string.Empty);
+
+        public SoundConfig(string path)
         {
             this.path = path;
         }

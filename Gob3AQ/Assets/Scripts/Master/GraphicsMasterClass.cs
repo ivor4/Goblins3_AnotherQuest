@@ -19,9 +19,6 @@ namespace Gob3AQ.GraphicsMaster
         [SerializeField]
         private GameObject UICanvas;
 
-        [SerializeField]
-        private GameObject EventSystem;
-
         private ZOOM_CHANGED_DELEGATE zoomChangedDelegates;
 
         private static GraphicsMasterClass _singleton;

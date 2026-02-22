@@ -184,14 +184,14 @@ namespace Gob3AQ.VARMAP
         /// <summary> 
         /// This service is called when whole room has been loaded
         /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, ItemMaster, GameEventMaster,  </para> 
+        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, PlayerMaster, ItemMaster, GameEventMaster,  </para> 
         /// <para> Method: <see cref="GameMasterClass.LoadingCompletedService"/> </para> 
         /// </summary>
         protected static LODING_COMPLETED_DELEGATE _MODULE_LOADING_COMPLETED;
         /// <summary> 
         /// This service returns a bool which tells if given module has been loaded in Room Loading Process
         /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, GameMenu, PlayerMaster, ItemMaster, GameEventMaster,  </para> 
+        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, PlayerMaster, ItemMaster, GameEventMaster,  </para> 
         /// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
         /// </summary>
         protected static IS_MODULE_LOADED_DELEGATE _IS_MODULE_LOADED;

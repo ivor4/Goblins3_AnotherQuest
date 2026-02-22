@@ -1,6 +1,7 @@
 using Gob3AQ.FixedConfig;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceDialogs;
+using Gob3AQ.ResourceSounds;
 using Gob3AQ.ResourceSprites;
 using Gob3AQ.VARMAP.GameMaster;
 using Gob3AQ.VARMAP.Initialization;
@@ -269,9 +270,13 @@ namespace Gob3AQ.GameMaster
             /* Load texts (base Room) */
             Coroutine dialogsCoroutine = StartCoroutine(ResourceDialogsClass.PreloadTextsCoroutine(DialogLanguages.DIALOG_LANG_SPANISH));
 
+            /* Load sounds (base Room) */
+            Coroutine soundsCoroutine = StartCoroutine(ResourceSoundsClass.PreloadRoomSoundsCoroutine(Room.ROOM_NONE));
+
             yield return spritesCoroutine;
             yield return prefabsCoroutine;
             yield return dialogsCoroutine;
+            yield return soundsCoroutine;
 
             /* Prepare for next scene loading process bitfield */
             moduleLoadingDone = 0;
@@ -399,6 +404,7 @@ namespace Gob3AQ.GameMaster
         {
             ResourceDialogsClass.Initialize();
             ResourceSpritesClass.Initialize();
+            ResourceSoundsClass.Initialize();
             ResourceAtlasClass.Initialize();
         }
 
@@ -430,11 +436,15 @@ namespace Gob3AQ.GameMaster
             /* Load sprites */
             Coroutine spritesCoroutine = StartCoroutine(ResourceSpritesClass.PreloadRoomSpritesCoroutine(room));
 
+            /* Load sounds */
+            Coroutine soundsCoroutine = StartCoroutine(ResourceSoundsClass.PreloadRoomSoundsCoroutine(room));
+
             /* Load prefabs */
             Coroutine prefabsCoroutine = StartCoroutine(ResourceAtlasClass.PreloadPrefabsCoroutine(room));
 
             yield return dialogsCoroutine;
             yield return spritesCoroutine;
+            yield return soundsCoroutine;
             yield return prefabsCoroutine;
 
             _SetGameStatus(Game_Status.GAME_STATUS_LOADING);
@@ -498,6 +508,7 @@ namespace Gob3AQ.GameMaster
             if (fullclear)
             {
                 ResourceSpritesClass.UnloadUsedSprites(true);
+                ResourceSoundsClass.UnloadUsedSounds(true);
                 ResourceDialogsClass.UnloadUsedTexts(true);
                 ResourceAtlasClass.UnloadUnusedPrefabs(true);
 

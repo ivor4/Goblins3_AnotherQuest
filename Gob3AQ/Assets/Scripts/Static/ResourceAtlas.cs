@@ -218,46 +218,51 @@ namespace Gob3AQ.ResourceAtlas
             /* > ATG 1 START < */
             new( /* HIVE1_ROOM_1 */
             new GameSprite[1]{GameSprite.BACKGROUND_HIVE1_ROOM1, },
+            GameSound.MUSIC_GARDEN,
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_HIVE1_ROOM1, GameSprite.SPRITE_ITEM_DECO_BED_LAYER, }), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(8){GameItem.ITEM_CARDS_PICKABLE, GameItem.ITEM_HIVE1_CHEST, GameItem.ITEM_HIVE1_WARDROBE, GameItem.ITEM_HIVE1_WARDROBE_OPENED, GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_HIVE1_PERFUME, GameItem.ITEM_SOAP_PICKABLE, GameItem.ITEM_HIVE1_BED, }), 
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
-            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.SOUND_NONE, }), 
+            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_GARDEN, }), 
             new ReadOnlyHashSet<ActionConditions>(new HashSet<ActionConditions>(1){ActionConditions.COND_OK, }), 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(4){DialogPhrase.PHRASE_NONSENSE, DialogPhrase.PHRASE_DECISION_NOT_SLEEP, DialogPhrase.PHRASE_DECISION_SLEEP_NAP, DialogPhrase.PHRASE_DECISION_SLEEP_LONG, }) 
             ),
             
             new( /* HIVE1_CORRIDOR_1 */
             new GameSprite[2]{GameSprite.BACKGROUND_HIVE1_CORRIDOR1, GameSprite.BACKGROUND_HIVE1_CORRIDOR1_N, },
+            GameSound.MUSIC_GARDEN,
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_HIVE1_CORRIDOR1, GameSprite.BACKGROUND_HIVE1_CORRIDOR1_N, }), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(2){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_HIVE1_NPC_REME, }), 
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
-            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.SOUND_NONE, }), 
+            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_GARDEN, }), 
             new ReadOnlyHashSet<ActionConditions>(new HashSet<ActionConditions>(1){ActionConditions.COND_OK, }), 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }) 
             ),
             
             new( /* HIVE1_HALL_1 */
             new GameSprite[2]{GameSprite.BACKGROUND_HIVE1_HALL1, GameSprite.BACKGROUND_HIVE1_HALL1_N, },
+            GameSound.MUSIC_GARDEN,
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_HIVE1_HALL1, GameSprite.BACKGROUND_HIVE1_HALL1_N, }), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(7){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_GENERIC_DOOR2, GameItem.ITEM_HIVE1_AD_BOARD, GameItem.ITEM_HIVE1_EXIT_DOOR, GameItem.ITEM_HIVE1_POOR_MAN_WC, GameItem.ITEM_HIVE1_SHOELACE, GameItem.ITEM_HIVE1_MAN_WC_CURED, }), 
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
-            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.SOUND_NONE, }), 
+            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_GARDEN, }), 
             new ReadOnlyHashSet<ActionConditions>(new HashSet<ActionConditions>(1){ActionConditions.COND_DIALOGUE_POOR_MAN_WC_BCKG, }), 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }) 
             ),
             
             new( /* HIVE1_WC_1 */
             new GameSprite[2]{GameSprite.BACKGROUND_HIVE1_WC, GameSprite.BACKGROUND_HIVE1_WC_N, },
+            GameSound.MUSIC_GARDEN,
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_HIVE1_WC, GameSprite.BACKGROUND_HIVE1_WC_N, }), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(5){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_HIVE1_BASIN, GameItem.ITEM_HIVE1_POOR_MAN_WC, GameItem.ITEM_HIVE1_ROACH_HEAD, GameItem.ITEM_HIVE1_PIPE, }), 
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
-            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.SOUND_NONE, }), 
+            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_GARDEN, }), 
             new ReadOnlyHashSet<ActionConditions>(new HashSet<ActionConditions>(1){ActionConditions.COND_DIALOGUE_POOR_MAN_WC_BCKG, }), 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }) 
             ),
             
             new( /* CITY1_STREET_1 */
             new GameSprite[2]{GameSprite.BACKGROUND_CITY1_STREET1, GameSprite.BACKGROUND_CITY1_STREET1_N, },
+            GameSound.SOUND_NONE,
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_CITY1_STREET1, GameSprite.BACKGROUND_CITY1_STREET1_N, }), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(3){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_STREET1_STH_DOOR, GameItem.ITEM_STREET1_CENTER_DOOR, }), 
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
@@ -268,6 +273,7 @@ namespace Gob3AQ.ResourceAtlas
             
             new( /* CITY1_STREET_2 */
             new GameSprite[2]{GameSprite.BACKGROUND_CITY1_STREET2, GameSprite.BACKGROUND_CITY1_STREET2_N, },
+            GameSound.SOUND_NONE,
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_CITY1_STREET2, GameSprite.BACKGROUND_CITY1_STREET2_N, }), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(3){GameItem.ITEM_STREET2_PERIPH_DOOR, GameItem.ITEM_PHARMACY_DOOR, GameItem.ITEM_ELMANYO_DOOR, }), 
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
@@ -278,6 +284,7 @@ namespace Gob3AQ.ResourceAtlas
             
             new( /* PHARMACY_1 */
             new GameSprite[1]{GameSprite.BACKGROUND_PHARMACY1, },
+            GameSound.SOUND_NONE,
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_PHARMACY1, }), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(5){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_PHARMACY_NPC_QUEUE, GameItem.ITEM_PHARMACY_NPC_OWNER, GameItem.ITEM_PHARMACY_INKWELL, GameItem.ITEM_PHARMACY_INK, }), 
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
@@ -288,6 +295,7 @@ namespace Gob3AQ.ResourceAtlas
             
             new( /* MANYO_1 */
             new GameSprite[2]{GameSprite.BACKGROUND_CITY1_MANYO, GameSprite.BACKGROUND_CITY1_MANYO_NIGHT, },
+            GameSound.SOUND_NONE,
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_CITY1_MANYO, GameSprite.BACKGROUND_CITY1_MANYO_NIGHT, }), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(6){GameItem.ITEM_CITY1_UMBRELLA, GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_ELMANYO_OWNER, GameItem.ITEM_STUFFED_DEER, GameItem.ITEM_ELMANYO_OWNER_NIGHT, GameItem.ITEM_ELMANYO_CROWD, }), 
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
@@ -298,6 +306,7 @@ namespace Gob3AQ.ResourceAtlas
             
             new( /* HIVE1_BACKALLEY */
             new GameSprite[2]{GameSprite.BACKGROUND_BACKALLEY, GameSprite.BACKGROUND_BACKALLEY_NIGHT, },
+            GameSound.SOUND_NONE,
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_BACKALLEY, GameSprite.BACKGROUND_BACKALLEY_NIGHT, }), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(4){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_HIVE1_VALVE_BOX, GameItem.ITEM_HIVE1_BACKALLEY_PIPE, GameItem.ITEM_HIVE1_VALVE, }), 
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
@@ -308,6 +317,7 @@ namespace Gob3AQ.ResourceAtlas
             
             new( /* CITY1_SOUTH_STREET_1 */
             new GameSprite[2]{GameSprite.BACKGROUND_CITY1_SOUTH_STREET_1, GameSprite.BACKGROUND_CITY1_SOUTH_STREET_1_NIGHT, },
+            GameSound.SOUND_NONE,
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_CITY1_SOUTH_STREET_1, GameSprite.BACKGROUND_CITY1_SOUTH_STREET_1_NIGHT, }), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(1){GameItem.ITEM_GENERIC_DOOR1, }), 
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
@@ -318,6 +328,7 @@ namespace Gob3AQ.ResourceAtlas
             
             new( /* CITY1_SOUTH_STREET_2 */
             new GameSprite[2]{GameSprite.BACKGROUND_CITY1_SOUTH_STREET_2, GameSprite.BACKGROUND_CITY1_SOUTH_STREET_2_NIGHT, },
+            GameSound.SOUND_NONE,
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_CITY1_SOUTH_STREET_2, GameSprite.BACKGROUND_CITY1_SOUTH_STREET_2_NIGHT, }), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(1){GameItem.ITEM_GENERIC_DOOR1, }), 
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
@@ -328,6 +339,7 @@ namespace Gob3AQ.ResourceAtlas
             
             new( /* CITY1_EXTRAPERLO1 */
             new GameSprite[2]{GameSprite.BACKGROUND_CITY1_EXTRAPERLO, GameSprite.BACKGROUND_CITY1_EXTRAPERLO, },
+            GameSound.SOUND_NONE,
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_CITY1_EXTRAPERLO, GameSprite.BACKGROUND_CITY1_EXTRAPERLO, }), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(1){GameItem.ITEM_GENERIC_DOOR1, }), 
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
@@ -338,6 +350,7 @@ namespace Gob3AQ.ResourceAtlas
             
             new( /* ROOM_LAST */
             new GameSprite[1]{GameSprite.SPRITE_NONE, },
+            GameSound.SOUND_NONE,
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST, }), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(1){GameItem.ITEM_LAST, }), 
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 

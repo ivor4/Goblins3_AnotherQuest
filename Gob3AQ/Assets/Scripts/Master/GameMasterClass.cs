@@ -33,6 +33,7 @@ namespace Gob3AQ.GameMaster
         private static bool saveGamePending;
         private static Room loadScenePending;
         private static bool loadScenePendingFromGameLoad;
+        private static bool stoppingGamePending;
         private static MomentType changeMomentPending;
 
         void Awake()
@@ -56,6 +57,7 @@ namespace Gob3AQ.GameMaster
                 loadScenePending = Room.ROOM_NONE;
                 loadScenePendingFromGameLoad = false;
                 changeMomentPending = MomentType.MOMENT_ANY;
+                stoppingGamePending = false;
 
                 SpriteAtlasManager.atlasRequested += RequestAtlas;
             }
@@ -162,7 +164,8 @@ namespace Gob3AQ.GameMaster
                         _SetGameStatus(Game_Status.GAME_STATUS_PLAY);
                     }
                     break;
-
+                default:
+                    break;
             }
 
             
@@ -219,7 +222,7 @@ namespace Gob3AQ.GameMaster
             Game_Status gstatus = VARMAP_GameMaster.GET_SHADOW_GAMESTATUS();
 
             if (((uint)room < (uint)Room.ROOMS_TOTAL) &&
-                (gstatus != Game_Status.GAME_STATUS_CHANGING_ROOM) && (gstatus != Game_Status.GAME_STATUS_CHANGING_ROOM))
+                (gstatus != Game_Status.GAME_STATUS_CHANGING_ROOM) && !stoppingGamePending && (loadScenePending == Room.ROOM_NONE))
             {
                 error = false;
                 loadScenePending = room;
@@ -232,7 +235,7 @@ namespace Gob3AQ.GameMaster
 
         public static void StartGameService(out bool error)
         {
-            if(_singleton != null)
+            if(_singleton != null && (!stoppingGamePending) && (!saveGamePending))
             {
                 VARMAP_DataSystem.ResetVARMAP();
                 _singleton.StartCoroutine(_singleton.StartGameOnRoomCoroutine(Room.HIVE1_ROOM_1));
@@ -246,12 +249,12 @@ namespace Gob3AQ.GameMaster
 
         public static void SaveGameService()
         {
-            saveGamePending = true;
+            saveGamePending |= (!stoppingGamePending) && (loadScenePending == Room.ROOM_NONE);
         }
 
         public static void LoadGameService()
         {
-            if(_singleton != null)
+            if(_singleton != null && !stoppingGamePending)
             {
                 VARMAP_DataSystem.ResetVARMAP();
                 VARMAP_DataSystem.LoadVARMAPData();
@@ -381,10 +384,11 @@ namespace Gob3AQ.GameMaster
             loadScenePending = Room.ROOM_NONE;
             loadScenePendingFromGameLoad = false;
             changeMomentPending = MomentType.MOMENT_ANY;
+            stoppingGamePending = true;
 
             if (VARMAP_GameMaster.GET_SHADOW_GAMESTATUS() != Game_Status.GAME_STATUS_STOPPED)
             {
-                VARMAP_DataSystem.ResetVARMAP();
+                _SetGameStatus(Game_Status.GAME_STATUS_STOPPED);
                 _singleton.StartCoroutine(ExitGameCoroutine());
                 error = false;
             }
@@ -485,6 +489,14 @@ namespace Gob3AQ.GameMaster
 
         private static IEnumerator ExitGameCoroutine()
         {
+            /* Ensure other modules could notice game is stopping (for example SoundMaster) */
+            yield return ResourceAtlasClass.WaitForNextFrame;
+            yield return ResourceAtlasClass.WaitForNextFrame;
+
+            VARMAP_DataSystem.ResetVARMAP();
+            yield return ResourceAtlasClass.WaitForNextFrame;
+
+
             /* Load bootstrap */
             yield return SceneManager.LoadSceneAsync(GameFixedConfig.ROOM_MAINMENU, LoadSceneMode.Single);
 
@@ -492,6 +504,8 @@ namespace Gob3AQ.GameMaster
 
             /* Unlaod all resources */
             yield return UnloadPreviousRoomResources(true);
+
+            stoppingGamePending = false;
         }
 
 

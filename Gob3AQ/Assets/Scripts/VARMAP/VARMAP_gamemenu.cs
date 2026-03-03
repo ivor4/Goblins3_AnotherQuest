@@ -65,6 +65,7 @@ namespace Gob3AQ.VARMAP.GameMenu
             SHOW_DIALOGUE = _SHOW_DIALOGUE;
             SHOW_DECISION = _SHOW_DECISION;
             LOAD_ADDITIONAL_RESOURCES = _LOAD_ADDITIONAL_RESOURCES;
+            PLAY_SOUND = _PLAY_SOUND;
             /* > ATG 1 END */
         }
 
@@ -230,7 +231,14 @@ namespace Gob3AQ.VARMAP.GameMenu
         /// <para> Accessors: GameMenu,  </para> 
         /// <para> Method: <see cref="GameMasterClass.LoadAdditionalResourcesService"/> </para> 
         /// </summary>
-        public static LOAD_ADDITIONAL_RESOURCES LOAD_ADDITIONAL_RESOURCES;
+        public static LOAD_ADDITIONAL_RESOURCES_DELEGATE LOAD_ADDITIONAL_RESOURCES;
+        /// <summary> 
+        /// Plays a sound and (optionally) callback is called
+        /// <para> Owner: SoundMaster </para> 
+        /// <para> Accessors: LevelMaster, GameMenu,  </para> 
+        /// <para> Method: <see cref="SoundMasterClass.PlaySoundService"/> </para> 
+        /// </summary>
+        public static PLAY_SOUND_DELEGATE PLAY_SOUND;
         /* > ATG 3 END */
     }
 }

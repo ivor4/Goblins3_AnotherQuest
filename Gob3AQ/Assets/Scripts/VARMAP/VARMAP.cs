@@ -6,6 +6,7 @@ using Gob3AQ.PlayerMaster;
 using Gob3AQ.InputMaster;
 using Gob3AQ.ItemMaster;
 using Gob3AQ.GraphicsMaster;
+using Gob3AQ.SoundMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.VARMAP.Types.Delegates;
 using Gob3AQ.VARMAP.Variable;
@@ -376,7 +377,14 @@ namespace Gob3AQ.VARMAP
         /// <para> Accessors: GameMenu,  </para> 
         /// <para> Method: <see cref="GameMasterClass.LoadAdditionalResourcesService"/> </para> 
         /// </summary>
-        protected static LOAD_ADDITIONAL_RESOURCES _LOAD_ADDITIONAL_RESOURCES;
+        protected static LOAD_ADDITIONAL_RESOURCES_DELEGATE _LOAD_ADDITIONAL_RESOURCES;
+        /// <summary> 
+        /// Plays a sound and (optionally) callback is called
+        /// <para> Owner: SoundMaster </para> 
+        /// <para> Accessors: LevelMaster, GameMenu,  </para> 
+        /// <para> Method: <see cref="SoundMasterClass.PlaySoundService"/> </para> 
+        /// </summary>
+        protected static PLAY_SOUND_DELEGATE _PLAY_SOUND;
         /// <summary> 
         /// Last service
         /// <para> Owner: GameMaster </para> 

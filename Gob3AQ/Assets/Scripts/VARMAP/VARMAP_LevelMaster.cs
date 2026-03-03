@@ -70,6 +70,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
             LOCK_PLAYER = _LOCK_PLAYER;
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
             SHOW_DIALOGUE = _SHOW_DIALOGUE;
+            PLAY_SOUND = _PLAY_SOUND;
             /* > ATG 1 END */
         }
 
@@ -260,6 +261,13 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// <para> Method: <see cref="GameMenuClass.ShowDialogueService"/> </para> 
         /// </summary>
         public static SHOW_DIALOGUE_DELEGATE SHOW_DIALOGUE;
+        /// <summary> 
+        /// Plays a sound and (optionally) callback is called
+        /// <para> Owner: SoundMaster </para> 
+        /// <para> Accessors: LevelMaster, GameMenu,  </para> 
+        /// <para> Method: <see cref="SoundMasterClass.PlaySoundService"/> </para> 
+        /// </summary>
+        public static PLAY_SOUND_DELEGATE PLAY_SOUND;
         /* > ATG 3 END */
     }
 }

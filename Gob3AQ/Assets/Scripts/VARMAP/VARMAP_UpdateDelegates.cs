@@ -7,6 +7,7 @@ using Gob3AQ.GameMaster;
 using Gob3AQ.LevelMaster;
 using Gob3AQ.InputMaster;
 using Gob3AQ.GraphicsMaster;
+using Gob3AQ.SoundMaster;
 using Gob3AQ.VARMAP.Variable;
 using Gob3AQ.PlayerMaster;
 using Gob3AQ.GameEventMaster;
@@ -182,6 +183,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _SHOW_DECISION = GameMenuClass.ShowDecisionService;
             _CHANGE_DAY_MOMENT = GameMasterClass.ChangeDayMomentService;
             _LOAD_ADDITIONAL_RESOURCES = GameMasterClass.LoadAdditionalResourcesService;
+            _PLAY_SOUND = SoundMasterClass.PlaySoundService;
             _LAST_SERVICE = GameMasterClass.ExitGameService;
             /* > ATG 2 END */
         }

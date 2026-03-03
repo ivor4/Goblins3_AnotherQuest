@@ -23,8 +23,9 @@ namespace Gob3AQ.ResourceSoundsAtlas
         private static readonly SoundConfig[] _SoundConfig = new SoundConfig[(int)GameSound.SOUND_TOTAL]
         {
             /* > ATG 1 START < */
-            new("MUSIC_GARDEN"), /* MUSIC_GARDEN */ 
-            new(""), /* SOUND_LAST */ 
+            new(SoundEffect.EFFECT_NONE,"MUSIC_GARDEN"), /* MUSIC_GARDEN */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL_SPANISH"), /* SOUND_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL */ 
+            new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };
     }

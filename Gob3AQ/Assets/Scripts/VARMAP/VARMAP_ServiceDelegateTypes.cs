@@ -71,7 +71,8 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void LOCK_PLAYER_DELEGATE(CharacterType character, bool lockPlayer);
     public delegate void SHOW_DECISION_DELEGATE(DecisionType decision);
     public delegate void CHANGE_DAY_MOMENT_DELEGATE(MomentType dayMoment);
-    public delegate void LOAD_ADDITIONAL_RESOURCES(bool load, PrefabEnum prefabEnum, Action<GameObject> callback);
+    public delegate void LOAD_ADDITIONAL_RESOURCES_DELEGATE(bool load, PrefabEnum prefabEnum, Action<GameObject> callback);
     public delegate void BACKGROUND_ITEM_TASK_DELEGATE(ItemInteractionType autoType, CharacterType character, out InteractionUsageOutcome outcome);
+    public delegate void PLAY_SOUND_DELEGATE(GameSound sound, Action callback);
 
 }

@@ -24,6 +24,7 @@ namespace Gob3AQ.VARMAP.SoundMaster
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
+            PLAY_SOUND = _PLAY_SOUND;
             /* > ATG 1 END */
         }
 
@@ -53,6 +54,13 @@ namespace Gob3AQ.VARMAP.SoundMaster
         /// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
         /// </summary>
         public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
+        /// <summary> 
+        /// Plays a sound and (optionally) callback is called
+        /// <para> Owner: SoundMaster </para> 
+        /// <para> Accessors: LevelMaster, GameMenu,  </para> 
+        /// <para> Method: <see cref="SoundMasterClass.PlaySoundService"/> </para> 
+        /// </summary>
+        public static PLAY_SOUND_DELEGATE PLAY_SOUND;
         /* > ATG 3 END */
     }
 }

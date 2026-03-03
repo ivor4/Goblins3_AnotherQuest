@@ -20,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53cd6cf4f129526499e7827f376d4ec7
+    m_Address: SOUND_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 92d845b6379f4fd45bb81c5c91f0fb6f
     m_Address: SCENE_BASE
     m_ReadOnly: 0

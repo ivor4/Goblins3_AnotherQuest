@@ -496,6 +496,11 @@ namespace Gob3AQ.GameMenu
             string sender = ResourceDialogsClass.GetName(talkerName);
             string msg = content.message;
 
+            if (content.config.sound != GameSound.SOUND_NONE)
+            {
+                VARMAP_GameMenu.PLAY_SOUND(content.config.sound, null);
+            }
+
             if(dialog_background)
             {
                 _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_BACKGROUND, sender, msg);

@@ -199,11 +199,13 @@ namespace Gob3AQ.VARMAP.Types
 
     public readonly struct SoundConfig
     {
+        public readonly SoundEffect effect;
         public readonly string path;
-        public static readonly SoundConfig EMPTY = new(string.Empty);
+        public static readonly SoundConfig EMPTY = new(SoundEffect.EFFECT_NONE,string.Empty);
 
-        public SoundConfig(string path)
+        public SoundConfig(SoundEffect effect, string path)
         {
+            this.effect = effect;
             this.path = path;
         }
     }
@@ -285,12 +287,12 @@ namespace Gob3AQ.VARMAP.Types
     public readonly struct PhraseConfig
     {
         public readonly int talkerIndex;
-        public readonly int sound;
+        public readonly GameSound sound;
         public readonly DialogAnimation animation;
 
-        public static readonly PhraseConfig EMPTY = new(0,0, DialogAnimation.DIALOG_ANIMATION_NONE);
+        public static readonly PhraseConfig EMPTY = new(0,GameSound.SOUND_NONE, DialogAnimation.DIALOG_ANIMATION_NONE);
 
-        public PhraseConfig(int talkerIndex, int sound, DialogAnimation animation)
+        public PhraseConfig(int talkerIndex, GameSound sound, DialogAnimation animation)
         {
             this.talkerIndex = talkerIndex;
             this.sound = sound;

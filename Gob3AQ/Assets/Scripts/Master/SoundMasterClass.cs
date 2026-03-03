@@ -33,15 +33,19 @@ namespace Gob3AQ.SoundMaster
         private class PooledAudioSource
         {
             public bool IsPlaying => source.isPlaying;
+            public Action Callback => callback;
             private readonly AudioSource source;
+            private Action callback;
             
             public PooledAudioSource(AudioSource source, AudioMixerGroup defaultGroup)
             {
                 this.source = source;
             }
 
-            public void Play(AudioClip clip, AudioMixerGroup group)
+            public void Play(AudioClip clip, AudioMixerGroup group, Action callback)
             {
+                Debug.Log($"Playing sound {clip.name} with effect {group.name} for me {source.name} another proof {source.isPlaying} and {source.clip}");
+                this.callback = callback;
                 source.clip = clip;
                 source.outputAudioMixerGroup = group;
                 source.Play();
@@ -51,6 +55,7 @@ namespace Gob3AQ.SoundMaster
             {
                 source.Stop();
                 source.clip = null;
+                callback = null;
             }
         }
 
@@ -60,6 +65,36 @@ namespace Gob3AQ.SoundMaster
         private Queue<PooledAudioSource> availableSources;
         private List<PooledAudioSource> usedSources;
 
+
+        public static void PlaySoundService(GameSound sound, Action callback)
+        {
+            if(_singleton != null)
+            {
+                if(_singleton.availableSources.TryDequeue(out PooledAudioSource source))
+                {
+                    AudioClip clip = ResourceSoundsClass.GetSound(sound);
+                    ref readonly SoundConfig soundConfig = ref ResourceSoundsAtlasClass.GetSoundConfig(sound);
+
+                    AudioMixerGroup group;
+
+                    switch(soundConfig.effect)
+                    {
+                        case SoundEffect.EFFECT_ECHO:
+                            group = _singleton.echoMixer;
+                            break;
+                        case SoundEffect.EFFECT_CHORUS:
+                            group = _singleton.chorusMixer;
+                            break;
+                        default:
+                            group = _singleton.normalMixer;
+                            break;
+                    }
+
+                    source.Play(clip, group, callback);
+                    _singleton.usedSources.Add(source);
+                }
+            }
+        }
 
         private void Awake()
         {
@@ -173,6 +208,7 @@ namespace Gob3AQ.SoundMaster
                 PooledAudioSource usedSource = usedSources[i];
                 if (!usedSource.IsPlaying)
                 {
+                    usedSource.Callback?.Invoke();
                     usedSource.Dispose();
                     availableSources.Enqueue(usedSource);
                     usedSources.RemoveAt(i);

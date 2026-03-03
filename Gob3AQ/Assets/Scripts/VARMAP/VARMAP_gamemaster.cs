@@ -151,7 +151,7 @@ namespace Gob3AQ.VARMAP.GameMaster
         /// <para> Accessors: GameMenu,  </para> 
         /// <para> Method: <see cref="GameMasterClass.LoadAdditionalResourcesService"/> </para> 
         /// </summary>
-        public static LOAD_ADDITIONAL_RESOURCES LOAD_ADDITIONAL_RESOURCES;
+        public static LOAD_ADDITIONAL_RESOURCES_DELEGATE LOAD_ADDITIONAL_RESOURCES;
         /// <summary> 
         /// Last service
         /// <para> Owner: GameMaster </para> 

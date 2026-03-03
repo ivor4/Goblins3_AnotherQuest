@@ -701,6 +701,7 @@ item_prefix = 'GameItem.'
 room_prefix = 'Room.'
 sprite_prefix = 'GameSprite.'
 sound_prefix = 'GameSound.'
+sound_effect_prefix = 'SoundEffect.'
 name_prefix = 'NameType.'
 family_prefix = 'GameItemFamily.'
 unchain_type_prefix = 'UnchainType.'
@@ -936,7 +937,7 @@ for line in PHRASESinputFile:
         stringToWrite = ",".join(selectedColumns)+'\n'
         phrases_lines.InsertLineInATG(0, stringToWrite)
         
-        stringToWrite = 'new('+columns[2]+','+columns[3]+', '+\
+        stringToWrite = 'new('+columns[2]+','+sound_prefix+columns[3]+', '+\
             dialoganim_prefix + columns[4]+'), /* '+columns[1]+' */ \n'
         dialog_atlas_lines.InsertLineInATG(3, stringToWrite)
     
@@ -1499,7 +1500,7 @@ for line in SOUNDSinputFile:
     sound_types_lines.InsertLineInATG(1, stringToWrite)
     
     if(not 'NONE' in columns[1]):        
-        stringToWrite = 'new("'+columns[2]+'"), /* '+columns[1]+' */ \n'
+        stringToWrite = 'new('+sound_effect_prefix+columns[2]+',"'+columns[3]+'"), /* '+columns[1]+' */ \n'
         sound_atlas_lines.InsertLineInATG(1, stringToWrite)
 
     

@@ -30,32 +30,40 @@ namespace Gob3AQ.SoundMaster
         [SerializeField]
         private AudioMixerGroup chorusMixer;
 
+        [SerializeField]
+        private AudioMixerGroup musicMixer;
+
         private class PooledAudioSource
         {
             public bool IsPlaying => source.isPlaying;
             public Action Callback => callback;
             private readonly AudioSource source;
+            private readonly List<PooledAudioSource> usedList;
+            private readonly Queue<PooledAudioSource> availableQueue;
             private Action callback;
             
-            public PooledAudioSource(AudioSource source, AudioMixerGroup defaultGroup)
+            public PooledAudioSource(AudioSource source, List<PooledAudioSource> usedList, Queue<PooledAudioSource> availableQueue)
             {
                 this.source = source;
+                this.usedList = usedList;
+                this.availableQueue = availableQueue;
             }
 
             public void Play(AudioClip clip, AudioMixerGroup group, Action callback)
             {
-                Debug.Log($"Playing sound {clip.name} with effect {group.name} for me {source.name} another proof {source.isPlaying} and {source.clip}");
                 this.callback = callback;
                 source.clip = clip;
                 source.outputAudioMixerGroup = group;
                 source.Play();
             }
 
-            public void Dispose()
+            public void Stop()
             {
                 source.Stop();
                 source.clip = null;
                 callback = null;
+                usedList.Remove(this);
+                availableQueue.Enqueue(this);
             }
         }
 
@@ -66,7 +74,7 @@ namespace Gob3AQ.SoundMaster
         private List<PooledAudioSource> usedSources;
 
 
-        public static void PlaySoundService(GameSound sound, Action callback)
+        public static void PlaySoundService(GameSound sound, Action callback, out Action stopAction)
         {
             if(_singleton != null)
             {
@@ -92,7 +100,16 @@ namespace Gob3AQ.SoundMaster
 
                     source.Play(clip, group, callback);
                     _singleton.usedSources.Add(source);
+                    stopAction = source.Stop;
                 }
+                else
+                {
+                    stopAction = null;
+                }
+            }
+            else
+            {
+                stopAction = null;
             }
         }
 
@@ -108,6 +125,7 @@ namespace Gob3AQ.SoundMaster
             }
 
             musicSource.loop = true;
+            musicSource.outputAudioMixerGroup = musicMixer;
             actualMusic = GameSound.SOUND_NONE;
 
             availableSources = new(pooledSources.Length);
@@ -126,7 +144,7 @@ namespace Gob3AQ.SoundMaster
                 AudioSource source = pooledSources[i];
                 if (source != null)
                 {
-                    availableSources.Enqueue(new PooledAudioSource(source, normalMixer));
+                    availableSources.Enqueue(new PooledAudioSource(source, usedSources, availableSources));
                 }
                 else
                 {
@@ -144,10 +162,7 @@ namespace Gob3AQ.SoundMaster
         {
             while(usedSources.Count > 0)
             {
-                PooledAudioSource usedSource = usedSources[0];
-                usedSources.RemoveAt(0);
-                usedSource.Dispose();
-                availableSources.Enqueue(usedSource);
+                usedSources[0].Stop();
             }
         }
 
@@ -203,15 +218,13 @@ namespace Gob3AQ.SoundMaster
 
         private void Update()
         {
-            for(int i=0; i < usedSources.Count; ++i)
+            for(int i=0; i < usedSources.Count;++i)
             {
                 PooledAudioSource usedSource = usedSources[i];
                 if (!usedSource.IsPlaying)
                 {
                     usedSource.Callback?.Invoke();
-                    usedSource.Dispose();
-                    availableSources.Enqueue(usedSource);
-                    usedSources.RemoveAt(i);
+                    usedSource.Stop();
                     --i;
                 }
             }

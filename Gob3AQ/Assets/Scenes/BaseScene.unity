@@ -929,6 +929,10 @@ PrefabInstance:
       value: SoundMaster
       objectReference: {fileID: 0}
     - target: {fileID: 8239176873691217604, guid: 2586d2c5ae8d4b141a6972547729c9b3, type: 3}
+      propertyPath: musicMixer
+      value: 
+      objectReference: {fileID: 3579877995639622772, guid: be25ff518129c4a4b9679258c6eaf6f4, type: 2}
+    - target: {fileID: 8239176873691217604, guid: 2586d2c5ae8d4b141a6972547729c9b3, type: 3}
       propertyPath: musicSource
       value: 
       objectReference: {fileID: 5337036891135401354}

@@ -57,6 +57,7 @@ namespace Gob3AQ.GameMenu
         private bool dialog_optionPending;
         private bool dialog_tellingInProgress;
         private bool dialog_background;
+        private Action dialog_actualPhraseSoundStop;
 
         private bool decision_optionPending;
         private DecisionType decision_input_type;
@@ -498,10 +499,14 @@ namespace Gob3AQ.GameMenu
 
             if (content.config.sound != GameSound.SOUND_NONE)
             {
-                VARMAP_GameMenu.PLAY_SOUND(content.config.sound, null);
+                VARMAP_GameMenu.PLAY_SOUND(content.config.sound, null, out dialog_actualPhraseSoundStop);
+            }
+            else
+            {
+                dialog_actualPhraseSoundStop = null;
             }
 
-            if(dialog_background)
+            if (dialog_background)
             {
                 _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_BACKGROUND, sender, msg);
             }
@@ -546,6 +551,8 @@ namespace Gob3AQ.GameMenu
                         {
                             VARMAP_GameMenu.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
                         }
+
+                        dialog_actualPhraseSoundStop = null;
                     }
                 }
             }
@@ -960,6 +967,8 @@ namespace Gob3AQ.GameMenu
                     case Game_Status.GAME_STATUS_PLAY_DIALOG:
                         /* If dialog was in progress, stop it */
                         dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
+                        dialog_actualPhraseSoundStop?.Invoke();
+                        dialog_actualPhraseSoundStop = null;
                         dialog_tellingInProgress = false;
                         dialog_optionPending = false;
                         break;

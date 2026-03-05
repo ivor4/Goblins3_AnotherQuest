@@ -17,8 +17,11 @@ namespace Gob3AQ.GameMenu.DetailActiveElem
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            eventData.Use();
-            _call_click?.Invoke(item);
+            if (eventData.button == PointerEventData.InputButton.Left)
+            {
+                eventData.Use();
+                _call_click?.Invoke(item);
+            }
         }
 
         public void OnPointerEnter(PointerEventData eventData)

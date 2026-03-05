@@ -386,6 +386,13 @@ namespace Gob3AQ.VARMAP
         /// </summary>
         protected static PLAY_SOUND_DELEGATE _PLAY_SOUND;
         /// <summary> 
+        /// Stops first match of sound with given ID which is being played
+        /// <para> Owner: SoundMaster </para> 
+        /// <para> Accessors: LevelMaster, GameMenu,  </para> 
+        /// <para> Method: <see cref="SoundMasterClass.StopSoundService"/> </para> 
+        /// </summary>
+        protected static STOP_SOUND_DELEGATE _STOP_SOUND;
+        /// <summary> 
         /// Last service
         /// <para> Owner: GameMaster </para> 
         /// <para> Accessors:  </para> 

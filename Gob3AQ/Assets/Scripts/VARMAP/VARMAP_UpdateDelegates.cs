@@ -184,6 +184,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _CHANGE_DAY_MOMENT = GameMasterClass.ChangeDayMomentService;
             _LOAD_ADDITIONAL_RESOURCES = GameMasterClass.LoadAdditionalResourcesService;
             _PLAY_SOUND = SoundMasterClass.PlaySoundService;
+            _STOP_SOUND = SoundMasterClass.StopSoundService;
             _LAST_SERVICE = GameMasterClass.ExitGameService;
             /* > ATG 2 END */
         }

@@ -71,6 +71,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
             SHOW_DIALOGUE = _SHOW_DIALOGUE;
             PLAY_SOUND = _PLAY_SOUND;
+            STOP_SOUND = _STOP_SOUND;
             /* > ATG 1 END */
         }
 
@@ -268,6 +269,13 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// <para> Method: <see cref="SoundMasterClass.PlaySoundService"/> </para> 
         /// </summary>
         public static PLAY_SOUND_DELEGATE PLAY_SOUND;
+        /// <summary> 
+        /// Stops first match of sound with given ID which is being played
+        /// <para> Owner: SoundMaster </para> 
+        /// <para> Accessors: LevelMaster, GameMenu,  </para> 
+        /// <para> Method: <see cref="SoundMasterClass.StopSoundService"/> </para> 
+        /// </summary>
+        public static STOP_SOUND_DELEGATE STOP_SOUND;
         /* > ATG 3 END */
     }
 }

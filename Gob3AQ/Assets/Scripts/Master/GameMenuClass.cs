@@ -57,7 +57,7 @@ namespace Gob3AQ.GameMenu
         private bool dialog_optionPending;
         private bool dialog_tellingInProgress;
         private bool dialog_background;
-        private Action dialog_actualPhraseSoundStop;
+        private GameSound dialog_actualPhraseSoundStop;
 
         private bool decision_optionPending;
         private DecisionType decision_input_type;
@@ -109,7 +109,7 @@ namespace Gob3AQ.GameMenu
                 _singleton.dialog_input_phrase = phrase;
                 _singleton.dialog_input_backgroundDialog = backgroundDialog;
                 _singleton.dialog_actualTaskType = DialogTaskType.DIALOG_STATE_STARTING;
-           }
+            }
         }
 
         public static void ShowDecisionService(DecisionType decision)
@@ -261,7 +261,7 @@ namespace Gob3AQ.GameMenu
                 /* Initialize phrase index */
                 dialog_optionPending = false;
 
-                StartDialogue(uniqueOption, uniqueNumPhrases, background);
+                PreloadDialogueData(uniqueOption, uniqueNumPhrases, background);
                 StartPhrase(uniquePhrase);
             }
             else
@@ -290,7 +290,7 @@ namespace Gob3AQ.GameMenu
                     ReadOnlySpan<DialogPhrase> dialogPhrases = dialogOptionConfig.Phrases;
                     int length = dialogOptionConfig.randomized ? 1 : dialogPhrases.Length;
 
-                    StartDialogue(option, length, false);
+                    PreloadDialogueData(option, length, false);
                     StartPhrase(phrase);
                 }
             }
@@ -420,6 +420,7 @@ namespace Gob3AQ.GameMenu
                     if(_itemMenuOpened)
                     {
                         DestroyLoadedDetail();
+                        Stop_DialogAndPhrase();
                         _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_INVENTORY);
                     }
                     break;
@@ -476,7 +477,7 @@ namespace Gob3AQ.GameMenu
             VARMAP_GameMenu.SET_ITEM_MENU_HOVER(GameItem.ITEM_NONE);
         }
 
-        private void StartDialogue(DialogOption option, int totalPhrases, bool background)
+        private void PreloadDialogueData(DialogOption option, int totalPhrases, bool background)
         {
             dialog_optionPhrases = option;
             dialog_totalPhrases = totalPhrases;
@@ -499,11 +500,12 @@ namespace Gob3AQ.GameMenu
 
             if (content.config.sound != GameSound.SOUND_NONE)
             {
-                VARMAP_GameMenu.PLAY_SOUND(content.config.sound, null, out dialog_actualPhraseSoundStop);
+                VARMAP_GameMenu.PLAY_SOUND(content.config.sound, null);
+                dialog_actualPhraseSoundStop = content.config.sound;
             }
             else
             {
-                dialog_actualPhraseSoundStop = null;
+                dialog_actualPhraseSoundStop = GameSound.SOUND_NONE;
             }
 
             if (dialog_background)
@@ -518,7 +520,14 @@ namespace Gob3AQ.GameMenu
             dialog_actualTaskType = DialogTaskType.DIALOG_STATE_SAYING;
         }
 
-
+        private void Stop_DialogAndPhrase()
+        {
+            dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
+            VARMAP_GameMenu.STOP_SOUND(dialog_actualPhraseSoundStop);
+            dialog_actualPhraseSoundStop = GameSound.SOUND_NONE;
+            dialog_tellingInProgress = false;
+            dialog_optionPending = false;
+        }
 
         private void EndPhrase_Action()
         {
@@ -552,7 +561,7 @@ namespace Gob3AQ.GameMenu
                             VARMAP_GameMenu.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
                         }
 
-                        dialog_actualPhraseSoundStop = null;
+                        dialog_actualPhraseSoundStop = GameSound.SOUND_NONE;
                     }
                 }
             }
@@ -960,17 +969,14 @@ namespace Gob3AQ.GameMenu
                 {
                     case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
                         DestroyLoadedDetail();
+                        Stop_DialogAndPhrase();
                         SetUserInteraction(UserInputInteraction.INPUT_INTERACTION_TAKE);
                         _itemMenuOpened = false;
                         VARMAP_GameMenu.SET_ITEM_MENU_HOVER(GameItem.ITEM_NONE);
                         break;
                     case Game_Status.GAME_STATUS_PLAY_DIALOG:
-                        /* If dialog was in progress, stop it */
-                        dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
-                        dialog_actualPhraseSoundStop?.Invoke();
-                        dialog_actualPhraseSoundStop = null;
-                        dialog_tellingInProgress = false;
-                        dialog_optionPending = false;
+                        /* If dialog was in progress, stop it (There will be no commit event in this case) */
+                        Stop_DialogAndPhrase();
                         break;
 
                     case Game_Status.GAME_STATUS_PLAY_DECISION:

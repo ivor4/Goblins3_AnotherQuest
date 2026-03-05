@@ -37,23 +37,27 @@ namespace Gob3AQ.SoundMaster
         {
             public bool IsPlaying => source.isPlaying;
             public Action Callback => callback;
+            public GameSound Sound => currentSound;
             private readonly AudioSource source;
             private readonly List<PooledAudioSource> usedList;
             private readonly Queue<PooledAudioSource> availableQueue;
             private Action callback;
-            
+            private GameSound currentSound;
+
             public PooledAudioSource(AudioSource source, List<PooledAudioSource> usedList, Queue<PooledAudioSource> availableQueue)
             {
                 this.source = source;
                 this.usedList = usedList;
                 this.availableQueue = availableQueue;
+                currentSound = GameSound.SOUND_NONE;
             }
 
-            public void Play(AudioClip clip, AudioMixerGroup group, Action callback)
+            public void Play(GameSound sound, AudioClip clip, AudioMixerGroup group, Action callback)
             {
                 this.callback = callback;
                 source.clip = clip;
                 source.outputAudioMixerGroup = group;
+                currentSound = sound;
                 source.Play();
             }
 
@@ -61,6 +65,7 @@ namespace Gob3AQ.SoundMaster
             {
                 source.Stop();
                 source.clip = null;
+                currentSound = GameSound.SOUND_NONE;
                 callback = null;
                 usedList.Remove(this);
                 availableQueue.Enqueue(this);
@@ -74,7 +79,7 @@ namespace Gob3AQ.SoundMaster
         private List<PooledAudioSource> usedSources;
 
 
-        public static void PlaySoundService(GameSound sound, Action callback, out Action stopAction)
+        public static void PlaySoundService(GameSound sound, Action callback)
         {
             if(_singleton != null)
             {
@@ -98,18 +103,24 @@ namespace Gob3AQ.SoundMaster
                             break;
                     }
 
-                    source.Play(clip, group, callback);
+                    source.Play(sound, clip, group, callback);
                     _singleton.usedSources.Add(source);
-                    stopAction = source.Stop;
-                }
-                else
-                {
-                    stopAction = null;
                 }
             }
-            else
+        }
+
+        public static void StopSoundService(GameSound sound)
+        {
+            if ((_singleton != null) && (sound != GameSound.SOUND_NONE))
             {
-                stopAction = null;
+                foreach(PooledAudioSource audio in _singleton.usedSources)
+                {
+                    if (audio.IsPlaying && (audio.Sound == sound))
+                    {
+                        audio.Stop();
+                        break;
+                    }
+                }
             }
         }
 
@@ -211,6 +222,8 @@ namespace Gob3AQ.SoundMaster
             if(_singleton == this)
             {
                 _singleton = null;
+                StopAllSounds();
+                StopMusic();
 
                 VARMAP_SoundMaster.UNREG_GAMESTATUS(_GameStatusChanged);
             }

@@ -130,11 +130,10 @@ namespace Gob3AQ.ResourceAtlas
 
         public static void UnloadUnusedPrefabs(bool fullClear)
         {
-            if(fullClear)
-            {
-                _prefabsToRelease.UnionWith(_cachedPrefabsFinder.Keys);
-            }
-            else
+            _prefabsToRelease.UnionWith(_cachedPrefabsFinder.Keys);
+
+
+            if (!fullClear)
             {
                 _prefabsToRelease.ExceptWith(_prefabsToLoad);
             }
@@ -152,7 +151,6 @@ namespace Gob3AQ.ResourceAtlas
         {
             _ = room;
 
-            _prefabsToRelease.UnionWith(_cachedPrefabsFinder.Keys);
             _prefabsToLoad.UnionWith(_fixedPrefabsToLoad);
 
             UnloadUnusedPrefabs(false);
@@ -244,7 +242,7 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_HIVE1_HALL1, GameSprite.BACKGROUND_HIVE1_HALL1_N, }), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(7){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_GENERIC_DOOR2, GameItem.ITEM_HIVE1_AD_BOARD, GameItem.ITEM_HIVE1_EXIT_DOOR, GameItem.ITEM_HIVE1_POOR_MAN_WC, GameItem.ITEM_HIVE1_SHOELACE, GameItem.ITEM_HIVE1_MAN_WC_CURED, }), 
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
-            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(2){GameSound.MUSIC_GARDEN, GameSound.SOUND_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL, }), 
+            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_GARDEN, }), 
             new ReadOnlyHashSet<ActionConditions>(new HashSet<ActionConditions>(1){ActionConditions.COND_DIALOGUE_POOR_MAN_WC_BCKG, }), 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }) 
             ),

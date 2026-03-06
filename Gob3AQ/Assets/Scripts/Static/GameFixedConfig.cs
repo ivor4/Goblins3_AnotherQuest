@@ -45,6 +45,7 @@ namespace Gob3AQ.FixedConfig
         /* Performance */
         public const int MAX_FIXED_SPRITES_TO_LOAD = (int)GamePickableItem.ITEM_PICK_TOTAL + 16;
         public const int MAX_CACHED_SPRITES = 64 + (int)GamePickableItem.ITEM_PICK_TOTAL + (int)Memento.MEMENTO_TOTAL;
+        public const int MAX_AD_HOC_SOUNDS = 16;
         public const int MAX_CACHED_PHRASES = 512;
         public const int MAX_CACHED_PREFABS = 16;
         public const int MAX_DIALOG_OPTIONS = 6;

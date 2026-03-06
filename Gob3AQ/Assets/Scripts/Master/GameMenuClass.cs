@@ -353,7 +353,8 @@ namespace Gob3AQ.GameMenu
                             InteractionUsage usage = InteractionUsage.CreateObserveItem(playerSelected, item, -1);
                             VARMAP_GameMenu.USE_ITEM(in usage, out InteractionUsageOutcome outcome);
 
-                            if (outcome.ok && (outcome.dialogType != DialogType.DIALOG_NONE))
+                            /* If observation brings a dialogue, unchain it if not already in a dialogue */
+                            if (outcome.ok && (outcome.dialogType != DialogType.DIALOG_NONE) && (dialog_actualTaskType == DialogTaskType.DIALOG_STATE_NONE))
                             {
                                 Span<GameItem> talkers = stackalloc GameItem[2];
                                 talkers[0] = (GameItem)playerSelected;
@@ -451,7 +452,7 @@ namespace Gob3AQ.GameMenu
             DestroyLoadedDetail();
             ref readonly DetailInfo dinfo = ref ItemsInteractionsClass.GetDetailInfo(detailType);
             detail_loaded = detailType;
-            VARMAP_GameMenu.LOAD_ADDITIONAL_RESOURCES(true, dinfo.prefabPath, DetailLoaded);
+            VARMAP_GameMenu.LOAD_ADDITIONAL_PREFAB(true, dinfo.prefabPath, DetailLoaded);
         }
 
         private void DestroyLoadedDetail()
@@ -459,10 +460,19 @@ namespace Gob3AQ.GameMenu
             if (detail_loaded != DetailType.DETAIL_NONE)
             {
                 ref readonly DetailInfo dinfo = ref ItemsInteractionsClass.GetDetailInfo(detail_loaded);
-                VARMAP_GameMenu.LOAD_ADDITIONAL_RESOURCES(false, dinfo.prefabPath, null);
+                VARMAP_GameMenu.LOAD_ADDITIONAL_PREFAB(false, dinfo.prefabPath, null);
             }
 
             detail_loaded = DetailType.DETAIL_NONE;
+        }
+
+        private void DialogSoundEnded()
+        {
+            if(dialog_actualTaskType == DialogTaskType.DIALOG_STATE_DEAD_TIME)
+            {
+                dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
+                EndPhrase_Action();
+            }
         }
 
         private void DetailLoaded(GameObject prefab)
@@ -500,7 +510,7 @@ namespace Gob3AQ.GameMenu
 
             if (content.config.sound != GameSound.SOUND_NONE)
             {
-                VARMAP_GameMenu.PLAY_SOUND(content.config.sound, null);
+                VARMAP_GameMenu.PLAY_SOUND(content.config.sound, DialogSoundEnded);
                 dialog_actualPhraseSoundStop = content.config.sound;
             }
             else
@@ -740,7 +750,9 @@ namespace Gob3AQ.GameMenu
                     break;
 
                 case DialogTaskType.DIALOG_STATE_DEAD_TIME:
-                    if ((actualTimestamp - dialog_timestamp) >= 2000)
+                    if ((((actualTimestamp - dialog_timestamp) >= 2000) && (dialog_actualPhraseSoundStop == GameSound.SOUND_NONE))||
+                        (((actualTimestamp - dialog_timestamp) >= 6000) && (dialog_actualPhraseSoundStop != GameSound.SOUND_NONE))
+                        )
                     {
                         dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
                         EndPhrase_Action();

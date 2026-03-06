@@ -36,6 +36,7 @@ namespace Gob3AQ.SoundMaster
         private class PooledAudioSource
         {
             public bool IsPlaying => source.isPlaying;
+            public bool IsLoading => loading;
             public Action Callback => callback;
             public GameSound Sound => currentSound;
             private readonly AudioSource source;
@@ -43,6 +44,7 @@ namespace Gob3AQ.SoundMaster
             private readonly Queue<PooledAudioSource> availableQueue;
             private Action callback;
             private GameSound currentSound;
+            private bool loading;
 
             public PooledAudioSource(AudioSource source, List<PooledAudioSource> usedList, Queue<PooledAudioSource> availableQueue)
             {
@@ -50,15 +52,25 @@ namespace Gob3AQ.SoundMaster
                 this.usedList = usedList;
                 this.availableQueue = availableQueue;
                 currentSound = GameSound.SOUND_NONE;
+                loading = false;
             }
 
-            public void Play(GameSound sound, AudioClip clip, AudioMixerGroup group, Action callback)
+            public void PreparePlay(GameSound sound, AudioMixerGroup group, Action callback)
             {
                 this.callback = callback;
-                source.clip = clip;
+                loading = true;
                 source.outputAudioMixerGroup = group;
                 currentSound = sound;
-                source.Play();
+            }
+
+            public void ReceiveLoadedClip(AudioClip clip)
+            {
+                if(loading)
+                {
+                    source.clip = clip;
+                    loading = false;
+                    source.Play();
+                }
             }
 
             public void Stop()
@@ -67,6 +79,7 @@ namespace Gob3AQ.SoundMaster
                 source.clip = null;
                 currentSound = GameSound.SOUND_NONE;
                 callback = null;
+                loading = false;
                 usedList.Remove(this);
                 availableQueue.Enqueue(this);
             }
@@ -77,6 +90,7 @@ namespace Gob3AQ.SoundMaster
         private GameSound actualMusic;
         private Queue<PooledAudioSource> availableSources;
         private List<PooledAudioSource> usedSources;
+        private HashSet<GameSound> loadedSounds;
 
 
         public static void PlaySoundService(GameSound sound, Action callback)
@@ -85,7 +99,6 @@ namespace Gob3AQ.SoundMaster
             {
                 if(_singleton.availableSources.TryDequeue(out PooledAudioSource source))
                 {
-                    AudioClip clip = ResourceSoundsClass.GetSound(sound);
                     ref readonly SoundConfig soundConfig = ref ResourceSoundsAtlasClass.GetSoundConfig(sound);
 
                     AudioMixerGroup group;
@@ -103,8 +116,11 @@ namespace Gob3AQ.SoundMaster
                             break;
                     }
 
-                    source.Play(sound, clip, group, callback);
+                    source.PreparePlay(sound, group, callback);
                     _singleton.usedSources.Add(source);
+
+                    VARMAP_SoundMaster.LOAD_ADDITIONAL_SOUND(true, sound, source.ReceiveLoadedClip);
+                    _singleton.loadedSounds.Add(sound);
                 }
             }
         }
@@ -115,11 +131,16 @@ namespace Gob3AQ.SoundMaster
             {
                 foreach(PooledAudioSource audio in _singleton.usedSources)
                 {
-                    if (audio.IsPlaying && (audio.Sound == sound))
+                    if ((audio.IsPlaying || audio.IsLoading) && (audio.Sound == sound))
                     {
                         audio.Stop();
                         break;
                     }
+                }
+
+                if(_singleton.usedSources.Count == 0)
+                {
+                    _singleton.UnloadLoadedSounds();
                 }
             }
         }
@@ -141,6 +162,7 @@ namespace Gob3AQ.SoundMaster
 
             availableSources = new(pooledSources.Length);
             usedSources = new(pooledSources.Length);
+            loadedSounds = new(pooledSources.Length);
         }
 
         // Start is called before the first frame update
@@ -175,6 +197,8 @@ namespace Gob3AQ.SoundMaster
             {
                 usedSources[0].Stop();
             }
+
+            UnloadLoadedSounds();
         }
 
         private void ChangingRoom()
@@ -231,16 +255,32 @@ namespace Gob3AQ.SoundMaster
 
         private void Update()
         {
-            for(int i=0; i < usedSources.Count;++i)
+            bool removed = false;
+            for (int i=0; i < usedSources.Count;++i)
             {
                 PooledAudioSource usedSource = usedSources[i];
-                if (!usedSource.IsPlaying)
+                if (!(usedSource.IsPlaying || usedSource.IsLoading))
                 {
                     usedSource.Callback?.Invoke();
                     usedSource.Stop();
                     --i;
+                    removed = true;
                 }
             }
+
+            if(removed && (usedSources.Count == 0))
+            {
+                UnloadLoadedSounds();
+            }
+        }
+
+        private void UnloadLoadedSounds()
+        {
+            foreach(GameSound sound in loadedSounds)
+            {
+                VARMAP_SoundMaster.LOAD_ADDITIONAL_SOUND(false, sound, null);
+            }
+            loadedSounds.Clear();
         }
 
         private void _GameStatusChanged(ChangedEventType evtype, in Game_Status oldval, in Game_Status newval)

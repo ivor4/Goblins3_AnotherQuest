@@ -182,7 +182,8 @@ namespace Gob3AQ.VARMAP.Initialization
             _ZOOM_SUBSCRIPTION = GraphicsMasterClass.ZoomSubscriptionService;
             _SHOW_DECISION = GameMenuClass.ShowDecisionService;
             _CHANGE_DAY_MOMENT = GameMasterClass.ChangeDayMomentService;
-            _LOAD_ADDITIONAL_RESOURCES = GameMasterClass.LoadAdditionalResourcesService;
+            _LOAD_ADDITIONAL_PREFAB = GameMasterClass.LoadAdditionalPrefabService;
+            _LOAD_ADDITIONAL_SOUND = GameMasterClass.LoadAdditionalSoundService;
             _PLAY_SOUND = SoundMasterClass.PlaySoundService;
             _STOP_SOUND = SoundMasterClass.StopSoundService;
             _LAST_SERVICE = GameMasterClass.ExitGameService;

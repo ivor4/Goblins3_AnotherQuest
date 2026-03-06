@@ -18,6 +18,7 @@ namespace Gob3AQ.ResourceSounds
     public static class ResourceSoundsClass
     {
         private static Dictionary<GameSound, AsyncOperationHandle<AudioClip>> _cachedHandles;
+        private static HashSet<GameSound> _adHocSounds;
         private static HashSet<GameSound> _soundsToLoadArray;
         private static HashSet<GameSound> _soundsToRelease;
         private static ReadOnlyHashSet<GameSound> _fixedSoundsArray;
@@ -25,6 +26,7 @@ namespace Gob3AQ.ResourceSounds
         public static void Initialize()
         {
             _cachedHandles = new(GameFixedConfig.MAX_CACHED_SPRITES);
+            _adHocSounds = new(GameFixedConfig.MAX_AD_HOC_SOUNDS);
             _soundsToLoadArray = new(GameFixedConfig.MAX_CACHED_SPRITES);
             _soundsToRelease = new(GameFixedConfig.MAX_CACHED_SPRITES);
 
@@ -62,11 +64,9 @@ namespace Gob3AQ.ResourceSounds
 
         public static void UnloadUsedSounds(bool fullClear)
         {
-            if (fullClear)
-            {
-                _soundsToRelease.UnionWith(_cachedHandles.Keys);
-            }
-            else
+            _soundsToRelease.UnionWith(_cachedHandles.Keys);
+
+            if (!fullClear)
             {
                 /* This gives the ones which are not present in ToLoad, in order to release them */
                 _soundsToRelease.ExceptWith(_soundsToLoadArray);
@@ -79,15 +79,39 @@ namespace Gob3AQ.ResourceSounds
             }
 
             _soundsToRelease.Clear();
+            _adHocSounds.Clear();
+        }
+
+        public static IEnumerator LoadSpecificSound(bool load, GameSound sound)
+        {
+            if (load)
+            {
+                if (!_cachedHandles.ContainsKey(sound))
+                {
+                    AsyncOperationHandle<AudioClip> handle = PreloadRoomSoundsCycle(sound);
+                    _cachedHandles[sound] = handle;
+                    _adHocSounds.Add(sound);
+
+                    if (!handle.IsDone)
+                    {
+                        yield return handle;
+                    }
+                }
+            }
+            else
+            {
+                if (_adHocSounds.Contains(sound) && _cachedHandles.TryGetValue(sound, out AsyncOperationHandle<AudioClip> handle))
+                {
+                    handle.Release();
+                    _adHocSounds.Remove(sound);
+                    _cachedHandles.Remove(sound);
+                }
+            }
         }
 
         private static void PreloadSoundsPrepareList(Room room)
-        {
-            /* Move previous room "to load" into "loaded" */
-            _soundsToRelease.UnionWith(_cachedHandles.Keys);
-            
-
-            /* First fixed sprites to load */
+        {           
+            /* First fixed sounds to load */
             _soundsToLoadArray.UnionWith(_fixedSoundsArray);
 
             /* Then room sprites */

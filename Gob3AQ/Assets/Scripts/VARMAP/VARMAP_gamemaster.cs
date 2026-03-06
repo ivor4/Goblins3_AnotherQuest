@@ -45,7 +45,8 @@ namespace Gob3AQ.VARMAP.GameMaster
             COMMIT_EVENT = _COMMIT_EVENT;
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
             CHANGE_DAY_MOMENT = _CHANGE_DAY_MOMENT;
-            LOAD_ADDITIONAL_RESOURCES = _LOAD_ADDITIONAL_RESOURCES;
+            LOAD_ADDITIONAL_PREFAB = _LOAD_ADDITIONAL_PREFAB;
+            LOAD_ADDITIONAL_SOUND = _LOAD_ADDITIONAL_SOUND;
             LAST_SERVICE = _LAST_SERVICE;
             /* > ATG 1 END */
         }
@@ -149,9 +150,16 @@ namespace Gob3AQ.VARMAP.GameMaster
         /// Loads/Unloads a set of names and Phrases
         /// <para> Owner: GameMaster </para> 
         /// <para> Accessors: GameMenu,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.LoadAdditionalResourcesService"/> </para> 
+        /// <para> Method: <see cref="GameMasterClass.LoadAdditionalPrefabService"/> </para> 
         /// </summary>
-        public static LOAD_ADDITIONAL_RESOURCES_DELEGATE LOAD_ADDITIONAL_RESOURCES;
+        public static LOAD_ADDITIONAL_PREFAB_DELEGATE LOAD_ADDITIONAL_PREFAB;
+        /// <summary> 
+        /// Loads/Unloads a set of names and Phrases
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: SoundMaster,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.LoadAdditionalSoundService"/> </para> 
+        /// </summary>
+        public static LOAD_ADDITIONAL_SOUND_DELEGATE LOAD_ADDITIONAL_SOUND;
         /// <summary> 
         /// Last service
         /// <para> Owner: GameMaster </para> 

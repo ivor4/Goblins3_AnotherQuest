@@ -80,11 +80,9 @@ namespace Gob3AQ.ResourceSprites
 
         public static void UnloadUsedSprites(bool fullClear)
         {
-            if (fullClear)
-            {
-                _spritesToRelease.UnionWith(_cachedHandles.Keys);
-            }
-            else
+            _spritesToRelease.UnionWith(_cachedHandles.Keys);
+
+            if (!fullClear)
             {
                 /* This gives the ones which are not present in ToLoad, in order to release them */
                 _spritesToRelease.ExceptWith(_spritesToLoadArray);
@@ -100,11 +98,7 @@ namespace Gob3AQ.ResourceSprites
         }
 
         private static void PreloadSpritesPrepareList(Room room)
-        {
-            /* Move previous room "to load" into "loaded" */
-            _spritesToRelease.UnionWith(_cachedHandles.Keys);
-            
-
+        {            
             /* First fixed sprites to load */
             _spritesToLoadArray.UnionWith(_fixedSpritesArray);
 

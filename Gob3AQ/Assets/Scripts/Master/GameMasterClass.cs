@@ -361,20 +361,35 @@ namespace Gob3AQ.GameMaster
             }
         }
 
-        public static void LoadAdditionalResourcesService(bool load, PrefabEnum prefabAddressable, Action<GameObject> callback)
+        public static void LoadAdditionalPrefabService(bool load, PrefabEnum prefabAddressable, Action<GameObject> callback)
         {
-            _singleton.StartCoroutine(LoadAdditionalResourcesCouroutine(load, prefabAddressable, callback));
+            _singleton.StartCoroutine(LoadAdditionalPrefabCouroutine(load, prefabAddressable, callback));
         }
 
-        private static IEnumerator LoadAdditionalResourcesCouroutine(bool load, PrefabEnum prefabAddressable, Action<GameObject> callback)
+        public static void LoadAdditionalSoundService(bool load, GameSound sound, Action<AudioClip> callback)
+        {
+            _singleton.StartCoroutine(LoadAdditionalSoundCouroutine(load, sound, callback));
+        }
+
+        private static IEnumerator LoadAdditionalPrefabCouroutine(bool load, PrefabEnum prefabAddressable, Action<GameObject> callback)
         {
             IEnumerator prefabsEnumerator = ResourceAtlasClass.LoadSpecificPrefab(load, prefabAddressable);
+            yield return prefabsEnumerator;
 
             if (load)
             {
-                yield return prefabsEnumerator;
-
                 callback?.Invoke(ResourceAtlasClass.GetPrefab(prefabAddressable));
+            }
+        }
+
+        private static IEnumerator LoadAdditionalSoundCouroutine(bool load, GameSound sound, Action<AudioClip> callback)
+        {
+            IEnumerator soundsEnumerator = ResourceSoundsClass.LoadSpecificSound(load, sound);
+            yield return soundsEnumerator;
+
+            if (load)
+            {
+                callback?.Invoke(ResourceSoundsClass.GetSound(sound));
             }
         }
 

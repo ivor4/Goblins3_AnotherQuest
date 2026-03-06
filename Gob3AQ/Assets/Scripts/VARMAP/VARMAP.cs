@@ -375,9 +375,16 @@ namespace Gob3AQ.VARMAP
         /// Loads/Unloads a set of names and Phrases
         /// <para> Owner: GameMaster </para> 
         /// <para> Accessors: GameMenu,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.LoadAdditionalResourcesService"/> </para> 
+        /// <para> Method: <see cref="GameMasterClass.LoadAdditionalPrefabService"/> </para> 
         /// </summary>
-        protected static LOAD_ADDITIONAL_RESOURCES_DELEGATE _LOAD_ADDITIONAL_RESOURCES;
+        protected static LOAD_ADDITIONAL_PREFAB_DELEGATE _LOAD_ADDITIONAL_PREFAB;
+        /// <summary> 
+        /// Loads/Unloads a set of names and Phrases
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: SoundMaster,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.LoadAdditionalSoundService"/> </para> 
+        /// </summary>
+        protected static LOAD_ADDITIONAL_SOUND_DELEGATE _LOAD_ADDITIONAL_SOUND;
         /// <summary> 
         /// Plays a sound and (optionally) callback is called
         /// <para> Owner: SoundMaster </para> 

@@ -2091,6 +2091,14 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7285149739629647594, guid: 7d3dc241ee35f624293e1691ed3e54f0, type: 3}
+      propertyPath: _roomLeadTo
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7285149739629647594, guid: 7d3dc241ee35f624293e1691ed3e54f0, type: 3}
+      propertyPath: _waypointLeadTo
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7285149739629647594, guid: 7d3dc241ee35f624293e1691ed3e54f0, type: 3}
       propertyPath: startingWaypoint
       value: 
       objectReference: {fileID: 591744051}

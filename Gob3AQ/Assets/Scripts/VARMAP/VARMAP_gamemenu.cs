@@ -5,6 +5,8 @@ using Gob3AQ.LevelMaster;
 using Gob3AQ.PlayerMaster;
 using Gob3AQ.ItemMaster;
 using Gob3AQ.InputMaster;
+using Gob3AQ.GameMenu;
+using Gob3AQ.SoundMaster;
 using Gob3AQ.GameEventMaster;
 
 namespace Gob3AQ.VARMAP.GameMenu

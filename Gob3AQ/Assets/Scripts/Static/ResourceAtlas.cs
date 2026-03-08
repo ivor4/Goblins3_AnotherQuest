@@ -7,6 +7,8 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using Gob3AQ.FixedConfig;
 using System.Collections;
 using UnityEngine.AddressableAssets;
+using System;
+
 
 
 
@@ -65,16 +67,16 @@ namespace Gob3AQ.ResourceAtlas
             }
         }
 
-        public static ref readonly InitialWalkInfo GetInitialWalkInfo(Room room)
+        public static ReadOnlySpan<InitialWalkInfo> GetInitialWalkInfo(Room room)
         {
             if ((uint)room < (uint)Room.ROOMS_TOTAL)
             {
-                return ref _RoomInitialWaypointWalk[(int)room];
+                return _RoomInitialWaypointWalk[(int)room];
             }
             else
             {
                 Debug.LogError($"Trying to get InitialWalkInfo for invalid room {room}");
-                return ref InitialWalkInfo.EMPTY;
+                return _RoomInitialWaypointWalk[(int)Room.ROOM_LAST];
             }
         }
 
@@ -107,24 +109,22 @@ namespace Gob3AQ.ResourceAtlas
             _prefabsToLoad.Clear();
         }
 
-        public static IEnumerator LoadSpecificPrefab(bool load, PrefabEnum prefab)
+        public static IEnumerator LoadSpecificPrefab(PrefabEnum prefab)
         {
-            if (load)
+            if (!_cachedPrefabsFinder.ContainsKey(prefab))
             {
-                if (!_cachedPrefabsFinder.ContainsKey(prefab))
-                {
-                    AsyncOperationHandle<GameObject> handle = LoadPrefabCycle(prefab);
-                    yield return handle;
-                    _cachedPrefabsFinder[prefab] = handle;
-                }
+                AsyncOperationHandle<GameObject> handle = LoadPrefabCycle(prefab);
+                yield return handle;
+                _cachedPrefabsFinder[prefab] = handle;
             }
-            else
+        }
+
+        public static void UnloadSpecificPrefab(PrefabEnum prefab)
+        {
+            if (_cachedPrefabsFinder.TryGetValue(prefab, out AsyncOperationHandle<GameObject> handle))
             {
-                if(_cachedPrefabsFinder.TryGetValue(prefab, out AsyncOperationHandle<GameObject> handle))
-                {
-                    handle.Release();
-                    _cachedPrefabsFinder.Remove(prefab);
-                }
+                handle.Release();
+                _cachedPrefabsFinder.Remove(prefab);
             }
         }
 
@@ -194,21 +194,21 @@ namespace Gob3AQ.ResourceAtlas
             "PREFAB_DETAIL_EXTRAPERLO",
         };
 
-        private static readonly InitialWalkInfo[] _RoomInitialWaypointWalk = new InitialWalkInfo[(int)Room.ROOMS_TOTAL]
+        private static readonly InitialWalkInfo[][] _RoomInitialWaypointWalk = new InitialWalkInfo[(int)Room.ROOMS_TOTAL][]
         {
-            new(0,0), /* HIVE1_ROOM_1 */
-            new(0,0), /* HIVE1_CORRIDOR_1 */
-            new(0,0), /* HIVE1_HALL_1 */
-            new(0,0), /* HIVE1_WC_1 */
-            new(0,0), /* CITY1_STREET_1 */
-            new(0,0), /* CITY1_STREET_2 */
-            new(0,0), /* PHARMACY_1 */
-            new(0,0), /* MANYO_1 */
-            new(0,0), /* HIVE1_BACKALLEY */
-            new(0,0), /* CITY1_SOUTH_STREET_1 */
-            new(0,0), /* CITY1_SOUTH_STREET_2 */
-            new(0,0), /* CITY1_EXTRAPERLO1 */
-            new(0,0), /* ROOM_LAST */
+            new InitialWalkInfo[]{new(0,0) }, /* HIVE1_ROOM_1 */
+            new InitialWalkInfo[]{new(0,0) }, /* HIVE1_CORRIDOR_1 */
+            new InitialWalkInfo[]{new(0,0) }, /* HIVE1_HALL_1 */
+            new InitialWalkInfo[]{new(0,0) }, /* HIVE1_WC_1 */
+            new InitialWalkInfo[]{new(3,2), new(4,0), new(9,6) }, /* CITY1_STREET_1 */
+            new InitialWalkInfo[]{new(0,0) }, /* CITY1_STREET_2 */
+            new InitialWalkInfo[]{new(0,0) }, /* PHARMACY_1 */
+            new InitialWalkInfo[]{new(0,0) }, /* MANYO_1 */
+            new InitialWalkInfo[]{new(0,0) }, /* HIVE1_BACKALLEY */
+            new InitialWalkInfo[]{new(6,0) }, /* CITY1_SOUTH_STREET_1 */
+            new InitialWalkInfo[]{new(0,0) }, /* CITY1_SOUTH_STREET_2 */
+            new InitialWalkInfo[]{new(0,0) }, /* CITY1_EXTRAPERLO1 */
+            new InitialWalkInfo[]{new(0,0) }, /* ROOM_LAST */
         };
 
         private static readonly RoomInfo[] _RoomInfo = new RoomInfo[(int)Room.ROOMS_TOTAL]

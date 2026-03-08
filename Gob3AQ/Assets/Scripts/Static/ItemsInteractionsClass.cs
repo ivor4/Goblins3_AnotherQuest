@@ -571,7 +571,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameEventCombi[1]{new(GameEvent.EVENT_LAUNCH_SLEEP_DECISION, false),}), 
             
             new( /* COND_GO_STREET1_SOUTH_NEIGH */
-            new GameEventCombi[1]{new(GameEvent.EVENT_CAN_GO_SOUTH_NEIGH, true),}, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_ITEM_EXTRAPERLO_INVITATION_PICKABLE_TAKEN, true),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_CROSS_DOOR,
             CharacterAnimation.ITEM_USE_ANIMATION_NONE,
             DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_WONT_GO_SOUTH_NEIGH,

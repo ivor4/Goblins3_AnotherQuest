@@ -33,6 +33,9 @@ namespace Gob3AQ.SoundMaster
         [SerializeField]
         private AudioMixerGroup musicMixer;
 
+        [SerializeField]
+        private AudioMixerGroup reverbmixer;
+
         private class PooledAudioSource
         {
             public bool IsPlaying => source.isPlaying;
@@ -97,7 +100,7 @@ namespace Gob3AQ.SoundMaster
         {
             if(_singleton != null)
             {
-                if(_singleton.availableSources.TryDequeue(out PooledAudioSource source))
+                if (_singleton.availableSources.TryDequeue(out PooledAudioSource source))
                 {
                     ref readonly SoundConfig soundConfig = ref ResourceSoundsAtlasClass.GetSoundConfig(sound);
 
@@ -110,6 +113,9 @@ namespace Gob3AQ.SoundMaster
                             break;
                         case SoundEffect.EFFECT_CHORUS:
                             group = _singleton.chorusMixer;
+                            break;
+                        case SoundEffect.EFFECT_REVERB:
+                            group = _singleton.reverbmixer;
                             break;
                         default:
                             group = _singleton.normalMixer;

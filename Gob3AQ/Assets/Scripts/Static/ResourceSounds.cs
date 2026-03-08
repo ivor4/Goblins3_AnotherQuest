@@ -82,30 +82,28 @@ namespace Gob3AQ.ResourceSounds
             _adHocSounds.Clear();
         }
 
-        public static IEnumerator LoadSpecificSound(bool load, GameSound sound)
+        public static IEnumerator LoadSpecificSound(GameSound sound)
         {
-            if (load)
+            if (!_cachedHandles.ContainsKey(sound))
             {
-                if (!_cachedHandles.ContainsKey(sound))
-                {
-                    AsyncOperationHandle<AudioClip> handle = PreloadRoomSoundsCycle(sound);
-                    _cachedHandles[sound] = handle;
-                    _adHocSounds.Add(sound);
+                AsyncOperationHandle<AudioClip> handle = PreloadRoomSoundsCycle(sound);
+                _cachedHandles[sound] = handle;
+                _adHocSounds.Add(sound);
 
-                    if (!handle.IsDone)
-                    {
-                        yield return handle;
-                    }
+                if (!handle.IsDone)
+                {
+                    yield return handle;
                 }
             }
-            else
+        }
+
+        public static void UnloadAdHocSound(GameSound sound)
+        {
+            if (_adHocSounds.Contains(sound) && _cachedHandles.TryGetValue(sound, out AsyncOperationHandle<AudioClip> handle))
             {
-                if (_adHocSounds.Contains(sound) && _cachedHandles.TryGetValue(sound, out AsyncOperationHandle<AudioClip> handle))
-                {
-                    handle.Release();
-                    _adHocSounds.Remove(sound);
-                    _cachedHandles.Remove(sound);
-                }
+                handle.Release();
+                _adHocSounds.Remove(sound);
+                _cachedHandles.Remove(sound);
             }
         }
 

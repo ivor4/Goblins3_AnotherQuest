@@ -432,7 +432,6 @@ namespace Gob3AQ.GameEventMaster
 
             foreach(UnchainConditions unchainerToRemove in _itemRelatedUnchainersToRemove)
             {
-                Debug.Log("Removing item-related unchainer " + unchainerToRemove + " from item-related list");
                 _itemRelatedUnchainers.Remove(unchainerToRemove);
             }
 

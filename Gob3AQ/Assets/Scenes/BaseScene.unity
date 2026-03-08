@@ -937,6 +937,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5337036891135401354}
     - target: {fileID: 8239176873691217604, guid: 2586d2c5ae8d4b141a6972547729c9b3, type: 3}
+      propertyPath: reverbmixer
+      value: 
+      objectReference: {fileID: -7498063816538895480, guid: be25ff518129c4a4b9679258c6eaf6f4, type: 2}
+    - target: {fileID: 8239176873691217604, guid: 2586d2c5ae8d4b141a6972547729c9b3, type: 3}
       propertyPath: 'pooledSources.Array.data[0]'
       value: 
       objectReference: {fileID: 5337036891135401358}

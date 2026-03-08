@@ -363,34 +363,42 @@ namespace Gob3AQ.GameMaster
 
         public static void LoadAdditionalPrefabService(bool load, PrefabEnum prefabAddressable, Action<GameObject> callback)
         {
-            _singleton.StartCoroutine(LoadAdditionalPrefabCouroutine(load, prefabAddressable, callback));
+            if (load)
+            {
+                _singleton.StartCoroutine(LoadAdditionalPrefabCouroutine(prefabAddressable, callback));
+            }
+            else
+            {
+                ResourceAtlasClass.UnloadSpecificPrefab(prefabAddressable);
+            }
         }
 
         public static void LoadAdditionalSoundService(bool load, GameSound sound, Action<AudioClip> callback)
         {
-            _singleton.StartCoroutine(LoadAdditionalSoundCouroutine(load, sound, callback));
+            if (load)
+            {
+                _singleton.StartCoroutine(LoadAdditionalSoundCouroutine(sound, callback));
+            }
+            else
+            {
+                ResourceSoundsClass.UnloadAdHocSound(sound);
+            }
         }
 
-        private static IEnumerator LoadAdditionalPrefabCouroutine(bool load, PrefabEnum prefabAddressable, Action<GameObject> callback)
+        private static IEnumerator LoadAdditionalPrefabCouroutine(PrefabEnum prefabAddressable, Action<GameObject> callback)
         {
-            IEnumerator prefabsEnumerator = ResourceAtlasClass.LoadSpecificPrefab(load, prefabAddressable);
+            IEnumerator prefabsEnumerator = ResourceAtlasClass.LoadSpecificPrefab(prefabAddressable);
             yield return prefabsEnumerator;
 
-            if (load)
-            {
-                callback?.Invoke(ResourceAtlasClass.GetPrefab(prefabAddressable));
-            }
+            callback?.Invoke(ResourceAtlasClass.GetPrefab(prefabAddressable));
         }
 
-        private static IEnumerator LoadAdditionalSoundCouroutine(bool load, GameSound sound, Action<AudioClip> callback)
+        private static IEnumerator LoadAdditionalSoundCouroutine(GameSound sound, Action<AudioClip> callback)
         {
-            IEnumerator soundsEnumerator = ResourceSoundsClass.LoadSpecificSound(load, sound);
+            IEnumerator soundsEnumerator = ResourceSoundsClass.LoadSpecificSound(sound);
             yield return soundsEnumerator;
 
-            if (load)
-            {
-                callback?.Invoke(ResourceSoundsClass.GetSound(sound));
-            }
+            callback?.Invoke(ResourceSoundsClass.GetSound(sound));
         }
 
         public static void ExitGameService(out bool error)

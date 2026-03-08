@@ -4,7 +4,6 @@ using Gob3AQ.GameElement;
 using Gob3AQ.GameElement.Clickable;
 using Gob3AQ.GameElement.PlayableChar;
 using Gob3AQ.ResourceAtlas;
-using Gob3AQ.VARMAP.ItemMaster;
 using Gob3AQ.VARMAP.LevelMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.Waypoint.Network;
@@ -684,7 +683,7 @@ namespace Gob3AQ.LevelMaster
                         (condInfo.dialogOK != DialogType.DIALOG_NONE)
                        )
                     {
-                        VARMAP_ItemMaster.IS_EVENT_COMBI_OCCURRED(condInfo.NeededEvents, out bool occurred);
+                        VARMAP_LevelMaster.IS_EVENT_COMBI_OCCURRED(condInfo.NeededEvents, out bool occurred);
                         if (occurred)
                         {
                             Span<GameItem> talkers = stackalloc GameItem[2];
@@ -697,6 +696,43 @@ namespace Gob3AQ.LevelMaster
                 }
 
                 _backgroundItemTaskTimestamp = actualTimestamp;
+            }
+        }
+
+        private void PlayerEntryWalk()
+        {
+            Span<GameEventCombi> stackCombi = stackalloc GameEventCombi[1];
+            stackCombi[0] = new GameEventCombi(GameEvent.EVENT_MASTER_CHANGE_ROOM, false);
+
+            VARMAP_LevelMaster.IS_EVENT_COMBI_OCCURRED(stackCombi, out bool occurred);
+
+            if(occurred)
+            {
+                Room room = VARMAP_LevelMaster.GET_ACTUAL_ROOM();
+
+                for (int i=0; i < _Player_List.Length; ++i)
+                {
+                    if (_Player_List[i] != null)
+                    {
+                        ReadOnlySpan<InitialWalkInfo> walkInfos = ResourceAtlasClass.GetInitialWalkInfo(room);
+
+                        foreach (InitialWalkInfo walkInfo in walkInfos)
+                        {
+                            if (walkInfo.waypointFrom == _Player_List[i].Waypoint)
+                            {
+                                InteractionUsage usage = InteractionUsage.CreatePlayerMove((CharacterType)i, walkInfo.waypointTo);
+
+                                VARMAP_LevelMaster.INTERACT_PLAYER(_Player_List[i].CharType, walkInfo.waypointTo, out bool accepted);
+                                if (accepted)
+                                {
+                                    _PendingCharInteractions[i] = new PendingCharacterInteraction(in usage);
+                                }
+                                break;
+                            }
+                        }
+                    }
+                }
+                
             }
         }
 
@@ -768,6 +804,12 @@ namespace Gob3AQ.LevelMaster
                         /* Force new status */
                         _PrevRaycastedItems.Clear();
                         _backgroundItemTaskTimestamp = VARMAP_LevelMaster.GET_ELAPSED_TIME_MS();
+
+                        /* Player entry */
+                        if(oldval == Game_Status.GAME_STATUS_LOADING)
+                        {
+                            PlayerEntryWalk();
+                        }
                         break;
 
                     default:

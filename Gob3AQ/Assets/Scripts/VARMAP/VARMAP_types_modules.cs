@@ -11,6 +11,7 @@ namespace Gob3AQ.VARMAP.Types
         MODULE_GraphicsMaster,
         MODULE_SoundMaster,
         MODULE_GameMenu,
+        MODULE_DialogMaster,
         MODULE_PlayerMaster,
         MODULE_ItemMaster,
         MODULE_GameEventMaster,

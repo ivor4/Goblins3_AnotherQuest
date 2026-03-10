@@ -13,6 +13,7 @@ using Gob3AQ.PlayerMaster;
 using Gob3AQ.GameEventMaster;
 using Gob3AQ.ItemMaster;
 using Gob3AQ.GameMenu;
+using Gob3AQ.DialogMaster;
 
 namespace Gob3AQ.VARMAP.Initialization
 {
@@ -178,7 +179,8 @@ namespace Gob3AQ.VARMAP.Initialization
             _KEY_SUBSCRIPTION = InputMasterClass.KeySubscriptionService;
             _LOCK_PLAYER = PlayerMasterClass.LockPlayerService;
             _CHANGE_GAME_MODE = GameMasterClass.ChangeGameModeService;
-            _SHOW_DIALOGUE = GameMenuClass.ShowDialogueService;
+            _SHOW_DIALOGUE = DialogMasterClass.ShowDialogueService;
+            _DIALOGUE_SELECT_OPTION = DialogMasterClass.DialogueSelectOptionService;
             _ZOOM_SUBSCRIPTION = GraphicsMasterClass.ZoomSubscriptionService;
             _SHOW_DECISION = GameMenuClass.ShowDecisionService;
             _CHANGE_DAY_MOMENT = GameMasterClass.ChangeDayMomentService;

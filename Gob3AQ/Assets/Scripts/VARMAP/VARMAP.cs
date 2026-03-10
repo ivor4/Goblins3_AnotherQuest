@@ -7,6 +7,7 @@ using Gob3AQ.InputMaster;
 using Gob3AQ.ItemMaster;
 using Gob3AQ.GraphicsMaster;
 using Gob3AQ.SoundMaster;
+using Gob3AQ.DialogMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.VARMAP.Types.Delegates;
 using Gob3AQ.VARMAP.Variable;
@@ -185,14 +186,14 @@ namespace Gob3AQ.VARMAP
         /// <summary> 
         /// This service is called when whole room has been loaded
         /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, PlayerMaster, ItemMaster, GameEventMaster,  </para> 
+        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, GameEventMaster,  </para> 
         /// <para> Method: <see cref="GameMasterClass.LoadingCompletedService"/> </para> 
         /// </summary>
         protected static LODING_COMPLETED_DELEGATE _MODULE_LOADING_COMPLETED;
         /// <summary> 
         /// This service returns a bool which tells if given module has been loaded in Room Loading Process
         /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, PlayerMaster, ItemMaster, GameEventMaster,  </para> 
+        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, GameEventMaster,  </para> 
         /// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
         /// </summary>
         protected static IS_MODULE_LOADED_DELEGATE _IS_MODULE_LOADED;
@@ -255,14 +256,14 @@ namespace Gob3AQ.VARMAP
         /// <summary> 
         /// Checks if a combination of events is totally complied (event absence can also be requested)
         /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, PlayerMaster, ItemMaster,  </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster,  </para> 
         /// <para> Method: <see cref="GameEventMasterClass.IsEventCombiOccurredService"/> </para> 
         /// </summary>
         protected static IS_EVENT_COMBI_OCCURRED_DELEGATE _IS_EVENT_COMBI_OCCURRED;
         /// <summary> 
         /// Activates/Deactivates an event
         /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: GameMaster, LevelMaster, GameMenu, PlayerMaster, ItemMaster,  </para> 
+        /// <para> Accessors: GameMaster, LevelMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster,  </para> 
         /// <para> Method: <see cref="GameEventMasterClass.CommitEventService"/> </para> 
         /// </summary>
         protected static COMMIT_EVENT_DELEGATE _COMMIT_EVENT;
@@ -339,17 +340,24 @@ namespace Gob3AQ.VARMAP
         /// <summary> 
         /// Asks Game Master to set game mode
         /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, GameEventMaster,  </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, DialogMaster, GameEventMaster,  </para> 
         /// <para> Method: <see cref="GameMasterClass.ChangeGameModeService"/> </para> 
         /// </summary>
         protected static CHANGE_GAME_MODE_DELEGATE _CHANGE_GAME_MODE;
         /// <summary> 
         /// Second part of start dialogue. Tells Game Menu to prepare menu elements
-        /// <para> Owner: GameMenu </para> 
-        /// <para> Accessors: LevelMaster,  </para> 
-        /// <para> Method: <see cref="GameMenuClass.ShowDialogueService"/> </para> 
+        /// <para> Owner: DialogMaster </para> 
+        /// <para> Accessors: LevelMaster, GameMenu,  </para> 
+        /// <para> Method: <see cref="DialogMasterClass.ShowDialogueService"/> </para> 
         /// </summary>
         protected static SHOW_DIALOGUE_DELEGATE _SHOW_DIALOGUE;
+        /// <summary> 
+        /// Option selection in multi option dialogue
+        /// <para> Owner: DialogMaster </para> 
+        /// <para> Accessors: GameMenu,  </para> 
+        /// <para> Method: <see cref="DialogMasterClass.DialogueSelectOptionService"/> </para> 
+        /// </summary>
+        protected static DIALOGUE_SELECT_OPTION_DELEGATE _DIALOGUE_SELECT_OPTION;
         /// <summary> 
         /// Subscribe to zoom changes
         /// <para> Owner: GraphicsMaster </para> 
@@ -388,14 +396,14 @@ namespace Gob3AQ.VARMAP
         /// <summary> 
         /// Plays a sound and (optionally) callback is called
         /// <para> Owner: SoundMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu,  </para> 
+        /// <para> Accessors: LevelMaster, DialogMaster,  </para> 
         /// <para> Method: <see cref="SoundMasterClass.PlaySoundService"/> </para> 
         /// </summary>
         protected static PLAY_SOUND_DELEGATE _PLAY_SOUND;
         /// <summary> 
         /// Stops first match of sound with given ID which is being played
         /// <para> Owner: SoundMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu,  </para> 
+        /// <para> Accessors: LevelMaster, DialogMaster,  </para> 
         /// <para> Method: <see cref="SoundMasterClass.StopSoundService"/> </para> 
         /// </summary>
         protected static STOP_SOUND_DELEGATE _STOP_SOUND;

@@ -6,25 +6,36 @@ using Gob3AQ.LevelMaster;
 using Gob3AQ.PlayerMaster;
 using Gob3AQ.ItemMaster;
 using Gob3AQ.GameEventMaster;
+using Gob3AQ.InputMaster;
+using Gob3AQ.GameMenu;
+using Gob3AQ.GraphicsMaster;
+using Gob3AQ.SoundMaster;
+using Gob3AQ.DialogMaster;
 
-namespace Gob3AQ.VARMAP.SoundMaster
+namespace Gob3AQ.VARMAP.DialogMaster
 {
     /// <summary>
     /// VARMAP inheritance with permissions for MainMenu module
     /// </summary>
-    public sealed class VARMAP_SoundMaster : VARMAP
+    public sealed class VARMAP_DialogMaster : VARMAP
     {
         /* All delegate update */
         public static void UpdateDelegates()
         {
             /* > ATG 1 START */
-            GET_ACTUAL_ROOM = _GET_ACTUAL_ROOM;
+            GET_ELAPSED_TIME_MS = _GET_ELAPSED_TIME_MS;
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
+            GET_EVENTS_BEING_PROCESSED = _GET_EVENTS_BEING_PROCESSED;
+            GET_DAY_MOMENT = _GET_DAY_MOMENT;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
-            LOAD_ADDITIONAL_SOUND = _LOAD_ADDITIONAL_SOUND;
+            IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
+            COMMIT_EVENT = _COMMIT_EVENT;
+            CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
+            SHOW_DIALOGUE = _SHOW_DIALOGUE;
+            DIALOGUE_SELECT_OPTION = _DIALOGUE_SELECT_OPTION;
             PLAY_SOUND = _PLAY_SOUND;
             STOP_SOUND = _STOP_SOUND;
             /* > ATG 1 END */
@@ -34,10 +45,12 @@ namespace Gob3AQ.VARMAP.SoundMaster
 
         /* GET/SET */
         /* > ATG 2 START */
-        public static GetVARMAPValueDelegate<Room> GET_ACTUAL_ROOM;
+        public static GetVARMAPValueDelegate<ulong> GET_ELAPSED_TIME_MS;
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
+        public static GetVARMAPValueDelegate<bool> GET_EVENTS_BEING_PROCESSED;
+        public static GetVARMAPValueDelegate<MomentType> GET_DAY_MOMENT;
         /* > ATG 2 END */
 
         /* SERVICES */
@@ -57,12 +70,40 @@ namespace Gob3AQ.VARMAP.SoundMaster
         /// </summary>
         public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
         /// <summary> 
-        /// Loads/Unloads a set of names and Phrases
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: SoundMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.LoadAdditionalSoundService"/> </para> 
+        /// Checks if a combination of events is totally complied (event absence can also be requested)
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.IsEventCombiOccurredService"/> </para> 
         /// </summary>
-        public static LOAD_ADDITIONAL_SOUND_DELEGATE LOAD_ADDITIONAL_SOUND;
+        public static IS_EVENT_COMBI_OCCURRED_DELEGATE IS_EVENT_COMBI_OCCURRED;
+        /// <summary> 
+        /// Activates/Deactivates an event
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: GameMaster, LevelMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.CommitEventService"/> </para> 
+        /// </summary>
+        public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
+        /// <summary> 
+        /// Asks Game Master to set game mode
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, DialogMaster, GameEventMaster,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.ChangeGameModeService"/> </para> 
+        /// </summary>
+        public static CHANGE_GAME_MODE_DELEGATE CHANGE_GAME_MODE;
+        /// <summary> 
+        /// Second part of start dialogue. Tells Game Menu to prepare menu elements
+        /// <para> Owner: DialogMaster </para> 
+        /// <para> Accessors: LevelMaster, GameMenu,  </para> 
+        /// <para> Method: <see cref="DialogMasterClass.ShowDialogueService"/> </para> 
+        /// </summary>
+        public static SHOW_DIALOGUE_DELEGATE SHOW_DIALOGUE;
+        /// <summary> 
+        /// Option selection in multi option dialogue
+        /// <para> Owner: DialogMaster </para> 
+        /// <para> Accessors: GameMenu,  </para> 
+        /// <para> Method: <see cref="DialogMasterClass.DialogueSelectOptionService"/> </para> 
+        /// </summary>
+        public static DIALOGUE_SELECT_OPTION_DELEGATE DIALOGUE_SELECT_OPTION;
         /// <summary> 
         /// Plays a sound and (optionally) callback is called
         /// <para> Owner: SoundMaster </para> 

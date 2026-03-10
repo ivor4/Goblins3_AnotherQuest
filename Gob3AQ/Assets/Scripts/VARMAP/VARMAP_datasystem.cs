@@ -16,10 +16,12 @@ using Gob3AQ.VARMAP.GameMenu;
 using Gob3AQ.VARMAP.PlayerMaster;
 using Gob3AQ.VARMAP.ItemMaster;
 using Gob3AQ.VARMAP.GameEventMaster;
+using Gob3AQ.VARMAP.SoundMaster;
+using Gob3AQ.VARMAP.DialogMaster;
 using System.IO;
 using Gob3AQ.FixedConfig;
 using System;
-using Gob3AQ.VARMAP.SoundMaster;
+
 
 namespace Gob3AQ.VARMAP.Initialization
 {
@@ -55,6 +57,7 @@ namespace Gob3AQ.VARMAP.Initialization
             VARMAP_SoundMaster.UpdateDelegates();
             VARMAP_GraphicsMaster.UpdateDelegates();
             VARMAP_GameMenu.UpdateDelegates();
+            VARMAP_DialogMaster.UpdateDelegates();
             VARMAP_PlayerMaster.UpdateDelegates();
             VARMAP_ItemMaster.UpdateDelegates();
             VARMAP_GameEventMaster.UpdateDelegates();

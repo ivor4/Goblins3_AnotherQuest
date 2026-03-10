@@ -119,6 +119,8 @@ namespace Gob3AQ.GameMenu.UICanvas
 
         private StringBuilder stringBuilder;
 
+        private DisplayMode prevDisplayMode;
+
 
 
         private void Awake()
@@ -186,6 +188,8 @@ namespace Gob3AQ.GameMenu.UICanvas
             memento_selectedItem = MementoParent.MEMENTO_PARENT_NONE;
 
             stringBuilder = new(512);
+
+            prevDisplayMode = DisplayMode.DISPLAY_MODE_NONE;
         }
 
         public void SetDisplayMode(DisplayMode mode)
@@ -199,7 +203,10 @@ namespace Gob3AQ.GameMenu.UICanvas
             {
                 case DisplayMode.DISPLAY_MODE_INVENTORY:
                     UICanvas_loadingObj.SetActive(false);
-                    UICanvas_dialogObj.SetActive(false);
+                    if (prevDisplayMode != DisplayMode.DISPLAY_MODE_DETAIL)
+                    {
+                        UICanvas_dialogObj.SetActive(false);
+                    }
                     UICanvas_decisionObj.SetActive(false);
                     UICanvas_mementoObj.SetActive(false);
                     UICanvas_itemMenuObj.SetActive(true);
@@ -236,7 +243,6 @@ namespace Gob3AQ.GameMenu.UICanvas
 
                 case DisplayMode.DISPLAY_MODE_DETAIL:
                     UICanvas_loadingObj.SetActive(false);
-                    UICanvas_dialogObj.SetActive(false);
                     UICanvas_decisionObj.SetActive(false);
                     UICanvas_mementoObj.SetActive(false);
                     UICanvas_itemMenuObj.SetActive(false);
@@ -261,6 +267,8 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_detailObj.SetActive(false);
                     break;
             }
+
+            prevDisplayMode = mode;
         }
 
         public void SetDialogMode(DialogMode mode, string sender, string msg)

@@ -26,10 +26,10 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"MUSIC_GARDEN"), /* MUSIC_GARDEN */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL_SPANISH"), /* SOUND_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_OBSERVE_ITEM_SHOELACE_SPANISH"), /* SOUND_OBSERVE_ITEM_SHOELACE */ 
-            new(SoundEffect.EFFECT_REVERB,"SOUND_FART_1"), /* SOUND_FART_1 */ 
-            new(SoundEffect.EFFECT_REVERB,"SOUND_POOR_MAN_BCKG_1"), /* SOUND_POOR_MAN_BCKG_1 */ 
-            new(SoundEffect.EFFECT_REVERB,"SOUND_POOR_MAN_BCKG_2"), /* SOUND_POOR_MAN_BCKG_2 */ 
-            new(SoundEffect.EFFECT_REVERB,"SOUND_POOR_MAN_BCKG_3"), /* SOUND_POOR_MAN_BCKG_3 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_FART_1"), /* SOUND_FART_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_POOR_MAN_BCKG_1"), /* SOUND_POOR_MAN_BCKG_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_POOR_MAN_BCKG_2"), /* SOUND_POOR_MAN_BCKG_2 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_POOR_MAN_BCKG_3"), /* SOUND_POOR_MAN_BCKG_3 */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

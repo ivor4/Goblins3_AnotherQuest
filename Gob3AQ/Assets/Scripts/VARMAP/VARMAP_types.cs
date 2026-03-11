@@ -210,6 +210,56 @@ namespace Gob3AQ.VARMAP.Types
         }
     }
 
+    public readonly struct AnimationConfig
+    {
+        public ReadOnlySpan<AnimationMilestoneConfig> Milestones => milestones;
+
+        private readonly AnimationMilestoneConfig[] milestones;
+
+        public static readonly AnimationConfig EMPTY = new(new AnimationMilestoneConfig[0]);
+
+        public AnimationConfig(AnimationMilestoneConfig[] milestones)
+        {
+            this.milestones = milestones;
+        }
+    }
+
+    public readonly struct AnimationMilestoneConfig
+    {
+        public ReadOnlySpan<AnimationActionConfig> Actions => actions;
+
+        public readonly AnimationSrcTrigger srcTrigger;
+        public readonly float srcTriggerTime;
+        private readonly AnimationActionConfig[] actions;
+
+        public static readonly AnimationMilestoneConfig EMPTY = new(AnimationSrcTrigger.SRC_TRIGGER_PREV_END, 0f, new AnimationActionConfig[0]);
+
+        public AnimationMilestoneConfig(AnimationSrcTrigger srcTrigger, float srcTriggerTime, AnimationActionConfig[] actions)
+        {
+            this.srcTrigger = srcTrigger;
+            this.srcTriggerTime = srcTriggerTime;
+            this.actions = actions;
+        }
+    }
+
+    public readonly struct AnimationActionConfig
+    {
+        public ReadOnlySpan<GameEventCombi> TriggeredEvents => triggeredEvents;
+
+        private readonly GameEventCombi[] triggeredEvents;
+        public readonly GameItem dstItem;
+        public readonly Animation animator;
+
+        public static readonly AnimationActionConfig EMPTY = new(new GameEventCombi[0], GameItem.ITEM_NONE, null);
+
+        public AnimationActionConfig(GameEventCombi[] triggeredEvents, GameItem dstItem, Animation animator)
+        {
+            this.triggeredEvents = triggeredEvents;
+            this.dstItem = dstItem;
+            this.animator = animator;
+        }
+    }
+
     public readonly struct DialogConfig
     {
         public ReadOnlySpan<GameItem> Talkers => talkers;

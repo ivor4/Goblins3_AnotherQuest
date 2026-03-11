@@ -587,27 +587,36 @@ namespace Gob3AQ.GameMenu
 
             if (newVal != oldVal)
             {
-                /* Set to default action (most common) */
-                
-
-                switch(newVal)
+                switch (newVal)
                 {
+                    case Game_Status.GAME_STATUS_PLAY:
+                        _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_NONE);
+                        break;
                     case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
+                        _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_INVENTORY);
                         /* Populate menu */
                         SetUserInteraction(UserInputInteraction.INPUT_INTERACTION_TAKE);
                         RefreshItemMenuElements();
                         _itemMenuOpened = true;
                         break;
                     case Game_Status.GAME_STATUS_PLAY_MEMENTO:
+                        _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_MEMENTO);
                         _uicanvas_cls.MementoMenuActivated();
                         break;
                     case Game_Status.GAME_STATUS_CHANGING_ROOM:
+                        _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_LOADING);
                         detail_loaded = DetailType.DETAIL_NONE;
                         SetUserInteraction(UserInputInteraction.INPUT_INTERACTION_TAKE);
                         _lastClickTimestamp = Time.time;
                         break;
                     case Game_Status.GAME_STATUS_LOADING:
                         VARMAP_GameMenu.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameMenu);
+                        break;
+                    case Game_Status.GAME_STATUS_PLAY_DECISION:
+                        _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_DECISION);
+                        break;
+                    case Game_Status.GAME_STATUS_PLAY_DIALOG:
+                        _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_DIALOG);
                         break;
                     default:
                         break;

@@ -27,6 +27,7 @@ names_types_path = atg_path + "VARMAP_types_names.cs"
 sprite_types_path = atg_path + "VARMAP_types_sprites.cs"
 sound_types_path = atg_path + "VARMAP_types_sounds.cs"
 event_types_path = atg_path + "VARMAP_types_events.cs"
+animation_types_path = atg_path + "VARMAP_types_animations.cs"
 items_interaction_path = atg_path + "../Static/ItemsInteractionsClass.cs"
 dialog_atlas_path = atg_path + "../Static/ResourceDialogsAtlas.cs"
 decision_atlas_path = atg_path + "../Static/ResourceDecisionsAtlas.cs"
@@ -125,6 +126,7 @@ names_types_lines = ATGFile(names_types_path, 1)
 sprite_types_lines = ATGFile(sprite_types_path, 1)
 sound_types_lines = ATGFile(sound_types_path, 1)
 event_types_lines = ATGFile(event_types_path, 4)
+animation_types_lines = ATGFile(animation_types_path, 1)
 modules_types_lines = ATGFile(modules_types_path, 1)
 items_types_lines = ATGFile(items_types_path, 5)
 items_interaction_lines = ATGFile(items_interaction_path, 9)
@@ -155,6 +157,7 @@ NAMESinputFile = open("NAMES.csv", "r")
 SPRITESinputFile = open("SPRITES.csv", "r")
 SOUNDSinputFile = open("SOUNDS.csv", "r")
 EVENTSinputFile = open("EVENTS.csv", "r")
+ANIMATIONSinputFile = open("ANIMATIONS.csv", "r")
 DETAILSinputFile = open("DETAILS.csv", "r")
 
 VARMAPPermissionFile = []
@@ -687,7 +690,7 @@ for line in SERVICESinputFile:
 character_prefix = 'CharacterType.'
 pickable_prefix = 'GamePickableItem.'
 interaction_prefix = 'ItemInteractionType.'
-animation_prefix = 'CharacterAnimation.'
+char_animation_prefix = 'CharacterAnimation.'
 dialoganim_prefix = 'DialogAnimation.'
 event_prefix = 'GameEvent.'
 conditiontype_prefix = 'ActionConditions.'
@@ -709,6 +712,7 @@ memento_prefix = 'Memento.'
 memento_parent_prefix = 'MementoParent.'
 memento_combi_prefix = 'MementoCombi.'
 moment_prefix = 'MomentType.'
+animation_prefix = 'GameAnimation.'
 detail_prefix = 'DetailType.'
 
 
@@ -1120,8 +1124,8 @@ stringToWrite = '\n'
 auto_lines.InsertLineInATG(7, stringToWrite)
 stringToWrite = 'MOMENT_TOTAL\n'
 auto_lines.InsertLineInATG(7, stringToWrite)
-    
-    
+
+
     
    
 print('\n\n------ACTION CONDITIONS (Custom GOB3) -------\n\n')
@@ -1162,7 +1166,7 @@ for line in ACTIONCONDSinputFile:
         ItemVar["srcChar"] = character_prefix+str(columns[4])
         ItemVar["srcItem"] = item_prefix+str(columns[5])
         ItemVar["actionOK"] = interaction_prefix+str(columns[6])
-        ItemVar["animationOK"] = animation_prefix+str(columns[7])
+        ItemVar["animationOK"] = char_animation_prefix+str(columns[7])
         ItemVar["dialogOK"] = dialog_prefix+str(columns[8])
         ItemVar["phraseOK"] = phrase_prefix+str(columns[9])
         ItemVar["unchain_event"] = str(columns[10])
@@ -1436,6 +1440,41 @@ stringToWrite = 'NAME_TOTAL\n'
 names_types_lines.InsertLineInATG(1, stringToWrite)
 
 
+print('\n\n------ANIMATIONS (Custom GOB3) -------\n\n')
+linecount = -1
+zone = 1
+
+for line in ANIMATIONSinputFile:
+    linecount += 1
+    
+    line = line.replace('\n','')
+    line = line.replace('\r','')
+    
+    
+    columns = line.split(',')
+    print(columns)
+
+    if(linecount == 0):
+        continue
+    
+    
+    stringToWrite = columns[1]
+    if('NONE' in columns[1]):
+        stringToWrite += ' = -1'
+    stringToWrite += ', \n'
+    animation_types_lines.InsertLineInATG(1, stringToWrite)
+    
+    
+
+
+    
+stringToWrite = '\n'
+animation_types_lines.InsertLineInATG(1, stringToWrite)
+
+stringToWrite = 'ANIMATION_TOTAL\n'
+animation_types_lines.InsertLineInATG(1, stringToWrite)
+
+
 
 
 print('\n\n------SPRITES (Custom GOB3) -------\n\n')
@@ -1693,6 +1732,10 @@ ROOMSinputFile.close()
 NAMESinputFile.close()
 SPRITESinputFile.close()
 SOUNDSinputFile.close()
+EVENTSinputFile.close()
+ANIMATIONSinputFile.close()
+DETAILSinputFile.close()
+
 
 
 
@@ -1727,6 +1770,7 @@ names_types_lines.SaveFile()
 sprite_types_lines.SaveFile()
 sound_types_lines.SaveFile()
 event_types_lines.SaveFile()
+animation_types_lines.SaveFile()
 sprite_atlas_lines.SaveFile()
 sound_atlas_lines.SaveFile()
 room_atlas_lines.SaveFile()

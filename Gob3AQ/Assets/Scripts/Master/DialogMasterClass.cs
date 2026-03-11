@@ -1,6 +1,7 @@
 ﻿using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameMenu.UICanvas;
+using Gob3AQ.ResourceAnimationsAtlas;
 using Gob3AQ.ResourceDialogs;
 using Gob3AQ.ResourceDialogsAtlas;
 using Gob3AQ.VARMAP.DialogMaster;
@@ -22,6 +23,24 @@ namespace Gob3AQ.DialogMaster
             DIALOG_STATE_SAYING,
             DIALOG_STATE_DEAD_TIME,
             DIALOG_STATE_WAITING_EVENTS
+        }
+
+        private struct AnimationRuntime
+        {
+            public bool isMainMode;
+            public GameAnimation animation;
+            public Action callback;
+            public int milestoneIndex;
+            public ulong prevMilestoneTimestamp;
+
+            public AnimationRuntime(bool isMainMode, GameAnimation animation, Action callback, ulong startTimestamp)
+            {
+                this.isMainMode = isMainMode;
+                this.animation = animation;
+                this.callback = callback;
+                prevMilestoneTimestamp = startTimestamp;
+                milestoneIndex = -1;
+            }
         }
 
         private static DialogMasterClass _singleton;
@@ -49,6 +68,12 @@ namespace Gob3AQ.DialogMaster
 
 
         /// <summary>
+        /// All active animations, used to know if an animation is being played or not
+        /// </summary>
+        private List<AnimationRuntime> animation_activeAnimations;
+
+
+        /// <summary>
         /// Displays a dialogue interface based on the specified character type, dialogue type, and initial phrase.
         /// </summary>
         /// <remarks>This method configures and displays a dialogue interface based on the provided
@@ -73,6 +98,11 @@ namespace Gob3AQ.DialogMaster
                     _singleton.dialog_actualTaskType = DialogTaskType.DIALOG_STATE_STARTING;
                 }
             }
+        }
+
+        public static void StartAnimationService(GameAnimation animation, bool mainMode, Action callback)
+        {
+
         }
 
         public static void DialogueSelectOptionService(DialogOption option, DialogPhrase phrase)
@@ -363,6 +393,43 @@ namespace Gob3AQ.DialogMaster
             return optionIndex;
         }
 
+        private bool ProcessAnimationRuntime(ref AnimationRuntime runtime, ulong timestamp)
+        {
+            bool ended = false;
+            ref readonly AnimationConfig animationConfig = ref ResourceAnimationsAtlasClass.GetAnimationConfig(runtime.animation);
+            ulong deltaTime = timestamp - runtime.prevMilestoneTimestamp;
+            bool advanceMilestone;
+
+            int nextMilestoneIndex = runtime.milestoneIndex + 1;
+            ref readonly AnimationMilestoneConfig nextMilestoneConfig = ref animationConfig.Milestones[nextMilestoneIndex];
+
+            if(nextMilestoneConfig.srcTrigger == AnimationSrcTrigger.SRC_TRIGGER_TIME_FROM_PREV)
+            {
+                advanceMilestone = deltaTime >= nextMilestoneConfig.srcTriggerTime;
+            }
+            else
+            {
+                /* Some callback for animation end for this case */
+                advanceMilestone = true;
+            }
+
+            if(advanceMilestone)
+            {
+                runtime.milestoneIndex = nextMilestoneIndex;
+
+                foreach(AnimationActionConfig actionconfig in nextMilestoneConfig.Actions)
+                {
+                    VARMAP_DialogMaster.COMMIT_EVENT(actionconfig.TriggeredEvents);
+                    /* ... */
+                }
+            }
+
+
+
+
+            return ended;
+        }
+
 
         private void Awake()
         {
@@ -377,7 +444,9 @@ namespace Gob3AQ.DialogMaster
 
                 dialog_input_talkers = new GameItem[GameFixedConfig.MAX_DIALOG_TALKERS];
                 dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
-                dialog_randomized_left_indexes = new();
+                dialog_randomized_left_indexes = new(GameFixedConfig.MAX_DIALOG_OPTIONS);
+
+                animation_activeAnimations = new(GameFixedConfig.MAX_ANIMATIONS_PERFORMING);
             }
         }
 
@@ -391,6 +460,25 @@ namespace Gob3AQ.DialogMaster
         {
             ulong actualTimestamp = VARMAP_DialogMaster.GET_ELAPSED_TIME_MS();
 
+            /* Animations */
+            for(int i=0; i < animation_activeAnimations.Count; i++)
+            {
+                AnimationRuntime animation = animation_activeAnimations[i];
+                bool ended = ProcessAnimationRuntime(ref animation, actualTimestamp);
+
+                if (ended)
+                {
+                    animation.callback?.Invoke();
+                    animation_activeAnimations.RemoveAt(i);
+                    i--;
+                }
+                else
+                {
+                    animation_activeAnimations[i] = animation;
+                }
+            }
+
+            /* Dialogs */
             switch (dialog_actualTaskType)
             {
                 case DialogTaskType.DIALOG_STATE_STARTING:

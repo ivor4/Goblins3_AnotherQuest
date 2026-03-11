@@ -38,6 +38,7 @@ namespace Gob3AQ.VARMAP.DialogMaster
             DIALOGUE_SELECT_OPTION = _DIALOGUE_SELECT_OPTION;
             PLAY_SOUND = _PLAY_SOUND;
             STOP_SOUND = _STOP_SOUND;
+            START_ANIMATION = _START_ANIMATION;
             /* > ATG 1 END */
         }
 
@@ -118,6 +119,13 @@ namespace Gob3AQ.VARMAP.DialogMaster
         /// <para> Method: <see cref="SoundMasterClass.StopSoundService"/> </para> 
         /// </summary>
         public static STOP_SOUND_DELEGATE STOP_SOUND;
+        /// <summary> 
+        /// Starts an animation in background or main mode
+        /// <para> Owner: DialogMaster </para> 
+        /// <para> Accessors: ItemMaster, GameEventMaster,  </para> 
+        /// <para> Method: <see cref="DialogMasterClass.StartAnimationService"/> </para> 
+        /// </summary>
+        public static START_ANIMATION_DELEGATE START_ANIMATION;
         /* > ATG 3 END */
     }
 }

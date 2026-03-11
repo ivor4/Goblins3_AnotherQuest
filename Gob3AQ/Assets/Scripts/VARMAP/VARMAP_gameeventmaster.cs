@@ -59,6 +59,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
             SHOW_DECISION = _SHOW_DECISION;
             CHANGE_DAY_MOMENT = _CHANGE_DAY_MOMENT;
+            START_ANIMATION = _START_ANIMATION;
             /* > ATG 1 END */
         }
 
@@ -176,6 +177,13 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         /// <para> Method: <see cref="GameMasterClass.ChangeDayMomentService"/> </para> 
         /// </summary>
         public static CHANGE_DAY_MOMENT_DELEGATE CHANGE_DAY_MOMENT;
+        /// <summary> 
+        /// Starts an animation in background or main mode
+        /// <para> Owner: DialogMaster </para> 
+        /// <para> Accessors: ItemMaster, GameEventMaster,  </para> 
+        /// <para> Method: <see cref="DialogMasterClass.StartAnimationService"/> </para> 
+        /// </summary>
+        public static START_ANIMATION_DELEGATE START_ANIMATION;
         /* > ATG 3 END */
     }
 }

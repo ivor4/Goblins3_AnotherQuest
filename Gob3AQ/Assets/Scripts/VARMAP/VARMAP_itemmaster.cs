@@ -44,6 +44,7 @@ namespace Gob3AQ.VARMAP.ItemMaster
             USE_ITEM = _USE_ITEM;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             ZOOM_SUBSCRIPTION = _ZOOM_SUBSCRIPTION;
+            START_ANIMATION = _START_ANIMATION;
             /* > ATG 1 END */
         }
 
@@ -152,6 +153,13 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /// <para> Method: <see cref="GraphicsMasterClass.ZoomSubscriptionService"/> </para> 
         /// </summary>
         public static ZOOM_SUBSCRIPTION_DELEGATE ZOOM_SUBSCRIPTION;
+        /// <summary> 
+        /// Starts an animation in background or main mode
+        /// <para> Owner: DialogMaster </para> 
+        /// <para> Accessors: ItemMaster, GameEventMaster,  </para> 
+        /// <para> Method: <see cref="DialogMasterClass.StartAnimationService"/> </para> 
+        /// </summary>
+        public static START_ANIMATION_DELEGATE START_ANIMATION;
         /* > ATG 3 END */
     }
 }

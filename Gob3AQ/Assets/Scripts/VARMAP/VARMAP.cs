@@ -408,6 +408,13 @@ namespace Gob3AQ.VARMAP
         /// </summary>
         protected static STOP_SOUND_DELEGATE _STOP_SOUND;
         /// <summary> 
+        /// Starts an animation in background or main mode
+        /// <para> Owner: DialogMaster </para> 
+        /// <para> Accessors: ItemMaster, GameEventMaster,  </para> 
+        /// <para> Method: <see cref="DialogMasterClass.StartAnimationService"/> </para> 
+        /// </summary>
+        protected static START_ANIMATION_DELEGATE _START_ANIMATION;
+        /// <summary> 
         /// Last service
         /// <para> Owner: GameMaster </para> 
         /// <para> Accessors:  </para> 

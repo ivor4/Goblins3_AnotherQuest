@@ -28,7 +28,7 @@ namespace Gob3AQ.ResourceAnimationsAtlas
             new(new AnimationMilestoneConfig[]
             {
                 /* Milestone 1 */
-                new(AnimationSrcTrigger.SRC_TRIGGER_PREV_END, 0f,
+                new(AnimationSrcTrigger.SRC_TRIGGER_ANIM_END, 0f,
                     new AnimationActionConfig[]
                     {
                         new(noCombi, GameItem.ITEM_PLAYER_MAIN, null),   /* Action 1 */

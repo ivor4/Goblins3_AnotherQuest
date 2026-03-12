@@ -16,6 +16,6 @@ namespace Gob3AQ.VARMAP.Types
     public enum AnimationSrcTrigger
     {
         SRC_TRIGGER_TIME_FROM_PREV,
-        SRC_TRIGGER_PREV_END
+        SRC_TRIGGER_ANIM_END
     }
 }

@@ -233,7 +233,7 @@ namespace Gob3AQ.VARMAP.Types
         public readonly float srcTriggerTime;
         private readonly AnimationActionConfig[] actions;
 
-        public static readonly AnimationMilestoneConfig EMPTY = new(AnimationSrcTrigger.SRC_TRIGGER_PREV_END, 0f, new AnimationActionConfig[0]);
+        public static readonly AnimationMilestoneConfig EMPTY = new(AnimationSrcTrigger.SRC_TRIGGER_ANIM_END, 0f, new AnimationActionConfig[0]);
 
         public AnimationMilestoneConfig(AnimationSrcTrigger srcTrigger, float srcTriggerTime, AnimationActionConfig[] actions)
         {

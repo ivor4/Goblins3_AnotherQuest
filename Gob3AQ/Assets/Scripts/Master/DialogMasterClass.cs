@@ -32,6 +32,7 @@ namespace Gob3AQ.DialogMaster
             public Action callback;
             public int milestoneIndex;
             public ulong prevMilestoneTimestamp;
+            public bool started;
 
             public AnimationRuntime(bool isMainMode, GameAnimation animation, Action callback, ulong startTimestamp)
             {
@@ -39,7 +40,8 @@ namespace Gob3AQ.DialogMaster
                 this.animation = animation;
                 this.callback = callback;
                 prevMilestoneTimestamp = startTimestamp;
-                milestoneIndex = -1;
+                milestoneIndex = 0;
+                started = false;
             }
         }
 
@@ -102,7 +104,8 @@ namespace Gob3AQ.DialogMaster
 
         public static void StartAnimationService(GameAnimation animation, bool mainMode, Action callback)
         {
-
+            AnimationRuntime animationRuntime = new(mainMode, animation, callback, VARMAP_DialogMaster.GET_ELAPSED_TIME_MS());
+            _singleton.animation_activeAnimations.Add(animationRuntime);
         }
 
         public static void DialogueSelectOptionService(DialogOption option, DialogPhrase phrase)
@@ -387,45 +390,68 @@ namespace Gob3AQ.DialogMaster
                     }
                 }
             }
-            optionIndex = leftIndexes[0];
-            leftIndexes.RemoveAt(0);
+            int lastIndex = leftIndexes.Count - 1;
+            optionIndex = leftIndexes[lastIndex];
+            leftIndexes.RemoveAt(lastIndex);
 
             return optionIndex;
         }
 
         private bool ProcessAnimationRuntime(ref AnimationRuntime runtime, ulong timestamp)
         {
-            bool ended = false;
+            bool ended;
             ref readonly AnimationConfig animationConfig = ref ResourceAnimationsAtlasClass.GetAnimationConfig(runtime.animation);
             ulong deltaTime = timestamp - runtime.prevMilestoneTimestamp;
-            bool advanceMilestone;
+            bool executeActions;
 
-            int nextMilestoneIndex = runtime.milestoneIndex + 1;
-            ref readonly AnimationMilestoneConfig nextMilestoneConfig = ref animationConfig.Milestones[nextMilestoneIndex];
+            ref readonly AnimationMilestoneConfig milestoneConfig = ref animationConfig.Milestones[runtime.milestoneIndex];
 
-            if(nextMilestoneConfig.srcTrigger == AnimationSrcTrigger.SRC_TRIGGER_TIME_FROM_PREV)
+            if (!runtime.started)
             {
-                advanceMilestone = deltaTime >= nextMilestoneConfig.srcTriggerTime;
+                executeActions = true;
+                runtime.started = true;
+                ended = false;
             }
             else
             {
-                /* Some callback for animation end for this case */
-                advanceMilestone = true;
-            }
-
-            if(advanceMilestone)
-            {
-                runtime.milestoneIndex = nextMilestoneIndex;
-
-                foreach(AnimationActionConfig actionconfig in nextMilestoneConfig.Actions)
+                if (milestoneConfig.srcTrigger == AnimationSrcTrigger.SRC_TRIGGER_TIME_FROM_PREV)
                 {
-                    VARMAP_DialogMaster.COMMIT_EVENT(actionconfig.TriggeredEvents);
-                    /* ... */
+                    executeActions = deltaTime >= milestoneConfig.srcTriggerTime;
+                }
+                else
+                {
+                    /* Some callback for animation end for this case */
+                    executeActions = true;
+                }
+
+                if(executeActions)
+                {
+                    runtime.prevMilestoneTimestamp = timestamp;
+                    if (runtime.milestoneIndex == animationConfig.Milestones.Length - 1)
+                    {
+                        ended = true;
+                    }
+                    else
+                    {
+                        ++runtime.milestoneIndex;
+                        milestoneConfig = ref animationConfig.Milestones[runtime.milestoneIndex];
+                        ended = false;
+                    }
+                }
+                else
+                {
+                    ended = false;
                 }
             }
 
-
-
+            if (executeActions && !ended)
+            {
+                foreach (AnimationActionConfig actionconfig in milestoneConfig.Actions)
+                {
+                    VARMAP_DialogMaster.COMMIT_EVENT(actionconfig.TriggeredEvents);
+                    /* Apply animator to dstItem */
+                }
+            }
 
             return ended;
         }
@@ -461,7 +487,7 @@ namespace Gob3AQ.DialogMaster
             ulong actualTimestamp = VARMAP_DialogMaster.GET_ELAPSED_TIME_MS();
 
             /* Animations */
-            for(int i=0; i < animation_activeAnimations.Count; i++)
+            for(int i = animation_activeAnimations.Count - 1; i >= 0; --i)
             {
                 AnimationRuntime animation = animation_activeAnimations[i];
                 bool ended = ProcessAnimationRuntime(ref animation, actualTimestamp);
@@ -470,7 +496,6 @@ namespace Gob3AQ.DialogMaster
                 {
                     animation.callback?.Invoke();
                     animation_activeAnimations.RemoveAt(i);
-                    i--;
                 }
                 else
                 {

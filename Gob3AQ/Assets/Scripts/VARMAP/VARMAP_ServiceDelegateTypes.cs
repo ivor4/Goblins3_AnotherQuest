@@ -78,5 +78,6 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void PLAY_SOUND_DELEGATE(GameSound sound, Action callback);
     public delegate void STOP_SOUND_DELEGATE(GameSound sound);
     public delegate void START_ANIMATION_DELEGATE(GameAnimation animation, bool mainMode, Action callback);
+    public delegate void ITEM_PERFORM_ANIMATION_DELEGATE(GameItem item, AnimationTrigger trigger, Action<GameItem> callback);
 
 }

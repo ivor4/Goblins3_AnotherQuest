@@ -37,4 +37,5 @@
 35,PLAY_SOUND,PLAY_SOUND_DELEGATE,SoundMasterClass.PlaySoundService,Plays a sound and (optionally) callback is called,,-,-,X,-,W,-,X,-,-,-
 36,STOP_SOUND,STOP_SOUND_DELEGATE,SoundMasterClass.StopSoundService,Stops first match of sound with given ID which is being played,,-,-,X,-,W,-,X,-,-,-
 37,START_ANIMATION,START_ANIMATION_DELEGATE,DialogMasterClass.StartAnimationService,Starts an animation in background or main mode,,-,-,-,-,-,-,W,-,X,X
-38,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-,-,-
+38,ITEM_PERFORM_ANIMATION,ITEM_PERFORM_ANIMATION_DELEGATE,ItemMasterClass.PerformAnimationService,Makes an item start an animation,,-,-,-,-,-,-,X,-,W,-
+39,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-,-,-

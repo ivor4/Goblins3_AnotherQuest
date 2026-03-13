@@ -37,6 +37,7 @@ namespace Gob3AQ.GameElement.Item
             mySpriteRenderer = topParent.GetComponent<SpriteRenderer>();
             myCollider = topParent.GetComponent<Collider2D>();
             myRigidbody = topParent.GetComponent<Rigidbody2D>();
+            myAnimator = topParent.GetComponent<Animator>();
 
             if (VARMAP_ItemMaster.GET_DAY_MOMENT() == MomentType.MOMENT_MORNING)
             {
@@ -98,8 +99,13 @@ namespace Gob3AQ.GameElement.Item
 
             ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(itemID);
 
-            /* Set to default sprite */
-            mySpriteRenderer.sprite = ResourceSpritesClass.GetSprite(actualSprite);
+            loaded = true;
+
+            /* Set to default sprite if no animator */
+            if (myAnimator.runtimeAnimatorController == null)
+            {
+                SetSprite(itemInfo.defaultSprite);
+            }
 
             SetVisible_Internal(true);
             SetAvailable(true);
@@ -119,7 +125,7 @@ namespace Gob3AQ.GameElement.Item
 
             ItemMasterClass.AddOneItemLoaded();
 
-            loaded = true;
+            
         }
 
         public override void VirtualDestroy()

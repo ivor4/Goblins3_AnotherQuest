@@ -18,4 +18,16 @@ namespace Gob3AQ.VARMAP.Types
         SRC_TRIGGER_TIME_FROM_PREV,
         SRC_TRIGGER_ANIM_END
     }
+
+    public enum AnimationTrigger
+    {
+        TRIGGER_ONE,
+        TRIGGER_TWO,
+        TRIGGER_THREE,
+        TRIGGER_FOUR,
+        TRIGGER_FIVE,
+        TRIGGER_SIX,
+
+        TRIGGER_TOTAL
+    }
 }

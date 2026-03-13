@@ -415,6 +415,13 @@ namespace Gob3AQ.VARMAP
         /// </summary>
         protected static START_ANIMATION_DELEGATE _START_ANIMATION;
         /// <summary> 
+        /// Makes an item start an animation
+        /// <para> Owner: ItemMaster </para> 
+        /// <para> Accessors: DialogMaster,  </para> 
+        /// <para> Method: <see cref="ItemMasterClass.PerformAnimationService"/> </para> 
+        /// </summary>
+        protected static ITEM_PERFORM_ANIMATION_DELEGATE _ITEM_PERFORM_ANIMATION;
+        /// <summary> 
         /// Last service
         /// <para> Owner: GameMaster </para> 
         /// <para> Accessors:  </para> 

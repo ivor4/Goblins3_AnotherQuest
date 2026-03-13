@@ -45,6 +45,7 @@ namespace Gob3AQ.VARMAP.ItemMaster
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             ZOOM_SUBSCRIPTION = _ZOOM_SUBSCRIPTION;
             START_ANIMATION = _START_ANIMATION;
+            ITEM_PERFORM_ANIMATION = _ITEM_PERFORM_ANIMATION;
             /* > ATG 1 END */
         }
 
@@ -160,6 +161,13 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /// <para> Method: <see cref="DialogMasterClass.StartAnimationService"/> </para> 
         /// </summary>
         public static START_ANIMATION_DELEGATE START_ANIMATION;
+        /// <summary> 
+        /// Makes an item start an animation
+        /// <para> Owner: ItemMaster </para> 
+        /// <para> Accessors: DialogMaster,  </para> 
+        /// <para> Method: <see cref="ItemMasterClass.PerformAnimationService"/> </para> 
+        /// </summary>
+        public static ITEM_PERFORM_ANIMATION_DELEGATE ITEM_PERFORM_ANIMATION;
         /* > ATG 3 END */
     }
 }

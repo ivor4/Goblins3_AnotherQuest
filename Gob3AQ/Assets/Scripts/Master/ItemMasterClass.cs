@@ -19,6 +19,11 @@ namespace Gob3AQ.ItemMaster
         private int itemsToLoad;
         private int itemsLoaded;
 
+        public static void PerformAnimationService(GameItem item, AnimationTrigger trigger, Action<GameItem> callback)
+        {
+
+        }
+
 
         public static void UnchainToItemService(in UnchainInfo unchainInfo)
         {

@@ -28,7 +28,7 @@ namespace Gob3AQ.GameElement
 
         public bool IsAvailable => isAvailable;
 
-        protected GameSprite actualSprite;
+
         protected GameItemFamily gameElementFamily;
         protected int actualWaypoint;
         protected LevelElemInfo hoverInfo;
@@ -36,6 +36,7 @@ namespace Gob3AQ.GameElement
         protected Collider2D myCollider;
         protected SpriteRenderer mySpriteRenderer;
         protected Rigidbody2D myRigidbody;
+        protected Animator myAnimator;
         protected bool registered;
         protected bool loaded;
         private bool isAvailable;
@@ -73,8 +74,6 @@ namespace Gob3AQ.GameElement
 
             ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(itemID);
 
-            actualSprite = itemInfo.defaultSprite;
-
             gameElementFamily = itemInfo.family;
 
             /* Register item as Level element (to be clicked and able to iteract) */
@@ -101,11 +100,9 @@ namespace Gob3AQ.GameElement
 
         public void SetSprite(GameSprite newSprite)
         {
-            actualSprite = newSprite;
-
             if (loaded)
             {
-                mySpriteRenderer.sprite = ResourceSpritesClass.GetSprite(actualSprite);
+                mySpriteRenderer.sprite = ResourceSpritesClass.GetSprite(newSprite);
             }
         }
 

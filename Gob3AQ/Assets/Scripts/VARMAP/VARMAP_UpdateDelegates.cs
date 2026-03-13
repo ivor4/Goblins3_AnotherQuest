@@ -189,6 +189,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _PLAY_SOUND = SoundMasterClass.PlaySoundService;
             _STOP_SOUND = SoundMasterClass.StopSoundService;
             _START_ANIMATION = DialogMasterClass.StartAnimationService;
+            _ITEM_PERFORM_ANIMATION = ItemMasterClass.PerformAnimationService;
             _LAST_SERVICE = GameMasterClass.ExitGameService;
             /* > ATG 2 END */
         }

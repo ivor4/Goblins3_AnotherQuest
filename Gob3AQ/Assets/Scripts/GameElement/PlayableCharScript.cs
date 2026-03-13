@@ -120,6 +120,7 @@ namespace Gob3AQ.GameElement.PlayableChar
             mySpriteRenderer = topParent.GetComponent<SpriteRenderer>();
             myCollider = topParent.GetComponent<Collider2D>();
             myRigidbody = topParent.GetComponent<Rigidbody2D>();
+            myAnimator = topParent.GetComponent<Animator>();
 
             sceneOrigSize = _parentTransform.localScale;
 

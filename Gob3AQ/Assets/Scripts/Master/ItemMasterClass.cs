@@ -21,7 +21,13 @@ namespace Gob3AQ.ItemMaster
 
         public static void PerformAnimationService(GameItem item, AnimationTrigger trigger, Action<GameItem> callback)
         {
-
+            if (_singleton != null)
+            {
+                if(_singleton._levelItems.TryGetValue(item, out GameElementClass instance))
+                {
+                    instance.PerformAnimation(trigger, callback);
+                }
+            }
         }
 
 

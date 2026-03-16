@@ -1,9 +1,11 @@
 using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.GameElement.Clickable;
+using Gob3AQ.ResourceAnimationsAtlas;
 using Gob3AQ.ResourceSprites;
 using Gob3AQ.VARMAP.ItemMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.Waypoint;
+using System;
 using UnityEngine;
 
 namespace Gob3AQ.GameElement
@@ -90,7 +92,19 @@ namespace Gob3AQ.GameElement
         protected virtual void OnDestroy()
         {
             VirtualDestroy();
-            
+        }
+
+        public void PerformAnimation(AnimationTrigger trigger, Action<GameItem> callback)
+        {
+            if (myAnimator != null)
+            {
+                myAnimator.SetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_STR[trigger]);
+            }
+        }
+
+        private void AnimationEnded()
+        {
+            Console.WriteLine("Animation ended");
         }
 
         public void SetUnspawned(bool unspawned)

@@ -442,7 +442,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new( /* COND_DIALOGUE_POOR_MAN_WC_BCKG */
             new GameEventCombi[2]{new(GameEvent.EVENT_MANYO_LOOK_FOR_RECIPE_MISSION, false),new(GameEvent.EVENT_HIVE1_VALVE_ACTIVATED, true),}, 
             MomentType.MOMENT_NIGHT,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_AUTO_6s,
-            new GameAction[1]{GameAction.ACTION_DIALOGUE_TALK_POOR_MAN_WC,}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_TALK_POOR_MAN_WC_BCKG,}), 
             
             new( /* COND_TALK_POOR_MAN_WC */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
@@ -1353,7 +1353,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameAction[1]{GameAction.ACTION_NONE,}), 
             
             new( /* ACTION_DIALOGUE_MANYO_BCKG */
-            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            ActionType.ACTION_TYPE_START_DIALOGUE_BCKG,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_MANYO_BCKG_CROWD,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
@@ -1367,7 +1367,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameAction[1]{GameAction.ACTION_NONE,}), 
             
             new( /* ACTION_DIALOGUE_TALK_POOR_MAN_WC_BCKG */
-            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            ActionType.ACTION_TYPE_START_DIALOGUE_BCKG,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_HIVE1_BCKG_POOR_MAN_WC,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,

@@ -20,6 +20,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         public static void UpdateDelegates()
         {
             /* > ATG 1 START */
+            GET_ELAPSED_TIME_MS = _GET_ELAPSED_TIME_MS;
             GET_ACTUAL_ROOM = _GET_ACTUAL_ROOM;
             GET_ELEM_EVENTS_OCCURRED = _GET_ELEM_EVENTS_OCCURRED;
             GET_SHADOW_ELEM_EVENTS_OCCURRED = _GET_SHADOW_ELEM_EVENTS_OCCURRED;
@@ -70,6 +71,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
 
         /* GET/SET */
         /* > ATG 2 START */
+        public static GetVARMAPValueDelegate<ulong> GET_ELAPSED_TIME_MS;
         public static GetVARMAPValueDelegate<Room> GET_ACTUAL_ROOM;
         public static GetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> GET_ELEM_EVENTS_OCCURRED;
         public static GetVARMAPArrayElemValueDelegate<MultiBitFieldStruct> GET_SHADOW_ELEM_EVENTS_OCCURRED;
@@ -120,7 +122,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         /// <summary> 
         /// Checks if a combination of events is totally complied (event absence can also be requested)
         /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster,  </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, DialogMaster, ItemMaster,  </para> 
         /// <para> Method: <see cref="GameEventMasterClass.IsEventCombiOccurredService"/> </para> 
         /// </summary>
         public static IS_EVENT_COMBI_OCCURRED_DELEGATE IS_EVENT_COMBI_OCCURRED;

@@ -36,7 +36,6 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             GET_WP_LIST = _GET_WP_LIST;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
             GET_NEAREST_WP = _GET_NEAREST_WP;
-            IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
             INTERACT_PLAYER = _INTERACT_PLAYER;
             PLAYER_REACHED_WAYPOINT = _PLAYER_REACHED_WAYPOINT;
             LOCK_PLAYER = _LOCK_PLAYER;
@@ -116,13 +115,6 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         /// <para> Method: <see cref="LevelMasterClass.GetNearestWPService"/> </para> 
         /// </summary>
         public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
-        /// <summary> 
-        /// Checks if a combination of events is totally complied (event absence can also be requested)
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.IsEventCombiOccurredService"/> </para> 
-        /// </summary>
-        public static IS_EVENT_COMBI_OCCURRED_DELEGATE IS_EVENT_COMBI_OCCURRED;
         /// <summary> 
         /// Makes player interact with usage data
         /// <para> Owner: PlayerMaster </para> 

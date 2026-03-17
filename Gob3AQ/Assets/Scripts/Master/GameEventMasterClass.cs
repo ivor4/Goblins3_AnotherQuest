@@ -40,6 +40,7 @@ namespace Gob3AQ.GameEventMaster
         /// Reverse dictionary of pending unchainers to their needed events
         /// </summary>
         private Dictionary<UnchainConditions, HashSet<GameEvent>> _reversePendingUnchainDict;
+        private ulong _bckgActionsTimestamp;
 
 
         public static void IsMementoUnlockedService(Memento memento, out bool occurred, out bool unwatched)
@@ -225,6 +226,8 @@ namespace Gob3AQ.GameEventMaster
             bool processingEvents;
             bool prevProcessingEvents;
 
+            ExecuteBackgroundActions();
+
             processingEvents = _bufferedEvents.Count != 0;
             prevProcessingEvents = VARMAP_GameEventMaster.GET_SHADOW_EVENTS_BEING_PROCESSED();
 
@@ -276,7 +279,7 @@ namespace Gob3AQ.GameEventMaster
                 stackCheck[0] = new GameEventCombi(GameEvent.EVENT_MASTER_CHANGE_ROOM, false);
                 IsEventCombiOccurredService(stackCheck[..1], out bool aftermath_change_room);
 
-                if((aftermath_change_day || aftermath_change_room) && (VARMAP_GameEventMaster.GET_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY))
+                if ((aftermath_change_day || aftermath_change_room) && (VARMAP_GameEventMaster.GET_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY))
                 {
                     stackCheck[0] = new GameEventCombi(GameEvent.EVENT_MASTER_CHANGE_MOMENT_DAY, true);
                     stackCheck[1] = new GameEventCombi(GameEvent.EVENT_MASTER_CHANGE_ROOM, true);
@@ -611,6 +614,40 @@ namespace Gob3AQ.GameEventMaster
                             break;
                     }
                 }
+            }
+        }
+
+        private void ExecuteBackgroundActions()
+        {
+            ulong elapsedTime = VARMAP_GameEventMaster.GET_ELAPSED_TIME_MS();
+
+            if (VARMAP_GameEventMaster.GET_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY)
+            {
+                if (elapsedTime - _bckgActionsTimestamp >= GameFixedConfig.BACKGROUND_ITEM_ACTIONS_MS)
+                {
+                    MomentType currentMoment = VARMAP_GameEventMaster.GET_DAY_MOMENT();
+                    ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(VARMAP_GameEventMaster.GET_ACTUAL_ROOM());
+                    foreach(ActionConditions action in roomInfo.actionConditions)
+                    {
+                        ref readonly ActionConditionsInfo actionInfo = ref ItemsInteractionsClass.GetActionConditionsInfo(action);
+                        if ((actionInfo.actionCondType == ItemInteractionType.INTERACTION_AUTO_6s)&&
+                            ((actionInfo.momentType == MomentType.MOMENT_ANY)||(actionInfo.momentType == currentMoment))
+                            )
+                        {
+                            IsEventCombiOccurredService(actionInfo.NeededEvents, out bool occurred);
+
+                            if (occurred)
+                            {
+                                PerformActionService(actionInfo.UnchainActions, null);
+                            }
+                        }
+                    }
+                    _bckgActionsTimestamp = elapsedTime;
+                }
+            }
+            else
+            {
+                _bckgActionsTimestamp = elapsedTime;
             }
         }
 

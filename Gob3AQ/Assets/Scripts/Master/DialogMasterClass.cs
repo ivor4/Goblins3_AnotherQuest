@@ -90,7 +90,7 @@ namespace Gob3AQ.DialogMaster
         {
             if (_singleton != null)
             {
-                if (_singleton.dialog_actualTaskType == DialogTaskType.DIALOG_STATE_NONE)
+                if ((_singleton.dialog_actualTaskType == DialogTaskType.DIALOG_STATE_NONE) || _singleton.dialog_input_backgroundDialog)
                 {
                     /* Copy default talkers to array */
                     defaultTalkers.CopyTo(_singleton.dialog_input_talkers);

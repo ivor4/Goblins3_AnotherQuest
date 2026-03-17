@@ -256,7 +256,7 @@ namespace Gob3AQ.VARMAP
         /// <summary> 
         /// Checks if a combination of events is totally complied (event absence can also be requested)
         /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster,  </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, DialogMaster, ItemMaster,  </para> 
         /// <para> Method: <see cref="GameEventMasterClass.IsEventCombiOccurredService"/> </para> 
         /// </summary>
         protected static IS_EVENT_COMBI_OCCURRED_DELEGATE _IS_EVENT_COMBI_OCCURRED;

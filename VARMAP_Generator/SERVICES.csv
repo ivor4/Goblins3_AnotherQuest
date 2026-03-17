@@ -14,7 +14,7 @@
 12,GET_WP_LIST,GET_WP_LIST_DELEGATE,LevelMasterClass.GetWaypointListService,Gets list of waypoints and solutions,,-,-,W,-,-,-,-,X,-,-
 13,GET_PLAYER_LIST,GET_PLAYER_LIST_DELEGATE,LevelMasterClass.GetPlayerListService,Gets a list of actual players,,-,-,W,X,-,-,-,X,-,-
 14,GET_NEAREST_WP,GET_NEAREST_WP_DELEGATE,LevelMasterClass.GetNearestWPService,Gets nearest WP from a given coordinates of level,,-,-,W,-,-,-,-,X,X,-
-15,IS_EVENT_COMBI_OCCURRED,IS_EVENT_COMBI_OCCURRED_DELEGATE,GameEventMasterClass.IsEventCombiOccurredService,Checks if a combination of events is totally complied (event absence can also be requested),,-,-,X,-,-,X,X,X,X,W
+15,IS_EVENT_COMBI_OCCURRED,IS_EVENT_COMBI_OCCURRED_DELEGATE,GameEventMasterClass.IsEventCombiOccurredService,Checks if a combination of events is totally complied (event absence can also be requested),,-,-,X,-,-,X,X,-,X,W
 16,COMMIT_EVENT,COMMIT_EVENT_DELEGATE,GameEventMasterClass.CommitEventService,Activates/Deactivates an event,,X,-,-,-,-,X,-,-,-,W
 17,COMMIT_MEMENTO_NOTIF,COMMIT_MEMENTO_NOTIF_DELEGATE,GameMenuClass.CommitMementoNotifService,Tells Memento Manager (Menu) a new memento has been unlocked,,-,-,-,-,-,W,-,-,-,X
 18,IS_MEMENTO_UNLOCKED,IS_MEMENTO_UNLOCKED_DELEGATE,GameEventMasterClass.IsMementoUnlockedService,Tells if a memento is unlocked,,-,-,-,-,-,X,-,-,-,W

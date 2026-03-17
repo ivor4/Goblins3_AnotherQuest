@@ -15,19 +15,19 @@
 13,GET_PLAYER_LIST,GET_PLAYER_LIST_DELEGATE,LevelMasterClass.GetPlayerListService,Gets a list of actual players,,-,-,W,X,-,-,-,X,-,-
 14,GET_NEAREST_WP,GET_NEAREST_WP_DELEGATE,LevelMasterClass.GetNearestWPService,Gets nearest WP from a given coordinates of level,,-,-,W,-,-,-,-,X,X,-
 15,IS_EVENT_COMBI_OCCURRED,IS_EVENT_COMBI_OCCURRED_DELEGATE,GameEventMasterClass.IsEventCombiOccurredService,Checks if a combination of events is totally complied (event absence can also be requested),,-,-,X,-,-,X,X,X,X,W
-16,COMMIT_EVENT,COMMIT_EVENT_DELEGATE,GameEventMasterClass.CommitEventService,Activates/Deactivates an event,,X,-,X,-,-,X,X,X,X,W
+16,COMMIT_EVENT,COMMIT_EVENT_DELEGATE,GameEventMasterClass.CommitEventService,Activates/Deactivates an event,,X,-,-,-,-,X,-,-,-,W
 17,COMMIT_MEMENTO_NOTIF,COMMIT_MEMENTO_NOTIF_DELEGATE,GameMenuClass.CommitMementoNotifService,Tells Memento Manager (Menu) a new memento has been unlocked,,-,-,-,-,-,W,-,-,-,X
 18,IS_MEMENTO_UNLOCKED,IS_MEMENTO_UNLOCKED_DELEGATE,GameEventMasterClass.IsMementoUnlockedService,Tells if a memento is unlocked,,-,-,-,-,-,X,-,-,-,W
 19,MEMENTO_PARENT_WATCHED,MEMENTO_PARENT_WATCHED_DELEGATE,GameEventMasterClass.MementoParentWatchedService,If a Memento has been analyzed,,-,-,-,-,-,X,-,-,-,W
 20,INTERACT_PLAYER,INTERACT_PLAYER_DELEGATE,PlayerMasterClass.InteractPlayerService,Makes player interact with usage data,,-,-,X,-,-,-,-,W,-,-
-21,UNCHAIN_TO_ITEM,UNCHAIN_TO_ITEM_DELEGATE,ItemMasterClass.UnchainToItemService,Applies an unchain event to an item such as spawn or setsprite,,-,-,-,-,-,-,-,-,W,X
+21,ACTION_TO_ITEM,ACTION_TO_ITEM_DELEGATE,ItemMasterClass.ActionToItemService,Applies an unchain event to an item such as spawn or setsprite,,-,-,-,-,-,-,-,-,W,X
 22,PLAYER_REACHED_WAYPOINT,PLAYER_REACHED_WAYPOINT_DELEGATE,LevelMasterClass.PlayerReachedWaypointService,Tells LevelMaster that player reached Waypoint to start action in case,,-,-,W,-,-,-,-,X,-,-
 23,USE_ITEM,USE_ITEM_DELEGATE,ItemMasterClass.UseItemService,Uses an item with something,,-,-,X,-,-,X,-,-,W,-
 24,CANCEL_PICKABLE_ITEM,CANCEL_PICKABLE_ITEM_DELEGATE,GameMenuClass.CancelPickableItemService,Cancels selected item,,-,-,X,-,-,W,-,-,X,-
 25,KEY_SUBSCRIPTION,KEY_SUBSCRIPTION_DELEGATE,InputMasterClass.KeySubscriptionService,Subscribe to determined key events to avoid polling,,-,W,-,-,-,X,-,-,-,-
 26,LOCK_PLAYER,LOCK_PLAYER_DELEGATE,PlayerMasterClass.LockPlayerService,Locks player so it cannot act until an action over it has been done (or removes lock),,-,-,X,-,-,-,-,W,-,-
 27,CHANGE_GAME_MODE,CHANGE_GAME_MODE_DELEGATE,GameMasterClass.ChangeGameModeService,Asks Game Master to set game mode,,W,-,X,-,-,X,X,-,-,X
-28,SHOW_DIALOGUE,SHOW_DIALOGUE_DELEGATE,DialogMasterClass.ShowDialogueService,Second part of start dialogue. Tells Game Menu to prepare menu elements,,-,-,X,-,-,X,W,-,-,-
+28,SHOW_DIALOGUE,SHOW_DIALOGUE_DELEGATE,DialogMasterClass.ShowDialogueService,Second part of start dialogue. Tells Game Menu to prepare menu elements,,-,-,-,-,-,-,W,-,-,X
 29,DIALOGUE_SELECT_OPTION,DIALOGUE_SELECT_OPTION_DELEGATE,DialogMasterClass.DialogueSelectOptionService,Option selection in multi option dialogue,,-,-,-,-,-,X,W,-,-,-
 30,ZOOM_SUBSCRIPTION,ZOOM_SUBSCRIPTION_DELEGATE,GraphicsMasterClass.ZoomSubscriptionService,Subscribe to zoom changes,,-,-,-,W,-,-,-,-,X,-
 31,SHOW_DECISION,SHOW_DECISION_DELEGATE,GameMenuClass.ShowDecisionService,Shows a set of decisions,,-,-,-,-,-,W,-,-,-,X
@@ -38,4 +38,5 @@
 36,STOP_SOUND,STOP_SOUND_DELEGATE,SoundMasterClass.StopSoundService,Stops first match of sound with given ID which is being played,,-,-,X,-,W,-,X,-,-,-
 37,START_ANIMATION,START_ANIMATION_DELEGATE,DialogMasterClass.StartAnimationService,Starts an animation in background or main mode,,-,-,-,-,-,-,W,-,X,X
 38,ITEM_PERFORM_ANIMATION,ITEM_PERFORM_ANIMATION_DELEGATE,ItemMasterClass.PerformAnimationService,Makes an item start an animation,,-,-,-,-,-,-,X,-,W,-
-39,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-,-,-
+39,PERFORM_ACTION,PERFORM_ACTION_DELEGATE,GameEventMasterClass.PerformActionService,Performs a named action,,-,-,X,-,-,X,X,-,X,W
+40,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-,-,-

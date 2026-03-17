@@ -50,23 +50,28 @@ namespace Gob3AQ.VARMAP.Types
         /* > ATG 3 END < */
     }
 
-    public enum UnchainType
+    public enum ActionType
     {
         /* > ATG 4 START < */
-        UNCHAIN_TYPE_SPAWN, 
-        UNCHAIN_TYPE_DESPAWN, 
-        UNCHAIN_TYPE_DESTROY, 
-        UNCHAIN_TYPE_UNCLICKABLE, 
-        UNCHAIN_TYPE_SET_SPRITE, 
-        UNCHAIN_TYPE_EARN_ITEM, 
-        UNCHAIN_TYPE_LOSE_ITEM, 
-        UNCHAIN_TYPE_EVENT, 
-        UNCHAIN_TYPE_NOTIF, 
-        UNCHAIN_TYPE_MEMENTO, 
-        UNCHAIN_TYPE_DECISION, 
-        UNCHAIN_TYPE_CHANGE_MOMENT_DAY, 
+        ACTION_TYPE_NONE = -1, 
+        ACTION_TYPE_SPAWN, 
+        ACTION_TYPE_DESPAWN, 
+        ACTION_TYPE_DESTROY, 
+        ACTION_TYPE_UNCLICKABLE, 
+        ACTION_TYPE_SET_SPRITE, 
+        ACTION_TYPE_EARN_ITEM, 
+        ACTION_TYPE_LOSE_ITEM, 
+        ACTION_TYPE_EVENT, 
+        ACTION_TYPE_NOTIF, 
+        ACTION_TYPE_MEMENTO, 
+        ACTION_TYPE_DECISION, 
+        ACTION_TYPE_START_DIALOGUE, 
+        ACTION_TYPE_START_DIALOGUE_BCKG, 
+        ACTION_TYPE_START_ANIMATION, 
+        ACTION_TYPE_ACTION_SEQUENCE, 
+        ACTION_TYPE_CHANGE_MOMENT_DAY, 
         
-        UNCHAIN_TYPE_TOTAL
+        ACTION_TYPE_TOTAL
         /* > ATG 4 END < */
     }
 

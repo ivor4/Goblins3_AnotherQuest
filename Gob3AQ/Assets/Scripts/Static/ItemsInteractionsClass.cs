@@ -111,6 +111,19 @@ namespace Gob3AQ.Brain.ItemsInteraction
             }
         }
 
+        public static ref readonly ActionInfo GetActionInfo(GameAction action)
+        {
+            if ((uint)action >= (uint)GameAction.ACTION_TOTAL)
+            {
+                Debug.LogError($"[ItemsInteractionsClass] GetActionInfo: Invalid action {action}");
+                return ref ActionInfo.EMPTY;
+            }
+            else
+            {
+                return ref _ActionInfo[(int)action];
+            }
+        }
+
         public static ref readonly DetailInfo GetDetailInfo(DetailType detailType)
         {
             if ((uint)detailType >= (uint)DetailType.DETAIL_TOTAL)
@@ -129,298 +142,154 @@ namespace Gob3AQ.Brain.ItemsInteraction
         {
             /* > ATG 1 START < */
             new( /* UNCHAIN_ROOM1_INITIAL_MEMENTO_1 */
-            false,UnchainType.UNCHAIN_TYPE_EVENT,new(GameEvent.EVENT_FIRST, false), 
+            false,true,new(GameEvent.EVENT_FIRST, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_FIRST, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
-            
-            new( /* UNCHAIN_ROOM1_INITIAL_MEMENTO_2 */
-            false,UnchainType.UNCHAIN_TYPE_MEMENTO,new(GameEvent.EVENT_FIRST, false), 
-            new GameEventCombi[1]{new(GameEvent.EVENT_FIRST, false),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_JOB_FIND_1_1, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            MomentType.MOMENT_ANY, 
+            new GameAction[2]{GameAction.ACTION_EVENT_INITIAL_MEMENTO,GameAction.ACTION_MEMENTO_INITIAL_MEMENTO,}), 
             
             new( /* UNCHAIN_HIVE1_OPEN_CHEST_1 */
-            true,UnchainType.UNCHAIN_TYPE_SET_SPRITE,new(GameEvent.EVENT_NONE, false), 
+            true,false,new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, false),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_HIVE1_CHEST, GameSprite.SPRITE_ITEM_CHEST_OPENED,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            MomentType.MOMENT_ANY, 
+            new GameAction[1]{GameAction.ACTION_SPAWN_HIVE1_CARDS,}), 
             
             new( /* UNCHAIN_HIVE1_OPEN_CHEST_2 */
-            true,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, false), 
+            true,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, false),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_CARDS_PICKABLE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
-            
-            new( /* UNCHAIN_HIVE1_OPEN_CHEST_3 */
-            true,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
-            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, false),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_HIVE1_PERFUME, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            MomentType.MOMENT_ANY, 
+            new GameAction[2]{GameAction.ACTION_SET_SPRITE_CHEST_OPENED,GameAction.ACTION_SPAWN_HIVE1_PERFUME,}), 
             
             new( /* UNCHAIN_HIVE1_CLOSE_CHEST_1 */
-            true,UnchainType.UNCHAIN_TYPE_SET_SPRITE,new(GameEvent.EVENT_NONE, false), 
+            true,false,new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, true),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_HIVE1_CHEST, GameSprite.SPRITE_ITEM_CHEST_CLOSED,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            MomentType.MOMENT_ANY, 
+            new GameAction[1]{GameAction.ACTION_DESPAWN_HIVE1_CARDS,}), 
             
             new( /* UNCHAIN_HIVE1_CLOSE_CHEST_2 */
-            true,UnchainType.UNCHAIN_TYPE_DESPAWN,new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, false), 
+            true,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, true),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_CARDS_PICKABLE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
-            
-            new( /* UNCHAIN_HIVE1_CLOSE_CHEST_3 */
-            true,UnchainType.UNCHAIN_TYPE_DESPAWN,new(GameEvent.EVENT_NONE, false), 
-            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, true),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_HIVE1_PERFUME, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            MomentType.MOMENT_ANY, 
+            new GameAction[2]{GameAction.ACTION_SET_SPRITE_CHEST_CLOSED,GameAction.ACTION_DESPAWN_HIVE1_PERFUME,}), 
             
             new( /* UNCHAIN_CARDS_PICKABLE_TAKE_1 */
-            false,UnchainType.UNCHAIN_TYPE_DESTROY,new(GameEvent.EVENT_NONE, false), 
+            false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, false),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_CARDS_PICKABLE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
-            
-            new( /* UNCHAIN_CARDS_PICKABLE_TAKE_2 */
-            false,UnchainType.UNCHAIN_TYPE_EARN_ITEM,new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, false), 
-            new GameEventCombi[1]{new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, false),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_CARDS_PICKABLE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            MomentType.MOMENT_ANY, 
+            new GameAction[1]{GameAction.ACTION_DESTROY_HIVE1_CARDS,}), 
             
             new( /* UNCHAIN_HIVE1_OPEN_WARDROBE_1 */
-            true,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
+            true,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, false),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_HIVE1_WARDROBE_OPENED, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            MomentType.MOMENT_ANY, 
+            new GameAction[2]{GameAction.ACTION_SPAWN_HIVE1_WARDROBE_OPENED,GameAction.ACTION_DESPAWN_HIVE1_WARDROBE,}), 
             
             new( /* UNCHAIN_HIVE1_OPEN_WARDROBE_2 */
-            true,UnchainType.UNCHAIN_TYPE_DESPAWN,new(GameEvent.EVENT_NONE, false), 
+            true,false,new(GameEvent.EVENT_SOAP_PICKABLE_TAKEN, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, false),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_HIVE1_WARDROBE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
-            
-            new( /* UNCHAIN_HIVE1_OPEN_WARDROBE_3 */
-            true,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_SOAP_PICKABLE_TAKEN, false), 
-            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, false),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_SOAP_PICKABLE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            MomentType.MOMENT_ANY, 
+            new GameAction[1]{GameAction.ACTION_SPAWN_SOAP,}), 
             
             new( /* UNCHAIN_HIVE1_CLOSE_WARDROBE_1 */
-            true,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
+            true,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, true),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_HIVE1_WARDROBE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            MomentType.MOMENT_ANY, 
+            new GameAction[2]{GameAction.ACTION_SPAWN_HIVE1_WARDROBE,GameAction.ACTION_DESPAWN_HIVE1_WARDROBE_OPENED,}), 
             
             new( /* UNCHAIN_HIVE1_CLOSE_WARDROBE_2 */
-            true,UnchainType.UNCHAIN_TYPE_DESPAWN,new(GameEvent.EVENT_NONE, false), 
+            true,false,new(GameEvent.EVENT_SOAP_PICKABLE_TAKEN, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, true),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_HIVE1_WARDROBE_OPENED, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
-            
-            new( /* UNCHAIN_HIVE1_CLOSE_WARDROBE_3 */
-            true,UnchainType.UNCHAIN_TYPE_DESPAWN,new(GameEvent.EVENT_SOAP_PICKABLE_TAKEN, false), 
-            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, true),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_SOAP_PICKABLE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
-            
-            new( /* UNCHAIN_OBSERVE_HIVE1_AD_BOARD_1 */
-            false,UnchainType.UNCHAIN_TYPE_MEMENTO,new(GameEvent.EVENT_HIVE1_AD_BOARD_OBSERVED_1, false), 
-            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_AD_BOARD_OBSERVED_1, false),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_JOB_FIND_1_2, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            MomentType.MOMENT_ANY, 
+            new GameAction[1]{GameAction.ACTION_DESPAWN_SOAP,}), 
             
             new( /* UNCHAIN_SOAP_PICKABLE_TAKE_1 */
-            false,UnchainType.UNCHAIN_TYPE_DESTROY,new(GameEvent.EVENT_NONE, false), 
+            false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_SOAP_PICKABLE_TAKEN, false),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_SOAP_PICKABLE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
-            
-            new( /* UNCHAIN_SOAP_PICKABLE_TAKE_2 */
-            false,UnchainType.UNCHAIN_TYPE_EARN_ITEM,new(GameEvent.EVENT_SOAP_PICKABLE_TAKEN, false), 
-            new GameEventCombi[1]{new(GameEvent.EVENT_SOAP_PICKABLE_TAKEN, false),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_SOAP_PICKABLE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
-            
-            new( /* UNCHAIN_SLEEP_DECISION */
-            true,UnchainType.UNCHAIN_TYPE_DECISION,new(GameEvent.EVENT_NONE, false), 
-            new GameEventCombi[1]{new(GameEvent.EVENT_LAUNCH_SLEEP_DECISION, false),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_SLEEP_1, MomentType.MOMENT_ANY),
-            
-            new( /* UNCHAIN_SLEEP_DECISION_2 */
-            true,UnchainType.UNCHAIN_TYPE_EVENT,new(GameEvent.EVENT_NONE, false), 
-            new GameEventCombi[1]{new(GameEvent.EVENT_LAUNCH_SLEEP_DECISION, false),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_LAUNCH_SLEEP_DECISION, true),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            MomentType.MOMENT_ANY, 
+            new GameAction[1]{GameAction.ACTION_DESTROY_SOAP,}), 
             
             new( /* UNCHAIN_REME_DAY */
-            false,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
+            false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            MomentType.MOMENT_MORNING, GameItem.ITEM_HIVE1_NPC_REME, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            MomentType.MOMENT_MORNING, 
+            new GameAction[1]{GameAction.ACTION_SPAWN_REME_DAY,}), 
             
             new( /* UNCHAIN_PHARMACY_DOOR_AVAIL */
-            false,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
+            false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            MomentType.MOMENT_MORNING, GameItem.ITEM_PHARMACY_DOOR, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            MomentType.MOMENT_MORNING, 
+            new GameAction[1]{GameAction.ACTION_SPAWN_PHARMACY_DOOR,}), 
             
             new( /* UNCHAIN_MANYO_OWNER */
-            false,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
+            false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            MomentType.MOMENT_MORNING, GameItem.ITEM_ELMANYO_OWNER, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            MomentType.MOMENT_MORNING, 
+            new GameAction[1]{GameAction.ACTION_SPAWN_MANYO_OWNER_DAY,}), 
             
             new( /* UNCHAIN_MANYO_OWNER_NIGHT */
-            false,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
+            false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            MomentType.MOMENT_NIGHT, GameItem.ITEM_ELMANYO_OWNER_NIGHT, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
-            
-            new( /* UNCHAIN_RECEIPT_MISSION_MEMENTO */
-            false,UnchainType.UNCHAIN_TYPE_MEMENTO,new(GameEvent.EVENT_MANYO_LOOK_FOR_RECIPE_MISSION, false), 
-            new GameEventCombi[1]{new(GameEvent.EVENT_MANYO_LOOK_FOR_RECIPE_MISSION, false),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_RECIPE_MISSION_1, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            MomentType.MOMENT_NIGHT, 
+            new GameAction[1]{GameAction.ACTION_SPAWN_MANYO_OWNER_NIGHT,}), 
             
             new( /* UNCHAIN_UMBRELLA_TAKE_1 */
-            false,UnchainType.UNCHAIN_TYPE_DESTROY,new(GameEvent.EVENT_NONE, false), 
+            false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_UMBRELLA_PICKABLE_TAKEN, false),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_CITY1_UMBRELLA, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
-            
-            new( /* UNCHAIN_UMBRELLA_TAKE_2 */
-            false,UnchainType.UNCHAIN_TYPE_EARN_ITEM,new(GameEvent.EVENT_UMBRELLA_PICKABLE_TAKEN, false), 
-            new GameEventCombi[1]{new(GameEvent.EVENT_UMBRELLA_PICKABLE_TAKEN, false),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_CITY1_UMBRELLA, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            MomentType.MOMENT_ANY, 
+            new GameAction[1]{GameAction.ACTION_DESTROY_UMBRELLA,}), 
             
             new( /* UNCHAIN_ITEM_HIVE1_POOR_MAN_WC_SPAWN */
-            false,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
+            false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[2]{new(GameEvent.EVENT_MANYO_LOOK_FOR_RECIPE_MISSION, false),new(GameEvent.EVENT_HIVE1_VALVE_ACTIVATED, true),}, 
-            MomentType.MOMENT_NIGHT, GameItem.ITEM_HIVE1_POOR_MAN_WC, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
-            
-            new( /* UNCHAIN_POOR_MAN_WC_EVENT_1 */
-            false,UnchainType.UNCHAIN_TYPE_MEMENTO,new(GameEvent.EVENT_POOR_MAN_WC_NEED_WATER, false), 
-            new GameEventCombi[1]{new(GameEvent.EVENT_POOR_MAN_WC_NEED_WATER, false),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_POOR_MAN_WC_1, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            MomentType.MOMENT_NIGHT, 
+            new GameAction[1]{GameAction.ACTION_SPAWN_HIVE1_POOR_MAN_WC,}), 
             
             new( /* UNCHAIN_ITEM_HIVE1_ROACH_HEAD_SPAWN */
-            false,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
+            false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_COCKROACH_CHEATED, true),}, 
-            MomentType.MOMENT_MORNING, GameItem.ITEM_HIVE1_ROACH_HEAD, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            MomentType.MOMENT_MORNING, 
+            new GameAction[1]{GameAction.ACTION_SPAWN_HIVE1_ROACH_HEAD,}), 
             
             new( /* UNCHAIN_ITEM_HIVE1_ROACH_HEAD_DESPAWN */
-            false,UnchainType.UNCHAIN_TYPE_DESPAWN,new(GameEvent.EVENT_NONE, false), 
+            false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_COCKROACH_SCARED, false),}, 
-            MomentType.MOMENT_MORNING, GameItem.ITEM_HIVE1_ROACH_HEAD, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            MomentType.MOMENT_MORNING, 
+            new GameAction[1]{GameAction.ACTION_DESPAWN_HIVE1_ROACH_HEAD,}), 
             
             new( /* UNCHAIN_REBUILD_COCHROACH_SCARED */
-            true,UnchainType.UNCHAIN_TYPE_EVENT,new(GameEvent.EVENT_COCKROACH_CHEATED, false), 
-            new GameEventCombi[1]{new(GameEvent.EVENT_MASTER_CHANGE_ROOM, false),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_COCKROACH_SCARED, true),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            true,true,new(GameEvent.EVENT_COCKROACH_CHEATED, false), 
+            new GameEventCombi[2]{new(GameEvent.EVENT_MASTER_CHANGE_ROOM, false),new(GameEvent.EVENT_COCKROACH_SCARED, false),}, 
+            MomentType.MOMENT_ANY, 
+            new GameAction[1]{GameAction.ACTION_EVENT_REBUILD_ROACH_SCARED,}), 
             
             new( /* UNCHAIN_ITEM_HIVE1_SHOELACE_TAKE_1 */
-            false,UnchainType.UNCHAIN_TYPE_DESTROY,new(GameEvent.EVENT_NONE, false), 
+            false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_ITEM_HIVE1_SHOELACE_PICKABLE_TAKEN, false),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_HIVE1_SHOELACE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
-            
-            new( /* UNCHAIN_ITEM_HIVE1_SHOELACE_TAKE_2 */
-            false,UnchainType.UNCHAIN_TYPE_EARN_ITEM,new(GameEvent.EVENT_ITEM_HIVE1_SHOELACE_PICKABLE_TAKEN, false), 
-            new GameEventCombi[1]{new(GameEvent.EVENT_ITEM_HIVE1_SHOELACE_PICKABLE_TAKEN, false),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_HIVE1_SHOELACE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            MomentType.MOMENT_ANY, 
+            new GameAction[1]{GameAction.ACTION_DESTROY_HIVE1_SHOELACE,}), 
             
             new( /* UNCHAIN_ITEM_HIVE1_VALVE_BOX_DESPAWN */
-            false,UnchainType.UNCHAIN_TYPE_DESTROY,new(GameEvent.EVENT_NONE, false), 
+            false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_VALVE_BOX_OPENED, false),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_HIVE1_VALVE_BOX, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
-            
-            new( /* UNCHAIN_ITEM_HIVE1_VALVE_SPAWN */
-            false,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
-            new GameEventCombi[1]{new(GameEvent.EVENT_VALVE_BOX_OPENED, false),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_HIVE1_VALVE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            MomentType.MOMENT_ANY, 
+            new GameAction[2]{GameAction.ACTION_DESTROY_HIVE1_VALVE_BOX,GameAction.ACTION_SPAWN_HIVE1_VALVE,}), 
             
             new( /* UNCHAIN_ITEM_HIVE1_MAN_WC_CURED_SPAWN */
-            false,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
+            false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[2]{new(GameEvent.EVENT_HIVE1_VALVE_ACTIVATED, false),new(GameEvent.EVENT_TALKED_ARTURO_HALL_INN_COMPLETED, true),}, 
-            MomentType.MOMENT_NIGHT, GameItem.ITEM_HIVE1_MAN_WC_CURED, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
-            
-            new( /* UNCHAIN_OBTAIN_EXTRAPERLO_INVITATION */
-            false,UnchainType.UNCHAIN_TYPE_EARN_ITEM,new(GameEvent.EVENT_ITEM_EXTRAPERLO_INVITATION_PICKABLE_TAKEN, false), 
-            new GameEventCombi[1]{new(GameEvent.EVENT_ITEM_EXTRAPERLO_INVITATION_PICKABLE_TAKEN, false),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_EXTRAPERLO_INVITATION, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
-            
-            new( /* UNCHAIN_INKWELL_DESPAWN */
-            false,UnchainType.UNCHAIN_TYPE_DESPAWN,new(GameEvent.EVENT_NONE, false), 
-            new GameEventCombi[1]{new(GameEvent.EVENT_INKWELL_WASTED, false),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_PHARMACY_INKWELL, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            MomentType.MOMENT_NIGHT, 
+            new GameAction[1]{GameAction.ACTION_SPAWN_HIVE1_MAN_WC_CURED,}), 
             
             new( /* UNCHAIN_INK_SPAWN */
-            false,UnchainType.UNCHAIN_TYPE_SPAWN,new(GameEvent.EVENT_NONE, false), 
+            false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_INKWELL_WASTED, false),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_PHARMACY_INK, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            MomentType.MOMENT_ANY, 
+            new GameAction[2]{GameAction.ACTION_DESPAWN_INKWELL,GameAction.ACTION_SPAWN_INK,}), 
             
             new( /* UNCHAIN_LAST */
-            false,UnchainType.UNCHAIN_TYPE_EVENT,new(GameEvent.EVENT_NONE, false), 
+            false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            MomentType.MOMENT_ANY, GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE, 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE, MomentType.MOMENT_ANY),
+            MomentType.MOMENT_ANY, 
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
             
             /* > ATG 1 END < */
         };
@@ -433,429 +302,307 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new( /* COND_OK */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
             
             new( /* COND_OPEN_CHEST */
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, true),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
-            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, false),}), 
+            new GameAction[1]{GameAction.ACTION_EVENT_OPEN_CHEST,}), 
             
             new( /* COND_CLOSE_CHEST */
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
-            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, true),}), 
+            new GameAction[1]{GameAction.ACTION_EVENT_CANCEL_OPEN_CHEST,}), 
             
             new( /* COND_TAKE_CARDS */
             new GameEventCombi[1]{new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, true),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
-            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, false),}), 
+            new GameAction[2]{GameAction.ACTION_OBTAIN_HIVE1_CARDS,GameAction.ACTION_EVENT_CARDS_PICKABLE_TAKEN,}), 
             
             new( /* COND_OPEN_HIVE1_WARDROBE */
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, true),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
-            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, false),}), 
+            new GameAction[1]{GameAction.ACTION_EVENT_OPEN_WARDROBE,}), 
             
             new( /* COND_CLOSE_HIVE1_WARDROBE */
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
-            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, true),}), 
+            new GameAction[1]{GameAction.ACTION_EVENT_CANCEL_OPEN_WARDROBE,}), 
             
             new( /* COND_TALK_REME_1 */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_REME_INTRO,DialogPhrase.PHRASE_NONE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_REME_1,}), 
             
             new( /* COND_OBSERVE_HIVE1_AD_BOARD_1 */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
-            CharacterAnimation.ITEM_USE_ANIMATION_STARE_SCREEN,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_HIVE1_AD_BOARD_1,
-            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_AD_BOARD_OBSERVED_1, false),}), 
+            new GameAction[3]{GameAction.ACTION_DIALOGUE_HIVE1_AD_BOARD_1,GameAction.ACTION_EVENT_HIVE1_AD_OBSERVED,GameAction.ACTION_MEMENTO_JOB_FIND_1_2,}), 
             
             new( /* COND_EXIT_HIVE1_HALL_1 */
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_AD_BOARD_OBSERVED_1, true),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_CROSS_DOOR,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NOT_EXIT_HIVE1_HALL_1,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_EXIT_HIVE1_HALL_1,}), 
             
             new( /* COND_EXIT_HIVE1_HALL_2 */
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_USED_BASIN, true),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_CROSS_DOOR,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NOT_EXIT_HIVE1_HALL_2,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_EXIT_HIVE1_HALL_2,}), 
             
             new( /* COND_EXIT_HIVE1_HALL_3 */
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_USED_PERFUME, true),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_CROSS_DOOR,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NOT_EXIT_HIVE1_HALL_2,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_EXIT_HIVE1_HALL_3,}), 
             
             new( /* COND_USE_HIVE1_BASIN_NO_SOAP */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_TAKE_HIVE1_BASIN_NO_SOAP,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_USE_BASIN_NO_SOAP,}), 
             
             new( /* COND_USE_HIVE1_BASIN_W_SOAP */
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_USED_BASIN, true),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_SOAP_PICKABLE,ItemInteractionType.INTERACTION_USE,
-            CharacterAnimation.ITEM_USE_ANIMATION_NORMAL,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_TAKE_HIVE1_BASIN_SOAP,
-            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_USED_BASIN, false),}), 
+            new GameAction[2]{GameAction.ACTION_DIALOGUE_USE_BASIN_W_SOAP,GameAction.ACTION_EVENT_USED_BASIN,}), 
             
             new( /* COND_USE_HIVE1_BASIN_W_SOAP_REPEAT */
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_USED_BASIN, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_SOAP_PICKABLE,ItemInteractionType.INTERACTION_USE,
-            CharacterAnimation.ITEM_USE_ANIMATION_CONFUSE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_ALREADY_COMBI,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_USE_BASIN_W_SOAP_REPEAT,}), 
             
             new( /* COND_TAKE_SOAP */
             new GameEventCombi[1]{new(GameEvent.EVENT_SOAP_PICKABLE_TAKEN, true),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
-            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_SOAP_PICKABLE_TAKEN, false),}), 
+            new GameAction[2]{GameAction.ACTION_OBTAIN_SOAP,GameAction.ACTION_EVENT_SOAP_PICKABLE_TAKEN,}), 
             
             new( /* COND_USE_HIVE1_PERFUME */
             new GameEventCombi[2]{new(GameEvent.EVENT_HIVE1_USED_PERFUME, true),new(GameEvent.EVENT_HIVE1_USED_BASIN, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_HIVE1_PERFUME,
-            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_USED_PERFUME, false),}), 
+            new GameAction[2]{GameAction.ACTION_DIALOGUE_USE_PERFUME,GameAction.ACTION_EVENT_USED_PERFUME,}), 
             
             new( /* COND_USE_HIVE1_PERFUME_NOT_1 */
             new GameEventCombi[2]{new(GameEvent.EVENT_HIVE1_USED_PERFUME, true),new(GameEvent.EVENT_HIVE1_USED_BASIN, true),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            CharacterAnimation.ITEM_USE_ANIMATION_CONFUSE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_HIVE1_PERFUME_NOT_1,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_USE_PERFUME_NOT_1,}), 
             
             new( /* COND_USE_HIVE1_PERFUME_NOT_2 */
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_USED_PERFUME, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            CharacterAnimation.ITEM_USE_ANIMATION_CONFUSE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_HIVE1_PERFUME_NOT_2,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_USE_PERFUME_NOT_2,}), 
             
             new( /* COND_USE_CARDS_REME */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_CARDS_PICKABLE,ItemInteractionType.INTERACTION_USE,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_REME_CARDS,DialogPhrase.PHRASE_NONE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_USE_CARDS_REME,}), 
             
             new( /* COND_USE_HIVE1_BED */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_LAUNCH_SLEEP_DECISION, false),}), 
+            new GameAction[1]{GameAction.ACTION_DECISION_SLEEP,}), 
             
             new( /* COND_GO_STREET1_SOUTH_NEIGH */
             new GameEventCombi[1]{new(GameEvent.EVENT_ITEM_EXTRAPERLO_INVITATION_PICKABLE_TAKEN, true),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_CROSS_DOOR,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_WONT_GO_SOUTH_NEIGH,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_NOT_GO_SOUTH_NEIGH,}), 
             
             new( /* COND_TRY_TALK_PHARMACIST */
             new GameEventCombi[1]{new(GameEvent.EVENT_PHARMACY_EMPTY, true),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_TRY_TALK_PHARMACIST_1,DialogPhrase.PHRASE_NONE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_TRY_TALK_PHARMACIST,}), 
             
             new( /* COND_TALK_DEER */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_HELLO_DEER,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_TALK_DEER,}), 
             
             new( /* COND_TALK_MANYO_OWNER */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_MANYO_OWNER_INTRO,DialogPhrase.PHRASE_NONE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_TALK_MANYO_OWNER,}), 
             
             new( /* COND_TAKE_UMBRELLA_MORNING */
             new GameEventCombi[1]{new(GameEvent.EVENT_UMBRELLA_PICKABLE_TAKEN, true),}, 
             MomentType.MOMENT_MORNING,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_MANYO_UMBRELLA,DialogPhrase.PHRASE_NONE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_TAKE_UMBRELLA_MORNING,}), 
             
             new( /* COND_TAKE_UMBRELLA_NIGHT */
             new GameEventCombi[1]{new(GameEvent.EVENT_UMBRELLA_PICKABLE_TAKEN, true),}, 
             MomentType.MOMENT_NIGHT,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_DIALOG_UMBRELLA_TAKEN,
-            new GameEventCombi[1]{new(GameEvent.EVENT_UMBRELLA_PICKABLE_TAKEN, false),}), 
+            new GameAction[3]{GameAction.ACTION_DIALOGUE_TAKE_UMBRELLA_NIGHT,GameAction.ACTION_OBTAIN_UMBRELLA,GameAction.ACTION_EVENT_UMBRELLA_PICKABLE_TAKEN,}), 
             
             new( /* COND_DIALOGUE_MANYO_BCKG */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_NIGHT,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_AUTO_6s,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_MANYO_BCKG_CROWD,DialogPhrase.PHRASE_NONE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_MANYO_BCKG,}), 
             
             new( /* COND_OBSERVE_ITEM_HIVE1_POOR_MAN_WC */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_POOR_MAN_WC,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_POOR_MAN_WC,}), 
             
             new( /* COND_DIALOGUE_POOR_MAN_WC_BCKG */
             new GameEventCombi[2]{new(GameEvent.EVENT_MANYO_LOOK_FOR_RECIPE_MISSION, false),new(GameEvent.EVENT_HIVE1_VALVE_ACTIVATED, true),}, 
             MomentType.MOMENT_NIGHT,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_AUTO_6s,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_HIVE1_BCKG_POOR_MAN_WC,DialogPhrase.PHRASE_NONE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_TALK_POOR_MAN_WC,}), 
             
             new( /* COND_TALK_POOR_MAN_WC */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_HIVE1_POOR_MAN_WC_INTRO,DialogPhrase.PHRASE_NONE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_TALK_POOR_MAN_WC,}), 
             
             new( /* COND_OBSERVE_ITEM_HIVE1_ROACH */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_ROACH,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_HIVE1_ROACH,}), 
             
             new( /* COND_OBSERVE_ITEM_HIVE1_PIPE */
             new GameEventCombi[1]{new(GameEvent.EVENT_POOR_MAN_WC_NEED_WATER, true),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_BACKALLEY_PIPE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_HIVE1_PIPE,}), 
             
             new( /* COND_OBSERVE_ITEM_HIVE1_PIPE_2 */
             new GameEventCombi[1]{new(GameEvent.EVENT_POOR_MAN_WC_NEED_WATER, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_PIPE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_PIPE_OBSERVATION_1, false),}), 
+            new GameAction[2]{GameAction.ACTION_DIALOGUE_OBSERVE_HIVE1_PIPE_2,GameAction.ACTION_EVENT_PIPE_OBSERVATION_1,}), 
             
             new( /* COND_TAKE_HIVE1_ROACH_HEAD */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_TAKE_ITEM_HIVE1_ROACH_HEAD,
-            new GameEventCombi[1]{new(GameEvent.EVENT_COCKROACH_SCARED, false),}), 
+            new GameAction[2]{GameAction.ACTION_DIALOGUE_TAKE_HIVE1_ROACH_HEAD,GameAction.ACTION_EVENT_COCKROACH_SCARED,}), 
             
             new( /* COND_OBSERVE_ITEM_HIVE1_VALVE_BOX */
             new GameEventCombi[1]{new(GameEvent.EVENT_PIPE_OBSERVATION_2, true),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_VALVE_BOX,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_VALVE_BOX,}), 
             
             new( /* COND_OBSERVE_ITEM_HIVE1_BACKALLEY_PIPE */
             new GameEventCombi[1]{new(GameEvent.EVENT_PIPE_OBSERVATION_1, true),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_BACKALLEY_PIPE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_BACKALLEY_PIPE,}), 
             
             new( /* COND_OBSERVE_ITEM_HIVE1_BACKALLEY_PIPE_2 */
             new GameEventCombi[1]{new(GameEvent.EVENT_PIPE_OBSERVATION_1, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_BACKALLEY_PIPE_2,
-            new GameEventCombi[1]{new(GameEvent.EVENT_PIPE_OBSERVATION_2, false),}), 
+            new GameAction[2]{GameAction.ACTION_DIALOGUE_OBSERVE_BACKALLEY_PIPE_2,GameAction.ACTION_EVENT_PIPE_OBSERVATION_2,}), 
             
             new( /* COND_OBSERVE_ITEM_HIVE1_VALVE_BOX_2 */
             new GameEventCombi[1]{new(GameEvent.EVENT_PIPE_OBSERVATION_2, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_VALVE_BOX_2,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_VALVE_BOX_2,}), 
             
             new( /* COND_TAKE_VALVE_BOX_1 */
             new GameEventCombi[1]{new(GameEvent.EVENT_PIPE_OBSERVATION_2, false),}, 
             MomentType.MOMENT_NIGHT,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            CharacterAnimation.ITEM_USE_ANIMATION_STARE_SCREEN,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_TAKE_VALVE_BOX_CLOSED,
-            new GameEventCombi[1]{new(GameEvent.EVENT_VALVE_BOX_NEED_OPEN, false),}), 
+            new GameAction[2]{GameAction.ACTION_DIALOGUE_TAKE_VALVE_BOX_1,GameAction.ACTION_EVENT_VALVE_BOX_NEED_OPEN,}), 
             
             new( /* COND_TAKE_VALVE_BOX_MORNING */
             new GameEventCombi[1]{new(GameEvent.EVENT_PIPE_OBSERVATION_2, false),}, 
             MomentType.MOMENT_MORNING,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            CharacterAnimation.ITEM_USE_ANIMATION_CONFUSE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_TAKE_VALVE_BOX_CLOSED_MORNING,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_TAKE_VALVE_BOX_MORNING,}), 
             
             new( /* COND_OBSERVE_ITEM_HIVE1_SHOELACE */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_SHOELACE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_SHOEALCE,}), 
             
             new( /* COND_TAKE_ITEM_HIVE1_SHOELACE_NOT */
             new GameEventCombi[1]{new(GameEvent.EVENT_VALVE_BOX_NEED_OPEN, true),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NO_REASON_TO_DO,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_TAKE_SHOEALCE_NOT,}), 
             
             new( /* COND_TAKE_ITEM_HIVE1_SHOELACE_NOT_2 */
             new GameEventCombi[1]{new(GameEvent.EVENT_VALVE_BOX_NEED_OPEN, false),}, 
             MomentType.MOMENT_MORNING,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NO_REASON_TO_DO,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_TAKE_SHOEALCE_NOT_2,}), 
             
             new( /* COND_TAKE_ITEM_HIVE1_SHOELACE */
             new GameEventCombi[1]{new(GameEvent.EVENT_VALVE_BOX_NEED_OPEN, false),}, 
             MomentType.MOMENT_NIGHT,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_TAKE_ITEM_HIVE1_SHOELACE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_ITEM_HIVE1_SHOELACE_PICKABLE_TAKEN, false),}), 
+            new GameAction[3]{GameAction.ACTION_DIALOGUE_TAKE_SHOEALCE,GameAction.ACTION_OBTAIN_HIVE1_SHOELACE,GameAction.ACTION_EVENT_SHOELACE_PICKABLE_TAKEN,}), 
             
             new( /* COND_OBSERVE_ITEM_HIVE1_VALVE */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_VALVE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_VALVE,}), 
             
             new( /* COND_USE_SHOELACE_VALVE_BOX */
             new GameEventCombi[1]{new(GameEvent.EVENT_VALVE_BOX_OPENED, true),}, 
             MomentType.MOMENT_NIGHT,CharacterType.CHARACTER_MAIN,GameItem.ITEM_HIVE1_SHOELACE,ItemInteractionType.INTERACTION_USE,
-            CharacterAnimation.ITEM_USE_ANIMATION_POUR,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_SHOELACE_VALVE_BOX,
-            new GameEventCombi[1]{new(GameEvent.EVENT_VALVE_BOX_OPENED, false),}), 
+            new GameAction[2]{GameAction.ACTION_DIALOGUE_USE_SHOELACE_VALVE_BOX,GameAction.ACTION_EVENT_VALVE_BOX_OPENED,}), 
             
             new( /* COND_TAKE_HIVE1_VALVE */
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_VALVE_ACTIVATED, true),}, 
             MomentType.MOMENT_NIGHT,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_HIVE1_VALVE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_VALVE_ACTIVATED, false),}), 
+            new GameAction[2]{GameAction.ACTION_DIALOGUE_TAKE_HIVE1_VALVE,GameAction.ACTION_EVENT_VALVE_ACTIVATED,}), 
             
             new( /* COND_TAKE_HIVE1_VALVE_2 */
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_VALVE_ACTIVATED, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            CharacterAnimation.ITEM_USE_ANIMATION_CONFUSE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_HIVE1_VALVE_NOT,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_TAKE_HIVE1_VALVE_2,}), 
             
             new( /* COND_OBSERVE_ITEM_HIVE1_MAN_WC_CURED */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_MAN_WC_CURED,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_MAN_WC_CURED,}), 
             
             new( /* COND_TALK_ITEM_HIVE1_MAN_WC_CURED */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_ARTURO_HALL_INN_INTRO,DialogPhrase.PHRASE_NONE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_TALK_MAN_WC_CURED,}), 
             
             new( /* COND_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL_1 */
             new GameEventCombi[1]{new(GameEvent.EVENT_INVITATION_REVEALED, true),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL_BLURR,
-            new GameEventCombi[1]{new(GameEvent.EVENT_OBSERVED_INVITATION_RELIEF, false),}), 
+            new GameAction[2]{GameAction.ACTION_DIALOGUE_OBSERVE_INVITATION_DETAIL_1,GameAction.ACTION_EVENT_OBSERVED_INVITATION_RELIEF,}), 
             
             new( /* COND_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL_2 */
             new GameEventCombi[1]{new(GameEvent.EVENT_INVITATION_REVEALED, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL,
-            new GameEventCombi[1]{new(GameEvent.EVENT_INVITATION_UNDERSTOOD_PHRASE, false),}), 
+            new GameAction[2]{GameAction.ACTION_DIALOGUE_OBSERVE_INVITATION_DETAIL_2,GameAction.ACTION_EVENT_INVITATION_UNDERSTOOD_PHRASE,}), 
             
             new( /* COND_OBSERVE_ITEM_PHARMACY_INKWELL */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_PHARMACY_INKWELL,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_PHARMACY_INKWELL,}), 
             
             new( /* COND_OBSERVE_ITEM_PHARMACY_INK */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_PHARMACY_INK,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_PHARMACY_INK,}), 
             
             new( /* COND_TAKE_INKWELL_NOT_1 */
             new GameEventCombi[1]{new(GameEvent.EVENT_OBSERVED_INVITATION_RELIEF, true),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NO_REASON_TO_DO,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_TAKE_INKWELL_NOT_1,}), 
             
             new( /* COND_TAKE_INKWELL_NOT_2 */
             new GameEventCombi[1]{new(GameEvent.EVENT_OBSERVED_INVITATION_RELIEF, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_PHARMACIST_NOT_TAKE_INKWELL,DialogPhrase.PHRASE_NONE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_INKWELL_NOT_TOUCH_WARN, false),}), 
+            new GameAction[2]{GameAction.ACTION_DIALOGUE_TAKE_INKWELL_NOT_2,GameAction.ACTION_EVENT_INKWELL_NOT_TOUCH_WARN,}), 
             
             new( /* COND_TAKE_INKWELL_NOT_3 */
             new GameEventCombi[1]{new(GameEvent.EVENT_OBSERVED_INVITATION_RELIEF, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_EXTRAPERLO_INVITATION,ItemInteractionType.INTERACTION_USE,
-            CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_PHARMACIST_NOT_TAKE_INKWELL,DialogPhrase.PHRASE_NONE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_INKWELL_NOT_TOUCH_WARN, false),}), 
+            new GameAction[2]{GameAction.ACTION_DIALOGUE_TAKE_INKWELL_NOT_3,GameAction.ACTION_EVENT_INKWELL_NOT_TOUCH_WARN,}), 
             
             new( /* COND_USE_UMBRELLA_INKWELL */
             new GameEventCombi[1]{new(GameEvent.EVENT_INKWELL_NOT_TOUCH_WARN, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_CITY1_UMBRELLA,ItemInteractionType.INTERACTION_USE,
-            CharacterAnimation.ITEM_USE_ANIMATION_POUR,
-            DialogType.DIALOG_USE_UMBRELLA_WITH_INKWELL,DialogPhrase.PHRASE_NONE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_USE_UMBRELLA_INKWELL,}), 
             
             new( /* COND_USE_INVITATION_INK */
             new GameEventCombi[1]{new(GameEvent.EVENT_INVITATION_REVEALED, true),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_EXTRAPERLO_INVITATION,ItemInteractionType.INTERACTION_USE,
-            CharacterAnimation.ITEM_USE_ANIMATION_POUR,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_INVITATION_WITH_INK,
-            new GameEventCombi[1]{new(GameEvent.EVENT_INVITATION_REVEALED, false),}), 
+            new GameAction[2]{GameAction.ACTION_DIALOGUE_USE_INVITATION_INK,GameAction.ACTION_EVENT_INVITATION_REVEALED,}), 
             
             new( /* COND_USE_INVITATION_INK_2 */
             new GameEventCombi[1]{new(GameEvent.EVENT_INVITATION_REVEALED, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_EXTRAPERLO_INVITATION,ItemInteractionType.INTERACTION_USE,
-            CharacterAnimation.ITEM_USE_ANIMATION_POUR,
-            DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_INVITATION_WITH_INK_ALREADY,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_USE_INVITATION_INK_2,}), 
             
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,
-            CharacterAnimation.ITEM_USE_ANIMATION_TAKE,
-            DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}), 
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
             
             /* > ATG 2 END < */
         };
@@ -1173,6 +920,901 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONE,})),
 
             /* > ATG 9 END < */
+        };
+
+        private static readonly ActionInfo[] _ActionInfo = new ActionInfo[(int)GameAction.ACTION_TOTAL]
+        {
+            /* > ATG 10 START < */
+            new( /* ACTION_NONE */
+            ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DAY_MOMENT_DAY */
+            ActionType.ACTION_TYPE_CHANGE_MOMENT_DAY,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_MORNING,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DAY_MOMENT_NIGHT */
+            ActionType.ACTION_TYPE_CHANGE_MOMENT_DAY,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_NIGHT,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_INITIAL_MEMENTO */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_FIRST, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_MEMENTO_INITIAL_MEMENTO */
+            ActionType.ACTION_TYPE_MEMENTO,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_JOB_FIND_1_1,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_SET_SPRITE_CHEST_OPENED */
+            ActionType.ACTION_TYPE_SET_SPRITE,GameItem.ITEM_HIVE1_CHEST,GameSprite.SPRITE_ITEM_CHEST_OPENED,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_SPAWN_HIVE1_CARDS */
+            ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_CARDS_PICKABLE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_SPAWN_HIVE1_PERFUME */
+            ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_HIVE1_PERFUME,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_SET_SPRITE_CHEST_CLOSED */
+            ActionType.ACTION_TYPE_SET_SPRITE,GameItem.ITEM_HIVE1_CHEST,GameSprite.SPRITE_ITEM_CHEST_CLOSED,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DESPAWN_HIVE1_CARDS */
+            ActionType.ACTION_TYPE_DESPAWN,GameItem.ITEM_CARDS_PICKABLE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DESPAWN_HIVE1_PERFUME */
+            ActionType.ACTION_TYPE_DESPAWN,GameItem.ITEM_HIVE1_PERFUME,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DESTROY_HIVE1_CARDS */
+            ActionType.ACTION_TYPE_DESTROY,GameItem.ITEM_CARDS_PICKABLE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_OBTAIN_HIVE1_CARDS */
+            ActionType.ACTION_TYPE_EARN_ITEM,GameItem.ITEM_CARDS_PICKABLE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_SPAWN_HIVE1_WARDROBE_OPENED */
+            ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_HIVE1_WARDROBE_OPENED,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DESPAWN_HIVE1_WARDROBE */
+            ActionType.ACTION_TYPE_DESPAWN,GameItem.ITEM_HIVE1_WARDROBE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_SPAWN_SOAP */
+            ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_SOAP_PICKABLE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_SPAWN_HIVE1_WARDROBE */
+            ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_HIVE1_WARDROBE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DESPAWN_HIVE1_WARDROBE_OPENED */
+            ActionType.ACTION_TYPE_DESPAWN,GameItem.ITEM_HIVE1_WARDROBE_OPENED,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DESPAWN_SOAP */
+            ActionType.ACTION_TYPE_DESPAWN,GameItem.ITEM_SOAP_PICKABLE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_MEMENTO_JOB_FIND_1_2 */
+            ActionType.ACTION_TYPE_MEMENTO,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_JOB_FIND_1_2,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DESTROY_SOAP */
+            ActionType.ACTION_TYPE_DESTROY,GameItem.ITEM_SOAP_PICKABLE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_OBTAIN_SOAP */
+            ActionType.ACTION_TYPE_EARN_ITEM,GameItem.ITEM_SOAP_PICKABLE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DECISION_SLEEP */
+            ActionType.ACTION_TYPE_DECISION,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_SLEEP_1,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_SPAWN_REME_DAY */
+            ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_HIVE1_NPC_REME,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_SPAWN_PHARMACY_DOOR */
+            ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_PHARMACY_DOOR,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_SPAWN_MANYO_OWNER_DAY */
+            ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_ELMANYO_OWNER,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_SPAWN_MANYO_OWNER_NIGHT */
+            ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_ELMANYO_OWNER_NIGHT,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_MEMENTO_RECEIPT_MISSION */
+            ActionType.ACTION_TYPE_MEMENTO,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_RECIPE_MISSION_1,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DESTROY_UMBRELLA */
+            ActionType.ACTION_TYPE_DESTROY,GameItem.ITEM_CITY1_UMBRELLA,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_OBTAIN_UMBRELLA */
+            ActionType.ACTION_TYPE_EARN_ITEM,GameItem.ITEM_CITY1_UMBRELLA,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_SPAWN_HIVE1_POOR_MAN_WC */
+            ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_HIVE1_POOR_MAN_WC,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_MEMENTO_POOR_MAN_WC_1 */
+            ActionType.ACTION_TYPE_MEMENTO,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_POOR_MAN_WC_1,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_SPAWN_HIVE1_ROACH_HEAD */
+            ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_HIVE1_ROACH_HEAD,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DESPAWN_HIVE1_ROACH_HEAD */
+            ActionType.ACTION_TYPE_DESPAWN,GameItem.ITEM_HIVE1_ROACH_HEAD,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_REBUILD_ROACH_SCARED */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_COCKROACH_SCARED, true),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DESTROY_HIVE1_SHOELACE */
+            ActionType.ACTION_TYPE_DESTROY,GameItem.ITEM_HIVE1_SHOELACE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_OBTAIN_HIVE1_SHOELACE */
+            ActionType.ACTION_TYPE_EARN_ITEM,GameItem.ITEM_HIVE1_SHOELACE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DESTROY_HIVE1_VALVE_BOX */
+            ActionType.ACTION_TYPE_DESTROY,GameItem.ITEM_HIVE1_VALVE_BOX,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_SPAWN_HIVE1_VALVE */
+            ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_HIVE1_VALVE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_SPAWN_HIVE1_MAN_WC_CURED */
+            ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_HIVE1_MAN_WC_CURED,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_OBTAIN_EXTRAPERLO_INVITATION */
+            ActionType.ACTION_TYPE_EARN_ITEM,GameItem.ITEM_EXTRAPERLO_INVITATION,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DESPAWN_INKWELL */
+            ActionType.ACTION_TYPE_DESPAWN,GameItem.ITEM_PHARMACY_INKWELL,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_SPAWN_INK */
+            ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_PHARMACY_INK,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_REME_1 */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_REME_INTRO,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_HIVE1_AD_BOARD_1 */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_HIVE1_AD_BOARD_1,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_EXIT_HIVE1_HALL_1 */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NOT_EXIT_HIVE1_HALL_1,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_EXIT_HIVE1_HALL_2 */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NOT_EXIT_HIVE1_HALL_2,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_EXIT_HIVE1_HALL_3 */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NOT_EXIT_HIVE1_HALL_2,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_USE_BASIN_NO_SOAP */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_TAKE_HIVE1_BASIN_NO_SOAP,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_USE_BASIN_W_SOAP */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_TAKE_HIVE1_BASIN_SOAP,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_USE_BASIN_W_SOAP_REPEAT */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_ALREADY_COMBI,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_USE_PERFUME */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_HIVE1_PERFUME,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_USE_PERFUME_NOT_1 */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_HIVE1_PERFUME_NOT_1,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_USE_PERFUME_NOT_2 */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_HIVE1_PERFUME_NOT_2,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_USE_CARDS_REME */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_REME_CARDS,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_NOT_GO_SOUTH_NEIGH */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_WONT_GO_SOUTH_NEIGH,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_TRY_TALK_PHARMACIST */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_TRY_TALK_PHARMACIST_1,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_TALK_DEER */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_HELLO_DEER,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_TALK_MANYO_OWNER */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_MANYO_OWNER_INTRO,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_TAKE_UMBRELLA_MORNING */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_MANYO_UMBRELLA,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_TAKE_UMBRELLA_NIGHT */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_DIALOG_UMBRELLA_TAKEN,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_MANYO_BCKG */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_MANYO_BCKG_CROWD,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_OBSERVE_POOR_MAN_WC */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_POOR_MAN_WC,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_TALK_POOR_MAN_WC_BCKG */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_HIVE1_BCKG_POOR_MAN_WC,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_TALK_POOR_MAN_WC */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_HIVE1_POOR_MAN_WC_INTRO,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_OBSERVE_HIVE1_ROACH */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_ROACH,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_OBSERVE_HIVE1_PIPE */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_BACKALLEY_PIPE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_OBSERVE_HIVE1_PIPE_2 */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_PIPE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_TAKE_HIVE1_ROACH_HEAD */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_TAKE_ITEM_HIVE1_ROACH_HEAD,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_OBSERVE_VALVE_BOX */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_VALVE_BOX,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_OBSERVE_BACKALLEY_PIPE */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_BACKALLEY_PIPE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_OBSERVE_BACKALLEY_PIPE_2 */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_BACKALLEY_PIPE_2,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_OBSERVE_VALVE_BOX_2 */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_VALVE_BOX_2,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_TAKE_VALVE_BOX_1 */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_TAKE_VALVE_BOX_CLOSED,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_TAKE_VALVE_BOX_MORNING */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_TAKE_VALVE_BOX_CLOSED_MORNING,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_OBSERVE_SHOEALCE */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_SHOELACE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_TAKE_SHOEALCE_NOT */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NO_REASON_TO_DO,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_TAKE_SHOEALCE_NOT_2 */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NO_REASON_TO_DO,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_TAKE_SHOEALCE */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_TAKE_ITEM_HIVE1_SHOELACE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_OBSERVE_VALVE */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_VALVE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_USE_SHOELACE_VALVE_BOX */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_SHOELACE_VALVE_BOX,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_TAKE_HIVE1_VALVE */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_HIVE1_VALVE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_TAKE_HIVE1_VALVE_2 */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_HIVE1_VALVE_NOT,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_OBSERVE_MAN_WC_CURED */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_MAN_WC_CURED,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_TALK_MAN_WC_CURED */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_ARTURO_HALL_INN_INTRO,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_OBSERVE_INVITATION_DETAIL_1 */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL_BLURR,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_OBSERVE_INVITATION_DETAIL_2 */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_OBSERVE_PHARMACY_INKWELL */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_PHARMACY_INKWELL,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_OBSERVE_PHARMACY_INK */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_PHARMACY_INK,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_TAKE_INKWELL_NOT_1 */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NO_REASON_TO_DO,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_TAKE_INKWELL_NOT_2 */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_PHARMACIST_NOT_TAKE_INKWELL,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_TAKE_INKWELL_NOT_3 */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_PHARMACIST_NOT_TAKE_INKWELL,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_USE_UMBRELLA_INKWELL */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_USE_UMBRELLA_WITH_INKWELL,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_USE_INVITATION_INK */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_INVITATION_WITH_INK,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOGUE_USE_INVITATION_INK_2 */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_INVITATION_WITH_INK_ALREADY,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_OPEN_CHEST */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_CANCEL_OPEN_CHEST */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, true),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_CARDS_PICKABLE_TAKEN */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_OPEN_WARDROBE */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_CANCEL_OPEN_WARDROBE */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, true),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_HIVE1_AD_OBSERVED */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_AD_BOARD_OBSERVED_1, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_USED_BASIN */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_USED_BASIN, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_SOAP_PICKABLE_TAKEN */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_SOAP_PICKABLE_TAKEN, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_USED_PERFUME */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_USED_PERFUME, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_UMBRELLA_PICKABLE_TAKEN */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_UMBRELLA_PICKABLE_TAKEN, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_PIPE_OBSERVATION_1 */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_PIPE_OBSERVATION_1, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_PIPE_OBSERVATION_2 */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_PIPE_OBSERVATION_2, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_COCKROACH_SCARED */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_COCKROACH_SCARED, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_VALVE_BOX_NEED_OPEN */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_VALVE_BOX_NEED_OPEN, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_SHOELACE_PICKABLE_TAKEN */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_ITEM_HIVE1_SHOELACE_PICKABLE_TAKEN, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_VALVE_BOX_OPENED */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_VALVE_BOX_OPENED, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_VALVE_ACTIVATED */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_VALVE_ACTIVATED, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_OBSERVED_INVITATION_RELIEF */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_OBSERVED_INVITATION_RELIEF, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_INVITATION_UNDERSTOOD_PHRASE */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_INVITATION_UNDERSTOOD_PHRASE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_INKWELL_NOT_TOUCH_WARN */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_INKWELL_NOT_TOUCH_WARN, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_INVITATION_REVEALED */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_INVITATION_REVEALED, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_MANYO_REFUSED_WORK */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_MANYO_REFUSED_WORK, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_MANYO_LOOK_FOR_RECIPE_MISSION */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_MANYO_LOOK_FOR_RECIPE_MISSION, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_POOR_MAN_WC_NEEDS_WATER */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_POOR_MAN_WC_NEED_WATER, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_TALKED_ARTURO_HALL_PUB */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_TALKED_ARTURO_HALL_PUB, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_TALKED_ARTURO_HALL_COMPLETED */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_TALKED_ARTURO_HALL_INN_COMPLETED, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_INVITATION_PICKABLE_TAKEN */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_ITEM_EXTRAPERLO_INVITATION_PICKABLE_TAKEN, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_EVENT_INKWELL_WASTED */
+            ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_INKWELL_WASTED, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOG_USELESS_OBSERVE */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NONSENSE_OBSERVE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOG_USELESS_TALK */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NONSENSE_TALK,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_DIALOG_USELESS_ACTION */
+            ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NONSENSE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            new( /* ACTION_LAST */
+            ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE,
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
+            /* > ATG 10 END < */
         };
     }
 }

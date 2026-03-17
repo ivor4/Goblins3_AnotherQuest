@@ -172,7 +172,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _IS_MEMENTO_UNLOCKED = GameEventMasterClass.IsMementoUnlockedService;
             _MEMENTO_PARENT_WATCHED = GameEventMasterClass.MementoParentWatchedService;
             _INTERACT_PLAYER = PlayerMasterClass.InteractPlayerService;
-            _UNCHAIN_TO_ITEM = ItemMasterClass.UnchainToItemService;
+            _ACTION_TO_ITEM = ItemMasterClass.ActionToItemService;
             _PLAYER_REACHED_WAYPOINT = LevelMasterClass.PlayerReachedWaypointService;
             _USE_ITEM = ItemMasterClass.UseItemService;
             _CANCEL_PICKABLE_ITEM = GameMenuClass.CancelPickableItemService;
@@ -190,6 +190,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _STOP_SOUND = SoundMasterClass.StopSoundService;
             _START_ANIMATION = DialogMasterClass.StartAnimationService;
             _ITEM_PERFORM_ANIMATION = ItemMasterClass.PerformAnimationService;
+            _PERFORM_ACTION = GameEventMasterClass.PerformActionService;
             _LAST_SERVICE = GameMasterClass.ExitGameService;
             /* > ATG 2 END */
         }

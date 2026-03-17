@@ -65,10 +65,10 @@ namespace Gob3AQ.VARMAP.GameMenu
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             KEY_SUBSCRIPTION = _KEY_SUBSCRIPTION;
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
-            SHOW_DIALOGUE = _SHOW_DIALOGUE;
             DIALOGUE_SELECT_OPTION = _DIALOGUE_SELECT_OPTION;
             SHOW_DECISION = _SHOW_DECISION;
             LOAD_ADDITIONAL_PREFAB = _LOAD_ADDITIONAL_PREFAB;
+            PERFORM_ACTION = _PERFORM_ACTION;
             /* > ATG 1 END */
         }
 
@@ -161,7 +161,7 @@ namespace Gob3AQ.VARMAP.GameMenu
         /// <summary> 
         /// Activates/Deactivates an event
         /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: GameMaster, LevelMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster,  </para> 
+        /// <para> Accessors: GameMaster, GameMenu,  </para> 
         /// <para> Method: <see cref="GameEventMasterClass.CommitEventService"/> </para> 
         /// </summary>
         public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
@@ -215,13 +215,6 @@ namespace Gob3AQ.VARMAP.GameMenu
         /// </summary>
         public static CHANGE_GAME_MODE_DELEGATE CHANGE_GAME_MODE;
         /// <summary> 
-        /// Second part of start dialogue. Tells Game Menu to prepare menu elements
-        /// <para> Owner: DialogMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu,  </para> 
-        /// <para> Method: <see cref="DialogMasterClass.ShowDialogueService"/> </para> 
-        /// </summary>
-        public static SHOW_DIALOGUE_DELEGATE SHOW_DIALOGUE;
-        /// <summary> 
         /// Option selection in multi option dialogue
         /// <para> Owner: DialogMaster </para> 
         /// <para> Accessors: GameMenu,  </para> 
@@ -242,6 +235,13 @@ namespace Gob3AQ.VARMAP.GameMenu
         /// <para> Method: <see cref="GameMasterClass.LoadAdditionalPrefabService"/> </para> 
         /// </summary>
         public static LOAD_ADDITIONAL_PREFAB_DELEGATE LOAD_ADDITIONAL_PREFAB;
+        /// <summary> 
+        /// Performs a named action
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, DialogMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.PerformActionService"/> </para> 
+        /// </summary>
+        public static PERFORM_ACTION_DELEGATE PERFORM_ACTION;
         /* > ATG 3 END */
     }
 }

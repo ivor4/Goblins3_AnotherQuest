@@ -7,6 +7,7 @@ using Gob3AQ.PlayerMaster;
 using Gob3AQ.ItemMaster;
 using Gob3AQ.GameEventMaster;
 using Gob3AQ.GameMenu;
+using Gob3AQ.DialogMaster;
 
 namespace Gob3AQ.VARMAP.GameEventMaster
 {
@@ -55,11 +56,13 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             COMMIT_MEMENTO_NOTIF = _COMMIT_MEMENTO_NOTIF;
             IS_MEMENTO_UNLOCKED = _IS_MEMENTO_UNLOCKED;
             MEMENTO_PARENT_WATCHED = _MEMENTO_PARENT_WATCHED;
-            UNCHAIN_TO_ITEM = _UNCHAIN_TO_ITEM;
+            ACTION_TO_ITEM = _ACTION_TO_ITEM;
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
+            SHOW_DIALOGUE = _SHOW_DIALOGUE;
             SHOW_DECISION = _SHOW_DECISION;
             CHANGE_DAY_MOMENT = _CHANGE_DAY_MOMENT;
             START_ANIMATION = _START_ANIMATION;
+            PERFORM_ACTION = _PERFORM_ACTION;
             /* > ATG 1 END */
         }
 
@@ -124,7 +127,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         /// <summary> 
         /// Activates/Deactivates an event
         /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: GameMaster, LevelMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster,  </para> 
+        /// <para> Accessors: GameMaster, GameMenu,  </para> 
         /// <para> Method: <see cref="GameEventMasterClass.CommitEventService"/> </para> 
         /// </summary>
         public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
@@ -153,9 +156,9 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         /// Applies an unchain event to an item such as spawn or setsprite
         /// <para> Owner: ItemMaster </para> 
         /// <para> Accessors: GameEventMaster,  </para> 
-        /// <para> Method: <see cref="ItemMasterClass.UnchainToItemService"/> </para> 
+        /// <para> Method: <see cref="ItemMasterClass.ActionToItemService"/> </para> 
         /// </summary>
-        public static UNCHAIN_TO_ITEM_DELEGATE UNCHAIN_TO_ITEM;
+        public static ACTION_TO_ITEM_DELEGATE ACTION_TO_ITEM;
         /// <summary> 
         /// Asks Game Master to set game mode
         /// <para> Owner: GameMaster </para> 
@@ -163,6 +166,13 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         /// <para> Method: <see cref="GameMasterClass.ChangeGameModeService"/> </para> 
         /// </summary>
         public static CHANGE_GAME_MODE_DELEGATE CHANGE_GAME_MODE;
+        /// <summary> 
+        /// Second part of start dialogue. Tells Game Menu to prepare menu elements
+        /// <para> Owner: DialogMaster </para> 
+        /// <para> Accessors: GameEventMaster,  </para> 
+        /// <para> Method: <see cref="DialogMasterClass.ShowDialogueService"/> </para> 
+        /// </summary>
+        public static SHOW_DIALOGUE_DELEGATE SHOW_DIALOGUE;
         /// <summary> 
         /// Shows a set of decisions
         /// <para> Owner: GameMenu </para> 
@@ -184,6 +194,13 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         /// <para> Method: <see cref="DialogMasterClass.StartAnimationService"/> </para> 
         /// </summary>
         public static START_ANIMATION_DELEGATE START_ANIMATION;
+        /// <summary> 
+        /// Performs a named action
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, DialogMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.PerformActionService"/> </para> 
+        /// </summary>
+        public static PERFORM_ACTION_DELEGATE PERFORM_ACTION;
         /* > ATG 3 END */
     }
 }

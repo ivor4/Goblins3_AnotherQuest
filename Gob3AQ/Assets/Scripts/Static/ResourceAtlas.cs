@@ -222,7 +222,7 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_GARDEN, }), 
             new ReadOnlyHashSet<ActionConditions>(new HashSet<ActionConditions>(1){ActionConditions.COND_OK, }), 
-            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(4){DialogPhrase.PHRASE_NONSENSE, DialogPhrase.PHRASE_DECISION_NOT_SLEEP, DialogPhrase.PHRASE_DECISION_SLEEP_NAP, DialogPhrase.PHRASE_DECISION_SLEEP_LONG, }) 
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }) 
             ),
             
             new( /* HIVE1_CORRIDOR_1 */

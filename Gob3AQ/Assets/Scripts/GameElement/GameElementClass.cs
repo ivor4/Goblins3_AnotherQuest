@@ -102,11 +102,6 @@ namespace Gob3AQ.GameElement
             }
         }
 
-        private void AnimationEnded()
-        {
-            Console.WriteLine("Animation ended");
-        }
-
         public void SetUnspawned(bool unspawned)
         {
             isUnspawned = unspawned;

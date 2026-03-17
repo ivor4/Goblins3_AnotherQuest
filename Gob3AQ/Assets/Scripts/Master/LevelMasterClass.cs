@@ -37,7 +37,7 @@ namespace Gob3AQ.LevelMaster
         private Dictionary<Collider2D, IGameObjectHoverable> _ItemColliderDictionary;
         private ItemMenuHoverable itemMenuHoverable;
         private Camera mainCamera;
-        private ulong _backgroundItemTaskTimestamp;
+        private bool somePlayerRegistered;
 
 
         public struct PendingCharacterInteraction
@@ -151,6 +151,7 @@ namespace Gob3AQ.LevelMaster
                 if (add)
                 {
                     _singleton._Player_List[(int)mono.CharType] = mono;
+                    _singleton.somePlayerRegistered = true;
                 }
                 else
                 {
@@ -275,8 +276,10 @@ namespace Gob3AQ.LevelMaster
 
         private IEnumerator LoadCoroutine()
         {
-            yield return ResourceAtlasClass.WaitForNextFrame;
-            yield return ResourceAtlasClass.WaitForNextFrame;
+            while (!somePlayerRegistered)
+            {
+                yield return ResourceAtlasClass.WaitForNextFrame;
+            }
             yield return ResourceAtlasClass.WaitForNextFrame;
 
             for (int i=0;i< _Player_List.Length; ++i)
@@ -325,10 +328,6 @@ namespace Gob3AQ.LevelMaster
                         break;
                 }
             }
-            else
-            {
-                _backgroundItemTaskTimestamp = VARMAP_LevelMaster.GET_ELAPSED_TIME_MS();
-            }
         }
 
         private void OnDestroy()
@@ -362,6 +361,8 @@ namespace Gob3AQ.LevelMaster
             _HoveredPending = new(GameFixedConfig.MAX_RAYCASTED_ITEMS);
 
             itemMenuHoverable = new();
+
+            somePlayerRegistered = false;
         }
 
 
@@ -381,7 +382,6 @@ namespace Gob3AQ.LevelMaster
             }
 
             UpdateMouseEvents(gstatus, in mouse, in keys);
-            ProcessBackgroundEvents();
         }
 
         private void UpdateHoverElements(in MousePropertiesStruct mouse)
@@ -631,27 +631,6 @@ namespace Gob3AQ.LevelMaster
                         /* May sound strange, if no special conditions, door can be crossed */
                         CrossDoor(usage.itemDest);
                     }
-                    else if (outcome.dialogType != DialogType.DIALOG_NONE)
-                    {
-                        /* Default talkers are own player and itemDest */
-                        talkers[0] = _Player_List[(int)usage.playerSource].ItemID;
-                        talkers[1] = usage.itemDest;
-
-                        /* No need to know about error, as this function is executed from play mode */
-                        VARMAP_LevelMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_DIALOG, out _);
-                        VARMAP_LevelMaster.SHOW_DIALOGUE(talkers, outcome.dialogType, outcome.dialogPhrase, false);
-                    }
-                    else if (outcome.animation != CharacterAnimation.ITEM_USE_ANIMATION_NONE)
-                    {
-                        //ActAnimationRequest(outcome.animation);
-                    }
-                    else
-                    {
-                        /**/
-                    }
-
-                    /* Renew timestamp for background actions */
-                    _backgroundItemTaskTimestamp = VARMAP_LevelMaster.GET_ELAPSED_TIME_MS();
 
                     VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
                 }
@@ -660,43 +639,6 @@ namespace Gob3AQ.LevelMaster
             /* Pending and ended no more */
             charPendingAction.pending = false;
             charPendingAction.ended = false;
-        }
-
-        private void ProcessBackgroundEvents()
-        {
-            /* Background dialogue triggering */
-            ulong actualTimestamp = VARMAP_LevelMaster.GET_ELAPSED_TIME_MS();
-
-            if ((actualTimestamp - _backgroundItemTaskTimestamp) >= GameFixedConfig.BACKGROUND_ITEM_ACTIONS_MS)
-            {
-                ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(VARMAP_LevelMaster.GET_ACTUAL_ROOM());
-                MomentType actualMoment = VARMAP_LevelMaster.GET_DAY_MOMENT();
-                CharacterType playerSelected = VARMAP_LevelMaster.GET_PLAYER_SELECTED();
-
-                foreach (ActionConditions cond in roomInfo.actionConditions)
-                {
-                    ref readonly ActionConditionsInfo condInfo = ref ItemsInteractionsClass.GetActionConditionsInfo(cond);
-
-                    if (
-                        ((condInfo.momentType == MomentType.MOMENT_ANY) || (condInfo.momentType == actualMoment)) &&
-                        (playerSelected == condInfo.srcChar) && (condInfo.actionOK == ItemInteractionType.INTERACTION_AUTO_6s) &&
-                        (condInfo.dialogOK != DialogType.DIALOG_NONE)
-                       )
-                    {
-                        VARMAP_LevelMaster.IS_EVENT_COMBI_OCCURRED(condInfo.NeededEvents, out bool occurred);
-                        if (occurred)
-                        {
-                            Span<GameItem> talkers = stackalloc GameItem[2];
-                            talkers[0] = GameItem.ITEM_NONE;
-                            talkers[1] = GameItem.ITEM_NONE;
-                            VARMAP_LevelMaster.SHOW_DIALOGUE(talkers, condInfo.dialogOK, condInfo.phraseOK, true);
-                            break;
-                        }
-                    }
-                }
-
-                _backgroundItemTaskTimestamp = actualTimestamp;
-            }
         }
 
         private void PlayerEntryWalk()
@@ -789,6 +731,7 @@ namespace Gob3AQ.LevelMaster
                         _PrevRaycastedItems.Clear();
                         Array.Clear(_RaycastedItemColliders, 0, _RaycastedItemColliders.Length);
                         _ItemColliderDictionary.Clear();
+                        somePlayerRegistered = false;
 
                         Array.Clear(_PendingCharInteractions, 0, _PendingCharInteractions.Length);
                         _HoveredElem = LevelElemInfo.EMPTY;
@@ -803,7 +746,6 @@ namespace Gob3AQ.LevelMaster
                     case Game_Status.GAME_STATUS_PLAY:
                         /* Force new status */
                         _PrevRaycastedItems.Clear();
-                        _backgroundItemTaskTimestamp = VARMAP_LevelMaster.GET_ELAPSED_TIME_MS();
 
                         /* Player entry */
                         if(oldval == Game_Status.GAME_STATUS_LOADING)

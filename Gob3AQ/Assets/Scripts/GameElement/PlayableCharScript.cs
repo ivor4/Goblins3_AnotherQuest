@@ -402,7 +402,7 @@ namespace Gob3AQ.GameElement.PlayableChar
         #region "Events"
         private void ChangedSelectedPlayerEvent(ChangedEventType eventType, in CharacterType oldval, in CharacterType newval)
         {
-            if(newval == charType)
+            if (newval == charType)
             {
                 mySpriteRenderer.color = Color.red;
                 selected = true;

@@ -263,7 +263,7 @@ namespace Gob3AQ.VARMAP
         /// <summary> 
         /// Activates/Deactivates an event
         /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: GameMaster, LevelMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster,  </para> 
+        /// <para> Accessors: GameMaster, GameMenu,  </para> 
         /// <para> Method: <see cref="GameEventMasterClass.CommitEventService"/> </para> 
         /// </summary>
         protected static COMMIT_EVENT_DELEGATE _COMMIT_EVENT;
@@ -299,9 +299,9 @@ namespace Gob3AQ.VARMAP
         /// Applies an unchain event to an item such as spawn or setsprite
         /// <para> Owner: ItemMaster </para> 
         /// <para> Accessors: GameEventMaster,  </para> 
-        /// <para> Method: <see cref="ItemMasterClass.UnchainToItemService"/> </para> 
+        /// <para> Method: <see cref="ItemMasterClass.ActionToItemService"/> </para> 
         /// </summary>
-        protected static UNCHAIN_TO_ITEM_DELEGATE _UNCHAIN_TO_ITEM;
+        protected static ACTION_TO_ITEM_DELEGATE _ACTION_TO_ITEM;
         /// <summary> 
         /// Tells LevelMaster that player reached Waypoint to start action in case
         /// <para> Owner: LevelMaster </para> 
@@ -347,7 +347,7 @@ namespace Gob3AQ.VARMAP
         /// <summary> 
         /// Second part of start dialogue. Tells Game Menu to prepare menu elements
         /// <para> Owner: DialogMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu,  </para> 
+        /// <para> Accessors: GameEventMaster,  </para> 
         /// <para> Method: <see cref="DialogMasterClass.ShowDialogueService"/> </para> 
         /// </summary>
         protected static SHOW_DIALOGUE_DELEGATE _SHOW_DIALOGUE;
@@ -421,6 +421,13 @@ namespace Gob3AQ.VARMAP
         /// <para> Method: <see cref="ItemMasterClass.PerformAnimationService"/> </para> 
         /// </summary>
         protected static ITEM_PERFORM_ANIMATION_DELEGATE _ITEM_PERFORM_ANIMATION;
+        /// <summary> 
+        /// Performs a named action
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, DialogMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.PerformActionService"/> </para> 
+        /// </summary>
+        protected static PERFORM_ACTION_DELEGATE _PERFORM_ACTION;
         /// <summary> 
         /// Last service
         /// <para> Owner: GameMaster </para> 

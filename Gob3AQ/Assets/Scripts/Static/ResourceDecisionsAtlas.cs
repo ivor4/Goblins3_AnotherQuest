@@ -38,7 +38,7 @@ namespace Gob3AQ.ResourceDecisionsAtlas
         {
             /* > ATG 1 START < */
             new( /* DECISION_SLEEP_1 */
-            new DecisionOption[3]{DecisionOption.DECISION_OPTION_NOT_SLEEP,DecisionOption.DECISION_OPTION_SLEEP_NAP,DecisionOption.DECISION_OPTION_SLEEP_LONG,}),
+            new DecisionOption[3]{DecisionOption.DECISION_OPTION_NOT_SLEEP,DecisionOption.DECISION_OPTION_SLEEP_DAY,DecisionOption.DECISION_OPTION_SLEEP_NIGHT,}),
             new( /* DECISION_ID_LAST */
             new DecisionOption[1]{DecisionOption.DECISION_OPTION_LAST,}),
             /* > ATG 1 END < */
@@ -49,16 +49,16 @@ namespace Gob3AQ.ResourceDecisionsAtlas
             /* > ATG 2 START < */
             new( /* DECISION_OPTION_NOT_SLEEP */
             DialogPhrase.PHRASE_DECISION_NOT_SLEEP,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), }),
-            new( /* DECISION_OPTION_SLEEP_NAP */
-            DialogPhrase.PHRASE_DECISION_SLEEP_NAP,
-            new GameEventCombi[1]{new(GameEvent.EVENT_MASTER_PENDING_SLEEP_NAP, false), }),
-            new( /* DECISION_OPTION_SLEEP_LONG */
-            DialogPhrase.PHRASE_DECISION_SLEEP_LONG,
-            new GameEventCombi[1]{new(GameEvent.EVENT_MASTER_PENDING_SLEEP_LONG, false), }),
+            new GameAction[1]{GameAction.ACTION_NONE, }),
+            new( /* DECISION_OPTION_SLEEP_DAY */
+            DialogPhrase.PHRASE_DECISION_SLEEP_DAY,
+            new GameAction[1]{GameAction.ACTION_DAY_MOMENT_DAY, }),
+            new( /* DECISION_OPTION_SLEEP_NIGHT */
+            DialogPhrase.PHRASE_DECISION_SLEEP_NIGHT,
+            new GameAction[1]{GameAction.ACTION_DAY_MOMENT_NIGHT, }),
             new( /* DECISION_OPTION_LAST */
             DialogPhrase.PHRASE_NONE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), }),
+            new GameAction[1]{GameAction.ACTION_NONE, }),
             /* > ATG 2 END < */
         };
     }

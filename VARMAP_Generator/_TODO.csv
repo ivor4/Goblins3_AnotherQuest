@@ -29,4 +29,5 @@ Make character go slower on far depths,2,True,True
 Waypoints only reachable for actions,4,False,False
 Decission actions (like dialogs),2,True,True
 Reduce cond stackallocs (they use JIT),3,False,False
+If you click on player many times when he's facing to a door it appears unselected in next room,2,True,True
 Last,5,False,False

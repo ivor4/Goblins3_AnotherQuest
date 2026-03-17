@@ -32,7 +32,6 @@ namespace Gob3AQ.VARMAP.DialogMaster
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
-            COMMIT_EVENT = _COMMIT_EVENT;
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
             SHOW_DIALOGUE = _SHOW_DIALOGUE;
             DIALOGUE_SELECT_OPTION = _DIALOGUE_SELECT_OPTION;
@@ -40,6 +39,7 @@ namespace Gob3AQ.VARMAP.DialogMaster
             STOP_SOUND = _STOP_SOUND;
             START_ANIMATION = _START_ANIMATION;
             ITEM_PERFORM_ANIMATION = _ITEM_PERFORM_ANIMATION;
+            PERFORM_ACTION = _PERFORM_ACTION;
             /* > ATG 1 END */
         }
 
@@ -79,13 +79,6 @@ namespace Gob3AQ.VARMAP.DialogMaster
         /// </summary>
         public static IS_EVENT_COMBI_OCCURRED_DELEGATE IS_EVENT_COMBI_OCCURRED;
         /// <summary> 
-        /// Activates/Deactivates an event
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: GameMaster, LevelMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.CommitEventService"/> </para> 
-        /// </summary>
-        public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
-        /// <summary> 
         /// Asks Game Master to set game mode
         /// <para> Owner: GameMaster </para> 
         /// <para> Accessors: LevelMaster, GameMenu, DialogMaster, GameEventMaster,  </para> 
@@ -95,7 +88,7 @@ namespace Gob3AQ.VARMAP.DialogMaster
         /// <summary> 
         /// Second part of start dialogue. Tells Game Menu to prepare menu elements
         /// <para> Owner: DialogMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu,  </para> 
+        /// <para> Accessors: GameEventMaster,  </para> 
         /// <para> Method: <see cref="DialogMasterClass.ShowDialogueService"/> </para> 
         /// </summary>
         public static SHOW_DIALOGUE_DELEGATE SHOW_DIALOGUE;
@@ -134,6 +127,13 @@ namespace Gob3AQ.VARMAP.DialogMaster
         /// <para> Method: <see cref="ItemMasterClass.PerformAnimationService"/> </para> 
         /// </summary>
         public static ITEM_PERFORM_ANIMATION_DELEGATE ITEM_PERFORM_ANIMATION;
+        /// <summary> 
+        /// Performs a named action
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, DialogMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.PerformActionService"/> </para> 
+        /// </summary>
+        public static PERFORM_ACTION_DELEGATE PERFORM_ACTION;
         /* > ATG 3 END */
     }
 }

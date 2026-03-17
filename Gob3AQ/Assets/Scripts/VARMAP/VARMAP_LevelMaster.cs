@@ -62,16 +62,15 @@ namespace Gob3AQ.VARMAP.LevelMaster
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
             GET_NEAREST_WP = _GET_NEAREST_WP;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
-            COMMIT_EVENT = _COMMIT_EVENT;
             INTERACT_PLAYER = _INTERACT_PLAYER;
             PLAYER_REACHED_WAYPOINT = _PLAYER_REACHED_WAYPOINT;
             USE_ITEM = _USE_ITEM;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             LOCK_PLAYER = _LOCK_PLAYER;
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
-            SHOW_DIALOGUE = _SHOW_DIALOGUE;
             PLAY_SOUND = _PLAY_SOUND;
             STOP_SOUND = _STOP_SOUND;
+            PERFORM_ACTION = _PERFORM_ACTION;
             /* > ATG 1 END */
         }
 
@@ -207,13 +206,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// </summary>
         public static IS_EVENT_COMBI_OCCURRED_DELEGATE IS_EVENT_COMBI_OCCURRED;
         /// <summary> 
-        /// Activates/Deactivates an event
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: GameMaster, LevelMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.CommitEventService"/> </para> 
-        /// </summary>
-        public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
-        /// <summary> 
         /// Makes player interact with usage data
         /// <para> Owner: PlayerMaster </para> 
         /// <para> Accessors: LevelMaster,  </para> 
@@ -256,13 +248,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// </summary>
         public static CHANGE_GAME_MODE_DELEGATE CHANGE_GAME_MODE;
         /// <summary> 
-        /// Second part of start dialogue. Tells Game Menu to prepare menu elements
-        /// <para> Owner: DialogMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu,  </para> 
-        /// <para> Method: <see cref="DialogMasterClass.ShowDialogueService"/> </para> 
-        /// </summary>
-        public static SHOW_DIALOGUE_DELEGATE SHOW_DIALOGUE;
-        /// <summary> 
         /// Plays a sound and (optionally) callback is called
         /// <para> Owner: SoundMaster </para> 
         /// <para> Accessors: LevelMaster, DialogMaster,  </para> 
@@ -276,6 +261,13 @@ namespace Gob3AQ.VARMAP.LevelMaster
         /// <para> Method: <see cref="SoundMasterClass.StopSoundService"/> </para> 
         /// </summary>
         public static STOP_SOUND_DELEGATE STOP_SOUND;
+        /// <summary> 
+        /// Performs a named action
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, DialogMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.PerformActionService"/> </para> 
+        /// </summary>
+        public static PERFORM_ACTION_DELEGATE PERFORM_ACTION;
         /* > ATG 3 END */
     }
 }

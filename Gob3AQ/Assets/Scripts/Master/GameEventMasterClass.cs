@@ -152,7 +152,14 @@ namespace Gob3AQ.GameEventMaster
             }
         }
 
-
+        public static void PerformActionService(ReadOnlySpan<GameAction> actions, Action callback)
+        {
+            if (_singleton != null)
+            {
+                _singleton.ExecuteActions(actions);
+                _ = callback;
+            }
+        }
 
 
         /// <summary>
@@ -263,34 +270,6 @@ namespace Gob3AQ.GameEventMaster
             {
                 /* Master pending events (when there is no pending work) */
                 Span<GameEventCombi> stackCheck = stackalloc GameEventCombi[2];
-                stackCheck[0] = new GameEventCombi(GameEvent.EVENT_MASTER_PENDING_SLEEP_LONG, false);
-                IsEventCombiOccurredService(stackCheck[..1], out bool sleepLongPending);
-                stackCheck[0] = new GameEventCombi(GameEvent.EVENT_MASTER_PENDING_SLEEP_NAP, false);
-                IsEventCombiOccurredService(stackCheck[..1], out bool sleepNapPending);
-
-                
-
-                if (sleepLongPending || sleepNapPending)
-                {
-                    MomentType moment;
-                    if(sleepLongPending || (VARMAP_GameEventMaster.GET_DAY_MOMENT() == MomentType.MOMENT_NIGHT))
-                    {
-                        moment = MomentType.MOMENT_MORNING;
-                    }
-                    else
-                    {
-                        moment = MomentType.MOMENT_NIGHT;
-                    }
-
-                    VARMAP_GameEventMaster.CHANGE_DAY_MOMENT(moment);
-
-                    /* Clear them */
-                    stackCheck[0] = new GameEventCombi(GameEvent.EVENT_MASTER_PENDING_SLEEP_LONG, true);
-                    stackCheck[1] = new GameEventCombi(GameEvent.EVENT_MASTER_PENDING_SLEEP_NAP, true);
-                    CommitEventService(stackCheck);
-
-                    processingEvents = true;
-                }
 
                 stackCheck[0] = new GameEventCombi(GameEvent.EVENT_MASTER_CHANGE_MOMENT_DAY, false);
                 IsEventCombiOccurredService(stackCheck[..1], out bool aftermath_change_day);
@@ -347,7 +326,6 @@ namespace Gob3AQ.GameEventMaster
 
             while (!completed)
             {
-                yield return ResourceAtlasClass.WaitForNextFrame;
                 completed = Initial_Loading_Task_Cycle(unchainer_index);
                 ++unchainer_index;
             }
@@ -384,12 +362,7 @@ namespace Gob3AQ.GameEventMaster
                 if (pending)
                 {
                     /* In case this points to an item, check if item is involved in room */
-                    if ((unchainer_info.type == UnchainType.UNCHAIN_TYPE_SET_SPRITE) ||
-                        (unchainer_info.type == UnchainType.UNCHAIN_TYPE_SPAWN) ||
-                        (unchainer_info.type == UnchainType.UNCHAIN_TYPE_DESPAWN) ||
-                        (unchainer_info.type == UnchainType.UNCHAIN_TYPE_UNCLICKABLE) ||
-                        (unchainer_info.type == UnchainType.UNCHAIN_TYPE_DESTROY)
-                        )
+                    if (!unchainer_info.isOneShot)
                     {
                         /* Store for Scene Load (not in initial load) */
                         _itemRelatedUnchainers.Add(unchainer);
@@ -486,21 +459,34 @@ namespace Gob3AQ.GameEventMaster
                 itemRemoveSet.Add(unchainer);
             }
 
-            if (roomInfo.items[unchainer_info.targetItem] && pending)
-            {
-                /* If it needs to spawn, make it invisible by the moment */
-                if (unchainer_info.type == UnchainType.UNCHAIN_TYPE_SPAWN)
-                {
-                    UnchainInfo info_copy = new(false, UnchainType.UNCHAIN_TYPE_DESPAWN, GameEventCombi.EMPTY, null, unchainer_info.momentType,
-                            unchainer_info.targetItem, unchainer_info.targetSprite, unchainer_info.targetCharacter,
-                            Memento.MEMENTO_NONE, null, DecisionType.DECISION_NONE, MomentType.MOMENT_ANY);
-                    VARMAP_GameEventMaster.UNCHAIN_TO_ITEM(in info_copy);
-                }
+            bool hasItemsInRoom = false;
 
+            if (pending)
+            {
+                foreach (GameAction action in unchainer_info.UnchainActions)
+                {
+                    ref readonly ActionInfo actionInfo = ref ItemsInteractionsClass.GetActionInfo(action);
+                    if ((actionInfo.targetItem != GameItem.ITEM_NONE) && roomInfo.items[actionInfo.targetItem])
+                    {
+                        hasItemsInRoom = true;
+
+                        /* If it needs to spawn, make it invisible by the moment */
+                        if (actionInfo.type == ActionType.ACTION_TYPE_SPAWN)
+                        {
+                            ActionInfo pre_despawn_action = ActionInfo.CreateDespawnAction(actionInfo.targetItem);
+                            VARMAP_GameEventMaster.ACTION_TO_ITEM(in pre_despawn_action);
+                        }
+                    }
+                }
+            }
+
+            if (hasItemsInRoom && pending)
+            {
                 AddUnchainerEventsToPending(unchainer, in unchainer_info);
             }
             else
             {
+                /* It may be still pending from last scene */
                 RemoveUnchainerEventsFromPending(unchainer);
             }
         }
@@ -566,34 +552,66 @@ namespace Gob3AQ.GameEventMaster
             IsEventCombiOccurredService(neededEvents, out bool occurred);
             occurred &= IsMomentValid(info.momentType);
 
-            /* If occurred, execute it and don't add it to pending */
+            /* If occurred, execute it */
             if (occurred)
             {
-                switch (info.type)
-                {
-                    case UnchainType.UNCHAIN_TYPE_EVENT:
-                        CommitEventService(info.TargetEvents);
-                        break;
-                    case UnchainType.UNCHAIN_TYPE_MEMENTO:
-                        CommitMementoService(info.targetMemento);
-                        break;
-                    case UnchainType.UNCHAIN_TYPE_CHANGE_MOMENT_DAY:
-                        VARMAP_GameEventMaster.CHANGE_DAY_MOMENT(info.targetMomentOfDay);
-                        break;
-                    case UnchainType.UNCHAIN_TYPE_DECISION:
-                        VARMAP_GameEventMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_DECISION, out bool error);
-                        if (!error)
-                        {
-                            VARMAP_GameEventMaster.SHOW_DECISION(info.targetDecision);
-                        }
-                        break;
-                    default:
-                        VARMAP_GameEventMaster.UNCHAIN_TO_ITEM(in info);
-                        break;
-                }
+                ExecuteActions(info.UnchainActions);
             }
 
             return occurred;
+        }
+
+        private void ExecuteActions(ReadOnlySpan<GameAction> actions)
+        {
+            for (int i = 0; i < actions.Length; ++i)
+            {
+                GameAction action = actions[i];
+
+                if (action != GameAction.ACTION_NONE)
+                {
+                    ref readonly ActionInfo info = ref ItemsInteractionsClass.GetActionInfo(action);
+                    bool error;
+                    Span<GameItem> talkers = stackalloc GameItem[2];
+
+                    switch (info.type)
+                    {
+                        case ActionType.ACTION_TYPE_EVENT:
+                            CommitEventService(info.TargetEvents);
+                            break;
+                        case ActionType.ACTION_TYPE_MEMENTO:
+                            CommitMementoService(info.targetMemento);
+                            break;
+                        case ActionType.ACTION_TYPE_CHANGE_MOMENT_DAY:
+                            VARMAP_GameEventMaster.CHANGE_DAY_MOMENT(info.targetMomentOfDay);
+                            break;
+                        case ActionType.ACTION_TYPE_DECISION:
+                            VARMAP_GameEventMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_DECISION, out error);
+                            if (!error)
+                            {
+                                VARMAP_GameEventMaster.SHOW_DECISION(info.targetDecision);
+                            }
+                            break;
+                        case ActionType.ACTION_TYPE_START_DIALOGUE:
+                            VARMAP_GameEventMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_DIALOG, out error);
+                            if (!error)
+                            {
+                                talkers[0] = GameItem.ITEM_PLAYER_MAIN;
+                                talkers[1] = GameItem.ITEM_PLAYER_MAIN;
+                                VARMAP_GameEventMaster.SHOW_DIALOGUE(talkers, info.targetDialog, info.targetPhrase, false);
+                            }
+                            break;
+                        case ActionType.ACTION_TYPE_START_DIALOGUE_BCKG:
+
+                            talkers[0] = GameItem.ITEM_PLAYER_MAIN;
+                            talkers[1] = GameItem.ITEM_PLAYER_MAIN;
+                            VARMAP_GameEventMaster.SHOW_DIALOGUE(talkers, info.targetDialog, info.targetPhrase, true);
+                            break;
+                        default:
+                            VARMAP_GameEventMaster.ACTION_TO_ITEM(in info);
+                            break;
+                    }
+                }
+            }
         }
 
         private bool IsMomentValid(MomentType momentType)

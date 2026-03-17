@@ -340,7 +340,7 @@ namespace Gob3AQ.DialogMaster
                 else
                 {
                     /* If end of conversation triggers an event */
-                    VARMAP_DialogMaster.COMMIT_EVENT(dialogConfig.TriggeredEvents);
+                    VARMAP_DialogMaster.PERFORM_ACTION(dialogConfig.TriggeredActions, null);
 
                     if (dialogConfig.dialogTriggered != DialogType.DIALOG_NONE)
                     {
@@ -448,7 +448,7 @@ namespace Gob3AQ.DialogMaster
             {
                 foreach (AnimationActionConfig actionconfig in milestoneConfig.Actions)
                 {
-                    VARMAP_DialogMaster.COMMIT_EVENT(actionconfig.TriggeredEvents);
+                    VARMAP_DialogMaster.PERFORM_ACTION(actionconfig.TriggeredActions, null);
                     /* Apply animator to dstItem */
                 }
             }

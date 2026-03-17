@@ -30,7 +30,7 @@ namespace Gob3AQ.ResourceAnimationsAtlas
             }
         }
 
-        private static readonly GameEventCombi[] noCombi = new GameEventCombi[0];
+        private static readonly GameAction[] noAction = new GameAction[0];
 
 
         private static readonly AnimationConfig[] _AnimationConfig = new AnimationConfig[(int)GameAnimation.ANIMATION_TOTAL]
@@ -42,7 +42,7 @@ namespace Gob3AQ.ResourceAnimationsAtlas
                 new(AnimationSrcTrigger.SRC_TRIGGER_ANIM_END, 0f,
                     new AnimationActionConfig[]
                     {
-                        new(noCombi, GameItem.ITEM_PLAYER_MAIN, null),   /* Action 1 */
+                        new(noAction, GameItem.ITEM_PLAYER_MAIN, null),   /* Action 1 */
                     }
                 ),
             }), 

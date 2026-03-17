@@ -53,7 +53,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void COMMIT_MEMENTO_NOTIF_DELEGATE(Memento memento);
     public delegate void IS_ITEM_AVAILABLE_DELEGATE(GameItem item, out bool available);
     public delegate void INTERACT_PLAYER_DELEGATE(CharacterType character,int destWp_index, out bool accepted);
-    public delegate void UNCHAIN_TO_ITEM_DELEGATE(in UnchainInfo unchainInfo);
+    public delegate void ACTION_TO_ITEM_DELEGATE(in ActionInfo actionInfo);
     public delegate void PLAYER_REACHED_WAYPOINT_DELEGATE(CharacterType character);
     public delegate void IS_EVENT_COMBI_OCCURRED_DELEGATE(ReadOnlySpan<GameEventCombi> combi, out bool occurred);
     public delegate void IS_MEMENTO_UNLOCKED_DELEGATE(Memento memento, out bool occurred, out bool unwatched);
@@ -79,5 +79,6 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void STOP_SOUND_DELEGATE(GameSound sound);
     public delegate void START_ANIMATION_DELEGATE(GameAnimation animation, bool mainMode, Action callback);
     public delegate void ITEM_PERFORM_ANIMATION_DELEGATE(GameItem item, AnimationTrigger trigger, Action<GameItem> callback);
+    public delegate void PERFORM_ACTION_DELEGATE(ReadOnlySpan<GameAction> actions, Action callback);
 
 }

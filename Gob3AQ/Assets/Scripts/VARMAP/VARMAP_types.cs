@@ -245,17 +245,17 @@ namespace Gob3AQ.VARMAP.Types
 
     public readonly struct AnimationActionConfig
     {
-        public ReadOnlySpan<GameEventCombi> TriggeredEvents => triggeredEvents;
+        public ReadOnlySpan<GameAction> TriggeredActions => triggeredActions;
 
-        private readonly GameEventCombi[] triggeredEvents;
+        private readonly GameAction[] triggeredActions;
         public readonly GameItem dstItem;
         public readonly Animation animator;
 
-        public static readonly AnimationActionConfig EMPTY = new(new GameEventCombi[0], GameItem.ITEM_NONE, null);
+        public static readonly AnimationActionConfig EMPTY = new(new GameAction[0], GameItem.ITEM_NONE, null);
 
-        public AnimationActionConfig(GameEventCombi[] triggeredEvents, GameItem dstItem, Animation animator)
+        public AnimationActionConfig(GameAction[] triggeredEvents, GameItem dstItem, Animation animator)
         {
-            this.triggeredEvents = triggeredEvents;
+            this.triggeredActions = triggeredEvents;
             this.dstItem = dstItem;
             this.animator = animator;
         }
@@ -281,24 +281,25 @@ namespace Gob3AQ.VARMAP.Types
     public readonly struct DialogOptionConfig
     {
         public readonly ReadOnlySpan<GameEventCombi> ConditionEvents => conditionEvents;
-        public readonly ReadOnlySpan<GameEventCombi> TriggeredEvents => triggeredEvents;
+        public readonly ReadOnlySpan<GameAction> TriggeredActions => triggeredActions;
         public readonly ReadOnlySpan<DialogPhrase> Phrases => phrases;
 
         private readonly GameEventCombi[] conditionEvents;
         public readonly MomentType momentType;
-        private readonly GameEventCombi[] triggeredEvents;
+        private readonly GameAction[] triggeredActions;
         public readonly DialogType dialogTriggered;
         public readonly bool randomized;
         private readonly DialogPhrase[] phrases;
 
-        public static readonly DialogOptionConfig EMPTY = new(new GameEventCombi[0], MomentType.MOMENT_ANY, new GameEventCombi[0], DialogType.DIALOG_NONE, false, new DialogPhrase[0]);
+        public static readonly DialogOptionConfig EMPTY = new(new GameEventCombi[0], MomentType.MOMENT_ANY,
+            new GameAction[0], DialogType.DIALOG_NONE, false, new DialogPhrase[0]);
 
-        public DialogOptionConfig(GameEventCombi[] conditionEvents, MomentType momentType, GameEventCombi[] triggeredEvents, DialogType dialogTriggered,
+        public DialogOptionConfig(GameEventCombi[] conditionEvents, MomentType momentType, GameAction[] triggeredActions, DialogType dialogTriggered,
             bool randomized, DialogPhrase[] phrases)
         {
             this.conditionEvents = conditionEvents;
             this.momentType = momentType;
-            this.triggeredEvents = triggeredEvents;
+            this.triggeredActions = triggeredActions;
             this.dialogTriggered = dialogTriggered;
             this.randomized = randomized;
             this.phrases = phrases;
@@ -322,15 +323,15 @@ namespace Gob3AQ.VARMAP.Types
     public readonly struct DecisionOptionConfig
     {
         public readonly DialogPhrase phrase;
-        private readonly GameEventCombi[] triggeredEvents;
-        public ReadOnlySpan<GameEventCombi> TriggeredEvents => triggeredEvents;
+        private readonly GameAction[] triggeredActions;
+        public ReadOnlySpan<GameAction> TriggeredActions => triggeredActions;
 
-        public static DecisionOptionConfig EMPTY = new(DialogPhrase.PHRASE_NONE, new GameEventCombi[0]);
+        public static DecisionOptionConfig EMPTY = new(DialogPhrase.PHRASE_NONE, new GameAction[0]);
 
-        public DecisionOptionConfig(DialogPhrase phrase, GameEventCombi[] triggeredEvents)
+        public DecisionOptionConfig(DialogPhrase phrase, GameAction[] triggeredEvents)
         {
             this.phrase = phrase;
-            this.triggeredEvents = triggeredEvents;
+            this.triggeredActions = triggeredEvents;
         }
     }
 
@@ -454,10 +455,36 @@ namespace Gob3AQ.VARMAP.Types
     public readonly struct UnchainInfo
     {
         public readonly bool repeat;
-        public readonly UnchainType type;
+        public readonly bool isOneShot;
         public readonly GameEventCombi ignoreif;
         private readonly GameEventCombi[] neededEvents;
         public readonly MomentType momentType;
+        private readonly GameAction[] unchainActions;
+
+
+        public ReadOnlySpan<GameEventCombi> NeededEvents => neededEvents;
+        public ReadOnlySpan<GameAction> UnchainActions => unchainActions;
+
+
+
+        public static readonly UnchainInfo EMPTY = new(false,true, GameEventCombi.EMPTY,
+            new GameEventCombi[0],MomentType.MOMENT_ANY, new GameAction[0]);
+
+        public UnchainInfo(bool repeat, bool isOneShot, GameEventCombi ignoreif, GameEventCombi[] neededEvents, MomentType momentType, GameAction[] unchainActions)
+        {
+            this.repeat = repeat;
+            this.isOneShot = isOneShot;
+            this.ignoreif = ignoreif;
+            this.neededEvents = neededEvents;
+            this.momentType = momentType;
+            this.unchainActions = unchainActions;
+        }
+
+    }
+
+    public readonly struct ActionInfo
+    {
+        public readonly ActionType type;
         public readonly GameItem targetItem;
         public readonly GameSprite targetSprite;
         public readonly CharacterType targetCharacter;
@@ -465,24 +492,32 @@ namespace Gob3AQ.VARMAP.Types
         private readonly GameEventCombi[] targetEvents;
         public readonly DecisionType targetDecision;
         public readonly MomentType targetMomentOfDay;
-
-        public ReadOnlySpan<GameEventCombi> NeededEvents => neededEvents;
+        public readonly DialogType targetDialog;
+        public readonly DialogPhrase targetPhrase;
+        public readonly GameAnimation targetAnimation;
+        private readonly GameAction[] targetSequenceActions;
 
         public ReadOnlySpan<GameEventCombi> TargetEvents => targetEvents;
+        public ReadOnlySpan<GameAction> TargetSequenceActions => targetSequenceActions;
 
-        public static readonly UnchainInfo EMPTY = new(false, UnchainType.UNCHAIN_TYPE_SET_SPRITE, GameEventCombi.EMPTY,
-            new GameEventCombi[0],MomentType.MOMENT_ANY, GameItem.ITEM_NONE, GameSprite.SPRITE_NONE, CharacterType.CHARACTER_NONE,
-            Memento.MEMENTO_NONE, new GameEventCombi[0], DecisionType.DECISION_NONE, MomentType.MOMENT_ANY);
-
-        public UnchainInfo(bool repeat, UnchainType type, GameEventCombi ignoreif, GameEventCombi[] neededEvents, MomentType momentType,
-            GameItem targetItem, GameSprite targetSprite, CharacterType targetCharacter, Memento targetMemento,
-            GameEventCombi[] targetEvents, DecisionType targetDecision, MomentType targetMomentOfDay)
+        public static ActionInfo CreateDespawnAction(GameItem targetItem)
         {
-            this.repeat = repeat;
+            return new ActionInfo(ActionType.ACTION_TYPE_DESPAWN, targetItem, GameSprite.SPRITE_NONE,
+                CharacterType.CHARACTER_NONE, Memento.MEMENTO_NONE, new GameEventCombi[0], DecisionType.DECISION_NONE,
+                MomentType.MOMENT_ANY, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, GameAnimation.ANIMATION_NONE,
+                new GameAction[0]);
+        }
+
+        public static readonly ActionInfo EMPTY = new(ActionType.ACTION_TYPE_NONE, GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE, Memento.MEMENTO_NONE, new GameEventCombi[0], DecisionType.DECISION_NONE,
+            MomentType.MOMENT_ANY, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, GameAnimation.ANIMATION_NONE,
+            new GameAction[0]);
+
+        public ActionInfo(ActionType type, GameItem targetItem, GameSprite targetSprite, CharacterType targetCharacter, Memento targetMemento,
+            GameEventCombi[] targetEvents, DecisionType targetDecision, MomentType targetMomentOfDay, DialogType targetDialog,
+            DialogPhrase targetPhrase, GameAnimation targetAnimation, GameAction[] targetSequenceActions)
+        {
             this.type = type;
-            this.ignoreif = ignoreif;
-            this.neededEvents = neededEvents;
-            this.momentType = momentType;
             this.targetItem = targetItem;
             this.targetSprite = targetSprite;
             this.targetCharacter = targetCharacter;
@@ -490,8 +525,11 @@ namespace Gob3AQ.VARMAP.Types
             this.targetEvents = targetEvents;
             this.targetDecision = targetDecision;
             this.targetMomentOfDay = targetMomentOfDay;
+            this.targetDialog = targetDialog;
+            this.targetPhrase = targetPhrase;
+            this.targetAnimation = targetAnimation;
+            this.targetSequenceActions = targetSequenceActions;
         }
-
     }
 
 
@@ -501,33 +539,25 @@ namespace Gob3AQ.VARMAP.Types
         public readonly MomentType momentType;
         public readonly CharacterType srcChar;
         public readonly GameItem srcItem;
-        public readonly ItemInteractionType actionOK;
-        public readonly CharacterAnimation animationOK;
-        public readonly DialogType dialogOK;
-        public readonly DialogPhrase phraseOK;
-        private readonly GameEventCombi[] unchainEvents;
+        public readonly ItemInteractionType actionCondType;
+        private readonly GameAction[] unchainActions;
 
         public ReadOnlySpan<GameEventCombi> NeededEvents => neededEvents;
-        public ReadOnlySpan<GameEventCombi> UnchainEvents => unchainEvents;
+        public ReadOnlySpan<GameAction> UnchainActions => unchainActions;
 
 
         public static readonly ActionConditionsInfo EMPTY = new(new GameEventCombi[0], MomentType.MOMENT_ANY, CharacterType.CHARACTER_NONE,
-            GameItem.ITEM_NONE, ItemInteractionType.INTERACTION_NONE, CharacterAnimation.ITEM_USE_ANIMATION_NONE,
-            DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, new GameEventCombi[0]);
+            GameItem.ITEM_NONE, ItemInteractionType.INTERACTION_NONE, new GameAction[0]);
 
         public ActionConditionsInfo(GameEventCombi[] events, MomentType momentType, CharacterType srcChar, GameItem srcItem,
-            ItemInteractionType actionOK, CharacterAnimation animationOK,DialogType dialogOK, DialogPhrase phraseOK,
-            GameEventCombi[] unchainEvents)
+            ItemInteractionType actionOK, GameAction[] unchainActions)
         {
-            this.neededEvents = events;
+            neededEvents = events;
             this.momentType = momentType;
             this.srcChar = srcChar;
             this.srcItem = srcItem;
-            this.actionOK = actionOK;
-            this.animationOK = animationOK;
-            this.dialogOK = dialogOK;
-            this.phraseOK = phraseOK;
-            this.unchainEvents = unchainEvents;
+            actionCondType = actionOK;
+            this.unchainActions = unchainActions;
         }
     }
 
@@ -550,16 +580,9 @@ namespace Gob3AQ.VARMAP.Types
 
     public readonly ref struct InteractionUsageOutcome
     {
-        public readonly CharacterAnimation animation;
-        public readonly DialogType dialogType;
-        public readonly DialogPhrase dialogPhrase;
         public readonly bool ok;
-        public InteractionUsageOutcome(CharacterAnimation animation, DialogType dialogType,
-            DialogPhrase dialogPhrase, bool ok)
+        public InteractionUsageOutcome(bool ok)
         {
-            this.animation = animation;
-            this.dialogType = dialogType;
-            this.dialogPhrase = dialogPhrase;
             this.ok = ok;
         }
     }

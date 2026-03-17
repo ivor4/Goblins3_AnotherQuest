@@ -39,13 +39,13 @@ namespace Gob3AQ.VARMAP.ItemMaster
             OBTAIN_SCENARIO_ITEMS = _OBTAIN_SCENARIO_ITEMS;
             GET_NEAREST_WP = _GET_NEAREST_WP;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
-            COMMIT_EVENT = _COMMIT_EVENT;
-            UNCHAIN_TO_ITEM = _UNCHAIN_TO_ITEM;
+            ACTION_TO_ITEM = _ACTION_TO_ITEM;
             USE_ITEM = _USE_ITEM;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             ZOOM_SUBSCRIPTION = _ZOOM_SUBSCRIPTION;
             START_ANIMATION = _START_ANIMATION;
             ITEM_PERFORM_ANIMATION = _ITEM_PERFORM_ANIMATION;
+            PERFORM_ACTION = _PERFORM_ACTION;
             /* > ATG 1 END */
         }
 
@@ -120,19 +120,12 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /// </summary>
         public static IS_EVENT_COMBI_OCCURRED_DELEGATE IS_EVENT_COMBI_OCCURRED;
         /// <summary> 
-        /// Activates/Deactivates an event
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: GameMaster, LevelMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.CommitEventService"/> </para> 
-        /// </summary>
-        public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
-        /// <summary> 
         /// Applies an unchain event to an item such as spawn or setsprite
         /// <para> Owner: ItemMaster </para> 
         /// <para> Accessors: GameEventMaster,  </para> 
-        /// <para> Method: <see cref="ItemMasterClass.UnchainToItemService"/> </para> 
+        /// <para> Method: <see cref="ItemMasterClass.ActionToItemService"/> </para> 
         /// </summary>
-        public static UNCHAIN_TO_ITEM_DELEGATE UNCHAIN_TO_ITEM;
+        public static ACTION_TO_ITEM_DELEGATE ACTION_TO_ITEM;
         /// <summary> 
         /// Uses an item with something
         /// <para> Owner: ItemMaster </para> 
@@ -168,6 +161,13 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /// <para> Method: <see cref="ItemMasterClass.PerformAnimationService"/> </para> 
         /// </summary>
         public static ITEM_PERFORM_ANIMATION_DELEGATE ITEM_PERFORM_ANIMATION;
+        /// <summary> 
+        /// Performs a named action
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, DialogMaster, ItemMaster,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.PerformActionService"/> </para> 
+        /// </summary>
+        public static PERFORM_ACTION_DELEGATE PERFORM_ACTION;
         /* > ATG 3 END */
     }
 }

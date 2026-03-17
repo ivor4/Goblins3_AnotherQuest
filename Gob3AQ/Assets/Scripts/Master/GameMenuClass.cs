@@ -109,7 +109,7 @@ namespace Gob3AQ.GameMenu
                 decision_optionPending = false;
 
                 /* Trigger linked events */
-                VARMAP_GameMenu.COMMIT_EVENT(decisionOptionConfig.TriggeredEvents);
+                VARMAP_GameMenu.PERFORM_ACTION(decisionOptionConfig.TriggeredActions, null);
 
                 decision_actualTaskType = DecisionTaskType.DECISION_TASK_DECIDING;
             }
@@ -156,16 +156,7 @@ namespace Gob3AQ.GameMenu
                         {
                             CharacterType playerSelected = VARMAP_GameMenu.GET_PLAYER_SELECTED();
                             InteractionUsage usage = InteractionUsage.CreateObserveItem(playerSelected, item, -1);
-                            VARMAP_GameMenu.USE_ITEM(in usage, out InteractionUsageOutcome outcome);
-
-                            /* If observation brings a dialogue, unchain it if not already in a dialogue */
-                            if (outcome.ok && (outcome.dialogType != DialogType.DIALOG_NONE))
-                            {
-                                Span<GameItem> talkers = stackalloc GameItem[2];
-                                talkers[0] = (GameItem)playerSelected;
-                                talkers[1] = (GameItem)playerSelected;
-                                VARMAP_GameMenu.SHOW_DIALOGUE(talkers, outcome.dialogType, outcome.dialogPhrase, true);
-                            }
+                            VARMAP_GameMenu.USE_ITEM(in usage, out _);
                         }
                         break;
 
@@ -370,16 +361,16 @@ namespace Gob3AQ.GameMenu
                     {
                         VARMAP_GameMenu.COMMIT_EVENT(one_event);
 
-                        VARMAP_GameMenu.SHOW_DIALOGUE(talkers, DialogType.DIALOG_SIMPLE, DialogPhrase.PHRASE_GREAT_IDEA_COMBI, false);
+                        //VARMAP_GameMenu.SHOW_DIALOGUE(talkers, DialogType.DIALOG_SIMPLE, DialogPhrase.PHRASE_GREAT_IDEA_COMBI, false);
                     }
                     else
                     {
-                        VARMAP_GameMenu.SHOW_DIALOGUE(talkers, DialogType.DIALOG_SIMPLE, DialogPhrase.PHRASE_ALREADY_COMBI, false);
+                        //VARMAP_GameMenu.SHOW_DIALOGUE(talkers, DialogType.DIALOG_SIMPLE, DialogPhrase.PHRASE_ALREADY_COMBI, false);
                     }
                 }
                 else
                 {
-                    VARMAP_GameMenu.SHOW_DIALOGUE(talkers, DialogType.DIALOG_SIMPLE, DialogPhrase.PHRASE_NONSENSE_COMBI, false);
+                    //VARMAP_GameMenu.SHOW_DIALOGUE(talkers, DialogType.DIALOG_SIMPLE, DialogPhrase.PHRASE_NONSENSE_COMBI, false);
                 }
 
                 VARMAP_GameMenu.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_DIALOG, out _);

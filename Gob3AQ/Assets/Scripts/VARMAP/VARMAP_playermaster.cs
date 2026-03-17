@@ -37,7 +37,6 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
             GET_NEAREST_WP = _GET_NEAREST_WP;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
-            COMMIT_EVENT = _COMMIT_EVENT;
             INTERACT_PLAYER = _INTERACT_PLAYER;
             PLAYER_REACHED_WAYPOINT = _PLAYER_REACHED_WAYPOINT;
             LOCK_PLAYER = _LOCK_PLAYER;
@@ -124,13 +123,6 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         /// <para> Method: <see cref="GameEventMasterClass.IsEventCombiOccurredService"/> </para> 
         /// </summary>
         public static IS_EVENT_COMBI_OCCURRED_DELEGATE IS_EVENT_COMBI_OCCURRED;
-        /// <summary> 
-        /// Activates/Deactivates an event
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: GameMaster, LevelMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.CommitEventService"/> </para> 
-        /// </summary>
-        public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
         /// <summary> 
         /// Makes player interact with usage data
         /// <para> Owner: PlayerMaster </para> 

@@ -128,8 +128,8 @@ sound_types_lines = ATGFile(sound_types_path, 1)
 event_types_lines = ATGFile(event_types_path, 4)
 animation_types_lines = ATGFile(animation_types_path, 1)
 modules_types_lines = ATGFile(modules_types_path, 1)
-items_types_lines = ATGFile(items_types_path, 5)
-items_interaction_lines = ATGFile(items_interaction_path, 9)
+items_types_lines = ATGFile(items_types_path, 6)
+items_interaction_lines = ATGFile(items_interaction_path, 10)
 dialog_atlas_lines = ATGFile(dialog_atlas_path, 3)
 decision_atlas_lines = ATGFile(decision_atlas_path, 2)
 sprite_atlas_lines = ATGFile(sprite_atlas_path, 1)
@@ -693,6 +693,7 @@ interaction_prefix = 'ItemInteractionType.'
 char_animation_prefix = 'CharacterAnimation.'
 dialoganim_prefix = 'DialogAnimation.'
 event_prefix = 'GameEvent.'
+action_prefix = 'GameAction.'
 conditiontype_prefix = 'ActionConditions.'
 spawnconditiontype_prefix = 'SpawnConditions.'
 dialog_prefix = 'DialogType.'
@@ -707,7 +708,7 @@ sound_prefix = 'GameSound.'
 sound_effect_prefix = 'SoundEffect.'
 name_prefix = 'NameType.'
 family_prefix = 'GameItemFamily.'
-unchain_type_prefix = 'UnchainType.'
+unchain_type_prefix = 'ActionType.'
 memento_prefix = 'Memento.'
 memento_parent_prefix = 'MementoParent.'
 memento_combi_prefix = 'MementoCombi.'
@@ -798,12 +799,10 @@ for line in DIALOGSinputFile:
             options = columns[4].split('|')
             num_options = len(options)
             
-            stringToWrite = 'new GameEventCombi['+str(num_options)+']{'
+            stringToWrite = 'new GameAction['+str(num_options)+']{'
             
             for _option in options:
-                _not = str('(NOT)' in _option).lower()
-                _option = _option.replace('(NOT)','')
-                stringToWrite += 'new('+event_prefix+_option+', '+_not+'), '
+                stringToWrite += action_prefix+_option+', '
                 
             stringToWrite += '},\n'
             dialog_atlas_lines.InsertLineInATG(2, stringToWrite)
@@ -893,12 +892,10 @@ for line in DECISIONSinputFile:
             options = columns[3].split('|')
             num_options = len(options)
             
-            stringToWrite = 'new GameEventCombi['+str(num_options)+']{'
+            stringToWrite = 'new GameAction['+str(num_options)+']{'
             
             for _option in options:
-                _not = str('(NOT)' in _option).lower()
-                _option = _option.replace('(NOT)','')
-                stringToWrite += 'new('+event_prefix+_option+', '+_not+'), '
+                stringToWrite += action_prefix+_option+', '
                 
             stringToWrite += '}),\n'
             decision_atlas_lines.InsertLineInATG(2, stringToWrite)
@@ -1102,7 +1099,7 @@ for line in AUTOinputFile:
         elif(zone == 3):
             stringToWrite = 'INTERACTION_TOTAL\n'
         elif(zone == 4):
-            stringToWrite = 'UNCHAIN_TYPE_TOTAL\n'
+            stringToWrite = 'ACTION_TYPE_TOTAL\n'
         elif(zone == 5):
             stringToWrite = 'DIALOG_ANIMATION_TOTAL\n'
         elif(zone == 6):
@@ -1154,6 +1151,11 @@ for line in ACTIONCONDSinputFile:
             items_types_lines.InsertLineInATG(3, stringToWrite)
             stringToWrite = 'COND_TOTAL\n'
             items_types_lines.InsertLineInATG(3, stringToWrite)
+        elif(zone == 2):
+            stringToWrite = '\n'
+            items_types_lines.InsertLineInATG(4, stringToWrite)
+            stringToWrite = 'UNCHAIN_TOTAL\n'
+            items_types_lines.InsertLineInATG(4, stringToWrite)
         
         zone +=1
         linecount = -1
@@ -1165,11 +1167,8 @@ for line in ACTIONCONDSinputFile:
         ItemVar["moment"] = moment_prefix+str(columns[3])
         ItemVar["srcChar"] = character_prefix+str(columns[4])
         ItemVar["srcItem"] = item_prefix+str(columns[5])
-        ItemVar["actionOK"] = interaction_prefix+str(columns[6])
-        ItemVar["animationOK"] = char_animation_prefix+str(columns[7])
-        ItemVar["dialogOK"] = dialog_prefix+str(columns[8])
-        ItemVar["phraseOK"] = phrase_prefix+str(columns[9])
-        ItemVar["unchain_event"] = str(columns[10])
+        ItemVar["actionCondType"] = interaction_prefix+str(columns[6])
+        ItemVar["unchainAction"] = str(columns[7])
         
         # Write in item enum
         stringToWrite = ItemVar["name"]
@@ -1197,40 +1196,29 @@ for line in ACTIONCONDSinputFile:
         
         
         stringToWrite = ItemVar["moment"]+','+ItemVar["srcChar"]+','+ItemVar["srcItem"]+','+\
-            ItemVar["actionOK"]+',\n'
-        items_interaction_lines.InsertLineInATG(2, stringToWrite)
-        stringToWrite = ItemVar["animationOK"]+',\n'
-        items_interaction_lines.InsertLineInATG(2, stringToWrite)
-        stringToWrite = ItemVar["dialogOK"]+","+\
-            ItemVar["phraseOK"]+",\n"
+            ItemVar["actionCondType"]+',\n'
         items_interaction_lines.InsertLineInATG(2, stringToWrite)
         
-        options = ItemVar["unchain_event"].split('|')
+        options = ItemVar["unchainAction"].split('|')
         num_options = len(options)
-        stringToWrite = 'new GameEventCombi['+str(num_options)+']{'
+        stringToWrite = 'new GameAction['+str(num_options)+']{'
     
         for _option in options:
-            _not_ = str('(NOT)' in _option).lower()
-            _option = _option.replace('(NOT)','')
-            stringToWrite += 'new('+event_prefix + _option + ', ' + _not_ + '),'
+            stringToWrite += action_prefix + _option + ','
             
         stringToWrite += '}), \n'
         items_interaction_lines.InsertLineInATG(2, stringToWrite)
         items_interaction_lines.InsertLineInATG(2, '\n')
+        
     elif(zone == 2):
         ItemVar["name"] = str(columns[1])
         ItemVar["repeat"] = str(columns[2])
-        ItemVar["type"] = str(columns[3])
+        ItemVar["isOneShot"] = str(columns[3])
         ItemVar["ignoreif"] = str(columns[4])
         ItemVar["neededEvents"] = str(columns[5])
         ItemVar["momentOfDay"] = str(columns[6])
-        ItemVar["targetItem"] = str(columns[7])
-        ItemVar["targetSprite"] = str(columns[8])
-        ItemVar["targetCharacter"] = str(columns[9])
-        ItemVar["targetMemento"] = str(columns[10])
-        ItemVar["targetEvents"] = str(columns[11])
-        ItemVar["targetDecision"] = str(columns[12])
-        ItemVar["targetMoment"] = str(columns[13])
+        ItemVar["triggeredActions"] = str(columns[7])
+        
         
         # Write in item enum
         stringToWrite = ItemVar["name"]
@@ -1242,7 +1230,7 @@ for line in ACTIONCONDSinputFile:
         stringToWrite = 'new( /* '+ ItemVar["name"] + ' */\n'
         items_interaction_lines.InsertLineInATG(1, stringToWrite)
         
-        stringToWrite = ItemVar["repeat"].lower() + ',' + unchain_type_prefix + ItemVar["type"]+','
+        stringToWrite = ItemVar["repeat"].lower() + ',' + ItemVar["isOneShot"].lower() + ','
         
         _not_ = str('(NOT)' in ItemVar["ignoreif"]).lower()
         _option = ItemVar["ignoreif"].replace('(NOT)','')
@@ -1265,12 +1253,55 @@ for line in ACTIONCONDSinputFile:
         items_interaction_lines.InsertLineInATG(1, stringToWrite)
         
         
-        stringToWrite = moment_prefix + ItemVar["momentOfDay"] + ', ' + item_prefix + ItemVar["targetItem"] +', ' +\
-            sprite_prefix + ItemVar["targetSprite"]+','+\
-            character_prefix + ItemVar["targetCharacter"] +',' +\
-            memento_prefix + ItemVar["targetMemento"] + ", \n"
+        stringToWrite = moment_prefix + ItemVar["momentOfDay"] + ', \n'
         items_interaction_lines.InsertLineInATG(1, stringToWrite)
         
+        
+        options = ItemVar["triggeredActions"].split('|')
+        num_options = len(options)
+            
+        stringToWrite = 'new GameAction['+str(num_options)+']{'
+    
+        for _option in options:
+            stringToWrite += action_prefix + _option + ','
+            
+        stringToWrite += '}), \n'
+        items_interaction_lines.InsertLineInATG(1, stringToWrite)
+        items_interaction_lines.InsertLineInATG(1, '\n')
+        
+    elif(zone == 3):
+        ItemVar["name"] = str(columns[1])
+        ItemVar["type"] = str(columns[2])
+        ItemVar["targetItem"] = str(columns[3])
+        ItemVar["targetSprite"] = str(columns[4])
+        ItemVar["targetCharacter"] = str(columns[5])
+        ItemVar["targetMemento"] = str(columns[6])
+        ItemVar["targetEvents"] = str(columns[7])
+        ItemVar["targetDecision"] = str(columns[8])
+        ItemVar["targetMoment"] = str(columns[9])
+        ItemVar["targetDialog"] = str(columns[10])
+        ItemVar["targetPhrase"] = str(columns[11])
+        ItemVar["targetAnimation"] = str(columns[12])
+        ItemVar["targetSeqActions"] = str(columns[13])
+        
+        # Write in item enum
+        stringToWrite = ItemVar["name"]
+        stringToWrite += ', \n'
+        
+        items_types_lines.InsertLineInATG(5, stringToWrite)
+        
+        # Write in conditions struct
+        stringToWrite = 'new( /* '+ ItemVar["name"] + ' */\n'
+        items_interaction_lines.InsertLineInATG(10, stringToWrite)
+        
+        stringToWrite = unchain_type_prefix + ItemVar["type"]+','
+        stringToWrite += item_prefix + ItemVar["targetItem"]+','
+        stringToWrite += sprite_prefix + ItemVar["targetSprite"]+',\n'
+        items_interaction_lines.InsertLineInATG(10, stringToWrite)
+        
+        stringToWrite = character_prefix + ItemVar["targetCharacter"]+','
+        stringToWrite += memento_prefix + ItemVar["targetMemento"]+',\n'
+        items_interaction_lines.InsertLineInATG(10, stringToWrite)
         
         options = ItemVar["targetEvents"].split('|')
         num_options = len(options)
@@ -1283,19 +1314,35 @@ for line in ACTIONCONDSinputFile:
             stringToWrite += 'new('+event_prefix + _option + ', ' + _not_ + '),'
             
         stringToWrite += '}, \n'
-        items_interaction_lines.InsertLineInATG(1, stringToWrite)
+        items_interaction_lines.InsertLineInATG(10, stringToWrite)
         
-        stringToWrite = decision_prefix + ItemVar["targetDecision"] + ', '
-        stringToWrite += moment_prefix + ItemVar["targetMoment"] + '),\n'
-        items_interaction_lines.InsertLineInATG(1, stringToWrite)
         
-        items_interaction_lines.InsertLineInATG(1, '\n')
+        
+        stringToWrite = decision_prefix + ItemVar["targetDecision"] + ','
+        stringToWrite += moment_prefix + ItemVar["targetMoment"] + ','
+        stringToWrite += dialog_prefix + ItemVar["targetDialog"] + ','
+        stringToWrite += phrase_prefix + ItemVar["targetPhrase"] + ','
+        stringToWrite += animation_prefix + ItemVar["targetAnimation"] + ',\n'
+        items_interaction_lines.InsertLineInATG(10, stringToWrite)
+        
+        
+        options = ItemVar["targetSeqActions"].split('|')
+        num_options = len(options)
+            
+        stringToWrite = 'new GameAction['+str(num_options)+']{'
+    
+        for _option in options:
+            stringToWrite += action_prefix + _option + ','
+            
+        stringToWrite += '}), \n'
+        items_interaction_lines.InsertLineInATG(10, stringToWrite)
+        items_interaction_lines.InsertLineInATG(10, '\n')
         
         
 stringToWrite = '\n'
-items_types_lines.InsertLineInATG(4, stringToWrite)
-stringToWrite = 'UNCHAIN_TOTAL\n'
-items_types_lines.InsertLineInATG(4, stringToWrite)
+items_types_lines.InsertLineInATG(5, stringToWrite)
+stringToWrite = 'ACTION_TOTAL\n'
+items_types_lines.InsertLineInATG(5, stringToWrite)
     
 
 
@@ -1684,7 +1731,7 @@ for line in DETAILSinputFile:
     if('NONE' in columns[1]):
         stringToWrite += ' = -1'
     stringToWrite += ', \n'
-    items_types_lines.InsertLineInATG(5, stringToWrite)
+    items_types_lines.InsertLineInATG(6, stringToWrite)
     
     if(not 'NONE' in columns[1]):        
         stringToWrite = 'new('+columns[2]+', /* '+columns[1]+' */ \n'
@@ -1714,9 +1761,9 @@ for line in DETAILSinputFile:
 
     
 stringToWrite = '\n'
-items_types_lines.InsertLineInATG(5, stringToWrite)
+items_types_lines.InsertLineInATG(6, stringToWrite)
 stringToWrite = 'DETAIL_TOTAL\n'
-items_types_lines.InsertLineInATG(5, stringToWrite)
+items_types_lines.InsertLineInATG(6, stringToWrite)
     
 
 

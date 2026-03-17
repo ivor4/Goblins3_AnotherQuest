@@ -31,28 +31,28 @@ namespace Gob3AQ.ItemMaster
         }
 
 
-        public static void UnchainToItemService(in UnchainInfo unchainInfo)
+        public static void ActionToItemService(in ActionInfo actionInfo)
         {
             if (_singleton != null)
             {
                 GameElementClass instance;
 
-                switch (unchainInfo.type)
+                switch (actionInfo.type)
                 {
-                    case UnchainType.UNCHAIN_TYPE_EARN_ITEM:
-                        EarnLosePickableItem(unchainInfo.targetCharacter, unchainInfo.targetItem, true);
+                    case ActionType.ACTION_TYPE_EARN_ITEM:
+                        EarnLosePickableItem(actionInfo.targetCharacter, actionInfo.targetItem, true);
                         break;
-                    case UnchainType.UNCHAIN_TYPE_LOSE_ITEM:
-                        EarnLosePickableItem(CharacterType.CHARACTER_NONE, unchainInfo.targetItem, false);
+                    case ActionType.ACTION_TYPE_LOSE_ITEM:
+                        EarnLosePickableItem(CharacterType.CHARACTER_NONE, actionInfo.targetItem, false);
                         break;
-                    case UnchainType.UNCHAIN_TYPE_SET_SPRITE:
-                        if (_singleton._levelItems.TryGetValue(unchainInfo.targetItem, out instance))
+                    case ActionType.ACTION_TYPE_SET_SPRITE:
+                        if (_singleton._levelItems.TryGetValue(actionInfo.targetItem, out instance))
                         {
-                            instance.SetSprite(unchainInfo.targetSprite);
+                            instance.SetSprite(actionInfo.targetSprite);
                         }
                         break;
-                    case UnchainType.UNCHAIN_TYPE_SPAWN:
-                        if (_singleton._levelItems.TryGetValue(unchainInfo.targetItem, out instance))
+                    case ActionType.ACTION_TYPE_SPAWN:
+                        if (_singleton._levelItems.TryGetValue(actionInfo.targetItem, out instance))
                         {
                             instance.SetUnspawned(false);
                             instance.SetMotion(true);
@@ -62,8 +62,8 @@ namespace Gob3AQ.ItemMaster
                         }
                         break;
 
-                    case UnchainType.UNCHAIN_TYPE_DESPAWN:
-                        if (_singleton._levelItems.TryGetValue(unchainInfo.targetItem, out instance))
+                    case ActionType.ACTION_TYPE_DESPAWN:
+                        if (_singleton._levelItems.TryGetValue(actionInfo.targetItem, out instance))
                         {
                             instance.SetUnspawned(true);
                             instance.SetMotion(false);
@@ -73,14 +73,14 @@ namespace Gob3AQ.ItemMaster
                         }
                         break;
 
-                    case UnchainType.UNCHAIN_TYPE_DESTROY:
-                        if (_singleton._levelItems.TryGetValue(unchainInfo.targetItem, out instance))
+                    case ActionType.ACTION_TYPE_DESTROY:
+                        if (_singleton._levelItems.TryGetValue(actionInfo.targetItem, out instance))
                         {
                             instance.VirtualDestroy();
                         }
                         break;
-                    case UnchainType.UNCHAIN_TYPE_UNCLICKABLE:
-                        if (_singleton._levelItems.TryGetValue(unchainInfo.targetItem, out instance))
+                    case ActionType.ACTION_TYPE_UNCLICKABLE:
+                        if (_singleton._levelItems.TryGetValue(actionInfo.targetItem, out instance))
                         {
                             instance.SetUnclickable(true);
                         }
@@ -175,15 +175,11 @@ namespace Gob3AQ.ItemMaster
         private static void ItemInteractionCommon(in InteractionUsage usage, out InteractionUsageOutcome outcome)
         {
             bool conditionOK;
-            CharacterAnimation animation;
-            DialogType dialog;
-            DialogPhrase phrase;
+            GameAction defaultNegativeAction = GetDefaultNegativeAction(usage.type);
+            Span<GameAction> negativeActions = stackalloc GameAction[] { defaultNegativeAction };
 
             /* If item is not defined, it is not possible to process it */
             conditionOK = false;
-            animation = CharacterAnimation.ITEM_USE_ANIMATION_NONE;
-            dialog = DialogType.DIALOG_SIMPLE;
-            phrase = GetDefaultNegativePhrase(usage.type);
             MomentType actualMoment = VARMAP_ItemMaster.GET_DAY_MOMENT();
 
 
@@ -203,7 +199,7 @@ namespace Gob3AQ.ItemMaster
                 ref readonly ActionConditionsInfo conditionInfo = ref ItemsInteractionsClass.GetActionConditionsInfo(condition);
                 
                 /* Validation if, check if interaction slot is the one which fits actual conditions */
-                if (((usage.playerSource == conditionInfo.srcChar)||(conditionInfo.srcChar == CharacterType.CHARACTER_NONE)) && (conditionInfo.actionOK == usage.type) &&
+                if (((usage.playerSource == conditionInfo.srcChar)||(conditionInfo.srcChar == CharacterType.CHARACTER_NONE)) && (conditionInfo.actionCondType == usage.type) &&
                     ((conditionInfo.momentType == MomentType.MOMENT_ANY) || (conditionInfo.momentType == actualMoment)) &&
                     ((usage.type != ItemInteractionType.INTERACTION_USE) ||
                     ((usage.itemSource == conditionInfo.srcItem) && srcItemInfo.isPickable && (owners[(int)srcItemInfo.pickableItem] == usage.playerSource))
@@ -214,18 +210,19 @@ namespace Gob3AQ.ItemMaster
                     if (occurred)
                     {
                         /* Trigger additional event (in case) */
-                        VARMAP_ItemMaster.COMMIT_EVENT(conditionInfo.UnchainEvents);
-        
-                        animation = conditionInfo.animationOK;
-                        dialog = conditionInfo.dialogOK;
-                        phrase = conditionInfo.phraseOK;
+                        VARMAP_ItemMaster.PERFORM_ACTION(conditionInfo.UnchainActions, null);
                         conditionOK = true;
                         break;
                     }
                 }
             }
 
-            outcome = new(animation, dialog, phrase, conditionOK);
+            if(!conditionOK)
+            {
+                VARMAP_ItemMaster.PERFORM_ACTION(negativeActions, null);
+            }
+
+            outcome = new(conditionOK);
         }
 
         private IEnumerator LoadingCoroutine()
@@ -250,16 +247,18 @@ namespace Gob3AQ.ItemMaster
 
 
 
-        private static DialogPhrase GetDefaultNegativePhrase(ItemInteractionType interaction)
+        private static GameAction GetDefaultNegativeAction(ItemInteractionType interaction)
         {
             switch (interaction)
             {
                 case ItemInteractionType.INTERACTION_TALK:
-                    return DialogPhrase.PHRASE_NONSENSE_TALK;
+                    return GameAction.ACTION_DIALOG_USELESS_TALK;
                 case ItemInteractionType.INTERACTION_OBSERVE:
-                    return DialogPhrase.PHRASE_NONSENSE_OBSERVE;
+                    return GameAction.ACTION_DIALOG_USELESS_OBSERVE;
+                case ItemInteractionType.INTERACTION_CROSS_DOOR:
+                    return GameAction.ACTION_NONE;
                 default:
-                    return DialogPhrase.PHRASE_NONSENSE;
+                    return GameAction.ACTION_DIALOG_USELESS_ACTION;
             }
         }
 

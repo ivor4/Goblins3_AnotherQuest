@@ -22,7 +22,7 @@ namespace Gob3AQ.DialogMaster
             DIALOG_STATE_STARTING,
             DIALOG_STATE_SAYING,
             DIALOG_STATE_DEAD_TIME,
-            DIALOG_STATE_WAITING_EVENTS
+            DIALOG_STATE_LAUNCH_NEXT_DIALOG
         }
 
         private struct AnimationRuntime
@@ -370,7 +370,7 @@ namespace Gob3AQ.DialogMaster
 
                     if (dialogConfig.dialogTriggered != DialogType.DIALOG_NONE)
                     {
-                        dialog_actualTaskType = DialogTaskType.DIALOG_STATE_WAITING_EVENTS;
+                        dialog_actualTaskType = DialogTaskType.DIALOG_STATE_LAUNCH_NEXT_DIALOG;
                     }
                     else
                     {
@@ -552,13 +552,10 @@ namespace Gob3AQ.DialogMaster
                     }
                     break;
 
-                case DialogTaskType.DIALOG_STATE_WAITING_EVENTS:
-                    if (!VARMAP_DialogMaster.GET_EVENTS_BEING_PROCESSED())
-                    {
-                        dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
-                        DialogOptionConfig dialogConfig = ResourceDialogsAtlasClass.GetDialogOptionConfig(dialog_optionPhrases);
-                        ShowDialogueExec(dialogConfig.dialogTriggered, DialogPhrase.PHRASE_NONE, dialog_background);
-                    }
+                case DialogTaskType.DIALOG_STATE_LAUNCH_NEXT_DIALOG:
+                    dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
+                    DialogOptionConfig dialogConfig = ResourceDialogsAtlasClass.GetDialogOptionConfig(dialog_optionPhrases);
+                    ShowDialogueExec(dialogConfig.dialogTriggered, DialogPhrase.PHRASE_NONE, dialog_background);
                     break;
 
                 default:

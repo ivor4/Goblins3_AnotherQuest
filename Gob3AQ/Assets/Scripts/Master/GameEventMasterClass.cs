@@ -557,7 +557,7 @@ namespace Gob3AQ.GameEventMaster
             bool stop = false;
 
 
-            while ((_pendingActions.Count > 0) && !stop)
+            while ((_pendingActions.Count > 0) && (!stop))
             {
                 ActionOrder actionOrder = _pendingActions[0];
                 bool endedAction = false;
@@ -575,11 +575,13 @@ namespace Gob3AQ.GameEventMaster
                 else
                 {
                     endedAction = _actionEndedFlag;
+                    stop = !endedAction;
                 }
 
                 /* If action was not required to be waited or is an action which does not need wait */
                 if (endedAction)
                 {
+                    Debug.Log("Ended action: " + actionOrder.action);
                     _pendingActions.RemoveAt(0);
 
                     /* If there is a callback, execute it and stop processing more actions until next cycle, to avoid multiple calls in same frame */

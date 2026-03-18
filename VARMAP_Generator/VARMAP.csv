@@ -17,5 +17,5 @@
 15,PICKABLE_ITEM_CHOSEN,GameItem,2,0,GameItem.ITEM_NONE,N,,-,-,R,R E,-,W,-,-,R,-
 16,ITEM_HOVER,GameItem,0,0,GameItem.ITEM_NONE,N,,-,-,W,R E,-,-,-,-,-,-
 17,USER_INPUT_INTERACTION,UserInputInteraction,0,0,UserInputInteraction.INPUT_INTERACTION_TAKE,N,,-,-,R,R E,-,W,-,-,-,-
-18,EVENTS_BEING_PROCESSED,bool,0,0,false,N,,R,-,R,-,-,R,R,-,-,W
+18,EVENTS_BEING_PROCESSED,bool,0,0,false,N,,R,-,R,-,-,R,-,-,-,W
 19,LAST_VARMAP_VAL,bool,0,0,false,N,,W,-,-,-,-,-,-,-,-,-

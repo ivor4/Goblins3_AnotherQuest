@@ -29,7 +29,6 @@ namespace Gob3AQ.VARMAP.DialogMaster
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             GET_PLAYER_SELECTED = _GET_PLAYER_SELECTED;
-            GET_EVENTS_BEING_PROCESSED = _GET_EVENTS_BEING_PROCESSED;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
@@ -56,7 +55,6 @@ namespace Gob3AQ.VARMAP.DialogMaster
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
         public static GetVARMAPValueDelegate<CharacterType> GET_PLAYER_SELECTED;
-        public static GetVARMAPValueDelegate<bool> GET_EVENTS_BEING_PROCESSED;
         /* > ATG 2 END */
 
         /* SERVICES */

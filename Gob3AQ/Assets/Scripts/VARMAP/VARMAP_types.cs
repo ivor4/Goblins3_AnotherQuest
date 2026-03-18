@@ -485,6 +485,7 @@ namespace Gob3AQ.VARMAP.Types
 
     public readonly struct ActionInfo
     {
+        public readonly bool waitForEnd;
         public readonly ActionType type;
         public readonly GameItem targetItem;
         public readonly GameSprite targetSprite;
@@ -496,28 +497,25 @@ namespace Gob3AQ.VARMAP.Types
         public readonly DialogType targetDialog;
         public readonly DialogPhrase targetPhrase;
         public readonly GameAnimation targetAnimation;
-        private readonly GameAction[] targetSequenceActions;
 
         public ReadOnlySpan<GameEventCombi> TargetEvents => targetEvents;
-        public ReadOnlySpan<GameAction> TargetSequenceActions => targetSequenceActions;
 
         public static ActionInfo CreateDespawnAction(GameItem targetItem)
         {
-            return new ActionInfo(ActionType.ACTION_TYPE_DESPAWN, targetItem, GameSprite.SPRITE_NONE,
+            return new ActionInfo(false, ActionType.ACTION_TYPE_DESPAWN, targetItem, GameSprite.SPRITE_NONE,
                 CharacterType.CHARACTER_NONE, Memento.MEMENTO_NONE, new GameEventCombi[0], DecisionType.DECISION_NONE,
-                MomentType.MOMENT_ANY, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, GameAnimation.ANIMATION_NONE,
-                new GameAction[0]);
+                MomentType.MOMENT_ANY, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, GameAnimation.ANIMATION_NONE);
         }
 
-        public static readonly ActionInfo EMPTY = new(ActionType.ACTION_TYPE_NONE, GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,
+        public static readonly ActionInfo EMPTY = new(false, ActionType.ACTION_TYPE_NONE, GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE, Memento.MEMENTO_NONE, new GameEventCombi[0], DecisionType.DECISION_NONE,
-            MomentType.MOMENT_ANY, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, GameAnimation.ANIMATION_NONE,
-            new GameAction[0]);
+            MomentType.MOMENT_ANY, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, GameAnimation.ANIMATION_NONE);
 
-        public ActionInfo(ActionType type, GameItem targetItem, GameSprite targetSprite, CharacterType targetCharacter, Memento targetMemento,
+        public ActionInfo(bool waitForEnd, ActionType type, GameItem targetItem, GameSprite targetSprite, CharacterType targetCharacter, Memento targetMemento,
             GameEventCombi[] targetEvents, DecisionType targetDecision, MomentType targetMomentOfDay, DialogType targetDialog,
-            DialogPhrase targetPhrase, GameAnimation targetAnimation, GameAction[] targetSequenceActions)
+            DialogPhrase targetPhrase, GameAnimation targetAnimation)
         {
+            this.waitForEnd = waitForEnd;
             this.type = type;
             this.targetItem = targetItem;
             this.targetSprite = targetSprite;
@@ -529,7 +527,6 @@ namespace Gob3AQ.VARMAP.Types
             this.targetDialog = targetDialog;
             this.targetPhrase = targetPhrase;
             this.targetAnimation = targetAnimation;
-            this.targetSequenceActions = targetSequenceActions;
         }
     }
 

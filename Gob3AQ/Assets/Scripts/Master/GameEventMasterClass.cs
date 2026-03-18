@@ -13,6 +13,20 @@ namespace Gob3AQ.GameEventMaster
 
     public class GameEventMasterClass : MonoBehaviour
     {
+        private struct ActionOrder
+        {
+            public GameAction action;
+            public Action callback;
+            public bool performedAndWaiting;
+
+            public ActionOrder(GameAction action, Action callback)
+            {
+                this.action = action;
+                this.callback = callback;
+                performedAndWaiting = false;
+            }
+        }
+
         private static GameEventMasterClass _singleton;
 
         /// <summary>
@@ -31,7 +45,6 @@ namespace Gob3AQ.GameEventMaster
         /// Unchain conditions which need to be reviewed on each Scene load
         /// </summary>
         private HashSet<UnchainConditions> _itemRelatedUnchainers;
-
         /// <summary>
         /// Compound conditions of whole game which are still pending and items of this scene
         /// </summary>
@@ -40,8 +53,16 @@ namespace Gob3AQ.GameEventMaster
         /// Reverse dictionary of pending unchainers to their needed events
         /// </summary>
         private Dictionary<UnchainConditions, HashSet<GameEvent>> _reversePendingUnchainDict;
+        /// <summary>
+        /// Timestamp for periodic background tasks execution
+        /// </summary>
         private ulong _bckgActionsTimestamp;
+        /// <summary>
+        /// Iterator for every period to be executed, to avoid execute all on the same frame when there are more than one
+        /// </summary>
         private int _bckgActionsIndex;
+        private List<ActionOrder> _pendingActions;
+        private bool _actionEndedFlag;
 
 
         public static void IsMementoUnlockedService(Memento memento, out bool occurred, out bool unwatched)
@@ -158,8 +179,33 @@ namespace Gob3AQ.GameEventMaster
         {
             if (_singleton != null)
             {
-                _singleton.ExecuteActions(actions);
-                _ = callback;
+                for(int i=0; i < actions.Length; ++i)
+                {
+                    if (actions[i] != GameAction.ACTION_NONE)
+                    {
+                        Action usedCallback;
+
+                        /* Only execute callback on last action, to avoid multiple calls when there are more than one action */
+                        if (i < (actions.Length - 1))
+                        {
+                            usedCallback = null; 
+                        }
+                        else
+                        {
+                            usedCallback = callback;
+                        }
+
+                        _singleton._pendingActions.Add(new ActionOrder(actions[i], usedCallback));
+                    }
+                }
+            }
+        }
+
+        public static void NotifyEndedActionService()
+        {
+            if(_singleton != null)
+            {
+                _singleton._actionEndedFlag = true;
             }
         }
 
@@ -207,6 +253,9 @@ namespace Gob3AQ.GameEventMaster
                 _bufferedEvents = new(GameFixedConfig.MAX_BUFFERED_EVENTS);
 
                 _itemRelatedUnchainers = new(GameFixedConfig.MAX_PENDING_UNCHAINERS);
+                _pendingActions = new(GameFixedConfig.MAX_BUFFERED_EVENTS);
+
+                _actionEndedFlag = false;
             }
         }
 
@@ -232,63 +281,8 @@ namespace Gob3AQ.GameEventMaster
             processingEvents = _bufferedEvents.Count != 0;
             prevProcessingEvents = VARMAP_GameEventMaster.GET_SHADOW_EVENTS_BEING_PROCESSED();
 
-            /* Iterate in buffered changes to call invokes, based on dictionary which has been working until now */
-            /* Whatever these invoke do, will work on the alternate dictionary (which is the official new for this cycle) */
-            /* >Only one per cycle< */
-            if (processingEvents)
-            {
-                GameEvent eventWithChanges = GameEvent.EVENT_NONE;
-                foreach (GameEvent gameEvent in _bufferedEvents)
-                {
-                    eventWithChanges = gameEvent;
-                    break;
-                }
-                _bufferedEvents.Remove(eventWithChanges);
-
-                if (_pendingUnchainDict.TryGetValue(eventWithChanges, out HashSet<UnchainConditions> unchainers))
-                {
-                    /* Try unchain for related unchainers to this event */
-                    foreach (UnchainConditions unchainer in unchainers)
-                    {
-                        ref readonly UnchainInfo unchainerInfo = ref ItemsInteractionsClass.GetUnchainInfo(unchainer);
-
-                        /* If it is completed, add to remove list */
-                        if (TryUnchainAction(in unchainerInfo))
-                        {
-                            if (!unchainerInfo.repeat)
-                            {
-                                _removePendingHash.Add(unchainer);
-                            }
-                        }
-                    }
-
-                    /* Remove outside previous foreach loop */
-                    foreach (UnchainConditions unchainerToRemove in _removePendingHash)
-                    {
-                        RemoveUnchainerEventsFromPending(unchainerToRemove);
-                    }
-                    _removePendingHash.Clear();
-                }
-            }
-            else
-            {
-                /* Master pending events (when there is no pending work) */
-                Span<GameEventCombi> stackCheck = stackalloc GameEventCombi[2];
-
-                stackCheck[0] = new GameEventCombi(GameEvent.EVENT_MASTER_CHANGE_MOMENT_DAY, false);
-                IsEventCombiOccurredService(stackCheck[..1], out bool aftermath_change_day);
-                stackCheck[0] = new GameEventCombi(GameEvent.EVENT_MASTER_CHANGE_ROOM, false);
-                IsEventCombiOccurredService(stackCheck[..1], out bool aftermath_change_room);
-
-                if ((aftermath_change_day || aftermath_change_room) && (VARMAP_GameEventMaster.GET_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY))
-                {
-                    stackCheck[0] = new GameEventCombi(GameEvent.EVENT_MASTER_CHANGE_MOMENT_DAY, true);
-                    stackCheck[1] = new GameEventCombi(GameEvent.EVENT_MASTER_CHANGE_ROOM, true);
-                    CommitEventService(stackCheck);
-
-                    processingEvents = true;
-                }
-            }
+            ProcessPendingActions(ref processingEvents);
+            ProcessPendingEvents(ref processingEvents);
 
             if (prevProcessingEvents != processingEvents)
             {
@@ -497,6 +491,102 @@ namespace Gob3AQ.GameEventMaster
             }
         }
 
+        private void ProcessPendingEvents(ref bool processingEvents)
+        {
+            /* Iterate in buffered changes to call invokes, based on dictionary which has been working until now */
+            /* Whatever these invoke do, will work on the alternate dictionary (which is the official new for this cycle) */
+            /* >Only one per cycle< */
+            if (processingEvents)
+            {
+                GameEvent eventWithChanges = GameEvent.EVENT_NONE;
+                foreach (GameEvent gameEvent in _bufferedEvents)
+                {
+                    eventWithChanges = gameEvent;
+                    break;
+                }
+                _bufferedEvents.Remove(eventWithChanges);
+
+                if (_pendingUnchainDict.TryGetValue(eventWithChanges, out HashSet<UnchainConditions> unchainers))
+                {
+                    /* Try unchain for related unchainers to this event */
+                    foreach (UnchainConditions unchainer in unchainers)
+                    {
+                        ref readonly UnchainInfo unchainerInfo = ref ItemsInteractionsClass.GetUnchainInfo(unchainer);
+
+                        /* If it is completed, add to remove list */
+                        if (TryUnchainAction(in unchainerInfo))
+                        {
+                            if (!unchainerInfo.repeat)
+                            {
+                                _removePendingHash.Add(unchainer);
+                            }
+                        }
+                    }
+
+                    /* Remove outside previous foreach loop */
+                    foreach (UnchainConditions unchainerToRemove in _removePendingHash)
+                    {
+                        RemoveUnchainerEventsFromPending(unchainerToRemove);
+                    }
+                    _removePendingHash.Clear();
+                }
+            }
+            else
+            {
+                /* Master pending events (when there is no pending work) */
+                Span<GameEventCombi> stackCheck = stackalloc GameEventCombi[2];
+
+                stackCheck[0] = new GameEventCombi(GameEvent.EVENT_MASTER_CHANGE_MOMENT_DAY, false);
+                IsEventCombiOccurredService(stackCheck[..1], out bool aftermath_change_day);
+                stackCheck[0] = new GameEventCombi(GameEvent.EVENT_MASTER_CHANGE_ROOM, false);
+                IsEventCombiOccurredService(stackCheck[..1], out bool aftermath_change_room);
+
+                if ((aftermath_change_day || aftermath_change_room) && (VARMAP_GameEventMaster.GET_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY))
+                {
+                    stackCheck[0] = new GameEventCombi(GameEvent.EVENT_MASTER_CHANGE_MOMENT_DAY, true);
+                    stackCheck[1] = new GameEventCombi(GameEvent.EVENT_MASTER_CHANGE_ROOM, true);
+                    CommitEventService(stackCheck);
+
+                    processingEvents = true;
+                }
+            }
+        }
+
+        private void ProcessPendingActions(ref bool processingEvents)
+        {
+            bool stop = false;
+
+
+            while ((_pendingActions.Count > 0) && !stop)
+            {
+                ActionOrder actionOrder = _pendingActions[0];
+                bool endedAction = false;
+                processingEvents = true;
+
+                if (!actionOrder.performedAndWaiting)
+                {
+                    _actionEndedFlag = false;
+                    stop = ExecuteAction(actionOrder.action);
+                    endedAction = !stop;
+
+                    actionOrder.performedAndWaiting = true;
+                    _pendingActions[0] = actionOrder;
+                }
+                else
+                {
+                    endedAction = _actionEndedFlag;
+                }
+
+                /* If action was not required to be waited or is an action which does not need wait */
+                if (endedAction)
+                {
+                    _pendingActions.RemoveAt(0);
+
+                    /* If there is a callback, execute it and stop processing more actions until next cycle, to avoid multiple calls in same frame */
+                    actionOrder.callback?.Invoke();
+                }
+            }
+        }
 
         private void AddUnchainerEventsToPending(UnchainConditions unchainer, in UnchainInfo unchainer_info)
         {
@@ -561,65 +651,69 @@ namespace Gob3AQ.GameEventMaster
             /* If occurred, execute it */
             if (occurred)
             {
-                ExecuteActions(info.UnchainActions);
+                PerformActionService(info.UnchainActions, null);
             }
 
             return occurred;
         }
 
-        private void ExecuteActions(ReadOnlySpan<GameAction> actions)
+        private bool ExecuteAction(GameAction action)
         {
-            for (int i = 0; i < actions.Length; ++i)
+            bool mustWait = false;
+
+            if (action != GameAction.ACTION_NONE)
             {
-                GameAction action = actions[i];
+                ref readonly ActionInfo info = ref ItemsInteractionsClass.GetActionInfo(action);
+                bool error;
 
-                if (action != GameAction.ACTION_NONE)
+                ActionType actionTypeOverride = info.type;
+
+                /* Downgrade dialog to background dialog when it has been called from item menu */
+                if((actionTypeOverride == ActionType.ACTION_TYPE_START_DIALOGUE) && (VARMAP_GameEventMaster.GET_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY_ITEM_MENU))
                 {
-                    ref readonly ActionInfo info = ref ItemsInteractionsClass.GetActionInfo(action);
-                    bool error;
+                    actionTypeOverride = ActionType.ACTION_TYPE_START_DIALOGUE_BCKG;
+                }
 
-                    ActionType actionTypeOverride = info.type;
-
-                    /* Downgrade dialog to background dialog when it has been called from item menu */
-                    if((actionTypeOverride == ActionType.ACTION_TYPE_START_DIALOGUE) && (VARMAP_GameEventMaster.GET_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY_ITEM_MENU))
-                    {
-                        actionTypeOverride = ActionType.ACTION_TYPE_START_DIALOGUE_BCKG;
-                    }
-
-                    switch (actionTypeOverride)
-                    {
-                        case ActionType.ACTION_TYPE_EVENT:
-                            CommitEventService(info.TargetEvents);
-                            break;
-                        case ActionType.ACTION_TYPE_MEMENTO:
-                            CommitMementoService(info.targetMemento);
-                            break;
-                        case ActionType.ACTION_TYPE_CHANGE_MOMENT_DAY:
-                            VARMAP_GameEventMaster.CHANGE_DAY_MOMENT(info.targetMomentOfDay);
-                            break;
-                        case ActionType.ACTION_TYPE_DECISION:
-                            VARMAP_GameEventMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_DECISION, out error);
-                            if (!error)
-                            {
-                                VARMAP_GameEventMaster.SHOW_DECISION(info.targetDecision);
-                            }
-                            break;
-                        case ActionType.ACTION_TYPE_START_DIALOGUE:
-                            VARMAP_GameEventMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_DIALOG, out error);
-                            if (!error)
-                            {
-                                VARMAP_GameEventMaster.SHOW_DIALOGUE(info.targetDialog, info.targetPhrase, false);
-                            }
-                            break;
-                        case ActionType.ACTION_TYPE_START_DIALOGUE_BCKG:
-                            VARMAP_GameEventMaster.SHOW_DIALOGUE(info.targetDialog, info.targetPhrase, true);
-                            break;
-                        default:
-                            VARMAP_GameEventMaster.ACTION_TO_ITEM(in info);
-                            break;
-                    }
+                switch (actionTypeOverride)
+                {
+                    case ActionType.ACTION_TYPE_EVENT:
+                        CommitEventService(info.TargetEvents);
+                        break;
+                    case ActionType.ACTION_TYPE_MEMENTO:
+                        CommitMementoService(info.targetMemento);
+                        break;
+                    case ActionType.ACTION_TYPE_CHANGE_MOMENT_DAY:
+                        VARMAP_GameEventMaster.CHANGE_DAY_MOMENT(info.targetMomentOfDay);
+                        break;
+                    case ActionType.ACTION_TYPE_DECISION:
+                        VARMAP_GameEventMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_DECISION, out error);
+                        if (!error)
+                        {
+                            VARMAP_GameEventMaster.SHOW_DECISION(info.targetDecision);
+                        }
+                        break;
+                    case ActionType.ACTION_TYPE_START_DIALOGUE:
+                        VARMAP_GameEventMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_DIALOG, out error);
+                        if (!error)
+                        {
+                            mustWait = info.waitForEnd;
+                            VARMAP_GameEventMaster.SHOW_DIALOGUE(info.targetDialog, info.targetPhrase, false);
+                        }
+                        break;
+                    case ActionType.ACTION_TYPE_START_DIALOGUE_BCKG:
+                        mustWait = info.waitForEnd;
+                        VARMAP_GameEventMaster.SHOW_DIALOGUE(info.targetDialog, info.targetPhrase, true);
+                        break;
+                    case ActionType.ACTION_TYPE_START_ANIMATION:
+                        mustWait = info.waitForEnd;
+                        break;
+                    default:
+                        VARMAP_GameEventMaster.ACTION_TO_ITEM(in info);
+                        break;
                 }
             }
+
+            return mustWait;
         }
 
         private void ExecuteBackgroundActions()
@@ -649,7 +743,7 @@ namespace Gob3AQ.GameEventMaster
 
                         if (valid)
                         {
-                            ExecuteActions(actionInfo.UnchainActions);
+                            PerformActionService(actionInfo.UnchainActions, null);
                         }
                     }
 

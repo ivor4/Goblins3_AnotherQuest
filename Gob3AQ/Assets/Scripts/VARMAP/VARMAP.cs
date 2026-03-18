@@ -436,6 +436,13 @@ namespace Gob3AQ.VARMAP
         /// </summary>
         protected static IS_DIALOG_ACTIVE_DELEGATE _IS_DIALOG_ACTIVE;
         /// <summary> 
+        /// Notifies Event manager a Dialog / Animation action has been performed
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: DialogMaster,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.NotifyEndedActionService"/> </para> 
+        /// </summary>
+        protected static NOTIFY_ENDED_ACTION _NOTIFY_ENDED_ACTION;
+        /// <summary> 
         /// Last service
         /// <para> Owner: GameMaster </para> 
         /// <para> Accessors:  </para> 

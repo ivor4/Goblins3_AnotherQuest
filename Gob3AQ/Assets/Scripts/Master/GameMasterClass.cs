@@ -424,7 +424,6 @@ namespace Gob3AQ.GameMaster
 
         private static void _SetGameStatus(Game_Status status)
         {
-            Debug.Log($"Game status changed to {status}");
             VARMAP_GameMaster.SET_GAMESTATUS(status);
         }
 

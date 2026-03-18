@@ -346,6 +346,8 @@ namespace Gob3AQ.DialogMaster
             dialog_actualPhraseSoundStop = GameSound.SOUND_NONE;
             dialog_tellingInProgress = false;
             dialog_optionPending = false;
+
+            VARMAP_DialogMaster.NOTIFY_ENDED_ACTION();
         }
 
         private void EndPhrase_Action()
@@ -380,7 +382,7 @@ namespace Gob3AQ.DialogMaster
                             VARMAP_DialogMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
                         }
 
-                        dialog_actualPhraseSoundStop = GameSound.SOUND_NONE;
+                        Stop_DialogAndPhrase();
                     }
                 }
             }

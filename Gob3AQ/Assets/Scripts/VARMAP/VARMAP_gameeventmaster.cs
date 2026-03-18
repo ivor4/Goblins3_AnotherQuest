@@ -65,6 +65,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             START_ANIMATION = _START_ANIMATION;
             PERFORM_ACTION = _PERFORM_ACTION;
             IS_DIALOG_ACTIVE = _IS_DIALOG_ACTIVE;
+            NOTIFY_ENDED_ACTION = _NOTIFY_ENDED_ACTION;
             /* > ATG 1 END */
         }
 
@@ -211,6 +212,13 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         /// <para> Method: <see cref="DialogMasterClass.IsDialogActiveService"/> </para> 
         /// </summary>
         public static IS_DIALOG_ACTIVE_DELEGATE IS_DIALOG_ACTIVE;
+        /// <summary> 
+        /// Notifies Event manager a Dialog / Animation action has been performed
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: DialogMaster,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.NotifyEndedActionService"/> </para> 
+        /// </summary>
+        public static NOTIFY_ENDED_ACTION NOTIFY_ENDED_ACTION;
         /* > ATG 3 END */
     }
 }

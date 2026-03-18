@@ -1271,18 +1271,18 @@ for line in ACTIONCONDSinputFile:
         
     elif(zone == 3):
         ItemVar["name"] = str(columns[1])
-        ItemVar["type"] = str(columns[2])
-        ItemVar["targetItem"] = str(columns[3])
-        ItemVar["targetSprite"] = str(columns[4])
-        ItemVar["targetCharacter"] = str(columns[5])
-        ItemVar["targetMemento"] = str(columns[6])
-        ItemVar["targetEvents"] = str(columns[7])
-        ItemVar["targetDecision"] = str(columns[8])
-        ItemVar["targetMoment"] = str(columns[9])
-        ItemVar["targetDialog"] = str(columns[10])
-        ItemVar["targetPhrase"] = str(columns[11])
-        ItemVar["targetAnimation"] = str(columns[12])
-        ItemVar["targetSeqActions"] = str(columns[13])
+        ItemVar["waitForEnd"] = str(columns[2])
+        ItemVar["type"] = str(columns[3])
+        ItemVar["targetItem"] = str(columns[4])
+        ItemVar["targetSprite"] = str(columns[5])
+        ItemVar["targetCharacter"] = str(columns[6])
+        ItemVar["targetMemento"] = str(columns[7])
+        ItemVar["targetEvents"] = str(columns[8])
+        ItemVar["targetDecision"] = str(columns[9])
+        ItemVar["targetMoment"] = str(columns[10])
+        ItemVar["targetDialog"] = str(columns[11])
+        ItemVar["targetPhrase"] = str(columns[12])
+        ItemVar["targetAnimation"] = str(columns[13])
         
         # Write in item enum
         stringToWrite = ItemVar["name"]
@@ -1294,7 +1294,7 @@ for line in ACTIONCONDSinputFile:
         stringToWrite = 'new( /* '+ ItemVar["name"] + ' */\n'
         items_interaction_lines.InsertLineInATG(10, stringToWrite)
         
-        stringToWrite = unchain_type_prefix + ItemVar["type"]+','
+        stringToWrite = ItemVar["waitForEnd"].lower() + ',' + unchain_type_prefix + ItemVar["type"]+','
         stringToWrite += item_prefix + ItemVar["targetItem"]+','
         stringToWrite += sprite_prefix + ItemVar["targetSprite"]+',\n'
         items_interaction_lines.InsertLineInATG(10, stringToWrite)
@@ -1322,20 +1322,9 @@ for line in ACTIONCONDSinputFile:
         stringToWrite += moment_prefix + ItemVar["targetMoment"] + ','
         stringToWrite += dialog_prefix + ItemVar["targetDialog"] + ','
         stringToWrite += phrase_prefix + ItemVar["targetPhrase"] + ','
-        stringToWrite += animation_prefix + ItemVar["targetAnimation"] + ',\n'
+        stringToWrite += animation_prefix + ItemVar["targetAnimation"] + '),\n'
         items_interaction_lines.InsertLineInATG(10, stringToWrite)
         
-        
-        options = ItemVar["targetSeqActions"].split('|')
-        num_options = len(options)
-            
-        stringToWrite = 'new GameAction['+str(num_options)+']{'
-    
-        for _option in options:
-            stringToWrite += action_prefix + _option + ','
-            
-        stringToWrite += '}), \n'
-        items_interaction_lines.InsertLineInATG(10, stringToWrite)
         items_interaction_lines.InsertLineInATG(10, '\n')
         
         

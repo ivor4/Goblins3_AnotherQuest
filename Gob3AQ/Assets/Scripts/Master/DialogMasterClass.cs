@@ -92,6 +92,12 @@ namespace Gob3AQ.DialogMaster
             {
                 if ((_singleton.dialog_actualTaskType == DialogTaskType.DIALOG_STATE_NONE) || _singleton.dialog_input_backgroundDialog)
                 {
+                    /* Stop previous background dialog */
+                    if(_singleton.dialog_actualTaskType != DialogTaskType.DIALOG_STATE_NONE)
+                    {
+                        VARMAP_DialogMaster.STOP_SOUND(_singleton.dialog_actualPhraseSoundStop);
+                    }
+
                     /* Copy default talkers to array */
                     defaultTalkers.CopyTo(_singleton.dialog_input_talkers);
                     _singleton.dialog_input_type = dialog;
@@ -99,6 +105,18 @@ namespace Gob3AQ.DialogMaster
                     _singleton.dialog_input_backgroundDialog = backgroundDialog;
                     _singleton.dialog_actualTaskType = DialogTaskType.DIALOG_STATE_STARTING;
                 }
+            }
+        }
+
+        public static void IsDialogActiveService(out bool active)
+        {
+            if (_singleton != null)
+            {
+                active = _singleton.dialog_actualTaskType != DialogTaskType.DIALOG_STATE_NONE;
+            }
+            else
+            {
+                active = false;
             }
         }
 
@@ -470,7 +488,7 @@ namespace Gob3AQ.DialogMaster
 
                 dialog_input_talkers = new GameItem[GameFixedConfig.MAX_DIALOG_TALKERS];
                 dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
-                dialog_randomized_left_indexes = new(GameFixedConfig.MAX_DIALOG_OPTIONS);
+                dialog_randomized_left_indexes = new(GameFixedConfig.MAX_RANDOMIZED_DIALOGS_PER_SCENE);
 
                 animation_activeAnimations = new(GameFixedConfig.MAX_ANIMATIONS_PERFORMING);
             }
@@ -561,6 +579,7 @@ namespace Gob3AQ.DialogMaster
                 {
                     case Game_Status.GAME_STATUS_CHANGING_ROOM:
                         Stop_DialogAndPhrase();
+                        dialog_randomized_left_indexes.Clear();
                         break;
 
                     case Game_Status.GAME_STATUS_PLAY:

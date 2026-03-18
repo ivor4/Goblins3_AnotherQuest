@@ -429,6 +429,13 @@ namespace Gob3AQ.VARMAP
         /// </summary>
         protected static PERFORM_ACTION_DELEGATE _PERFORM_ACTION;
         /// <summary> 
+        /// Returns if a dialog (Background or not) is active
+        /// <para> Owner: DialogMaster </para> 
+        /// <para> Accessors: GameEventMaster,  </para> 
+        /// <para> Method: <see cref="DialogMasterClass.IsDialogActiveService"/> </para> 
+        /// </summary>
+        protected static IS_DIALOG_ACTIVE_DELEGATE _IS_DIALOG_ACTIVE;
+        /// <summary> 
         /// Last service
         /// <para> Owner: GameMaster </para> 
         /// <para> Accessors:  </para> 

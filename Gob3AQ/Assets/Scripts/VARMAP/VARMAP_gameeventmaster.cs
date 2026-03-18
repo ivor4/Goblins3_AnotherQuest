@@ -12,7 +12,7 @@ using Gob3AQ.DialogMaster;
 namespace Gob3AQ.VARMAP.GameEventMaster
 {
     /// <summary>
-    /// VARMAP inheritance with permissions for MainMenu module
+    /// VARMAP inheritance with permissions for GameEvent module
     /// </summary>
     public sealed class VARMAP_GameEventMaster : VARMAP
     {
@@ -64,6 +64,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             CHANGE_DAY_MOMENT = _CHANGE_DAY_MOMENT;
             START_ANIMATION = _START_ANIMATION;
             PERFORM_ACTION = _PERFORM_ACTION;
+            IS_DIALOG_ACTIVE = _IS_DIALOG_ACTIVE;
             /* > ATG 1 END */
         }
 
@@ -203,6 +204,13 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         /// <para> Method: <see cref="GameEventMasterClass.PerformActionService"/> </para> 
         /// </summary>
         public static PERFORM_ACTION_DELEGATE PERFORM_ACTION;
+        /// <summary> 
+        /// Returns if a dialog (Background or not) is active
+        /// <para> Owner: DialogMaster </para> 
+        /// <para> Accessors: GameEventMaster,  </para> 
+        /// <para> Method: <see cref="DialogMasterClass.IsDialogActiveService"/> </para> 
+        /// </summary>
+        public static IS_DIALOG_ACTIVE_DELEGATE IS_DIALOG_ACTIVE;
         /* > ATG 3 END */
     }
 }

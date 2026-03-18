@@ -162,18 +162,19 @@ namespace Gob3AQ.VARMAP.Types
         public readonly ReadOnlyHashSet<GameItem> items;
         public readonly ReadOnlyHashSet<GameSound> sounds;
         public readonly ReadOnlyHashSet<NameType> names;
-        public readonly ReadOnlyHashSet<ActionConditions> actionConditions;
+        private readonly ActionConditions[] actionConditions;
 
         public ReadOnlySpan<GameSprite> Backgrounds => backgrounds;
+        public ReadOnlySpan<ActionConditions> ActionConditions => actionConditions;
 
         public static readonly RoomInfo EMPTY = new(new GameSprite[0], GameSound.SOUND_NONE,new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(0)),
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(0)), new ReadOnlyHashSet<NameType>(new HashSet<NameType>(0)),
                 new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(0)),
-            new ReadOnlyHashSet<ActionConditions>(new HashSet<ActionConditions>(0)), new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(0)));
+            new ActionConditions[0], new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(0)));
 
         public RoomInfo(GameSprite[] backgrounds, GameSound backgroundMusic, ReadOnlyHashSet<GameSprite> sprites,
             ReadOnlyHashSet<GameItem> items, ReadOnlyHashSet<NameType> names, ReadOnlyHashSet<GameSound> sounds,
-            ReadOnlyHashSet<ActionConditions> actionConditions, ReadOnlyHashSet<DialogPhrase> phrases)
+            ActionConditions[] actionConditions, ReadOnlyHashSet<DialogPhrase> phrases)
         {
             this.backgrounds = backgrounds;
             this.backgroundMusic = backgroundMusic;

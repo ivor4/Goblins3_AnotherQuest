@@ -1032,10 +1032,10 @@ for line in ROOMSinputFile:
         options = columns[8].split('|')
         num_options = len(options)
             
-        stringToWrite = 'new ReadOnlyHashSet<ActionConditions>(new HashSet<ActionConditions>('+str(num_options)+'){'
+        stringToWrite = 'new ActionConditions['+str(num_options)+']{'
         for _option in options:
             stringToWrite += conditiontype_prefix + _option + ', '
-        stringToWrite += '}), \n'
+        stringToWrite += '}, \n'
         room_atlas_lines.InsertLineInATG(1, stringToWrite)
         
         options = columns[9].split('|')

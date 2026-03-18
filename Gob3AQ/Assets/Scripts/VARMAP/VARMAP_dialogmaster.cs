@@ -40,6 +40,7 @@ namespace Gob3AQ.VARMAP.DialogMaster
             START_ANIMATION = _START_ANIMATION;
             ITEM_PERFORM_ANIMATION = _ITEM_PERFORM_ANIMATION;
             PERFORM_ACTION = _PERFORM_ACTION;
+            IS_DIALOG_ACTIVE = _IS_DIALOG_ACTIVE;
             /* > ATG 1 END */
         }
 
@@ -134,6 +135,13 @@ namespace Gob3AQ.VARMAP.DialogMaster
         /// <para> Method: <see cref="GameEventMasterClass.PerformActionService"/> </para> 
         /// </summary>
         public static PERFORM_ACTION_DELEGATE PERFORM_ACTION;
+        /// <summary> 
+        /// Returns if a dialog (Background or not) is active
+        /// <para> Owner: DialogMaster </para> 
+        /// <para> Accessors: GameEventMaster,  </para> 
+        /// <para> Method: <see cref="DialogMasterClass.IsDialogActiveService"/> </para> 
+        /// </summary>
+        public static IS_DIALOG_ACTIVE_DELEGATE IS_DIALOG_ACTIVE;
         /* > ATG 3 END */
     }
 }

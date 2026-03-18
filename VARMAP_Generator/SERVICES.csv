@@ -39,4 +39,5 @@
 37,START_ANIMATION,START_ANIMATION_DELEGATE,DialogMasterClass.StartAnimationService,Starts an animation in background or main mode,,-,-,-,-,-,-,W,-,X,X
 38,ITEM_PERFORM_ANIMATION,ITEM_PERFORM_ANIMATION_DELEGATE,ItemMasterClass.PerformAnimationService,Makes an item start an animation,,-,-,-,-,-,-,X,-,W,-
 39,PERFORM_ACTION,PERFORM_ACTION_DELEGATE,GameEventMasterClass.PerformActionService,Performs a named action,,-,-,X,-,-,X,X,-,X,W
-40,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-,-,-
+40,IS_DIALOG_ACTIVE,IS_DIALOG_ACTIVE_DELEGATE,DialogMasterClass.IsDialogActiveService,Returns if a dialog (Background or not) is active,,-,-,-,-,-,-,W,-,-,X
+41,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-,-,-

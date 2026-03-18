@@ -41,6 +41,7 @@ namespace Gob3AQ.GameEventMaster
         /// </summary>
         private Dictionary<UnchainConditions, HashSet<GameEvent>> _reversePendingUnchainDict;
         private ulong _bckgActionsTimestamp;
+        private int _bckgActionsIndex;
 
 
         public static void IsMementoUnlockedService(Memento memento, out bool occurred, out bool unwatched)
@@ -432,6 +433,8 @@ namespace Gob3AQ.GameEventMaster
             }
             _removePendingHash.Clear();
 
+            _bckgActionsIndex = 0;
+
             VARMAP_GameEventMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameEventMaster);
         }
 
@@ -620,18 +623,24 @@ namespace Gob3AQ.GameEventMaster
         private void ExecuteBackgroundActions()
         {
             ulong elapsedTime = VARMAP_GameEventMaster.GET_ELAPSED_TIME_MS();
+            VARMAP_GameEventMaster.IS_DIALOG_ACTIVE(out bool dialogActive);
 
-            if (VARMAP_GameEventMaster.GET_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY)
+            /* Reset timestamp when not in play mode or there is an active background dialog */
+            if ((VARMAP_GameEventMaster.GET_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY) && (!dialogActive))
             {
                 if (elapsedTime - _bckgActionsTimestamp >= GameFixedConfig.BACKGROUND_ITEM_ACTIONS_MS)
                 {
                     MomentType currentMoment = VARMAP_GameEventMaster.GET_DAY_MOMENT();
                     ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(VARMAP_GameEventMaster.GET_ACTUAL_ROOM());
-                    foreach(ActionConditions action in roomInfo.actionConditions)
+
+                    if (roomInfo.ActionConditions.Length > 0)
                     {
+                        ActionConditions action = roomInfo.ActionConditions[_bckgActionsIndex];
+                        _bckgActionsIndex = (_bckgActionsIndex + 1) % roomInfo.ActionConditions.Length;
+
                         ref readonly ActionConditionsInfo actionInfo = ref ItemsInteractionsClass.GetActionConditionsInfo(action);
-                        if ((actionInfo.actionCondType == ItemInteractionType.INTERACTION_AUTO_6s)&&
-                            ((actionInfo.momentType == MomentType.MOMENT_ANY)||(actionInfo.momentType == currentMoment))
+                        if ((actionInfo.actionCondType == ItemInteractionType.INTERACTION_AUTO_6s) &&
+                            ((actionInfo.momentType == MomentType.MOMENT_ANY) || (actionInfo.momentType == currentMoment))
                             )
                         {
                             IsEventCombiOccurredService(actionInfo.NeededEvents, out bool occurred);
@@ -642,6 +651,7 @@ namespace Gob3AQ.GameEventMaster
                             }
                         }
                     }
+
                     _bckgActionsTimestamp = elapsedTime;
                 }
             }

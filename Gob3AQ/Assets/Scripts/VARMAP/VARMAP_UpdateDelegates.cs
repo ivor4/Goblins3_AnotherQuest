@@ -191,6 +191,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _START_ANIMATION = DialogMasterClass.StartAnimationService;
             _ITEM_PERFORM_ANIMATION = ItemMasterClass.PerformAnimationService;
             _PERFORM_ACTION = GameEventMasterClass.PerformActionService;
+            _IS_DIALOG_ACTIVE = DialogMasterClass.IsDialogActiveService;
             _LAST_SERVICE = GameMasterClass.ExitGameService;
             /* > ATG 2 END */
         }

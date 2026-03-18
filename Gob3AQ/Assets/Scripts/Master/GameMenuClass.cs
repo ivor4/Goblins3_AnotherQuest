@@ -342,10 +342,6 @@ namespace Gob3AQ.GameMenu
                     break;
                 }
 
-                /* How to get Char item of actual player from here */
-                Span<GameItem> talkers = stackalloc GameItem[2];
-                talkers[0] = GameItem.ITEM_PLAYER_MAIN;
-                talkers[1] = GameItem.ITEM_PLAYER_MAIN;
 
                 if (intersected != MementoCombi.MEMENTO_COMBI_NONE)
                 {

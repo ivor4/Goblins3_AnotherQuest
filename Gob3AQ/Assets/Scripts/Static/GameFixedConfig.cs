@@ -26,6 +26,7 @@ namespace Gob3AQ.FixedConfig
         public const float MOVE_CAMERA_SPEED = 20.0f;
         public const float USER_INTERACTION_CHANGE_ANIMATION_TIME = 0.5f;
         public const ulong DOUBLE_CLICK_MS = 400;
+        public const ulong BACKGROUND_ITEM_ACTIONS_MS = 3000;
 
         /* HUD */
         public const float DISTANCE_MOUSE_FURTHEST_WP = 1.5f;
@@ -60,7 +61,6 @@ namespace Gob3AQ.FixedConfig
         public const int MAX_DISPLAYED_PICKED_ITEMS = 16;
         public const int MAX_DISPLAYED_HOR_PICKED_ITEMS = 4;
         public const int MAX_SUBSCRIBED_EVENTS_PER_ITEM = 8;
-        public const ulong BACKGROUND_ITEM_ACTIONS_MS = 3000;
         public const int MAX_ANIMATIONS_PERFORMING = 16;
 
 

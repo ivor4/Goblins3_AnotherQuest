@@ -45,7 +45,25 @@ namespace Gob3AQ.ResourceDialogsAtlas
             }
         }
 
+        public static GameItem GetItemForCharacter(CharacterType character)
+        {
+            if((uint)character < (uint)CharacterType.CHARACTER_TOTAL)
+            {
+                return _CharacterToItemDict[(int)character];
+            }
+            else
+            {
+                Debug.LogError($"[ResourceDialogsAtlas] GetItemForCharacter: Invalid character {character}");
+                return GameItem.ITEM_NONE;
+            }
+        }
 
+        private static readonly GameItem[] _CharacterToItemDict = new GameItem[(int)CharacterType.CHARACTER_TOTAL]
+        {
+            GameItem.ITEM_PLAYER_MAIN,
+            GameItem.ITEM_NONE,
+            GameItem.ITEM_NONE
+        };
 
 
         private static readonly DialogConfig[] _DialogConfig = new DialogConfig[(int)DialogType.DIALOG_TOTAL]
@@ -57,37 +75,37 @@ namespace Gob3AQ.ResourceDialogsAtlas
             ),
             
             new( /* DIALOG_REME_INTRO */
-            new GameItem[1]{GameItem.ITEM_NONE,},
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_HIVE1_NPC_REME,},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_REME_INTRO, }
             ),
             
             new( /* DIALOG_REME */
-            new GameItem[1]{GameItem.ITEM_NONE,},
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_HIVE1_NPC_REME,},
             new DialogOption[2]{DialogOption.DIALOG_OPTION_REME_1, DialogOption.DIALOG_OPTION_REME_2, }
             ),
             
             new( /* DIALOG_REME_CARDS */
-            new GameItem[1]{GameItem.ITEM_NONE,},
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_HIVE1_NPC_REME,},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_REME_CARDS, }
             ),
             
             new( /* DIALOG_TRY_TALK_PHARMACIST_1 */
-            new GameItem[1]{GameItem.ITEM_NONE,},
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_PHARMACY_NPC_OWNER,},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_TRY_TALK_PHARMACIST, }
             ),
             
             new( /* DIALOG_TRY_TALK_PHARMACIST_2 */
-            new GameItem[1]{GameItem.ITEM_NONE,},
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_PHARMACY_NPC_OWNER,},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_PHARMACIST_BUSY, }
             ),
             
             new( /* DIALOG_MANYO_OWNER_INTRO */
-            new GameItem[1]{GameItem.ITEM_NONE,},
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_ELMANYO_OWNER,},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_MANYO_ONWER_INTRO, }
             ),
             
             new( /* DIALOG_MANYO_OWNER */
-            new GameItem[1]{GameItem.ITEM_NONE,},
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_ELMANYO_OWNER,},
             new DialogOption[5]{DialogOption.DIALOG_OPTION_MANYO_WORK_NOTE, DialogOption.DIALOG_OPTION_MANYO_WORKS_CITY, DialogOption.DIALOG_OPTION_MANYO_MENU_DAY, DialogOption.DIALOG_OPTION_MANYO_CROWD, DialogOption.DIALOG_OPTION_MANYO_BYE, }
             ),
             
@@ -107,22 +125,22 @@ namespace Gob3AQ.ResourceDialogsAtlas
             ),
             
             new( /* DIALOG_HIVE1_POOR_MAN_WC */
-            new GameItem[1]{GameItem.ITEM_NONE,},
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_HIVE1_POOR_MAN_WC,},
             new DialogOption[4]{DialogOption.DIALOG_HIVE1_POOR_MAN_WC_OPTION_0, DialogOption.DIALOG_HIVE1_POOR_MAN_WC_OPTION_1, DialogOption.DIALOG_HIVE1_POOR_MAN_WC_OPTION_2, DialogOption.DIALOG_HIVE1_POOR_MAN_WC_OPTION_3, }
             ),
             
             new( /* DIALOG_HIVE1_POOR_MAN_WC_INTRO */
-            new GameItem[1]{GameItem.ITEM_NONE,},
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_HIVE1_POOR_MAN_WC,},
             new DialogOption[1]{DialogOption.DIALOG_HIVE1_POOR_MAN_WC_OPTION_INTRO, }
             ),
             
             new( /* DIALOG_ARTURO_HALL_INN */
-            new GameItem[1]{GameItem.ITEM_NONE,},
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_HIVE1_MAN_WC_CURED,},
             new DialogOption[3]{DialogOption.DIALOG_ARTURO_HALL_INN_OPTION_0, DialogOption.DIALOG_ARTURO_HALL_INN_OPTION_1, DialogOption.DIALOG_ARTURO_HALL_INN_OPTION_2, }
             ),
             
             new( /* DIALOG_ARTURO_HALL_INN_INTRO */
-            new GameItem[1]{GameItem.ITEM_NONE,},
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_HIVE1_MAN_WC_CURED,},
             new DialogOption[1]{DialogOption.DIALOG_ARTURO_HALL_INN_OPTION_INTRO, }
             ),
             
@@ -132,7 +150,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             ),
             
             new( /* DIALOG_USE_UMBRELLA_WITH_INKWELL */
-            new GameItem[1]{GameItem.ITEM_NONE,},
+            new GameItem[1]{GameItem.ITEM_PLAYER_MAIN,},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_USE_UMBRELLA_WITH_INKWELL, }
             ),
             

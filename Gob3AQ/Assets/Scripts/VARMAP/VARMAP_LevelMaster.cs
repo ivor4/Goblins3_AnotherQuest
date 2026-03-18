@@ -33,6 +33,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
             GET_ARRAY_PLAYER_ACTUAL_WAYPOINT = _GET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
             GET_SHADOW_ARRAY_PLAYER_ACTUAL_WAYPOINT = _GET_SHADOW_ARRAY_PLAYER_ACTUAL_WAYPOINT;
             SET_ARRAY_PLAYER_ACTUAL_WAYPOINT = _SET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
+            GET_DAY_MOMENT = _GET_DAY_MOMENT;
             GET_ITEM_MENU_HOVER = _GET_ITEM_MENU_HOVER;
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
@@ -48,7 +49,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
             SET_ITEM_HOVER = _SET_ITEM_HOVER;
             GET_USER_INPUT_INTERACTION = _GET_USER_INPUT_INTERACTION;
             GET_EVENTS_BEING_PROCESSED = _GET_EVENTS_BEING_PROCESSED;
-            GET_DAY_MOMENT = _GET_DAY_MOMENT;
             SAVE_GAME = _SAVE_GAME;
             LOAD_ROOM = _LOAD_ROOM;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
@@ -94,6 +94,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static GetVARMAPArrayDelegate<int> GET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
         public static GetVARMAPArrayDelegate<int> GET_SHADOW_ARRAY_PLAYER_ACTUAL_WAYPOINT;
         public static SetVARMAPArrayDelegate<int> SET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
+        public static GetVARMAPValueDelegate<MomentType> GET_DAY_MOMENT;
         public static GetVARMAPValueDelegate<GameItem> GET_ITEM_MENU_HOVER;
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
@@ -109,7 +110,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static SetVARMAPValueDelegate<GameItem> SET_ITEM_HOVER;
         public static GetVARMAPValueDelegate<UserInputInteraction> GET_USER_INPUT_INTERACTION;
         public static GetVARMAPValueDelegate<bool> GET_EVENTS_BEING_PROCESSED;
-        public static GetVARMAPValueDelegate<MomentType> GET_DAY_MOMENT;
         /* > ATG 2 END */
 
         /* SERVICES */

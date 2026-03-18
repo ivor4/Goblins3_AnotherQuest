@@ -24,6 +24,7 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
             GET_CAMERA_DISPOSITION = _GET_CAMERA_DISPOSITION;
             GET_SHADOW_CAMERA_DISPOSITION = _GET_SHADOW_CAMERA_DISPOSITION;
             SET_CAMERA_DISPOSITION = _SET_CAMERA_DISPOSITION;
+            GET_DAY_MOMENT = _GET_DAY_MOMENT;
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
@@ -38,7 +39,6 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
             GET_USER_INPUT_INTERACTION = _GET_USER_INPUT_INTERACTION;
             REG_USER_INPUT_INTERACTION = _REG_USER_INPUT_INTERACTION;
             UNREG_USER_INPUT_INTERACTION = _UNREG_USER_INPUT_INTERACTION;
-            GET_DAY_MOMENT = _GET_DAY_MOMENT;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
@@ -56,6 +56,7 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
         public static GetVARMAPValueDelegate<CameraDispositionStruct> GET_CAMERA_DISPOSITION;
         public static GetVARMAPValueDelegate<CameraDispositionStruct> GET_SHADOW_CAMERA_DISPOSITION;
         public static SetVARMAPValueDelegate<CameraDispositionStruct> SET_CAMERA_DISPOSITION;
+        public static GetVARMAPValueDelegate<MomentType> GET_DAY_MOMENT;
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
@@ -70,7 +71,6 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
         public static GetVARMAPValueDelegate<UserInputInteraction> GET_USER_INPUT_INTERACTION;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<UserInputInteraction> REG_USER_INPUT_INTERACTION;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<UserInputInteraction> UNREG_USER_INPUT_INTERACTION;
-        public static GetVARMAPValueDelegate<MomentType> GET_DAY_MOMENT;
         /* > ATG 2 END */
 
         /* SERVICES */

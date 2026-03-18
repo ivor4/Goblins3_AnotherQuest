@@ -577,9 +577,16 @@ namespace Gob3AQ.GameEventMaster
                 {
                     ref readonly ActionInfo info = ref ItemsInteractionsClass.GetActionInfo(action);
                     bool error;
-                    Span<GameItem> talkers = stackalloc GameItem[2];
 
-                    switch (info.type)
+                    ActionType actionTypeOverride = info.type;
+
+                    /* Downgrade dialog to background dialog when it has been called from item menu */
+                    if((actionTypeOverride == ActionType.ACTION_TYPE_START_DIALOGUE) && (VARMAP_GameEventMaster.GET_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY_ITEM_MENU))
+                    {
+                        actionTypeOverride = ActionType.ACTION_TYPE_START_DIALOGUE_BCKG;
+                    }
+
+                    switch (actionTypeOverride)
                     {
                         case ActionType.ACTION_TYPE_EVENT:
                             CommitEventService(info.TargetEvents);
@@ -601,16 +608,11 @@ namespace Gob3AQ.GameEventMaster
                             VARMAP_GameEventMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_DIALOG, out error);
                             if (!error)
                             {
-                                talkers[0] = GameItem.ITEM_PLAYER_MAIN;
-                                talkers[1] = GameItem.ITEM_PLAYER_MAIN;
-                                VARMAP_GameEventMaster.SHOW_DIALOGUE(talkers, info.targetDialog, info.targetPhrase, false);
+                                VARMAP_GameEventMaster.SHOW_DIALOGUE(info.targetDialog, info.targetPhrase, false);
                             }
                             break;
                         case ActionType.ACTION_TYPE_START_DIALOGUE_BCKG:
-
-                            talkers[0] = GameItem.ITEM_PLAYER_MAIN;
-                            talkers[1] = GameItem.ITEM_PLAYER_MAIN;
-                            VARMAP_GameEventMaster.SHOW_DIALOGUE(talkers, info.targetDialog, info.targetPhrase, true);
+                            VARMAP_GameEventMaster.SHOW_DIALOGUE(info.targetDialog, info.targetPhrase, true);
                             break;
                         default:
                             VARMAP_GameEventMaster.ACTION_TO_ITEM(in info);
@@ -639,16 +641,15 @@ namespace Gob3AQ.GameEventMaster
                         _bckgActionsIndex = (_bckgActionsIndex + 1) % roomInfo.ActionConditions.Length;
 
                         ref readonly ActionConditionsInfo actionInfo = ref ItemsInteractionsClass.GetActionConditionsInfo(action);
-                        if ((actionInfo.actionCondType == ItemInteractionType.INTERACTION_AUTO_6s) &&
-                            ((actionInfo.momentType == MomentType.MOMENT_ANY) || (actionInfo.momentType == currentMoment))
-                            )
-                        {
-                            IsEventCombiOccurredService(actionInfo.NeededEvents, out bool occurred);
+                        bool valid = actionInfo.actionCondType == ItemInteractionType.INTERACTION_AUTO_6s;
+                        valid &= IsMomentValid(actionInfo.momentType);
 
-                            if (occurred)
-                            {
-                                PerformActionService(actionInfo.UnchainActions, null);
-                            }
+                        IsEventCombiOccurredService(actionInfo.NeededEvents, out bool occurred);
+                        valid &= occurred;
+
+                        if (valid)
+                        {
+                            ExecuteActions(actionInfo.UnchainActions);
                         }
                     }
 

@@ -192,6 +192,7 @@ namespace Gob3AQ.VARMAP.Initialization
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER] = new VARMAP_SafeArray<CharacterType>(VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER, 5, true, VARMAP_parsers.CharacterType_ParseFromBytes, VARMAP_parsers.CharacterType_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_ACTUAL_WAYPOINT] = new VARMAP_SafeArray<int>(VARMAP_Variable_ID.VARMAP_ID_PLAYER_ACTUAL_WAYPOINT, 3, true, VARMAP_parsers.int_ParseFromBytes, VARMAP_parsers.int_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_CAMERA_DISPOSITION] = new VARMAP_Variable<CameraDispositionStruct>(VARMAP_Variable_ID.VARMAP_ID_CAMERA_DISPOSITION, CameraDispositionStruct.StaticParseFromBytes, CameraDispositionStruct.StaticParseToBytes);
+            DATA[(int)VARMAP_Variable_ID.VARMAP_ID_DAY_MOMENT] = new VARMAP_Variable<MomentType>(VARMAP_Variable_ID.VARMAP_ID_DAY_MOMENT, VARMAP_parsers.MomentType_ParseFromBytes, VARMAP_parsers.MomentType_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_HOVER] = new VARMAP_Variable<GameItem>(VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_HOVER, VARMAP_parsers.GameItem_ParseFromBytes, VARMAP_parsers.GameItem_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_GAMESTATUS] = new VARMAP_Variable<Game_Status>(VARMAP_Variable_ID.VARMAP_ID_GAMESTATUS, VARMAP_parsers.Game_Status_ParseFromBytes, VARMAP_parsers.Game_Status_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PRESSED_KEYS] = new VARMAP_Variable<KeyStruct>(VARMAP_Variable_ID.VARMAP_ID_PRESSED_KEYS, KeyStruct.StaticParseFromBytes, KeyStruct.StaticParseToBytes);
@@ -201,7 +202,6 @@ namespace Gob3AQ.VARMAP.Initialization
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_HOVER] = new VARMAP_Variable<GameItem>(VARMAP_Variable_ID.VARMAP_ID_ITEM_HOVER, VARMAP_parsers.GameItem_ParseFromBytes, VARMAP_parsers.GameItem_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_USER_INPUT_INTERACTION] = new VARMAP_Variable<UserInputInteraction>(VARMAP_Variable_ID.VARMAP_ID_USER_INPUT_INTERACTION, VARMAP_parsers.UserInputInteraction_ParseFromBytes, VARMAP_parsers.UserInputInteraction_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_BEING_PROCESSED] = new VARMAP_Variable<bool>(VARMAP_Variable_ID.VARMAP_ID_EVENTS_BEING_PROCESSED, VARMAP_parsers.bool_ParseFromBytes, VARMAP_parsers.bool_ParseToBytes);
-            DATA[(int)VARMAP_Variable_ID.VARMAP_ID_DAY_MOMENT] = new VARMAP_Variable<MomentType>(VARMAP_Variable_ID.VARMAP_ID_DAY_MOMENT, VARMAP_parsers.MomentType_ParseFromBytes, VARMAP_parsers.MomentType_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL] = new VARMAP_Variable<bool>(VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL, VARMAP_parsers.bool_ParseFromBytes, VARMAP_parsers.bool_ParseToBytes);
             /* > ATG 1 END < */
 

@@ -86,7 +86,7 @@ namespace Gob3AQ.DialogMaster
         /// <param name="dialog">The type of dialogue to display, which determines the structure and options available.</param>
         /// <param name="phrase">The initial phrase to display if the dialogue type is simple.</param>
         /// <param name="backgroundDialog">If background does not need user interaction (as a background conversation).</param>
-        public static void ShowDialogueService(ReadOnlySpan<GameItem> defaultTalkers, DialogType dialog, DialogPhrase phrase, bool backgroundDialog)
+        public static void ShowDialogueService(DialogType dialog, DialogPhrase phrase, bool backgroundDialog)
         {
             if (_singleton != null)
             {
@@ -99,7 +99,6 @@ namespace Gob3AQ.DialogMaster
                     }
 
                     /* Copy default talkers to array */
-                    defaultTalkers.CopyTo(_singleton.dialog_input_talkers);
                     _singleton.dialog_input_type = dialog;
                     _singleton.dialog_input_phrase = phrase;
                     _singleton.dialog_input_backgroundDialog = backgroundDialog;
@@ -263,6 +262,13 @@ namespace Gob3AQ.DialogMaster
             if (dialogConfig.Talkers[0] != GameItem.ITEM_NONE)
             {
                 dialogConfig.Talkers.CopyTo(dialog_input_talkers);
+            }
+            else
+            {
+                /* Default talkers, Player and ItemDest */
+                CharacterType selectedCharacter = VARMAP_DialogMaster.GET_PLAYER_SELECTED();
+                GameItem selectedCharacterItem = ResourceDialogsAtlasClass.GetItemForCharacter(selectedCharacter);
+                dialog_input_talkers[0] = selectedCharacterItem;
             }
 
 

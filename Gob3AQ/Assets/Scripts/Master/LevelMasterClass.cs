@@ -511,8 +511,17 @@ namespace Gob3AQ.LevelMaster
                     }
                     else
                     {
-                        /* This cast works just because first declared items match in same order as characters (chiripa) */
-                        VARMAP_LevelMaster.SET_PLAYER_SELECTED((CharacterType)hovered.item);
+                        /* Item to Character "Dict" */
+                        for(int i=0; i < (int)CharacterType.CHARACTER_TOTAL; ++i)
+                        {
+                            PlayableCharScript instance = _Player_List[i];
+                            if ((instance != null) && (instance.ItemID == hovered.item))
+                            {
+                                VARMAP_LevelMaster.SET_PLAYER_SELECTED(instance.CharType);
+                                break;
+                            }
+                        }
+                        
                         VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
                     }
                     break;
@@ -605,9 +614,6 @@ namespace Gob3AQ.LevelMaster
 
         private void ExecutePlayerEndOfInteraction(CharacterType character)
         {
-            /* Generate stack array of 2 talkers, player and dst */
-            Span<GameItem> talkers = stackalloc GameItem[2];
-
             ref PendingCharacterInteraction charPendingAction = ref _PendingCharInteractions[(int)character];
             ref readonly InteractionUsage usage = ref charPendingAction.usage;
 

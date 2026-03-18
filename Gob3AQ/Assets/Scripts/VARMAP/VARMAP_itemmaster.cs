@@ -26,12 +26,12 @@ namespace Gob3AQ.VARMAP.ItemMaster
             GET_ARRAY_PICKABLE_ITEM_OWNER = _GET_ARRAY_PICKABLE_ITEM_OWNER;
             GET_SHADOW_ARRAY_PICKABLE_ITEM_OWNER = _GET_SHADOW_ARRAY_PICKABLE_ITEM_OWNER;
             SET_ARRAY_PICKABLE_ITEM_OWNER = _SET_ARRAY_PICKABLE_ITEM_OWNER;
+            GET_DAY_MOMENT = _GET_DAY_MOMENT;
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             GET_PLAYER_SELECTED = _GET_PLAYER_SELECTED;
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
-            GET_DAY_MOMENT = _GET_DAY_MOMENT;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             ITEM_REGISTER = _ITEM_REGISTER;
@@ -60,12 +60,12 @@ namespace Gob3AQ.VARMAP.ItemMaster
         public static GetVARMAPArrayDelegate<CharacterType> GET_ARRAY_PICKABLE_ITEM_OWNER;
         public static GetVARMAPArrayDelegate<CharacterType> GET_SHADOW_ARRAY_PICKABLE_ITEM_OWNER;
         public static SetVARMAPArrayDelegate<CharacterType> SET_ARRAY_PICKABLE_ITEM_OWNER;
+        public static GetVARMAPValueDelegate<MomentType> GET_DAY_MOMENT;
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
         public static GetVARMAPValueDelegate<CharacterType> GET_PLAYER_SELECTED;
         public static GetVARMAPValueDelegate<GameItem> GET_PICKABLE_ITEM_CHOSEN;
-        public static GetVARMAPValueDelegate<MomentType> GET_DAY_MOMENT;
         /* > ATG 2 END */
 
         /* SERVICES */

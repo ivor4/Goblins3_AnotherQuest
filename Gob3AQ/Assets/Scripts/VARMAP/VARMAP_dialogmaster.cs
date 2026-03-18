@@ -24,11 +24,12 @@ namespace Gob3AQ.VARMAP.DialogMaster
         {
             /* > ATG 1 START */
             GET_ELAPSED_TIME_MS = _GET_ELAPSED_TIME_MS;
+            GET_DAY_MOMENT = _GET_DAY_MOMENT;
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
+            GET_PLAYER_SELECTED = _GET_PLAYER_SELECTED;
             GET_EVENTS_BEING_PROCESSED = _GET_EVENTS_BEING_PROCESSED;
-            GET_DAY_MOMENT = _GET_DAY_MOMENT;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
@@ -49,11 +50,12 @@ namespace Gob3AQ.VARMAP.DialogMaster
         /* GET/SET */
         /* > ATG 2 START */
         public static GetVARMAPValueDelegate<ulong> GET_ELAPSED_TIME_MS;
+        public static GetVARMAPValueDelegate<MomentType> GET_DAY_MOMENT;
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
+        public static GetVARMAPValueDelegate<CharacterType> GET_PLAYER_SELECTED;
         public static GetVARMAPValueDelegate<bool> GET_EVENTS_BEING_PROCESSED;
-        public static GetVARMAPValueDelegate<MomentType> GET_DAY_MOMENT;
         /* > ATG 2 END */
 
         /* SERVICES */

@@ -33,6 +33,7 @@ namespace Gob3AQ.VARMAP.GameMenu
             GET_ARRAY_PICKABLE_ITEM_OWNER = _GET_ARRAY_PICKABLE_ITEM_OWNER;
             REG_PICKABLE_ITEM_OWNER = _REG_PICKABLE_ITEM_OWNER;
             UNREG_PICKABLE_ITEM_OWNER = _UNREG_PICKABLE_ITEM_OWNER;
+            GET_DAY_MOMENT = _GET_DAY_MOMENT;
             GET_ITEM_MENU_HOVER = _GET_ITEM_MENU_HOVER;
             GET_SHADOW_ITEM_MENU_HOVER = _GET_SHADOW_ITEM_MENU_HOVER;
             SET_ITEM_MENU_HOVER = _SET_ITEM_MENU_HOVER;
@@ -49,7 +50,6 @@ namespace Gob3AQ.VARMAP.GameMenu
             GET_SHADOW_USER_INPUT_INTERACTION = _GET_SHADOW_USER_INPUT_INTERACTION;
             SET_USER_INPUT_INTERACTION = _SET_USER_INPUT_INTERACTION;
             GET_EVENTS_BEING_PROCESSED = _GET_EVENTS_BEING_PROCESSED;
-            GET_DAY_MOMENT = _GET_DAY_MOMENT;
             START_GAME = _START_GAME;
             SAVE_GAME = _SAVE_GAME;
             LOAD_GAME = _LOAD_GAME;
@@ -88,6 +88,7 @@ namespace Gob3AQ.VARMAP.GameMenu
         public static GetVARMAPArrayDelegate<CharacterType> GET_ARRAY_PICKABLE_ITEM_OWNER;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<CharacterType> REG_PICKABLE_ITEM_OWNER;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<CharacterType> UNREG_PICKABLE_ITEM_OWNER;
+        public static GetVARMAPValueDelegate<MomentType> GET_DAY_MOMENT;
         public static GetVARMAPValueDelegate<GameItem> GET_ITEM_MENU_HOVER;
         public static GetVARMAPValueDelegate<GameItem> GET_SHADOW_ITEM_MENU_HOVER;
         public static SetVARMAPValueDelegate<GameItem> SET_ITEM_MENU_HOVER;
@@ -104,7 +105,6 @@ namespace Gob3AQ.VARMAP.GameMenu
         public static GetVARMAPValueDelegate<UserInputInteraction> GET_SHADOW_USER_INPUT_INTERACTION;
         public static SetVARMAPValueDelegate<UserInputInteraction> SET_USER_INPUT_INTERACTION;
         public static GetVARMAPValueDelegate<bool> GET_EVENTS_BEING_PROCESSED;
-        public static GetVARMAPValueDelegate<MomentType> GET_DAY_MOMENT;
         /* > ATG 2 END */
 
         /* SERVICES */

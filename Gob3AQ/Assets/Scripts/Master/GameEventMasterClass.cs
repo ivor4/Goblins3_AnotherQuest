@@ -281,8 +281,8 @@ namespace Gob3AQ.GameEventMaster
             processingEvents = _bufferedEvents.Count != 0;
             prevProcessingEvents = VARMAP_GameEventMaster.GET_SHADOW_EVENTS_BEING_PROCESSED();
 
-            ProcessPendingActions(ref processingEvents);
             ProcessPendingEvents(ref processingEvents);
+            ProcessPendingActions(ref processingEvents);
 
             if (prevProcessingEvents != processingEvents)
             {

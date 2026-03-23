@@ -47,9 +47,9 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
-            GET_EVENTS_BEING_PROCESSED = _GET_EVENTS_BEING_PROCESSED;
-            GET_SHADOW_EVENTS_BEING_PROCESSED = _GET_SHADOW_EVENTS_BEING_PROCESSED;
-            SET_EVENTS_BEING_PROCESSED = _SET_EVENTS_BEING_PROCESSED;
+            GET_BUSY_STATE = _GET_BUSY_STATE;
+            GET_SHADOW_BUSY_STATE = _GET_SHADOW_BUSY_STATE;
+            SET_BUSY_STATE = _SET_BUSY_STATE;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
@@ -100,9 +100,9 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
-        public static GetVARMAPValueDelegate<bool> GET_EVENTS_BEING_PROCESSED;
-        public static GetVARMAPValueDelegate<bool> GET_SHADOW_EVENTS_BEING_PROCESSED;
-        public static SetVARMAPValueDelegate<bool> SET_EVENTS_BEING_PROCESSED;
+        public static GetVARMAPValueDelegate<BusyState> GET_BUSY_STATE;
+        public static GetVARMAPValueDelegate<BusyState> GET_SHADOW_BUSY_STATE;
+        public static SetVARMAPValueDelegate<BusyState> SET_BUSY_STATE;
         /* > ATG 2 END */
 
         /* SERVICES */

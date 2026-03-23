@@ -553,9 +553,13 @@ namespace Gob3AQ.DialogMaster
                     break;
 
                 case DialogTaskType.DIALOG_STATE_LAUNCH_NEXT_DIALOG:
-                    dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
-                    DialogOptionConfig dialogConfig = ResourceDialogsAtlasClass.GetDialogOptionConfig(dialog_optionPhrases);
-                    ShowDialogueExec(dialogConfig.dialogTriggered, DialogPhrase.PHRASE_NONE, dialog_background);
+                    /* If previous dialog unchained some action which make new dialog options visible. Wait for Event manager to process everything */
+                    if ((VARMAP_DialogMaster.GET_BUSY_STATE() & BusyState.GAME_PROCESSING_EVENTS) == 0)
+                    {
+                        dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
+                        DialogOptionConfig dialogConfig = ResourceDialogsAtlasClass.GetDialogOptionConfig(dialog_optionPhrases);
+                        ShowDialogueExec(dialogConfig.dialogTriggered, DialogPhrase.PHRASE_NONE, dialog_background);
+                    }
                     break;
 
                 default:

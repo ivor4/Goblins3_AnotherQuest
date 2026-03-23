@@ -86,6 +86,16 @@ namespace Gob3AQ.VARMAP.Types.Parsers
             value = (Room)BitConverter.ToInt32(reader);
         }
 
+        public static void BusyState_ParseToBytes(in BusyState value, ref Span<byte> writer)
+        {
+            BitConverter.TryWriteBytes(writer, (int)value);
+        }
+
+        public static void BusyState_ParseFromBytes(ref BusyState value, ref ReadOnlySpan<byte> reader)
+        {
+            value = (BusyState)BitConverter.ToInt32(reader);
+        }
+
 
         public static void byte_ParseToBytes(in byte value, ref Span<byte> writer)
         {

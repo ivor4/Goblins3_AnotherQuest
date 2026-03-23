@@ -76,6 +76,14 @@ namespace Gob3AQ.VARMAP.Types
         PREFAB_TOTAL
     }
 
+    [System.Flags]
+    public enum BusyState
+    {
+        GAME_NOT_BUSY,
+        GAME_PROCESSING_EVENTS = 0x1,
+        GAME_PROCESSING_ACTIONS = 0x2,
+    }
+
     public readonly struct InitialWalkInfo
     {
         public readonly int waypointFrom;

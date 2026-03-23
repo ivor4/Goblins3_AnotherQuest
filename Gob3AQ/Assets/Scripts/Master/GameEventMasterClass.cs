@@ -132,7 +132,9 @@ namespace Gob3AQ.GameEventMaster
                 if (somethingChanged)
                 {
                     VARMAP_GameEventMaster.SET_ARRAY_EVENTS_OCCURRED(events_out);
-                    VARMAP_GameEventMaster.SET_EVENTS_BEING_PROCESSED(true);
+                    BusyState busyState = VARMAP_GameEventMaster.GET_SHADOW_BUSY_STATE();
+                    busyState = UpdateBusyState(busyState, true, false);
+                    VARMAP_GameEventMaster.SET_BUSY_STATE(busyState);
                 }
             }
         }
@@ -147,7 +149,9 @@ namespace Gob3AQ.GameEventMaster
             if (prevValue)
             {
                 VARMAP_GameEventMaster.SET_ELEM_UNWATCHED_PARENT_MEMENTO(arraypos, in mbfs);
-                VARMAP_GameEventMaster.SET_EVENTS_BEING_PROCESSED(true);
+                BusyState busyState = VARMAP_GameEventMaster.GET_SHADOW_BUSY_STATE();
+                busyState = UpdateBusyState(busyState, true, false);
+                VARMAP_GameEventMaster.SET_BUSY_STATE(busyState);
             }
         }
 
@@ -171,7 +175,10 @@ namespace Gob3AQ.GameEventMaster
 
                 VARMAP_GameEventMaster.SET_ELEM_UNWATCHED_PARENT_MEMENTO(arraypos, in mbfs);
                 VARMAP_GameEventMaster.COMMIT_MEMENTO_NOTIF(memento);
-                VARMAP_GameEventMaster.SET_EVENTS_BEING_PROCESSED(true);
+
+                BusyState busyState = VARMAP_GameEventMaster.GET_SHADOW_BUSY_STATE();
+                busyState = UpdateBusyState(busyState, true, false);
+                VARMAP_GameEventMaster.SET_BUSY_STATE(busyState);
             }
         }
 
@@ -198,6 +205,10 @@ namespace Gob3AQ.GameEventMaster
                         _singleton._pendingActions.Add(new ActionOrder(actions[i], usedCallback));
                     }
                 }
+
+                BusyState busyState = VARMAP_GameEventMaster.GET_SHADOW_BUSY_STATE();
+                busyState = UpdateBusyState(busyState, true, false);
+                VARMAP_GameEventMaster.SET_BUSY_STATE(busyState);
             }
         }
 
@@ -231,6 +242,16 @@ namespace Gob3AQ.GameEventMaster
             ref readonly MultiBitFieldStruct mbfs = ref VARMAP_GameEventMaster.GET_ELEM_EVENTS_OCCURRED(arraypos);
 
             occurred = mbfs.GetIndividualBool(itembit);
+        }
+
+        private static BusyState UpdateBusyState(BusyState actualState, bool newEvents, bool newActions)
+        {
+            BusyState retState = actualState;
+
+            retState |= newEvents ? BusyState.GAME_PROCESSING_EVENTS : BusyState.GAME_NOT_BUSY;
+            retState |= newActions ? BusyState.GAME_PROCESSING_ACTIONS : BusyState.GAME_NOT_BUSY;
+
+            return retState;
         }
 
         void Awake()
@@ -274,19 +295,25 @@ namespace Gob3AQ.GameEventMaster
         private void Update()
         {
             bool processingEvents;
-            bool prevProcessingEvents;
+            bool processingActions;
+            BusyState prevBusyState;
+            BusyState actualBusyState;
 
             ExecuteBackgroundActions();
 
             processingEvents = _bufferedEvents.Count != 0;
-            prevProcessingEvents = VARMAP_GameEventMaster.GET_SHADOW_EVENTS_BEING_PROCESSED();
+
+            prevBusyState = VARMAP_GameEventMaster.GET_SHADOW_BUSY_STATE();
+            actualBusyState = BusyState.GAME_NOT_BUSY;
 
             ProcessPendingEvents(ref processingEvents);
-            ProcessPendingActions(ref processingEvents);
+            processingActions = ProcessPendingActions();
 
-            if (prevProcessingEvents != processingEvents)
+            actualBusyState = UpdateBusyState(actualBusyState, processingEvents, processingActions);
+
+            if (prevBusyState != actualBusyState)
             {
-                VARMAP_GameEventMaster.SET_EVENTS_BEING_PROCESSED(processingEvents);
+                VARMAP_GameEventMaster.SET_BUSY_STATE(actualBusyState);
             }
         }
 
@@ -552,16 +579,16 @@ namespace Gob3AQ.GameEventMaster
             }
         }
 
-        private void ProcessPendingActions(ref bool processingEvents)
+        private bool ProcessPendingActions()
         {
             bool stop = false;
-
+            bool processingActions = false;
 
             while ((_pendingActions.Count > 0) && (!stop))
             {
                 ActionOrder actionOrder = _pendingActions[0];
                 bool endedAction = false;
-                processingEvents = true;
+                processingActions = true;
 
                 if (!actionOrder.performedAndWaiting)
                 {
@@ -588,6 +615,8 @@ namespace Gob3AQ.GameEventMaster
                     actionOrder.callback?.Invoke();
                 }
             }
+
+            return processingActions;
         }
 
         private void AddUnchainerEventsToPending(UnchainConditions unchainer, in UnchainInfo unchainer_info)

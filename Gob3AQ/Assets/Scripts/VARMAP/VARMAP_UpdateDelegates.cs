@@ -136,11 +136,11 @@ namespace Gob3AQ.VARMAP.Initialization
             _SET_USER_INPUT_INTERACTION = ((VARMAP_Variable_Interface<UserInputInteraction>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_USER_INPUT_INTERACTION]).SetValue;
             _REG_USER_INPUT_INTERACTION = ((VARMAP_Variable_Interface<UserInputInteraction>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_USER_INPUT_INTERACTION]).RegisterChangeEvent;
             _UNREG_USER_INPUT_INTERACTION = ((VARMAP_Variable_Interface<UserInputInteraction>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_USER_INPUT_INTERACTION]).UnregisterChangeEvent;
-            _GET_EVENTS_BEING_PROCESSED = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_BEING_PROCESSED]).GetValue;
-            _GET_SHADOW_EVENTS_BEING_PROCESSED = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_BEING_PROCESSED]).GetShadowValue;
-            _SET_EVENTS_BEING_PROCESSED = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_BEING_PROCESSED]).SetValue;
-            _REG_EVENTS_BEING_PROCESSED = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_BEING_PROCESSED]).RegisterChangeEvent;
-            _UNREG_EVENTS_BEING_PROCESSED = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_EVENTS_BEING_PROCESSED]).UnregisterChangeEvent;
+            _GET_BUSY_STATE = ((VARMAP_Variable_Interface<BusyState>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_BUSY_STATE]).GetValue;
+            _GET_SHADOW_BUSY_STATE = ((VARMAP_Variable_Interface<BusyState>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_BUSY_STATE]).GetShadowValue;
+            _SET_BUSY_STATE = ((VARMAP_Variable_Interface<BusyState>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_BUSY_STATE]).SetValue;
+            _REG_BUSY_STATE = ((VARMAP_Variable_Interface<BusyState>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_BUSY_STATE]).RegisterChangeEvent;
+            _UNREG_BUSY_STATE = ((VARMAP_Variable_Interface<BusyState>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_BUSY_STATE]).UnregisterChangeEvent;
             _GET_LAST_VARMAP_VAL = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL]).GetValue;
             _GET_SHADOW_LAST_VARMAP_VAL = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL]).GetShadowValue;
             _SET_LAST_VARMAP_VAL = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL]).SetValue;

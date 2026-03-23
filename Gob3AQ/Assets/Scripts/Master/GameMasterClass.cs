@@ -77,9 +77,9 @@ namespace Gob3AQ.GameMaster
 
             /* -------- Old game cycle ends here -------- */
 
-            bool eventsBeingProcessed = VARMAP_GameMaster.GET_EVENTS_BEING_PROCESSED();
+            BusyState busyState = VARMAP_GameMaster.GET_BUSY_STATE();
 
-            if (!eventsBeingProcessed)
+            if (busyState == BusyState.GAME_NOT_BUSY)
             {
                 if (saveGamePending)
                 {

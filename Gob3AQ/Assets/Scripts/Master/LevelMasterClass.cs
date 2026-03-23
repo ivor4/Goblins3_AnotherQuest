@@ -297,14 +297,14 @@ namespace Gob3AQ.LevelMaster
 
         private void Update()
         {
-            bool events_processed = VARMAP_LevelMaster.GET_EVENTS_BEING_PROCESSED();
+            BusyState busyState = VARMAP_LevelMaster.GET_BUSY_STATE();
             ref readonly MousePropertiesStruct mouse = ref VARMAP_LevelMaster.GET_MOUSE_PROPERTIES();
 
             _HoveredPending.Clear();
             UpdateHoverElements(in mouse);
 
 
-            if (!events_processed)
+            if (busyState == BusyState.GAME_NOT_BUSY)
             {
                 Game_Status gstatus = VARMAP_LevelMaster.GET_GAMESTATUS();
                

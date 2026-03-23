@@ -39,6 +39,15 @@ namespace Gob3AQ.GameElement.Item
             myRigidbody = topParent.GetComponent<Rigidbody2D>();
             myAnimator = topParent.GetComponent<Animator>();
 
+            if (myAnimator != null)
+            {
+                myAnimatorBehavior = myAnimator.GetBehaviour<GenericAnimBehavior>();
+                if (myAnimatorBehavior != null)
+                {
+                    myAnimatorBehavior.SetOnStartEndCallback(OnAnimationStart, OnAnimationEnd);
+                }
+            }
+
             if (VARMAP_ItemMaster.GET_DAY_MOMENT() == MomentType.MOMENT_MORNING)
             {
                 original_color = mySpriteRenderer.color;

@@ -84,6 +84,14 @@ namespace Gob3AQ.VARMAP.Types
         GAME_PROCESSING_ACTIONS = 0x2,
     }
 
+    [System.Flags]
+    public enum NotifyAction
+    {
+        NOTIFY_NONE,
+        NOTIFY_DIALOG = 0x1,
+        NOTIFY_ANIMATION = 0x2
+    }
+
     public readonly struct InitialWalkInfo
     {
         public readonly int waypointFrom;
@@ -258,15 +266,15 @@ namespace Gob3AQ.VARMAP.Types
 
         private readonly GameAction[] triggeredActions;
         public readonly GameItem dstItem;
-        public readonly Animation animator;
+        public readonly AnimationTrigger trigger;
 
-        public static readonly AnimationActionConfig EMPTY = new(new GameAction[0], GameItem.ITEM_NONE, null);
+        public static readonly AnimationActionConfig EMPTY = new(new GameAction[0], GameItem.ITEM_NONE, AnimationTrigger.TRIGGER_ONE);
 
-        public AnimationActionConfig(GameAction[] triggeredEvents, GameItem dstItem, Animation animator)
+        public AnimationActionConfig(GameAction[] triggeredActions, GameItem dstItem, AnimationTrigger trigger)
         {
-            this.triggeredActions = triggeredEvents;
+            this.triggeredActions = triggeredActions;
             this.dstItem = dstItem;
-            this.animator = animator;
+            this.trigger = trigger;
         }
     }
 

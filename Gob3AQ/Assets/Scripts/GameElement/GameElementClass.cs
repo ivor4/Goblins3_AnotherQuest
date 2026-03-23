@@ -39,6 +39,9 @@ namespace Gob3AQ.GameElement
         protected SpriteRenderer mySpriteRenderer;
         protected Rigidbody2D myRigidbody;
         protected Animator myAnimator;
+        protected GenericAnimBehavior myAnimatorBehavior;
+        protected Action animationEndCallback;
+        protected bool animationStartedNewState;
         protected bool registered;
         protected bool loaded;
         private bool isAvailable;
@@ -94,10 +97,12 @@ namespace Gob3AQ.GameElement
             VirtualDestroy();
         }
 
-        public void PerformAnimation(AnimationTrigger trigger, Action<GameItem> callback)
+        public void PerformAnimation(AnimationTrigger trigger, Action callback)
         {
             if (myAnimator != null)
             {
+                animationStartedNewState = false;
+                animationEndCallback = callback;
                 myAnimator.SetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_STR[trigger]);
             }
         }
@@ -254,6 +259,20 @@ namespace Gob3AQ.GameElement
             }
         }
 
+        protected virtual void OnAnimationStart()
+        {
+            animationStartedNewState = true;
+        }
+
+        protected virtual void OnAnimationEnd()
+        {
+            if (animationStartedNewState)
+            {
+                animationStartedNewState = false;
+                animationEndCallback?.Invoke();
+                animationEndCallback = null;
+            }
+        }
 
         private void ChangedGameStatus(ChangedEventType eventType, in Game_Status oldval, in Game_Status newval)
         {

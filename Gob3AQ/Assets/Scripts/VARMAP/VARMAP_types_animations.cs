@@ -6,6 +6,7 @@ namespace Gob3AQ.VARMAP.Types
     {
         /* > ATG 1 START < */
         ANIMATION_NONE = -1, 
+        ANIMATION_REME_TEST, 
         ANIMATION_LAST, 
         
         ANIMATION_TOTAL
@@ -16,6 +17,7 @@ namespace Gob3AQ.VARMAP.Types
     public enum AnimationSrcTrigger
     {
         SRC_TRIGGER_TIME_FROM_PREV,
+        SRC_TRIGGER_CALLBACK,
         SRC_TRIGGER_ANIM_END
     }
 
@@ -27,6 +29,12 @@ namespace Gob3AQ.VARMAP.Types
         TRIGGER_FOUR,
         TRIGGER_FIVE,
         TRIGGER_SIX,
+
+        TRIGGER_SPECIAL_ONE,
+        TRIGGER_SPECIAL_TWO,
+
+        TRIGGER_TALK,
+        TRIGGER_WALK,
 
         TRIGGER_TOTAL
     }

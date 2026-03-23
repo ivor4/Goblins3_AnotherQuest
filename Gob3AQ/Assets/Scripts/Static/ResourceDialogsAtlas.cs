@@ -81,7 +81,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             
             new( /* DIALOG_REME */
             new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_HIVE1_NPC_REME,},
-            new DialogOption[2]{DialogOption.DIALOG_OPTION_REME_1, DialogOption.DIALOG_OPTION_REME_2, }
+            new DialogOption[3]{DialogOption.DIALOG_OPTION_REME_1, DialogOption.DIALOG_OPTION_REME_2, DialogOption.DIALOG_OPTION_REME_3, }
             ),
             
             new( /* DIALOG_REME_CARDS */
@@ -197,6 +197,13 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new GameAction[1]{GameAction.ACTION_NONE, },
             DialogType.DIALOG_NONE,false,
             new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_REME_2_1, }
+            ),
+            new( /* DIALOG_OPTION_REME_3 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            MomentType.MOMENT_ANY,
+            new GameAction[2]{GameAction.ACTION_ANIMATE_REME_TEST, GameAction.ACTION_DIALOGUE_OBSERVE_SHOEALCE, },
+            DialogType.DIALOG_NONE,false,
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_REME_3_TEST, }
             ),
             new( /* DIALOG_OPTION_REME_CARDS */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
@@ -393,6 +400,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(1,GameSound.SOUND_NONE, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_REME_1_2 */ 
             new(1,GameSound.SOUND_NONE, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_REME_1_3 */ 
             new(1,GameSound.SOUND_NONE, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_REME_2_1 */ 
+            new(0,GameSound.SOUND_NONE, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_DIALOG_REME_3_TEST */ 
             new(0,GameSound.SOUND_NONE, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_MEMENTO_FIND_JOB_1 */ 
             new(0,GameSound.SOUND_NONE, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_OBSERVE_HIVE1_AD_BOARD_1 */ 
             new(0,GameSound.SOUND_NONE, DialogAnimation.DIALOG_ANIMATION_TALK), /* PHRASE_NOT_EXIT_HIVE1_HALL_1 */ 

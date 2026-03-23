@@ -15,6 +15,12 @@ namespace Gob3AQ.ResourceAnimationsAtlas
             { AnimationTrigger.TRIGGER_FOUR, "Tr_4" },
             { AnimationTrigger.TRIGGER_FIVE, "Tr_5" },
             { AnimationTrigger.TRIGGER_SIX, "Tr_6" },
+
+            {AnimationTrigger.TRIGGER_SPECIAL_ONE, "Tr_Special1" },
+            {AnimationTrigger.TRIGGER_SPECIAL_TWO, "Tr_Special2" },
+
+            { AnimationTrigger.TRIGGER_TALK, "Tr_Talk" },
+            { AnimationTrigger.TRIGGER_WALK, "Tr_Walk" },
         };
 
         public static ref readonly AnimationConfig GetAnimationConfig(GameAnimation animation)
@@ -35,17 +41,36 @@ namespace Gob3AQ.ResourceAnimationsAtlas
 
         private static readonly AnimationConfig[] _AnimationConfig = new AnimationConfig[(int)GameAnimation.ANIMATION_TOTAL]
         {
-            /* ANIMATION_ONE */
+            /* ANIMATION_REME TEST */
             new(new AnimationMilestoneConfig[]
             {
                 /* Milestone 1 */
                 new(AnimationSrcTrigger.SRC_TRIGGER_ANIM_END, 0f,
                     new AnimationActionConfig[]
                     {
-                        new(noAction, GameItem.ITEM_PLAYER_MAIN, null),   /* Action 1 */
+                        new(noAction, GameItem.ITEM_HIVE1_NPC_REME, AnimationTrigger.TRIGGER_SPECIAL_ONE),   /* Action 1 */
                     }
                 ),
-            }), 
+                /* Milestone 2 */
+                new(AnimationSrcTrigger.SRC_TRIGGER_CALLBACK, 0f,
+                    new AnimationActionConfig[]
+                    {
+                        new(noAction, GameItem.ITEM_NONE, AnimationTrigger.TRIGGER_ONE),   /* Action 1 */
+                    }
+                ),
+            }),
+
+            /* ANIMATION_LAST */
+            new(new AnimationMilestoneConfig[]
+            {
+                /* Milestone 1 */
+                new(AnimationSrcTrigger.SRC_TRIGGER_ANIM_END, 0f,
+                    new AnimationActionConfig[]
+                    {
+                        new(noAction, GameItem.ITEM_PLAYER_MAIN, AnimationTrigger.TRIGGER_ONE),   /* Action 1 */
+                    }
+                ),
+            }),
         };
 
         

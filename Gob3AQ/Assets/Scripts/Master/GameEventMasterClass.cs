@@ -62,7 +62,8 @@ namespace Gob3AQ.GameEventMaster
         /// </summary>
         private int _bckgActionsIndex;
         private List<ActionOrder> _pendingActions;
-        private bool _actionEndedFlag;
+        private NotifyAction _actionEndedFlag;
+        private NotifyAction _actionExpectedFlag;
 
 
         public static void IsMementoUnlockedService(Memento memento, out bool occurred, out bool unwatched)
@@ -212,11 +213,11 @@ namespace Gob3AQ.GameEventMaster
             }
         }
 
-        public static void NotifyEndedActionService()
+        public static void NotifyEndedActionService(NotifyAction notify)
         {
             if(_singleton != null)
             {
-                _singleton._actionEndedFlag = true;
+                _singleton._actionEndedFlag |= notify;
             }
         }
 
@@ -276,7 +277,8 @@ namespace Gob3AQ.GameEventMaster
                 _itemRelatedUnchainers = new(GameFixedConfig.MAX_PENDING_UNCHAINERS);
                 _pendingActions = new(GameFixedConfig.MAX_BUFFERED_EVENTS);
 
-                _actionEndedFlag = false;
+                _actionEndedFlag = NotifyAction.NOTIFY_NONE;
+                _actionExpectedFlag = NotifyAction.NOTIFY_NONE;
             }
         }
 
@@ -592,7 +594,9 @@ namespace Gob3AQ.GameEventMaster
 
                 if (!actionOrder.performedAndWaiting)
                 {
-                    _actionEndedFlag = false;
+                    _actionEndedFlag = NotifyAction.NOTIFY_NONE;
+                    _actionExpectedFlag = NotifyAction.NOTIFY_NONE;
+
                     stop = ExecuteAction(actionOrder.action);
                     endedAction = !stop;
 
@@ -601,7 +605,7 @@ namespace Gob3AQ.GameEventMaster
                 }
                 else
                 {
-                    endedAction = _actionEndedFlag;
+                    endedAction = (_actionEndedFlag & _actionExpectedFlag) == _actionExpectedFlag;
                     stop = !endedAction;
                 }
 
@@ -728,15 +732,19 @@ namespace Gob3AQ.GameEventMaster
                         if (!error)
                         {
                             mustWait = info.waitForEnd;
+                            _actionExpectedFlag = NotifyAction.NOTIFY_DIALOG;
                             VARMAP_GameEventMaster.SHOW_DIALOGUE(info.targetDialog, info.targetPhrase, false);
                         }
                         break;
                     case ActionType.ACTION_TYPE_START_DIALOGUE_BCKG:
                         mustWait = info.waitForEnd;
+                        _actionExpectedFlag = NotifyAction.NOTIFY_DIALOG;
                         VARMAP_GameEventMaster.SHOW_DIALOGUE(info.targetDialog, info.targetPhrase, true);
                         break;
                     case ActionType.ACTION_TYPE_START_ANIMATION:
                         mustWait = info.waitForEnd;
+                        _actionExpectedFlag = NotifyAction.NOTIFY_ANIMATION;
+                        VARMAP_GameEventMaster.START_ANIMATION(info.targetAnimation, false);
                         break;
                     default:
                         VARMAP_GameEventMaster.ACTION_TO_ITEM(in info);

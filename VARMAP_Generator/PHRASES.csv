@@ -14,113 +14,114 @@
 12,PHRASE_DIALOG_REME_1_2,1,SOUND_NONE,DIALOG_ANIMATION_TALK,It always works. It's you and all the scum living here who think you are highborn,Claro que funciona. Tú y toda la morralla que vivís aquí os pensáis que sois marqueses
 13,PHRASE_DIALOG_REME_1_3,1,SOUND_NONE,DIALOG_ANIMATION_TALK,It's downstairs as always! Be fast. Now there is nobody using it,Está en el piso de abajo como siempre! Sé rápido. Ahora mismo no hay nadie usándolo
 14,PHRASE_DIALOG_REME_2_1,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Well! Have a nice day Reme!,Bueno! Que tengas un florido día Reme!
-15,PHRASE_MEMENTO_FIND_JOB_1,0,SOUND_NONE,DIALOG_ANIMATION_TALK,I moved to find a job. It is important to find something as soon as possible,Me trasladé aquí para encontrar trabajo. Es importante encontrar algo tan pronto como sea
-16,PHRASE_OBSERVE_HIVE1_AD_BOARD_1,0,SOUND_NONE,DIALOG_ANIMATION_TALK,They are offering cooker job in center of city. I don't know how this offer came here. I could try! It's called 'El maño',Se necesita cocinero en el centro de la ciudad. No sé ni cómo este anuncio ha llegado hasta aquí. Se podría intentar! El lugar se llama 'El maño'
-17,PHRASE_NOT_EXIT_HIVE1_HALL_1,0,SOUND_NONE,DIALOG_ANIMATION_TALK,First I need to know WHERE to go,Primero necesitaría saber a dónde voy
-18,PHRASE_NOT_EXIT_HIVE1_HALL_2,0,SOUND_NONE,DIALOG_ANIMATION_TALK,I need to give a good first impression. Cannot go in this way,Debo dar una buena impresión. No puedo ir así
-19,PHRASE_TAKE_HIVE1_BASIN_NO_SOAP,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Self cleaning only with water is a mess,Lavarse solo con agua es una guarrada
-20,PHRASE_TAKE_HIVE1_BASIN_SOAP,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Now that's actually self cleaning,Ahora esto sí que es asearse
-21,PHRASE_USE_HIVE1_PERFUME,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Now that's actually good smelling! My father gifted it to me,Esto sí que es oler bien! Mi padre me lo regaló
-22,PHRASE_USE_HIVE1_PERFUME_NOT_1,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Using perfume not being washed is a pig fact. Not my style,Echarse perfume sin estar limpio es muy cerdo. No es mi estilo
-23,PHRASE_USE_HIVE1_PERFUME_NOT_2,0,SOUND_NONE,DIALOG_ANIMATION_TALK,It's a matter of making it last as long as possible. I already used it,Lo suyo es que el perfume me dure. Ya me he echado
-24,PHRASE_USE_CARDS_REME_1,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Do you want to play with cards?,Quiere usted jugar una partidilla de cartas?
-25,PHRASE_USE_CARDS_REME_2,1,SOUND_NONE,DIALOG_ANIMATION_TALK,WHO did you think I am? Card games is pure evil,QUIEN se ha creido que soy? Los juegos de naipes son el mismísimo demonio
-26,PHRASE_DECISION_NOT_SLEEP,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Don't sleep,No dormir
-27,PHRASE_DECISION_SLEEP_DAY,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Sleep until next morning,Dormir hasta la mañana siguiente
-28,PHRASE_DECISION_SLEEP_NIGHT,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Sleep until night,Dormir hasta la noche
-29,PHRASE_WONT_GO_SOUTH_NEIGH,0,SOUND_NONE,DIALOG_ANIMATION_TALK,That neighborhood is dangerous. Don't need to go there,Ese barrio es muy peligroso. No necesito pasar por ahí
-30,PHRASE_TRY_TALK_PHARMACIST_BUSY,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Excuse me sir. It will be only one second,Disculpe. Solo será un segundo
-31,PHRASE_PHARMACIST_BUSY_1,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Young! Don't you see I'm busy?,Joven! No ves que estoy ocupado?
-32,PHRASE_PHARMACIST_BUSY_2,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Please go to queue if you want something,Por favor. A la cola si quieres algo
-33,PHRASE_HELLO_DEER,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Hello!,Hola!
-34,PHRASE_DIALOG_MANYO_INTRO_1,0,SOUND_NONE,DIALOG_ANIMATION_TALK,How is it going sir?,Cómo va la cosa señor?
-35,PHRASE_DIALOG_MANYO_INTRO_2,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Did you do a reservation?,Hizo reserva para hoy?
-36,PHRASE_DIALOG_MANYO_WORK_NOTE_1,0,SOUND_NONE,DIALOG_ANIMATION_TALK,I saw a note out there. You are searching for a cooker. Right?,Vi una nota. Estáis buscando un cocinero. Verdad?
-37,PHRASE_DIALOG_MANYO_WORK_NOTE_2,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Yes. That was six months ago! We have a cooker and things are going on quite good,Sí. Eso fue hace seis meses! Tenemos cocinero y las cosas están yendo bastante bien
-38,PHRASE_DIALOG_MANYO_WORK_NOTE_3,0,SOUND_NONE,DIALOG_ANIMATION_TALK,I see... Ok. So you are not looking for any worker here,Ya veo... Ok. Entonces no estáis buscando a ningún trabajador aquí
-39,PHRASE_DIALOG_MANYO_WORK_NOTE_4,1,SOUND_NONE,DIALOG_ANIMATION_TALK,I'm sorry for you. By the moment is all covered here,Lo siento por ti. Por el momento aquí está todo cubierto
-40,PHRASE_DIALOG_MANYO_WORKS_CITY_1,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Do you know about some business here looking for a worker?,Conoces de algún negocio por aquí que busquen trabajadores?
-41,PHRASE_DIALOG_MANYO_WORKS_CITY_2,1,SOUND_NONE,DIALOG_ANIMATION_TALK,By the moment... Just wait. I guess Pharmacist in this street was looking for help,Por el momento... Espera. Creo que el boticario de esta calle estaba buscando ayuda
-42,PHRASE_DIALOG_MANYO_MENU_DAY_1,0,SOUND_NONE,DIALOG_ANIMATION_TALK,What are you cooking today?,Qué cocináis para hoy?
-43,PHRASE_DIALOG_MANYO_MENU_DAY_2,1,SOUND_NONE,DIALOG_ANIMATION_TALK,How good is you are asking for it!,Qué bueno que lo preguntes!
-44,PHRASE_DIALOG_MANYO_MENU_DAY_3,1,SOUND_NONE,DIALOG_ANIMATION_TALK,We have boar from La Mancha with potatoes. Also carrot for dessert,Tenemos jabalí manchego con patatas. Y de postre zanahoria
-45,PHRASE_DIALOG_MANYO_MENU_DAY_4,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Yuuk,Puaj
-46,PHRASE_DIALOG_MANYO_MENU_DAY_5,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Are you eating here today?,Comerás aquí hoy?
-47,PHRASE_DIALOG_MANYO_MENU_DAY_6,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Nope,No
-48,PHRASE_DIALOG_MANYO_CROWD_1,0,SOUND_NONE,DIALOG_ANIMATION_TALK,It's incredible. There is no free place this night!,Impresionante. No queda un hueco esta noche
-49,PHRASE_DIALOG_MANYO_CROWD_2,1,SOUND_NONE,DIALOG_ANIMATION_TALK,They are tasting boar with potatoes! But I fear they won't come again if we don't offer new menus,Están probando el jabalí con patatas! Pero temo que no volverán hasta que no ofrezcamos menus nuevos
-50,PHRASE_DIALOG_MANYO_CROWD_3,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Do you know of a new receipt for this restaurant? You wanted to be cooker. Right?,Conoces nuevas recetas para el restaurante? Tú querías ser cocinero. Verdad?
-51,PHRASE_DIALOG_MANYO_CROWD_4,1,SOUND_NONE,DIALOG_ANIMATION_TALK,If you find out new recipes. Don't hesitate and come one morning and tell me. I will reward you,Si averiguas nuevas recetas. No dudes en acercarte una mañana y contarme. Te recompensaré
-52,PHRASE_DIALOG_MANYO_CROWD_5,0,SOUND_NONE,DIALOG_ANIMATION_TALK,I'll review my sources and keep you informed. Sir!,Revisaré mis fuentes y te mantendré informado. Señor!
-53,PHRASE_DIALOG_MANYO_BYE_1,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Have a nice day!,Que tenga un buen día!
-54,PHRASE_MEMENTO_RECIPE_MISSION_1,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Restaurant owner needs a new recipe to have new customers. He promises a reward,El dueño del restaurante necesita una nueva receta para tener nuevos clientes. Él promete una recompensa
-55,PHRASE_DIALOG_MANYO_UMBRELLA_NOT_1,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Is this umbrella yours? Somebody left it days ago. God people don't take what doesn't belong to them,Es tuyo el paraguas? Alguien se lo dejó hace días. La gente de Dios no se apropia de lo que no es suyo
-56,PHRASE_DIALOG_UMBRELLA_TAKEN,0,SOUND_NONE,DIALOG_ANIMATION_TALK,I'll give you back some day!,Te lo traeré de vuelta algún día!
-57,PHRASE_DIALOG_MANYO_BCKG_CROWD_1,0,SOUND_NONE,DIALOG_ANIMATION_NONE,You must try the wine,Tienes que probar el vino!
-58,PHRASE_DIALOG_MANYO_BCKG_CROWD_2,0,SOUND_NONE,DIALOG_ANIMATION_NONE,For sure! I'm getting dry with this meat,Desde luego! Me estoy quedando seco con esta carne
-59,PHRASE_DIALOG_MANYO_BCKG_CROWD_3,0,SOUND_NONE,DIALOG_ANIMATION_NONE,Card match is promising this night,La partida de naipes esta noche va a ser de cine
-60,PHRASE_OBSERVE_ITEM_HIVE1_POOR_MAN_WC,0,SOUND_NONE,DIALOG_ANIMATION_TALK,It was a poor man suffering of a bad dinner,Era un pobre hombre sufriendo de una mala cena
-61,PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_0_0,0,SOUND_FART_1,DIALOG_ANIMATION_TALK,(Prrrrr),(Prrrrr)
-62,PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_1_0,0,SOUND_POOR_MAN_BCKG_1,DIALOG_ANIMATION_TALK,Is this going to end somewhen?,Esto va a acabar algún día?
-63,PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_2_0,0,SOUND_POOR_MAN_BCKG_2,DIALOG_ANIMATION_TALK,This is torture,Esto es una tortura
-64,PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_3_0,0,SOUND_POOR_MAN_BCKG_3,DIALOG_ANIMATION_TALK,I should have never eat that dinner,Nunca debí cenar allí
-65,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_0,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Terrible night. Ah?,Terrible noche. No?
-66,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_1,1,SOUND_NONE,DIALOG_ANIMATION_TALK,It was that Maño restaurant. Boar was terrible,Era el restaurante del Maño. El jabalí estaba horrible
-67,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_2,0,SOUND_NONE,DIALOG_ANIMATION_TALK,I saw it full of people. Don't think it was in bad state,Lo vi a reventar de gente. No creo que estuviera precisamente malo
-68,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_3,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Well. Maybe my stomach is not in mood!,Bueno. Mi estómago no está por la labor
-69,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_1_0,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Are you going to end today?,Piensas terminar algún día?
-70,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_1_1,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Haha. Very funny. If I could. I would be out there. Night is young,Jaja. Muy gracioso. Si pudiera. Estaría por allí. La noche es joven
-71,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_0,0,SOUND_NONE,DIALOG_ANIMATION_TALK,How can I help you?,Como podría ayudarte?
-72,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_1,1,SOUND_NONE,DIALOG_ANIMATION_TALK,This nasty Inn is cutting water at night. I cannot let this in this state,Esta asquerosa pocilga está cortando el agua por las noches. No puedo dejar esto así
-73,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_2,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Ahh. I see...,Ahh. Ya veo..
-74,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_3,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Could you please talk to someone to bring water again?,Podrías por favor hablar con alguien para que vuelva el agua?
-75,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_4,0,SOUND_NONE,DIALOG_ANIMATION_TALK,I will see what can I do. But personnel is absent during day. Even worse at night,Veré lo que puedo hacer. Pero si ya el personal está ausente durante el día. Imagina por la noche
-76,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_3_0,0,SOUND_NONE,DIALOG_ANIMATION_TALK,I need to go. Sorry for your situation!,Necesito irme. Lamento la situación!
-77,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_0,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Did you come to laugh at my disgrace?,Viniste a reirte de mi desgracia?
-78,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_1,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Did I wake you up?,Te desperté?
-79,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_2,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Are you from health department?,Eres del ministerio de sanidad?
-80,PHRASE_MEMENTO_POOR_MAN_WC_1,0,SOUND_NONE,DIALOG_ANIMATION_TALK,A poor man can't leave WC because there is no water in toilet system,El pobre hombre no puede irse porque no hay agua en las cisternas de los inodoros
-81,PHRASE_MEMENTO_POOR_MAN_WC_2,0,SOUND_NONE,DIALOG_ANIMATION_TALK,It seems to be a valve in back alley but is closed,Parece haber una válvula en el callejón de atrás pero está cerrada
-82,PHRASE_MEMENTO_POOR_MAN_WC_3,0,SOUND_NONE,DIALOG_ANIMATION_TALK,When water came back. This man gave me an invitation to a Pub where I could meet someone for a job,Cuando el agua volvió. Este hombre me dio una invitación a un Pub donde podría conocer a alguien para un trabajo
-83,PHRASE_OBSERVE_ITEM_HIVE1_ROACH,0,SOUND_NONE,DIALOG_ANIMATION_TALK,It is a tiny cockroach! The only living being human is terrified of,Es una cucarachita pequeña! El único ser vivo al que el ser humano teme
-84,PHRASE_OBSERVE_ITEM_HIVE1_PIPE,0,SOUND_NONE,DIALOG_ANIMATION_TALK,This pipe may bring water to toilets and is comming from outside,This pipe may bring water to toilets and is comming from outside
-85,PHRASE_TAKE_ITEM_HIVE1_ROACH_HEAD,0,SOUND_NONE,DIALOG_ANIMATION_TALK,It squeezed! I need to try it again or be smarter,Se escapó! Necesito volver a intentarlo o ser más listo que ella
-86,PHRASE_OBSERVE_ITEM_HIVE1_VALVE_BOX,0,SOUND_NONE,DIALOG_ANIMATION_TALK,It seems like a closed box for some mechanism,Parece una caja de control de algún mecanismo
-87,PHRASE_OBSERVE_ITEM_HIVE1_BACKALLEY_PIPE,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Its a normal pipe,Es una tubería normal
-88,PHRASE_OBSERVE_ITEM_HIVE1_BACKALLEY_PIPE_2,0,SOUND_NONE,DIALOG_ANIMATION_TALK,This is the next part of toilets pipe. Therefore Its valve should be in that box,Esta es la continuación de la tubería de los aseos. Por lo que la válvula debería estar en ese cuadro
-89,PHRASE_OBSERVE_ITEM_HIVE1_VALVE_BOX_2,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Valve to activate water should be inside that box,La válvula para abrir el agua debería estar dentro de ese cuadro
-90,PHRASE_TAKE_VALVE_BOX_CLOSED,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Door is unlocked. But its hard to open. I can't put my fingers inside and open,La cerradura está abierta. Pero es difícil de abrir. No me caben los dedos en la rendija para abrir
-91,PHRASE_TAKE_VALVE_BOX_CLOSED_MORNING,0,SOUND_NONE,DIALOG_ANIMATION_TALK,I don't want to be seen manipulating things at this hour,No quiero que me vean manipulando cosas a esta hora del día
-92,PHRASE_OBSERVE_ITEM_HIVE1_SHOELACE,0,SOUND_OBSERVE_ITEM_SHOELACE,DIALOG_ANIMATION_TALK,It's a shoelace lost from some guest,Es el cordón de bota de algún huesped
-93,PHRASE_NO_REASON_TO_DO,0,SOUND_NONE,DIALOG_ANIMATION_TALK,I don't have a reason to take it,No tengo razón para cogerlo
-94,PHRASE_TAKE_ITEM_HIVE1_SHOELACE,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Maybe it could be useful to open things,Podría ser útil para abrir cosas
-95,PHRASE_OBSERVE_ITEM_HIVE1_VALVE,0,SOUND_NONE,DIALOG_ANIMATION_TALK,This valve seems to control water flow to Inn building,Esta válvula parece controlar el flujo de agua a la pensión
-96,PHRASE_USE_SHOELACE_VALVE_BOX,0,SOUND_NONE,DIALOG_ANIMATION_NONE,Much easier with lace help!,Mucho mejor con ayuda del cordón!
-97,PHRASE_USE_HIVE1_VALVE,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Water should be flowing now inside!,El agua ahora debería fluir hacia la pensión
-98,PHRASE_USE_HIVE1_VALVE_NOT,0,SOUND_NONE,DIALOG_ANIMATION_TALK,I am not manipulating that thing again,No pienso volver a manipular eso
-99,PHRASE_OBSERVE_ITEM_HIVE1_MAN_WC_CURED,0,SOUND_NONE,DIALOG_ANIMATION_TALK,He was the man suffering in WC. Now in a better and less embarrassing state,Era el hombre que sufría en el aseo. Ahora en un mejor y menos lamentable estado
-100,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_0,0,SOUND_NONE,DIALOG_ANIMATION_TALK,So. Isn't it the end of the night for you?,Entonces. La noche no acaba aquí?
-101,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_1,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Nope. As I told you night is so young,No. Como te dije la noche es joven
-102,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_2,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Where are you facing to?,A dónde irás ahora?
-103,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_3,1,SOUND_NONE,DIALOG_ANIMATION_TALK,There is a club in the south neighborhood ,Hay un club en el barrio sur
-104,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_0,0,SOUND_NONE,DIALOG_ANIMATION_TALK,This pub you mentioned...,Este club que comentas...
-105,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_1,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Aha?,Aha?
-106,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_2,0,SOUND_NONE,DIALOG_ANIMATION_TALK,You think I could meet people there or ask for job?,Crees que puedo conocer a gente allí o encontrar trabajo?
-107,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_3,1,SOUND_NONE,DIALOG_ANIMATION_TALK,For sure gentleman. Even if it's in south neighborhood. Some business are running well there. You should go some day,Por supuesto caballero. Incluso siendo el barrio sur. Algunos negocios están yendo bien. Deberías pasarte un día
-108,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_4,0,SOUND_NONE,DIALOG_ANIMATION_TALK,I would be pleased,Me encantaría
-109,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_5,1,SOUND_NONE,DIALOG_ANIMATION_TALK,For sure. Take this invitation. It's kind of private and they won't let strangers go inside,Por supuesto. Toma esta invitación. Es un poco privado y no dejan entrar a desconocidos
-110,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_6,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Thank you!,Gracias!
-111,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_2_0,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Well. See you there!,Bueno. Nos vemos pronto!
-112,PHRASE_DIALOG_ARTURO_HALL_INN_INTRO_0,0,SOUND_NONE,DIALOG_ANIMATION_TALK,I'm happy to see you in a better state!,Me alegro de verte en mejor estado
-113,PHRASE_DIALOG_ARTURO_HALL_INN_INTRO_1,1,SOUND_NONE,DIALOG_ANIMATION_TALK,I really appreciate your help this night,Agradezco en verdad tu ayuda esta noche
-114,PHRASE_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL_BLURR,0,SOUND_NONE,DIALOG_ANIMATION_TALK,It seems something was written over the invitation and a relief remains. Maybe I could guess what was written,Parece que se escribió algo sobre la invitación y queda algo de relieve. Quizá pudiera averiguar qué se escribió
-115,PHRASE_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL,0,SOUND_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL,DIALOG_ANIMATION_TALK,An annotation which said <<Less tales and more bread>>. Maybe it was only a coloquialism,Una inscripción que decía <<Menos cuento y más pan>>. Quizá solo sea una frase dicha
-116,PHRASE_OBSERVE_ITEM_PHARMACY_INKWELL,0,SOUND_NONE,DIALOG_ANIMATION_TALK,It's an inkwell which pharmacist uses,Es un bote de tinta que usa el farmacéutico
-117,PHRASE_OBSERVE_ITEM_PHARMACY_INK,0,SOUND_NONE,DIALOG_ANIMATION_TALK,When inkwell flipped left a drop of ink,El bote al volcar dejó un charco de tinta
-118,PHRASE_DIALOG_PHARMACIST_NOT_TAKE_INKWELL_INTRO,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Don't annoy and don't lift my things!,No molestes ni cojas cosas que no son tuyas!
-119,PHRASE_DIALOG_USE_UMBRELLA_WITH_INKWELL,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Maybe if I reach it from far with umbrella...,Quizá si lo alcanzo de lejos con el paraguas...
-120,PHRASE_DIALOG_USE_UMBRELLA_WITH_INKWELL_OWNER,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Stop doing things! IDIOT,Estate quieto! IMBÉCIL
-121,PHRASE_DIALOG_USE_UMBRELLA_WITH_INKWELL_OWNER_2,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Are you swipping this?,Lo vas a fregar tú?
-122,PHRASE_USE_INVITATION_WITH_INK,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Maybe ink could reveal that annotation,Quizá la tinta revele la anotación
-123,PHRASE_USE_INVITATION_WITH_INK_ALREADY,0,SOUND_NONE,DIALOG_ANIMATION_TALK,It has enough ink,Ya tiene suficiente tinta
-124,PHRASE_DIALOG_LAST,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Last one,Last one
+15,PHRASE_DIALOG_REME_3_TEST,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Dance for me. Reme!,Baila Baila para mí!
+16,PHRASE_MEMENTO_FIND_JOB_1,0,SOUND_NONE,DIALOG_ANIMATION_TALK,I moved to find a job. It is important to find something as soon as possible,Me trasladé aquí para encontrar trabajo. Es importante encontrar algo tan pronto como sea
+17,PHRASE_OBSERVE_HIVE1_AD_BOARD_1,0,SOUND_NONE,DIALOG_ANIMATION_TALK,They are offering cooker job in center of city. I don't know how this offer came here. I could try! It's called 'El maño',Se necesita cocinero en el centro de la ciudad. No sé ni cómo este anuncio ha llegado hasta aquí. Se podría intentar! El lugar se llama 'El maño'
+18,PHRASE_NOT_EXIT_HIVE1_HALL_1,0,SOUND_NONE,DIALOG_ANIMATION_TALK,First I need to know WHERE to go,Primero necesitaría saber a dónde voy
+19,PHRASE_NOT_EXIT_HIVE1_HALL_2,0,SOUND_NONE,DIALOG_ANIMATION_TALK,I need to give a good first impression. Cannot go in this way,Debo dar una buena impresión. No puedo ir así
+20,PHRASE_TAKE_HIVE1_BASIN_NO_SOAP,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Self cleaning only with water is a mess,Lavarse solo con agua es una guarrada
+21,PHRASE_TAKE_HIVE1_BASIN_SOAP,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Now that's actually self cleaning,Ahora esto sí que es asearse
+22,PHRASE_USE_HIVE1_PERFUME,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Now that's actually good smelling! My father gifted it to me,Esto sí que es oler bien! Mi padre me lo regaló
+23,PHRASE_USE_HIVE1_PERFUME_NOT_1,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Using perfume not being washed is a pig fact. Not my style,Echarse perfume sin estar limpio es muy cerdo. No es mi estilo
+24,PHRASE_USE_HIVE1_PERFUME_NOT_2,0,SOUND_NONE,DIALOG_ANIMATION_TALK,It's a matter of making it last as long as possible. I already used it,Lo suyo es que el perfume me dure. Ya me he echado
+25,PHRASE_USE_CARDS_REME_1,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Do you want to play with cards?,Quiere usted jugar una partidilla de cartas?
+26,PHRASE_USE_CARDS_REME_2,1,SOUND_NONE,DIALOG_ANIMATION_TALK,WHO did you think I am? Card games is pure evil,QUIEN se ha creido que soy? Los juegos de naipes son el mismísimo demonio
+27,PHRASE_DECISION_NOT_SLEEP,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Don't sleep,No dormir
+28,PHRASE_DECISION_SLEEP_DAY,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Sleep until next morning,Dormir hasta la mañana siguiente
+29,PHRASE_DECISION_SLEEP_NIGHT,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Sleep until night,Dormir hasta la noche
+30,PHRASE_WONT_GO_SOUTH_NEIGH,0,SOUND_NONE,DIALOG_ANIMATION_TALK,That neighborhood is dangerous. Don't need to go there,Ese barrio es muy peligroso. No necesito pasar por ahí
+31,PHRASE_TRY_TALK_PHARMACIST_BUSY,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Excuse me sir. It will be only one second,Disculpe. Solo será un segundo
+32,PHRASE_PHARMACIST_BUSY_1,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Young! Don't you see I'm busy?,Joven! No ves que estoy ocupado?
+33,PHRASE_PHARMACIST_BUSY_2,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Please go to queue if you want something,Por favor. A la cola si quieres algo
+34,PHRASE_HELLO_DEER,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Hello!,Hola!
+35,PHRASE_DIALOG_MANYO_INTRO_1,0,SOUND_NONE,DIALOG_ANIMATION_TALK,How is it going sir?,Cómo va la cosa señor?
+36,PHRASE_DIALOG_MANYO_INTRO_2,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Did you do a reservation?,Hizo reserva para hoy?
+37,PHRASE_DIALOG_MANYO_WORK_NOTE_1,0,SOUND_NONE,DIALOG_ANIMATION_TALK,I saw a note out there. You are searching for a cooker. Right?,Vi una nota. Estáis buscando un cocinero. Verdad?
+38,PHRASE_DIALOG_MANYO_WORK_NOTE_2,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Yes. That was six months ago! We have a cooker and things are going on quite good,Sí. Eso fue hace seis meses! Tenemos cocinero y las cosas están yendo bastante bien
+39,PHRASE_DIALOG_MANYO_WORK_NOTE_3,0,SOUND_NONE,DIALOG_ANIMATION_TALK,I see... Ok. So you are not looking for any worker here,Ya veo... Ok. Entonces no estáis buscando a ningún trabajador aquí
+40,PHRASE_DIALOG_MANYO_WORK_NOTE_4,1,SOUND_NONE,DIALOG_ANIMATION_TALK,I'm sorry for you. By the moment is all covered here,Lo siento por ti. Por el momento aquí está todo cubierto
+41,PHRASE_DIALOG_MANYO_WORKS_CITY_1,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Do you know about some business here looking for a worker?,Conoces de algún negocio por aquí que busquen trabajadores?
+42,PHRASE_DIALOG_MANYO_WORKS_CITY_2,1,SOUND_NONE,DIALOG_ANIMATION_TALK,By the moment... Just wait. I guess Pharmacist in this street was looking for help,Por el momento... Espera. Creo que el boticario de esta calle estaba buscando ayuda
+43,PHRASE_DIALOG_MANYO_MENU_DAY_1,0,SOUND_NONE,DIALOG_ANIMATION_TALK,What are you cooking today?,Qué cocináis para hoy?
+44,PHRASE_DIALOG_MANYO_MENU_DAY_2,1,SOUND_NONE,DIALOG_ANIMATION_TALK,How good is you are asking for it!,Qué bueno que lo preguntes!
+45,PHRASE_DIALOG_MANYO_MENU_DAY_3,1,SOUND_NONE,DIALOG_ANIMATION_TALK,We have boar from La Mancha with potatoes. Also carrot for dessert,Tenemos jabalí manchego con patatas. Y de postre zanahoria
+46,PHRASE_DIALOG_MANYO_MENU_DAY_4,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Yuuk,Puaj
+47,PHRASE_DIALOG_MANYO_MENU_DAY_5,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Are you eating here today?,Comerás aquí hoy?
+48,PHRASE_DIALOG_MANYO_MENU_DAY_6,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Nope,No
+49,PHRASE_DIALOG_MANYO_CROWD_1,0,SOUND_NONE,DIALOG_ANIMATION_TALK,It's incredible. There is no free place this night!,Impresionante. No queda un hueco esta noche
+50,PHRASE_DIALOG_MANYO_CROWD_2,1,SOUND_NONE,DIALOG_ANIMATION_TALK,They are tasting boar with potatoes! But I fear they won't come again if we don't offer new menus,Están probando el jabalí con patatas! Pero temo que no volverán hasta que no ofrezcamos menus nuevos
+51,PHRASE_DIALOG_MANYO_CROWD_3,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Do you know of a new receipt for this restaurant? You wanted to be cooker. Right?,Conoces nuevas recetas para el restaurante? Tú querías ser cocinero. Verdad?
+52,PHRASE_DIALOG_MANYO_CROWD_4,1,SOUND_NONE,DIALOG_ANIMATION_TALK,If you find out new recipes. Don't hesitate and come one morning and tell me. I will reward you,Si averiguas nuevas recetas. No dudes en acercarte una mañana y contarme. Te recompensaré
+53,PHRASE_DIALOG_MANYO_CROWD_5,0,SOUND_NONE,DIALOG_ANIMATION_TALK,I'll review my sources and keep you informed. Sir!,Revisaré mis fuentes y te mantendré informado. Señor!
+54,PHRASE_DIALOG_MANYO_BYE_1,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Have a nice day!,Que tenga un buen día!
+55,PHRASE_MEMENTO_RECIPE_MISSION_1,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Restaurant owner needs a new recipe to have new customers. He promises a reward,El dueño del restaurante necesita una nueva receta para tener nuevos clientes. Él promete una recompensa
+56,PHRASE_DIALOG_MANYO_UMBRELLA_NOT_1,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Is this umbrella yours? Somebody left it days ago. God people don't take what doesn't belong to them,Es tuyo el paraguas? Alguien se lo dejó hace días. La gente de Dios no se apropia de lo que no es suyo
+57,PHRASE_DIALOG_UMBRELLA_TAKEN,0,SOUND_NONE,DIALOG_ANIMATION_TALK,I'll give you back some day!,Te lo traeré de vuelta algún día!
+58,PHRASE_DIALOG_MANYO_BCKG_CROWD_1,0,SOUND_NONE,DIALOG_ANIMATION_NONE,You must try the wine,Tienes que probar el vino!
+59,PHRASE_DIALOG_MANYO_BCKG_CROWD_2,0,SOUND_NONE,DIALOG_ANIMATION_NONE,For sure! I'm getting dry with this meat,Desde luego! Me estoy quedando seco con esta carne
+60,PHRASE_DIALOG_MANYO_BCKG_CROWD_3,0,SOUND_NONE,DIALOG_ANIMATION_NONE,Card match is promising this night,La partida de naipes esta noche va a ser de cine
+61,PHRASE_OBSERVE_ITEM_HIVE1_POOR_MAN_WC,0,SOUND_NONE,DIALOG_ANIMATION_TALK,It was a poor man suffering of a bad dinner,Era un pobre hombre sufriendo de una mala cena
+62,PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_0_0,0,SOUND_FART_1,DIALOG_ANIMATION_TALK,(Prrrrr),(Prrrrr)
+63,PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_1_0,0,SOUND_POOR_MAN_BCKG_1,DIALOG_ANIMATION_TALK,Is this going to end somewhen?,Esto va a acabar algún día?
+64,PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_2_0,0,SOUND_POOR_MAN_BCKG_2,DIALOG_ANIMATION_TALK,This is torture,Esto es una tortura
+65,PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_3_0,0,SOUND_POOR_MAN_BCKG_3,DIALOG_ANIMATION_TALK,I should have never eat that dinner,Nunca debí cenar allí
+66,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_0,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Terrible night. Ah?,Terrible noche. No?
+67,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_1,1,SOUND_NONE,DIALOG_ANIMATION_TALK,It was that Maño restaurant. Boar was terrible,Era el restaurante del Maño. El jabalí estaba horrible
+68,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_2,0,SOUND_NONE,DIALOG_ANIMATION_TALK,I saw it full of people. Don't think it was in bad state,Lo vi a reventar de gente. No creo que estuviera precisamente malo
+69,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_3,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Well. Maybe my stomach is not in mood!,Bueno. Mi estómago no está por la labor
+70,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_1_0,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Are you going to end today?,Piensas terminar algún día?
+71,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_1_1,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Haha. Very funny. If I could. I would be out there. Night is young,Jaja. Muy gracioso. Si pudiera. Estaría por allí. La noche es joven
+72,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_0,0,SOUND_NONE,DIALOG_ANIMATION_TALK,How can I help you?,Como podría ayudarte?
+73,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_1,1,SOUND_NONE,DIALOG_ANIMATION_TALK,This nasty Inn is cutting water at night. I cannot let this in this state,Esta asquerosa pocilga está cortando el agua por las noches. No puedo dejar esto así
+74,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_2,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Ahh. I see...,Ahh. Ya veo..
+75,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_3,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Could you please talk to someone to bring water again?,Podrías por favor hablar con alguien para que vuelva el agua?
+76,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_4,0,SOUND_NONE,DIALOG_ANIMATION_TALK,I will see what can I do. But personnel is absent during day. Even worse at night,Veré lo que puedo hacer. Pero si ya el personal está ausente durante el día. Imagina por la noche
+77,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_3_0,0,SOUND_NONE,DIALOG_ANIMATION_TALK,I need to go. Sorry for your situation!,Necesito irme. Lamento la situación!
+78,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_0,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Did you come to laugh at my disgrace?,Viniste a reirte de mi desgracia?
+79,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_1,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Did I wake you up?,Te desperté?
+80,PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_2,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Are you from health department?,Eres del ministerio de sanidad?
+81,PHRASE_MEMENTO_POOR_MAN_WC_1,0,SOUND_NONE,DIALOG_ANIMATION_TALK,A poor man can't leave WC because there is no water in toilet system,El pobre hombre no puede irse porque no hay agua en las cisternas de los inodoros
+82,PHRASE_MEMENTO_POOR_MAN_WC_2,0,SOUND_NONE,DIALOG_ANIMATION_TALK,It seems to be a valve in back alley but is closed,Parece haber una válvula en el callejón de atrás pero está cerrada
+83,PHRASE_MEMENTO_POOR_MAN_WC_3,0,SOUND_NONE,DIALOG_ANIMATION_TALK,When water came back. This man gave me an invitation to a Pub where I could meet someone for a job,Cuando el agua volvió. Este hombre me dio una invitación a un Pub donde podría conocer a alguien para un trabajo
+84,PHRASE_OBSERVE_ITEM_HIVE1_ROACH,0,SOUND_NONE,DIALOG_ANIMATION_TALK,It is a tiny cockroach! The only living being human is terrified of,Es una cucarachita pequeña! El único ser vivo al que el ser humano teme
+85,PHRASE_OBSERVE_ITEM_HIVE1_PIPE,0,SOUND_NONE,DIALOG_ANIMATION_TALK,This pipe may bring water to toilets and is comming from outside,This pipe may bring water to toilets and is comming from outside
+86,PHRASE_TAKE_ITEM_HIVE1_ROACH_HEAD,0,SOUND_NONE,DIALOG_ANIMATION_TALK,It squeezed! I need to try it again or be smarter,Se escapó! Necesito volver a intentarlo o ser más listo que ella
+87,PHRASE_OBSERVE_ITEM_HIVE1_VALVE_BOX,0,SOUND_NONE,DIALOG_ANIMATION_TALK,It seems like a closed box for some mechanism,Parece una caja de control de algún mecanismo
+88,PHRASE_OBSERVE_ITEM_HIVE1_BACKALLEY_PIPE,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Its a normal pipe,Es una tubería normal
+89,PHRASE_OBSERVE_ITEM_HIVE1_BACKALLEY_PIPE_2,0,SOUND_NONE,DIALOG_ANIMATION_TALK,This is the next part of toilets pipe. Therefore Its valve should be in that box,Esta es la continuación de la tubería de los aseos. Por lo que la válvula debería estar en ese cuadro
+90,PHRASE_OBSERVE_ITEM_HIVE1_VALVE_BOX_2,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Valve to activate water should be inside that box,La válvula para abrir el agua debería estar dentro de ese cuadro
+91,PHRASE_TAKE_VALVE_BOX_CLOSED,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Door is unlocked. But its hard to open. I can't put my fingers inside and open,La cerradura está abierta. Pero es difícil de abrir. No me caben los dedos en la rendija para abrir
+92,PHRASE_TAKE_VALVE_BOX_CLOSED_MORNING,0,SOUND_NONE,DIALOG_ANIMATION_TALK,I don't want to be seen manipulating things at this hour,No quiero que me vean manipulando cosas a esta hora del día
+93,PHRASE_OBSERVE_ITEM_HIVE1_SHOELACE,0,SOUND_OBSERVE_ITEM_SHOELACE,DIALOG_ANIMATION_TALK,It's a shoelace lost from some guest,Es el cordón de bota de algún huesped
+94,PHRASE_NO_REASON_TO_DO,0,SOUND_NONE,DIALOG_ANIMATION_TALK,I don't have a reason to take it,No tengo razón para cogerlo
+95,PHRASE_TAKE_ITEM_HIVE1_SHOELACE,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Maybe it could be useful to open things,Podría ser útil para abrir cosas
+96,PHRASE_OBSERVE_ITEM_HIVE1_VALVE,0,SOUND_NONE,DIALOG_ANIMATION_TALK,This valve seems to control water flow to Inn building,Esta válvula parece controlar el flujo de agua a la pensión
+97,PHRASE_USE_SHOELACE_VALVE_BOX,0,SOUND_NONE,DIALOG_ANIMATION_NONE,Much easier with lace help!,Mucho mejor con ayuda del cordón!
+98,PHRASE_USE_HIVE1_VALVE,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Water should be flowing now inside!,El agua ahora debería fluir hacia la pensión
+99,PHRASE_USE_HIVE1_VALVE_NOT,0,SOUND_NONE,DIALOG_ANIMATION_TALK,I am not manipulating that thing again,No pienso volver a manipular eso
+100,PHRASE_OBSERVE_ITEM_HIVE1_MAN_WC_CURED,0,SOUND_NONE,DIALOG_ANIMATION_TALK,He was the man suffering in WC. Now in a better and less embarrassing state,Era el hombre que sufría en el aseo. Ahora en un mejor y menos lamentable estado
+101,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_0,0,SOUND_NONE,DIALOG_ANIMATION_TALK,So. Isn't it the end of the night for you?,Entonces. La noche no acaba aquí?
+102,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_1,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Nope. As I told you night is so young,No. Como te dije la noche es joven
+103,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_2,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Where are you facing to?,A dónde irás ahora?
+104,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_3,1,SOUND_NONE,DIALOG_ANIMATION_TALK,There is a club in the south neighborhood ,Hay un club en el barrio sur
+105,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_0,0,SOUND_NONE,DIALOG_ANIMATION_TALK,This pub you mentioned...,Este club que comentas...
+106,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_1,1,SOUND_NONE,DIALOG_ANIMATION_TALK,Aha?,Aha?
+107,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_2,0,SOUND_NONE,DIALOG_ANIMATION_TALK,You think I could meet people there or ask for job?,Crees que puedo conocer a gente allí o encontrar trabajo?
+108,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_3,1,SOUND_NONE,DIALOG_ANIMATION_TALK,For sure gentleman. Even if it's in south neighborhood. Some business are running well there. You should go some day,Por supuesto caballero. Incluso siendo el barrio sur. Algunos negocios están yendo bien. Deberías pasarte un día
+109,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_4,0,SOUND_NONE,DIALOG_ANIMATION_TALK,I would be pleased,Me encantaría
+110,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_5,1,SOUND_NONE,DIALOG_ANIMATION_TALK,For sure. Take this invitation. It's kind of private and they won't let strangers go inside,Por supuesto. Toma esta invitación. Es un poco privado y no dejan entrar a desconocidos
+111,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_6,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Thank you!,Gracias!
+112,PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_2_0,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Well. See you there!,Bueno. Nos vemos pronto!
+113,PHRASE_DIALOG_ARTURO_HALL_INN_INTRO_0,0,SOUND_NONE,DIALOG_ANIMATION_TALK,I'm happy to see you in a better state!,Me alegro de verte en mejor estado
+114,PHRASE_DIALOG_ARTURO_HALL_INN_INTRO_1,1,SOUND_NONE,DIALOG_ANIMATION_TALK,I really appreciate your help this night,Agradezco en verdad tu ayuda esta noche
+115,PHRASE_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL_BLURR,0,SOUND_NONE,DIALOG_ANIMATION_TALK,It seems something was written over the invitation and a relief remains. Maybe I could guess what was written,Parece que se escribió algo sobre la invitación y queda algo de relieve. Quizá pudiera averiguar qué se escribió
+116,PHRASE_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL,0,SOUND_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL,DIALOG_ANIMATION_TALK,An annotation which said <<Less tales and more bread>>. Maybe it was only a coloquialism,Una inscripción que decía <<Menos cuento y más pan>>. Quizá solo sea una frase dicha
+117,PHRASE_OBSERVE_ITEM_PHARMACY_INKWELL,0,SOUND_NONE,DIALOG_ANIMATION_TALK,It's an inkwell which pharmacist uses,Es un bote de tinta que usa el farmacéutico
+118,PHRASE_OBSERVE_ITEM_PHARMACY_INK,0,SOUND_NONE,DIALOG_ANIMATION_TALK,When inkwell flipped left a drop of ink,El bote al volcar dejó un charco de tinta
+119,PHRASE_DIALOG_PHARMACIST_NOT_TAKE_INKWELL_INTRO,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Don't annoy and don't lift my things!,No molestes ni cojas cosas que no son tuyas!
+120,PHRASE_DIALOG_USE_UMBRELLA_WITH_INKWELL,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Maybe if I reach it from far with umbrella...,Quizá si lo alcanzo de lejos con el paraguas...
+121,PHRASE_DIALOG_USE_UMBRELLA_WITH_INKWELL_OWNER,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Stop doing things! IDIOT,Estate quieto! IMBÉCIL
+122,PHRASE_DIALOG_USE_UMBRELLA_WITH_INKWELL_OWNER_2,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Are you swipping this?,Lo vas a fregar tú?
+123,PHRASE_USE_INVITATION_WITH_INK,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Maybe ink could reveal that annotation,Quizá la tinta revele la anotación
+124,PHRASE_USE_INVITATION_WITH_INK_ALREADY,0,SOUND_NONE,DIALOG_ANIMATION_TALK,It has enough ink,Ya tiene suficiente tinta
+125,PHRASE_DIALOG_LAST,0,SOUND_NONE,DIALOG_ANIMATION_TALK,Last one,Last one

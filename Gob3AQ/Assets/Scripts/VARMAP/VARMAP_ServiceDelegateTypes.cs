@@ -77,10 +77,10 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void BACKGROUND_ITEM_TASK_DELEGATE(ItemInteractionType autoType, CharacterType character, out InteractionUsageOutcome outcome);
     public delegate void PLAY_SOUND_DELEGATE(GameSound sound, Action callback);
     public delegate void STOP_SOUND_DELEGATE(GameSound sound);
-    public delegate void START_ANIMATION_DELEGATE(GameAnimation animation, bool mainMode, Action callback);
-    public delegate void ITEM_PERFORM_ANIMATION_DELEGATE(GameItem item, AnimationTrigger trigger, Action<GameItem> callback);
+    public delegate void START_ANIMATION_DELEGATE(GameAnimation animation, bool mainMode);
+    public delegate void ITEM_PERFORM_ANIMATION_DELEGATE(GameItem item, AnimationTrigger trigger, Action callback);
     public delegate void PERFORM_ACTION_DELEGATE(ReadOnlySpan<GameAction> actions, Action callback);
     public delegate void IS_DIALOG_ACTIVE_DELEGATE(out bool active);
-    public delegate void NOTIFY_ENDED_ACTION();
+    public delegate void NOTIFY_ENDED_ACTION(NotifyAction notify);
 
 }

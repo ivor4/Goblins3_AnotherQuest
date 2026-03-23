@@ -121,6 +121,8 @@ namespace Gob3AQ.GameElement.PlayableChar
             myCollider = topParent.GetComponent<Collider2D>();
             myRigidbody = topParent.GetComponent<Rigidbody2D>();
             myAnimator = topParent.GetComponent<Animator>();
+            myAnimatorBehavior = myAnimator.GetBehaviour<GenericAnimBehavior>();
+            myAnimatorBehavior.SetOnStartEndCallback(OnAnimationStart, OnAnimationEnd);
 
             sceneOrigSize = _parentTransform.localScale;
 

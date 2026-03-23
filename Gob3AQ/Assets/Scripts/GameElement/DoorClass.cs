@@ -28,7 +28,6 @@ namespace Gob3AQ.GameElement.Item.Door
             mySpriteRenderer = topParent.GetComponent<SpriteRenderer>();
             myCollider = topParent.GetComponent<Collider2D>();
             myRigidbody = topParent.GetComponent<Rigidbody2D>();
-            myAnimator = topParent.GetComponent<Animator>();
 
             _doorInfo = new DoorInfo(_roomLeadTo, _waypointLeadTo);
 

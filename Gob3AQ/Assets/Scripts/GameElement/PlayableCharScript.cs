@@ -141,7 +141,6 @@ namespace Gob3AQ.GameElement.PlayableChar
             PlayerMasterClass.SetPlayerLoadPresent(CharType);
 
             VARMAP_PlayerMaster.MONO_REGISTER(this, true);
-            VARMAP_PlayerMaster.REG_PLAYER_SELECTED(ChangedSelectedPlayerEvent);
             VARMAP_PlayerMaster.GET_WP_LIST(out waypoints_pos, out waypoints_sizes, out solutions);
 
             /* Start loading coroutine */
@@ -161,7 +160,6 @@ namespace Gob3AQ.GameElement.PlayableChar
             base.VirtualDestroy();
 
             VARMAP_PlayerMaster.MONO_REGISTER(this, false);
-            VARMAP_PlayerMaster.UNREG_PLAYER_SELECTED(ChangedSelectedPlayerEvent);
         }
 
 
@@ -314,15 +312,6 @@ namespace Gob3AQ.GameElement.PlayableChar
                 actTimeout = 0f;
                 physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
                 continueOp = false;
-
-                if(selected)
-                {
-                    mySpriteRenderer.color = Color.red;
-                }
-                else
-                {
-                    mySpriteRenderer.color = Color.white;
-                }
             }
             else
             {
@@ -389,34 +378,13 @@ namespace Gob3AQ.GameElement.PlayableChar
             actualProgrammedPath.delta_size = 0f;
         }
 
-        private void ActAnimationRequest(CharacterAnimation animation)
-        {
-            _ = animation;
-
-            physicalstate = PhysicalState.PHYSICAL_STATE_ACTING;
-            mySpriteRenderer.color = Color.blue;
-            actTimeout = 1f;
-        }
 
 #endregion
 
 
-        #region "Events"
-        private void ChangedSelectedPlayerEvent(ChangedEventType eventType, in CharacterType oldval, in CharacterType newval)
-        {
-            if (newval == charType)
-            {
-                mySpriteRenderer.color = Color.red;
-                selected = true;
-            }
-            else
-            {
-                mySpriteRenderer.color = Color.white;
-                selected = false;
-            }
-        }
+#region "Events"
 
-        #endregion
+#endregion
 
 
     }

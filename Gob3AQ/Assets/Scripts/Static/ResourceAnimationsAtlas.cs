@@ -48,14 +48,14 @@ namespace Gob3AQ.ResourceAnimationsAtlas
                 new(AnimationSrcTrigger.SRC_TRIGGER_ANIM_END, 0f,
                     new AnimationActionConfig[]
                     {
-                        new(noAction, GameItem.ITEM_HIVE1_NPC_REME, AnimationTrigger.TRIGGER_SPECIAL_ONE),   /* Action 1 */
+                        new(noAction, GameItem.ITEM_HIVE1_NPC_REME, AnimationTrigger.TRIGGER_SPECIAL_ONE, GameSound.SOUND_NONE),   /* Action 1 */
                     }
                 ),
                 /* Milestone 2 */
                 new(AnimationSrcTrigger.SRC_TRIGGER_CALLBACK, 0f,
                     new AnimationActionConfig[]
                     {
-                        new(noAction, GameItem.ITEM_NONE, AnimationTrigger.TRIGGER_ONE),   /* Action 1 */
+                        new(noAction, GameItem.ITEM_NONE, AnimationTrigger.TRIGGER_ONE, GameSound.SOUND_NONE),   /* Action 1 */
                     }
                 ),
             }),
@@ -67,7 +67,7 @@ namespace Gob3AQ.ResourceAnimationsAtlas
                 new(AnimationSrcTrigger.SRC_TRIGGER_ANIM_END, 0f,
                     new AnimationActionConfig[]
                     {
-                        new(noAction, GameItem.ITEM_PLAYER_MAIN, AnimationTrigger.TRIGGER_ONE),   /* Action 1 */
+                        new(noAction, GameItem.ITEM_PLAYER_MAIN, AnimationTrigger.TRIGGER_ONE, GameSound.SOUND_NONE),   /* Action 1 */
                     }
                 ),
             }),

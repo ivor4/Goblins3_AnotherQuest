@@ -267,14 +267,16 @@ namespace Gob3AQ.VARMAP.Types
         private readonly GameAction[] triggeredActions;
         public readonly GameItem dstItem;
         public readonly AnimationTrigger trigger;
+        public readonly GameSound sound;
 
-        public static readonly AnimationActionConfig EMPTY = new(new GameAction[0], GameItem.ITEM_NONE, AnimationTrigger.TRIGGER_ONE);
+        public static readonly AnimationActionConfig EMPTY = new(new GameAction[0], GameItem.ITEM_NONE, AnimationTrigger.TRIGGER_ONE, GameSound.SOUND_NONE);
 
-        public AnimationActionConfig(GameAction[] triggeredActions, GameItem dstItem, AnimationTrigger trigger)
+        public AnimationActionConfig(GameAction[] triggeredActions, GameItem dstItem, AnimationTrigger trigger, GameSound sound)
         {
             this.triggeredActions = triggeredActions;
             this.dstItem = dstItem;
             this.trigger = trigger;
+            this.sound = sound;
         }
     }
 

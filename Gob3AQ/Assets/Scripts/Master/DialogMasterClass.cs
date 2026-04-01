@@ -27,9 +27,8 @@ namespace Gob3AQ.DialogMaster
 
         private enum AnimationState
         {
-            UNINITIALIZED,
             WAITING_TRIGGER,
-            PERFORMING_ACTION
+            ENDED
         }
 
         private class AnimationRuntime
@@ -41,17 +40,11 @@ namespace Gob3AQ.DialogMaster
             private AnimationState state;
             private bool callbackReceived;
 
-            public bool CallbackReceived => callbackReceived;
             public bool IsMainMode => isMainMode;
 
             public AnimationRuntime()
             {
-                isMainMode = false;
-                animation = GameAnimation.ANIMATION_NONE;
-                prevMilestoneTimestamp = 0;
-                milestoneIndex = 0;
-                state = AnimationState.UNINITIALIZED;
-                callbackReceived = false;
+                Configure(false, GameAnimation.ANIMATION_NONE, 0);
             }
 
             public void Configure(bool isMainMode, GameAnimation animation, ulong startTimestamp)
@@ -60,7 +53,7 @@ namespace Gob3AQ.DialogMaster
                 this.animation = animation;
                 prevMilestoneTimestamp = startTimestamp;
                 milestoneIndex = 0;
-                state = AnimationState.UNINITIALIZED;
+                state = AnimationState.WAITING_TRIGGER;
                 callbackReceived = false;
             }
 
@@ -74,11 +67,6 @@ namespace Gob3AQ.DialogMaster
 
                 switch(state)
                 {
-                    case AnimationState.UNINITIALIZED:
-                        ended = false;
-                        state = AnimationState.WAITING_TRIGGER;
-                    break;
-
                     case AnimationState.WAITING_TRIGGER:
                         ended = false;
                         bool executeActions;
@@ -100,31 +88,32 @@ namespace Gob3AQ.DialogMaster
 
                         if(executeActions)
                         {
-                            state = AnimationState.PERFORMING_ACTION;
+                            callbackReceived = false;
+                            prevMilestoneTimestamp = timestamp;
+
+                            foreach (AnimationActionConfig actionconfig in milestoneConfig.Actions)
+                            {
+                                VARMAP_DialogMaster.PERFORM_ACTION(actionconfig.TriggeredActions, null);
+                                VARMAP_DialogMaster.ITEM_PERFORM_ANIMATION(actionconfig.dstItem, actionconfig.trigger, AnimationEndCallback);
+                                if(actionconfig.sound != GameSound.SOUND_NONE)
+                                {
+                                    VARMAP_DialogMaster.PLAY_SOUND(actionconfig.sound, null);
+                                }
+                            }
+
+                            if (milestoneIndex == animationConfig.Milestones.Length - 1)
+                            {
+                                ended = true;
+                                state = AnimationState.ENDED;
+                            }
+                            else
+                            {
+                                ++milestoneIndex;
+                                ended = false;
+                                state = AnimationState.WAITING_TRIGGER;
+                            }
                         }
                     break;
-
-                    case AnimationState.PERFORMING_ACTION:
-                        callbackReceived = false;
-                        foreach (AnimationActionConfig actionconfig in milestoneConfig.Actions)
-                        {
-                            VARMAP_DialogMaster.PERFORM_ACTION(actionconfig.TriggeredActions, null);
-                            VARMAP_DialogMaster.ITEM_PERFORM_ANIMATION(actionconfig.dstItem, actionconfig.trigger, AnimationEndCallback);
-                        }
-
-                        prevMilestoneTimestamp = timestamp;
-
-                        if (milestoneIndex == animationConfig.Milestones.Length - 1)
-                        {
-                            ended = true;
-                        }
-                        else
-                        {
-                            ++milestoneIndex;
-                            ended = false;
-                            state = AnimationState.WAITING_TRIGGER;
-                        }
-                        break;
 
                     default:
                         ended = true;

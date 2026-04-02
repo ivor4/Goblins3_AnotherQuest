@@ -237,7 +237,7 @@ namespace Gob3AQ.GameElement
         protected void UpdateSortingOrder()
         {
             /* Set sorting order based on its actual Y */
-            mySpriteRenderer.sortingOrder = -(int)(mySpriteRenderer.bounds.min.y * 1000);
+            mySpriteRenderer.sortingOrder = -(int)(transform.position.y * 1000);
         }
 
 

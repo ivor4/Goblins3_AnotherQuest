@@ -84,7 +84,8 @@ namespace Gob3AQ.ResourceAtlas
         {
             HashSet<PrefabEnum> editableHash = new(GameFixedConfig.MAX_CACHED_PREFABS)
             {
-                PrefabEnum.PREFAB_MEMENTO_ITEM
+                PrefabEnum.PREFAB_MEMENTO_ITEM,
+                PrefabEnum.PREFAB_MAINCHARACTER
             };
 
             _fixedPrefabsToLoad = new(editableHash);
@@ -191,6 +192,7 @@ namespace Gob3AQ.ResourceAtlas
         private static readonly string[] _PrefabAddressableName = new string[(int)PrefabEnum.PREFAB_TOTAL]
         {
             "PREFAB_MEMENTO",
+            "PREFAB_MAINCHARACTER",
             "PREFAB_DETAIL_EXTRAPERLO",
         };
 

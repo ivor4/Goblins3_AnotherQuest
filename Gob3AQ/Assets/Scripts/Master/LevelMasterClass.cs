@@ -276,6 +276,8 @@ namespace Gob3AQ.LevelMaster
 
         private IEnumerator LoadCoroutine()
         {
+            PlaceCharactersOnLoad();
+
             while (!somePlayerRegistered)
             {
                 yield return ResourceAtlasClass.WaitForNextFrame;
@@ -294,6 +296,11 @@ namespace Gob3AQ.LevelMaster
             VARMAP_LevelMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_LevelMaster);
         }
 
+        private void PlaceCharactersOnLoad()
+        {
+            GameObject maincharPrefab = ResourceAtlasClass.GetPrefab(PrefabEnum.PREFAB_MAINCHARACTER);
+            _ = Instantiate(maincharPrefab);
+        }
 
         private void Update()
         {
@@ -744,6 +751,10 @@ namespace Gob3AQ.LevelMaster
                         _HoveredPending.Clear();
                         VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
                         VARMAP_LevelMaster.SET_ITEM_HOVER(_HoveredElem.item);
+
+                        _WP_Pos_List = null;
+                        _WP_Size_List = null;
+                        _WP_Solution_List = null;
                         break;
                     case Game_Status.GAME_STATUS_LOADING:
                         StartCoroutine(LoadCoroutine());

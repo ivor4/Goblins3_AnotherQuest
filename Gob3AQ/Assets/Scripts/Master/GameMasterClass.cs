@@ -455,6 +455,7 @@ namespace Gob3AQ.GameMaster
             moduleLoadingDone = 0;
 
             /* Unlaod previous room resources */
+            SceneManager.SetActiveScene(baseScene.Result.Scene);
             yield return UnloadPreviousRoomResources(false);
 
             /* Load texts */
@@ -474,7 +475,7 @@ namespace Gob3AQ.GameMaster
             yield return soundsCoroutine;
             yield return prefabsCoroutine;
 
-            _SetGameStatus(Game_Status.GAME_STATUS_LOADING);
+            
 
             /* Now load desired room and its resources */
             string resourceName = GameFixedConfig.ROOM_TO_SCENE_NAME[(int)room];
@@ -483,9 +484,15 @@ namespace Gob3AQ.GameMaster
             nextRoom = Addressables.LoadSceneAsync(resourceName, LoadSceneMode.Additive, true);
             yield return nextRoom;
 
+            SceneManager.SetActiveScene(nextRoom.Result.Scene);
+
             /* Move to previous for next load */
             prevRoom = nextRoom;
             prevRoomLoaded = true;
+
+            yield return ResourceAtlasClass.WaitForNextFrame;
+
+            _SetGameStatus(Game_Status.GAME_STATUS_LOADING);
 
             yield return ResourceAtlasClass.WaitForNextFrame;
 

@@ -40,7 +40,6 @@ namespace Gob3AQ.GameElement.PlayableChar
         private PhysicalState physicalstate;
         private float actTimeout;
 
-        private bool selected;
         private WaypointProgrammedPath actualProgrammedPath;
 
         private Vector3 sceneOrigSize;
@@ -134,7 +133,6 @@ namespace Gob3AQ.GameElement.PlayableChar
             base.Start();
 
             physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
-            selected = false;
             actTimeout = 0f;
             SetAvailable(true);
 
@@ -189,14 +187,8 @@ namespace Gob3AQ.GameElement.PlayableChar
 
                 if (wpStartIndex == -1)
                 {
-                    if (startingWaypoint == null)
-                    {
-                        VARMAP_ItemMaster.GET_NEAREST_WP(transform.position, float.MaxValue, out actualWaypoint, out _);
-                    }
-                    else
-                    {
-                        actualWaypoint = startingWaypoint.ID_in_Network;
-                    }
+                    actualWaypoint = 0;
+                    
                 }
                 else
                 {

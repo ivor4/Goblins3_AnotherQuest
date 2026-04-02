@@ -71,6 +71,7 @@ namespace Gob3AQ.VARMAP.Types
     {
         PREFAB_NONE = -1,
         PREFAB_MEMENTO_ITEM,
+        PREFAB_MAINCHARACTER,
         PREFAB_DETAIL_EXTRAPERLO,
 
         PREFAB_TOTAL

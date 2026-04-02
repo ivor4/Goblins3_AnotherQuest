@@ -234,10 +234,10 @@ namespace Gob3AQ.GameElement
             hoverInfo = new(itemID, gameElementFamily, actualWaypoint, hoverPriority, compound);           
         }
 
-        protected void UpdateSortingOrder()
+        protected virtual void UpdateSortingOrder()
         {
             /* Set sorting order based on its actual Y */
-            mySpriteRenderer.sortingOrder = -(int)(transform.position.y * 1000);
+            mySpriteRenderer.sortingOrder = -(int)(mySpriteRenderer.bounds.min.y * 1000);
         }
 
 

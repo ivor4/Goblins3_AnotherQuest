@@ -91,6 +91,8 @@ namespace Gob3AQ.GameElement.PlayableChar
             {
                 actualProgrammedPath.final_index = destWp_index;
                 physicalstate = PhysicalState.PHYSICAL_STATE_WALKING;
+                myAnimator.SetInteger("Int_Walkdir", 1);
+                myAnimator.SetTrigger("Tr_Walk");
 
                 SetActive_Internal(true);
                 Walk_StartNextSegment(false);
@@ -151,7 +153,11 @@ namespace Gob3AQ.GameElement.PlayableChar
             Execute_Play();
         }
 
-
+        protected override void UpdateSortingOrder()
+        {
+            /* Set sorting order based on its actual Y */
+            mySpriteRenderer.sortingOrder = -(int)(_parentTransform.position.y * 1000);
+        }
 
         public override void VirtualDestroy()
         {
@@ -277,6 +283,8 @@ namespace Gob3AQ.GameElement.PlayableChar
                     physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
                     myRigidbody.linearVelocity = Vector2.zero;
                     SetSize(waypoints_sizes[actualWaypoint]);
+
+                    myAnimator.SetTrigger("Tr_Steady");
 
                     continueOp = StartBufferedInteraction();
                 }

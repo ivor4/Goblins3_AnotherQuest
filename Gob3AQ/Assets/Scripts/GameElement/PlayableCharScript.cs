@@ -352,17 +352,17 @@ namespace Gob3AQ.GameElement.PlayableChar
             float absDeltaY = Mathf.Abs(delta.y);
             AnimationTrigger walkdirTrigger;
 
-            if(absDeltaX >= 0.95f)
+            if(absDeltaX >= 0.985f)
             {
                 walkdirTrigger = AnimationTrigger.TRIGGER_WALK_SIDE;
 
                 mySpriteRenderer.flipX = delta.x > 0;
             }
-            else if(absDeltaX >= 0.25f)
+            else if(absDeltaX >= 0.173f)
             {
                 if (delta.y >= 0f)
                 {
-                    walkdirTrigger = AnimationTrigger.TRIGGER_WALK_BACK;
+                    walkdirTrigger = AnimationTrigger.TRIGGER_WALK_CORNERBACK;
                 }
                 else
                 {

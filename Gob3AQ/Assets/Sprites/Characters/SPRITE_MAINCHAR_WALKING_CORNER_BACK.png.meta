@@ -1,0 +1,535 @@
+fileFormatVersion: 2
+guid: 277da43d225803f4e8cb6bc0eea6ba4f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 638470769108637896
+    second: SPRITE_MAINCHAR_WALKING_CORNER_BACK_0
+  - first:
+      213: -3198086119950342118
+    second: SPRITE_MAINCHAR_WALKING_CORNER_BACK_1
+  - first:
+      213: 5809850155538672811
+    second: SPRITE_MAINCHAR_WALKING_CORNER_BACK_2
+  - first:
+      213: -1801022634704661656
+    second: SPRITE_MAINCHAR_WALKING_CORNER_BACK_3
+  - first:
+      213: -1059798535116880852
+    second: SPRITE_MAINCHAR_WALKING_CORNER_BACK_4
+  - first:
+      213: 6714729660963000744
+    second: SPRITE_MAINCHAR_WALKING_CORNER_BACK_5
+  - first:
+      213: 5716095784499072816
+    second: SPRITE_MAINCHAR_WALKING_CORNER_BACK_6
+  - first:
+      213: 50324473748182531
+    second: SPRITE_MAINCHAR_WALKING_CORNER_BACK_7
+  - first:
+      213: 2035033128688395687
+    second: SPRITE_MAINCHAR_WALKING_CORNER_BACK_8
+  - first:
+      213: -6423322176544553491
+    second: SPRITE_MAINCHAR_WALKING_CORNER_BACK_9
+  - first:
+      213: 6412124725326342278
+    second: SPRITE_MAINCHAR_WALKING_CORNER_BACK_10
+  - first:
+      213: 3529907063460906612
+    second: SPRITE_MAINCHAR_WALKING_CORNER_BACK_11
+  - first:
+      213: 4900754484189560994
+    second: SPRITE_MAINCHAR_WALKING_CORNER_BACK_12
+  - first:
+      213: -733341356852443645
+    second: SPRITE_MAINCHAR_WALKING_CORNER_BACK_13
+  - first:
+      213: -6964430157657880274
+    second: SPRITE_MAINCHAR_WALKING_CORNER_BACK_14
+  - first:
+      213: 7198109144387119589
+    second: SPRITE_MAINCHAR_WALKING_CORNER_BACK_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_CORNER_BACK_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c8d03028cd4cd800800000000000000
+      internalID: 638470769108637896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_CORNER_BACK_1
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a18a04b3e9d1e93d0800000000000000
+      internalID: -3198086119950342118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_CORNER_BACK_2
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bac612f3febb0a050800000000000000
+      internalID: 5809850155538672811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_CORNER_BACK_3
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8639df9b47b7107e0800000000000000
+      internalID: -1801022634704661656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_CORNER_BACK_4
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2401ece8d6da41f0800000000000000
+      internalID: -1059798535116880852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_CORNER_BACK_5
+      rect:
+        serializedVersion: 2
+        x: 1720
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a19a7cec038f2d50800000000000000
+      internalID: 6714729660963000744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_CORNER_BACK_6
+      rect:
+        serializedVersion: 2
+        x: 2064
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03fcc21b4d6a35f40800000000000000
+      internalID: 5716095784499072816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_CORNER_BACK_7
+      rect:
+        serializedVersion: 2
+        x: 2408
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 306d44d97d9c2b000800000000000000
+      internalID: 50324473748182531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_CORNER_BACK_8
+      rect:
+        serializedVersion: 2
+        x: 2752
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a5af9539d3ed3c10800000000000000
+      internalID: 2035033128688395687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_CORNER_BACK_9
+      rect:
+        serializedVersion: 2
+        x: 3096
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de54c2d3386cbd6a0800000000000000
+      internalID: -6423322176544553491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_CORNER_BACK_10
+      rect:
+        serializedVersion: 2
+        x: 3440
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 688639cf6717cf850800000000000000
+      internalID: 6412124725326342278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_CORNER_BACK_11
+      rect:
+        serializedVersion: 2
+        x: 3784
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 476cabf95cfbcf030800000000000000
+      internalID: 3529907063460906612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_CORNER_BACK_12
+      rect:
+        serializedVersion: 2
+        x: 4128
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a08581fc3af20440800000000000000
+      internalID: 4900754484189560994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_CORNER_BACK_13
+      rect:
+        serializedVersion: 2
+        x: 4472
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30605bddbe5a2d5f0800000000000000
+      internalID: -733341356852443645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_CORNER_BACK_14
+      rect:
+        serializedVersion: 2
+        x: 4816
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e29c8c5bbaf595f90800000000000000
+      internalID: -6964430157657880274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_CORNER_BACK_15
+      rect:
+        serializedVersion: 2
+        x: 5160
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e96fad2122d4e360800000000000000
+      internalID: 7198109144387119589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 8b264b39a934e0c40931bfc4f4b5640d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":16.0,"y":1.0},"gridSpriteSize":{"x":344.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_MAINCHAR_WALKING_CORNER_BACK_0: 638470769108637896
+      SPRITE_MAINCHAR_WALKING_CORNER_BACK_1: -3198086119950342118
+      SPRITE_MAINCHAR_WALKING_CORNER_BACK_10: 6412124725326342278
+      SPRITE_MAINCHAR_WALKING_CORNER_BACK_11: 3529907063460906612
+      SPRITE_MAINCHAR_WALKING_CORNER_BACK_12: 4900754484189560994
+      SPRITE_MAINCHAR_WALKING_CORNER_BACK_13: -733341356852443645
+      SPRITE_MAINCHAR_WALKING_CORNER_BACK_14: -6964430157657880274
+      SPRITE_MAINCHAR_WALKING_CORNER_BACK_15: 7198109144387119589
+      SPRITE_MAINCHAR_WALKING_CORNER_BACK_2: 5809850155538672811
+      SPRITE_MAINCHAR_WALKING_CORNER_BACK_3: -1801022634704661656
+      SPRITE_MAINCHAR_WALKING_CORNER_BACK_4: -1059798535116880852
+      SPRITE_MAINCHAR_WALKING_CORNER_BACK_5: 6714729660963000744
+      SPRITE_MAINCHAR_WALKING_CORNER_BACK_6: 5716095784499072816
+      SPRITE_MAINCHAR_WALKING_CORNER_BACK_7: 50324473748182531
+      SPRITE_MAINCHAR_WALKING_CORNER_BACK_8: 2035033128688395687
+      SPRITE_MAINCHAR_WALKING_CORNER_BACK_9: -6423322176544553491
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

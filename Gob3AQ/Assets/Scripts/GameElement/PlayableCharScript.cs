@@ -1,5 +1,6 @@
 using Gob3AQ.FixedConfig;
 using Gob3AQ.PlayerMaster;
+using Gob3AQ.ResourceAnimationsAtlas;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.VARMAP.ItemMaster;
 using Gob3AQ.VARMAP.PlayerMaster;
@@ -91,9 +92,7 @@ namespace Gob3AQ.GameElement.PlayableChar
             {
                 actualProgrammedPath.final_index = destWp_index;
                 physicalstate = PhysicalState.PHYSICAL_STATE_WALKING;
-                myAnimator.SetInteger("Int_Walkdir", 1);
-                myAnimator.SetTrigger("Tr_Walk");
-
+                
                 SetActive_Internal(true);
                 Walk_StartNextSegment(false);
 
@@ -284,7 +283,9 @@ namespace Gob3AQ.GameElement.PlayableChar
                     myRigidbody.linearVelocity = Vector2.zero;
                     SetSize(waypoints_sizes[actualWaypoint]);
 
-                    myAnimator.SetTrigger("Tr_Steady");
+                    ResetWalkTriggers();
+                    myAnimator.SetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_STR[AnimationTrigger.TRIGGER_STEADY]);
+                    mySpriteRenderer.flipX = false;
 
                     continueOp = StartBufferedInteraction();
                 }
@@ -347,10 +348,56 @@ namespace Gob3AQ.GameElement.PlayableChar
                 speed_reduction_factor = actualProgrammedPath.wp_distance / actualProgrammedPath.wp_distance3D;
             }
 
+            float absDeltaX = Mathf.Abs(delta.x);
+            float absDeltaY = Mathf.Abs(delta.y);
+            AnimationTrigger walkdirTrigger;
+
+            if(absDeltaX >= 0.95f)
+            {
+                walkdirTrigger = AnimationTrigger.TRIGGER_WALK_SIDE;
+
+                mySpriteRenderer.flipX = delta.x > 0;
+            }
+            else if(absDeltaX >= 0.25f)
+            {
+                if (delta.y >= 0f)
+                {
+                    walkdirTrigger = AnimationTrigger.TRIGGER_WALK_BACK;
+                }
+                else
+                {
+                    walkdirTrigger = AnimationTrigger.TRIGGER_WALK_CORNERFRONT;
+                }
+
+                mySpriteRenderer.flipX = delta.x > 0;
+            }
+            else
+            {
+                if (delta.y >= 0f)
+                {
+                    walkdirTrigger = AnimationTrigger.TRIGGER_WALK_BACK;
+                }
+                else
+                {
+                    walkdirTrigger = AnimationTrigger.TRIGGER_WALK_FRONT;
+                }
+
+                mySpriteRenderer.flipX = false;
+            }
+
+
+
+            if (reached)
+            {
+                ResetWalkTriggers();
+                myAnimator.SetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_STR[walkdirTrigger]);
+            }
+
             /* Remove after debugging */
             speed_reduction_factor = 1f;
 
             myRigidbody.linearVelocity = GameFixedConfig.CHARACTER_NORMAL_SPEED * speed_reduction_factor * delta;
+
         }
 
         private bool StartBufferedInteraction()
@@ -376,6 +423,15 @@ namespace Gob3AQ.GameElement.PlayableChar
             actualProgrammedPath.wp_distance3D = 0f;
             actualProgrammedPath.initial_size = waypoints_sizes[waypoint_index];
             actualProgrammedPath.delta_size = 0f;
+        }
+
+        private void ResetWalkTriggers()
+        {
+            myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_STR[AnimationTrigger.TRIGGER_WALK_FRONT]);
+            myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_STR[AnimationTrigger.TRIGGER_WALK_BACK]);
+            myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_STR[AnimationTrigger.TRIGGER_WALK_CORNERFRONT]);
+            myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_STR[AnimationTrigger.TRIGGER_WALK_CORNERBACK]);
+            myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_STR[AnimationTrigger.TRIGGER_WALK_SIDE]);
         }
 
 

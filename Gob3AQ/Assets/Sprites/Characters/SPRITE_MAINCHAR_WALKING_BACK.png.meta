@@ -1,55 +1,55 @@
 fileFormatVersion: 2
-guid: 7fcf47bea09438d4aa168c977ea60161
+guid: 696d22d1cde82964fbb32951e545b495
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -877569458586159639
-    second: SPRITE_MAINCHAR_WALKING_FRONT_0
+      213: 6629008542090392474
+    second: SPRITE_MAINCHAR_WALKING_BACK_0
   - first:
-      213: -422912779657104569
-    second: SPRITE_MAINCHAR_WALKING_FRONT_1
+      213: 5413005783028099333
+    second: SPRITE_MAINCHAR_WALKING_BACK_1
   - first:
-      213: -7216204835549301014
-    second: SPRITE_MAINCHAR_WALKING_FRONT_2
+      213: 9108710704223871509
+    second: SPRITE_MAINCHAR_WALKING_BACK_2
   - first:
-      213: -2321970930808384490
-    second: SPRITE_MAINCHAR_WALKING_FRONT_3
+      213: 2255685936145085815
+    second: SPRITE_MAINCHAR_WALKING_BACK_3
   - first:
-      213: -2063328375655910435
-    second: SPRITE_MAINCHAR_WALKING_FRONT_4
+      213: -3075598825022073157
+    second: SPRITE_MAINCHAR_WALKING_BACK_4
   - first:
-      213: 9064726015842550108
-    second: SPRITE_MAINCHAR_WALKING_FRONT_5
+      213: 5614943106932761686
+    second: SPRITE_MAINCHAR_WALKING_BACK_5
   - first:
-      213: 5764998463258170881
-    second: SPRITE_MAINCHAR_WALKING_FRONT_6
+      213: -3459609370036202015
+    second: SPRITE_MAINCHAR_WALKING_BACK_6
   - first:
-      213: 8983403156278759003
-    second: SPRITE_MAINCHAR_WALKING_FRONT_7
+      213: 2378931469743993241
+    second: SPRITE_MAINCHAR_WALKING_BACK_7
   - first:
-      213: 7174560126632195863
-    second: SPRITE_MAINCHAR_WALKING_FRONT_8
+      213: -5467816833478637798
+    second: SPRITE_MAINCHAR_WALKING_BACK_8
   - first:
-      213: -6779862127859771955
-    second: SPRITE_MAINCHAR_WALKING_FRONT_9
+      213: -842188186772605208
+    second: SPRITE_MAINCHAR_WALKING_BACK_9
   - first:
-      213: -3880237297749278769
-    second: SPRITE_MAINCHAR_WALKING_FRONT_10
+      213: 8531978999131424178
+    second: SPRITE_MAINCHAR_WALKING_BACK_10
   - first:
-      213: 7766789025194149842
-    second: SPRITE_MAINCHAR_WALKING_FRONT_11
+      213: 7974661740308601097
+    second: SPRITE_MAINCHAR_WALKING_BACK_11
   - first:
-      213: 4464611036320451040
-    second: SPRITE_MAINCHAR_WALKING_FRONT_12
+      213: -5513217914685748802
+    second: SPRITE_MAINCHAR_WALKING_BACK_12
   - first:
-      213: 106009299268045597
-    second: SPRITE_MAINCHAR_WALKING_FRONT_13
+      213: 1497033945315717136
+    second: SPRITE_MAINCHAR_WALKING_BACK_13
   - first:
-      213: 1171016895549730813
-    second: SPRITE_MAINCHAR_WALKING_FRONT_14
+      213: -4253555206337981709
+    second: SPRITE_MAINCHAR_WALKING_BACK_14
   - first:
-      213: -2114919273016631848
-    second: SPRITE_MAINCHAR_WALKING_FRONT_15
+      213: 3629167620443175508
+    second: SPRITE_MAINCHAR_WALKING_BACK_15
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -145,7 +145,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_WALKING_FRONT_0
+      name: SPRITE_MAINCHAR_WALKING_BACK_0
       rect:
         serializedVersion: 2
         x: 0
@@ -160,14 +160,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9e57d3b1a3f32d3f0800000000000000
-      internalID: -877569458586159639
+      spriteID: a93f354a528fefb50800000000000000
+      internalID: 6629008542090392474
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_WALKING_FRONT_1
+      name: SPRITE_MAINCHAR_WALKING_BACK_1
       rect:
         serializedVersion: 2
         x: 344
@@ -182,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 743b09d4113812af0800000000000000
-      internalID: -422912779657104569
+      spriteID: 5096680941cde1b40800000000000000
+      internalID: 5413005783028099333
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_WALKING_FRONT_2
+      name: SPRITE_MAINCHAR_WALKING_BACK_2
       rect:
         serializedVersion: 2
         x: 688
@@ -204,14 +204,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ae6b0a66fe3eadb90800000000000000
-      internalID: -7216204835549301014
+      spriteID: 512ef0f1024a86e70800000000000000
+      internalID: 9108710704223871509
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_WALKING_FRONT_3
+      name: SPRITE_MAINCHAR_WALKING_BACK_3
       rect:
         serializedVersion: 2
         x: 1032
@@ -226,14 +226,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6141262adb3b6cfd0800000000000000
-      internalID: -2321970930808384490
+      spriteID: 775b5c4686ecd4f10800000000000000
+      internalID: 2255685936145085815
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_WALKING_FRONT_4
+      name: SPRITE_MAINCHAR_WALKING_BACK_4
       rect:
         serializedVersion: 2
         x: 1376
@@ -248,14 +248,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dd3bb0a36c59d53e0800000000000000
-      internalID: -2063328375655910435
+      spriteID: bb653f2f9274155d0800000000000000
+      internalID: -3075598825022073157
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_WALKING_FRONT_5
+      name: SPRITE_MAINCHAR_WALKING_BACK_5
       rect:
         serializedVersion: 2
         x: 1720
@@ -270,14 +270,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c518980d8406ccd70800000000000000
-      internalID: 9064726015842550108
+      spriteID: 65461caa1094ced40800000000000000
+      internalID: 5614943106932761686
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_WALKING_FRONT_6
+      name: SPRITE_MAINCHAR_WALKING_BACK_6
       rect:
         serializedVersion: 2
         x: 2064
@@ -292,14 +292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1061d2dde83610050800000000000000
-      internalID: 5764998463258170881
+      spriteID: 1e511659b9ffcffc0800000000000000
+      internalID: -3459609370036202015
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_WALKING_FRONT_7
+      name: SPRITE_MAINCHAR_WALKING_BACK_7
       rect:
         serializedVersion: 2
         x: 2408
@@ -314,14 +314,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b5e4e1413957bac70800000000000000
-      internalID: 8983403156278759003
+      spriteID: 991b61f4199a30120800000000000000
+      internalID: 2378931469743993241
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_WALKING_FRONT_8
+      name: SPRITE_MAINCHAR_WALKING_BACK_8
       rect:
         serializedVersion: 2
         x: 2752
@@ -336,14 +336,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 717f7973c68219360800000000000000
-      internalID: 7174560126632195863
+      spriteID: a17ca974f896e14b0800000000000000
+      internalID: -5467816833478637798
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_WALKING_FRONT_9
+      name: SPRITE_MAINCHAR_WALKING_BACK_9
       rect:
         serializedVersion: 2
         x: 3096
@@ -358,14 +358,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dc55bc2e05719e1a0800000000000000
-      internalID: -6779862127859771955
+      spriteID: 8e673656e42ff44f0800000000000000
+      internalID: -842188186772605208
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_WALKING_FRONT_10
+      name: SPRITE_MAINCHAR_WALKING_BACK_10
       rect:
         serializedVersion: 2
         x: 3440
@@ -380,14 +380,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fcfbe6f6cb0a62ac0800000000000000
-      internalID: -3880237297749278769
+      spriteID: 2b5425202bda76670800000000000000
+      internalID: 8531978999131424178
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_WALKING_FRONT_11
+      name: SPRITE_MAINCHAR_WALKING_BACK_11
       rect:
         serializedVersion: 2
         x: 3784
@@ -402,14 +402,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d7891cd77d29cb60800000000000000
-      internalID: 7766789025194149842
+      spriteID: 9091efae990bbae60800000000000000
+      internalID: 7974661740308601097
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_WALKING_FRONT_12
+      name: SPRITE_MAINCHAR_WALKING_BACK_12
       rect:
         serializedVersion: 2
         x: 4128
@@ -424,14 +424,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0e94b20451c75fd30800000000000000
-      internalID: 4464611036320451040
+      spriteID: eb906d1548d1d73b0800000000000000
+      internalID: -5513217914685748802
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_WALKING_FRONT_13
+      name: SPRITE_MAINCHAR_WALKING_BACK_13
       rect:
         serializedVersion: 2
         x: 4472
@@ -446,14 +446,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d1b82c165ee987100800000000000000
-      internalID: 106009299268045597
+      spriteID: 010be3f017886c410800000000000000
+      internalID: 1497033945315717136
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_WALKING_FRONT_14
+      name: SPRITE_MAINCHAR_WALKING_BACK_14
       rect:
         serializedVersion: 2
         x: 4816
@@ -468,14 +468,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dffe83589a9404010800000000000000
-      internalID: 1171016895549730813
+      spriteID: 3f216bd731658f4c0800000000000000
+      internalID: -4253555206337981709
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_WALKING_FRONT_15
+      name: SPRITE_MAINCHAR_WALKING_BACK_15
       rect:
         serializedVersion: 2
         x: 5160
@@ -490,8 +490,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8dd5733602c46a2e0800000000000000
-      internalID: -2114919273016631848
+      spriteID: 45a7ddef8b46d5230800000000000000
+      internalID: 3629167620443175508
       vertices: []
       indices: 
       edges: []
@@ -500,7 +500,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ecdd3bd59de835b42ad3b6eeeb4ca4d4
+    spriteID: 6d7cf37924d558244b96ae2a0cd46831
     internalID: 0
     vertices: []
     indices: 
@@ -512,22 +512,22 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":16.0,"y":1.0},"gridSpriteSize":{"x":344.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      SPRITE_MAINCHAR_WALKING_FRONT_0: -877569458586159639
-      SPRITE_MAINCHAR_WALKING_FRONT_1: -422912779657104569
-      SPRITE_MAINCHAR_WALKING_FRONT_10: -3880237297749278769
-      SPRITE_MAINCHAR_WALKING_FRONT_11: 7766789025194149842
-      SPRITE_MAINCHAR_WALKING_FRONT_12: 4464611036320451040
-      SPRITE_MAINCHAR_WALKING_FRONT_13: 106009299268045597
-      SPRITE_MAINCHAR_WALKING_FRONT_14: 1171016895549730813
-      SPRITE_MAINCHAR_WALKING_FRONT_15: -2114919273016631848
-      SPRITE_MAINCHAR_WALKING_FRONT_2: -7216204835549301014
-      SPRITE_MAINCHAR_WALKING_FRONT_3: -2321970930808384490
-      SPRITE_MAINCHAR_WALKING_FRONT_4: -2063328375655910435
-      SPRITE_MAINCHAR_WALKING_FRONT_5: 9064726015842550108
-      SPRITE_MAINCHAR_WALKING_FRONT_6: 5764998463258170881
-      SPRITE_MAINCHAR_WALKING_FRONT_7: 8983403156278759003
-      SPRITE_MAINCHAR_WALKING_FRONT_8: 7174560126632195863
-      SPRITE_MAINCHAR_WALKING_FRONT_9: -6779862127859771955
+      SPRITE_MAINCHAR_WALKING_BACK_0: 6629008542090392474
+      SPRITE_MAINCHAR_WALKING_BACK_1: 5413005783028099333
+      SPRITE_MAINCHAR_WALKING_BACK_10: 8531978999131424178
+      SPRITE_MAINCHAR_WALKING_BACK_11: 7974661740308601097
+      SPRITE_MAINCHAR_WALKING_BACK_12: -5513217914685748802
+      SPRITE_MAINCHAR_WALKING_BACK_13: 1497033945315717136
+      SPRITE_MAINCHAR_WALKING_BACK_14: -4253555206337981709
+      SPRITE_MAINCHAR_WALKING_BACK_15: 3629167620443175508
+      SPRITE_MAINCHAR_WALKING_BACK_2: 9108710704223871509
+      SPRITE_MAINCHAR_WALKING_BACK_3: 2255685936145085815
+      SPRITE_MAINCHAR_WALKING_BACK_4: -3075598825022073157
+      SPRITE_MAINCHAR_WALKING_BACK_5: 5614943106932761686
+      SPRITE_MAINCHAR_WALKING_BACK_6: -3459609370036202015
+      SPRITE_MAINCHAR_WALKING_BACK_7: 2378931469743993241
+      SPRITE_MAINCHAR_WALKING_BACK_8: -5467816833478637798
+      SPRITE_MAINCHAR_WALKING_BACK_9: -842188186772605208
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

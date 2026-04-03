@@ -1,0 +1,743 @@
+fileFormatVersion: 2
+guid: eb13f1bb86b54224d93453c37b36495c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5711848990883756704
+    second: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_0
+  - first:
+      213: 3999979490494468062
+    second: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_1
+  - first:
+      213: -3483087288605692173
+    second: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_2
+  - first:
+      213: 8717594285069918498
+    second: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_3
+  - first:
+      213: -7196629367067144328
+    second: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_4
+  - first:
+      213: -4063409070890666609
+    second: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_5
+  - first:
+      213: -8131911877775813875
+    second: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_6
+  - first:
+      213: 3100034436078718625
+    second: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_7
+  - first:
+      213: -8079645399962715058
+    second: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_8
+  - first:
+      213: -3877259618937755066
+    second: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_9
+  - first:
+      213: -4360430276221161765
+    second: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_10
+  - first:
+      213: 6677391589794431015
+    second: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_11
+  - first:
+      213: 8495135419982500500
+    second: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_12
+  - first:
+      213: -8954551142191189167
+    second: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_13
+  - first:
+      213: -2541454503961933679
+    second: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_14
+  - first:
+      213: 5108087515384177163
+    second: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_15
+  - first:
+      213: 1388121389580369723
+    second: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_16
+  - first:
+      213: -2421889137912601406
+    second: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_17
+  - first:
+      213: -1224880242848525991
+    second: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_18
+  - first:
+      213: 6058466525941817033
+    second: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_19
+  - first:
+      213: -671142788909280205
+    second: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_20
+  - first:
+      213: 7638709487777902688
+    second: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_21
+  - first:
+      213: 5178048290385646491
+    second: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_22
+  - first:
+      213: 6609620786885436746
+    second: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0aabc400560944f40800000000000000
+      internalID: 5711848990883756704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_1
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edf45cf5728c28730800000000000000
+      internalID: 3999979490494468062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_2
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3feaaf0b09699afc0800000000000000
+      internalID: -3483087288605692173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_3
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 221619180dd1bf870800000000000000
+      internalID: 8717594285069918498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_4
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87f81d358bf602c90800000000000000
+      internalID: -7196629367067144328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_5
+      rect:
+        serializedVersion: 2
+        x: 1720
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8536789afedb97c0800000000000000
+      internalID: -4063409070890666609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_6
+      rect:
+        serializedVersion: 2
+        x: 2064
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d03946c5b35a52f80800000000000000
+      internalID: -8131911877775813875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_7
+      rect:
+        serializedVersion: 2
+        x: 2408
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ae43f915e8850b20800000000000000
+      internalID: 3100034436078718625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_8
+      rect:
+        serializedVersion: 2
+        x: 2752
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4c7a1801555fdf80800000000000000
+      internalID: -8079645399962715058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_9
+      rect:
+        serializedVersion: 2
+        x: 3096
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64aaf3f4be4313ac0800000000000000
+      internalID: -3877259618937755066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_10
+      rect:
+        serializedVersion: 2
+        x: 3440
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdeaafd24c3ac73c0800000000000000
+      internalID: -4360430276221161765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_11
+      rect:
+        serializedVersion: 2
+        x: 3784
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 720c0e7c54cdaac50800000000000000
+      internalID: 6677391589794431015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_12
+      rect:
+        serializedVersion: 2
+        x: 4128
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49255e2c7a8c4e570800000000000000
+      internalID: 8495135419982500500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_13
+      rect:
+        serializedVersion: 2
+        x: 4472
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15330aeed2b0bb380800000000000000
+      internalID: -8954551142191189167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_14
+      rect:
+        serializedVersion: 2
+        x: 4816
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19848860890fabcd0800000000000000
+      internalID: -2541454503961933679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_15
+      rect:
+        serializedVersion: 2
+        x: 5160
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b02e41c088293e640800000000000000
+      internalID: 5108087515384177163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_16
+      rect:
+        serializedVersion: 2
+        x: 5504
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3f3f0b9c09934310800000000000000
+      internalID: 1388121389580369723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_17
+      rect:
+        serializedVersion: 2
+        x: 5848
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c4a75929a8b36ed0800000000000000
+      internalID: -2421889137912601406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_18
+      rect:
+        serializedVersion: 2
+        x: 6192
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9519e98a8e9500fe0800000000000000
+      internalID: -1224880242848525991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_19
+      rect:
+        serializedVersion: 2
+        x: 6536
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ce5b5ac43ff31450800000000000000
+      internalID: 6058466525941817033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_20
+      rect:
+        serializedVersion: 2
+        x: 6880
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3345f79703f9fa6f0800000000000000
+      internalID: -671142788909280205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_21
+      rect:
+        serializedVersion: 2
+        x: 7224
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0607869bec5220a60800000000000000
+      internalID: 7638709487777902688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_22
+      rect:
+        serializedVersion: 2
+        x: 7568
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9351425c7f1cd740800000000000000
+      internalID: 5178048290385646491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_WALKING_FRONT_LEFT_23
+      rect:
+        serializedVersion: 2
+        x: 7912
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a45285e16171abb50800000000000000
+      internalID: 6609620786885436746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 6539780109e9fb24d88f7a9748d1fbeb
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":24.0,"y":1.0},"gridSpriteSize":{"x":344.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_MAINCHAR_WALKING_FRONT_LEFT_0: 5711848990883756704
+      SPRITE_MAINCHAR_WALKING_FRONT_LEFT_1: 3999979490494468062
+      SPRITE_MAINCHAR_WALKING_FRONT_LEFT_10: -4360430276221161765
+      SPRITE_MAINCHAR_WALKING_FRONT_LEFT_11: 6677391589794431015
+      SPRITE_MAINCHAR_WALKING_FRONT_LEFT_12: 8495135419982500500
+      SPRITE_MAINCHAR_WALKING_FRONT_LEFT_13: -8954551142191189167
+      SPRITE_MAINCHAR_WALKING_FRONT_LEFT_14: -2541454503961933679
+      SPRITE_MAINCHAR_WALKING_FRONT_LEFT_15: 5108087515384177163
+      SPRITE_MAINCHAR_WALKING_FRONT_LEFT_16: 1388121389580369723
+      SPRITE_MAINCHAR_WALKING_FRONT_LEFT_17: -2421889137912601406
+      SPRITE_MAINCHAR_WALKING_FRONT_LEFT_18: -1224880242848525991
+      SPRITE_MAINCHAR_WALKING_FRONT_LEFT_19: 6058466525941817033
+      SPRITE_MAINCHAR_WALKING_FRONT_LEFT_2: -3483087288605692173
+      SPRITE_MAINCHAR_WALKING_FRONT_LEFT_20: -671142788909280205
+      SPRITE_MAINCHAR_WALKING_FRONT_LEFT_21: 7638709487777902688
+      SPRITE_MAINCHAR_WALKING_FRONT_LEFT_22: 5178048290385646491
+      SPRITE_MAINCHAR_WALKING_FRONT_LEFT_23: 6609620786885436746
+      SPRITE_MAINCHAR_WALKING_FRONT_LEFT_3: 8717594285069918498
+      SPRITE_MAINCHAR_WALKING_FRONT_LEFT_4: -7196629367067144328
+      SPRITE_MAINCHAR_WALKING_FRONT_LEFT_5: -4063409070890666609
+      SPRITE_MAINCHAR_WALKING_FRONT_LEFT_6: -8131911877775813875
+      SPRITE_MAINCHAR_WALKING_FRONT_LEFT_7: 3100034436078718625
+      SPRITE_MAINCHAR_WALKING_FRONT_LEFT_8: -8079645399962715058
+      SPRITE_MAINCHAR_WALKING_FRONT_LEFT_9: -3877259618937755066
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

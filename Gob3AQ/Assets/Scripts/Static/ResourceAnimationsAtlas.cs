@@ -7,20 +7,26 @@ namespace Gob3AQ.ResourceAnimationsAtlas
 {
     public static class ResourceAnimationsAtlasClass
     {
-        public static readonly IReadOnlyDictionary<AnimationTrigger, string> ANIM_TRIGGER_TO_STR = new Dictionary<AnimationTrigger, string>()
+        public static readonly IReadOnlyDictionary<AnimationTrigger, int> ANIM_TRIGGER_TO_STR = new Dictionary<AnimationTrigger, int>()
         {
-            { AnimationTrigger.TRIGGER_ONE, "Tr_1" },
-            { AnimationTrigger.TRIGGER_TWO, "Tr_2" },
-            { AnimationTrigger.TRIGGER_THREE, "Tr_3" },
-            { AnimationTrigger.TRIGGER_FOUR, "Tr_4" },
-            { AnimationTrigger.TRIGGER_FIVE, "Tr_5" },
-            { AnimationTrigger.TRIGGER_SIX, "Tr_6" },
+            { AnimationTrigger.TRIGGER_ONE, Animator.StringToHash("Tr_1") },
+            { AnimationTrigger.TRIGGER_TWO, Animator.StringToHash("Tr_2") },
+            { AnimationTrigger.TRIGGER_THREE, Animator.StringToHash("Tr_3") },
+            { AnimationTrigger.TRIGGER_FOUR, Animator.StringToHash("Tr_4") },
+            { AnimationTrigger.TRIGGER_FIVE, Animator.StringToHash("Tr_5") },
+            { AnimationTrigger.TRIGGER_SIX, Animator.StringToHash("Tr_6") },
 
-            {AnimationTrigger.TRIGGER_SPECIAL_ONE, "Tr_Special1" },
-            {AnimationTrigger.TRIGGER_SPECIAL_TWO, "Tr_Special2" },
+            {AnimationTrigger.TRIGGER_SPECIAL_ONE, Animator.StringToHash("Tr_Special1") },
+            {AnimationTrigger.TRIGGER_SPECIAL_TWO, Animator.StringToHash("Tr_Special2") },
 
-            { AnimationTrigger.TRIGGER_TALK, "Tr_Talk" },
-            { AnimationTrigger.TRIGGER_WALK, "Tr_Walk" },
+            { AnimationTrigger.TRIGGER_STEADY, Animator.StringToHash("Tr_Steady") },
+
+            { AnimationTrigger.TRIGGER_TALK, Animator.StringToHash("Tr_Talk") },
+            { AnimationTrigger.TRIGGER_WALK_FRONT, Animator.StringToHash("Tr_WalkFront") },
+            { AnimationTrigger.TRIGGER_WALK_BACK, Animator.StringToHash("Tr_WalkBack") },
+            { AnimationTrigger.TRIGGER_WALK_CORNERFRONT, Animator.StringToHash("Tr_WalkCornerFront") },
+            { AnimationTrigger.TRIGGER_WALK_CORNERBACK, Animator.StringToHash("Tr_WalkCornerBack") },
+            { AnimationTrigger.TRIGGER_WALK_SIDE, Animator.StringToHash("Tr_WalkSide") },
         };
 
         public static ref readonly AnimationConfig GetAnimationConfig(GameAnimation animation)

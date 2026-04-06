@@ -673,7 +673,7 @@ namespace Gob3AQ.LevelMaster
 
                         foreach (InitialWalkInfo walkInfo in walkInfos)
                         {
-                            if (walkInfo.waypointFrom == _Player_List[i].Waypoint)
+                            if ((walkInfo.waypointFrom == _Player_List[i].Waypoint)&&(walkInfo.waypointFrom != walkInfo.waypointTo))
                             {
                                 InteractionUsage usage = InteractionUsage.CreatePlayerMove((CharacterType)i, walkInfo.waypointTo);
 

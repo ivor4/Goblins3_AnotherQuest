@@ -43,8 +43,6 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         private WaypointProgrammedPath actualProgrammedPath;
 
-        private Vector3 sceneOrigSize;
-
         private IReadOnlyList<Vector3> waypoints_pos;
         private IReadOnlyList<float> waypoints_sizes;
         private IReadOnlyList<WaypointSolution> solutions;
@@ -123,8 +121,6 @@ namespace Gob3AQ.GameElement.PlayableChar
             myAnimator = topParent.GetComponent<Animator>();
             myAnimatorBehavior = myAnimator.GetBehaviour<GenericAnimBehavior>();
             myAnimatorBehavior.SetOnStartEndCallback(OnAnimationStart, OnAnimationEnd);
-
-            sceneOrigSize = _parentTransform.localScale;
 
             SetVisible_Internal(false);
         }
@@ -411,7 +407,7 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         private void SetSize(float size)
         {
-            Vector3 scale = size * sceneOrigSize;
+            Vector3 scale = size * Vector3.one;
             _parentTransform.localScale = scale;
         }
 

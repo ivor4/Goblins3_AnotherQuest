@@ -207,8 +207,8 @@ namespace Gob3AQ.ResourceAtlas
             new InitialWalkInfo[]{new(0,0) }, /* PHARMACY_1 */
             new InitialWalkInfo[]{new(0,0) }, /* MANYO_1 */
             new InitialWalkInfo[]{new(0,0) }, /* HIVE1_BACKALLEY */
-            new InitialWalkInfo[]{new(6,0) }, /* CITY1_SOUTH_STREET_1 */
-            new InitialWalkInfo[]{new(0,0) }, /* CITY1_SOUTH_STREET_2 */
+            new InitialWalkInfo[]{new(6,0), new(3,5) }, /* CITY1_SOUTH_STREET_1 */
+            new InitialWalkInfo[]{new(2,0) }, /* CITY1_SOUTH_STREET_2 */
             new InitialWalkInfo[]{new(0,0) }, /* CITY1_EXTRAPERLO1 */
             new InitialWalkInfo[]{new(0,0) }, /* ROOM_LAST */
         };
@@ -319,7 +319,7 @@ namespace Gob3AQ.ResourceAtlas
             new GameSprite[2]{GameSprite.BACKGROUND_CITY1_SOUTH_STREET_1, GameSprite.BACKGROUND_CITY1_SOUTH_STREET_1_NIGHT, },
             GameSound.SOUND_NONE,
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_CITY1_SOUTH_STREET_1, GameSprite.BACKGROUND_CITY1_SOUTH_STREET_1_NIGHT, }), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(1){GameItem.ITEM_GENERIC_DOOR1, }), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(2){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_GENERIC_DOOR2, }), 
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.SOUND_NONE, }), 
             new ActionConditions[1]{ActionConditions.COND_OK, }, 

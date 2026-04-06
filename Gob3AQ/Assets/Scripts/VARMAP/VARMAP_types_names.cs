@@ -49,6 +49,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_ANNOTATION, 
         NAME_INKWELL, 
         NAME_INK, 
+        NAME_FIK, 
         NAME_NPC_LAST, 
         
         NAME_TOTAL

@@ -45,6 +45,7 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_EXTRAPERLO_INVITATION_DETAIL, 
         ITEM_PHARMACY_INKWELL, 
         ITEM_PHARMACY_INK, 
+        ITEM_NPC_FIK, 
         ITEM_LAST, 
         
         ITEM_TOTAL
@@ -161,6 +162,7 @@ namespace Gob3AQ.VARMAP.Types
         UNCHAIN_ITEM_HIVE1_VALVE_BOX_DESPAWN, 
         UNCHAIN_ITEM_HIVE1_MAN_WC_CURED_SPAWN, 
         UNCHAIN_INK_SPAWN, 
+        UNCHAIN_FIK_SPAWN, 
         UNCHAIN_LAST, 
         
         UNCHAIN_TOTAL
@@ -297,6 +299,7 @@ namespace Gob3AQ.VARMAP.Types
         ACTION_DIALOG_USELESS_TALK, 
         ACTION_DIALOG_USELESS_ACTION, 
         ACTION_ANIMATE_REME_TEST, 
+        ACTION_SPAWN_FIK_1, 
         ACTION_LAST, 
         
         ACTION_TOTAL

@@ -989,9 +989,17 @@ for line in ROOMSinputFile:
         stringToWrite += '},\n'
         room_atlas_lines.InsertLineInATG(1, stringToWrite)
         
-        stringToWrite = sound_prefix + columns[3] +",\n"
-        room_atlas_lines.InsertLineInATG(1, stringToWrite)
+        options = columns[3].split('|')
+        num_options = len(options)
         
+        stringToWrite = 'new GameSound['+str(num_options)+']{'
+        
+        for _option in options:
+            stringToWrite += sound_prefix + _option + ', '
+        
+        stringToWrite += '},\n'
+        room_atlas_lines.InsertLineInATG(1, stringToWrite)
+                
         
         options = columns[4].split('|')
         num_options = len(options)

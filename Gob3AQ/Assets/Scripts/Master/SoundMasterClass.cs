@@ -211,14 +211,33 @@ namespace Gob3AQ.SoundMaster
 
         private void ChangingRoom()
         {
-            ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(VARMAP_SoundMaster.GET_ACTUAL_ROOM());
+            GameSound nextBgMusic = GetRoomMusic(VARMAP_SoundMaster.GET_ACTUAL_ROOM());
 
-            if((roomInfo.backgroundMusic != actualMusic)||(roomInfo.backgroundMusic == GameSound.SOUND_NONE))
+            if((nextBgMusic != actualMusic) || (nextBgMusic == GameSound.SOUND_NONE))
             {
                 StopMusic();
             }
 
             StopAllSounds();
+        }
+
+        private GameSound GetRoomMusic(Room room)
+        {
+            ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(VARMAP_SoundMaster.GET_ACTUAL_ROOM());
+
+            GameSound nextBgMusic;
+            MomentType actualMoment = VARMAP_SoundMaster.GET_DAY_MOMENT();
+
+            if (roomInfo.BackgroundMusic.Length > 1)
+            {
+                nextBgMusic = roomInfo.BackgroundMusic[(int)actualMoment];
+            }
+            else
+            {
+                nextBgMusic = roomInfo.BackgroundMusic[0];
+            }
+
+            return nextBgMusic;
         }
 
         private void StopMusic()
@@ -234,8 +253,7 @@ namespace Gob3AQ.SoundMaster
             /* Evaluate if room has background music and if it is different from actual music */
             if(newRoomPending)
             {
-                ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(VARMAP_SoundMaster.GET_ACTUAL_ROOM());
-                GameSound bgMusic = roomInfo.backgroundMusic;
+                GameSound bgMusic = GetRoomMusic(VARMAP_SoundMaster.GET_ACTUAL_ROOM());
 
                 if((bgMusic != GameSound.SOUND_NONE) && (bgMusic != actualMusic))
                 {

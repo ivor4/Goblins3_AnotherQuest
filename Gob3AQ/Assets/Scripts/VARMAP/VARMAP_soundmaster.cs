@@ -19,6 +19,7 @@ namespace Gob3AQ.VARMAP.SoundMaster
         {
             /* > ATG 1 START */
             GET_ACTUAL_ROOM = _GET_ACTUAL_ROOM;
+            GET_DAY_MOMENT = _GET_DAY_MOMENT;
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
@@ -35,6 +36,7 @@ namespace Gob3AQ.VARMAP.SoundMaster
         /* GET/SET */
         /* > ATG 2 START */
         public static GetVARMAPValueDelegate<Room> GET_ACTUAL_ROOM;
+        public static GetVARMAPValueDelegate<MomentType> GET_DAY_MOMENT;
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;

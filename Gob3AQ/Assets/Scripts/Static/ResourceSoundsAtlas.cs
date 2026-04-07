@@ -34,6 +34,9 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"MUSIC_SOUTH_NEIGH"), /* MUSIC_SOUTH_NEIGH */ 
             new(SoundEffect.EFFECT_NONE,"MUSIC_MANYO"), /* MUSIC_MANYO */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_AMBIENCE_MANYO_NIGHT"), /* SOUND_AMBIENCE_MANYO_NIGHT */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_AMBIENCE_CITY_DAY"), /* SOUND_AMBIENCE_CITY_DAY */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_AMBIENCE_CITY_NIGHT"), /* SOUND_AMBIENCE_CITY_NIGHT */ 
+            new(SoundEffect.EFFECT_NONE,"MUSIC_INN"), /* MUSIC_INN */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

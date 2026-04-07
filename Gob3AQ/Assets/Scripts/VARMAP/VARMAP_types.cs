@@ -173,7 +173,7 @@ namespace Gob3AQ.VARMAP.Types
     public readonly struct RoomInfo
     {
         private readonly GameSprite[] backgrounds;
-        public readonly GameSound backgroundMusic;
+        private readonly GameSound[] backgroundMusic;
         public readonly ReadOnlyHashSet<GameSprite> sprites;
         public readonly ReadOnlyHashSet<DialogPhrase> phrases;
         public readonly ReadOnlyHashSet<GameItem> items;
@@ -182,14 +182,15 @@ namespace Gob3AQ.VARMAP.Types
         private readonly ActionConditions[] actionConditions;
 
         public ReadOnlySpan<GameSprite> Backgrounds => backgrounds;
+        public ReadOnlySpan<GameSound> BackgroundMusic => backgroundMusic;
         public ReadOnlySpan<ActionConditions> ActionConditions => actionConditions;
 
-        public static readonly RoomInfo EMPTY = new(new GameSprite[0], GameSound.SOUND_NONE,new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(0)),
+        public static readonly RoomInfo EMPTY = new(new GameSprite[0], new GameSound[0],new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(0)),
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(0)), new ReadOnlyHashSet<NameType>(new HashSet<NameType>(0)),
                 new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(0)),
             new ActionConditions[0], new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(0)));
 
-        public RoomInfo(GameSprite[] backgrounds, GameSound backgroundMusic, ReadOnlyHashSet<GameSprite> sprites,
+        public RoomInfo(GameSprite[] backgrounds, GameSound[] backgroundMusic, ReadOnlyHashSet<GameSprite> sprites,
             ReadOnlyHashSet<GameItem> items, ReadOnlyHashSet<NameType> names, ReadOnlyHashSet<GameSound> sounds,
             ActionConditions[] actionConditions, ReadOnlyHashSet<DialogPhrase> phrases)
         {

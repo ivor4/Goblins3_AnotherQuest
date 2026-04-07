@@ -25,6 +25,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 05586180ab7ad164b9e2fbba4e3067bf
+    m_Address: SOUND_AMBIENCE_CITY_NIGHT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1191512f560963f4ea2f49deeab8a0e3
     m_Address: SPRITE_ATLAS_CITY1_1
     m_ReadOnly: 0
@@ -87,6 +92,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4793fad0f0eb73f42aa1f77b9e4838f7
     m_Address: MUSIC_GARDEN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4bf15f457e71008418633dd504ea6dff
+    m_Address: SOUND_AMBIENCE_CITY_DAY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -172,6 +182,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a85cc1a46a7990940b8e5a28d00b13ef
     m_Address: SCENE_CITY1_STREET_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab71db5c6536c254580b854722e314df
+    m_Address: MUSIC_INN
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

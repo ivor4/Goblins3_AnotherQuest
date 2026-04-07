@@ -17,6 +17,9 @@ namespace Gob3AQ.VARMAP.Types
         MUSIC_SOUTH_NEIGH, 
         MUSIC_MANYO, 
         SOUND_AMBIENCE_MANYO_NIGHT, 
+        SOUND_AMBIENCE_CITY_DAY, 
+        SOUND_AMBIENCE_CITY_NIGHT, 
+        MUSIC_INN, 
         SOUND_LAST, 
         
         SOUND_TOTAL

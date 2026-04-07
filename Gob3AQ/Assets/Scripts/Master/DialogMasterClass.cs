@@ -97,7 +97,7 @@ namespace Gob3AQ.DialogMaster
                                 VARMAP_DialogMaster.ITEM_PERFORM_ANIMATION(actionconfig.dstItem, actionconfig.trigger, AnimationEndCallback);
                                 if(actionconfig.sound != GameSound.SOUND_NONE)
                                 {
-                                    VARMAP_DialogMaster.PLAY_SOUND(actionconfig.sound, null);
+                                    VARMAP_DialogMaster.PLAY_SOUND(actionconfig.sound, null, false);
                                 }
                             }
 
@@ -410,7 +410,7 @@ namespace Gob3AQ.DialogMaster
 
             if (content.config.sound != GameSound.SOUND_NONE)
             {
-                VARMAP_DialogMaster.PLAY_SOUND(content.config.sound, DialogSoundEnded);
+                VARMAP_DialogMaster.PLAY_SOUND(content.config.sound, DialogSoundEnded, false);
                 dialog_actualPhraseSoundStop = content.config.sound;
             }
             else

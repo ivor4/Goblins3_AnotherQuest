@@ -62,6 +62,8 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             SHOW_DIALOGUE = _SHOW_DIALOGUE;
             SHOW_DECISION = _SHOW_DECISION;
             CHANGE_DAY_MOMENT = _CHANGE_DAY_MOMENT;
+            PLAY_SOUND = _PLAY_SOUND;
+            STOP_SOUND = _STOP_SOUND;
             START_ANIMATION = _START_ANIMATION;
             PERFORM_ACTION = _PERFORM_ACTION;
             IS_DIALOG_ACTIVE = _IS_DIALOG_ACTIVE;
@@ -191,6 +193,20 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         /// <para> Method: <see cref="GameMasterClass.ChangeDayMomentService"/> </para> 
         /// </summary>
         public static CHANGE_DAY_MOMENT_DELEGATE CHANGE_DAY_MOMENT;
+        /// <summary> 
+        /// Plays a sound and (optionally) callback is called
+        /// <para> Owner: SoundMaster </para> 
+        /// <para> Accessors: DialogMaster, GameEventMaster,  </para> 
+        /// <para> Method: <see cref="SoundMasterClass.PlaySoundService"/> </para> 
+        /// </summary>
+        public static PLAY_SOUND_DELEGATE PLAY_SOUND;
+        /// <summary> 
+        /// Stops first match of sound with given ID which is being played
+        /// <para> Owner: SoundMaster </para> 
+        /// <para> Accessors: LevelMaster, DialogMaster, GameEventMaster,  </para> 
+        /// <para> Method: <see cref="SoundMasterClass.StopSoundService"/> </para> 
+        /// </summary>
+        public static STOP_SOUND_DELEGATE STOP_SOUND;
         /// <summary> 
         /// Starts an animation in background or main mode
         /// <para> Owner: DialogMaster </para> 

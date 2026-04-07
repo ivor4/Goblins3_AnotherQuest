@@ -396,14 +396,14 @@ namespace Gob3AQ.VARMAP
         /// <summary> 
         /// Plays a sound and (optionally) callback is called
         /// <para> Owner: SoundMaster </para> 
-        /// <para> Accessors: LevelMaster, DialogMaster,  </para> 
+        /// <para> Accessors: DialogMaster, GameEventMaster,  </para> 
         /// <para> Method: <see cref="SoundMasterClass.PlaySoundService"/> </para> 
         /// </summary>
         protected static PLAY_SOUND_DELEGATE _PLAY_SOUND;
         /// <summary> 
         /// Stops first match of sound with given ID which is being played
         /// <para> Owner: SoundMaster </para> 
-        /// <para> Accessors: LevelMaster, DialogMaster,  </para> 
+        /// <para> Accessors: LevelMaster, DialogMaster, GameEventMaster,  </para> 
         /// <para> Method: <see cref="SoundMasterClass.StopSoundService"/> </para> 
         /// </summary>
         protected static STOP_SOUND_DELEGATE _STOP_SOUND;

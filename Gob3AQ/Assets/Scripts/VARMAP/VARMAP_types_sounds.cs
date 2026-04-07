@@ -13,6 +13,10 @@ namespace Gob3AQ.VARMAP.Types
         SOUND_POOR_MAN_BCKG_1, 
         SOUND_POOR_MAN_BCKG_2, 
         SOUND_POOR_MAN_BCKG_3, 
+        MUSIC_PHARMACY, 
+        MUSIC_SOUTH_NEIGH, 
+        MUSIC_MANYO, 
+        SOUND_AMBIENCE_MANYO_NIGHT, 
         SOUND_LAST, 
         
         SOUND_TOTAL

@@ -65,6 +65,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 310278dc0e4e7cd48b5f151523dca678
+    m_Address: MUSIC_PHARMACY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3c000c0e67b4fc64387e5f5a93e73505
     m_Address: SPRITE_ATLAS_HIVE1_1
     m_ReadOnly: 0
@@ -125,6 +130,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7dc415f9f65036d4ca6224df4effa57e
+    m_Address: SOUND_AMBIENCE_MANYO_NIGHT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 87ef33c852f130a43a61cf63d3b13987
     m_Address: SPRITE_ATLAS_CITY3_2
     m_ReadOnly: 0
@@ -170,6 +180,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b0e3b9d309f1e254dab63d3fa35d96be
+    m_Address: MUSIC_MANYO
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b5bcf86eb656486478fc990376c70fa5
     m_Address: SPRITE_ATLAS_MANYO_0
     m_ReadOnly: 0
@@ -197,6 +212,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e1a48f8e61d9f1c458c3483cef5ab78f
     m_Address: SPRITE_ATLAS_CITY2_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e45ee3065a345494ba9ebc8ad63abfac
+    m_Address: MUSIC_SOUTH_NEIGH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

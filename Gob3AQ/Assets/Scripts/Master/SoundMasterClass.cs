@@ -46,6 +46,7 @@ namespace Gob3AQ.SoundMaster
             private Action callback;
             private GameSound currentSound;
             private bool loading;
+            private bool loop;
 
             public PooledAudioSource(AudioSource source)
             {
@@ -54,9 +55,10 @@ namespace Gob3AQ.SoundMaster
                 loading = false;
             }
 
-            public void PreparePlay(GameSound sound, AudioMixerGroup group, Action callback)
+            public void PreparePlay(GameSound sound, AudioMixerGroup group, Action callback, bool loop)
             {
                 this.callback = callback;
+                this.loop = loop;
                 loading = true;
                 source.outputAudioMixerGroup = group;
                 currentSound = sound;
@@ -67,6 +69,7 @@ namespace Gob3AQ.SoundMaster
                 if(loading)
                 {
                     source.clip = clip;
+                    source.loop = loop;
                     loading = false;
                     source.Play();
                 }
@@ -90,7 +93,7 @@ namespace Gob3AQ.SoundMaster
         private HashSet<GameSound> loadedSounds;
 
 
-        public static void PlaySoundService(GameSound sound, Action callback)
+        public static void PlaySoundService(GameSound sound, Action callback, bool loop)
         {
             if(_singleton != null)
             {
@@ -116,7 +119,7 @@ namespace Gob3AQ.SoundMaster
                             break;
                     }
 
-                    source.PreparePlay(sound, group, callback);
+                    source.PreparePlay(sound, group, callback, loop);
                     _singleton.usedSources.Add(source);
 
                     VARMAP_SoundMaster.LOAD_ADDITIONAL_SOUND(true, sound, source.ReceiveLoadedClip);

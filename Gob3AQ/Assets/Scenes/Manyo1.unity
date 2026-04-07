@@ -2354,6 +2354,75 @@ PolygonCollider2D:
       - {x: 0.14370918, y: 2.030512}
       - {x: -0.26436245, y: 2.4019861}
   m_UseDelaunayMesh: 1
+--- !u!1001 &401950454829235597
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1777118362426465311, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
+      propertyPath: loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1777118362426465311, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
+      propertyPath: dayMoment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1777118362426465311, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
+      propertyPath: soundItem
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862802606018836202, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862802606018836202, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862802606018836202, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862802606018836202, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862802606018836202, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862802606018836202, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862802606018836202, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862802606018836202, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862802606018836202, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862802606018836202, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767379477366607139, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
+      propertyPath: m_Name
+      value: BckgSoundEmitter
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2372,3 +2441,4 @@ SceneRoots:
   - {fileID: 2089112}
   - {fileID: 1119174440}
   - {fileID: 943163115}
+  - {fileID: 401950454829235597}

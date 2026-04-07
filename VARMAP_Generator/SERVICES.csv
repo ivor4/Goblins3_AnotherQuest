@@ -34,8 +34,8 @@
 32,CHANGE_DAY_MOMENT,CHANGE_DAY_MOMENT_DELEGATE,GameMasterClass.ChangeDayMomentService,Requests to change moment of day to a given one,,W,-,-,-,-,-,-,-,-,X
 33,LOAD_ADDITIONAL_PREFAB,LOAD_ADDITIONAL_PREFAB_DELEGATE,GameMasterClass.LoadAdditionalPrefabService,Loads/Unloads a set of names and Phrases,,W,-,-,-,-,X,-,-,-,-
 34,LOAD_ADDITIONAL_SOUND,LOAD_ADDITIONAL_SOUND_DELEGATE,GameMasterClass.LoadAdditionalSoundService,Loads/Unloads a set of names and Phrases,,W,-,-,-,X,-,-,-,-,-
-35,PLAY_SOUND,PLAY_SOUND_DELEGATE,SoundMasterClass.PlaySoundService,Plays a sound and (optionally) callback is called,,-,-,X,-,W,-,X,-,-,-
-36,STOP_SOUND,STOP_SOUND_DELEGATE,SoundMasterClass.StopSoundService,Stops first match of sound with given ID which is being played,,-,-,X,-,W,-,X,-,-,-
+35,PLAY_SOUND,PLAY_SOUND_DELEGATE,SoundMasterClass.PlaySoundService,Plays a sound and (optionally) callback is called,,-,-,-,-,W,-,X,-,-,X
+36,STOP_SOUND,STOP_SOUND_DELEGATE,SoundMasterClass.StopSoundService,Stops first match of sound with given ID which is being played,,-,-,X,-,W,-,X,-,-,X
 37,START_ANIMATION,START_ANIMATION_DELEGATE,DialogMasterClass.StartAnimationService,Starts an animation in background or main mode,,-,-,-,-,-,-,W,-,X,X
 38,ITEM_PERFORM_ANIMATION,ITEM_PERFORM_ANIMATION_DELEGATE,ItemMasterClass.PerformAnimationService,Makes an item start an animation,,-,-,-,-,-,-,X,-,W,-
 39,PERFORM_ACTION,PERFORM_ACTION_DELEGATE,GameEventMasterClass.PerformActionService,Performs a named action,,-,-,X,-,-,X,X,-,X,W

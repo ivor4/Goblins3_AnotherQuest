@@ -30,6 +30,10 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_POOR_MAN_BCKG_1"), /* SOUND_POOR_MAN_BCKG_1 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_POOR_MAN_BCKG_2"), /* SOUND_POOR_MAN_BCKG_2 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_POOR_MAN_BCKG_3"), /* SOUND_POOR_MAN_BCKG_3 */ 
+            new(SoundEffect.EFFECT_NONE,"MUSIC_PHARMACY"), /* MUSIC_PHARMACY */ 
+            new(SoundEffect.EFFECT_NONE,"MUSIC_SOUTH_NEIGH"), /* MUSIC_SOUTH_NEIGH */ 
+            new(SoundEffect.EFFECT_NONE,"MUSIC_MANYO"), /* MUSIC_MANYO */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_AMBIENCE_MANYO_NIGHT"), /* SOUND_AMBIENCE_MANYO_NIGHT */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

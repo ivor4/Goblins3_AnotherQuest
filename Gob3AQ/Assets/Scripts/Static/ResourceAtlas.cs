@@ -284,22 +284,22 @@ namespace Gob3AQ.ResourceAtlas
             
             new( /* PHARMACY_1 */
             new GameSprite[1]{GameSprite.BACKGROUND_PHARMACY1, },
-            GameSound.SOUND_NONE,
+            GameSound.MUSIC_PHARMACY,
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_PHARMACY1, }), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(5){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_PHARMACY_NPC_QUEUE, GameItem.ITEM_PHARMACY_NPC_OWNER, GameItem.ITEM_PHARMACY_INKWELL, GameItem.ITEM_PHARMACY_INK, }), 
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
-            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.SOUND_NONE, }), 
+            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_PHARMACY, }), 
             new ActionConditions[1]{ActionConditions.COND_OK, }, 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }) 
             ),
             
             new( /* MANYO_1 */
             new GameSprite[2]{GameSprite.BACKGROUND_CITY1_MANYO, GameSprite.BACKGROUND_CITY1_MANYO_NIGHT, },
-            GameSound.SOUND_NONE,
+            GameSound.MUSIC_MANYO,
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_CITY1_MANYO, GameSprite.BACKGROUND_CITY1_MANYO_NIGHT, }), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(6){GameItem.ITEM_CITY1_UMBRELLA, GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_ELMANYO_OWNER, GameItem.ITEM_STUFFED_DEER, GameItem.ITEM_ELMANYO_OWNER_NIGHT, GameItem.ITEM_ELMANYO_CROWD, }), 
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
-            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.SOUND_NONE, }), 
+            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(2){GameSound.MUSIC_MANYO, GameSound.SOUND_AMBIENCE_MANYO_NIGHT, }), 
             new ActionConditions[1]{ActionConditions.COND_DIALOGUE_MANYO_BCKG, }, 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }) 
             ),
@@ -317,22 +317,22 @@ namespace Gob3AQ.ResourceAtlas
             
             new( /* CITY1_SOUTH_STREET_1 */
             new GameSprite[2]{GameSprite.BACKGROUND_CITY1_SOUTH_STREET_1, GameSprite.BACKGROUND_CITY1_SOUTH_STREET_1_NIGHT, },
-            GameSound.SOUND_NONE,
+            GameSound.MUSIC_SOUTH_NEIGH,
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_CITY1_SOUTH_STREET_1, GameSprite.BACKGROUND_CITY1_SOUTH_STREET_1_NIGHT, }), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(2){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_GENERIC_DOOR2, }), 
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
-            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.SOUND_NONE, }), 
+            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_SOUTH_NEIGH, }), 
             new ActionConditions[1]{ActionConditions.COND_OK, }, 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }) 
             ),
             
             new( /* CITY1_SOUTH_STREET_2 */
             new GameSprite[2]{GameSprite.BACKGROUND_CITY1_SOUTH_STREET_2, GameSprite.BACKGROUND_CITY1_SOUTH_STREET_2_NIGHT, },
-            GameSound.SOUND_NONE,
+            GameSound.MUSIC_SOUTH_NEIGH,
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_CITY1_SOUTH_STREET_2, GameSprite.BACKGROUND_CITY1_SOUTH_STREET_2_NIGHT, }), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(2){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_NPC_FIK, }), 
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
-            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.SOUND_NONE, }), 
+            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_SOUTH_NEIGH, }), 
             new ActionConditions[1]{ActionConditions.COND_OK, }, 
             new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }) 
             ),

@@ -206,7 +206,7 @@ namespace Gob3AQ.ResourceAtlas
             new InitialWalkInfo[]{new(0,0) }, /* CITY1_STREET_2 */
             new InitialWalkInfo[]{new(0,0) }, /* PHARMACY_1 */
             new InitialWalkInfo[]{new(0,0) }, /* MANYO_1 */
-            new InitialWalkInfo[]{new(0,0) }, /* HIVE1_BACKALLEY */
+            new InitialWalkInfo[]{new(2,4) }, /* HIVE1_BACKALLEY */
             new InitialWalkInfo[]{new(6,0), new(3,5) }, /* CITY1_SOUTH_STREET_1 */
             new InitialWalkInfo[]{new(2,0) }, /* CITY1_SOUTH_STREET_2 */
             new InitialWalkInfo[]{new(0,0) }, /* CITY1_EXTRAPERLO1 */

@@ -447,7 +447,7 @@ namespace Gob3AQ.GameMaster
             VARMAP_GameMaster.SET_ACTUAL_ROOM(room);
             _SetGameStatus(Game_Status.GAME_STATUS_CHANGING_ROOM);
 
-            /* Ensure Changing room operations have been performed by masters */
+            /* Ensure Changing room operations have been performed by masters (including fade snapshot) */
             yield return ResourceAtlasClass.WaitForNextFrame;
             yield return ResourceAtlasClass.WaitForNextFrame;
 

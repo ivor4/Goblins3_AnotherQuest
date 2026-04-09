@@ -71,6 +71,9 @@ namespace Gob3AQ.GameMenu.UICanvas
         private DialogOptionButtonClass[] UICanvas_dialogOptionButtons;
         private PickableItemDisplayClass[] UICanvas_inventoryButtons;
 
+        private Image UICanvas_loadingObj_image;
+        private Sprite UICanvas_loadingObj_image_initial;
+
         private GameObject UICanvas_decisionOptions;
         private DecisionOptionButtonClass[] UICanvas_decisionOptionButtons;
         private RectTransform UICanvas_deicsionObj_rect;
@@ -136,6 +139,9 @@ namespace Gob3AQ.GameMenu.UICanvas
             UICanvas_mementoObj = transform.Find("MementoObj").gameObject;
             UICanvas_itemMenuObj = transform.Find("ItemMenuObj").gameObject;
             UICanvas_detailObj = transform.Find("DetailObj").gameObject;
+
+            UICanvas_loadingObj_image = UICanvas_loadingObj.GetComponent<Image>();
+            UICanvas_loadingObj_image_initial = UICanvas_loadingObj_image.sprite;
 
             UICanvas_dialogObj_background = UICanvas_dialogObj.GetComponent<Image>();
             UICanvas_dialogObj_sender = UICanvas_dialogObj.transform.Find("DialogSender").GetComponent<TMP_Text>();
@@ -425,6 +431,20 @@ namespace Gob3AQ.GameMenu.UICanvas
                     tool_talkButton_img.color = Color.gray;
                     tool_observeButton_img.color = Color.white;
                     break;
+            }
+        }
+
+        public void SetLoadingSprite(Sprite sprite, bool stablish)
+        {
+            if (stablish)
+            {
+                UICanvas_loadingObj_image.sprite = sprite;
+                UICanvas_loadingObj_image.color = Color.white;
+            }
+            else
+            {
+                UICanvas_loadingObj_image.sprite = UICanvas_loadingObj_image_initial;
+                UICanvas_loadingObj_image.color = Color.black;
             }
         }
 

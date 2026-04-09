@@ -38,6 +38,8 @@ namespace Gob3AQ.GraphicsMaster
         private Transform mainCameraTransform;
         private GameObject background;
         private SpriteRenderer background_spr;
+        private Texture2D gameSnapshot;
+        private Sprite gameSnapshot_sprite;
 
         private bool isPickableSelected;
         private bool isDoorHovered;
@@ -103,6 +105,9 @@ namespace Gob3AQ.GraphicsMaster
             isPickableSelected = false;
             isDoorHovered = false;
 
+            gameSnapshot = new Texture2D(Screen.width/2, Screen.height/2, TextureFormat.RGB24, false);
+            gameSnapshot_sprite = Sprite.Create(gameSnapshot, new Rect(0, 0, gameSnapshot.width, gameSnapshot.height), new Vector2(0.5f, 0.5f));
+
             VARMAP_GraphicsMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GraphicsMaster);
         }
 
@@ -132,7 +137,7 @@ namespace Gob3AQ.GraphicsMaster
 
         private void OnDestroy()
         {
-            if(_singleton == this)
+            if (_singleton == this)
             {
                 _singleton = null;
 
@@ -158,7 +163,7 @@ namespace Gob3AQ.GraphicsMaster
 
                     GameSprite background_sprite;
 
-                    if(roomInfo.Backgrounds.Length == 1)
+                    if (roomInfo.Backgrounds.Length == 1)
                     {
                         background_sprite = roomInfo.Backgrounds[0];
                     }
@@ -176,7 +181,7 @@ namespace Gob3AQ.GraphicsMaster
                     _maxCameraOrthographicSize = Mathf.Min(constrainedByWidth, constrainedByHeight);
 
                     ref readonly CameraDispositionStruct cameradisp = ref VARMAP_GraphicsMaster.GET_CAMERA_DISPOSITION();
-                    
+
 
                     Vector3 cameraPosition;
 
@@ -254,12 +259,12 @@ namespace Gob3AQ.GraphicsMaster
                         _mouseDraggingCamera = false;
                         bool zoomApplied;
 
-                        if(keys.isKeyBeingPressed(KeyFunctions.KEYFUNC_ZOOM_UP))
+                        if (keys.isKeyBeingPressed(KeyFunctions.KEYFUNC_ZOOM_UP))
                         {
                             mainCamera.orthographicSize = Math.Max(mainCamera.orthographicSize - 0.025f, GameFixedConfig.MIN_CAMERA_ORTHO_SIZE);
                             zoomApplied = true;
                         }
-                        else if(keys.isKeyBeingPressed(KeyFunctions.KEYFUNC_ZOOM_DOWN))
+                        else if (keys.isKeyBeingPressed(KeyFunctions.KEYFUNC_ZOOM_DOWN))
                         {
                             mainCamera.orthographicSize = Math.Min(mainCamera.orthographicSize + 0.025f, _maxCameraOrthographicSize);
                             zoomApplied = true;
@@ -269,7 +274,7 @@ namespace Gob3AQ.GraphicsMaster
                             zoomApplied = false;
                         }
 
-                        if(zoomApplied)
+                        if (zoomApplied)
                         {
                             UpdateCameraBounds();
 
@@ -291,7 +296,7 @@ namespace Gob3AQ.GraphicsMaster
 
             mouseDraggingChanged ^= _mouseDraggingCamera;
 
-            if(mouseDraggingChanged)
+            if (mouseDraggingChanged)
             {
                 UpdateCursorBaseSprite();
             }
@@ -315,8 +320,12 @@ namespace Gob3AQ.GraphicsMaster
 
             Room actualRoom = VARMAP_GraphicsMaster.GET_ACTUAL_ROOM();
 
-            CameraDispositionStruct cameradisp = new() { position = mainCameraTransform.position,
-                   orthoSize = mainCamera.orthographicSize, room = actualRoom };
+            CameraDispositionStruct cameradisp = new()
+            {
+                position = mainCameraTransform.position,
+                orthoSize = mainCamera.orthographicSize,
+                room = actualRoom
+            };
 
             VARMAP_GraphicsMaster.SET_CAMERA_DISPOSITION(in cameradisp);
         }
@@ -325,11 +334,11 @@ namespace Gob3AQ.GraphicsMaster
         {
             GameSprite cursorSprite;
 
-            if(_mouseDraggingCamera)
+            if (_mouseDraggingCamera)
             {
                 cursorSprite = GameSprite.SPRITE_CURSOR_DRAG;
             }
-            else if(isDoorHovered)
+            else if (isDoorHovered)
             {
                 cursorSprite = GameSprite.SPRITE_UI_CURSOR_DOOR;
             }
@@ -343,6 +352,26 @@ namespace Gob3AQ.GraphicsMaster
             }
 
             uicanvas_cls.SetCursorBaseSprite(cursorSprite);
+        }
+
+        private void TakeGameSnapshot()
+        {
+            RenderTexture prevCameraTarget = mainCamera.targetTexture;
+
+            RenderTexture rt = new RenderTexture(gameSnapshot.width, gameSnapshot.height, 24);
+            mainCamera.targetTexture = rt;
+            mainCamera.Render();
+
+            mainCamera.targetTexture = prevCameraTarget;
+
+            prevCameraTarget = RenderTexture.active;
+            RenderTexture.active = rt;
+            gameSnapshot.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
+            gameSnapshot.Apply();
+
+            Destroy(rt);
+
+            RenderTexture.active = prevCameraTarget;
         }
 
         private void _OnPickedItemChanged(ChangedEventType evtype, in GameItem oldval, in GameItem newval)
@@ -362,7 +391,7 @@ namespace Gob3AQ.GraphicsMaster
         {
             _ = evtype;
 
-            if(oldval != newval)
+            if (oldval != newval)
             {
                 ref readonly ItemInfo itemInfo = ref ItemInfo.EMPTY;
 
@@ -405,6 +434,18 @@ namespace Gob3AQ.GraphicsMaster
                         isPickableSelected = false;
                         isDoorHovered = false;
                         _loaded = false;
+
+                        TakeGameSnapshot();
+                        uicanvas_cls.SetLoadingSprite(gameSnapshot_sprite, true);
+                        break;
+                    default:
+                        break;
+                }
+
+                switch (oldval)
+                {
+                    case Game_Status.GAME_STATUS_LOADING:
+                        uicanvas_cls.SetLoadingSprite(null, false);
                         break;
                     default:
                         break;

@@ -208,7 +208,6 @@ namespace Gob3AQ.GameMenu.UICanvas
             switch (mode)
             {
                 case DisplayMode.DISPLAY_MODE_INVENTORY:
-                    UICanvas_loadingObj.SetActive(false);
                     if (prevDisplayMode != DisplayMode.DISPLAY_MODE_DETAIL)
                     {
                         UICanvas_dialogObj.SetActive(false);
@@ -221,7 +220,6 @@ namespace Gob3AQ.GameMenu.UICanvas
                     break;
 
                 case DisplayMode.DISPLAY_MODE_DIALOG:
-                    UICanvas_loadingObj.SetActive(false);
                     UICanvas_dialogObj.SetActive(true);
                     UICanvas_decisionObj.SetActive(false);
                     UICanvas_mementoObj.SetActive(false);
@@ -230,7 +228,6 @@ namespace Gob3AQ.GameMenu.UICanvas
                     break;
 
                 case DisplayMode.DISPLAY_MODE_DECISION:
-                    UICanvas_loadingObj.SetActive(false);
                     UICanvas_dialogObj.SetActive(false);
                     UICanvas_decisionObj.SetActive(true);
                     UICanvas_mementoObj.SetActive(false);
@@ -239,7 +236,6 @@ namespace Gob3AQ.GameMenu.UICanvas
                     break;
 
                 case DisplayMode.DISPLAY_MODE_MEMENTO:
-                    UICanvas_loadingObj.SetActive(false);
                     UICanvas_dialogObj.SetActive(false);
                     UICanvas_decisionObj.SetActive(false);
                     UICanvas_mementoObj.SetActive(true);
@@ -248,7 +244,6 @@ namespace Gob3AQ.GameMenu.UICanvas
                     break;
 
                 case DisplayMode.DISPLAY_MODE_DETAIL:
-                    UICanvas_loadingObj.SetActive(false);
                     UICanvas_decisionObj.SetActive(false);
                     UICanvas_mementoObj.SetActive(false);
                     UICanvas_itemMenuObj.SetActive(false);
@@ -265,7 +260,6 @@ namespace Gob3AQ.GameMenu.UICanvas
                     break;
 
                 default:
-                    UICanvas_loadingObj.SetActive(false);
                     UICanvas_dialogObj.SetActive(false);
                     UICanvas_decisionObj.SetActive(false);
                     UICanvas_mementoObj.SetActive(false);
@@ -434,18 +428,23 @@ namespace Gob3AQ.GameMenu.UICanvas
             }
         }
 
-        public void SetLoadingSprite(Sprite sprite, bool stablish)
+        public void SetLoadingSprite(Sprite sprite, bool stablish, Color fadetint)
         {
             if (stablish)
             {
                 UICanvas_loadingObj_image.sprite = sprite;
-                UICanvas_loadingObj_image.color = Color.white;
+                UICanvas_loadingObj_image.color = fadetint;
             }
             else
             {
                 UICanvas_loadingObj_image.sprite = UICanvas_loadingObj_image_initial;
                 UICanvas_loadingObj_image.color = Color.black;
             }
+        }
+
+        public void HideLoadingObj()
+        {
+            UICanvas_loadingObj.SetActive(false);
         }
 
         public void ActivateDialogOption(int index, bool activate, DialogOption option, DialogPhrase phrase, string text)

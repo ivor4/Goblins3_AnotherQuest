@@ -40,11 +40,13 @@ namespace Gob3AQ.GraphicsMaster
         private SpriteRenderer background_spr;
         private Texture2D gameSnapshot;
         private Sprite gameSnapshot_sprite;
+        private float loadingFadeProgress;
+        private bool loadingFadingIn;
 
         private bool isPickableSelected;
         private bool isDoorHovered;
 
-        private bool _loaded;
+        private int _load_step;
 
 
         public static void ZoomSubscriptionService(bool subscribe, ZOOM_CHANGED_DELEGATE callback)
@@ -59,6 +61,14 @@ namespace Gob3AQ.GraphicsMaster
                 {
                     _singleton.zoomChangedDelegates -= callback;
                 }
+            }
+        }
+
+        public static void TakeLoadingSnapshotService()
+        {
+            if(_singleton != null)
+            {
+                _singleton.TakeGameSnapshot(_singleton.gameSnapshot);
             }
         }
 
@@ -99,7 +109,9 @@ namespace Gob3AQ.GraphicsMaster
             VARMAP_GraphicsMaster.REG_USER_INPUT_INTERACTION(_OnUserInputInteractionChanged);
 
 
-            _loaded = false;
+            _load_step = 0;
+            loadingFadeProgress = 1f;
+            loadingFadingIn = false;
 
             _mouseDraggingCamera = false;
             isPickableSelected = false;
@@ -120,8 +132,21 @@ namespace Gob3AQ.GraphicsMaster
             uicanvas_cls.MoveCursor(mouse.pos1);
             Game_Status gstatus = VARMAP_GraphicsMaster.GET_GAMESTATUS();
 
+            if (_load_step == 2)
+            {
+                UpdateLoadingFadeColor();
+                if (loadingFadeProgress >= 1f)
+                {
+                    uicanvas_cls.HideLoadingObj();
+                    ++_load_step;
+                }
+            }
+
             switch (gstatus)
             {
+                case Game_Status.GAME_STATUS_CHANGING_ROOM:
+                    UpdateLoadingFadeColor();
+                    break;
                 case Game_Status.GAME_STATUS_LOADING:
                     Execute_Loading();
                     break;
@@ -150,64 +175,80 @@ namespace Gob3AQ.GraphicsMaster
 
         private void Execute_Loading()
         {
-            if (!_loaded)
+            UpdateLoadingFadeColor();
+
+            switch (_load_step)
             {
-                VARMAP_GraphicsMaster.IS_MODULE_LOADED(GameModules.MODULE_GameMaster, out bool gamemasterLoaded);
-                VARMAP_GraphicsMaster.IS_MODULE_LOADED(GameModules.MODULE_LevelMaster, out bool levelmasterLoaded);
-                VARMAP_GraphicsMaster.IS_MODULE_LOADED(GameModules.MODULE_PlayerMaster, out bool playermasterLoaded);
+                case 0:
+                    VARMAP_GraphicsMaster.IS_MODULE_LOADED(GameModules.MODULE_GameMaster, out bool gamemasterLoaded);
+                    VARMAP_GraphicsMaster.IS_MODULE_LOADED(GameModules.MODULE_LevelMaster, out bool levelmasterLoaded);
+                    VARMAP_GraphicsMaster.IS_MODULE_LOADED(GameModules.MODULE_PlayerMaster, out bool playermasterLoaded);
 
-                if (gamemasterLoaded && levelmasterLoaded && playermasterLoaded)
-                {
-                    Room actualRoom = VARMAP_GraphicsMaster.GET_ACTUAL_ROOM();
-                    ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(actualRoom);
-
-                    GameSprite background_sprite;
-
-                    if (roomInfo.Backgrounds.Length == 1)
+                    if (gamemasterLoaded && levelmasterLoaded && playermasterLoaded)
                     {
-                        background_sprite = roomInfo.Backgrounds[0];
+                        Room actualRoom = VARMAP_GraphicsMaster.GET_ACTUAL_ROOM();
+                        ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(actualRoom);
+
+                        GameSprite background_sprite;
+
+                        if (roomInfo.Backgrounds.Length == 1)
+                        {
+                            background_sprite = roomInfo.Backgrounds[0];
+                        }
+                        else
+                        {
+                            background_sprite = roomInfo.Backgrounds[(int)VARMAP_GraphicsMaster.GET_DAY_MOMENT()];
+                        }
+
+                        background_spr.sprite = ResourceSpritesClass.GetSprite(background_sprite);
+                        _levelBounds = background_spr.bounds;
+
+                        float constrainedByWidth = _levelBounds.extents.x / mainCamera.aspect;
+                        float constrainedByHeight = _levelBounds.extents.y;
+
+                        _maxCameraOrthographicSize = Mathf.Min(constrainedByWidth, constrainedByHeight);
+
+                        ref readonly CameraDispositionStruct cameradisp = ref VARMAP_GraphicsMaster.GET_CAMERA_DISPOSITION();
+
+
+                        Vector3 cameraPosition;
+
+                        /* When game is loaded */
+                        if (cameradisp.room == actualRoom)
+                        {
+                            mainCamera.orthographicSize = Mathf.Min(cameradisp.orthoSize, _maxCameraOrthographicSize);
+                            cameraPosition = cameradisp.position;
+                        }
+                        /* When entering a new room */
+                        else
+                        {
+                            mainCamera.orthographicSize = Mathf.Min(5.0f, _maxCameraOrthographicSize);
+                            VARMAP_GraphicsMaster.GET_PLAYER_LIST(out ReadOnlySpan<PlayableCharScript> playerList);
+                            cameraPosition = playerList[0].transform.position;
+                        }
+
+                        UpdateCameraBounds();
+                        cameraPosition.z = mainCameraTransform.position.z;
+                        MoveCameraToPosition(in cameraPosition);
+
+                        
+
+                        UpdateCursorBaseSprite();
+                        ++_load_step;
                     }
-                    else
+                    break;
+
+                case 1:
+                    if(loadingFadeProgress <= 0f)
                     {
-                        background_sprite = roomInfo.Backgrounds[(int)VARMAP_GraphicsMaster.GET_DAY_MOMENT()];
+                        loadingFadingIn = true;
+                        ++_load_step;
+                        VARMAP_GraphicsMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GraphicsMaster);
                     }
+                    break;
 
-                    background_spr.sprite = ResourceSpritesClass.GetSprite(background_sprite);
-                    _levelBounds = background_spr.bounds;
-
-                    float constrainedByWidth = _levelBounds.extents.x / mainCamera.aspect;
-                    float constrainedByHeight = _levelBounds.extents.y;
-
-                    _maxCameraOrthographicSize = Mathf.Min(constrainedByWidth, constrainedByHeight);
-
-                    ref readonly CameraDispositionStruct cameradisp = ref VARMAP_GraphicsMaster.GET_CAMERA_DISPOSITION();
-
-
-                    Vector3 cameraPosition;
-
-                    /* When game is loaded */
-                    if (cameradisp.room == actualRoom)
-                    {
-                        mainCamera.orthographicSize = Mathf.Min(cameradisp.orthoSize, _maxCameraOrthographicSize);
-                        cameraPosition = cameradisp.position;
-                    }
-                    /* When entering a new room */
-                    else
-                    {
-                        mainCamera.orthographicSize = Mathf.Min(5.0f, _maxCameraOrthographicSize);
-                        VARMAP_GraphicsMaster.GET_PLAYER_LIST(out ReadOnlySpan<PlayableCharScript> playerList);
-                        cameraPosition = playerList[0].transform.position;
-                    }
-
-                    UpdateCameraBounds();
-                    cameraPosition.z = mainCameraTransform.position.z;
-                    MoveCameraToPosition(in cameraPosition);
-
-                    VARMAP_GraphicsMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GraphicsMaster);
-
-                    UpdateCursorBaseSprite();
-                    _loaded = true;
-                }
+                default:
+                    break;
             }
         }
 
@@ -354,11 +395,11 @@ namespace Gob3AQ.GraphicsMaster
             uicanvas_cls.SetCursorBaseSprite(cursorSprite);
         }
 
-        private void TakeGameSnapshot()
+        private void TakeGameSnapshot(Texture2D destTexture)
         {
             RenderTexture prevCameraTarget = mainCamera.targetTexture;
 
-            RenderTexture rt = new RenderTexture(gameSnapshot.width, gameSnapshot.height, 24);
+            RenderTexture rt = new RenderTexture(destTexture.width, destTexture.height, 24);
             mainCamera.targetTexture = rt;
             mainCamera.Render();
 
@@ -366,12 +407,30 @@ namespace Gob3AQ.GraphicsMaster
 
             prevCameraTarget = RenderTexture.active;
             RenderTexture.active = rt;
-            gameSnapshot.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
-            gameSnapshot.Apply();
+            destTexture.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
+            destTexture.Apply();
 
             Destroy(rt);
 
             RenderTexture.active = prevCameraTarget;
+        }
+
+        private void UpdateLoadingFadeColor()
+        {
+            loadingFadeProgress = Mathf.Clamp01(loadingFadeProgress + (loadingFadingIn ? 1f : -1f) * 0.015f);
+
+            Color tintColor;
+
+            if(loadingFadingIn)
+            {
+                tintColor = new Color(0f, 0f, 0f, 1.0f-loadingFadeProgress);
+            }
+            else
+            {
+                tintColor = new Color(loadingFadeProgress, loadingFadeProgress, loadingFadeProgress, 1.0f);
+            }
+
+            uicanvas_cls.SetLoadingSprite(gameSnapshot_sprite, true, tintColor);
         }
 
         private void _OnPickedItemChanged(ChangedEventType evtype, in GameItem oldval, in GameItem newval)
@@ -433,10 +492,11 @@ namespace Gob3AQ.GraphicsMaster
                         _mouseDraggingCamera = false;
                         isPickableSelected = false;
                         isDoorHovered = false;
-                        _loaded = false;
+                        _load_step = 0;
+                        loadingFadeProgress = 1f;
+                        loadingFadingIn = false;
 
-                        TakeGameSnapshot();
-                        uicanvas_cls.SetLoadingSprite(gameSnapshot_sprite, true);
+                        uicanvas_cls.SetLoadingSprite(gameSnapshot_sprite, true, Color.white);
                         break;
                     default:
                         break;
@@ -445,7 +505,7 @@ namespace Gob3AQ.GraphicsMaster
                 switch (oldval)
                 {
                     case Game_Status.GAME_STATUS_LOADING:
-                        uicanvas_cls.SetLoadingSprite(null, false);
+                        uicanvas_cls.SetLoadingSprite(null, false, Color.black);
                         break;
                     default:
                         break;

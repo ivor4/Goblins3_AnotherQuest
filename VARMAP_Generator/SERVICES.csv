@@ -41,4 +41,5 @@
 39,PERFORM_ACTION,PERFORM_ACTION_DELEGATE,GameEventMasterClass.PerformActionService,Performs a named action,,-,-,X,-,-,X,X,-,X,W
 40,IS_DIALOG_ACTIVE,IS_DIALOG_ACTIVE_DELEGATE,DialogMasterClass.IsDialogActiveService,Returns if a dialog (Background or not) is active,,-,-,-,-,-,-,W,-,-,X
 41,NOTIFY_ENDED_ACTION,NOTIFY_ENDED_ACTION,GameEventMasterClass.NotifyEndedActionService,Notifies Event manager a Dialog / Animation action has been performed,,-,-,-,-,-,-,X,-,-,W
-42,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-,-,-
+42,TAKE_LOADING_SNAPSHOT,TAKE_LOADING_SNAPSHOT,GraphicsMasterClass.TakeLoadingSnapshotService,Takes snapshot to be used in fading while loading next scene,,X,-,-,W,-,-,-,-,-,-
+43,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-,-,-

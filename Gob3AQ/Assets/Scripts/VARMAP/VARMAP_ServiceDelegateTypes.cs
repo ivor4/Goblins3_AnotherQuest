@@ -82,5 +82,6 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void PERFORM_ACTION_DELEGATE(ReadOnlySpan<GameAction> actions, Action callback);
     public delegate void IS_DIALOG_ACTIVE_DELEGATE(out bool active);
     public delegate void NOTIFY_ENDED_ACTION(NotifyAction notify);
+    public delegate void TAKE_LOADING_SNAPSHOT();
 
 }

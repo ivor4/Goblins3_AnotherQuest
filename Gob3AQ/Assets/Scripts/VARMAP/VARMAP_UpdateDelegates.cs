@@ -193,6 +193,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _PERFORM_ACTION = GameEventMasterClass.PerformActionService;
             _IS_DIALOG_ACTIVE = DialogMasterClass.IsDialogActiveService;
             _NOTIFY_ENDED_ACTION = GameEventMasterClass.NotifyEndedActionService;
+            _TAKE_LOADING_SNAPSHOT = GraphicsMasterClass.TakeLoadingSnapshotService;
             _LAST_SERVICE = GameMasterClass.ExitGameService;
             /* > ATG 2 END */
         }

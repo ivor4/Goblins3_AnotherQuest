@@ -43,6 +43,7 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
             ZOOM_SUBSCRIPTION = _ZOOM_SUBSCRIPTION;
+            TAKE_LOADING_SNAPSHOT = _TAKE_LOADING_SNAPSHOT;
             /* > ATG 1 END */
         }
 
@@ -103,6 +104,13 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
         /// <para> Method: <see cref="GraphicsMasterClass.ZoomSubscriptionService"/> </para> 
         /// </summary>
         public static ZOOM_SUBSCRIPTION_DELEGATE ZOOM_SUBSCRIPTION;
+        /// <summary> 
+        /// Takes snapshot to be used in fading while loading next scene
+        /// <para> Owner: GraphicsMaster </para> 
+        /// <para> Accessors: GameMaster,  </para> 
+        /// <para> Method: <see cref="GraphicsMasterClass.TakeLoadingSnapshotService"/> </para> 
+        /// </summary>
+        public static TAKE_LOADING_SNAPSHOT TAKE_LOADING_SNAPSHOT;
         /* > ATG 3 END */
     }
 }

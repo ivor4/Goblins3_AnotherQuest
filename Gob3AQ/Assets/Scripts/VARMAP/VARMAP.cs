@@ -443,6 +443,13 @@ namespace Gob3AQ.VARMAP
         /// </summary>
         protected static NOTIFY_ENDED_ACTION _NOTIFY_ENDED_ACTION;
         /// <summary> 
+        /// Takes snapshot to be used in fading while loading next scene
+        /// <para> Owner: GraphicsMaster </para> 
+        /// <para> Accessors: GameMaster,  </para> 
+        /// <para> Method: <see cref="GraphicsMasterClass.TakeLoadingSnapshotService"/> </para> 
+        /// </summary>
+        protected static TAKE_LOADING_SNAPSHOT _TAKE_LOADING_SNAPSHOT;
+        /// <summary> 
         /// Last service
         /// <para> Owner: GameMaster </para> 
         /// <para> Accessors:  </para> 

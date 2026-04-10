@@ -442,6 +442,8 @@ namespace Gob3AQ.GameMaster
             /* Operations prepared for next level */
             /* Commit pending changes */
 
+            VARMAP_GameMaster.TAKE_LOADING_SNAPSHOT();
+
             ManageChangeRoomEvents(changeDayEvent, changeRoomEvent);
             VARMAP_GameMaster.SET_DAY_MOMENT(moment);
             VARMAP_GameMaster.SET_ACTUAL_ROOM(room);

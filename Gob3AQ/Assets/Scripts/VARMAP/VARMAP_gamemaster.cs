@@ -47,6 +47,7 @@ namespace Gob3AQ.VARMAP.GameMaster
             CHANGE_DAY_MOMENT = _CHANGE_DAY_MOMENT;
             LOAD_ADDITIONAL_PREFAB = _LOAD_ADDITIONAL_PREFAB;
             LOAD_ADDITIONAL_SOUND = _LOAD_ADDITIONAL_SOUND;
+            TAKE_LOADING_SNAPSHOT = _TAKE_LOADING_SNAPSHOT;
             LAST_SERVICE = _LAST_SERVICE;
             /* > ATG 1 END */
         }
@@ -160,6 +161,13 @@ namespace Gob3AQ.VARMAP.GameMaster
         /// <para> Method: <see cref="GameMasterClass.LoadAdditionalSoundService"/> </para> 
         /// </summary>
         public static LOAD_ADDITIONAL_SOUND_DELEGATE LOAD_ADDITIONAL_SOUND;
+        /// <summary> 
+        /// Takes snapshot to be used in fading while loading next scene
+        /// <para> Owner: GraphicsMaster </para> 
+        /// <para> Accessors: GameMaster,  </para> 
+        /// <para> Method: <see cref="GraphicsMasterClass.TakeLoadingSnapshotService"/> </para> 
+        /// </summary>
+        public static TAKE_LOADING_SNAPSHOT TAKE_LOADING_SNAPSHOT;
         /// <summary> 
         /// Last service
         /// <para> Owner: GameMaster </para> 

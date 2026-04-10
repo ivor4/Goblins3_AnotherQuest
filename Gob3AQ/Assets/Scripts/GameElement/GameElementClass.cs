@@ -286,6 +286,10 @@ namespace Gob3AQ.GameElement
                         SetActive(!isUnspawned);
                         SetClickable(!isUnspawned && !isUnclickable);
                         SetMotion(!isUnspawned);
+                        if (myAnimator != null)
+                        {
+                            myAnimator.enabled = true;
+                        }
                         break;
                 }
 
@@ -295,6 +299,14 @@ namespace Gob3AQ.GameElement
                         SetActive(false);
                         SetClickable(false);
                         SetMotion(false);
+
+                        if ((newval == Game_Status.GAME_STATUS_PLAY_MEMENTO) || (newval == Game_Status.GAME_STATUS_PLAY_ITEM_MENU) || (newval == Game_Status.GAME_STATUS_PLAY_DECISION))
+                        {
+                            if (myAnimator != null)
+                            {
+                                myAnimator.enabled = false;
+                            }
+                        }
                         break;
                 }
             }

@@ -5,12 +5,7 @@ using Gob3AQ.VARMAP.Types;
 [System.Serializable]
 public class BckgSoundEmmitterClass : MonoBehaviour
 {
-    [System.Serializable]
-    private struct GameEventCombi_prv
-    {
-        public GameEvent ev;
-        public bool not;
-    }
+    
 
     [SerializeField]
     private GameSound soundItem;

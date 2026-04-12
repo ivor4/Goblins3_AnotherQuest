@@ -43,9 +43,7 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         private WaypointProgrammedPath actualProgrammedPath;
 
-        private IReadOnlyList<Vector3> waypoints_pos;
-        private IReadOnlyList<float> waypoints_sizes;
-        private IReadOnlyList<WaypointSolution> solutions;
+        private IReadOnlyList<WaypointInfo> waypoints_infos;
 
         private struct WaypointProgrammedPath
         {
@@ -136,7 +134,7 @@ namespace Gob3AQ.GameElement.PlayableChar
             PlayerMasterClass.SetPlayerLoadPresent(CharType);
 
             VARMAP_PlayerMaster.MONO_REGISTER(this, true);
-            VARMAP_PlayerMaster.GET_WP_LIST(out waypoints_pos, out waypoints_sizes, out solutions);
+            VARMAP_PlayerMaster.GET_WP_LIST(out waypoints_infos);
 
             /* Start loading coroutine */
             _ = StartCoroutine(Execute_Loading_Coroutine());

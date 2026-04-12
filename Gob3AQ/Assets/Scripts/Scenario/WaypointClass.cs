@@ -1,6 +1,4 @@
-
-
-
+using Gob3AQ.VARMAP.Types;
 using Gob3AQ.Waypoint.Network;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,12 +13,8 @@ namespace Gob3AQ.Waypoint
         [Tooltip("Assign Manually or by Tool")]
         private int id_in_network;
 
-        public int ID_in_Network => id_in_network;
-
         [SerializeField]
         private List<WaypointClass> connectedWaypoints;
-
-        public IReadOnlyList<WaypointClass> ConnectedWaypoints => connectedWaypoints;
 
         [SerializeField]
         [Tooltip("Assign Manually or by Tool")]
@@ -29,9 +23,21 @@ namespace Gob3AQ.Waypoint
         [SerializeField]
         private float characterSizeFactor;
 
-        public WaypointNetwork Network => network;
+        [SerializeField]
+        private WaypointReachability reachability;
+
+        [SerializeField]
+        private List<GameEventCombi_prv> neededEvents;
+
+        [SerializeField]
+        private GameAction actionWhenCross;
 
         public float CharacterSizeFactor => characterSizeFactor;
+        public int ID_in_Network => id_in_network;
+        public IReadOnlyList<WaypointClass> ConnectedWaypoints => connectedWaypoints;
+        public WaypointReachability Reachability => reachability;
+        public IReadOnlyList<GameEventCombi_prv> NeededEvents => neededEvents;
+        public GameAction ActionWhenCross => actionWhenCross;
 
 
 #if UNITY_EDITOR

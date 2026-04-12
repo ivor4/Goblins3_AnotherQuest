@@ -679,6 +679,15 @@ namespace Gob3AQ.VARMAP.Types
         }
     }
 
+    /* Same as above, but serializable and modificable (Careful!) */
+
+    [System.Serializable]
+    public struct GameEventCombi_prv
+    {
+        public GameEvent ev;
+        public bool not;
+    }
+
 
     public struct MousePropertiesStruct : IStreamable
     {

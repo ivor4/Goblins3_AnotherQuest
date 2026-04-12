@@ -22,9 +22,7 @@ namespace Gob3AQ.LevelMaster
 
         private static LevelMasterClass _singleton;
 
-        private IReadOnlyList<Vector3> _WP_Pos_List;
-        private IReadOnlyList<float> _WP_Size_List;
-        private IReadOnlyList<WaypointSolution> _WP_Solution_List;
+        private IReadOnlyList<WaypointInfo> _WP_Info_List;
         private PlayableCharScript[] _Player_List;
         private Dictionary<GameItem, DoorInfo> _Door_Dict;
         private Dictionary<GameItem, GameElementClass> _ItemDictionary;
@@ -84,9 +82,10 @@ namespace Gob3AQ.LevelMaster
                 candidate_pos = Vector2.zero;
                 candidate_index = -1;
 
-                for (int i = 0; i < _singleton._WP_Pos_List.Count; ++i)
+                for (int i = 0; i < _singleton._WP_Info_List.Count; ++i)
                 {
-                    Vector2 wp_pos = _singleton._WP_Pos_List[i];
+                    WaypointInfo wpinfo = _singleton._WP_Info_List[i];
+                    Vector2 wp_pos = wpinfo.Position;
                     float dist = Vector2.Distance(wp_pos, position);
 
                     if (dist < minDistance)
@@ -110,19 +109,15 @@ namespace Gob3AQ.LevelMaster
             }
         }
 
-        public static void GetWaypointListService(out IReadOnlyList<Vector3> positions, out IReadOnlyList<float> sizes, out IReadOnlyList<WaypointSolution> solutions)
+        public static void GetWaypointListService(out IReadOnlyList<WaypointInfo> infos)
         {
             if (_singleton != null)
             {
-                positions = _singleton._WP_Pos_List;
-                sizes = _singleton._WP_Size_List;
-                solutions = _singleton._WP_Solution_List;
+                infos = _singleton._WP_Info_List;
             }
             else
             {
-                positions = null;
-                sizes = null;
-                solutions = null;
+                infos = null;
             }
         }
 
@@ -235,14 +230,11 @@ namespace Gob3AQ.LevelMaster
 
         #region "Internal Services"
 
-        public static void WPListRegister(IReadOnlyList<Vector3> waypointPosList,
-            IReadOnlyList<float> waypointSizeList, IReadOnlyList<WaypointSolution> solutions)
+        public static void WPListRegister(IReadOnlyList<WaypointInfo> waypointInfoList)
         {
             if (_singleton != null)
             {
-                _singleton._WP_Pos_List = waypointPosList;
-                _singleton._WP_Size_List = waypointSizeList;
-                _singleton._WP_Solution_List = solutions;
+                _singleton._WP_Info_List = waypointInfoList;
             }
         }
 
@@ -752,9 +744,7 @@ namespace Gob3AQ.LevelMaster
                         VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
                         VARMAP_LevelMaster.SET_ITEM_HOVER(_HoveredElem.item);
 
-                        _WP_Pos_List = null;
-                        _WP_Size_List = null;
-                        _WP_Solution_List = null;
+                        _WP_Info_List = null;
                         break;
                     case Game_Status.GAME_STATUS_LOADING:
                         StartCoroutine(LoadCoroutine());

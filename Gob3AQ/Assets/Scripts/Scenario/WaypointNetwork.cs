@@ -3,6 +3,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Gob3AQ.LevelMaster;
+using Gob3AQ.VARMAP.Types;
+
 
 
 
@@ -12,6 +14,13 @@ using UnityEditor;
 
 namespace Gob3AQ.Waypoint.Network
 {
+    public enum WaypointReachability
+    {
+        REACHABLE_ALWAYS,
+        REACHABLE_NEVER,
+        REACHABLE_WHEN_COMBI
+    }
+
     [System.Serializable]
     public struct WaypointSolution
     {
@@ -23,6 +32,27 @@ namespace Gob3AQ.Waypoint.Network
         public WaypointSolution(List<int> travelTo)
         {
             this.travelTo = travelTo;
+        }
+    }
+
+    public readonly struct WaypointInfo
+    {
+        public readonly Vector3 Position;
+        public readonly WaypointReachability Reachability;
+        public readonly WaypointSolution Solution;
+        public readonly float CharacterSizeFactor;
+        public readonly IReadOnlyList<GameEventCombi_prv> NeededConditions;
+        public readonly GameAction ActionWhenCross;
+
+        public WaypointInfo(Vector3 position, WaypointReachability reachability, WaypointSolution solution,
+            float characterSizeFactor, IReadOnlyList<GameEventCombi_prv> neededConditions, GameAction actionWhenCross)
+        {
+            Position = position;
+            Reachability = reachability;
+            Solution = solution;
+            CharacterSizeFactor = characterSizeFactor;
+            NeededConditions = neededConditions;
+            ActionWhenCross = actionWhenCross;
         }
     }
 
@@ -45,17 +75,16 @@ namespace Gob3AQ.Waypoint.Network
 
         private void Awake()
         {
-            List<Vector3> waypoints_points = new(children.Count);
-            List<float> waypoints_sizes = new(children.Count);
+            List<WaypointInfo> waypoints_info = new(children.Count);
 
             for (int i = 0; i < children.Count; ++i)
             {
-                waypoints_points.Add(children[i].transform.position);
-                waypoints_sizes.Add(children[i].CharacterSizeFactor);
+                WaypointInfo info = new(children[i].transform.position, children[i].Reachability, solutions[i], children[i].CharacterSizeFactor, children[i].NeededEvents, children[i].ActionWhenCross);
+                waypoints_info.Add(info);
             }
 
             /* LevelMaster is ensured to be initialized before this */
-            LevelMasterClass.WPListRegister(waypoints_points, waypoints_sizes, solutions);
+            LevelMasterClass.WPListRegister(waypoints_info);
         }
 
 

@@ -76,6 +76,7 @@ namespace Gob3AQ.LevelMaster
         public static void GetNearestWPService(Vector2 position, float maxRadius, out int candidate_index,
             out Vector2 candidate_pos)
         {
+            Span<GameEventCombi> gameEventCombis = stackalloc GameEventCombi[1];
             if (_singleton != null)
             {
                 float minDistance = float.PositiveInfinity;
@@ -85,14 +86,35 @@ namespace Gob3AQ.LevelMaster
                 for (int i = 0; i < _singleton._WP_Info_List.Count; ++i)
                 {
                     WaypointInfo wpinfo = _singleton._WP_Info_List[i];
-                    Vector2 wp_pos = wpinfo.Position;
-                    float dist = Vector2.Distance(wp_pos, position);
 
-                    if (dist < minDistance)
+                    bool pass;
+
+                    switch(wpinfo.Reachability)
                     {
-                        minDistance = dist;
-                        candidate_pos = wp_pos;
-                        candidate_index = i;
+                        case WaypointReachability.REACHABLE_ALWAYS:
+                            pass = true;
+                            break;
+                        case WaypointReachability.REACHABLE_WHEN_COMBI:
+                            GameEventCombi combi = new(wpinfo.NeededEvent.ev, wpinfo.NeededEvent.not);
+                            gameEventCombis[0] = combi;
+                            VARMAP_LevelMaster.IS_EVENT_COMBI_OCCURRED(gameEventCombis, out pass);
+                            break;
+                        default:
+                            pass = false;
+                            break;
+                    }
+
+                    if (pass)
+                    {
+                        Vector2 wp_pos = wpinfo.Position;
+                        float dist = Vector2.Distance(wp_pos, position);
+
+                        if (dist < minDistance)
+                        {
+                            minDistance = dist;
+                            candidate_pos = wp_pos;
+                            candidate_index = i;
+                        }
                     }
                 }
 
@@ -617,27 +639,41 @@ namespace Gob3AQ.LevelMaster
             ref readonly InteractionUsage usage = ref charPendingAction.usage;
 
             /* Now interact if buffered */
-            if (charPendingAction.pending && (usage.type != ItemInteractionType.INTERACTION_MOVE))
+            if (charPendingAction.pending)
             {
-                ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(usage.itemDest);
-
-                /* Check if it is available and is still in original position */
-                bool validTransaction = IsItemAvailable(usage.itemDest);
-                validTransaction &= _ItemDictionary[usage.itemDest].Waypoint == usage.destWaypoint_index;
-
-
-                if (validTransaction)
+                GameAction actionWhenCross = _WP_Info_List[_Player_List[(int)character].Waypoint].ActionWhenCross;
+                if (actionWhenCross != GameAction.ACTION_NONE)
                 {
-                    /* Use Item is also Take Item */
-                    VARMAP_LevelMaster.USE_ITEM(in usage, out InteractionUsageOutcome outcome);
+                    Span<GameAction> stackAction = stackalloc GameAction[1];
+                    stackAction[0] = actionWhenCross;
+                    VARMAP_LevelMaster.PERFORM_ACTION(stackAction, null);
+                }
+                else if (charPendingAction.pending && (usage.type != ItemInteractionType.INTERACTION_MOVE))
+                {
+                    ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(usage.itemDest);
 
-                    if ((usage.type == ItemInteractionType.INTERACTION_CROSS_DOOR) && (!outcome.ok))
+                    /* Check if it is available and is still in original position */
+                    bool validTransaction = IsItemAvailable(usage.itemDest);
+                    validTransaction &= _ItemDictionary[usage.itemDest].Waypoint == usage.destWaypoint_index;
+
+
+                    if (validTransaction)
                     {
-                        /* May sound strange, if no special conditions, door can be crossed */
-                        CrossDoor(usage.itemDest);
-                    }
+                        /* Use Item is also Take Item */
+                        VARMAP_LevelMaster.USE_ITEM(in usage, out InteractionUsageOutcome outcome);
 
-                    VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
+                        if ((usage.type == ItemInteractionType.INTERACTION_CROSS_DOOR) && (!outcome.ok))
+                        {
+                            /* May sound strange, if no special conditions, door can be crossed */
+                            CrossDoor(usage.itemDest);
+                        }
+
+                        VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
+                    }
+                }
+                else
+                {
+                    /**/
                 }
             }
 

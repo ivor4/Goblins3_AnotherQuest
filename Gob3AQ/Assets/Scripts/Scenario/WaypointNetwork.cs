@@ -17,7 +17,7 @@ namespace Gob3AQ.Waypoint.Network
     public enum WaypointReachability
     {
         REACHABLE_ALWAYS,
-        REACHABLE_NEVER,
+        REACHABLE_NEVER_BY_MOUSE,
         REACHABLE_WHEN_COMBI
     }
 
@@ -41,17 +41,17 @@ namespace Gob3AQ.Waypoint.Network
         public readonly WaypointReachability Reachability;
         public readonly WaypointSolution Solution;
         public readonly float CharacterSizeFactor;
-        public readonly IReadOnlyList<GameEventCombi_prv> NeededConditions;
+        public readonly GameEventCombi_prv NeededEvent;
         public readonly GameAction ActionWhenCross;
 
         public WaypointInfo(Vector3 position, WaypointReachability reachability, WaypointSolution solution,
-            float characterSizeFactor, IReadOnlyList<GameEventCombi_prv> neededConditions, GameAction actionWhenCross)
+            float characterSizeFactor, GameEventCombi_prv neededEvent, GameAction actionWhenCross)
         {
             Position = position;
             Reachability = reachability;
             Solution = solution;
             CharacterSizeFactor = characterSizeFactor;
-            NeededConditions = neededConditions;
+            NeededEvent = neededEvent;
             ActionWhenCross = actionWhenCross;
         }
     }
@@ -79,7 +79,7 @@ namespace Gob3AQ.Waypoint.Network
 
             for (int i = 0; i < children.Count; ++i)
             {
-                WaypointInfo info = new(children[i].transform.position, children[i].Reachability, solutions[i], children[i].CharacterSizeFactor, children[i].NeededEvents, children[i].ActionWhenCross);
+                WaypointInfo info = new(children[i].transform.position, children[i].Reachability, solutions[i], children[i].CharacterSizeFactor, children[i].NeededEvent, children[i].ActionWhenCross);
                 waypoints_info.Add(info);
             }
 

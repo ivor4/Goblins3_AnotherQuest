@@ -686,6 +686,12 @@ namespace Gob3AQ.VARMAP.Types
     {
         public GameEvent ev;
         public bool not;
+
+        public GameEventCombi_prv(GameEvent ev, bool not)
+        {
+            this.ev = ev;
+            this.not = not;
+        }
     }
 
 

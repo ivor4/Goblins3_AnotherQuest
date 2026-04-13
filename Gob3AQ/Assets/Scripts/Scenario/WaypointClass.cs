@@ -27,7 +27,7 @@ namespace Gob3AQ.Waypoint
         private WaypointReachability reachability;
 
         [SerializeField]
-        private List<GameEventCombi_prv> neededEvents;
+        private GameEventCombi_prv neededEvent;
 
         [SerializeField]
         private GameAction actionWhenCross;
@@ -36,7 +36,7 @@ namespace Gob3AQ.Waypoint
         public int ID_in_Network => id_in_network;
         public IReadOnlyList<WaypointClass> ConnectedWaypoints => connectedWaypoints;
         public WaypointReachability Reachability => reachability;
-        public IReadOnlyList<GameEventCombi_prv> NeededEvents => neededEvents;
+        public GameEventCombi_prv NeededEvent => neededEvent;
         public GameAction ActionWhenCross => actionWhenCross;
 
 

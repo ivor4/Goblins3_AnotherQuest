@@ -54,7 +54,6 @@ namespace Gob3AQ.GameElement.PlayableChar
             public float wp_distance3D;
             public float initial_size;
             public float delta_size;
-            public bool already_ended;
         }
 
 
@@ -88,18 +87,14 @@ namespace Gob3AQ.GameElement.PlayableChar
             /* Interact only if not talking or doing an action */
             if (IsAvailable)
             {
-                if ((physicalstate == PhysicalState.PHYSICAL_STATE_STANDING) && (actualWaypoint == destWp_index))
+                actualProgrammedPath.final_index = destWp_index;
+
+                /* If already walking, complete its actual segment. If stopped, start with first inteded segment of new path from actual waypoint */
+                if((physicalstate != PhysicalState.PHYSICAL_STATE_WALKING)&&(actualWaypoint != destWp_index))
                 {
-                    actualProgrammedPath.already_ended = true;
+                    Walk_StartNextSegment();
                 }
-                else
-                {
-                    actualProgrammedPath.final_index = destWp_index;
-                    actualProgrammedPath.already_ended = false;
-                    /* If already walking, complete its actual segment. If stopped, start with first inteded segment of new path from actual waypoint */
-                    Walk_StartNextSegment(!(physicalstate == PhysicalState.PHYSICAL_STATE_WALKING));
-                    physicalstate = PhysicalState.PHYSICAL_STATE_WALKING;
-                }
+                physicalstate = PhysicalState.PHYSICAL_STATE_WALKING;
 
                 SetActive_Internal(true);
                 requestAccepted = true;
@@ -312,7 +307,7 @@ namespace Gob3AQ.GameElement.PlayableChar
                 }
                 else
                 {
-                    Walk_StartNextSegment(true);
+                    Walk_StartNextSegment();
                     continueOp = true;
                 }
             }
@@ -344,23 +339,21 @@ namespace Gob3AQ.GameElement.PlayableChar
         }
 
 
-        private void Walk_StartNextSegment(bool reached)
+        private void Walk_StartNextSegment()
         {
             Vector2 delta;
             float speed_reduction_factor = 1f;
 
-            if (reached)
-            {
-                actualWaypoint = actualProgrammedPath.target_index;
-                _parentTransform.position = waypoints_infos[actualWaypoint].Position;
-                actualProgrammedPath.target_index = waypoints_infos[actualWaypoint].Solution.TravelTo[actualProgrammedPath.final_index];
 
-                actualProgrammedPath.wp_distance = ((Vector2)waypoints_infos[actualProgrammedPath.target_index].Position - (Vector2)waypoints_infos[actualWaypoint].Position).magnitude;
-                actualProgrammedPath.wp_distance3D = (waypoints_infos[actualProgrammedPath.target_index].Position - waypoints_infos[actualWaypoint].Position).magnitude;
-                actualProgrammedPath.initial_size = waypoints_infos[actualWaypoint].CharacterSizeFactor;
-                actualProgrammedPath.delta_size = waypoints_infos[actualProgrammedPath.target_index].CharacterSizeFactor - waypoints_infos[actualWaypoint].CharacterSizeFactor;
-                SetSize(waypoints_infos[actualWaypoint].CharacterSizeFactor);
-            }
+            actualWaypoint = actualProgrammedPath.target_index;
+            _parentTransform.position = waypoints_infos[actualWaypoint].Position;
+            actualProgrammedPath.target_index = waypoints_infos[actualWaypoint].Solution.TravelTo[actualProgrammedPath.final_index];
+
+            actualProgrammedPath.wp_distance = ((Vector2)waypoints_infos[actualProgrammedPath.target_index].Position - (Vector2)waypoints_infos[actualWaypoint].Position).magnitude;
+            actualProgrammedPath.wp_distance3D = (waypoints_infos[actualProgrammedPath.target_index].Position - waypoints_infos[actualWaypoint].Position).magnitude;
+            actualProgrammedPath.initial_size = waypoints_infos[actualWaypoint].CharacterSizeFactor;
+            actualProgrammedPath.delta_size = waypoints_infos[actualProgrammedPath.target_index].CharacterSizeFactor - waypoints_infos[actualWaypoint].CharacterSizeFactor;
+            SetSize(waypoints_infos[actualWaypoint].CharacterSizeFactor);
 
             delta = ((Vector2)waypoints_infos[actualProgrammedPath.target_index].Position - (Vector2)waypoints_infos[actualWaypoint].Position).normalized;
 
@@ -407,18 +400,13 @@ namespace Gob3AQ.GameElement.PlayableChar
             }
 
 
-
-            if (reached)
-            {
-                ResetWalkTriggers();
-                myAnimator.SetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_STR[walkdirTrigger]);
-            }
+            ResetWalkTriggers();
+            myAnimator.SetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_STR[walkdirTrigger]);
 
             /* Remove after debugging */
             speed_reduction_factor = 1f;
 
             myRigidbody.linearVelocity = GameFixedConfig.CHARACTER_NORMAL_SPEED * speed_reduction_factor * delta;
-
         }
 
         private bool StartBufferedInteraction()
@@ -444,7 +432,6 @@ namespace Gob3AQ.GameElement.PlayableChar
             actualProgrammedPath.wp_distance3D = 0f;
             actualProgrammedPath.initial_size = waypoints_infos[waypoint_index].CharacterSizeFactor;
             actualProgrammedPath.delta_size = 0f;
-            actualProgrammedPath.already_ended = false;
         }
 
         private void ResetWalkTriggers()

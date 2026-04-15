@@ -141,158 +141,164 @@ namespace Gob3AQ.Brain.ItemsInteraction
         private static readonly UnchainInfo[] _UnchainConditions = new UnchainInfo[(int)UnchainConditions.UNCHAIN_TOTAL]
         {
             /* > ATG 1 START < */
+            new( /* UNCHAIN_NONE */
+            true,false,false,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            MomentType.MOMENT_ANY, 
+            new GameAction[1]{GameAction.ACTION_NONE,}), 
+            
             new( /* UNCHAIN_ROOM1_INITIAL_MEMENTO_1 */
-            false,true,new(GameEvent.EVENT_FIRST, false), 
+            false,false,true,new(GameEvent.EVENT_FIRST, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_ANY, 
             new GameAction[2]{GameAction.ACTION_EVENT_INITIAL_MEMENTO,GameAction.ACTION_MEMENTO_INITIAL_MEMENTO,}), 
             
             new( /* UNCHAIN_HIVE1_OPEN_CHEST_1 */
-            true,false,new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, false), 
+            false,true,false,new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, false),}, 
             MomentType.MOMENT_ANY, 
             new GameAction[1]{GameAction.ACTION_SPAWN_HIVE1_CARDS,}), 
             
             new( /* UNCHAIN_HIVE1_OPEN_CHEST_2 */
-            true,false,new(GameEvent.EVENT_NONE, false), 
+            false,true,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, false),}, 
             MomentType.MOMENT_ANY, 
             new GameAction[2]{GameAction.ACTION_SET_SPRITE_CHEST_OPENED,GameAction.ACTION_SPAWN_HIVE1_PERFUME,}), 
             
             new( /* UNCHAIN_HIVE1_CLOSE_CHEST_1 */
-            true,false,new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, false), 
+            false,true,false,new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, true),}, 
             MomentType.MOMENT_ANY, 
             new GameAction[1]{GameAction.ACTION_DESPAWN_HIVE1_CARDS,}), 
             
             new( /* UNCHAIN_HIVE1_CLOSE_CHEST_2 */
-            true,false,new(GameEvent.EVENT_NONE, false), 
+            false,true,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, true),}, 
             MomentType.MOMENT_ANY, 
             new GameAction[2]{GameAction.ACTION_SET_SPRITE_CHEST_CLOSED,GameAction.ACTION_DESPAWN_HIVE1_PERFUME,}), 
             
             new( /* UNCHAIN_CARDS_PICKABLE_TAKE_1 */
-            false,false,new(GameEvent.EVENT_NONE, false), 
+            false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, false),}, 
             MomentType.MOMENT_ANY, 
             new GameAction[1]{GameAction.ACTION_DESTROY_HIVE1_CARDS,}), 
             
             new( /* UNCHAIN_HIVE1_OPEN_WARDROBE_1 */
-            true,false,new(GameEvent.EVENT_NONE, false), 
+            false,true,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, false),}, 
             MomentType.MOMENT_ANY, 
             new GameAction[2]{GameAction.ACTION_SPAWN_HIVE1_WARDROBE_OPENED,GameAction.ACTION_DESPAWN_HIVE1_WARDROBE,}), 
             
             new( /* UNCHAIN_HIVE1_OPEN_WARDROBE_2 */
-            true,false,new(GameEvent.EVENT_SOAP_PICKABLE_TAKEN, false), 
+            false,true,false,new(GameEvent.EVENT_SOAP_PICKABLE_TAKEN, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, false),}, 
             MomentType.MOMENT_ANY, 
             new GameAction[1]{GameAction.ACTION_SPAWN_SOAP,}), 
             
             new( /* UNCHAIN_HIVE1_CLOSE_WARDROBE_1 */
-            true,false,new(GameEvent.EVENT_NONE, false), 
+            false,true,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, true),}, 
             MomentType.MOMENT_ANY, 
             new GameAction[2]{GameAction.ACTION_SPAWN_HIVE1_WARDROBE,GameAction.ACTION_DESPAWN_HIVE1_WARDROBE_OPENED,}), 
             
             new( /* UNCHAIN_HIVE1_CLOSE_WARDROBE_2 */
-            true,false,new(GameEvent.EVENT_SOAP_PICKABLE_TAKEN, false), 
+            false,true,false,new(GameEvent.EVENT_SOAP_PICKABLE_TAKEN, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, true),}, 
             MomentType.MOMENT_ANY, 
             new GameAction[1]{GameAction.ACTION_DESPAWN_SOAP,}), 
             
             new( /* UNCHAIN_SOAP_PICKABLE_TAKE_1 */
-            false,false,new(GameEvent.EVENT_NONE, false), 
+            false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_SOAP_PICKABLE_TAKEN, false),}, 
             MomentType.MOMENT_ANY, 
             new GameAction[1]{GameAction.ACTION_DESTROY_SOAP,}), 
             
             new( /* UNCHAIN_REME_DAY */
-            false,false,new(GameEvent.EVENT_NONE, false), 
+            false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_MORNING, 
             new GameAction[1]{GameAction.ACTION_SPAWN_REME_DAY,}), 
             
             new( /* UNCHAIN_PHARMACY_DOOR_AVAIL */
-            false,false,new(GameEvent.EVENT_NONE, false), 
+            false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_MORNING, 
             new GameAction[1]{GameAction.ACTION_SPAWN_PHARMACY_DOOR,}), 
             
             new( /* UNCHAIN_MANYO_OWNER */
-            false,false,new(GameEvent.EVENT_NONE, false), 
+            false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_MORNING, 
             new GameAction[1]{GameAction.ACTION_SPAWN_MANYO_OWNER_DAY,}), 
             
             new( /* UNCHAIN_MANYO_OWNER_NIGHT */
-            false,false,new(GameEvent.EVENT_NONE, false), 
+            false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_NIGHT, 
             new GameAction[1]{GameAction.ACTION_SPAWN_MANYO_OWNER_NIGHT,}), 
             
             new( /* UNCHAIN_UMBRELLA_TAKE_1 */
-            false,false,new(GameEvent.EVENT_NONE, false), 
+            false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_UMBRELLA_PICKABLE_TAKEN, false),}, 
             MomentType.MOMENT_ANY, 
             new GameAction[1]{GameAction.ACTION_DESTROY_UMBRELLA,}), 
             
             new( /* UNCHAIN_ITEM_HIVE1_POOR_MAN_WC_SPAWN */
-            false,false,new(GameEvent.EVENT_NONE, false), 
+            false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[2]{new(GameEvent.EVENT_MANYO_LOOK_FOR_RECIPE_MISSION, false),new(GameEvent.EVENT_HIVE1_VALVE_ACTIVATED, true),}, 
             MomentType.MOMENT_NIGHT, 
             new GameAction[1]{GameAction.ACTION_SPAWN_HIVE1_POOR_MAN_WC,}), 
             
             new( /* UNCHAIN_ITEM_HIVE1_ROACH_HEAD_SPAWN */
-            false,false,new(GameEvent.EVENT_NONE, false), 
+            false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_COCKROACH_CHEATED, true),}, 
             MomentType.MOMENT_MORNING, 
             new GameAction[1]{GameAction.ACTION_SPAWN_HIVE1_ROACH_HEAD,}), 
             
             new( /* UNCHAIN_ITEM_HIVE1_ROACH_HEAD_DESPAWN */
-            false,false,new(GameEvent.EVENT_NONE, false), 
+            false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_COCKROACH_SCARED, false),}, 
             MomentType.MOMENT_MORNING, 
             new GameAction[1]{GameAction.ACTION_DESPAWN_HIVE1_ROACH_HEAD,}), 
             
             new( /* UNCHAIN_REBUILD_COCHROACH_SCARED */
-            true,true,new(GameEvent.EVENT_COCKROACH_CHEATED, false), 
+            false,true,true,new(GameEvent.EVENT_COCKROACH_CHEATED, false), 
             new GameEventCombi[2]{new(GameEvent.EVENT_MASTER_CHANGE_ROOM, false),new(GameEvent.EVENT_COCKROACH_SCARED, false),}, 
             MomentType.MOMENT_ANY, 
             new GameAction[1]{GameAction.ACTION_EVENT_REBUILD_ROACH_SCARED,}), 
             
             new( /* UNCHAIN_ITEM_HIVE1_SHOELACE_TAKE_1 */
-            false,false,new(GameEvent.EVENT_NONE, false), 
+            false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_ITEM_HIVE1_SHOELACE_PICKABLE_TAKEN, false),}, 
             MomentType.MOMENT_ANY, 
             new GameAction[1]{GameAction.ACTION_DESTROY_HIVE1_SHOELACE,}), 
             
             new( /* UNCHAIN_ITEM_HIVE1_VALVE_BOX_DESPAWN */
-            false,false,new(GameEvent.EVENT_NONE, false), 
+            false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_VALVE_BOX_OPENED, false),}, 
             MomentType.MOMENT_ANY, 
             new GameAction[2]{GameAction.ACTION_DESTROY_HIVE1_VALVE_BOX,GameAction.ACTION_SPAWN_HIVE1_VALVE,}), 
             
             new( /* UNCHAIN_ITEM_HIVE1_MAN_WC_CURED_SPAWN */
-            false,false,new(GameEvent.EVENT_NONE, false), 
+            false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[2]{new(GameEvent.EVENT_HIVE1_VALVE_ACTIVATED, false),new(GameEvent.EVENT_TALKED_ARTURO_HALL_INN_COMPLETED, true),}, 
             MomentType.MOMENT_NIGHT, 
             new GameAction[1]{GameAction.ACTION_SPAWN_HIVE1_MAN_WC_CURED,}), 
             
             new( /* UNCHAIN_INK_SPAWN */
-            false,false,new(GameEvent.EVENT_NONE, false), 
+            false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_INKWELL_WASTED, false),}, 
             MomentType.MOMENT_ANY, 
             new GameAction[2]{GameAction.ACTION_DESPAWN_INKWELL,GameAction.ACTION_SPAWN_INK,}), 
             
             new( /* UNCHAIN_FIK_SPAWN */
-            false,false,new(GameEvent.EVENT_NONE, false), 
+            false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_NIGHT, 
             new GameAction[1]{GameAction.ACTION_SPAWN_FIK_1,}), 
             
             new( /* UNCHAIN_LAST */
-            false,false,new(GameEvent.EVENT_NONE, false), 
+            false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_ANY, 
             new GameAction[1]{GameAction.ACTION_NONE,}), 

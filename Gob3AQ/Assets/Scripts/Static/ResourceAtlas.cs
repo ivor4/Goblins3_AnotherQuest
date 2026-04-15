@@ -224,7 +224,9 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_INN, }), 
             new ActionConditions[1]{ActionConditions.COND_OK, }, 
-            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }) 
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }) 
             ),
             
             new( /* HIVE1_CORRIDOR_1 */
@@ -235,7 +237,9 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_INN, }), 
             new ActionConditions[1]{ActionConditions.COND_OK, }, 
-            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }) 
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }) 
             ),
             
             new( /* HIVE1_HALL_1 */
@@ -246,7 +250,9 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_INN, }), 
             new ActionConditions[1]{ActionConditions.COND_DIALOGUE_POOR_MAN_WC_BCKG, }, 
-            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }) 
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }) 
             ),
             
             new( /* HIVE1_WC_1 */
@@ -257,7 +263,9 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_INN, }), 
             new ActionConditions[1]{ActionConditions.COND_DIALOGUE_POOR_MAN_WC_BCKG, }, 
-            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }) 
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }) 
             ),
             
             new( /* CITY1_STREET_1 */
@@ -268,7 +276,9 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(2){GameSound.SOUND_AMBIENCE_CITY_DAY, GameSound.SOUND_AMBIENCE_CITY_NIGHT, }), 
             new ActionConditions[1]{ActionConditions.COND_OK, }, 
-            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }) 
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }) 
             ),
             
             new( /* CITY1_STREET_2 */
@@ -279,7 +289,9 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(2){GameSound.SOUND_AMBIENCE_CITY_DAY, GameSound.SOUND_AMBIENCE_CITY_NIGHT, }), 
             new ActionConditions[1]{ActionConditions.COND_OK, }, 
-            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }) 
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }) 
             ),
             
             new( /* PHARMACY_1 */
@@ -290,7 +302,9 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_PHARMACY, }), 
             new ActionConditions[1]{ActionConditions.COND_OK, }, 
-            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }) 
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }) 
             ),
             
             new( /* MANYO_1 */
@@ -301,7 +315,9 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(2){GameSound.MUSIC_MANYO, GameSound.SOUND_AMBIENCE_MANYO_NIGHT, }), 
             new ActionConditions[1]{ActionConditions.COND_DIALOGUE_MANYO_BCKG, }, 
-            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }) 
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }) 
             ),
             
             new( /* HIVE1_BACKALLEY */
@@ -312,7 +328,9 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(2){GameSound.SOUND_AMBIENCE_CITY_DAY, GameSound.SOUND_AMBIENCE_CITY_NIGHT, }), 
             new ActionConditions[1]{ActionConditions.COND_OK, }, 
-            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }) 
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }) 
             ),
             
             new( /* CITY1_SOUTH_STREET_1 */
@@ -323,7 +341,9 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_SOUTH_NEIGH, }), 
             new ActionConditions[1]{ActionConditions.COND_OK, }, 
-            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }) 
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }) 
             ),
             
             new( /* CITY1_SOUTH_STREET_2 */
@@ -334,7 +354,9 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_SOUTH_NEIGH, }), 
             new ActionConditions[1]{ActionConditions.COND_OK, }, 
-            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }) 
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }) 
             ),
             
             new( /* CITY1_EXTRAPERLO1 */
@@ -345,7 +367,9 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.SOUND_NONE, }), 
             new ActionConditions[1]{ActionConditions.COND_OK, }, 
-            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }) 
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }) 
             ),
             
             new( /* ROOM_LAST */
@@ -356,7 +380,9 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.SOUND_NONE, }), 
             new ActionConditions[1]{ActionConditions.COND_OK, }, 
-            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }) 
+            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(1){DialogPhrase.PHRASE_NONSENSE, }), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }) 
             ),
             
             /* > ATG 1 END < */

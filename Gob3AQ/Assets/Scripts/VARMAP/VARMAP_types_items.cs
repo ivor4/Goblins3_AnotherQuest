@@ -138,6 +138,7 @@ namespace Gob3AQ.VARMAP.Types
     public enum UnchainConditions
     {
         /* > ATG 4 START < */
+        UNCHAIN_NONE, 
         UNCHAIN_ROOM1_INITIAL_MEMENTO_1, 
         UNCHAIN_HIVE1_OPEN_CHEST_1, 
         UNCHAIN_HIVE1_OPEN_CHEST_2, 

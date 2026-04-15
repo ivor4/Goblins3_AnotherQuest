@@ -715,6 +715,7 @@ memento_combi_prefix = 'MementoCombi.'
 moment_prefix = 'MomentType.'
 animation_prefix = 'GameAnimation.'
 detail_prefix = 'DetailType.'
+unchaincondition_prefix = 'UnchainConditions.'
 
 
 print('\n\n------DIALOGS (Custom GOB3) -------\n\n')
@@ -1052,6 +1053,24 @@ for line in ROOMSinputFile:
         stringToWrite = 'new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>('+str(num_options)+'){'
         for _option in options:
             stringToWrite += phrase_prefix + _option + ', '
+        stringToWrite += '}), \n'
+        room_atlas_lines.InsertLineInATG(1, stringToWrite)
+        
+        options = columns[10].split('|')
+        num_options = len(options)
+            
+        stringToWrite = 'new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>('+str(num_options)+'){'
+        for _option in options:
+            stringToWrite += unchaincondition_prefix + _option + ', '
+        stringToWrite += '}), \n'
+        room_atlas_lines.InsertLineInATG(1, stringToWrite)
+        
+        options = columns[11].split('|')
+        num_options = len(options)
+        
+        stringToWrite = 'new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>('+str(num_options)+'){'
+        for _option in options:
+            stringToWrite += unchaincondition_prefix + _option + ', '
         stringToWrite += '}) \n'
         room_atlas_lines.InsertLineInATG(1, stringToWrite)
         
@@ -1220,12 +1239,13 @@ for line in ACTIONCONDSinputFile:
         
     elif(zone == 2):
         ItemVar["name"] = str(columns[1])
-        ItemVar["repeat"] = str(columns[2])
-        ItemVar["isOneShot"] = str(columns[3])
-        ItemVar["ignoreif"] = str(columns[4])
-        ItemVar["neededEvents"] = str(columns[5])
-        ItemVar["momentOfDay"] = str(columns[6])
-        ItemVar["triggeredActions"] = str(columns[7])
+        ItemVar["byRequest"] = str(columns[2])
+        ItemVar["repeat"] = str(columns[3])
+        ItemVar["isOneShot"] = str(columns[4])
+        ItemVar["ignoreif"] = str(columns[5])
+        ItemVar["neededEvents"] = str(columns[6])
+        ItemVar["momentOfDay"] = str(columns[7])
+        ItemVar["triggeredActions"] = str(columns[8])
         
         
         # Write in item enum
@@ -1238,7 +1258,8 @@ for line in ACTIONCONDSinputFile:
         stringToWrite = 'new( /* '+ ItemVar["name"] + ' */\n'
         items_interaction_lines.InsertLineInATG(1, stringToWrite)
         
-        stringToWrite = ItemVar["repeat"].lower() + ',' + ItemVar["isOneShot"].lower() + ','
+        stringToWrite = ItemVar["byRequest"].lower() + ','
+        stringToWrite += ItemVar["repeat"].lower() + ',' + ItemVar["isOneShot"].lower() + ','
         
         _not_ = str('(NOT)' in ItemVar["ignoreif"]).lower()
         _option = ItemVar["ignoreif"].replace('(NOT)','')

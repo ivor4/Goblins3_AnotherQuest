@@ -5,5 +5,5 @@ Waypoints only reachable for actions,2,False,False
 Reduce cond stackallocs (they use JIT),5,False,False
 Character 'Señor desubicado',4,False,False
 Questioning 'Mosca puñetera',4,False,False
-Fade to black between scenes,2,False,True
+Fade to black between scenes,2,True,True
 Last,5,False,False

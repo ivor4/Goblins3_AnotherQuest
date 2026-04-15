@@ -178,6 +178,8 @@ namespace Gob3AQ.VARMAP.Types
         public readonly ReadOnlyHashSet<GameSound> sounds;
         public readonly ReadOnlyHashSet<NameType> names;
         private readonly ActionConditions[] actionConditions;
+        private readonly UnchainConditions[] entryConditions;
+        private readonly UnchainConditions[] exitConditions;
 
         public ReadOnlySpan<GameSprite> Backgrounds => backgrounds;
         public ReadOnlySpan<GameSound> BackgroundMusic => backgroundMusic;
@@ -190,7 +192,7 @@ namespace Gob3AQ.VARMAP.Types
 
         public RoomInfo(GameSprite[] backgrounds, GameSound[] backgroundMusic, ReadOnlyHashSet<GameSprite> sprites,
             ReadOnlyHashSet<GameItem> items, ReadOnlyHashSet<NameType> names, ReadOnlyHashSet<GameSound> sounds,
-            ActionConditions[] actionConditions, ReadOnlyHashSet<DialogPhrase> phrases)
+            ActionConditions[] actionConditions, ReadOnlyHashSet<DialogPhrase> phrases, UnchainConditions[] entryCondtiions, UnchainConditions[] exitConditions)
         {
             this.backgrounds = backgrounds;
             this.backgroundMusic = backgroundMusic;
@@ -200,6 +202,8 @@ namespace Gob3AQ.VARMAP.Types
             this.names = names;
             this.sounds = sounds;
             this.actionConditions = actionConditions;
+            this.entryConditions = entryCondtiions;
+            this.exitConditions = exitConditions;
         }
     }
 

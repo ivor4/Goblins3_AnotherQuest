@@ -37,6 +37,11 @@ namespace Gob3AQ.VARMAP.Safe
         /// </summary>
         private static List<uint> free_slots;
 
+        public static bool IsInFatalError()
+        {
+            return FATALERROR;
+        }
+
         /// <summary>
         /// Call once per program Execution
         /// </summary>

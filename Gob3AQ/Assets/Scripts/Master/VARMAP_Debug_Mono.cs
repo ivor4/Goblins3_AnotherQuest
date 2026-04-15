@@ -33,7 +33,7 @@ namespace Gob3AQ.VARMAP.Debug
         void Start()
         {
 #if UNITY_EDITOR
-            refer = VARMAP_Debug_Master.GetRef();
+            refer = VARMAP_Debug.GetRef();
 
 
             for (int i = 0; i < refer.Length - 1; i++)

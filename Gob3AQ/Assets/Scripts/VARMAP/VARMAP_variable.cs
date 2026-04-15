@@ -76,14 +76,13 @@ namespace Gob3AQ.VARMAP.Variable
 
         public abstract int GetElemSize();
 
-#if UNITY_EDITOR
+#if UNITY_EDITOR || UNITY_INCLUDE_TESTS
 
         public abstract VARMAP_Variable_ID GetID();
 
 
         public abstract string[] GetDebugValues();
 #endif
-
     }
 
     public abstract class VARMAP_Variable_Interface<T> : VARMAP_Variable_Indexable
@@ -111,6 +110,11 @@ namespace Gob3AQ.VARMAP.Variable
         public abstract void InitializeListElems(in T defaultValue);
         public abstract void RegisterChangeEvent(VARMAPValueChangedEvent<T> callback);
         public abstract void UnregisterChangeEvent(VARMAPValueChangedEvent<T> callback);
+
+#if UNITY_INCLUDE_TESTS
+        public abstract void SetValueIllegal(in T newvalue);
+        public abstract void SetListElemIllegal(int pos, in T newvalue);
+#endif
     }
 
 
@@ -649,7 +653,7 @@ namespace Gob3AQ.VARMAP.Variable
             _changedevents?.Invoke(ChangedEventType.CHANGED_EVENT_SET_LIST_ELEM, in _values[0], in _values[0]);
         }
 
-#if UNITY_EDITOR
+#if UNITY_EDITOR || UNITY_INCLUDE_TESTS
         public override VARMAP_Variable_ID GetID() => _ID;
         public override string[] GetDebugValues()
         {
@@ -661,6 +665,18 @@ namespace Gob3AQ.VARMAP.Variable
             }
 
             return retVal;
+        }
+#endif
+
+#if UNITY_INCLUDE_TESTS
+        public override void SetValueIllegal(in T newvalue)
+        {
+            throw new Exception("Not single element VARMAP Variable");
+        }
+
+        public override void SetListElemIllegal(int pos, in T newvalue)
+        {
+            _values[pos] = newvalue;
         }
 #endif
     }
@@ -1095,13 +1111,25 @@ namespace Gob3AQ.VARMAP.Variable
             _changedevents?.Invoke(ChangedEventType.CHANGED_EVENT_SET, in _prevValue, in _value);
         }
 
-#if UNITY_EDITOR
+#if UNITY_EDITOR || UNITY_INCLUDE_TESTS
         public override VARMAP_Variable_ID GetID() => _ID;
         public override string[] GetDebugValues()
         {
             string[] retVal = new string[1];
             retVal[0] = _value.ToString();
             return retVal;
+        }
+#endif
+
+#if UNITY_INCLUDE_TESTS
+        public override void SetValueIllegal(in T newvalue)
+        {
+            _value = newvalue;
+        }
+
+        public override void SetListElemIllegal(int pos, in T newvalue)
+        {
+            throw new Exception("Not single element VARMAP Variable");
         }
 #endif
     }

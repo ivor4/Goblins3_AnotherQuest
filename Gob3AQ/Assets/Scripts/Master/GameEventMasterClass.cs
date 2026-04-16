@@ -11,7 +11,11 @@ using UnityEngine;
 namespace Gob3AQ.GameEventMaster
 {
 
+#if UNITY_INCLUDE_TESTS
+    public partial class GameEventMasterClass : MonoBehaviour
+#else
     public class GameEventMasterClass : MonoBehaviour
+#endif
     {
         private struct ActionOrder
         {
@@ -266,7 +270,7 @@ namespace Gob3AQ.GameEventMaster
             return retState;
         }
 
-        void Awake()
+        private void Awake()
         {
             if (_singleton != null)
             {
@@ -293,7 +297,7 @@ namespace Gob3AQ.GameEventMaster
             }
         }
 
-        void Start()
+        private void Start()
         {
             if (_singleton != null)
             {

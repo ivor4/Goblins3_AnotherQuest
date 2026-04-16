@@ -441,14 +441,21 @@ namespace Gob3AQ.VARMAP
         /// <para> Accessors: DialogMaster,  </para> 
         /// <para> Method: <see cref="GameEventMasterClass.NotifyEndedActionService"/> </para> 
         /// </summary>
-        protected static NOTIFY_ENDED_ACTION _NOTIFY_ENDED_ACTION;
+        protected static NOTIFY_ENDED_ACTION_DELEGATE _NOTIFY_ENDED_ACTION;
         /// <summary> 
         /// Takes snapshot to be used in fading while loading next scene
         /// <para> Owner: GraphicsMaster </para> 
         /// <para> Accessors: GameMaster,  </para> 
         /// <para> Method: <see cref="GraphicsMasterClass.TakeLoadingSnapshotService"/> </para> 
         /// </summary>
-        protected static TAKE_LOADING_SNAPSHOT _TAKE_LOADING_SNAPSHOT;
+        protected static TAKE_LOADING_SNAPSHOT_DELEGATE _TAKE_LOADING_SNAPSHOT;
+        /// <summary> 
+        /// Executes exit room unchainers before leaving room
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: GameMaster,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.ExecuteExitRoomCondsService"/> </para> 
+        /// </summary>
+        protected static EXECUTE_EXIT_ROOM_CONDS_DELEGATE _EXECUTE_EXIT_ROOM_CONDS;
         /// <summary> 
         /// Last service
         /// <para> Owner: GameMaster </para> 

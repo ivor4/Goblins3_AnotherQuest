@@ -1041,22 +1041,13 @@ for line in ROOMSinputFile:
         options = columns[8].split('|')
         num_options = len(options)
             
-        stringToWrite = 'new ActionConditions['+str(num_options)+']{'
+        stringToWrite = 'new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>('+str(num_options)+'){'
         for _option in options:
-            stringToWrite += conditiontype_prefix + _option + ', '
-        stringToWrite += '}, \n'
-        room_atlas_lines.InsertLineInATG(1, stringToWrite)
-        
-        options = columns[9].split('|')
-        num_options = len(options)
-            
-        stringToWrite = 'new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>('+str(num_options)+'){'
-        for _option in options:
-            stringToWrite += phrase_prefix + _option + ', '
+            stringToWrite += unchaincondition_prefix + _option + ', '
         stringToWrite += '}), \n'
         room_atlas_lines.InsertLineInATG(1, stringToWrite)
         
-        options = columns[10].split('|')
+        options = columns[9].split('|')
         num_options = len(options)
             
         stringToWrite = 'new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>('+str(num_options)+'){'
@@ -1065,7 +1056,7 @@ for line in ROOMSinputFile:
         stringToWrite += '}), \n'
         room_atlas_lines.InsertLineInATG(1, stringToWrite)
         
-        options = columns[11].split('|')
+        options = columns[10].split('|')
         num_options = len(options)
         
         stringToWrite = 'new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>('+str(num_options)+'){'

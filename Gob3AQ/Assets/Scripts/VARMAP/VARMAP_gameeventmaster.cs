@@ -68,6 +68,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             PERFORM_ACTION = _PERFORM_ACTION;
             IS_DIALOG_ACTIVE = _IS_DIALOG_ACTIVE;
             NOTIFY_ENDED_ACTION = _NOTIFY_ENDED_ACTION;
+            EXECUTE_EXIT_ROOM_CONDS = _EXECUTE_EXIT_ROOM_CONDS;
             /* > ATG 1 END */
         }
 
@@ -234,7 +235,14 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         /// <para> Accessors: DialogMaster,  </para> 
         /// <para> Method: <see cref="GameEventMasterClass.NotifyEndedActionService"/> </para> 
         /// </summary>
-        public static NOTIFY_ENDED_ACTION NOTIFY_ENDED_ACTION;
+        public static NOTIFY_ENDED_ACTION_DELEGATE NOTIFY_ENDED_ACTION;
+        /// <summary> 
+        /// Executes exit room unchainers before leaving room
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: GameMaster,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.ExecuteExitRoomCondsService"/> </para> 
+        /// </summary>
+        public static EXECUTE_EXIT_ROOM_CONDS_DELEGATE EXECUTE_EXIT_ROOM_CONDS;
         /* > ATG 3 END */
     }
 }

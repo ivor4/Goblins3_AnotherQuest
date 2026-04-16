@@ -110,7 +110,7 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
         /// <para> Accessors: GameMaster,  </para> 
         /// <para> Method: <see cref="GraphicsMasterClass.TakeLoadingSnapshotService"/> </para> 
         /// </summary>
-        public static TAKE_LOADING_SNAPSHOT TAKE_LOADING_SNAPSHOT;
+        public static TAKE_LOADING_SNAPSHOT_DELEGATE TAKE_LOADING_SNAPSHOT;
         /* > ATG 3 END */
     }
 }

@@ -57,10 +57,6 @@ namespace Gob3AQ.GameEventMaster
         /// Timestamp for periodic background tasks execution
         /// </summary>
         private ulong _bckgActionsTimestamp;
-        /// <summary>
-        /// Iterator for every period to be executed, to avoid execute all on the same frame when there are more than one
-        /// </summary>
-        private int _bckgActionsIndex;
         private List<ActionOrder> _pendingActions;
         private NotifyAction _actionEndedFlag;
         private NotifyAction _actionExpectedFlag;
@@ -221,6 +217,21 @@ namespace Gob3AQ.GameEventMaster
             }
         }
 
+        public static void ExecuteExitRoomCondsService()
+        {
+            if(_singleton != null)
+            {
+                Room room = VARMAP_GameEventMaster.GET_ACTUAL_ROOM();
+                ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(room);
+
+                foreach(UnchainConditions unchainConditions in roomInfo.exitConditions)
+                {
+                    ref readonly UnchainInfo unchainInfo = ref ItemsInteractionsClass.GetUnchainInfo(unchainConditions);
+                    _singleton.TryUnchainAction(in unchainInfo);
+                }
+            }
+        }
+
 
         /// <summary>
         /// Based on 64 bit bitfield, gets decomposition of array element and bit position
@@ -374,7 +385,11 @@ namespace Gob3AQ.GameEventMaster
                 bool pending;
 
                 /* Check if ignoreif condition comply (NONE means never ignore) */
-                if (unchainer_info.ignoreif.eventType != GameEvent.EVENT_NONE)
+                if (unchainer_info.onlyByRequest)
+                {
+                    pending = false;
+                }
+                else if (unchainer_info.ignoreif.eventType != GameEvent.EVENT_NONE)
                 {
                     ignoreIfCondition[0] = unchainer_info.ignoreif;
                     IsEventCombiOccurredService(ignoreIfCondition, out bool occurred);
@@ -422,6 +437,15 @@ namespace Gob3AQ.GameEventMaster
                 VARMAP_GameEventMaster.IS_MODULE_LOADED(GameModules.MODULE_ItemMaster, out completed);
             }
 
+            /* Scene entry unchainers */
+            RoomInfo roomInfo = ResourceAtlasClass.GetRoomInfo(room);
+
+            foreach (UnchainConditions unchainConditions in roomInfo.entryConditions)
+            {
+                TryUnchainAction(in ItemsInteractionsClass.GetUnchainInfo(unchainConditions));
+            }
+
+
             HashSet<UnchainConditions> _itemRelatedUnchainersToRemove = new(GameFixedConfig.MAX_PENDING_UNCHAINERS);
 
             foreach(UnchainConditions unchainer in _itemRelatedUnchainers)
@@ -455,8 +479,6 @@ namespace Gob3AQ.GameEventMaster
                 RemoveUnchainerEventsFromPending(unchainer);
             }
             _removePendingHash.Clear();
-
-            _bckgActionsIndex = 0;
 
             VARMAP_GameEventMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameEventMaster);
         }
@@ -768,22 +790,10 @@ namespace Gob3AQ.GameEventMaster
                     MomentType currentMoment = VARMAP_GameEventMaster.GET_DAY_MOMENT();
                     ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(VARMAP_GameEventMaster.GET_ACTUAL_ROOM());
 
-                    if (roomInfo.ActionConditions.Length > 0)
+                    foreach(UnchainConditions unchainer in roomInfo.backgroundConditions_periodic)
                     {
-                        ActionConditions action = roomInfo.ActionConditions[_bckgActionsIndex];
-                        _bckgActionsIndex = (_bckgActionsIndex + 1) % roomInfo.ActionConditions.Length;
-
-                        ref readonly ActionConditionsInfo actionInfo = ref ItemsInteractionsClass.GetActionConditionsInfo(action);
-                        bool valid = actionInfo.actionCondType == ItemInteractionType.INTERACTION_AUTO_6s;
-                        valid &= IsMomentValid(actionInfo.momentType);
-
-                        IsEventCombiOccurredService(actionInfo.NeededEvents, out bool occurred);
-                        valid &= occurred;
-
-                        if (valid)
-                        {
-                            PerformActionService(actionInfo.UnchainActions, null);
-                        }
+                        ref readonly UnchainInfo unchainInfo = ref ItemsInteractionsClass.GetUnchainInfo(unchainer);
+                        TryUnchainAction(in unchainInfo);
                     }
 
                     _bckgActionsTimestamp = elapsedTime;

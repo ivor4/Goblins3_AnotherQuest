@@ -297,6 +297,18 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_NIGHT, 
             new GameAction[1]{GameAction.ACTION_SPAWN_FIK_1,}), 
             
+            new( /* UNCHAIN_MANYO_BCKG_DIALOGUE */
+            true,false,false,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            MomentType.MOMENT_NIGHT, 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_MANYO_BCKG,}), 
+            
+            new( /* UNCHAIN_POOR_MAN_WC_BCKG_DIALOGUE */
+            true,false,false,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[2]{new(GameEvent.EVENT_MANYO_LOOK_FOR_RECIPE_MISSION, false),new(GameEvent.EVENT_HIVE1_VALVE_ACTIVATED, true),}, 
+            MomentType.MOMENT_NIGHT, 
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_TALK_POOR_MAN_WC_BCKG,}), 
+            
             new( /* UNCHAIN_LAST */
             false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
@@ -441,20 +453,10 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_NIGHT,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
             new GameAction[3]{GameAction.ACTION_DIALOGUE_TAKE_UMBRELLA_NIGHT,GameAction.ACTION_OBTAIN_UMBRELLA,GameAction.ACTION_EVENT_UMBRELLA_PICKABLE_TAKEN,}), 
             
-            new( /* COND_DIALOGUE_MANYO_BCKG */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            MomentType.MOMENT_NIGHT,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_AUTO_6s,
-            new GameAction[1]{GameAction.ACTION_DIALOGUE_MANYO_BCKG,}), 
-            
             new( /* COND_OBSERVE_ITEM_HIVE1_POOR_MAN_WC */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
             new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_POOR_MAN_WC,}), 
-            
-            new( /* COND_DIALOGUE_POOR_MAN_WC_BCKG */
-            new GameEventCombi[2]{new(GameEvent.EVENT_MANYO_LOOK_FOR_RECIPE_MISSION, false),new(GameEvent.EVENT_HIVE1_VALVE_ACTIVATED, true),}, 
-            MomentType.MOMENT_NIGHT,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_AUTO_6s,
-            new GameAction[1]{GameAction.ACTION_DIALOGUE_TALK_POOR_MAN_WC_BCKG,}), 
             
             new( /* COND_TALK_POOR_MAN_WC */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 

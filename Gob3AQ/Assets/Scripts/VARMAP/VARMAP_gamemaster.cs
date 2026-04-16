@@ -48,6 +48,7 @@ namespace Gob3AQ.VARMAP.GameMaster
             LOAD_ADDITIONAL_PREFAB = _LOAD_ADDITIONAL_PREFAB;
             LOAD_ADDITIONAL_SOUND = _LOAD_ADDITIONAL_SOUND;
             TAKE_LOADING_SNAPSHOT = _TAKE_LOADING_SNAPSHOT;
+            EXECUTE_EXIT_ROOM_CONDS = _EXECUTE_EXIT_ROOM_CONDS;
             LAST_SERVICE = _LAST_SERVICE;
             /* > ATG 1 END */
         }
@@ -167,7 +168,14 @@ namespace Gob3AQ.VARMAP.GameMaster
         /// <para> Accessors: GameMaster,  </para> 
         /// <para> Method: <see cref="GraphicsMasterClass.TakeLoadingSnapshotService"/> </para> 
         /// </summary>
-        public static TAKE_LOADING_SNAPSHOT TAKE_LOADING_SNAPSHOT;
+        public static TAKE_LOADING_SNAPSHOT_DELEGATE TAKE_LOADING_SNAPSHOT;
+        /// <summary> 
+        /// Executes exit room unchainers before leaving room
+        /// <para> Owner: GameEventMaster </para> 
+        /// <para> Accessors: GameMaster,  </para> 
+        /// <para> Method: <see cref="GameEventMasterClass.ExecuteExitRoomCondsService"/> </para> 
+        /// </summary>
+        public static EXECUTE_EXIT_ROOM_CONDS_DELEGATE EXECUTE_EXIT_ROOM_CONDS;
         /// <summary> 
         /// Last service
         /// <para> Owner: GameMaster </para> 

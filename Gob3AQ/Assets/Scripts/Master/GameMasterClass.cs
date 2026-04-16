@@ -226,6 +226,7 @@ namespace Gob3AQ.GameMaster
             {
                 error = false;
                 loadScenePending = room;
+                VARMAP_GameMaster.EXECUTE_EXIT_ROOM_CONDS();
             }
             else
             {

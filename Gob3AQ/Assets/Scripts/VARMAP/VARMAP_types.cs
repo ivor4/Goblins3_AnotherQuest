@@ -173,35 +173,33 @@ namespace Gob3AQ.VARMAP.Types
         private readonly GameSprite[] backgrounds;
         private readonly GameSound[] backgroundMusic;
         public readonly ReadOnlyHashSet<GameSprite> sprites;
-        public readonly ReadOnlyHashSet<DialogPhrase> phrases;
         public readonly ReadOnlyHashSet<GameItem> items;
         public readonly ReadOnlyHashSet<GameSound> sounds;
         public readonly ReadOnlyHashSet<NameType> names;
-        private readonly ActionConditions[] actionConditions;
-        private readonly UnchainConditions[] entryConditions;
-        private readonly UnchainConditions[] exitConditions;
+        public readonly ReadOnlyHashSet<UnchainConditions> backgroundConditions_periodic;
+        public readonly ReadOnlyHashSet<UnchainConditions> entryConditions;
+        public readonly ReadOnlyHashSet<UnchainConditions> exitConditions;
 
         public ReadOnlySpan<GameSprite> Backgrounds => backgrounds;
         public ReadOnlySpan<GameSound> BackgroundMusic => backgroundMusic;
-        public ReadOnlySpan<ActionConditions> ActionConditions => actionConditions;
 
         public static readonly RoomInfo EMPTY = new(new GameSprite[0], new GameSound[0],new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(0)),
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(0)), new ReadOnlyHashSet<NameType>(new HashSet<NameType>(0)),
                 new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(0)),
-            new ActionConditions[0], new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(0)));
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(0)),
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(0)), new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(0)));
 
         public RoomInfo(GameSprite[] backgrounds, GameSound[] backgroundMusic, ReadOnlyHashSet<GameSprite> sprites,
             ReadOnlyHashSet<GameItem> items, ReadOnlyHashSet<NameType> names, ReadOnlyHashSet<GameSound> sounds,
-            ActionConditions[] actionConditions, ReadOnlyHashSet<DialogPhrase> phrases, UnchainConditions[] entryCondtiions, UnchainConditions[] exitConditions)
+            ReadOnlyHashSet<UnchainConditions> backgroundConditions, ReadOnlyHashSet<UnchainConditions> entryCondtiions, ReadOnlyHashSet<UnchainConditions> exitConditions)
         {
             this.backgrounds = backgrounds;
             this.backgroundMusic = backgroundMusic;
             this.sprites = sprites;
-            this.phrases = phrases;
             this.items = items;
             this.names = names;
             this.sounds = sounds;
-            this.actionConditions = actionConditions;
+            this.backgroundConditions_periodic = backgroundConditions;
             this.entryConditions = entryCondtiions;
             this.exitConditions = exitConditions;
         }
@@ -477,6 +475,7 @@ namespace Gob3AQ.VARMAP.Types
 
     public readonly struct UnchainInfo
     {
+        public readonly bool onlyByRequest;
         public readonly bool repeat;
         public readonly bool isOneShot;
         public readonly GameEventCombi ignoreif;
@@ -490,11 +489,12 @@ namespace Gob3AQ.VARMAP.Types
 
 
 
-        public static readonly UnchainInfo EMPTY = new(false,true, GameEventCombi.EMPTY,
+        public static readonly UnchainInfo EMPTY = new(false,false,true, GameEventCombi.EMPTY,
             new GameEventCombi[0],MomentType.MOMENT_ANY, new GameAction[0]);
 
-        public UnchainInfo(bool repeat, bool isOneShot, GameEventCombi ignoreif, GameEventCombi[] neededEvents, MomentType momentType, GameAction[] unchainActions)
+        public UnchainInfo(bool onlyByRequest, bool repeat, bool isOneShot, GameEventCombi ignoreif, GameEventCombi[] neededEvents, MomentType momentType, GameAction[] unchainActions)
         {
+            this.onlyByRequest = onlyByRequest;
             this.repeat = repeat;
             this.isOneShot = isOneShot;
             this.ignoreif = ignoreif;

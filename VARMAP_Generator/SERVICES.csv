@@ -40,6 +40,7 @@
 38,ITEM_PERFORM_ANIMATION,ITEM_PERFORM_ANIMATION_DELEGATE,ItemMasterClass.PerformAnimationService,Makes an item start an animation,,-,-,-,-,-,-,X,-,W,-
 39,PERFORM_ACTION,PERFORM_ACTION_DELEGATE,GameEventMasterClass.PerformActionService,Performs a named action,,-,-,X,-,-,X,X,-,X,W
 40,IS_DIALOG_ACTIVE,IS_DIALOG_ACTIVE_DELEGATE,DialogMasterClass.IsDialogActiveService,Returns if a dialog (Background or not) is active,,-,-,-,-,-,-,W,-,-,X
-41,NOTIFY_ENDED_ACTION,NOTIFY_ENDED_ACTION,GameEventMasterClass.NotifyEndedActionService,Notifies Event manager a Dialog / Animation action has been performed,,-,-,-,-,-,-,X,-,-,W
-42,TAKE_LOADING_SNAPSHOT,TAKE_LOADING_SNAPSHOT,GraphicsMasterClass.TakeLoadingSnapshotService,Takes snapshot to be used in fading while loading next scene,,X,-,-,W,-,-,-,-,-,-
-43,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-,-,-
+41,NOTIFY_ENDED_ACTION,NOTIFY_ENDED_ACTION_DELEGATE,GameEventMasterClass.NotifyEndedActionService,Notifies Event manager a Dialog / Animation action has been performed,,-,-,-,-,-,-,X,-,-,W
+42,TAKE_LOADING_SNAPSHOT,TAKE_LOADING_SNAPSHOT_DELEGATE,GraphicsMasterClass.TakeLoadingSnapshotService,Takes snapshot to be used in fading while loading next scene,,X,-,-,W,-,-,-,-,-,-
+43,EXECUTE_EXIT_ROOM_CONDS,EXECUTE_EXIT_ROOM_CONDS_DELEGATE,GameEventMasterClass.ExecuteExitRoomCondsService,Executes exit room unchainers before leaving room,,X,-,-,-,-,-,-,-,-,W
+44,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-,-,-

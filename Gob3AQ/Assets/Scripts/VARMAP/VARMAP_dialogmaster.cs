@@ -151,7 +151,7 @@ namespace Gob3AQ.VARMAP.DialogMaster
         /// <para> Accessors: DialogMaster,  </para> 
         /// <para> Method: <see cref="GameEventMasterClass.NotifyEndedActionService"/> </para> 
         /// </summary>
-        public static NOTIFY_ENDED_ACTION NOTIFY_ENDED_ACTION;
+        public static NOTIFY_ENDED_ACTION_DELEGATE NOTIFY_ENDED_ACTION;
         /* > ATG 3 END */
     }
 }

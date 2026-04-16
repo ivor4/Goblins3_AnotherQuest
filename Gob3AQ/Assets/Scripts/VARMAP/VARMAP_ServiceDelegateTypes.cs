@@ -81,7 +81,8 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void ITEM_PERFORM_ANIMATION_DELEGATE(GameItem item, AnimationTrigger trigger, Action callback);
     public delegate void PERFORM_ACTION_DELEGATE(ReadOnlySpan<GameAction> actions, Action callback);
     public delegate void IS_DIALOG_ACTIVE_DELEGATE(out bool active);
-    public delegate void NOTIFY_ENDED_ACTION(NotifyAction notify);
-    public delegate void TAKE_LOADING_SNAPSHOT();
+    public delegate void NOTIFY_ENDED_ACTION_DELEGATE(NotifyAction notify);
+    public delegate void TAKE_LOADING_SNAPSHOT_DELEGATE();
+    public delegate void EXECUTE_EXIT_ROOM_CONDS_DELEGATE();
 
 }

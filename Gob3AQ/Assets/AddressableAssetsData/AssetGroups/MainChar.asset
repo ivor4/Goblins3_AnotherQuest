@@ -15,8 +15,33 @@ MonoBehaviour:
   m_GroupName: MainChar
   m_GUID: 793a9a7f8a5a26941a666e36c1d35917
   m_SerializeEntries:
+  - m_GUID: 5a1163d27d7511244ac850b8a545eaa4
+    m_Address: ANIMATION_MAINCHAR_TALKING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e8638f8257133a43adfe746a387cdda
+    m_Address: ANIMATION_MAINCHAR_WALKING_BACK
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a96ab7d4b6f3dc541ac4c2a0cd66f0de
+    m_Address: ANIMATION_MAINCHAR_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ad857e3cbe8f858478025b69b4aab6b6
+    m_Address: PlayerAnimator
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ddf3a02084a91ef4587db52f05a6b336
     m_Address: PREFAB_MAINCHARACTER
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e87a3c45390ed10448bc4575e961b13d
+    m_Address: ANIMATION_MAINCHAR_ANNOYED
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

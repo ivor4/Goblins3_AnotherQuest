@@ -1,0 +1,535 @@
+fileFormatVersion: 2
+guid: c20d547f5cc07494d844e9068d1a83d2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8975423067847320285
+    second: SPRITE_FIK_ANGRY_GESTURE_1_0
+  - first:
+      213: 4364554157681121715
+    second: SPRITE_FIK_ANGRY_GESTURE_1_1
+  - first:
+      213: 4733147459968215414
+    second: SPRITE_FIK_ANGRY_GESTURE_1_2
+  - first:
+      213: -3538610179441245385
+    second: SPRITE_FIK_ANGRY_GESTURE_1_3
+  - first:
+      213: -8880265364099859974
+    second: SPRITE_FIK_ANGRY_GESTURE_1_4
+  - first:
+      213: -30551098647258426
+    second: SPRITE_FIK_ANGRY_GESTURE_1_5
+  - first:
+      213: -4436099021760732312
+    second: SPRITE_FIK_ANGRY_GESTURE_1_6
+  - first:
+      213: 4474881011483814789
+    second: SPRITE_FIK_ANGRY_GESTURE_1_7
+  - first:
+      213: 502089238769922022
+    second: SPRITE_FIK_ANGRY_GESTURE_1_8
+  - first:
+      213: 5203982358055785678
+    second: SPRITE_FIK_ANGRY_GESTURE_1_9
+  - first:
+      213: -2211238254087168132
+    second: SPRITE_FIK_ANGRY_GESTURE_1_10
+  - first:
+      213: 924767124792017891
+    second: SPRITE_FIK_ANGRY_GESTURE_1_11
+  - first:
+      213: -8377434738212873581
+    second: SPRITE_FIK_ANGRY_GESTURE_1_12
+  - first:
+      213: -8835023085082603686
+    second: SPRITE_FIK_ANGRY_GESTURE_1_13
+  - first:
+      213: -3373207050374884646
+    second: SPRITE_FIK_ANGRY_GESTURE_1_14
+  - first:
+      213: 5315642506866698695
+    second: SPRITE_FIK_ANGRY_GESTURE_1_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_FIK_ANGRY_GESTURE_1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32d1d1c0644e07380800000000000000
+      internalID: -8975423067847320285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_FIK_ANGRY_GESTURE_1_1
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b9998bc1e2029c30800000000000000
+      internalID: 4364554157681121715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_FIK_ANGRY_GESTURE_1_2
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 679a2fc99848fa140800000000000000
+      internalID: 4733147459968215414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_FIK_ANGRY_GESTURE_1_3
+      rect:
+        serializedVersion: 2
+        x: 1272
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 733c2d74ac454eec0800000000000000
+      internalID: -3538610179441245385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_FIK_ANGRY_GESTURE_1_4
+      rect:
+        serializedVersion: 2
+        x: 1696
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af97f9573b5f2c480800000000000000
+      internalID: -8880265364099859974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_FIK_ANGRY_GESTURE_1_5
+      rect:
+        serializedVersion: 2
+        x: 2120
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cad1a900f5739ff0800000000000000
+      internalID: -30551098647258426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_FIK_ANGRY_GESTURE_1_6
+      rect:
+        serializedVersion: 2
+        x: 2544
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8636e73717fcf62c0800000000000000
+      internalID: -4436099021760732312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_FIK_ANGRY_GESTURE_1_7
+      rect:
+        serializedVersion: 2
+        x: 2968
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58b22ad2298f91e30800000000000000
+      internalID: 4474881011483814789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_FIK_ANGRY_GESTURE_1_8
+      rect:
+        serializedVersion: 2
+        x: 3392
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ef6d62a087c7f600800000000000000
+      internalID: 502089238769922022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_FIK_ANGRY_GESTURE_1_9
+      rect:
+        serializedVersion: 2
+        x: 3816
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec4905df162483840800000000000000
+      internalID: 5203982358055785678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_FIK_ANGRY_GESTURE_1_10
+      rect:
+        serializedVersion: 2
+        x: 4240
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7f1167068a1051e0800000000000000
+      internalID: -2211238254087168132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_FIK_ANGRY_GESTURE_1_11
+      rect:
+        serializedVersion: 2
+        x: 4664
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e30035ecce65dc00800000000000000
+      internalID: 924767124792017891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_FIK_ANGRY_GESTURE_1_12
+      rect:
+        serializedVersion: 2
+        x: 5088
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39addcbbd7f5dbb80800000000000000
+      internalID: -8377434738212873581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_FIK_ANGRY_GESTURE_1_13
+      rect:
+        serializedVersion: 2
+        x: 5512
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5f86476051b36580800000000000000
+      internalID: -8835023085082603686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_FIK_ANGRY_GESTURE_1_14
+      rect:
+        serializedVersion: 2
+        x: 5936
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad2df884f06ff21d0800000000000000
+      internalID: -3373207050374884646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_FIK_ANGRY_GESTURE_1_15
+      rect:
+        serializedVersion: 2
+        x: 6360
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c9a1ce42b4f4c940800000000000000
+      internalID: 5315642506866698695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ca78bd492fc808d439e512a1733c289e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":16.0,"y":1.0},"gridSpriteSize":{"x":424.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_FIK_ANGRY_GESTURE_1_0: -8975423067847320285
+      SPRITE_FIK_ANGRY_GESTURE_1_1: 4364554157681121715
+      SPRITE_FIK_ANGRY_GESTURE_1_10: -2211238254087168132
+      SPRITE_FIK_ANGRY_GESTURE_1_11: 924767124792017891
+      SPRITE_FIK_ANGRY_GESTURE_1_12: -8377434738212873581
+      SPRITE_FIK_ANGRY_GESTURE_1_13: -8835023085082603686
+      SPRITE_FIK_ANGRY_GESTURE_1_14: -3373207050374884646
+      SPRITE_FIK_ANGRY_GESTURE_1_15: 5315642506866698695
+      SPRITE_FIK_ANGRY_GESTURE_1_2: 4733147459968215414
+      SPRITE_FIK_ANGRY_GESTURE_1_3: -3538610179441245385
+      SPRITE_FIK_ANGRY_GESTURE_1_4: -8880265364099859974
+      SPRITE_FIK_ANGRY_GESTURE_1_5: -30551098647258426
+      SPRITE_FIK_ANGRY_GESTURE_1_6: -4436099021760732312
+      SPRITE_FIK_ANGRY_GESTURE_1_7: 4474881011483814789
+      SPRITE_FIK_ANGRY_GESTURE_1_8: 502089238769922022
+      SPRITE_FIK_ANGRY_GESTURE_1_9: 5203982358055785678
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

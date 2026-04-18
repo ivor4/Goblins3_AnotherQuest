@@ -262,8 +262,8 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameAction[1]{GameAction.ACTION_DESPAWN_HIVE1_ROACH_HEAD,}), 
             
             new( /* UNCHAIN_REBUILD_COCHROACH_SCARED */
-            false,true,true,new(GameEvent.EVENT_COCKROACH_CHEATED, false), 
-            new GameEventCombi[2]{new(GameEvent.EVENT_MASTER_CHANGE_ROOM, false),new(GameEvent.EVENT_COCKROACH_SCARED, false),}, 
+            true,false,false,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[2]{new(GameEvent.EVENT_COCKROACH_SCARED, false),new(GameEvent.EVENT_COCKROACH_CHEATED, true),}, 
             MomentType.MOMENT_ANY, 
             new GameAction[1]{GameAction.ACTION_EVENT_REBUILD_ROACH_SCARED,}), 
             

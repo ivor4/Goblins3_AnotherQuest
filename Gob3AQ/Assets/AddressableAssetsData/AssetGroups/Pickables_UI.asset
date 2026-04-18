@@ -15,8 +15,28 @@ MonoBehaviour:
   m_GroupName: Pickables_UI
   m_GUID: 4c7d8d162647be349b720b5721724b99
   m_SerializeEntries:
+  - m_GUID: 03ad98d8c28461647bbe286f63a545c2
+    m_Address: SPRITE_PICKABLE_UMBRELLA
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 04c7b89f19cd8aa4397d86fd57c17eb2
+    m_Address: SPRITE_CURSOR_NORMAL
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0927956e5347c1e448036ffeca798dcc
     m_Address: SPRITE_ATLAS_UI_0
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 27a69597165a3994e8972b4d3cb6e286
+    m_Address: SPRITE_CURSOR_USING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36b9f2d54e3be5040825ee63ad96f275
+    m_Address: SPRITE_PICKABLE_EXTRAPERLO
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -25,8 +45,43 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 547cdf5fd2ca96c4daf892076adaba75
+    m_Address: SPRITE_PICKABLE_CARDS
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 57dfcde8303e8a142b3bddfde29b2c35
+    m_Address: SPRITE_INVENTORY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6832582878325f946aa734f079b1fc04
+    m_Address: SPRITE_MEMENTO_JOB
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68c58a3c127ad7945b6915e42a24cecb
+    m_Address: SPRITE_CURSOR_DRAG
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b0df5024b8476d40b67b51324657ce0
+    m_Address: SPRITE_PICKABLE_SOAP
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d4c638ee3fae2e40ba727c48632d17d
+    m_Address: SPRITE_MEMENTO_RECIPE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 92d845b6379f4fd45bb81c5c91f0fb6f
     m_Address: SCENE_BASE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9b592c913b1c3042b719d9b922afab1
+    m_Address: SPRITE_BLANK
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -35,8 +90,38 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b98775155cc4d5b408d254644c4c02c7
+    m_Address: SPRITE_ACTION_OBSERVE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf35420c0a29c7146bdcdb7484b4a1a8
+    m_Address: SPRITE_PICKABLE_SHOELACE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca0c13f421af1c444b716a1a389f923e
+    m_Address: SPRITE_MOUSE_MOVE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cd3265f7437714f418b6f3fe7a85f086
     m_Address: PREFAB_MEMENTO
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db7e2e3be67785f4988c50ac8575206d
+    m_Address: SPRITE_ACTION_TAKE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3a8880f4a90d764bbbe28818b6a9556
+    m_Address: SPRITE_ACTION_TALK
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f1f0d33d70d3e8f4c9f3b8298f4042a3
+    m_Address: SPRITE_CURSOR_DOOR
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

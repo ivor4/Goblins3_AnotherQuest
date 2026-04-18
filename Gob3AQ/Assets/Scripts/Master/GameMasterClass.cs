@@ -567,6 +567,7 @@ namespace Gob3AQ.GameMaster
 
         void RequestAtlas(string tag, Action<SpriteAtlas> callback)
         {
+            Debug.LogWarning(tag + " was requested");
             _ = tag;
             _ = callback;
             /* Just for testing, not used */

@@ -20,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 032ae2e07f42f5048898450c005bafd9
+    m_Address: BACKGROUND_HIVE1_BACKALLEY_NIGHT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 034a7cb5f09bb1448ae9804bf5fc88a1
     m_Address: SCENE_HIVE1_ROOM_1
     m_ReadOnly: 0
@@ -30,6 +35,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0ac151a8d5bd349468367843d4511ed0
+    m_Address: BACKGROUND_HIVE1_HALL1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1191512f560963f4ea2f49deeab8a0e3
     m_Address: SPRITE_ATLAS_CITY1_1
     m_ReadOnly: 0
@@ -37,6 +47,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 158a779f324e8c04491a1416298df7c9
     m_Address: SCENE_CITY1_SOUTH_STREET_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d60cbf1d8def5f4ba47d73b944a7d36
+    m_Address: BACKGROUND_PHARMACY1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -75,6 +90,31 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 327148bc8ebe6e14d95e21d4812d7c35
+    m_Address: BACKGROUND_CITY1_EXTRAPERLO
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 32bf3e21d7270cb4aa3c755453c77dc1
+    m_Address: SPRITE_HIVE1_CHEST_OPENED
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3470e72b33799074eae09eb7fb1bb96d
+    m_Address: SPRITE_PHARMACY_INKWELL_WASTED
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 367433e1c51f07b468f16b8bb69186dc
+    m_Address: BACKGROUND_HIVE1_CORRIDOR1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3aae4c406cb068944ba1f8ed0685f634
+    m_Address: SPRITE_MANYO_OWNER
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3c000c0e67b4fc64387e5f5a93e73505
     m_Address: SPRITE_ATLAS_HIVE1_1
     m_ReadOnly: 0
@@ -82,6 +122,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3f9979558bb285644a521c41c2ef5eb7
     m_Address: SPRITE_ATLAS_CITY3_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4042e1881030fc54fb4598177d82ecfb
+    m_Address: SPRITE_HIVE1_SHOELACE
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -110,8 +155,33 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 57976d4bd985b6c45a95496b8452836d
+    m_Address: SPRITE_HIVE1_WARDROBE_OPENED
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58e7294c7dcc66849a84c7af79848839
+    m_Address: BACKGROUND_HIVE1_WC_NIGHT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 59fb20c7317ffa9449e12d4ad2bfc7b3
     m_Address: SPRITE_ATLAS_HIVE1_8
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5ca879fcf0b48e240b8f75e669c61c35
+    m_Address: BACKGROUND_CITY1_STREET2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e3d219e66bd25e4da577924c9eef9ba
+    m_Address: SPRITE_PHARMACY_INKWELL_NORMAL
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6079f99650a6f4b469dd7c8cc9e0bd05
+    m_Address: BACKGROUND_HIVE1_HALL1_NIGHT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -145,13 +215,53 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 818bf58a12f6c1a49bc8c80989ccb539
+    m_Address: BACKGROUND_HIVE1_WC
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 81c51d824e196cc4b98b23e87ff2c733
+    m_Address: SPRITE_PHARMACY_OWNER
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 87ef33c852f130a43a61cf63d3b13987
     m_Address: SPRITE_ATLAS_CITY3_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 88d3d208d6af4504f97306f35f749731
+    m_Address: SPRITE_PHARMACY_QUEUE_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8aec78a68e8a9da48a9a31c6b3956e18
+    m_Address: BACKGROUND_CITY1_STREET1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8cc6bf1ff9ccbec4395e7ae0d8fa5a06
+    m_Address: SPRITE_REME_MULTI_SWEEPING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9207e99b07d624542a014701b6a4a133
     m_Address: SCENE_CITY1_STREET_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 935c8df715588ab4fa0d2a981604c083
+    m_Address: SPRITE_HIVE1_REME_IDLE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 959297e8d5df02d4d8bbeebb2b9c755e
+    m_Address: BACKGROUND_HIVE1_CORRIDOR1_NIGHT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 98624f80b47a7294b93527a940f493e7
+    m_Address: SPRITE_HIVE1_CHEST_CARDS
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -170,8 +280,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d33ce4a735291b45b05a8c5b0722939
+    m_Address: BACKGROUND_CITY1_STREET2_NIGHT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9efdb536fbe3d074cb2e85252bfc6e34
     m_Address: SCENE_HIVE1_HALL_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a115be3602f6022488783d348d753e00
+    m_Address: BACKGROUND_CITY1_SOUTH_STREET_2_NIGHT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -182,6 +302,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a85cc1a46a7990940b8e5a28d00b13ef
     m_Address: SCENE_CITY1_STREET_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a977614bd1c2a5b4cbd554bca171965c
+    m_Address: BACKGROUND_CITY1_STREET1_NIGHT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a98fcb51768b95a4ebbf88f7762dcca8
+    m_Address: BACKGROUND_HIVE1_BACKALLEY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -200,8 +330,28 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b3c1cb2048475824885836fee15077fc
+    m_Address: SPRITE_HIVE1_POOR_MAN_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b5bcf86eb656486478fc990376c70fa5
     m_Address: SPRITE_ATLAS_MANYO_0
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b68d4cbca315fad438da1423efc10a1a
+    m_Address: BACKGROUND_CITY1_SOUTH_STREET_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc350b422bcd9454e97e1cb4ab1b9c5a
+    m_Address: SPRITE_CITY1_MANYO_UMBRELLA
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd68fb1528537934a8b30c84a8e6aa3b
+    m_Address: BACKGROUND_CITY1_MANYO
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -210,8 +360,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c42e3a39f4dec2541bfae47e5e1ed865
+    m_Address: SPRITE_ARTURO_STANDING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c542d0bd3f9689b4b9aacbcf0ffd4c6f
     m_Address: SPRITE_ATLAS_MANYO_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc5294fcb7eef2248b5dd6fc945da8fd
+    m_Address: SPRITE_HIVE1_ROACH_HEAD
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -225,13 +385,48 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dddd34a2decb0174ea9f7ca1a9b4129c
+    m_Address: BACKGROUND_CITY1_MANYO_NIGHT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de8bec6bb43296a41a092e73c463e774
+    m_Address: BACKGROUND_CITY1_SOUTH_STREET_1_NIGHT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e1a48f8e61d9f1c458c3483cef5ab78f
     m_Address: SPRITE_ATLAS_CITY2_1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e448fc9c7549ead4bb3d9c050e667e56
+    m_Address: BACKGROUND_CITY1_SOUTH_STREET_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e45ee3065a345494ba9ebc8ad63abfac
     m_Address: MUSIC_SOUTH_NEIGH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e85ae349c7f70d4409e2c065e936a06a
+    m_Address: SPRITE_HIVE1_VALVE_BOX_OPENED
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ebdc3fdecaa908e4faad7191103663fc
+    m_Address: SPRITE_HIVE1_CHEST_CLOSED
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ec779ad506940c6419c4d1e43c66b29c
+    m_Address: BACKGROUND_HIVE1_ROOM1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0703ccf3c923904faca7ad4b7b18a57
+    m_Address: SPRITE_HIVE1_BED_LAYER
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

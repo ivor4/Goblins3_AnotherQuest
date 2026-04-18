@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Extraperlo
   m_GUID: 78380f21d5904314687a00da62c562c9
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 39f595ca3b88cd44f82bb4f2e0d225a4
+    m_Address: SPRITE_EXTRAPERLO_BAR_FOREGROUND
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c63f0f3646ca67f4abe7e9d9a952af85, type: 2}
   m_SchemaSet:

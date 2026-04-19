@@ -8,4 +8,8 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: FikAnimator
   m_Controller: {fileID: 9100000, guid: 65e313ed732dd95429b91949e02f8ef3, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 6306ba7acd6778444a6b50dafc4e9f74, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9686f3e6ea5f2314d997698ea37218d5, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 30aa729c33d6b1640aaea9cdaab6602b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c42cfb6d776ffcc48a34b9726f52f449, type: 2}

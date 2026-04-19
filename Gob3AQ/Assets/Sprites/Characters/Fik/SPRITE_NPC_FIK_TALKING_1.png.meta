@@ -1,0 +1,535 @@
+fileFormatVersion: 2
+guid: a37a5e345e47ee64b9522aae3283ddef
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4793239682166956620
+    second: SPRITE_NPC_FIK_TALKING_1_0
+  - first:
+      213: 3016817365348116387
+    second: SPRITE_NPC_FIK_TALKING_1_1
+  - first:
+      213: -7929490380753431461
+    second: SPRITE_NPC_FIK_TALKING_1_2
+  - first:
+      213: 3551188010189193291
+    second: SPRITE_NPC_FIK_TALKING_1_3
+  - first:
+      213: 8942799163152286803
+    second: SPRITE_NPC_FIK_TALKING_1_4
+  - first:
+      213: -4409461117454563255
+    second: SPRITE_NPC_FIK_TALKING_1_5
+  - first:
+      213: 5157556231061958096
+    second: SPRITE_NPC_FIK_TALKING_1_6
+  - first:
+      213: 1903020889490819427
+    second: SPRITE_NPC_FIK_TALKING_1_7
+  - first:
+      213: -71490866761241058
+    second: SPRITE_NPC_FIK_TALKING_1_8
+  - first:
+      213: 8040719433894761206
+    second: SPRITE_NPC_FIK_TALKING_1_9
+  - first:
+      213: -7056400837262307011
+    second: SPRITE_NPC_FIK_TALKING_1_10
+  - first:
+      213: 8273806863510062502
+    second: SPRITE_NPC_FIK_TALKING_1_11
+  - first:
+      213: -9118828508324715957
+    second: SPRITE_NPC_FIK_TALKING_1_12
+  - first:
+      213: -4513691975450936056
+    second: SPRITE_NPC_FIK_TALKING_1_13
+  - first:
+      213: -4417741085195879985
+    second: SPRITE_NPC_FIK_TALKING_1_14
+  - first:
+      213: -5378757568825331776
+    second: SPRITE_NPC_FIK_TALKING_1_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_NPC_FIK_TALKING_1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bdd12d97edfa7db0800000000000000
+      internalID: -4793239682166956620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_NPC_FIK_TALKING_1_1
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a7edc5f863edd920800000000000000
+      internalID: 3016817365348116387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_NPC_FIK_TALKING_1_2
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b54905dc28ac4f190800000000000000
+      internalID: -7929490380753431461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_NPC_FIK_TALKING_1_3
+      rect:
+        serializedVersion: 2
+        x: 1272
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4004f52eaa584130800000000000000
+      internalID: 3551188010189193291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_NPC_FIK_TALKING_1_4
+      rect:
+        serializedVersion: 2
+        x: 1696
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3544a5935743b1c70800000000000000
+      internalID: 8942799163152286803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_NPC_FIK_TALKING_1_5
+      rect:
+        serializedVersion: 2
+        x: 2120
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 948493bd9727ec2c0800000000000000
+      internalID: -4409461117454563255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_NPC_FIK_TALKING_1_6
+      rect:
+        serializedVersion: 2
+        x: 2544
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ddec85f012539740800000000000000
+      internalID: 5157556231061958096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_NPC_FIK_TALKING_1_7
+      rect:
+        serializedVersion: 2
+        x: 2968
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3698f369a63e86a10800000000000000
+      internalID: 1903020889490819427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_NPC_FIK_TALKING_1_8
+      rect:
+        serializedVersion: 2
+        x: 3392
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1ee20a7f63020ff0800000000000000
+      internalID: -71490866761241058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_NPC_FIK_TALKING_1_9
+      rect:
+        serializedVersion: 2
+        x: 3816
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f290eb39bf569f60800000000000000
+      internalID: 8040719433894761206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_NPC_FIK_TALKING_1_10
+      rect:
+        serializedVersion: 2
+        x: 4240
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d31163e23d0a21e90800000000000000
+      internalID: -7056400837262307011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_NPC_FIK_TALKING_1_11
+      rect:
+        serializedVersion: 2
+        x: 4664
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a5c4bf718772d270800000000000000
+      internalID: 8273806863510062502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_NPC_FIK_TALKING_1_12
+      rect:
+        serializedVersion: 2
+        x: 5088
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b42a99909c9637180800000000000000
+      internalID: -9118828508324715957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_NPC_FIK_TALKING_1_13
+      rect:
+        serializedVersion: 2
+        x: 5512
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80d37b910152c51c0800000000000000
+      internalID: -4513691975450936056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_NPC_FIK_TALKING_1_14
+      rect:
+        serializedVersion: 2
+        x: 5936
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc93043a3e701b2c0800000000000000
+      internalID: -4417741085195879985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_NPC_FIK_TALKING_1_15
+      rect:
+        serializedVersion: 2
+        x: 6360
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cfe8313d70da55b0800000000000000
+      internalID: -5378757568825331776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: dec105c8c02103547aa68eb4de0ad512
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":16.0,"y":1.0},"gridSpriteSize":{"x":424.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_NPC_FIK_TALKING_1_0: -4793239682166956620
+      SPRITE_NPC_FIK_TALKING_1_1: 3016817365348116387
+      SPRITE_NPC_FIK_TALKING_1_10: -7056400837262307011
+      SPRITE_NPC_FIK_TALKING_1_11: 8273806863510062502
+      SPRITE_NPC_FIK_TALKING_1_12: -9118828508324715957
+      SPRITE_NPC_FIK_TALKING_1_13: -4513691975450936056
+      SPRITE_NPC_FIK_TALKING_1_14: -4417741085195879985
+      SPRITE_NPC_FIK_TALKING_1_15: -5378757568825331776
+      SPRITE_NPC_FIK_TALKING_1_2: -7929490380753431461
+      SPRITE_NPC_FIK_TALKING_1_3: 3551188010189193291
+      SPRITE_NPC_FIK_TALKING_1_4: 8942799163152286803
+      SPRITE_NPC_FIK_TALKING_1_5: -4409461117454563255
+      SPRITE_NPC_FIK_TALKING_1_6: 5157556231061958096
+      SPRITE_NPC_FIK_TALKING_1_7: 1903020889490819427
+      SPRITE_NPC_FIK_TALKING_1_8: -71490866761241058
+      SPRITE_NPC_FIK_TALKING_1_9: 8040719433894761206
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -167,7 +167,6 @@ namespace Gob3AQ.DialogMaster
         /// parameters. For simple dialogues,  the specified phrase is displayed directly. For multi-choice dialogues,
         /// the available options are dynamically  populated based on the active dialogue configurations. If no valid
         /// options are found, an error is logged.</remarks>
-        /// <param name="defaultTalkers">Default list of talkers (Player and ItemDest)</param>
         /// <param name="dialog">The type of dialogue to display, which determines the structure and options available.</param>
         /// <param name="phrase">The initial phrase to display if the dialogue type is simple.</param>
         /// <param name="backgroundDialog">If background does not need user interaction (as a background conversation).</param>
@@ -418,6 +417,11 @@ namespace Gob3AQ.DialogMaster
                 dialog_actualPhraseSoundStop = GameSound.SOUND_NONE;
             }
 
+            if(content.config.animationTrigger != AnimationTrigger.ANIMATION_TRIGGER_NONE)
+            {
+                VARMAP_DialogMaster.ITEM_PERFORM_ANIMATION(talkerItem, content.config.animationTrigger, null);
+            }
+
             if (dialog_background)
             {
                 _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_BACKGROUND, sender, msg);
@@ -449,7 +453,7 @@ namespace Gob3AQ.DialogMaster
                 animation_activeAnimations.RemoveAt(i);
             }
 
-            VARMAP_DialogMaster.NOTIFY_ENDED_ACTION(NotifyAction.NOTIFY_DIALOG);
+            VARMAP_DialogMaster.NOTIFY_ENDED_ACTION(NotifyAction.NOTIFY_ANIMATION);
         }
 
         private void EndPhrase_Action()

@@ -9,9 +9,5 @@ AnimatorOverrideController:
   m_Name: RemeAnimator
   m_Controller: {fileID: 9100000, guid: 65e313ed732dd95429b91949e02f8ef3, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 3ff67f406b3de7b47bb022b496f7c6c3, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6306ba7acd6778444a6b50dafc4e9f74, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 3ff67f406b3de7b47bb022b496f7c6c3, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: a62eab8e268d8884aa571d18bc639ddf, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: a62eab8e268d8884aa571d18bc639ddf, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: cf385eae150f68f4995851c2b80b73da, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: cf385eae150f68f4995851c2b80b73da, type: 2}

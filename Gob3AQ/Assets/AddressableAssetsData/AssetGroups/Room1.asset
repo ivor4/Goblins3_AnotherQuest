@@ -60,6 +60,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ff67f406b3de7b47bb022b496f7c6c3
+    m_Address: ANIMATION_REME_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4042e1881030fc54fb4598177d82ecfb
     m_Address: SPRITE_HIVE1_SHOELACE
     m_ReadOnly: 0
@@ -140,6 +145,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a62eab8e268d8884aa571d18bc639ddf
+    m_Address: ANIMATION_REME_SWEEPING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a75b7445ea97e974bb97beccacf0f9b0
     m_Address: SPRITE_ATLAS_HIVE1_2
     m_ReadOnly: 0
@@ -147,6 +157,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ab71db5c6536c254580b854722e314df
     m_Address: MUSIC_INN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae7c13f98cc3241468d749bc8ff7e12d
+    m_Address: ANIMATOR_REME
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -162,6 +177,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cc5294fcb7eef2248b5dd6fc945da8fd
     m_Address: SPRITE_HIVE1_ROACH_HEAD
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf385eae150f68f4995851c2b80b73da
+    m_Address: ANIMATION_REME_SPECIAL_1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

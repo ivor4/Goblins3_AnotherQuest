@@ -273,7 +273,7 @@ namespace Gob3AQ.VARMAP.Types
         public readonly AnimationTrigger trigger;
         public readonly GameSound sound;
 
-        public static readonly AnimationActionConfig EMPTY = new(new GameAction[0], GameItem.ITEM_NONE, AnimationTrigger.TRIGGER_ONE, GameSound.SOUND_NONE);
+        public static readonly AnimationActionConfig EMPTY = new(new GameAction[0], GameItem.ITEM_NONE, AnimationTrigger.ANIMATION_TRIGGER_ONE, GameSound.SOUND_NONE);
 
         public AnimationActionConfig(GameAction[] triggeredActions, GameItem dstItem, AnimationTrigger trigger, GameSound sound)
         {
@@ -363,15 +363,15 @@ namespace Gob3AQ.VARMAP.Types
     {
         public readonly int talkerIndex;
         public readonly GameSound sound;
-        public readonly DialogAnimation animation;
+        public readonly AnimationTrigger animationTrigger;
 
-        public static readonly PhraseConfig EMPTY = new(0,GameSound.SOUND_NONE, DialogAnimation.DIALOG_ANIMATION_NONE);
+        public static readonly PhraseConfig EMPTY = new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_NONE);
 
-        public PhraseConfig(int talkerIndex, GameSound sound, DialogAnimation animation)
+        public PhraseConfig(int talkerIndex, GameSound sound, AnimationTrigger animationTrigger)
         {
             this.talkerIndex = talkerIndex;
             this.sound = sound;
-            this.animation = animation;
+            this.animationTrigger = animationTrigger;
         }
     }
 

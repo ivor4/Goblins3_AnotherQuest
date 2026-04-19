@@ -691,7 +691,7 @@ character_prefix = 'CharacterType.'
 pickable_prefix = 'GamePickableItem.'
 interaction_prefix = 'ItemInteractionType.'
 char_animation_prefix = 'CharacterAnimation.'
-dialoganim_prefix = 'DialogAnimation.'
+animation_trigger_prefix = 'AnimationTrigger.'
 event_prefix = 'GameEvent.'
 action_prefix = 'GameAction.'
 conditiontype_prefix = 'ActionConditions.'
@@ -940,7 +940,7 @@ for line in PHRASESinputFile:
         phrases_lines.InsertLineInATG(0, stringToWrite)
         
         stringToWrite = 'new('+columns[2]+','+sound_prefix+columns[3]+', '+\
-            dialoganim_prefix + columns[4]+'), /* '+columns[1]+' */ \n'
+            animation_trigger_prefix + columns[4]+'), /* '+columns[1]+' */ \n'
         dialog_atlas_lines.InsertLineInATG(3, stringToWrite)
     
 stringToWrite = '\n'

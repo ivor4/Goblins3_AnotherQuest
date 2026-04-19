@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Extraperlo
   m_GUID: 78380f21d5904314687a00da62c562c9
   m_SerializeEntries:
+  - m_GUID: 0dacd86d13bb5ce4393135297cb42b48
+    m_Address: ANIMATOR_FIK
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 158a779f324e8c04491a1416298df7c9
     m_Address: SCENE_CITY1_SOUTH_STREET_2
     m_ReadOnly: 0
@@ -70,6 +75,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9686f3e6ea5f2314d997698ea37218d5
+    m_Address: ANIMATION_FIK_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9bb6744a33276f249afc0429ebdb60f8
     m_Address: SCENE_EXTRAPERLO
     m_ReadOnly: 0
@@ -80,6 +90,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a37a5e345e47ee64b9522aae3283ddef
+    m_Address: SPRITE_NPC_FIK_TALKING_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b68d4cbca315fad438da1423efc10a1a
     m_Address: BACKGROUND_CITY1_SOUTH_STREET_1
     m_ReadOnly: 0
@@ -87,6 +102,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c20d547f5cc07494d844e9068d1a83d2
     m_Address: SPRITE_FIK_ANGRY_GESTURE_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c42cfb6d776ffcc48a34b9726f52f449
+    m_Address: ANIMATION_FIK_TALKING
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

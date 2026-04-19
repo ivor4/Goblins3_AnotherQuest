@@ -35,6 +35,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 30aa729c33d6b1640aaea9cdaab6602b
+    m_Address: ANIMATION_GENERIC_TALKING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 36b9f2d54e3be5040825ee63ad96f275
     m_Address: SPRITE_PICKABLE_EXTRAPERLO
     m_ReadOnly: 0
@@ -52,6 +57,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 57dfcde8303e8a142b3bddfde29b2c35
     m_Address: SPRITE_INVENTORY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6306ba7acd6778444a6b50dafc4e9f74
+    m_Address: ANIMATION_GENERIC_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 65e313ed732dd95429b91949e02f8ef3
+    m_Address: ANIMATOR_GENERIC
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

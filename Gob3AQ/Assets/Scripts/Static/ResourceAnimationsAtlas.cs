@@ -9,24 +9,25 @@ namespace Gob3AQ.ResourceAnimationsAtlas
     {
         public static readonly IReadOnlyDictionary<AnimationTrigger, int> ANIM_TRIGGER_TO_STR = new Dictionary<AnimationTrigger, int>()
         {
-            { AnimationTrigger.TRIGGER_ONE, Animator.StringToHash("Tr_1") },
-            { AnimationTrigger.TRIGGER_TWO, Animator.StringToHash("Tr_2") },
-            { AnimationTrigger.TRIGGER_THREE, Animator.StringToHash("Tr_3") },
-            { AnimationTrigger.TRIGGER_FOUR, Animator.StringToHash("Tr_4") },
-            { AnimationTrigger.TRIGGER_FIVE, Animator.StringToHash("Tr_5") },
-            { AnimationTrigger.TRIGGER_SIX, Animator.StringToHash("Tr_6") },
+            { AnimationTrigger.ANIMATION_TRIGGER_ONE, Animator.StringToHash("Tr_1") },
+            { AnimationTrigger.ANIMATION_TRIGGER_TWO, Animator.StringToHash("Tr_2") },
+            { AnimationTrigger.ANIMATION_TRIGGER_THREE, Animator.StringToHash("Tr_3") },
+            { AnimationTrigger.ANIMATION_TRIGGER_FOUR, Animator.StringToHash("Tr_4") },
+            { AnimationTrigger.ANIMATION_TRIGGER_FIVE, Animator.StringToHash("Tr_5") },
+            { AnimationTrigger.ANIMATION_TRIGGER_SIX, Animator.StringToHash("Tr_6") },
 
-            {AnimationTrigger.TRIGGER_SPECIAL_ONE, Animator.StringToHash("Tr_Special1") },
-            {AnimationTrigger.TRIGGER_SPECIAL_TWO, Animator.StringToHash("Tr_Special2") },
+            {AnimationTrigger.ANIMATION_TRIGGER_SPECIAL_ONE, Animator.StringToHash("Tr_Special1") },
+            {AnimationTrigger.ANIMATION_TRIGGER_SPECIAL_TWO, Animator.StringToHash("Tr_Special2") },
 
-            { AnimationTrigger.TRIGGER_STEADY, Animator.StringToHash("Tr_Steady") },
+            { AnimationTrigger.ANIMATION_TRIGGER_STEADY, Animator.StringToHash("Tr_Steady") },
 
-            { AnimationTrigger.TRIGGER_TALK, Animator.StringToHash("Tr_Talk") },
-            { AnimationTrigger.TRIGGER_WALK_FRONT, Animator.StringToHash("Tr_WalkFront") },
-            { AnimationTrigger.TRIGGER_WALK_BACK, Animator.StringToHash("Tr_WalkBack") },
-            { AnimationTrigger.TRIGGER_WALK_CORNERFRONT, Animator.StringToHash("Tr_WalkCornerFront") },
-            { AnimationTrigger.TRIGGER_WALK_CORNERBACK, Animator.StringToHash("Tr_WalkCornerBack") },
-            { AnimationTrigger.TRIGGER_WALK_SIDE, Animator.StringToHash("Tr_WalkSide") },
+            { AnimationTrigger.ANIMATION_TRIGGER_TALK, Animator.StringToHash("Tr_Talk") },
+
+            { AnimationTrigger.ANIMATION_TRIGGER_WALK_FRONT, Animator.StringToHash("Tr_WalkFront") },
+            { AnimationTrigger.ANIMATION_TRIGGER_WALK_BACK, Animator.StringToHash("Tr_WalkBack") },
+            { AnimationTrigger.ANIMATION_TRIGGER_WALK_CORNERFRONT, Animator.StringToHash("Tr_WalkCornerFront") },
+            { AnimationTrigger.ANIMATION_TRIGGER_WALK_CORNERBACK, Animator.StringToHash("Tr_WalkCornerBack") },
+            { AnimationTrigger.ANIMATION_TRIGGER_WALK_SIDE, Animator.StringToHash("Tr_WalkSide") },
         };
 
         public static ref readonly AnimationConfig GetAnimationConfig(GameAnimation animation)
@@ -54,14 +55,14 @@ namespace Gob3AQ.ResourceAnimationsAtlas
                 new(AnimationSrcTrigger.SRC_TRIGGER_ANIM_END, 0f,
                     new AnimationActionConfig[]
                     {
-                        new(noAction, GameItem.ITEM_HIVE1_NPC_REME, AnimationTrigger.TRIGGER_SPECIAL_ONE, GameSound.SOUND_NONE),   /* Action 1 */
+                        new(noAction, GameItem.ITEM_HIVE1_NPC_REME, AnimationTrigger.ANIMATION_TRIGGER_SPECIAL_ONE, GameSound.SOUND_NONE),   /* Action 1 */
                     }
                 ),
                 /* Milestone 2 */
                 new(AnimationSrcTrigger.SRC_TRIGGER_CALLBACK, 0f,
                     new AnimationActionConfig[]
                     {
-                        new(noAction, GameItem.ITEM_NONE, AnimationTrigger.TRIGGER_ONE, GameSound.SOUND_NONE),   /* Action 1 */
+                        new(noAction, GameItem.ITEM_NONE, AnimationTrigger.ANIMATION_TRIGGER_ONE, GameSound.SOUND_NONE),   /* Action 1 */
                     }
                 ),
             }),
@@ -73,7 +74,7 @@ namespace Gob3AQ.ResourceAnimationsAtlas
                 new(AnimationSrcTrigger.SRC_TRIGGER_ANIM_END, 0f,
                     new AnimationActionConfig[]
                     {
-                        new(noAction, GameItem.ITEM_PLAYER_MAIN, AnimationTrigger.TRIGGER_ONE, GameSound.SOUND_NONE),   /* Action 1 */
+                        new(noAction, GameItem.ITEM_PLAYER_MAIN, AnimationTrigger.ANIMATION_TRIGGER_ONE, GameSound.SOUND_NONE),   /* Action 1 */
                     }
                 ),
             }),

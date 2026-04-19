@@ -208,12 +208,14 @@ namespace Gob3AQ.VARMAP.Types
     public readonly struct SpriteConfig
     {
         public readonly string path;
+        public readonly string atlaspath;
 
-        public static readonly SpriteConfig EMPTY = new(string.Empty);
+        public static readonly SpriteConfig EMPTY = new(string.Empty, string.Empty);
 
-        public SpriteConfig(string path)
+        public SpriteConfig(string path, string atlaspath)
         {
             this.path = path;
+            this.atlaspath = atlaspath;
         }
     }
 

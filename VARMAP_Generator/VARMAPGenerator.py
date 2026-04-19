@@ -1558,7 +1558,7 @@ for line in SPRITESinputFile:
     sprite_types_lines.InsertLineInATG(1, stringToWrite)
     
     if(not 'NONE' in columns[1]):        
-        stringToWrite = 'new("'+columns[2]+'"), /* '+columns[1]+' */ \n'
+        stringToWrite = 'new("'+columns[2]+'", "'+ columns[3] +'"), /* '+columns[1]+' */ \n'
         sprite_atlas_lines.InsertLineInATG(1, stringToWrite)
 
     

@@ -226,12 +226,15 @@ namespace Gob3AQ.GameEventMaster
             if(_singleton != null)
             {
                 Room room = VARMAP_GameEventMaster.GET_ACTUAL_ROOM();
-                ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(room);
-
-                foreach(UnchainConditions unchainConditions in roomInfo.exitConditions)
+                if (room != Room.ROOM_NONE)
                 {
-                    ref readonly UnchainInfo unchainInfo = ref ItemsInteractionsClass.GetUnchainInfo(unchainConditions);
-                    _singleton.TryUnchainAction(in unchainInfo);
+                    ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(room);
+
+                    foreach (UnchainConditions unchainConditions in roomInfo.exitConditions)
+                    {
+                        ref readonly UnchainInfo unchainInfo = ref ItemsInteractionsClass.GetUnchainInfo(unchainConditions);
+                        _singleton.TryUnchainAction(in unchainInfo);
+                    }
                 }
             }
         }

@@ -497,6 +497,7 @@ namespace Gob3AQ.GraphicsMaster
                         loadingFadingIn = false;
 
                         uicanvas_cls.SetLoadingSprite(gameSnapshot_sprite, true, Color.white);
+                        background_spr.sprite = null;
                         break;
                     default:
                         break;

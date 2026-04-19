@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.U2D;
 
 
 namespace Gob3AQ.ResourceSprites
@@ -20,6 +21,8 @@ namespace Gob3AQ.ResourceSprites
         private static HashSet<GameSprite> _spritesToLoadArray;
         private static HashSet<GameSprite> _spritesToRelease;
         private static ReadOnlyHashSet<GameSprite> _fixedSpritesArray;
+        private static Dictionary<string, AsyncOperationHandle<SpriteAtlas>> _cachedAtlasHandles;
+        private static Dictionary<string, int> _atlasReferenceCount;
 
         public static void Initialize()
         {
@@ -38,7 +41,8 @@ namespace Gob3AQ.ResourceSprites
                 GameSprite.SPRITE_UI_TALK,
                 GameSprite.SPRITE_UI_OBSERVE,
                 GameSprite.SPRITE_UI_MOUSE_MOVE,
-                GameSprite.SPRITE_UI_CURSOR_DOOR
+                GameSprite.SPRITE_UI_CURSOR_DOOR,
+                GameSprite.SPRITE_MAINCHAR_STEADY
             };
 
             for (GamePickableItem i = 0; i < GamePickableItem.ITEM_PICK_TOTAL; i++)
@@ -55,25 +59,56 @@ namespace Gob3AQ.ResourceSprites
             _ = editableHash.Remove(GameSprite.SPRITE_NONE);
 
             _fixedSpritesArray = new(editableHash);
+
+            _cachedAtlasHandles = new(GameFixedConfig.MAX_CACHED_SPRITES);
+            _atlasReferenceCount = new(GameFixedConfig.MAX_CACHED_SPRITES);
+
+            SpriteAtlasManager.atlasRequested += RequestAtlas;
         }
 
         public static IEnumerator PreloadRoomSpritesCoroutine(Room room)
         {
             PreloadSpritesPrepareList(room);
 
-            foreach(GameSprite spriteToLoad in _spritesToLoadArray)
+            /* Atlas */
+            foreach (GameSprite spriteToLoad in _spritesToLoadArray)
+            {
+                string atlas = ResourceSpritesAtlasClass.GetSpriteConfig(spriteToLoad).atlaspath;
+                if (!_cachedAtlasHandles.ContainsKey(atlas))
+                {
+                    AsyncOperationHandle<SpriteAtlas> atlasHandle = Addressables.LoadAssetAsync<SpriteAtlas>(atlas);
+                    _cachedAtlasHandles[atlas] = atlasHandle;
+                    _atlasReferenceCount[atlas] = 1;
+                }
+                else
+                {
+                    _atlasReferenceCount[atlas] = _atlasReferenceCount[atlas] + 1;
+                }
+            }
+
+            foreach (AsyncOperationHandle<SpriteAtlas> atlasHandle in _cachedAtlasHandles.Values)
+            {
+                if (!atlasHandle.IsDone)
+                {
+                    yield return atlasHandle;
+                }
+            }
+
+            /* Sprites */
+            foreach (GameSprite spriteToLoad in _spritesToLoadArray)
             {
                 AsyncOperationHandle<Sprite> handle = PreloadRoomSpritesCycle(spriteToLoad);
                 _cachedHandles[spriteToLoad] = handle;
             }
 
-            foreach(AsyncOperationHandle<Sprite> handle in _cachedHandles.Values)
+            foreach (AsyncOperationHandle<Sprite> handle in _cachedHandles.Values)
             {
                 if(!handle.IsDone)
                 {
                     yield return handle;
                 }
             }
+            
 
             _spritesToLoadArray.Clear();
         }
@@ -92,6 +127,20 @@ namespace Gob3AQ.ResourceSprites
             {
                 _cachedHandles[sprite].Release();
                 _cachedHandles.Remove(sprite);
+
+                string atlas = ResourceSpritesAtlasClass.GetSpriteConfig(sprite).atlaspath;
+                if(_atlasReferenceCount.TryGetValue(atlas, out int refCount))
+                {
+                    --refCount;
+                    _atlasReferenceCount[atlas] = refCount;
+
+                    if(refCount <= 0)
+                    {
+                        _cachedAtlasHandles[atlas].Release();
+                        _atlasReferenceCount.Remove(atlas);
+                        _cachedAtlasHandles.Remove(atlas);
+                    }
+                }
             }
 
             _spritesToRelease.Clear();
@@ -145,6 +194,27 @@ namespace Gob3AQ.ResourceSprites
             {
                 Debug.LogError($"Sprite type {sprite} not found in cached sprites.");
                 return null;
+            }
+        }
+
+        private static void RequestAtlas(string tag, Action<SpriteAtlas> callback)
+        {
+            if(_cachedAtlasHandles.TryGetValue(tag, out AsyncOperationHandle<SpriteAtlas> atlasHandle))
+            {
+                if (atlasHandle.IsDone)
+                {
+                    callback(atlasHandle.Result);
+                }
+                else
+                {
+                    /* This sprites are requested because SpriteAtlas is being loaded before sprite.
+                     * Some of them bring sprites which indeed are used, but not that instance which will be dynamically done */
+                }
+            }
+            else
+            {
+                Debug.LogError($"Atlas with tag {tag} requested but not found in cached atlases.");
+                callback(null);
             }
         }
     }

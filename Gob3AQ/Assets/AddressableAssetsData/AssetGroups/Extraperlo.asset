@@ -15,8 +15,93 @@ MonoBehaviour:
   m_GroupName: Extraperlo
   m_GUID: 78380f21d5904314687a00da62c562c9
   m_SerializeEntries:
+  - m_GUID: 158a779f324e8c04491a1416298df7c9
+    m_Address: SCENE_CITY1_SOUTH_STREET_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 22c2d3bc9847f1d4281603222153ac74
+    m_Address: SPRITE_ATLAS_EXTRAPERLO1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 327148bc8ebe6e14d95e21d4812d7c35
+    m_Address: BACKGROUND_CITY1_EXTRAPERLO
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 39f595ca3b88cd44f82bb4f2e0d225a4
     m_Address: SPRITE_EXTRAPERLO_BAR_FOREGROUND
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f9979558bb285644a521c41c2ef5eb7
+    m_Address: SPRITE_ATLAS_CITY3_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52ab70f4696594d4d86731758aa835f8
+    m_Address: SPRITE_ATLAS_FIK_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5412e95429ccd8743a333d97d209a0b6
+    m_Address: SCENE_CITY1_SOUTH_STREET_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f0c1b3fa2b4f37458e3c57577627c94
+    m_Address: SPRITE_ATLAS_CITY4_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ca07d034070090499d7ed9c6d954799
+    m_Address: SPRITE_ATLAS_CITY4_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 843ddf39c4fc3a44185ba9df7f1c880f
+    m_Address: SPRITE_FIK_STANDING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 87ef33c852f130a43a61cf63d3b13987
+    m_Address: SPRITE_ATLAS_CITY3_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9bb6744a33276f249afc0429ebdb60f8
+    m_Address: SCENE_EXTRAPERLO
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a115be3602f6022488783d348d753e00
+    m_Address: BACKGROUND_CITY1_SOUTH_STREET_2_NIGHT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b68d4cbca315fad438da1423efc10a1a
+    m_Address: BACKGROUND_CITY1_SOUTH_STREET_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c20d547f5cc07494d844e9068d1a83d2
+    m_Address: SPRITE_FIK_ANGRY_GESTURE_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de8bec6bb43296a41a092e73c463e774
+    m_Address: BACKGROUND_CITY1_SOUTH_STREET_1_NIGHT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e448fc9c7549ead4bb3d9c050e667e56
+    m_Address: BACKGROUND_CITY1_SOUTH_STREET_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e45ee3065a345494ba9ebc8ad63abfac
+    m_Address: MUSIC_SOUTH_NEIGH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

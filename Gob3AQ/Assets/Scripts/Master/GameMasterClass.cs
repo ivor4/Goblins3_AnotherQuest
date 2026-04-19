@@ -58,8 +58,6 @@ namespace Gob3AQ.GameMaster
                 loadScenePendingFromGameLoad = false;
                 changeMomentPending = MomentType.MOMENT_ANY;
                 stoppingGamePending = false;
-
-                SpriteAtlasManager.atlasRequested += RequestAtlas;
             }
         }
 
@@ -226,7 +224,11 @@ namespace Gob3AQ.GameMaster
             {
                 error = false;
                 loadScenePending = room;
-                VARMAP_GameMaster.EXECUTE_EXIT_ROOM_CONDS();
+
+                if (VARMAP_GameMaster.GET_SHADOW_ACTUAL_ROOM() != Room.ROOM_NONE)
+                {
+                    VARMAP_GameMaster.EXECUTE_EXIT_ROOM_CONDS();
+                }
             }
             else
             {
@@ -487,6 +489,10 @@ namespace Gob3AQ.GameMaster
 
             SceneManager.SetActiveScene(nextRoom.Result.Scene);
 
+            PlaceCharactersOnLoad();
+
+            /* EXTRA: Wait for ResourceSpritesClass to confirm all atlas have been loaded */
+
             /* Move to previous for next load */
             prevRoom = nextRoom;
             prevRoomLoaded = true;
@@ -565,14 +571,11 @@ namespace Gob3AQ.GameMaster
             }
         }
 
-        void RequestAtlas(string tag, Action<SpriteAtlas> callback)
+        private static void PlaceCharactersOnLoad()
         {
-            Debug.LogWarning(tag + " was requested");
-            _ = tag;
-            _ = callback;
-            /* Just for testing, not used */
+            GameObject maincharPrefab = ResourceAtlasClass.GetPrefab(PrefabEnum.PREFAB_MAINCHARACTER);
+            _ = Instantiate(maincharPrefab);
         }
-
     }
 }
 

@@ -290,8 +290,6 @@ namespace Gob3AQ.LevelMaster
 
         private IEnumerator LoadCoroutine()
         {
-            PlaceCharactersOnLoad();
-
             while (!somePlayerRegistered)
             {
                 yield return ResourceAtlasClass.WaitForNextFrame;
@@ -308,12 +306,6 @@ namespace Gob3AQ.LevelMaster
             }
 
             VARMAP_LevelMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_LevelMaster);
-        }
-
-        private void PlaceCharactersOnLoad()
-        {
-            GameObject maincharPrefab = ResourceAtlasClass.GetPrefab(PrefabEnum.PREFAB_MAINCHARACTER);
-            _ = Instantiate(maincharPrefab);
         }
 
         private void Update()

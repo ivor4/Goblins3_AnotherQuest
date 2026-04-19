@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Manyo
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Manyo
+  m_GUID: 7d82e4fc964fe7740a88138d6f76a482
+  m_SerializeEntries:
+  - m_GUID: 27924d95888e11948a93af2227311a92
+    m_Address: SCENE_MANYO1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3aae4c406cb068944ba1f8ed0685f634
+    m_Address: SPRITE_MANYO_OWNER
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7dc415f9f65036d4ca6224df4effa57e
+    m_Address: SOUND_AMBIENCE_MANYO_NIGHT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b0e3b9d309f1e254dab63d3fa35d96be
+    m_Address: MUSIC_MANYO
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b5bcf86eb656486478fc990376c70fa5
+    m_Address: SPRITE_ATLAS_MANYO_0
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc350b422bcd9454e97e1cb4ab1b9c5a
+    m_Address: SPRITE_CITY1_MANYO_UMBRELLA
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd68fb1528537934a8b30c84a8e6aa3b
+    m_Address: BACKGROUND_CITY1_MANYO
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c542d0bd3f9689b4b9aacbcf0ffd4c6f
+    m_Address: SPRITE_ATLAS_MANYO_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dddd34a2decb0174ea9f7ca1a9b4129c
+    m_Address: BACKGROUND_CITY1_MANYO_NIGHT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c63f0f3646ca67f4abe7e9d9a952af85, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 75922e49cb6630146982633813a60df4, type: 2}
+    - {fileID: 11400000, guid: 3265a74eb286eb44d94c78e29fd19f3f, type: 2}

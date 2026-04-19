@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Pharmacy1
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Pharmacy1
+  m_GUID: a2f9a537e818dd24997ef459fc191183
+  m_SerializeEntries:
+  - m_GUID: 1d60cbf1d8def5f4ba47d73b944a7d36
+    m_Address: BACKGROUND_PHARMACY1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 237b550567e79ac4c915acf3a6e06bc3
+    m_Address: SCENE_PHARMACY1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 310278dc0e4e7cd48b5f151523dca678
+    m_Address: MUSIC_PHARMACY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3470e72b33799074eae09eb7fb1bb96d
+    m_Address: SPRITE_PHARMACY_INKWELL_WASTED
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e3d219e66bd25e4da577924c9eef9ba
+    m_Address: SPRITE_PHARMACY_INKWELL_NORMAL
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 81c51d824e196cc4b98b23e87ff2c733
+    m_Address: SPRITE_PHARMACY_OWNER
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 88d3d208d6af4504f97306f35f749731
+    m_Address: SPRITE_PHARMACY_QUEUE_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aba4ff5aa30dda246a6ac7f301874162
+    m_Address: SPRITE_ATLAS_PHARMACY1_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c63f0f3646ca67f4abe7e9d9a952af85, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 2f37127a319f6984294b7515cefaeaac, type: 2}
+    - {fileID: 11400000, guid: 3e0819129ce21504fb10a3d2aed8375f, type: 2}

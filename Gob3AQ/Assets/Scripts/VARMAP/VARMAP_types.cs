@@ -363,11 +363,13 @@ namespace Gob3AQ.VARMAP.Types
     {
         public readonly int talkerIndex;
         public readonly GameSound sound;
-        public readonly AnimationTrigger animationTrigger;
+        private readonly AnimationTrigger[] animationTrigger;
 
-        public static readonly PhraseConfig EMPTY = new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_NONE);
+        public ReadOnlySpan<AnimationTrigger> AnimationTrigger => animationTrigger;
 
-        public PhraseConfig(int talkerIndex, GameSound sound, AnimationTrigger animationTrigger)
+        public static readonly PhraseConfig EMPTY = new(0,GameSound.SOUND_NONE, new AnimationTrigger[0]);
+
+        public PhraseConfig(int talkerIndex, GameSound sound, AnimationTrigger[] animationTrigger)
         {
             this.talkerIndex = talkerIndex;
             this.sound = sound;

@@ -99,11 +99,11 @@ namespace Gob3AQ.GameElement
 
         public void PerformAnimation(AnimationTrigger trigger, Action callback)
         {
-            if (myAnimator != null)
+            if ((myAnimator != null)&&(trigger != AnimationTrigger.ANIMATION_TRIGGER_NONE))
             {
                 animationStartedNewState = false;
                 animationEndCallback = callback;
-                myAnimator.SetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_STR[trigger]);
+                myAnimator.SetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_HASH[trigger]);
             }
         }
 
@@ -272,6 +272,15 @@ namespace Gob3AQ.GameElement
                 animationEndCallback?.Invoke();
                 animationEndCallback = null;
             }
+        }
+
+        protected void ResetWalkTriggers()
+        {
+            myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_HASH[AnimationTrigger.ANIMATION_TRIGGER_WALK_FRONT]);
+            myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_HASH[AnimationTrigger.ANIMATION_TRIGGER_WALK_BACK]);
+            myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_HASH[AnimationTrigger.ANIMATION_TRIGGER_WALK_CORNERFRONT]);
+            myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_HASH[AnimationTrigger.ANIMATION_TRIGGER_WALK_CORNERBACK]);
+            myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_HASH[AnimationTrigger.ANIMATION_TRIGGER_WALK_SIDE]);
         }
 
         private void ChangedGameStatus(ChangedEventType eventType, in Game_Status oldval, in Game_Status newval)

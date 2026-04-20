@@ -300,8 +300,8 @@ namespace Gob3AQ.GameElement.PlayableChar
                     SetSize(waypoints_infos[actualWaypoint].CharacterSizeFactor);
 
                     ResetWalkTriggers();
-                    myAnimator.SetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_STR[AnimationTrigger.ANIMATION_TRIGGER_STEADY]);
-                    mySpriteRenderer.flipX = false;
+                    myAnimator.SetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_HASH[AnimationTrigger.ANIMATION_TRIGGER_STEADY]);
+                    mySpriteRenderer.flipX = waypoints_infos[actualWaypoint].FlipXForAction;
 
                     continueOp = StartBufferedInteraction();
                 }
@@ -401,7 +401,7 @@ namespace Gob3AQ.GameElement.PlayableChar
 
 
             ResetWalkTriggers();
-            myAnimator.SetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_STR[walkdirTrigger]);
+            myAnimator.SetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_HASH[walkdirTrigger]);
 
             /* Remove after debugging */
             speed_reduction_factor = 1f;
@@ -434,14 +434,7 @@ namespace Gob3AQ.GameElement.PlayableChar
             actualProgrammedPath.delta_size = 0f;
         }
 
-        private void ResetWalkTriggers()
-        {
-            myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_STR[AnimationTrigger.ANIMATION_TRIGGER_WALK_FRONT]);
-            myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_STR[AnimationTrigger.ANIMATION_TRIGGER_WALK_BACK]);
-            myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_STR[AnimationTrigger.ANIMATION_TRIGGER_WALK_CORNERFRONT]);
-            myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_STR[AnimationTrigger.ANIMATION_TRIGGER_WALK_CORNERBACK]);
-            myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_STR[AnimationTrigger.ANIMATION_TRIGGER_WALK_SIDE]);
-        }
+        
 
 
 #endregion

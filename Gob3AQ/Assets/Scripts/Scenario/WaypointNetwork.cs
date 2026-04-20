@@ -43,9 +43,10 @@ namespace Gob3AQ.Waypoint.Network
         public readonly float CharacterSizeFactor;
         public readonly GameEventCombi_prv NeededEvent;
         public readonly GameAction ActionWhenCross;
+        public readonly bool FlipXForAction;
 
         public WaypointInfo(Vector3 position, WaypointReachability reachability, WaypointSolution solution,
-            float characterSizeFactor, GameEventCombi_prv neededEvent, GameAction actionWhenCross)
+            float characterSizeFactor, GameEventCombi_prv neededEvent, GameAction actionWhenCross, bool flipXForAction)
         {
             Position = position;
             Reachability = reachability;
@@ -53,6 +54,7 @@ namespace Gob3AQ.Waypoint.Network
             CharacterSizeFactor = characterSizeFactor;
             NeededEvent = neededEvent;
             ActionWhenCross = actionWhenCross;
+            FlipXForAction = flipXForAction;
         }
     }
 
@@ -79,7 +81,8 @@ namespace Gob3AQ.Waypoint.Network
 
             for (int i = 0; i < children.Count; ++i)
             {
-                WaypointInfo info = new(children[i].transform.position, children[i].Reachability, solutions[i], children[i].CharacterSizeFactor, children[i].NeededEvent, children[i].ActionWhenCross);
+                WaypointInfo info = new(children[i].transform.position, children[i].Reachability,
+                    solutions[i], children[i].CharacterSizeFactor, children[i].NeededEvent, children[i].ActionWhenCross, children[i].FlipXForAction);
                 waypoints_info.Add(info);
             }
 

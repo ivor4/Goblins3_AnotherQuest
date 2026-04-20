@@ -935,12 +935,14 @@ for line in PHRASESinputFile:
     dialogs_types_lines.InsertLineInATG(3, stringToWrite)
     
     if(not 'NONE' in columns[1]):
-        selectedColumns = columns[5:]
+        selectedColumns = columns[7:]
         stringToWrite = ",".join(selectedColumns)+'\n'
         phrases_lines.InsertLineInATG(0, stringToWrite)
         
         stringToWrite = 'new('+columns[2]+','+sound_prefix+columns[3]+', '+\
-            animation_trigger_prefix + columns[4]+'), /* '+columns[1]+' */ \n'
+            'new AnimationTrigger[3]{'+animation_trigger_prefix + columns[4]+','+\
+            animation_trigger_prefix + columns[5]+','+\
+            animation_trigger_prefix + columns[6]+'}), /* '+columns[1]+' */ \n'
         dialog_atlas_lines.InsertLineInATG(3, stringToWrite)
     
 stringToWrite = '\n'

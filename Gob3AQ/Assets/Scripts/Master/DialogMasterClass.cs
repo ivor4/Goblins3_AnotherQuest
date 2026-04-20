@@ -9,6 +9,7 @@ using Gob3AQ.VARMAP.Types;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static Codice.CM.WorkspaceServer.WorkspaceTreeDataStore;
 
 
 namespace Gob3AQ.DialogMaster
@@ -137,6 +138,7 @@ namespace Gob3AQ.DialogMaster
         private UICanvasClass _uicanvas_cls;
 
         private GameItem[] dialog_input_talkers;
+        private int dialog_input_numTalkers;
         private DialogType dialog_input_type;
         private DialogPhrase dialog_input_phrase;
         private bool dialog_input_backgroundDialog;
@@ -352,13 +354,15 @@ namespace Gob3AQ.DialogMaster
             if (dialogConfig.Talkers[0] != GameItem.ITEM_NONE)
             {
                 dialogConfig.Talkers.CopyTo(dialog_input_talkers);
+                dialog_input_numTalkers = dialogConfig.Talkers.Length;
             }
             else
             {
-                /* Default talkers, Player and ItemDest */
+                /* Default talker, Player */
                 CharacterType selectedCharacter = VARMAP_DialogMaster.GET_PLAYER_SELECTED();
                 GameItem selectedCharacterItem = ResourceDialogsAtlasClass.GetItemForCharacter(selectedCharacter);
                 dialog_input_talkers[0] = selectedCharacterItem;
+                dialog_input_numTalkers = 1;
             }
 
 
@@ -417,9 +421,12 @@ namespace Gob3AQ.DialogMaster
                 dialog_actualPhraseSoundStop = GameSound.SOUND_NONE;
             }
 
-            if(content.config.animationTrigger != AnimationTrigger.ANIMATION_TRIGGER_NONE)
+            for(int i=0; i < content.config.AnimationTrigger.Length;++i)
             {
-                VARMAP_DialogMaster.ITEM_PERFORM_ANIMATION(talkerItem, content.config.animationTrigger, null);
+                if (content.config.AnimationTrigger[i] != AnimationTrigger.ANIMATION_TRIGGER_NONE)
+                {
+                    VARMAP_DialogMaster.ITEM_PERFORM_ANIMATION(dialog_input_talkers[i], content.config.AnimationTrigger[i], null);
+                }
             }
 
             if (dialog_background)
@@ -441,8 +448,18 @@ namespace Gob3AQ.DialogMaster
             dialog_actualPhraseSoundStop = GameSound.SOUND_NONE;
             dialog_tellingInProgress = false;
             dialog_optionPending = false;
+            Stop_DialogTalkersAnimation();
+            
 
             VARMAP_DialogMaster.NOTIFY_ENDED_ACTION(NotifyAction.NOTIFY_DIALOG);
+        }
+
+        private void Stop_DialogTalkersAnimation()
+        {
+            for (int i = 0; i < dialog_input_numTalkers; ++i)
+            {
+                VARMAP_DialogMaster.ITEM_PERFORM_ANIMATION(dialog_input_talkers[i], AnimationTrigger.ANIMATION_TRIGGER_STEADY, null);
+            }
         }
 
         private void Stop_Animations()
@@ -477,6 +494,7 @@ namespace Gob3AQ.DialogMaster
                     if (dialogConfig.dialogTriggered != DialogType.DIALOG_NONE)
                     {
                         dialog_actualTaskType = DialogTaskType.DIALOG_STATE_LAUNCH_NEXT_DIALOG;
+                        Stop_DialogTalkersAnimation();
                     }
                     else
                     {

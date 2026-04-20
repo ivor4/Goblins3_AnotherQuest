@@ -7,7 +7,7 @@ namespace Gob3AQ.ResourceAnimationsAtlas
 {
     public static class ResourceAnimationsAtlasClass
     {
-        public static readonly IReadOnlyDictionary<AnimationTrigger, int> ANIM_TRIGGER_TO_STR = new Dictionary<AnimationTrigger, int>()
+        public static readonly IReadOnlyDictionary<AnimationTrigger, int> ANIM_TRIGGER_TO_HASH = new Dictionary<AnimationTrigger, int>()
         {
             { AnimationTrigger.ANIMATION_TRIGGER_ONE, Animator.StringToHash("Tr_1") },
             { AnimationTrigger.ANIMATION_TRIGGER_TWO, Animator.StringToHash("Tr_2") },

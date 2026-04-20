@@ -386,131 +386,131 @@ namespace Gob3AQ.ResourceDialogsAtlas
         private static readonly PhraseConfig[] _PhraseConfig = new PhraseConfig[(int)DialogPhrase.PHRASE_TOTAL]
         {
             /* > ATG 3 START < */
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_NONSENSE */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_NONSENSE_OBSERVE */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_NONSENSE_TALK */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_NONSENSE_NOT_THOUGHT */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_NONSENSE_COMBI */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_ALREADY_COMBI */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_GREAT_IDEA_COMBI */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_REME_INTRO_1 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_REME_INTRO_2 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_REME_INTRO_3 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_REME_1_1 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_REME_1_2 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_REME_1_3 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_REME_2_1 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_REME_3_TEST */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_MEMENTO_FIND_JOB_1 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_OBSERVE_HIVE1_AD_BOARD_1 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_NOT_EXIT_HIVE1_HALL_1 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_NOT_EXIT_HIVE1_HALL_2 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_TAKE_HIVE1_BASIN_NO_SOAP */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_TAKE_HIVE1_BASIN_SOAP */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_USE_HIVE1_PERFUME */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_USE_HIVE1_PERFUME_NOT_1 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_USE_HIVE1_PERFUME_NOT_2 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_USE_CARDS_REME_1 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_USE_CARDS_REME_2 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DECISION_NOT_SLEEP */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DECISION_SLEEP_DAY */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DECISION_SLEEP_NIGHT */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_WONT_GO_SOUTH_NEIGH */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_TRY_TALK_PHARMACIST_BUSY */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_PHARMACIST_BUSY_1 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_PHARMACIST_BUSY_2 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_HELLO_DEER */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_MANYO_INTRO_1 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_MANYO_INTRO_2 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_MANYO_WORK_NOTE_1 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_MANYO_WORK_NOTE_2 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_MANYO_WORK_NOTE_3 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_MANYO_WORK_NOTE_4 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_MANYO_WORKS_CITY_1 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_MANYO_WORKS_CITY_2 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_MANYO_MENU_DAY_1 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_MANYO_MENU_DAY_2 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_MANYO_MENU_DAY_3 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_MANYO_MENU_DAY_4 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_MANYO_MENU_DAY_5 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_MANYO_MENU_DAY_6 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_MANYO_CROWD_1 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_MANYO_CROWD_2 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_MANYO_CROWD_3 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_MANYO_CROWD_4 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_MANYO_CROWD_5 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_MANYO_BYE_1 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_MEMENTO_RECIPE_MISSION_1 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_MANYO_UMBRELLA_NOT_1 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_UMBRELLA_TAKEN */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_NONE), /* PHRASE_DIALOG_MANYO_BCKG_CROWD_1 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_NONE), /* PHRASE_DIALOG_MANYO_BCKG_CROWD_2 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_NONE), /* PHRASE_DIALOG_MANYO_BCKG_CROWD_3 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_OBSERVE_ITEM_HIVE1_POOR_MAN_WC */ 
-            new(0,GameSound.SOUND_FART_1, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_0_0 */ 
-            new(0,GameSound.SOUND_POOR_MAN_BCKG_1, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_1_0 */ 
-            new(0,GameSound.SOUND_POOR_MAN_BCKG_2, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_2_0 */ 
-            new(0,GameSound.SOUND_POOR_MAN_BCKG_3, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_3_0 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_0 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_1 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_2 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_3 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_1_0 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_1_1 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_0 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_1 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_2 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_3 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_4 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_3_0 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_0 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_1 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_2 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_MEMENTO_POOR_MAN_WC_1 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_MEMENTO_POOR_MAN_WC_2 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_MEMENTO_POOR_MAN_WC_3 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_OBSERVE_ITEM_HIVE1_ROACH */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_OBSERVE_ITEM_HIVE1_PIPE */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_TAKE_ITEM_HIVE1_ROACH_HEAD */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_OBSERVE_ITEM_HIVE1_VALVE_BOX */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_OBSERVE_ITEM_HIVE1_BACKALLEY_PIPE */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_OBSERVE_ITEM_HIVE1_BACKALLEY_PIPE_2 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_OBSERVE_ITEM_HIVE1_VALVE_BOX_2 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_TAKE_VALVE_BOX_CLOSED */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_TAKE_VALVE_BOX_CLOSED_MORNING */ 
-            new(0,GameSound.SOUND_OBSERVE_ITEM_SHOELACE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_OBSERVE_ITEM_HIVE1_SHOELACE */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_NO_REASON_TO_DO */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_TAKE_ITEM_HIVE1_SHOELACE */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_OBSERVE_ITEM_HIVE1_VALVE */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_NONE), /* PHRASE_USE_SHOELACE_VALVE_BOX */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_USE_HIVE1_VALVE */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_USE_HIVE1_VALVE_NOT */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_OBSERVE_ITEM_HIVE1_MAN_WC_CURED */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_0 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_1 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_2 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_3 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_0 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_1 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_2 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_3 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_4 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_5 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_6 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_2_0 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_ARTURO_HALL_INN_INTRO_0 */ 
-            new(1,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_ARTURO_HALL_INN_INTRO_1 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL_BLURR */ 
-            new(0,GameSound.SOUND_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_OBSERVE_ITEM_PHARMACY_INKWELL */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_OBSERVE_ITEM_PHARMACY_INK */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_PHARMACIST_NOT_TAKE_INKWELL_INTRO */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_USE_UMBRELLA_WITH_INKWELL */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_USE_UMBRELLA_WITH_INKWELL_OWNER */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_USE_UMBRELLA_WITH_INKWELL_OWNER_2 */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_USE_INVITATION_WITH_INK */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_USE_INVITATION_WITH_INK_ALREADY */ 
-            new(0,GameSound.SOUND_NONE, AnimationTrigger.ANIMATION_TRIGGER_TALK), /* PHRASE_DIALOG_LAST */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_NONSENSE */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_NONSENSE_OBSERVE */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_NONSENSE_TALK */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_NONSENSE_NOT_THOUGHT */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_NONSENSE_COMBI */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_ALREADY_COMBI */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_GREAT_IDEA_COMBI */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_REME_INTRO_1 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_REME_INTRO_2 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_REME_INTRO_3 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_REME_1_1 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_REME_1_2 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_REME_1_3 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_REME_2_1 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_REME_3_TEST */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_MEMENTO_FIND_JOB_1 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_OBSERVE_HIVE1_AD_BOARD_1 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_NOT_EXIT_HIVE1_HALL_1 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_NOT_EXIT_HIVE1_HALL_2 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_TAKE_HIVE1_BASIN_NO_SOAP */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_TAKE_HIVE1_BASIN_SOAP */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_USE_HIVE1_PERFUME */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_USE_HIVE1_PERFUME_NOT_1 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_USE_HIVE1_PERFUME_NOT_2 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_USE_CARDS_REME_1 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_USE_CARDS_REME_2 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DECISION_NOT_SLEEP */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DECISION_SLEEP_DAY */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DECISION_SLEEP_NIGHT */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_WONT_GO_SOUTH_NEIGH */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_TRY_TALK_PHARMACIST_BUSY */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_PHARMACIST_BUSY_1 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_PHARMACIST_BUSY_2 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_HELLO_DEER */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_INTRO_1 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_INTRO_2 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_WORK_NOTE_1 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_WORK_NOTE_2 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_WORK_NOTE_3 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_WORK_NOTE_4 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_WORKS_CITY_1 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_WORKS_CITY_2 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_MENU_DAY_1 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_MENU_DAY_2 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_MENU_DAY_3 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_MENU_DAY_4 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_MENU_DAY_5 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_MENU_DAY_6 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_CROWD_1 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_CROWD_2 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_CROWD_3 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_CROWD_4 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_CROWD_5 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_BYE_1 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_MEMENTO_RECIPE_MISSION_1 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_UMBRELLA_NOT_1 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_UMBRELLA_TAKEN */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_BCKG_CROWD_1 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_BCKG_CROWD_2 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_BCKG_CROWD_3 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_OBSERVE_ITEM_HIVE1_POOR_MAN_WC */ 
+            new(0,GameSound.SOUND_FART_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_0_0 */ 
+            new(0,GameSound.SOUND_POOR_MAN_BCKG_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_1_0 */ 
+            new(0,GameSound.SOUND_POOR_MAN_BCKG_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_2_0 */ 
+            new(0,GameSound.SOUND_POOR_MAN_BCKG_3, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_3_0 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_0 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_1 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_2 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_3 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_1_0 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_1_1 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_0 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_1 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_2 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_3 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_4 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_3_0 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_0 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_1 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_2 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_MEMENTO_POOR_MAN_WC_1 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_MEMENTO_POOR_MAN_WC_2 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_MEMENTO_POOR_MAN_WC_3 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_OBSERVE_ITEM_HIVE1_ROACH */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_OBSERVE_ITEM_HIVE1_PIPE */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_TAKE_ITEM_HIVE1_ROACH_HEAD */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_OBSERVE_ITEM_HIVE1_VALVE_BOX */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_OBSERVE_ITEM_HIVE1_BACKALLEY_PIPE */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_OBSERVE_ITEM_HIVE1_BACKALLEY_PIPE_2 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_OBSERVE_ITEM_HIVE1_VALVE_BOX_2 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_TAKE_VALVE_BOX_CLOSED */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_TAKE_VALVE_BOX_CLOSED_MORNING */ 
+            new(0,GameSound.SOUND_OBSERVE_ITEM_SHOELACE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_OBSERVE_ITEM_HIVE1_SHOELACE */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_NO_REASON_TO_DO */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_TAKE_ITEM_HIVE1_SHOELACE */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_OBSERVE_ITEM_HIVE1_VALVE */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_USE_SHOELACE_VALVE_BOX */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_USE_HIVE1_VALVE */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_USE_HIVE1_VALVE_NOT */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_OBSERVE_ITEM_HIVE1_MAN_WC_CURED */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_0 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_1 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_2 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_3 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_0 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_1 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_2 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_3 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_4 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_5 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_6 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_2_0 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_ARTURO_HALL_INN_INTRO_0 */ 
+            new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_ARTURO_HALL_INN_INTRO_1 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL_BLURR */ 
+            new(0,GameSound.SOUND_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_OBSERVE_ITEM_PHARMACY_INKWELL */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_OBSERVE_ITEM_PHARMACY_INK */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_PHARMACIST_NOT_TAKE_INKWELL_INTRO */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_USE_UMBRELLA_WITH_INKWELL */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_USE_UMBRELLA_WITH_INKWELL_OWNER */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_USE_UMBRELLA_WITH_INKWELL_OWNER_2 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_USE_INVITATION_WITH_INK */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_USE_INVITATION_WITH_INK_ALREADY */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };
     }

@@ -32,12 +32,16 @@ namespace Gob3AQ.Waypoint
         [SerializeField]
         private GameAction actionWhenCross;
 
+        [SerializeField]
+        private bool flipXForAction;
+
         public float CharacterSizeFactor => characterSizeFactor;
         public int ID_in_Network => id_in_network;
         public IReadOnlyList<WaypointClass> ConnectedWaypoints => connectedWaypoints;
         public WaypointReachability Reachability => reachability;
         public GameEventCombi_prv NeededEvent => neededEvent;
         public GameAction ActionWhenCross => actionWhenCross;
+        public bool FlipXForAction => flipXForAction;
 
 
 #if UNITY_EDITOR

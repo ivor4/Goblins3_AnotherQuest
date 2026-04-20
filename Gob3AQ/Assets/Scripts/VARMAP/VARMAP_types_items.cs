@@ -127,6 +127,7 @@ namespace Gob3AQ.VARMAP.Types
         COND_USE_UMBRELLA_INKWELL, 
         COND_USE_INVITATION_INK, 
         COND_USE_INVITATION_INK_2, 
+        COND_TALK_FIK, 
         COND_LAST, 
         
         COND_TOTAL
@@ -301,6 +302,7 @@ namespace Gob3AQ.VARMAP.Types
         ACTION_DIALOG_USELESS_ACTION, 
         ACTION_ANIMATE_REME_TEST, 
         ACTION_SPAWN_FIK_1, 
+        ACTION_TALK_FIK, 
         ACTION_LAST, 
         
         ACTION_TOTAL

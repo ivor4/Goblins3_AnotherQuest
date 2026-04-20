@@ -206,6 +206,8 @@ namespace Gob3AQ.GameElement.PlayableChar
 
                 VARMAP_PlayerMaster.PLAYER_WAYPOINT_UPDATE(charType, actualWaypoint);
 
+                mySpriteRenderer.flipX = waypoints_infos[actualWaypoint].FlipXForAction;
+
                 SetVisible_Internal(true);
                 PlayerMasterClass.SetPlayerLoaded(CharType);
 

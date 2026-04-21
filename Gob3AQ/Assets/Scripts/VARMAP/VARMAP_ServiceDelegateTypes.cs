@@ -84,5 +84,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void NOTIFY_ENDED_ACTION_DELEGATE(NotifyAction notify);
     public delegate void TAKE_LOADING_SNAPSHOT_DELEGATE();
     public delegate void EXECUTE_EXIT_ROOM_CONDS_DELEGATE();
+    public delegate void GET_ITEM_SPRITE_BOUNDARIES_DELEGATE(GameItem item, out Bounds worldBounds);
+    public delegate void ACTIVATE_FORCED_ZOOM_MODE_DELEGATE(bool activate, Bounds regionOfInterest);
 
 }

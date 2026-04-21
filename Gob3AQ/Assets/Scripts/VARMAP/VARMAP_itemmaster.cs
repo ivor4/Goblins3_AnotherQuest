@@ -46,6 +46,7 @@ namespace Gob3AQ.VARMAP.ItemMaster
             START_ANIMATION = _START_ANIMATION;
             ITEM_PERFORM_ANIMATION = _ITEM_PERFORM_ANIMATION;
             PERFORM_ACTION = _PERFORM_ACTION;
+            GET_ITEM_SPRITE_BOUNDARIES = _GET_ITEM_SPRITE_BOUNDARIES;
             /* > ATG 1 END */
         }
 
@@ -168,6 +169,13 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /// <para> Method: <see cref="GameEventMasterClass.PerformActionService"/> </para> 
         /// </summary>
         public static PERFORM_ACTION_DELEGATE PERFORM_ACTION;
+        /// <summary> 
+        /// Gets world boundaries of given item
+        /// <para> Owner: ItemMaster </para> 
+        /// <para> Accessors: DialogMaster,  </para> 
+        /// <para> Method: <see cref="ItemMasterClass.GetItemBoundariesService"/> </para> 
+        /// </summary>
+        public static GET_ITEM_SPRITE_BOUNDARIES_DELEGATE GET_ITEM_SPRITE_BOUNDARIES;
         /* > ATG 3 END */
     }
 }

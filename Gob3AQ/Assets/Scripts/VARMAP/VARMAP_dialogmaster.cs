@@ -43,6 +43,8 @@ namespace Gob3AQ.VARMAP.DialogMaster
             PERFORM_ACTION = _PERFORM_ACTION;
             IS_DIALOG_ACTIVE = _IS_DIALOG_ACTIVE;
             NOTIFY_ENDED_ACTION = _NOTIFY_ENDED_ACTION;
+            ACTIVATE_FORCED_ZOOM_MODE = _ACTIVATE_FORCED_ZOOM_MODE;
+            GET_ITEM_SPRITE_BOUNDARIES = _GET_ITEM_SPRITE_BOUNDARIES;
             /* > ATG 1 END */
         }
 
@@ -152,6 +154,20 @@ namespace Gob3AQ.VARMAP.DialogMaster
         /// <para> Method: <see cref="GameEventMasterClass.NotifyEndedActionService"/> </para> 
         /// </summary>
         public static NOTIFY_ENDED_ACTION_DELEGATE NOTIFY_ENDED_ACTION;
+        /// <summary> 
+        /// Service for GraphicsMaste to make zoom into a region of interest
+        /// <para> Owner: GraphicsMaster </para> 
+        /// <para> Accessors: DialogMaster,  </para> 
+        /// <para> Method: <see cref="GraphicsMasterClass.ActivateForcedZoomMode"/> </para> 
+        /// </summary>
+        public static ACTIVATE_FORCED_ZOOM_MODE_DELEGATE ACTIVATE_FORCED_ZOOM_MODE;
+        /// <summary> 
+        /// Gets world boundaries of given item
+        /// <para> Owner: ItemMaster </para> 
+        /// <para> Accessors: DialogMaster,  </para> 
+        /// <para> Method: <see cref="ItemMasterClass.GetItemBoundariesService"/> </para> 
+        /// </summary>
+        public static GET_ITEM_SPRITE_BOUNDARIES_DELEGATE GET_ITEM_SPRITE_BOUNDARIES;
         /* > ATG 3 END */
     }
 }

@@ -20,6 +20,11 @@ namespace Gob3AQ.VARMAP.Types
         SOUND_AMBIENCE_CITY_DAY, 
         SOUND_AMBIENCE_CITY_NIGHT, 
         MUSIC_INN, 
+        SOUND_FIK_INTRO_1, 
+        SOUND_FIK_INTRO_2, 
+        SOUND_FIK_1_OP_0_1, 
+        SOUND_FIK_1_OP_1_1, 
+        SOUND_FIK_1_OP_2_1, 
         SOUND_LAST, 
         
         SOUND_TOTAL

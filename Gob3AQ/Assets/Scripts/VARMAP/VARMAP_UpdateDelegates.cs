@@ -195,6 +195,8 @@ namespace Gob3AQ.VARMAP.Initialization
             _NOTIFY_ENDED_ACTION = GameEventMasterClass.NotifyEndedActionService;
             _TAKE_LOADING_SNAPSHOT = GraphicsMasterClass.TakeLoadingSnapshotService;
             _EXECUTE_EXIT_ROOM_CONDS = GameEventMasterClass.ExecuteExitRoomCondsService;
+            _ACTIVATE_FORCED_ZOOM_MODE = GraphicsMasterClass.ActivateForcedZoomMode;
+            _GET_ITEM_SPRITE_BOUNDARIES = ItemMasterClass.GetItemBoundariesService;
             _LAST_SERVICE = GameMasterClass.ExitGameService;
             /* > ATG 2 END */
         }

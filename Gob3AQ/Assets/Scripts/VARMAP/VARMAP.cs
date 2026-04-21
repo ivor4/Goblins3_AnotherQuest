@@ -457,6 +457,20 @@ namespace Gob3AQ.VARMAP
         /// </summary>
         protected static EXECUTE_EXIT_ROOM_CONDS_DELEGATE _EXECUTE_EXIT_ROOM_CONDS;
         /// <summary> 
+        /// Service for GraphicsMaste to make zoom into a region of interest
+        /// <para> Owner: GraphicsMaster </para> 
+        /// <para> Accessors: DialogMaster,  </para> 
+        /// <para> Method: <see cref="GraphicsMasterClass.ActivateForcedZoomMode"/> </para> 
+        /// </summary>
+        protected static ACTIVATE_FORCED_ZOOM_MODE_DELEGATE _ACTIVATE_FORCED_ZOOM_MODE;
+        /// <summary> 
+        /// Gets world boundaries of given item
+        /// <para> Owner: ItemMaster </para> 
+        /// <para> Accessors: DialogMaster,  </para> 
+        /// <para> Method: <see cref="ItemMasterClass.GetItemBoundariesService"/> </para> 
+        /// </summary>
+        protected static GET_ITEM_SPRITE_BOUNDARIES_DELEGATE _GET_ITEM_SPRITE_BOUNDARIES;
+        /// <summary> 
         /// Last service
         /// <para> Owner: GameMaster </para> 
         /// <para> Accessors:  </para> 

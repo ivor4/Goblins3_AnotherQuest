@@ -44,6 +44,7 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
             ZOOM_SUBSCRIPTION = _ZOOM_SUBSCRIPTION;
             TAKE_LOADING_SNAPSHOT = _TAKE_LOADING_SNAPSHOT;
+            ACTIVATE_FORCED_ZOOM_MODE = _ACTIVATE_FORCED_ZOOM_MODE;
             /* > ATG 1 END */
         }
 
@@ -111,6 +112,13 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
         /// <para> Method: <see cref="GraphicsMasterClass.TakeLoadingSnapshotService"/> </para> 
         /// </summary>
         public static TAKE_LOADING_SNAPSHOT_DELEGATE TAKE_LOADING_SNAPSHOT;
+        /// <summary> 
+        /// Service for GraphicsMaste to make zoom into a region of interest
+        /// <para> Owner: GraphicsMaster </para> 
+        /// <para> Accessors: DialogMaster,  </para> 
+        /// <para> Method: <see cref="GraphicsMasterClass.ActivateForcedZoomMode"/> </para> 
+        /// </summary>
+        public static ACTIVATE_FORCED_ZOOM_MODE_DELEGATE ACTIVATE_FORCED_ZOOM_MODE;
         /* > ATG 3 END */
     }
 }

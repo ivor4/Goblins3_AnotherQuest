@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Extraperlo
   m_GUID: 78380f21d5904314687a00da62c562c9
   m_SerializeEntries:
+  - m_GUID: 00cbc71a65263ce488ae4358bc1df3b3
+    m_Address: SOUND_FIK_1_OP_1_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0dacd86d13bb5ce4393135297cb42b48
     m_Address: ANIMATOR_FIK
     m_ReadOnly: 0
@@ -35,6 +40,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 334dc900517d3b045a29d6a884cc39c3
+    m_Address: SOUND_FIK_1_OP_0_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 39f595ca3b88cd44f82bb4f2e0d225a4
     m_Address: SPRITE_EXTRAPERLO_BAR_FOREGROUND
     m_ReadOnly: 0
@@ -42,6 +52,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3f9979558bb285644a521c41c2ef5eb7
     m_Address: SPRITE_ATLAS_CITY3_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 45ed457161bca684f8e1fdee237031d7
+    m_Address: SOUND_FIK_INTRO_1_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -100,6 +115,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bfdd400affe3fed49b5289da701f8eac
+    m_Address: SOUND_FIK_INTRO_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c20d547f5cc07494d844e9068d1a83d2
     m_Address: SPRITE_FIK_ANGRY_GESTURE_1
     m_ReadOnly: 0
@@ -122,6 +142,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e45ee3065a345494ba9ebc8ad63abfac
     m_Address: MUSIC_SOUTH_NEIGH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f434a8761788c2248aa007dc54c3de5f
+    m_Address: SOUND_FIK_1_OP_2_1_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

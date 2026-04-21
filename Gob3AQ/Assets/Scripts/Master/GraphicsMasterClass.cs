@@ -72,6 +72,17 @@ namespace Gob3AQ.GraphicsMaster
             }
         }
 
+        public static void ActivateForcedZoomMode(bool activate, Bounds regionOfInterest)
+        {
+            if (_singleton != null)
+            {
+                _singleton.mainCamera.orthographicSize = Mathf.Min(regionOfInterest.extents.y, regionOfInterest.extents.x / _singleton.mainCamera.aspect);
+                Vector3 cameraNewPosition = regionOfInterest.center;
+                cameraNewPosition.z = _singleton.mainCameraTransform.position.z;
+                _singleton.MoveCameraToPosition(in cameraNewPosition);
+            }
+        }
+
         private void Awake()
         {
             if (_singleton != null)

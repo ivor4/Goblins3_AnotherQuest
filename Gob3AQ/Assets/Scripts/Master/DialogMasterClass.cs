@@ -459,6 +459,8 @@ namespace Gob3AQ.DialogMaster
             {
                 VARMAP_DialogMaster.ITEM_PERFORM_ANIMATION(dialog_input_talkers[i], AnimationTrigger.ANIMATION_TRIGGER_STEADY, null);
             }
+
+            dialog_input_numTalkers = 0;
         }
 
         private void Stop_Animations()

@@ -276,13 +276,13 @@ namespace Gob3AQ.GameMenu.UICanvas
             switch (mode)
             {
                 case DialogMode.DIALOG_MODE_OPTIONS:
-                    UICanvas_dialogObj_background.enabled = true;
+                    UICanvas_dialogObj_background.enabled = false;
                     UICanvas_dialogObj_sender.gameObject.SetActive(false);
                     UICanvas_dialogObj_msg.gameObject.SetActive(false);
                     UICanvas_dialogOptions.SetActive(true);
                     break;
                 case DialogMode.DIALOG_MODE_PHRASE:
-                    UICanvas_dialogObj_background.enabled = true;
+                    UICanvas_dialogObj_background.enabled = false;
                     UICanvas_dialogObj_sender.gameObject.SetActive(true);
                     UICanvas_dialogObj_msg.gameObject.SetActive(true);
                     UICanvas_dialogOptions.SetActive(false);

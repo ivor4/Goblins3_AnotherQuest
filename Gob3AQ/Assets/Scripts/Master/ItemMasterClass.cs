@@ -97,6 +97,20 @@ namespace Gob3AQ.ItemMaster
             ItemInteractionCommon(in usage, out outcome);
         }
 
+        public static void GetItemBoundariesService(GameItem item, out Bounds worldBounds)
+        {
+            if (_singleton != null)
+            {
+                if (_singleton._levelItems.TryGetValue(item, out GameElementClass instance))
+                {
+                    /**/
+                    worldBounds = default;
+                    return;
+                }
+            }
+            worldBounds = default;
+        }
+
 
         public static void AddOneItemToLoad()
         {

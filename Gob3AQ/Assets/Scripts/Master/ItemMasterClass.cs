@@ -99,16 +99,15 @@ namespace Gob3AQ.ItemMaster
 
         public static void GetItemBoundariesService(GameItem item, out Bounds worldBounds)
         {
+            worldBounds = default;
+
             if (_singleton != null)
             {
                 if (_singleton._levelItems.TryGetValue(item, out GameElementClass instance))
                 {
-                    /**/
-                    worldBounds = default;
-                    return;
+                    worldBounds = instance.Bounds;
                 }
             }
-            worldBounds = default;
         }
 
 

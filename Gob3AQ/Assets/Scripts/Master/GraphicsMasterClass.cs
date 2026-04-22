@@ -16,6 +16,14 @@ namespace Gob3AQ.GraphicsMaster
     [System.Serializable]
     public class GraphicsMasterClass : MonoBehaviour
     {
+        private enum ForcedZoomState
+        {
+            NONE,
+            ACTIVATING,
+            ACTIVE,
+            DEACTIVATING
+        }
+
         [SerializeField]
         private GameObject UICanvas;
 
@@ -45,6 +53,14 @@ namespace Gob3AQ.GraphicsMaster
 
         private bool isPickableSelected;
         private bool isDoorHovered;
+
+        private CameraDispositionStruct preForcedZoomDisposition;
+        private ForcedZoomState forcedZoomState;
+        private Vector3 forcedZoomFinalPosition;
+        private float forcedZoomFinalOrthoSize;
+        private Vector3 forcedZoomDeltaPosition;
+        private float forcedZoomDeltaOrthoSize;
+        private ulong forcedZoomTransitionStartTime;
 
         private int _load_step;
 
@@ -76,10 +92,29 @@ namespace Gob3AQ.GraphicsMaster
         {
             if (_singleton != null)
             {
-                _singleton.mainCamera.orthographicSize = Mathf.Min(regionOfInterest.extents.y, regionOfInterest.extents.x / _singleton.mainCamera.aspect);
-                Vector3 cameraNewPosition = regionOfInterest.center;
-                cameraNewPosition.z = _singleton.mainCameraTransform.position.z;
-                _singleton.MoveCameraToPosition(in cameraNewPosition);
+                if (activate)
+                {
+                    _singleton.preForcedZoomDisposition = VARMAP_GraphicsMaster.GET_CAMERA_DISPOSITION();
+                    _singleton.forcedZoomState = ForcedZoomState.ACTIVATING;
+
+                    regionOfInterest.extents *= 1.25f;
+
+                    Vector3 cameraNewPosition = regionOfInterest.center;
+                    cameraNewPosition.z = _singleton.mainCameraTransform.position.z;
+
+                    _singleton.forcedZoomFinalOrthoSize = Mathf.Max(regionOfInterest.extents.y, regionOfInterest.extents.x / _singleton.mainCamera.aspect);
+                    _singleton.forcedZoomFinalPosition = cameraNewPosition;
+                }
+                else if(_singleton.forcedZoomState != ForcedZoomState.NONE)
+                {
+                    _singleton.forcedZoomState = ForcedZoomState.DEACTIVATING;
+                    _singleton.forcedZoomFinalPosition = _singleton.preForcedZoomDisposition.position;
+                    _singleton.forcedZoomFinalOrthoSize = _singleton.preForcedZoomDisposition.orthoSize;
+                }
+
+                _singleton.forcedZoomDeltaPosition = _singleton.forcedZoomFinalPosition - _singleton.mainCameraTransform.position;
+                _singleton.forcedZoomDeltaOrthoSize = _singleton.forcedZoomFinalOrthoSize - _singleton.mainCamera.orthographicSize;
+                _singleton.forcedZoomTransitionStartTime = VARMAP_GraphicsMaster.GET_ELAPSED_TIME_MS();
             }
         }
 
@@ -96,6 +131,7 @@ namespace Gob3AQ.GraphicsMaster
                 background = transform.Find("Background").gameObject;
                 background_spr = background.GetComponent<SpriteRenderer>();
                 zoomChangedDelegates = null;
+                forcedZoomState = ForcedZoomState.NONE;
             }
 
         }
@@ -151,6 +187,35 @@ namespace Gob3AQ.GraphicsMaster
                     uicanvas_cls.HideLoadingObj();
                     ++_load_step;
                 }
+            }
+
+            switch(forcedZoomState)
+            {
+                case ForcedZoomState.ACTIVATING:
+                case ForcedZoomState.DEACTIVATING:
+                    ulong actualTime = VARMAP_GraphicsMaster.GET_ELAPSED_TIME_MS();
+                    float progress = Mathf.Clamp01((actualTime - forcedZoomTransitionStartTime) / 500f);
+                    float revProgress = 1.0f - progress;
+                    Vector3 cameraPosition;
+                    if (progress < 1.0f)
+                    {
+                        cameraPosition = forcedZoomFinalPosition - (revProgress * forcedZoomDeltaPosition);
+                        mainCamera.orthographicSize = forcedZoomFinalOrthoSize - (revProgress * forcedZoomDeltaOrthoSize);
+                    }
+                    else
+                    {
+                        cameraPosition = forcedZoomFinalPosition;
+                        mainCamera.orthographicSize = forcedZoomFinalOrthoSize;
+                        forcedZoomState = (forcedZoomState == ForcedZoomState.ACTIVATING) ? ForcedZoomState.ACTIVE : ForcedZoomState.NONE;
+                    }
+
+                    cameraPosition.z = mainCameraTransform.position.z;
+
+                    UpdateCameraBounds();
+                    MoveCameraToPosition(in cameraPosition);
+                    break;
+                default:
+                    break;
             }
 
             switch (gstatus)
@@ -506,6 +571,7 @@ namespace Gob3AQ.GraphicsMaster
                         _load_step = 0;
                         loadingFadeProgress = 1f;
                         loadingFadingIn = false;
+                        forcedZoomState = ForcedZoomState.NONE;
 
                         uicanvas_cls.SetLoadingSprite(gameSnapshot_sprite, true, Color.white);
                         background_spr.sprite = null;

@@ -26,6 +26,7 @@ namespace Gob3AQ.GameElement
         public GameItem ItemID => itemID;
 
         public Collider2D My2DCollider => myCollider;
+        public Bounds Bounds => mySpriteRenderer.bounds;
         public int Waypoint => actualWaypoint;
 
         public bool IsAvailable => isAvailable;

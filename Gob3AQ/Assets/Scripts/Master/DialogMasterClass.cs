@@ -253,7 +253,7 @@ namespace Gob3AQ.DialogMaster
             }
         }
 
-        private void ShowDialogueExec(DialogType dialog, DialogPhrase phrase, bool background)
+        private void ShowDialogueExec(DialogType dialog, DialogPhrase phrase, bool background, bool dialogStart)
         {
             int selectableOptions;
 
@@ -364,6 +364,22 @@ namespace Gob3AQ.DialogMaster
                 dialog_input_numTalkers = 1;
             }
 
+            /* Zoom service (if not background) */
+            if((!background) && dialogStart && (dialog_input_numTalkers > 0))
+            {
+                Bounds zoomBounds;
+                VARMAP_DialogMaster.GET_ITEM_SPRITE_BOUNDARIES(dialog_input_talkers[0], out zoomBounds);
+
+
+                for (int i = 1; i < dialog_input_numTalkers; ++i)
+                {
+                    VARMAP_DialogMaster.GET_ITEM_SPRITE_BOUNDARIES(dialog_input_talkers[i], out Bounds itemBounds);
+                    zoomBounds.Encapsulate(itemBounds);
+                }
+                
+                VARMAP_DialogMaster.ACTIVATE_FORCED_ZOOM_MODE(true, zoomBounds);
+            }
+
 
             /* If it is multichoice, enable selectors. If only 1 say it directly */
             if (selectableOptions > 1)
@@ -447,6 +463,8 @@ namespace Gob3AQ.DialogMaster
             dialog_actualPhraseSoundStop = GameSound.SOUND_NONE;
             dialog_tellingInProgress = false;
             dialog_optionPending = false;
+
+            VARMAP_DialogMaster.ACTIVATE_FORCED_ZOOM_MODE(false, default);
             Stop_DialogTalkersAnimation();
             
 
@@ -613,7 +631,7 @@ namespace Gob3AQ.DialogMaster
             {
                 case DialogTaskType.DIALOG_STATE_STARTING:
                     dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
-                    ShowDialogueExec(dialog_input_type, dialog_input_phrase, dialog_input_backgroundDialog);
+                    ShowDialogueExec(dialog_input_type, dialog_input_phrase, dialog_input_backgroundDialog, true);
                     break;
 
                 case DialogTaskType.DIALOG_STATE_SAYING:
@@ -637,7 +655,7 @@ namespace Gob3AQ.DialogMaster
                     {
                         dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
                         DialogOptionConfig dialogConfig = ResourceDialogsAtlasClass.GetDialogOptionConfig(dialog_optionPhrases);
-                        ShowDialogueExec(dialogConfig.dialogTriggered, DialogPhrase.PHRASE_NONE, dialog_background);
+                        ShowDialogueExec(dialogConfig.dialogTriggered, DialogPhrase.PHRASE_NONE, dialog_background, false);
                     }
                     break;
 

@@ -431,9 +431,9 @@ namespace Gob3AQ.ResourceDialogsAtlas
         private static readonly PhraseConfig[] _PhraseConfig = new PhraseConfig[(int)DialogPhrase.PHRASE_TOTAL]
         {
             /* > ATG 3 START < */
-            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_NONSENSE */ 
-            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_NONSENSE_OBSERVE */ 
-            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_NONSENSE_TALK */ 
+            new(0,GameSound.SOUND_MAINCHAR_NONSENSE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_NONSENSE */ 
+            new(0,GameSound.SOUND_MAINCHAR_NONSENSE_OBSERVE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_NONSENSE_OBSERVE */ 
+            new(0,GameSound.SOUND_MAINCHAR_NONSENSE_TALK, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_NONSENSE_TALK */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_NONSENSE_NOT_THOUGHT */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_NONSENSE_COMBI */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_ALREADY_COMBI */ 
@@ -488,9 +488,9 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_MEMENTO_RECIPE_MISSION_1 */ 
             new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_UMBRELLA_NOT_1 */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_UMBRELLA_TAKEN */ 
-            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_BCKG_CROWD_1 */ 
-            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_BCKG_CROWD_2 */ 
-            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_BCKG_CROWD_3 */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_MANYO_BCKG_CROWD_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_BCKG_CROWD_1 */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_MANYO_BCKG_CROWD_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_BCKG_CROWD_2 */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_MANYO_BCKG_CROWD_3, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_MANYO_BCKG_CROWD_3 */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_OBSERVE_ITEM_HIVE1_POOR_MAN_WC */ 
             new(0,GameSound.SOUND_FART_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_0_0 */ 
             new(0,GameSound.SOUND_POOR_MAN_BCKG_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_1_0 */ 

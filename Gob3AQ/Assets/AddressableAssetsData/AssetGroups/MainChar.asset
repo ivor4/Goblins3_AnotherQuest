@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: MainChar
   m_GUID: 793a9a7f8a5a26941a666e36c1d35917
   m_SerializeEntries:
+  - m_GUID: 0eb71cc90bc33b048b572f6484e69055
+    m_Address: SOUND_MAINCHAR_NONSENSE_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 277da43d225803f4e8cb6bc0eea6ba4f
     m_Address: SPRITE_MAINCHAR_WALKING_CORNER_BACK
     m_ReadOnly: 0
@@ -75,6 +80,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf52a6e07bf1643419a67c5cdde5903f
+    m_Address: SOUND_MAINCHAR_NONSENSE_OBSERVE_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bfe5784bb5e0e7f4b877cc05e218c6ca
     m_Address: SPRITE_MAINCHAR_ANNOYED
     m_ReadOnly: 0
@@ -97,6 +107,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eb13f1bb86b54224d93453c37b36495c
     m_Address: SPRITE_MAINCHAR_WALKING_FRONT_LEFT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ebba780be4b36db428f35faa8c125a22
+    m_Address: SOUND_MAINCHAR_NONSENSE_TALK_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

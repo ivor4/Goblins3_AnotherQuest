@@ -30,6 +30,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8684cb1a8fa4c8f47b2d259404e52aea
+    m_Address: SOUND_PHRASE_DIALOG_MANYO_BCKG_CROWD_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b0e3b9d309f1e254dab63d3fa35d96be
     m_Address: MUSIC_MANYO
     m_ReadOnly: 0
@@ -57,6 +62,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dddd34a2decb0174ea9f7ca1a9b4129c
     m_Address: BACKGROUND_CITY1_MANYO_NIGHT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e24f7d819d6736b4bb2805ead9b018dd
+    m_Address: SOUND_PHRASE_DIALOG_MANYO_BCKG_CROWD_3_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9bb90067f8f59e468f76716c8b6581f
+    m_Address: SOUND_PHRASE_DIALOG_MANYO_BCKG_CROWD_1_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

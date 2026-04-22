@@ -22,9 +22,13 @@ namespace Gob3AQ.VARMAP.Types
         MUSIC_INN, 
         SOUND_FIK_INTRO_1, 
         SOUND_FIK_INTRO_2, 
+        SOUND_FIK_1_OP_0_0, 
         SOUND_FIK_1_OP_0_1, 
+        SOUND_FIK_1_OP_1_0, 
         SOUND_FIK_1_OP_1_1, 
+        SOUND_FIK_1_OP_2_0, 
         SOUND_FIK_1_OP_2_1, 
+        SOUND_FIK_1_OP_3_0, 
         SOUND_LAST, 
         
         SOUND_TOTAL

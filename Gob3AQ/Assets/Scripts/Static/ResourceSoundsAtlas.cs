@@ -39,9 +39,13 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"MUSIC_INN"), /* MUSIC_INN */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_FIK_INTRO_1_SPANISH"), /* SOUND_FIK_INTRO_1 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_FIK_INTRO_2_SPANISH"), /* SOUND_FIK_INTRO_2 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_FIK_1_OP_0_0_SPANISH"), /* SOUND_FIK_1_OP_0_0 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_FIK_1_OP_0_1_SPANISH"), /* SOUND_FIK_1_OP_0_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_FIK_1_OP_1_0_SPANISH"), /* SOUND_FIK_1_OP_1_0 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_FIK_1_OP_1_1_SPANISH"), /* SOUND_FIK_1_OP_1_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_FIK_1_OP_2_0_SPANISH"), /* SOUND_FIK_1_OP_2_0 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_FIK_1_OP_2_1_SPANISH"), /* SOUND_FIK_1_OP_2_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_FIK_1_OP_3_0_SPANISH"), /* SOUND_FIK_1_OP_3_0 */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

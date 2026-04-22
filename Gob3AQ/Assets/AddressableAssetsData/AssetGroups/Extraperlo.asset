@@ -60,6 +60,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 46528fa20a241db4782d73c4c9178075
+    m_Address: SOUND_FIK_1_OP_1_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 52ab70f4696594d4d86731758aa835f8
     m_Address: SPRITE_ATLAS_FIK_1
     m_ReadOnly: 0
@@ -67,6 +72,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5412e95429ccd8743a333d97d209a0b6
     m_Address: SCENE_CITY1_SOUTH_STREET_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 57b00f3ca19567140a4856de15b53409
+    m_Address: SOUND_FIK_1_OP_2_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 69612499571373a4ab730234f9126470
+    m_Address: SOUND_FIK_1_OP_3_0_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -147,6 +162,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f434a8761788c2248aa007dc54c3de5f
     m_Address: SOUND_FIK_1_OP_2_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc98ba19b99c4d2458a1035461e2746f
+    m_Address: SOUND_FIK_1_OP_0_0_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

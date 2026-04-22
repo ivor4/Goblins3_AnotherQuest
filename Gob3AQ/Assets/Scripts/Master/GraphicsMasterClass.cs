@@ -197,19 +197,22 @@ namespace Gob3AQ.GraphicsMaster
                     float progress = Mathf.Clamp01((actualTime - forcedZoomTransitionStartTime) / 500f);
                     float revProgress = 1.0f - progress;
                     Vector3 cameraPosition;
+                    float orthoSize;
                     if (progress < 1.0f)
                     {
                         cameraPosition = forcedZoomFinalPosition - (revProgress * forcedZoomDeltaPosition);
-                        mainCamera.orthographicSize = forcedZoomFinalOrthoSize - (revProgress * forcedZoomDeltaOrthoSize);
+                        orthoSize = forcedZoomFinalOrthoSize - (revProgress * forcedZoomDeltaOrthoSize);
                     }
                     else
                     {
                         cameraPosition = forcedZoomFinalPosition;
-                        mainCamera.orthographicSize = forcedZoomFinalOrthoSize;
+                        orthoSize = forcedZoomFinalOrthoSize;
                         forcedZoomState = (forcedZoomState == ForcedZoomState.ACTIVATING) ? ForcedZoomState.ACTIVE : ForcedZoomState.NONE;
                     }
 
                     cameraPosition.z = mainCameraTransform.position.z;
+                    orthoSize = Mathf.Min(orthoSize, _maxCameraOrthographicSize);
+                    mainCamera.orthographicSize = orthoSize;
 
                     UpdateCameraBounds();
                     MoveCameraToPosition(in cameraPosition);

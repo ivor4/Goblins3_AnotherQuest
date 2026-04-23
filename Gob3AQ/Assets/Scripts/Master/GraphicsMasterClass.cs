@@ -48,8 +48,10 @@ namespace Gob3AQ.GraphicsMaster
         private SpriteRenderer background_spr;
         private Texture2D gameSnapshot;
         private Sprite gameSnapshot_sprite;
-        private float loadingFadeProgress;
         private bool loadingFadingIn;
+        private ulong loadingFadeStartTime;
+        private bool loadingFadeOutDone;
+        private int load_step;
 
         private bool isPickableSelected;
         private bool isDoorHovered;
@@ -62,7 +64,12 @@ namespace Gob3AQ.GraphicsMaster
         private float forcedZoomDeltaOrthoSize;
         private ulong forcedZoomTransitionStartTime;
 
-        private int _load_step;
+        private bool mouseWheelZoomActive;
+        private bool mouseWheelZoomDirectionUp;
+        private ulong mouseWheelZoomStartTime;
+        private float mouseWheelZoomStartOrthoSize;
+
+
 
 
         public static void ZoomSubscriptionService(bool subscribe, ZOOM_CHANGED_DELEGATE callback)
@@ -155,10 +162,9 @@ namespace Gob3AQ.GraphicsMaster
             VARMAP_GraphicsMaster.REG_ITEM_HOVER(_OnHoverItemChanged);
             VARMAP_GraphicsMaster.REG_USER_INPUT_INTERACTION(_OnUserInputInteractionChanged);
 
+            StartLoadingFade();
 
-            _load_step = 0;
-            loadingFadeProgress = 1f;
-            loadingFadingIn = false;
+            mouseWheelZoomActive = false;
 
             _mouseDraggingCamera = false;
             isPickableSelected = false;
@@ -166,6 +172,8 @@ namespace Gob3AQ.GraphicsMaster
 
             gameSnapshot = new Texture2D(Screen.width/2, Screen.height/2, TextureFormat.RGB24, false);
             gameSnapshot_sprite = Sprite.Create(gameSnapshot, new Rect(0, 0, gameSnapshot.width, gameSnapshot.height), new Vector2(0.5f, 0.5f));
+
+            TakeGameSnapshot(gameSnapshot);
 
             VARMAP_GraphicsMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GraphicsMaster);
         }
@@ -178,23 +186,18 @@ namespace Gob3AQ.GraphicsMaster
 
             uicanvas_cls.MoveCursor(mouse.pos1);
             Game_Status gstatus = VARMAP_GraphicsMaster.GET_GAMESTATUS();
+            ulong actualTimestamp = VARMAP_GraphicsMaster.GET_ELAPSED_TIME_MS();
 
-            if (_load_step == 2)
+            if (load_step < 3)
             {
-                UpdateLoadingFadeColor();
-                if (loadingFadeProgress >= 1f)
-                {
-                    uicanvas_cls.HideLoadingObj();
-                    ++_load_step;
-                }
+                UpdateLoadingFadeProgress(actualTimestamp);
             }
 
             switch(forcedZoomState)
             {
                 case ForcedZoomState.ACTIVATING:
                 case ForcedZoomState.DEACTIVATING:
-                    ulong actualTime = VARMAP_GraphicsMaster.GET_ELAPSED_TIME_MS();
-                    float progress = Mathf.Clamp01((actualTime - forcedZoomTransitionStartTime) / 500f);
+                    float progress = Mathf.Clamp01((actualTimestamp - forcedZoomTransitionStartTime) / 500f);
                     float revProgress = 1.0f - progress;
                     Vector3 cameraPosition;
                     float orthoSize;
@@ -224,13 +227,13 @@ namespace Gob3AQ.GraphicsMaster
             switch (gstatus)
             {
                 case Game_Status.GAME_STATUS_CHANGING_ROOM:
-                    UpdateLoadingFadeColor();
+                    UpdateLoadingFadeProgress(actualTimestamp);
                     break;
                 case Game_Status.GAME_STATUS_LOADING:
-                    Execute_Loading();
+                    Execute_Loading(actualTimestamp);
                     break;
                 case Game_Status.GAME_STATUS_PLAY:
-                    FollowMouseWithCamera(in mouse, in keys);
+                    FollowMouseWithCamera(in mouse, in keys, actualTimestamp);
                     break;
                 default:
                     break;
@@ -252,11 +255,9 @@ namespace Gob3AQ.GraphicsMaster
             }
         }
 
-        private void Execute_Loading()
+        private void Execute_Loading(ulong timestamp)
         {
-            UpdateLoadingFadeColor();
-
-            switch (_load_step)
+            switch (load_step)
             {
                 case 0:
                     VARMAP_GraphicsMaster.IS_MODULE_LOADED(GameModules.MODULE_GameMaster, out bool gamemasterLoaded);
@@ -313,15 +314,16 @@ namespace Gob3AQ.GraphicsMaster
                         
 
                         UpdateCursorBaseSprite();
-                        ++_load_step;
+                        ++load_step;
                     }
                     break;
 
                 case 1:
-                    if(loadingFadeProgress <= 0f)
+                    if(loadingFadeOutDone)
                     {
                         loadingFadingIn = true;
-                        ++_load_step;
+                        loadingFadeStartTime = timestamp;
+                        ++load_step;
                         VARMAP_GraphicsMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GraphicsMaster);
                     }
                     break;
@@ -344,7 +346,7 @@ namespace Gob3AQ.GraphicsMaster
         }
 
 
-        private void FollowMouseWithCamera(in MousePropertiesStruct mouse, in KeyStruct keys)
+        private void FollowMouseWithCamera(in MousePropertiesStruct mouse, in KeyStruct keys, ulong timestamp)
         {
             Vector2 screenzone_orig = new(mouse.posPixels.x / Screen.safeArea.width, mouse.posPixels.y / Screen.safeArea.height);
             Vector2 szone = new(screenzone_orig.x, screenzone_orig.y * GameFixedConfig.GAME_ZONE_HEIGHT_FACTOR);
@@ -377,25 +379,32 @@ namespace Gob3AQ.GraphicsMaster
                     else
                     {
                         _mouseDraggingCamera = false;
-                        bool zoomApplied;
 
-                        if (keys.isKeyBeingPressed(KeyFunctions.KEYFUNC_ZOOM_UP))
-                        {
-                            mainCamera.orthographicSize = Math.Max(mainCamera.orthographicSize - 0.025f, GameFixedConfig.MIN_CAMERA_ORTHO_SIZE);
-                            zoomApplied = true;
-                        }
-                        else if (keys.isKeyBeingPressed(KeyFunctions.KEYFUNC_ZOOM_DOWN))
-                        {
-                            mainCamera.orthographicSize = Math.Min(mainCamera.orthographicSize + 0.025f, _maxCameraOrthographicSize);
-                            zoomApplied = true;
-                        }
-                        else
-                        {
-                            zoomApplied = false;
-                        }
+                        bool zoomUp = keys.isKeyBeingPressed(KeyFunctions.KEYFUNC_ZOOM_UP);
+                        bool zoomDown = keys.isKeyBeingPressed(KeyFunctions.KEYFUNC_ZOOM_DOWN);
 
-                        if (zoomApplied)
+                        if(zoomUp || zoomDown)
                         {
+                            if ((!mouseWheelZoomActive)||(mouseWheelZoomDirectionUp != zoomUp))
+                            {
+                                mouseWheelZoomActive = true;
+                                mouseWheelZoomStartTime = timestamp;
+                                mouseWheelZoomStartOrthoSize = mainCamera.orthographicSize;
+                                mouseWheelZoomDirectionUp = zoomUp;
+                            }
+
+                            ulong elapsedTime = timestamp - mouseWheelZoomStartTime;
+                            float increment = 0.0075f * elapsedTime;
+
+                            if (zoomUp)
+                            {
+                                mainCamera.orthographicSize = Math.Max(mouseWheelZoomStartOrthoSize - increment, GameFixedConfig.MIN_CAMERA_ORTHO_SIZE);
+                            }
+                            else
+                            {
+                                mainCamera.orthographicSize = Math.Min(mouseWheelZoomStartOrthoSize + increment, _maxCameraOrthographicSize);
+                            }
+
                             UpdateCameraBounds();
 
                             /* Keep world point where cursor is at the exact same point in Screen */
@@ -405,6 +414,10 @@ namespace Gob3AQ.GraphicsMaster
 
                             Vector3 CameraNewPosition = new(mouse.pos1.x + worldDistance.x, mouse.pos1.y + worldDistance.y, mainCameraTransform.position.z);
                             MoveCameraToPosition(in CameraNewPosition);
+                        }
+                        else
+                        {
+                            mouseWheelZoomActive = false;
                         }
                     }
                 }
@@ -494,22 +507,48 @@ namespace Gob3AQ.GraphicsMaster
             RenderTexture.active = prevCameraTarget;
         }
 
-        private void UpdateLoadingFadeColor()
+        private void UpdateLoadingFadeProgress(ulong timestamp)
         {
-            loadingFadeProgress = Mathf.Clamp01(loadingFadeProgress + (loadingFadingIn ? 1f : -1f) * 0.015f);
+            float progress = Mathf.Clamp01((timestamp - loadingFadeStartTime) / 250f);
+            float revProgress = 1.0f - progress;
 
             Color tintColor;
 
             if(loadingFadingIn)
             {
-                tintColor = new Color(0f, 0f, 0f, 1.0f-loadingFadeProgress);
+                tintColor = new Color(0f, 0f, 0f, revProgress);
             }
             else
             {
-                tintColor = new Color(loadingFadeProgress, loadingFadeProgress, loadingFadeProgress, 1.0f);
+                tintColor = new Color(revProgress, revProgress, revProgress, 1.0f);
             }
+            
 
-            uicanvas_cls.SetLoadingSprite(gameSnapshot_sprite, true, tintColor);
+            if (progress >= 1f)
+            {
+                if (!loadingFadeOutDone)
+                {
+                    loadingFadeOutDone = true;
+                }
+
+                if (load_step == 2)
+                {
+                    ++load_step;
+                    uicanvas_cls.HideLoadingObj();
+                }
+            }
+            else
+            {
+                uicanvas_cls.SetLoadingSprite(gameSnapshot_sprite, true, tintColor);
+            }
+        }
+
+        private void StartLoadingFade()
+        {
+            loadingFadeStartTime = VARMAP_GraphicsMaster.GET_ELAPSED_TIME_MS();
+            loadingFadingIn = false;
+            load_step = 0;
+            loadingFadeOutDone = false;
         }
 
         private void _OnPickedItemChanged(ChangedEventType evtype, in GameItem oldval, in GameItem newval)
@@ -571,10 +610,9 @@ namespace Gob3AQ.GraphicsMaster
                         _mouseDraggingCamera = false;
                         isPickableSelected = false;
                         isDoorHovered = false;
-                        _load_step = 0;
-                        loadingFadeProgress = 1f;
-                        loadingFadingIn = false;
+                        StartLoadingFade();
                         forcedZoomState = ForcedZoomState.NONE;
+                        mouseWheelZoomActive = false;
 
                         uicanvas_cls.SetLoadingSprite(gameSnapshot_sprite, true, Color.white);
                         background_spr.sprite = null;

@@ -130,6 +130,11 @@ namespace Gob3AQ.GameMaster
             Game_Status gstatus = VARMAP_GameMaster.GET_GAMESTATUS();
             KeyStruct kstruct = VARMAP_GameMaster.GET_PRESSED_KEYS();
 
+
+            if((gstatus != Game_Status.GAME_STATUS_PAUSE) && (gstatus != Game_Status.GAME_STATUS_STOPPED))
+            {
+                Play_Process_Time();
+            }
                        
 
             pausePressed = (kstruct.cyclepressedKeys & KeyFunctions.KEYFUNC_PAUSE) != KeyFunctions.KEYFUNC_NONE;
@@ -142,10 +147,6 @@ namespace Gob3AQ.GameMaster
                     if (pausePressed)
                     {
                         PauseGame(true);
-                    }
-                    else
-                    {
-                        Play_Process_Time();
                     }
                     break;
 

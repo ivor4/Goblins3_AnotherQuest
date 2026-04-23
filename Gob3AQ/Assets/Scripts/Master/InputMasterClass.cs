@@ -15,10 +15,11 @@ namespace Gob3AQ.InputMaster
         private static InputMasterClass _singleton;
         private KEY_SUBSCRIPTION_CALL_DELEGATE[] keySubscription;
         private Camera mainCamera;
-        private int wheelDebounce;
+        private bool wheelDebounceActive;
         private bool keysHaveChanged;
         private InputSystem_Actions inputActions;
         private Mouse mouse;
+        private ulong lastMouseWheelTimestamp;
 
 
         public static void KeySubscriptionService(KeyFunctionsIndex key, KEY_SUBSCRIPTION_CALL_DELEGATE func, bool add)
@@ -50,6 +51,7 @@ namespace Gob3AQ.InputMaster
                 keySubscription = new KEY_SUBSCRIPTION_CALL_DELEGATE[(int)KeyFunctionsIndex.KEYFUNC_INDEX_TOTAL];
                 inputActions = new InputSystem_Actions();
                 mouse = Mouse.current;
+                wheelDebounceActive = false;
             }
         }
 
@@ -87,28 +89,32 @@ namespace Gob3AQ.InputMaster
                 cycleKeys |= inputActions.Player.Inventory.IsPressed() ? KeyFunctions.KEYFUNC_INVENTORY : 0;
                 cycleKeys |= inputActions.Player.Drag.IsPressed() ? KeyFunctions.KEYFUNC_DRAG : 0;
 
+                ulong actualTimestamp = VARMAP_InputMaster.GET_ELAPSED_TIME_MS();
+
                 if (inputActions.Player.ZoomUp.IsPressed())
                 {
                     wheelUp = true;
                     wheelDown = false;
-                    wheelDebounce = 20;
+                    wheelDebounceActive = true;
+                    lastMouseWheelTimestamp = actualTimestamp;
                 }
                 else if (inputActions.Player.ZoomDown.IsPressed())
                 {
                     wheelUp = false;
                     wheelDown = true;
-                    wheelDebounce = 20;
+                    wheelDebounceActive = true;
+                    lastMouseWheelTimestamp = actualTimestamp;
                 }
                 else
                 {
-                    if (wheelDebounce > 0)
+                    if ((actualTimestamp - lastMouseWheelTimestamp) < 200)
                     {
-                        wheelDebounce--;
-                        wheelUp = prevCycleKeys.isKeyBeingPressed(KeyFunctions.KEYFUNC_ZOOM_UP);
-                        wheelDown = prevCycleKeys.isKeyBeingPressed(KeyFunctions.KEYFUNC_ZOOM_DOWN);
+                        wheelUp = wheelDebounceActive && prevCycleKeys.isKeyBeingPressed(KeyFunctions.KEYFUNC_ZOOM_UP);
+                        wheelDown = wheelDebounceActive && prevCycleKeys.isKeyBeingPressed(KeyFunctions.KEYFUNC_ZOOM_DOWN);
                     }
                     else
                     {
+                        wheelDebounceActive = false;
                         wheelUp = false;
                         wheelDown = false;
                     }
@@ -233,6 +239,7 @@ namespace Gob3AQ.InputMaster
                 switch (newval)
                 {
                     case Game_Status.GAME_STATUS_LOADING:
+                        wheelDebounceActive = false;
                         VARMAP_InputMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_InputMaster);
                         break;
 

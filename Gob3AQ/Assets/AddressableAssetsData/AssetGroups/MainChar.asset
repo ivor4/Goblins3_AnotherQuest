@@ -25,6 +25,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41076632418c9a540969705ecbb4f26a
+    m_Address: SPRITE_MAINCHAR_ROTATING_LEFT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 558071ab4c384b245bf10f3cf342c063
+    m_Address: SPRITE_MAINCHAR_ROTATING_BACK
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5a1163d27d7511244ac850b8a545eaa4
     m_Address: ANIMATION_MAINCHAR_TALKING
     m_ReadOnly: 0
@@ -32,6 +42,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5e8638f8257133a43adfe746a387cdda
     m_Address: ANIMATION_MAINCHAR_WALKING_BACK
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 637b212741156bc47bb0f2c9602fb35e
+    m_Address: ANIMATION_MAINCHAR_ANGRY_SELF
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -102,6 +117,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e87a3c45390ed10448bc4575e961b13d
     m_Address: ANIMATION_MAINCHAR_ANNOYED
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9fbd665e295b4644aff3fb88bacdb02
+    m_Address: SPRITE_MAINCHAR_ANGRY_SELF
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

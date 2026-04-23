@@ -15,9 +15,8 @@ namespace Gob3AQ.ResourceAnimationsAtlas
             { AnimationTrigger.ANIMATION_TRIGGER_FOUR, Animator.StringToHash("Tr_4") },
             { AnimationTrigger.ANIMATION_TRIGGER_FIVE, Animator.StringToHash("Tr_5") },
             { AnimationTrigger.ANIMATION_TRIGGER_SIX, Animator.StringToHash("Tr_6") },
-
-            {AnimationTrigger.ANIMATION_TRIGGER_SPECIAL_ONE, Animator.StringToHash("Tr_Special1") },
-            {AnimationTrigger.ANIMATION_TRIGGER_SPECIAL_TWO, Animator.StringToHash("Tr_Special2") },
+            { AnimationTrigger.ANIMATION_TRIGGER_SEVEN, Animator.StringToHash("Tr_7") },
+            { AnimationTrigger.ANIMATION_TRIGGER_EIGHT, Animator.StringToHash("Tr_8") },
 
             { AnimationTrigger.ANIMATION_TRIGGER_STEADY, Animator.StringToHash("Tr_Steady") },
 
@@ -55,7 +54,7 @@ namespace Gob3AQ.ResourceAnimationsAtlas
                 new(AnimationSrcTrigger.SRC_TRIGGER_ANIM_END, 0f,
                     new AnimationActionConfig[]
                     {
-                        new(noAction, GameItem.ITEM_HIVE1_NPC_REME, AnimationTrigger.ANIMATION_TRIGGER_SPECIAL_ONE, GameSound.SOUND_NONE),   /* Action 1 */
+                        new(noAction, GameItem.ITEM_HIVE1_NPC_REME, AnimationTrigger.ANIMATION_TRIGGER_TWO, GameSound.SOUND_NONE),   /* Action 1 */
                     }
                 ),
                 /* Milestone 2 */

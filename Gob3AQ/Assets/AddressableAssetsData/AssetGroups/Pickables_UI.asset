@@ -50,6 +50,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ed263ed9b9a02640b51ff2f8b1ba3a3
+    m_Address: ANIMATION_GENERIC_SPECIAL_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 53cd6cf4f129526499e7827f376d4ec7
     m_Address: SOUND_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL_SPANISH
     m_ReadOnly: 0

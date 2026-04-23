@@ -52,6 +52,7 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_PHRASE_DIALOG_MANYO_BCKG_CROWD_1_SPANISH"), /* SOUND_PHRASE_DIALOG_MANYO_BCKG_CROWD_1 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_PHRASE_DIALOG_MANYO_BCKG_CROWD_2_SPANISH"), /* SOUND_PHRASE_DIALOG_MANYO_BCKG_CROWD_2 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_PHRASE_DIALOG_MANYO_BCKG_CROWD_3_SPANISH"), /* SOUND_PHRASE_DIALOG_MANYO_BCKG_CROWD_3 */ 
+            new(SoundEffect.EFFECT_NONE,"MUSIC_EXTRAPERLO"), /* MUSIC_EXTRAPERLO */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

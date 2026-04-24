@@ -614,7 +614,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameAction[1]{GameAction.ACTION_DIALOGUE_USE_INVITATION_INK_2,}), 
             
             new( /* COND_TALK_FIK */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_EXTRAPERLO_SAID_PHRASE, true),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,
             new GameAction[1]{GameAction.ACTION_TALK_FIK,}), 
             
@@ -1722,6 +1722,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_FIK_1_INTRO,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE),
+            
+            new( /* ACTION_EVENT_EXTRAPERLO_SAID_PHRASE */
+            false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_EXTRAPERLO_SAID_PHRASE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,GameAnimation.ANIMATION_NONE),
             
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

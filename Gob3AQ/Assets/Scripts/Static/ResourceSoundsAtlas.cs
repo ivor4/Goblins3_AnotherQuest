@@ -43,9 +43,19 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_FIK_1_OP_0_1_SPANISH"), /* SOUND_FIK_1_OP_0_1 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_FIK_1_OP_1_0_SPANISH"), /* SOUND_FIK_1_OP_1_0 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_FIK_1_OP_1_1_SPANISH"), /* SOUND_FIK_1_OP_1_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_FIK_1_OP_1_2_SPANISH"), /* SOUND_FIK_1_OP_1_2 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_FIK_1_OP_1_3_SPANISH"), /* SOUND_FIK_1_OP_1_3 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_FIK_1_OP_2_0_SPANISH"), /* SOUND_FIK_1_OP_2_0 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_FIK_1_OP_2_1_SPANISH"), /* SOUND_FIK_1_OP_2_1 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_FIK_1_OP_3_0_SPANISH"), /* SOUND_FIK_1_OP_3_0 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_FIK_2_OP_0_0_SPANISH"), /* SOUND_FIK_2_OP_0_0 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_FIK_2_OP_0_1_SPANISH"), /* SOUND_FIK_2_OP_0_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_FIK_2_OP_1_0_SPANISH"), /* SOUND_FIK_2_OP_1_0 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_FIK_2_OP_1_1_SPANISH"), /* SOUND_FIK_2_OP_1_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_FIK_2_OP_2_0_SPANISH"), /* SOUND_FIK_2_OP_2_0 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_FIK_2_OP_2_1_SPANISH"), /* SOUND_FIK_2_OP_2_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_FIK_2_OP_3_0_SPANISH"), /* SOUND_FIK_2_OP_3_0 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_FIK_2_OP_3_1_SPANISH"), /* SOUND_FIK_2_OP_3_1 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_MAINCHAR_NONSENSE_SPANISH"), /* SOUND_MAINCHAR_NONSENSE */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_MAINCHAR_NONSENSE_OBSERVE_SPANISH"), /* SOUND_MAINCHAR_NONSENSE_OBSERVE */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_MAINCHAR_NONSENSE_TALK_SPANISH"), /* SOUND_MAINCHAR_NONSENSE_TALK */ 

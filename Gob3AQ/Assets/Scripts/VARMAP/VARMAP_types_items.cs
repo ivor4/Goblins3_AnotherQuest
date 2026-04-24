@@ -303,6 +303,7 @@ namespace Gob3AQ.VARMAP.Types
         ACTION_ANIMATE_REME_TEST, 
         ACTION_SPAWN_FIK_1, 
         ACTION_TALK_FIK, 
+        ACTION_EVENT_EXTRAPERLO_SAID_PHRASE, 
         ACTION_LAST, 
         
         ACTION_TOTAL

@@ -246,11 +246,7 @@ namespace Gob3AQ.DialogMaster
 
         private void DialogSoundEnded()
         {
-            if (dialog_actualTaskType == DialogTaskType.DIALOG_STATE_DEAD_TIME)
-            {
-                dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
-                EndPhrase_Action();
-            }
+            dialog_actualPhraseSoundStop = GameSound.SOUND_NONE;
         }
 
         private void ShowDialogueExec(DialogType dialog, DialogPhrase phrase, bool background, bool dialogStart)
@@ -641,7 +637,7 @@ namespace Gob3AQ.DialogMaster
 
                 case DialogTaskType.DIALOG_STATE_DEAD_TIME:
                     if ((((actualTimestamp - dialog_timestamp) >= 2000) && (dialog_actualPhraseSoundStop == GameSound.SOUND_NONE)) ||
-                        (((actualTimestamp - dialog_timestamp) >= 6000) && (dialog_actualPhraseSoundStop != GameSound.SOUND_NONE))
+                        (((actualTimestamp - dialog_timestamp) >= 9000) && (dialog_actualPhraseSoundStop != GameSound.SOUND_NONE))
                         )
                     {
                         dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;

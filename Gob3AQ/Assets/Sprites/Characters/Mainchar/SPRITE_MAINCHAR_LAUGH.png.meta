@@ -1,0 +1,535 @@
+fileFormatVersion: 2
+guid: d783913af5b438246b0c02b63ce6a34a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2736652084012253891
+    second: SPRITE_MAINCHAR_LAUGH_0
+  - first:
+      213: 4512690570669805794
+    second: SPRITE_MAINCHAR_LAUGH_1
+  - first:
+      213: 6578128601403723731
+    second: SPRITE_MAINCHAR_LAUGH_2
+  - first:
+      213: -825326911592239766
+    second: SPRITE_MAINCHAR_LAUGH_3
+  - first:
+      213: -5154870891699134899
+    second: SPRITE_MAINCHAR_LAUGH_4
+  - first:
+      213: 8584021495799753508
+    second: SPRITE_MAINCHAR_LAUGH_5
+  - first:
+      213: 7831827399831691172
+    second: SPRITE_MAINCHAR_LAUGH_6
+  - first:
+      213: 538928103823897834
+    second: SPRITE_MAINCHAR_LAUGH_7
+  - first:
+      213: 3858588453595141304
+    second: SPRITE_MAINCHAR_LAUGH_8
+  - first:
+      213: 4293545217483186552
+    second: SPRITE_MAINCHAR_LAUGH_9
+  - first:
+      213: -7843322952221007924
+    second: SPRITE_MAINCHAR_LAUGH_10
+  - first:
+      213: -5559171352227809405
+    second: SPRITE_MAINCHAR_LAUGH_11
+  - first:
+      213: -8490293189213788743
+    second: SPRITE_MAINCHAR_LAUGH_12
+  - first:
+      213: 3362379019155730170
+    second: SPRITE_MAINCHAR_LAUGH_13
+  - first:
+      213: 6955346678012793264
+    second: SPRITE_MAINCHAR_LAUGH_14
+  - first:
+      213: -7013419775276056322
+    second: SPRITE_MAINCHAR_LAUGH_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_LAUGH_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3dfd92dd65750ad0800000000000000
+      internalID: -2736652084012253891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_LAUGH_1
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e0570e2a2c40ae30800000000000000
+      internalID: 4512690570669805794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_LAUGH_2
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3df818d4c153a4b50800000000000000
+      internalID: 6578128601403723731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_LAUGH_3
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6d69f2fb89db84f0800000000000000
+      internalID: -825326911592239766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_LAUGH_4
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4e95455c383678b0800000000000000
+      internalID: -5154870891699134899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_LAUGH_5
+      rect:
+        serializedVersion: 2
+        x: 1720
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42b26710212902770800000000000000
+      internalID: 8584021495799753508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_LAUGH_6
+      rect:
+        serializedVersion: 2
+        x: 2064
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4af932d768d30bc60800000000000000
+      internalID: 7831827399831691172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_LAUGH_7
+      rect:
+        serializedVersion: 2
+        x: 2408
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae4f5eb4148aa7700800000000000000
+      internalID: 538928103823897834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_LAUGH_8
+      rect:
+        serializedVersion: 2
+        x: 2752
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b456fe31c57c8530800000000000000
+      internalID: 3858588453595141304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_LAUGH_9
+      rect:
+        serializedVersion: 2
+        x: 3096
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 871a92b80acb59b30800000000000000
+      internalID: 4293545217483186552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_LAUGH_10
+      rect:
+        serializedVersion: 2
+        x: 3440
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccfd236a45be62390800000000000000
+      internalID: -7843322952221007924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_LAUGH_11
+      rect:
+        serializedVersion: 2
+        x: 3784
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 387fee0eb1bd9d2b0800000000000000
+      internalID: -5559171352227809405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_LAUGH_12
+      rect:
+        serializedVersion: 2
+        x: 4128
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b56ef1f35b6c2a80800000000000000
+      internalID: -8490293189213788743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_LAUGH_13
+      rect:
+        serializedVersion: 2
+        x: 4472
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afee00d37e199ae20800000000000000
+      internalID: 3362379019155730170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_LAUGH_14
+      rect:
+        serializedVersion: 2
+        x: 4816
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b155a0e3fa568060800000000000000
+      internalID: 6955346678012793264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_LAUGH_15
+      rect:
+        serializedVersion: 2
+        x: 5160
+        y: 0
+        width: 344
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef088f18fd35bae90800000000000000
+      internalID: -7013419775276056322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 7d76ce1b7db716944a83cb9b601421b1
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":16.0,"y":1.0},"gridSpriteSize":{"x":344.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_MAINCHAR_LAUGH_0: -2736652084012253891
+      SPRITE_MAINCHAR_LAUGH_1: 4512690570669805794
+      SPRITE_MAINCHAR_LAUGH_10: -7843322952221007924
+      SPRITE_MAINCHAR_LAUGH_11: -5559171352227809405
+      SPRITE_MAINCHAR_LAUGH_12: -8490293189213788743
+      SPRITE_MAINCHAR_LAUGH_13: 3362379019155730170
+      SPRITE_MAINCHAR_LAUGH_14: 6955346678012793264
+      SPRITE_MAINCHAR_LAUGH_15: -7013419775276056322
+      SPRITE_MAINCHAR_LAUGH_2: 6578128601403723731
+      SPRITE_MAINCHAR_LAUGH_3: -825326911592239766
+      SPRITE_MAINCHAR_LAUGH_4: -5154870891699134899
+      SPRITE_MAINCHAR_LAUGH_5: 8584021495799753508
+      SPRITE_MAINCHAR_LAUGH_6: 7831827399831691172
+      SPRITE_MAINCHAR_LAUGH_7: 538928103823897834
+      SPRITE_MAINCHAR_LAUGH_8: 3858588453595141304
+      SPRITE_MAINCHAR_LAUGH_9: 4293545217483186552
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

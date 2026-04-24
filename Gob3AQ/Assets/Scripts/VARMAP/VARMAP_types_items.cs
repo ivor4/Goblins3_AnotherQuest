@@ -46,6 +46,7 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_PHARMACY_INKWELL, 
         ITEM_PHARMACY_INK, 
         ITEM_NPC_FIK, 
+        ITEM_DOOR_EXTRAPERLO, 
         ITEM_LAST, 
         
         ITEM_TOTAL
@@ -128,6 +129,7 @@ namespace Gob3AQ.VARMAP.Types
         COND_USE_INVITATION_INK, 
         COND_USE_INVITATION_INK_2, 
         COND_TALK_FIK, 
+        COND_TRY_CROSS_EXTRAPERLO_DOOR, 
         COND_LAST, 
         
         COND_TOTAL
@@ -165,6 +167,8 @@ namespace Gob3AQ.VARMAP.Types
         UNCHAIN_FIK_SPAWN, 
         UNCHAIN_MANYO_BCKG_DIALOGUE, 
         UNCHAIN_POOR_MAN_WC_BCKG_DIALOGUE, 
+        UNCHAIN_EXTRAPERLO_DOOR, 
+        UNCHAIN_SHOW_EXTRAPERLO_DOOR_OPENED, 
         UNCHAIN_LAST, 
         
         UNCHAIN_TOTAL
@@ -304,6 +308,9 @@ namespace Gob3AQ.VARMAP.Types
         ACTION_SPAWN_FIK_1, 
         ACTION_TALK_FIK, 
         ACTION_EVENT_EXTRAPERLO_SAID_PHRASE, 
+        ACTION_TALK_FIK_NOT_CROSS, 
+        ACTION_SET_SPRITE_EXTRAPERLO_DOOR, 
+        ACTION_SPAWN_EXTRAPERLO_DOOR, 
         ACTION_LAST, 
         
         ACTION_TOTAL

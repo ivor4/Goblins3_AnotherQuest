@@ -81,7 +81,7 @@ namespace Gob3AQ.GameElement.Item.Door
             /* Set to default sprite */
             mySpriteRenderer.sprite = null;
 
-            SetVisible_Internal(false);
+            SetVisible_Internal(true);
             SetClickable_Internal(true);
             SetAvailable(true);
 

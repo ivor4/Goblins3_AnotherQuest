@@ -27,6 +27,7 @@ namespace Gob3AQ.VARMAP.Types
         DIALOG_FIK_1, 
         DIALOG_FIK_1_INTRO, 
         DIALOG_FIK_2, 
+        DIALOG_FIK_NOT_CROSS_DOOR, 
         DIALOG_LAST, 
         
         DIALOG_TOTAL
@@ -75,6 +76,7 @@ namespace Gob3AQ.VARMAP.Types
         DIALOG_FIK_2_OPTION_1, 
         DIALOG_FIK_2_OPTION_2, 
         DIALOG_FIK_2_OPTION_3, 
+        DIALOG_FIK_NOT_CROSS_OPTION_0, 
         DIALOG_OPTION_LAST, 
         
         DIALOG_OPTION_TOTAL
@@ -229,6 +231,7 @@ namespace Gob3AQ.VARMAP.Types
         PHRASE_DIALOG_FIK_2_OPTION_2_1, 
         PHRASE_DIALOG_FIK_2_OPTION_3_0, 
         PHRASE_DIALOG_FIK_2_OPTION_3_1, 
+        PHRASE_DIALOG_FIK_NOT_CROSS, 
         PHRASE_DIALOG_LAST, 
         
         PHRASE_TOTAL

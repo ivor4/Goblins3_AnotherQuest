@@ -174,6 +174,11 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new DialogOption[4]{DialogOption.DIALOG_FIK_2_OPTION_0, DialogOption.DIALOG_FIK_2_OPTION_1, DialogOption.DIALOG_FIK_2_OPTION_2, DialogOption.DIALOG_FIK_2_OPTION_3, }
             ),
             
+            new( /* DIALOG_FIK_NOT_CROSS_DOOR */
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_NPC_FIK,},
+            new DialogOption[1]{DialogOption.DIALOG_FIK_NOT_CROSS_OPTION_0, }
+            ),
+            
             new( /* DIALOG_LAST */
             new GameItem[1]{GameItem.ITEM_NONE,},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE, }
@@ -451,6 +456,13 @@ namespace Gob3AQ.ResourceDialogsAtlas
             DialogType.DIALOG_NONE,false,
             new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_FIK_2_OPTION_3_0, DialogPhrase.PHRASE_DIALOG_FIK_2_OPTION_3_1, }
             ),
+            new( /* DIALOG_FIK_NOT_CROSS_OPTION_0 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_NONE, },
+            DialogType.DIALOG_NONE,false,
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_FIK_NOT_CROSS, }
+            ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
             MomentType.MOMENT_ANY,
@@ -608,6 +620,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(1,GameSound.SOUND_FIK_2_OP_2_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TWO,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_FIK_2_OPTION_2_1 */ 
             new(0,GameSound.SOUND_FIK_2_OP_3_0, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_FIK_2_OPTION_3_0 */ 
             new(1,GameSound.SOUND_FIK_2_OP_3_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_FIK_2_OPTION_3_1 */ 
+            new(1,GameSound.SOUND_FIK_NOT_CROSS, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_FIK_NOT_CROSS */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

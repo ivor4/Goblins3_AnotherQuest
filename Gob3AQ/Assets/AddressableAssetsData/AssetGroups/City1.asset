@@ -30,6 +30,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d6257b5ce3ba2a4caaea41ddcc9dd4d
+    m_Address: SPRITE_WATER_FLOW_BACKALLEY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4bf15f457e71008418633dd504ea6dff
     m_Address: SOUND_AMBIENCE_CITY_DAY
     m_ReadOnly: 0
@@ -42,6 +47,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5ca879fcf0b48e240b8f75e669c61c35
     m_Address: BACKGROUND_CITY1_STREET2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e64325608f8a364ebd5c9e498f7b7ff
+    m_Address: ANIMATION_WATER_FLOWING_STEADY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -85,6 +95,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: abb78c232abe8bc4a9aebdbb5b719f25
+    m_Address: ANIMATOR_WATERFLOWING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bf8a67485de98d44b8a707860c61f5ff
     m_Address: SPRITE_ATLAS_CITY1_2
     m_ReadOnly: 0
@@ -95,6 +110,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2bb01382fd845e40acbb5c5e6810cdf
+    m_Address: SPRITE_WATER_FLOW_BACKALLEY_NIGHT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e1a48f8e61d9f1c458c3483cef5ab78f
     m_Address: SPRITE_ATLAS_CITY2_1
     m_ReadOnly: 0
@@ -102,6 +122,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e85ae349c7f70d4409e2c065e936a06a
     m_Address: SPRITE_HIVE1_VALVE_BOX_OPENED
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe2e2d70e7c7a404684ddbe0d93e40c2
+    m_Address: ANIMATION_WATER_FLOWING_STEADY_NIGHT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -1304,7 +1304,8 @@ for line in ACTIONCONDSinputFile:
         ItemVar["targetMoment"] = str(columns[10])
         ItemVar["targetDialog"] = str(columns[11])
         ItemVar["targetPhrase"] = str(columns[12])
-        ItemVar["targetAnimation"] = str(columns[13])
+        ItemVar["targetTriggerAnim"] = str(columns[13])
+        ItemVar["targetAnimation"] = str(columns[14])
         
         # Write in item enum
         stringToWrite = ItemVar["name"]
@@ -1344,6 +1345,7 @@ for line in ACTIONCONDSinputFile:
         stringToWrite += moment_prefix + ItemVar["targetMoment"] + ','
         stringToWrite += dialog_prefix + ItemVar["targetDialog"] + ','
         stringToWrite += phrase_prefix + ItemVar["targetPhrase"] + ','
+        stringToWrite += animation_trigger_prefix + ItemVar["targetTriggerAnim"] + ','
         stringToWrite += animation_prefix + ItemVar["targetAnimation"] + '),\n'
         items_interaction_lines.InsertLineInATG(10, stringToWrite)
         

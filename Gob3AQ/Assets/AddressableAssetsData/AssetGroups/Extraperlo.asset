@@ -25,6 +25,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 10188c29829d8784195e29993432bb82
+    m_Address: SOUND_AMBIENCE_INSIDE_PUB
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 158a779f324e8c04491a1416298df7c9
     m_Address: SCENE_CITY1_SOUTH_STREET_2
     m_ReadOnly: 0
@@ -132,6 +137,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 87ef33c852f130a43a61cf63d3b13987
     m_Address: SPRITE_ATLAS_CITY3_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8873a57055ebbd04c93fe67b5908e407
+    m_Address: SPRITE_FOREGROUND_EXTRAPERLO_WALL
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

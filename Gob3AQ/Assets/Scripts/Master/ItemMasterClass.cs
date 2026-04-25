@@ -51,6 +51,12 @@ namespace Gob3AQ.ItemMaster
                             instance.SetSprite(actionInfo.targetSprite);
                         }
                         break;
+                    case ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION:
+                        if (_singleton._levelItems.TryGetValue(actionInfo.targetItem, out instance))
+                        {
+                            instance.PerformAnimation(actionInfo.animTrigger, null);
+                        }
+                        break;
                     case ActionType.ACTION_TYPE_SPAWN:
                         if (_singleton._levelItems.TryGetValue(actionInfo.targetItem, out instance))
                         {

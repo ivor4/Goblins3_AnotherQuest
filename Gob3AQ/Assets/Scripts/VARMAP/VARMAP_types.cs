@@ -522,6 +522,7 @@ namespace Gob3AQ.VARMAP.Types
         public readonly MomentType targetMomentOfDay;
         public readonly DialogType targetDialog;
         public readonly DialogPhrase targetPhrase;
+        public readonly AnimationTrigger animTrigger;
         public readonly GameAnimation targetAnimation;
 
         public ReadOnlySpan<GameEventCombi> TargetEvents => targetEvents;
@@ -530,16 +531,16 @@ namespace Gob3AQ.VARMAP.Types
         {
             return new ActionInfo(false, ActionType.ACTION_TYPE_DESPAWN, targetItem, GameSprite.SPRITE_NONE,
                 CharacterType.CHARACTER_NONE, Memento.MEMENTO_NONE, new GameEventCombi[0], DecisionType.DECISION_NONE,
-                MomentType.MOMENT_ANY, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, GameAnimation.ANIMATION_NONE);
+                MomentType.MOMENT_ANY, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, AnimationTrigger.ANIMATION_TRIGGER_NONE, GameAnimation.ANIMATION_NONE);
         }
 
         public static readonly ActionInfo EMPTY = new(false, ActionType.ACTION_TYPE_NONE, GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE, Memento.MEMENTO_NONE, new GameEventCombi[0], DecisionType.DECISION_NONE,
-            MomentType.MOMENT_ANY, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, GameAnimation.ANIMATION_NONE);
+            MomentType.MOMENT_ANY, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, AnimationTrigger.ANIMATION_TRIGGER_NONE, GameAnimation.ANIMATION_NONE);
 
         public ActionInfo(bool waitForEnd, ActionType type, GameItem targetItem, GameSprite targetSprite, CharacterType targetCharacter, Memento targetMemento,
             GameEventCombi[] targetEvents, DecisionType targetDecision, MomentType targetMomentOfDay, DialogType targetDialog,
-            DialogPhrase targetPhrase, GameAnimation targetAnimation)
+            DialogPhrase targetPhrase, AnimationTrigger animTrigger, GameAnimation targetAnimation)
         {
             this.waitForEnd = waitForEnd;
             this.type = type;
@@ -552,6 +553,7 @@ namespace Gob3AQ.VARMAP.Types
             this.targetMomentOfDay = targetMomentOfDay;
             this.targetDialog = targetDialog;
             this.targetPhrase = targetPhrase;
+            this.animTrigger = animTrigger;
             this.targetAnimation = targetAnimation;
         }
     }

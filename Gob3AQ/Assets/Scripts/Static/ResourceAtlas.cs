@@ -208,7 +208,7 @@ namespace Gob3AQ.ResourceAtlas
             new InitialWalkInfo[]{new(0,0) }, /* MANYO_1 */
             new InitialWalkInfo[]{new(2,4) }, /* HIVE1_BACKALLEY */
             new InitialWalkInfo[]{new(6,0), new(3,5) }, /* CITY1_SOUTH_STREET_1 */
-            new InitialWalkInfo[]{new(2,0) }, /* CITY1_SOUTH_STREET_2 */
+            new InitialWalkInfo[]{new(0,4), new(2,5) }, /* CITY1_SOUTH_STREET_2 */
             new InitialWalkInfo[]{new(0,0) }, /* CITY1_EXTRAPERLO1 */
             new InitialWalkInfo[]{new(0,0) }, /* ROOM_LAST */
         };
@@ -316,9 +316,9 @@ namespace Gob3AQ.ResourceAtlas
             new GameSprite[2]{GameSprite.BACKGROUND_BACKALLEY, GameSprite.BACKGROUND_BACKALLEY_NIGHT, },
             new GameSound[2]{GameSound.SOUND_AMBIENCE_CITY_DAY, GameSound.SOUND_AMBIENCE_CITY_NIGHT, },
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_BACKALLEY, GameSprite.BACKGROUND_BACKALLEY_NIGHT, }), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(4){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_HIVE1_VALVE_BOX, GameItem.ITEM_HIVE1_BACKALLEY_PIPE, GameItem.ITEM_HIVE1_VALVE, }), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(5){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_HIVE1_VALVE_BOX, GameItem.ITEM_HIVE1_BACKALLEY_PIPE, GameItem.ITEM_HIVE1_VALVE, GameItem.ITEM_HIVE1_WATER_FLOWING, }), 
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
-            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(2){GameSound.SOUND_AMBIENCE_CITY_DAY, GameSound.SOUND_AMBIENCE_CITY_NIGHT, }), 
+            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(3){GameSound.SOUND_AMBIENCE_CITY_DAY, GameSound.SOUND_AMBIENCE_CITY_NIGHT, GameSound.SOUND_AMBIENCE_WATER_FLOW, }), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }) 
@@ -338,11 +338,11 @@ namespace Gob3AQ.ResourceAtlas
             
             new( /* CITY1_SOUTH_STREET_2 */
             new GameSprite[2]{GameSprite.BACKGROUND_CITY1_SOUTH_STREET_2, GameSprite.BACKGROUND_CITY1_SOUTH_STREET_2_NIGHT, },
-            new GameSound[1]{GameSound.MUSIC_SOUTH_NEIGH, },
+            new GameSound[2]{GameSound.MUSIC_SOUTH_NEIGH, GameSound.SOUND_AMBIENCE_CITY_NIGHT, },
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_CITY1_SOUTH_STREET_2, GameSprite.BACKGROUND_CITY1_SOUTH_STREET_2_NIGHT, }), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(3){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_NPC_FIK, GameItem.ITEM_DOOR_EXTRAPERLO, }), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(4){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_NPC_FIK, GameItem.ITEM_DOOR_EXTRAPERLO, GameItem.ITEM_FOREGROUND_EXTRP_WALL, }), 
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
-            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_SOUTH_NEIGH, }), 
+            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(3){GameSound.MUSIC_SOUTH_NEIGH, GameSound.SOUND_AMBIENCE_INSIDE_PUB, GameSound.SOUND_AMBIENCE_CITY_NIGHT, }), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }) 
@@ -354,7 +354,7 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_CITY1_EXTRAPERLO, GameSprite.SPRITE_EXTRAPERLO_BAR_FOREGROUND, }), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(1){GameItem.ITEM_GENERIC_DOOR1, }), 
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
-            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_EXTRAPERLO, }), 
+            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(2){GameSound.MUSIC_EXTRAPERLO, GameSound.SOUND_AMBIENCE_INSIDE_PUB, }), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }) 

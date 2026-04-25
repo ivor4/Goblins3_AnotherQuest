@@ -340,7 +340,7 @@ namespace Gob3AQ.ResourceAtlas
             new GameSprite[2]{GameSprite.BACKGROUND_CITY1_SOUTH_STREET_2, GameSprite.BACKGROUND_CITY1_SOUTH_STREET_2_NIGHT, },
             new GameSound[2]{GameSound.MUSIC_SOUTH_NEIGH, GameSound.SOUND_AMBIENCE_CITY_NIGHT, },
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_CITY1_SOUTH_STREET_2, GameSprite.BACKGROUND_CITY1_SOUTH_STREET_2_NIGHT, }), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(4){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_NPC_FIK, GameItem.ITEM_DOOR_EXTRAPERLO, GameItem.ITEM_FOREGROUND_EXTRP_WALL, }), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(5){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_NPC_FIK, GameItem.ITEM_DOOR_EXTRAPERLO, GameItem.ITEM_FOREGROUND_EXTRP_WALL, GameItem.ITEM_DOOR_EXTRAPERLO_REAL, }), 
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE, }), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(3){GameSound.MUSIC_SOUTH_NEIGH, GameSound.SOUND_AMBIENCE_INSIDE_PUB, GameSound.SOUND_AMBIENCE_CITY_NIGHT, }), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE, }), 

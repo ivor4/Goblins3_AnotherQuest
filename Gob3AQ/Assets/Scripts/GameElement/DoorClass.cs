@@ -1,3 +1,4 @@
+using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.VARMAP.ItemMaster;
 using Gob3AQ.VARMAP.Types;
@@ -78,14 +79,25 @@ namespace Gob3AQ.GameElement.Item.Door
                 actualWaypoint = startingWaypoint.ID_in_Network;
             }
 
-            /* Set to default sprite */
-            mySpriteRenderer.sprite = null;
+            loaded = true;
+            ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(itemID);
+
+            /* Set to default sprite if no animator */
+            if (itemInfo.defaultSprite != GameSprite.SPRITE_NONE)
+            {
+                SetSprite(itemInfo.defaultSprite);
+            }
+            else
+            {
+                /* Set to default sprite */
+                mySpriteRenderer.sprite = null;
+            }
 
             SetVisible_Internal(true);
             SetClickable_Internal(true);
             SetAvailable(true);
 
-            loaded = true;
+            
         }
 
     }

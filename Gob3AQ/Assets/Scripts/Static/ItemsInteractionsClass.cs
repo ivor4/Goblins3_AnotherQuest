@@ -310,7 +310,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameAction[1]{GameAction.ACTION_DIALOGUE_TALK_POOR_MAN_WC_BCKG,}), 
             
             new( /* UNCHAIN_EXTRAPERLO_DOOR */
-            false,false,false,new(GameEvent.EVENT_NONE, false), 
+            false,false,false,new(GameEvent.EVENT_EXTRAPERLO_SAID_PHRASE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_NIGHT, 
             new GameAction[1]{GameAction.ACTION_SPAWN_EXTRAPERLO_DOOR,}), 
@@ -319,7 +319,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_EXTRAPERLO_SAID_PHRASE, false),}, 
             MomentType.MOMENT_NIGHT, 
-            new GameAction[2]{GameAction.ACTION_SET_SPRITE_EXTRAPERLO_DOOR,GameAction.ACTION_SPAWN_EXTRAPERLO_WALL,}), 
+            new GameAction[3]{GameAction.ACTION_SPAWN_EXTRAPERLO_WALL,GameAction.ACTION_DESPAWN_EXTRAPERLO_DOOR,GameAction.ACTION_SPAWN_EXTRAPERLO_DOOR_REAL,}), 
             
             new( /* UNCHAIN_SET_SPRITE_WATER_FLOWING_NIGHT */
             false,false,false,new(GameEvent.EVENT_NONE, false), 
@@ -856,18 +856,23 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_TALK_FIK,})),
             
             new ( /* ITEM_DOOR_EXTRAPERLO */
-            NameType.NAME_ITEM_CROSS,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(2){GameSprite.SPRITE_BLANK,GameSprite.SPRITE_EXTRAPERLO_DOOR_OPENED,}),
+            NameType.NAME_ITEM_CROSS,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK,}),
             GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_TRY_CROSS_EXTRAPERLO_DOOR,})),
             
             new ( /* ITEM_FOREGROUND_EXTRP_WALL */
-            NameType.NAME_ITEM_CROSS,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_FOREGROUND_EXTRAPERLO_WALL,}),
+            NameType.NAME_ITEM_CROSS,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_FOREGROUND_EXTRAPERLO_WALL,}),
             GameSprite.SPRITE_FOREGROUND_EXTRAPERLO_WALL,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK,})),
             
             new ( /* ITEM_HIVE1_WATER_FLOWING */
             NameType.NAME_WATER_FLOWING,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(2){GameSprite.SPRITE_WATER_FLOW_BACKALLEY,GameSprite.SPRITE_WATER_FLOW_BACKALLEY_NIGHT,}),
             GameSprite.SPRITE_WATER_FLOW_BACKALLEY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
+            new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK,})),
+            
+            new ( /* ITEM_DOOR_EXTRAPERLO_REAL */
+            NameType.NAME_ITEM_CROSS,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_EXTRAPERLO_DOOR_OPENED,}),
+            GameSprite.SPRITE_EXTRAPERLO_DOOR_OPENED,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK,})),
             
             new ( /* ITEM_LAST */
@@ -1773,12 +1778,6 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_FIK_NOT_CROSS_DOOR,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
             
-            new( /* ACTION_SET_SPRITE_EXTRAPERLO_DOOR */
-            false,ActionType.ACTION_TYPE_SET_SPRITE,GameItem.ITEM_DOOR_EXTRAPERLO,GameSprite.SPRITE_EXTRAPERLO_DOOR_OPENED,
-            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
-            
             new( /* ACTION_SPAWN_EXTRAPERLO_DOOR */
             false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_DOOR_EXTRAPERLO,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
@@ -1787,6 +1786,18 @@ namespace Gob3AQ.Brain.ItemsInteraction
             
             new( /* ACTION_SPAWN_EXTRAPERLO_WALL */
             false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_FOREGROUND_EXTRP_WALL,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            
+            new( /* ACTION_DESPAWN_EXTRAPERLO_DOOR */
+            false,ActionType.ACTION_TYPE_DESPAWN,GameItem.ITEM_DOOR_EXTRAPERLO,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            
+            new( /* ACTION_SPAWN_EXTRAPERLO_DOOR_REAL */
+            false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_DOOR_EXTRAPERLO_REAL,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),

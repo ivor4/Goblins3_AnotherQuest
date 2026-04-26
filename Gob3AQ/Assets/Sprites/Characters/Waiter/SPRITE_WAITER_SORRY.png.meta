@@ -1,0 +1,535 @@
+fileFormatVersion: 2
+guid: 879d3710c546b1c4eaede5b41aa24cce
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9141862634717202152
+    second: SPRITE_WAITER_SORRY_0
+  - first:
+      213: -691701277055893018
+    second: SPRITE_WAITER_SORRY_1
+  - first:
+      213: 6127999387734815496
+    second: SPRITE_WAITER_SORRY_2
+  - first:
+      213: -6392636550538537200
+    second: SPRITE_WAITER_SORRY_3
+  - first:
+      213: 8849719972776794679
+    second: SPRITE_WAITER_SORRY_4
+  - first:
+      213: -6526162376773033758
+    second: SPRITE_WAITER_SORRY_5
+  - first:
+      213: 5372740467591346502
+    second: SPRITE_WAITER_SORRY_6
+  - first:
+      213: 4719342102590629735
+    second: SPRITE_WAITER_SORRY_7
+  - first:
+      213: 6624345153534589774
+    second: SPRITE_WAITER_SORRY_8
+  - first:
+      213: 2505252735548132133
+    second: SPRITE_WAITER_SORRY_9
+  - first:
+      213: -7179940582463922218
+    second: SPRITE_WAITER_SORRY_10
+  - first:
+      213: 4881395528994342670
+    second: SPRITE_WAITER_SORRY_11
+  - first:
+      213: 6397308694687545139
+    second: SPRITE_WAITER_SORRY_12
+  - first:
+      213: -7016302285423075121
+    second: SPRITE_WAITER_SORRY_13
+  - first:
+      213: -9168024307417192284
+    second: SPRITE_WAITER_SORRY_14
+  - first:
+      213: -3119890658538060655
+    second: SPRITE_WAITER_SORRY_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_WAITER_SORRY_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e64cbf61ab6ede70800000000000000
+      internalID: 9141862634717202152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_SORRY_1
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e146627a559666f0800000000000000
+      internalID: -691701277055893018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_SORRY_2
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 803beb1c9f60b0550800000000000000
+      internalID: 6127999387734815496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_SORRY_3
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 017d8fa4deac847a0800000000000000
+      internalID: -6392636550538537200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_SORRY_4
+      rect:
+        serializedVersion: 2
+        x: 1568
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73a5a0b6d6580da70800000000000000
+      internalID: 8849719972776794679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_SORRY_5
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e0ace935e96e65a0800000000000000
+      internalID: -6526162376773033758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_SORRY_6
+      rect:
+        serializedVersion: 2
+        x: 2352
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 649f5214dfecf8a40800000000000000
+      internalID: 5372740467591346502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_SORRY_7
+      rect:
+        serializedVersion: 2
+        x: 2744
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 767a57e53a87e7140800000000000000
+      internalID: 4719342102590629735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_SORRY_8
+      rect:
+        serializedVersion: 2
+        x: 3136
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4b7202e1d66eeb50800000000000000
+      internalID: 6624345153534589774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_SORRY_9
+      rect:
+        serializedVersion: 2
+        x: 3528
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52b0ceee61274c220800000000000000
+      internalID: 2505252735548132133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_SORRY_10
+      rect:
+        serializedVersion: 2
+        x: 3920
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6df93d9c41abb5c90800000000000000
+      internalID: -7179940582463922218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_SORRY_11
+      rect:
+        serializedVersion: 2
+        x: 4312
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0743e1fe533eb340800000000000000
+      internalID: 4881395528994342670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_SORRY_12
+      rect:
+        serializedVersion: 2
+        x: 4704
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3377e590d5ec7c850800000000000000
+      internalID: 6397308694687545139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_SORRY_13
+      rect:
+        serializedVersion: 2
+        x: 5096
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc0a890de3611ae90800000000000000
+      internalID: -7016302285423075121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_SORRY_14
+      rect:
+        serializedVersion: 2
+        x: 5488
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a860487772a4c080800000000000000
+      internalID: -9168024307417192284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_SORRY_15
+      rect:
+        serializedVersion: 2
+        x: 5880
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19487c7d9fbe3b4d0800000000000000
+      internalID: -3119890658538060655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 09e9b5e4d3742bc499b6f9f7b9f7ef78
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":16.0,"y":1.0},"gridSpriteSize":{"x":392.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_WAITER_SORRY_0: 9141862634717202152
+      SPRITE_WAITER_SORRY_1: -691701277055893018
+      SPRITE_WAITER_SORRY_10: -7179940582463922218
+      SPRITE_WAITER_SORRY_11: 4881395528994342670
+      SPRITE_WAITER_SORRY_12: 6397308694687545139
+      SPRITE_WAITER_SORRY_13: -7016302285423075121
+      SPRITE_WAITER_SORRY_14: -9168024307417192284
+      SPRITE_WAITER_SORRY_15: -3119890658538060655
+      SPRITE_WAITER_SORRY_2: 6127999387734815496
+      SPRITE_WAITER_SORRY_3: -6392636550538537200
+      SPRITE_WAITER_SORRY_4: 8849719972776794679
+      SPRITE_WAITER_SORRY_5: -6526162376773033758
+      SPRITE_WAITER_SORRY_6: 5372740467591346502
+      SPRITE_WAITER_SORRY_7: 4719342102590629735
+      SPRITE_WAITER_SORRY_8: 6624345153534589774
+      SPRITE_WAITER_SORRY_9: 2505252735548132133
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

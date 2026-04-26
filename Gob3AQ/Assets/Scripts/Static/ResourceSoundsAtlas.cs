@@ -74,6 +74,14 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_GERMAN_1_OP_1_1_SPANISH"), /* SOUND_GERMAN_1_OP_1_1 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_GERMAN_1_OP_1_2_SPANISH"), /* SOUND_GERMAN_1_OP_1_2 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_GERMAN_SHOUTS_COCAI"), /* SOUND_GERMAN_SHOUTS_COCAI */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_WAITER_INTRO_1_0_SPANISH"), /* SOUND_WAITER_INTRO_1_0 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_WAITER_INTRO_1_1_SPANISH"), /* SOUND_WAITER_INTRO_1_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_WAITER_INTRO_1_2_SPANISH"), /* SOUND_WAITER_INTRO_1_2 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_WAITER_INTRO_1_3_SPANISH"), /* SOUND_WAITER_INTRO_1_3 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_WAITER_INTRO_2_0"), /* SOUND_WAITER_INTRO_2_0 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_WAITER_USE_INVITATION_1_SPANISH"), /* SOUND_WAITER_USE_INVITATION_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_WAITER_USE_INVITATION_2_SPANISH"), /* SOUND_WAITER_USE_INVITATION_2 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_WAITER_USE_INVITATION_3_SPANISH"), /* SOUND_WAITER_USE_INVITATION_3 */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

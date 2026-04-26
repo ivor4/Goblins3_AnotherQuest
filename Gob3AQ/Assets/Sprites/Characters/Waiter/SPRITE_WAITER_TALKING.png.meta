@@ -1,0 +1,535 @@
+fileFormatVersion: 2
+guid: c262511898da24643bd5b7b9994ec33a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 36348221951156665
+    second: SPRITE_WAITER_TALKING_0
+  - first:
+      213: 5737848657013585112
+    second: SPRITE_WAITER_TALKING_1
+  - first:
+      213: 7870896742311299793
+    second: SPRITE_WAITER_TALKING_2
+  - first:
+      213: 1197019695735231704
+    second: SPRITE_WAITER_TALKING_3
+  - first:
+      213: -4676492359622105420
+    second: SPRITE_WAITER_TALKING_4
+  - first:
+      213: -8909719714716726830
+    second: SPRITE_WAITER_TALKING_5
+  - first:
+      213: 5027442660248223025
+    second: SPRITE_WAITER_TALKING_6
+  - first:
+      213: 1611835187694477844
+    second: SPRITE_WAITER_TALKING_7
+  - first:
+      213: 7419841196429639013
+    second: SPRITE_WAITER_TALKING_8
+  - first:
+      213: -3987808785328365644
+    second: SPRITE_WAITER_TALKING_9
+  - first:
+      213: 8487371243691797845
+    second: SPRITE_WAITER_TALKING_10
+  - first:
+      213: -85532331725002767
+    second: SPRITE_WAITER_TALKING_11
+  - first:
+      213: 7211111876785046373
+    second: SPRITE_WAITER_TALKING_12
+  - first:
+      213: -9090962787194952625
+    second: SPRITE_WAITER_TALKING_13
+  - first:
+      213: 7010153438093547840
+    second: SPRITE_WAITER_TALKING_14
+  - first:
+      213: 4722338416512398796
+    second: SPRITE_WAITER_TALKING_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_WAITER_TALKING_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b1ad99e382218000800000000000000
+      internalID: 36348221951156665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_TALKING_1
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d43f3004fee0af40800000000000000
+      internalID: 5737848657013585112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_TALKING_2
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1da8e35a2ea0b3d60800000000000000
+      internalID: 7870896742311299793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_TALKING_3
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d4d179321bac9010800000000000000
+      internalID: 1197019695735231704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_TALKING_4
+      rect:
+        serializedVersion: 2
+        x: 1568
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b665edd9f2c91fb0800000000000000
+      internalID: -4676492359622105420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_TALKING_5
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d9c30c00215a5480800000000000000
+      internalID: -8909719714716726830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_TALKING_6
+      rect:
+        serializedVersion: 2
+        x: 2352
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13d7db4867015c540800000000000000
+      internalID: 5027442660248223025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_TALKING_7
+      rect:
+        serializedVersion: 2
+        x: 2744
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 412210730936e5610800000000000000
+      internalID: 1611835187694477844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_TALKING_8
+      rect:
+        serializedVersion: 2
+        x: 3136
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56d7ff2914298f660800000000000000
+      internalID: 7419841196429639013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_TALKING_9
+      rect:
+        serializedVersion: 2
+        x: 3528
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bf125eb90578a8c0800000000000000
+      internalID: -3987808785328365644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_TALKING_10
+      rect:
+        serializedVersion: 2
+        x: 3920
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55d6d199d2339c570800000000000000
+      internalID: 8487371243691797845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_TALKING_11
+      rect:
+        serializedVersion: 2
+        x: 4312
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f768b62cc020def0800000000000000
+      internalID: -85532331725002767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_TALKING_12
+      rect:
+        serializedVersion: 2
+        x: 4704
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5638f5bbb04031460800000000000000
+      internalID: 7211111876785046373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_TALKING_13
+      rect:
+        serializedVersion: 2
+        x: 5096
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4423f2d28966d180800000000000000
+      internalID: -9090962787194952625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_TALKING_14
+      rect:
+        serializedVersion: 2
+        x: 5488
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0499c8a1961194160800000000000000
+      internalID: 7010153438093547840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_WAITER_TALKING_15
+      rect:
+        serializedVersion: 2
+        x: 5880
+        y: 0
+        width: 392
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc5f66115cd198140800000000000000
+      internalID: 4722338416512398796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: bef2f331dba9e56429123ab306bc3a4f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":16.0,"y":1.0},"gridSpriteSize":{"x":392.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_WAITER_TALKING_0: 36348221951156665
+      SPRITE_WAITER_TALKING_1: 5737848657013585112
+      SPRITE_WAITER_TALKING_10: 8487371243691797845
+      SPRITE_WAITER_TALKING_11: -85532331725002767
+      SPRITE_WAITER_TALKING_12: 7211111876785046373
+      SPRITE_WAITER_TALKING_13: -9090962787194952625
+      SPRITE_WAITER_TALKING_14: 7010153438093547840
+      SPRITE_WAITER_TALKING_15: 4722338416512398796
+      SPRITE_WAITER_TALKING_2: 7870896742311299793
+      SPRITE_WAITER_TALKING_3: 1197019695735231704
+      SPRITE_WAITER_TALKING_4: -4676492359622105420
+      SPRITE_WAITER_TALKING_5: -8909719714716726830
+      SPRITE_WAITER_TALKING_6: 5027442660248223025
+      SPRITE_WAITER_TALKING_7: 1611835187694477844
+      SPRITE_WAITER_TALKING_8: 7419841196429639013
+      SPRITE_WAITER_TALKING_9: -3987808785328365644
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -30,6 +30,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 06067ac0f942bd94cbc450bc4b77890c
+    m_Address: SOUND_WAITER_USE_INVITATION_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0927f92e6d099754f8076701e4f0cc3f
+    m_Address: SOUND_WAITER_USE_NEW_INVITATION_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0dacd86d13bb5ce4393135297cb42b48
     m_Address: ANIMATOR_FIK
     m_ReadOnly: 0
@@ -45,6 +55,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a3e504c5cfea20469ab483141603f8c
+    m_Address: SOUND_WAITER_INTRO_1_3_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1dec573841155604ca9f2f6925fe891c
     m_Address: BACKGROUND_CITY1_EXTRAPERLO2
     m_ReadOnly: 0
@@ -57,6 +72,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 270ca277a92a7904ebb71682db774886
     m_Address: SOUND_GERMAN_SHOUTS_COCAI
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 28553b4f9295d324097c9e0c7add3eb3
+    m_Address: SOUND_WAITER_INTRO_1_2_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -80,6 +100,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 339e3b83600a89547803f62570b99ad3
+    m_Address: SOUND_WAITER_INTRO_1_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 346dc621e1a5ee54490696f4afaaccbc
     m_Address: SOUND_FIK_1_OP_1_2_SPANISH
     m_ReadOnly: 0
@@ -97,6 +122,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 39f595ca3b88cd44f82bb4f2e0d225a4
     m_Address: SPRITE_EXTRAPERLO_BAR_FOREGROUND
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c071a350b83828419ad5dbd3f978114
+    m_Address: SOUND_WAITER_USE_INVITATION_1_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -122,6 +152,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 45ed457161bca684f8e1fdee237031d7
     m_Address: SOUND_FIK_INTRO_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 460d7f33a40ef5f4abcc421ade080540
+    m_Address: SOUND_WAITER_INTRO_1_1_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -215,6 +250,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86eed2c7907f8ea428586c25f2722a40
+    m_Address: SOUND_WAITER_USE_INVITATION_3_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 879d3710c546b1c4eaede5b41aa24cce
+    m_Address: SPRITE_WAITER_SORRY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 87ef33c852f130a43a61cf63d3b13987
     m_Address: SPRITE_ATLAS_CITY3_2
     m_ReadOnly: 0
@@ -257,6 +302,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a7da7de3dbf1cce41a6d52c189983d26
     m_Address: SOUND_FIK_2_OP_3_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9bee5551c73b37428d00fe1aac61583
+    m_Address: ANIMATION_WAITER_SORRY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -342,6 +392,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e45ee3065a345494ba9ebc8ad63abfac
     m_Address: MUSIC_SOUTH_NEIGH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9b531c3f35a59345bb6200e458e9db1
+    m_Address: SOUND_WAITER_USE_NEW_INVITATION_2_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

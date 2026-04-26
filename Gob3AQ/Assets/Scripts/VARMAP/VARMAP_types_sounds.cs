@@ -49,6 +49,7 @@ namespace Gob3AQ.VARMAP.Types
         MUSIC_EXTRAPERLO, 
         SOUND_AMBIENCE_WATER_FLOW, 
         SOUND_AMBIENCE_INSIDE_PUB, 
+        SOUND_AMBIENCE_OUTSIDE_PUB, 
         SOUND_LAST, 
         
         SOUND_TOTAL

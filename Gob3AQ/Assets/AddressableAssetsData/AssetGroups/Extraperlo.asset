@@ -70,6 +70,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 439ccf558d5eb534397250dbc6ed40dc
+    m_Address: SPRITE_GERMAN_WAITING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 45ed457161bca684f8e1fdee237031d7
     m_Address: SOUND_FIK_INTRO_1_SPANISH
     m_ReadOnly: 0
@@ -242,6 +247,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fc98ba19b99c4d2458a1035461e2746f
     m_Address: SOUND_FIK_1_OP_0_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe08bd0b27c5f7d498582c315de47a93
+    m_Address: SOUND_AMBIENCE_OUTSIDE_PUB
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

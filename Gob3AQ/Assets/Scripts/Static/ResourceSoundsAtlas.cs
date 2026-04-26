@@ -66,6 +66,7 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"MUSIC_EXTRAPERLO"), /* MUSIC_EXTRAPERLO */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_AMBIENCE_WATER_FLOW"), /* SOUND_AMBIENCE_WATER_FLOW */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_AMBIENCE_INSIDE_PUB"), /* SOUND_AMBIENCE_INSIDE_PUB */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_AMBIENCE_OUTSIDE_PUB"), /* SOUND_AMBIENCE_OUTSIDE_PUB */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

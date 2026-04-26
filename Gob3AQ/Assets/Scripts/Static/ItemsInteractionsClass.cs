@@ -295,7 +295,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_NIGHT, 
-            new GameAction[1]{GameAction.ACTION_SPAWN_FIK_1,}), 
+            new GameAction[2]{GameAction.ACTION_SPAWN_FIK_1,GameAction.ACTION_SPWAN_GERMAN_1,}), 
             
             new( /* UNCHAIN_MANYO_BCKG_DIALOGUE */
             true,false,false,new(GameEvent.EVENT_NONE, false), 
@@ -641,6 +641,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_CROSS_DOOR,
             new GameAction[1]{GameAction.ACTION_TALK_FIK_NOT_CROSS,}), 
             
+            new( /* COND_TALK_GERMAN */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,
+            new GameAction[1]{GameAction.ACTION_TALK_GERMAN,}), 
+            
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,
@@ -873,6 +878,16 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_DOOR_EXTRAPERLO_REAL */
             NameType.NAME_ITEM_CROSS,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_EXTRAPERLO_DOOR_OPENED,}),
             GameSprite.SPRITE_EXTRAPERLO_DOOR_OPENED,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
+            new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK,})),
+            
+            new ( /* ITEM_NPC_GERMAN */
+            NameType.NAME_GERMAN,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_GERMAN_WAITING,}),
+            GameSprite.SPRITE_GERMAN_WAITING,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
+            new(new HashSet<ActionConditions>(1){ActionConditions.COND_TALK_GERMAN,})),
+            
+            new ( /* ITEM_NPC_WAITER */
+            NameType.NAME_WAITER,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_WAITER_STEADY,}),
+            GameSprite.SPRITE_WAITER_STEADY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK,})),
             
             new ( /* ITEM_LAST */
@@ -1767,7 +1782,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_FIK_1_INTRO,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
             
             new( /* ACTION_EVENT_EXTRAPERLO_SAID_PHRASE */
-            false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            true,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_EXTRAPERLO_SAID_PHRASE, false),}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
@@ -1807,6 +1822,18 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ONE,GameAnimation.ANIMATION_NONE),
+            
+            new( /* ACTION_TALK_GERMAN */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_GERMAN_1_INTRO,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            
+            new( /* ACTION_SPWAN_GERMAN_1 */
+            false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_NPC_GERMAN,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
             
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

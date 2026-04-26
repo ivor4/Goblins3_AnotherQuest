@@ -51,6 +51,8 @@ namespace Gob3AQ.VARMAP.Types
         NAME_INK, 
         NAME_FIK, 
         NAME_WATER_FLOWING, 
+        NAME_GERMAN, 
+        NAME_WAITER, 
         NAME_NPC_LAST, 
         
         NAME_TOTAL

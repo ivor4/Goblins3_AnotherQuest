@@ -50,6 +50,13 @@ namespace Gob3AQ.VARMAP.Types
         SOUND_AMBIENCE_WATER_FLOW, 
         SOUND_AMBIENCE_INSIDE_PUB, 
         SOUND_AMBIENCE_OUTSIDE_PUB, 
+        SOUND_GERMAN_INTRO, 
+        SOUND_GERMAN_1_OP_0_0, 
+        SOUND_GERMAN_1_OP_0_1, 
+        SOUND_GERMAN_1_OP_1_0, 
+        SOUND_GERMAN_1_OP_1_1, 
+        SOUND_GERMAN_1_OP_1_2, 
+        SOUND_GERMAN_SHOUTS_COCAI, 
         SOUND_LAST, 
         
         SOUND_TOTAL

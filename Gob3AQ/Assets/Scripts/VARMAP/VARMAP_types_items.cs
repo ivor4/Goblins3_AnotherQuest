@@ -50,6 +50,8 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_FOREGROUND_EXTRP_WALL, 
         ITEM_HIVE1_WATER_FLOWING, 
         ITEM_DOOR_EXTRAPERLO_REAL, 
+        ITEM_NPC_GERMAN, 
+        ITEM_NPC_WAITER, 
         ITEM_LAST, 
         
         ITEM_TOTAL
@@ -133,6 +135,7 @@ namespace Gob3AQ.VARMAP.Types
         COND_USE_INVITATION_INK_2, 
         COND_TALK_FIK, 
         COND_TRY_CROSS_EXTRAPERLO_DOOR, 
+        COND_TALK_GERMAN, 
         COND_LAST, 
         
         COND_TOTAL
@@ -318,6 +321,8 @@ namespace Gob3AQ.VARMAP.Types
         ACTION_DESPAWN_EXTRAPERLO_DOOR, 
         ACTION_SPAWN_EXTRAPERLO_DOOR_REAL, 
         ACTION_ANIMATE_WATER_FLOWING_NIGHT, 
+        ACTION_TALK_GERMAN, 
+        ACTION_SPWAN_GERMAN_1, 
         ACTION_LAST, 
         
         ACTION_TOTAL

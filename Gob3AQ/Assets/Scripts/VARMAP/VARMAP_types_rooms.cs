@@ -18,6 +18,7 @@ namespace Gob3AQ.VARMAP.Types
         CITY1_SOUTH_STREET_1, 
         CITY1_SOUTH_STREET_2, 
         CITY1_EXTRAPERLO1, 
+        CITY1_EXTRAPERLO2, 
         ROOM_LAST, 
         
         ROOMS_TOTAL 

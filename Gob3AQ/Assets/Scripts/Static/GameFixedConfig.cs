@@ -86,6 +86,7 @@ namespace Gob3AQ.FixedConfig
             "SCENE_CITY1_SOUTH_STREET_1",
             "SCENE_CITY1_SOUTH_STREET_2",
             "SCENE_EXTRAPERLO",
+            "SCENE_EXTRAPERLO2",
         };
         
     }

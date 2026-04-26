@@ -67,6 +67,13 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_AMBIENCE_WATER_FLOW"), /* SOUND_AMBIENCE_WATER_FLOW */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_AMBIENCE_INSIDE_PUB"), /* SOUND_AMBIENCE_INSIDE_PUB */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_AMBIENCE_OUTSIDE_PUB"), /* SOUND_AMBIENCE_OUTSIDE_PUB */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_GERMAN_INTRO"), /* SOUND_GERMAN_INTRO */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_GERMAN_1_OP_0_0_SPANISH"), /* SOUND_GERMAN_1_OP_0_0 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_GERMAN_1_OP_0_1_SPANISH"), /* SOUND_GERMAN_1_OP_0_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_GERMAN_1_OP_1_0_SPANISH"), /* SOUND_GERMAN_1_OP_1_0 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_GERMAN_1_OP_1_1_SPANISH"), /* SOUND_GERMAN_1_OP_1_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_GERMAN_1_OP_1_2_SPANISH"), /* SOUND_GERMAN_1_OP_1_2 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_GERMAN_SHOUTS_COCAI"), /* SOUND_GERMAN_SHOUTS_COCAI */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

@@ -487,6 +487,11 @@ namespace Gob3AQ.GameEventMaster
             }
             _removePendingHash.Clear();
 
+            while(VARMAP_GameEventMaster.GET_SHADOW_BUSY_STATE() != BusyState.GAME_NOT_BUSY)
+            {
+                yield return ResourceAtlasClass.WaitForNextFrame;
+            }
+
             VARMAP_GameEventMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameEventMaster);
         }
 

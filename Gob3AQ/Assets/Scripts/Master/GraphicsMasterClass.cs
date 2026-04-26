@@ -263,8 +263,9 @@ namespace Gob3AQ.GraphicsMaster
                     VARMAP_GraphicsMaster.IS_MODULE_LOADED(GameModules.MODULE_GameMaster, out bool gamemasterLoaded);
                     VARMAP_GraphicsMaster.IS_MODULE_LOADED(GameModules.MODULE_LevelMaster, out bool levelmasterLoaded);
                     VARMAP_GraphicsMaster.IS_MODULE_LOADED(GameModules.MODULE_PlayerMaster, out bool playermasterLoaded);
+                    VARMAP_GraphicsMaster.IS_MODULE_LOADED(GameModules.MODULE_GameEventMaster, out bool eventmasterLoaded);
 
-                    if (gamemasterLoaded && levelmasterLoaded && playermasterLoaded)
+                    if (gamemasterLoaded && levelmasterLoaded && playermasterLoaded && eventmasterLoaded)
                     {
                         Room actualRoom = VARMAP_GraphicsMaster.GET_ACTUAL_ROOM();
                         ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(actualRoom);
@@ -589,7 +590,9 @@ namespace Gob3AQ.GraphicsMaster
         {
             _ = evtype;
 
-            if (oldval != newval)
+            Game_Status gstatus = VARMAP_GraphicsMaster.GET_GAMESTATUS();
+
+            if ((oldval != newval) && (gstatus != Game_Status.GAME_STATUS_CHANGING_ROOM) && (gstatus != Game_Status.GAME_STATUS_LOADING))
             {
                 uicanvas_cls.AnimateNewUserInteraction(newval);
             }

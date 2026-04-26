@@ -100,6 +100,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ebc79eb32155c54bbed357125fcb7e1
+    m_Address: SPRITE_FIRE_DANCING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3f9979558bb285644a521c41c2ef5eb7
     m_Address: SPRITE_ATLAS_CITY3_1
     m_ReadOnly: 0
@@ -107,6 +112,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 439ccf558d5eb534397250dbc6ed40dc
     m_Address: SPRITE_GERMAN_WAITING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44589364e85a52b45aa48ceb03a27dec
+    m_Address: ANIMATION_FIRE_DANCING
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -182,6 +192,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6f0c1b3fa2b4f37458e3c57577627c94
     m_Address: SPRITE_ATLAS_CITY4_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 785850153a68df44f8a532974bea456a
+    m_Address: ANIMATOR_FIRE
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

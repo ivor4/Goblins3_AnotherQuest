@@ -310,8 +310,8 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameAction[1]{GameAction.ACTION_DIALOGUE_TALK_POOR_MAN_WC_BCKG,}), 
             
             new( /* UNCHAIN_EXTRAPERLO_DOOR */
-            false,false,false,new(GameEvent.EVENT_EXTRAPERLO_SAID_PHRASE, false), 
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            false,false,false,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_EXTRAPERLO_SAID_PHRASE, true),}, 
             MomentType.MOMENT_NIGHT, 
             new GameAction[1]{GameAction.ACTION_SPAWN_EXTRAPERLO_DOOR,}), 
             

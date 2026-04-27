@@ -165,6 +165,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 49571f92cb850fe46adf943910d82d51
+    m_Address: SPRITE_WAITER_TALKING_LOOP
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4a26e9addc6ced44397b9a389d72224b
     m_Address: ANIMATION_GERMAN_STEADY
     m_ReadOnly: 0
@@ -345,6 +350,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c262511898da24643bd5b7b9994ec33a
+    m_Address: SPRITE_WAITER_SHORT_ANSWER
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c29215cd6f931d54397ab8f7f213fc60
     m_Address: ANIMATION_WAITER_TALKING
     m_ReadOnly: 0
@@ -407,6 +417,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ee4de0511f793954b9da180e4269f80e
     m_Address: SOUND_GERMAN_INTRO
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f253c8c93976abe4e813c60d6de9cd85
+    m_Address: ANIMATION_WAITER_SHORT_ANSWER
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

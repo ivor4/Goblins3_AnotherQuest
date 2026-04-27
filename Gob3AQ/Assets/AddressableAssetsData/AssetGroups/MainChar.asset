@@ -120,11 +120,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c262511898da24643bd5b7b9994ec33a
-    m_Address: SPRITE_WAITER_TALKING
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d783913af5b438246b0c02b63ce6a34a
     m_Address: SPRITE_MAINCHAR_LAUGH
     m_ReadOnly: 0

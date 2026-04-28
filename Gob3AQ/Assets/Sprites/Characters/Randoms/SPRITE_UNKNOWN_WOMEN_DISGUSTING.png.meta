@@ -1,0 +1,699 @@
+fileFormatVersion: 2
+guid: 5743b86cec143664fbeb44d82210f6c6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2937575997673496975
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_0
+  - first:
+      213: 7227021336581254340
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_1
+  - first:
+      213: 65364239675312019
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_2
+  - first:
+      213: 5458932268306479396
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_3
+  - first:
+      213: 1220028554599201974
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_4
+  - first:
+      213: -2186048927618019111
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_5
+  - first:
+      213: 7743752047970796838
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_6
+  - first:
+      213: -7114293249671635120
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_7
+  - first:
+      213: 4432426706167669204
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_8
+  - first:
+      213: 6663961100184028513
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_9
+  - first:
+      213: -8058185229798897400
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_10
+  - first:
+      213: -683966644202168055
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_11
+  - first:
+      213: 7258725228653445630
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_12
+  - first:
+      213: 5203144932053867074
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_13
+  - first:
+      213: -6994029570965463466
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_14
+  - first:
+      213: -457368670473855426
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_15
+  - first:
+      213: -4284825565420968217
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_16
+  - first:
+      213: 6314170304561562294
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_17
+  - first:
+      213: -506826958039892185
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_18
+  - first:
+      213: 638297327544419205
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_19
+  - first:
+      213: 2255161158007498212
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_20
+  - first:
+      213: 8750859956961478342
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_21
+  - first:
+      213: 2393822945433305692
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_22
+  - first:
+      213: -389230592592892050
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_23
+  - first:
+      213: -3567815381048162306
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_24
+  - first:
+      213: -4330314349446665981
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_25
+  - first:
+      213: -2754846673031888656
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_26
+  - first:
+      213: 1762404223212723168
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_27
+  - first:
+      213: 7449751429772266173
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_28
+  - first:
+      213: 3892425331763614974
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_29
+  - first:
+      213: 4377299101098043667
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_30
+  - first:
+      213: -7587155229848343117
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_31
+  - first:
+      213: 1437778259212914727
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_32
+  - first:
+      213: -8722012216084882125
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_33
+  - first:
+      213: -5416376580542407848
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_34
+  - first:
+      213: -4385500204676380725
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_35
+  - first:
+      213: -8356267376104738943
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_36
+  - first:
+      213: -3761858658080838482
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_37
+  - first:
+      213: -2543969078820402995
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_38
+  - first:
+      213: 8105272745721773688
+    second: SPRITE_TWO_FRIENDS_DISGUSTING_39
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_DISGUSTING_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cebbb113b03aac4d8929f0161adcc8f
+      internalID: 1433693645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_DISGUSTING_1
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a64aba6e0850beb4a8ae246f0cd765a5
+      internalID: -105590544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_DISGUSTING_2
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88c246da10158eb488ab3a7ef23fc5ca
+      internalID: 1565022102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_DISGUSTING_3
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00701f2f0d3353d47abec574c5db2b71
+      internalID: -1565327593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_DISGUSTING_4
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd842589377412a43bb51c95225de2b1
+      internalID: 1425230293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_DISGUSTING_5
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7de651e8f24c4254eb1f4579493c36e7
+      internalID: -1750988330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_DISGUSTING_6
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98cf757a7d9833a418610548833c75f4
+      internalID: -664916793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_DISGUSTING_7
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28c9e0479307bbd4bb0060dae9b70abb
+      internalID: 1065738962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_DISGUSTING_8
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38c5420c9a0806547977b03602487766
+      internalID: -186724979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_DISGUSTING_9
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c934675dd09463499fb18df226adf76
+      internalID: -35818390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_DISGUSTING_10
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb68d6d6d8471974d8cd2025a190a118
+      internalID: 1170319285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_DISGUSTING_11
+      rect:
+        serializedVersion: 2
+        x: 5280
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 046256b12eba93e439df88a9766da2bc
+      internalID: 1114423410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_DISGUSTING_12
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f02c797587ebf24eb072f088c3008c1
+      internalID: -340458881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_DISGUSTING_13
+      rect:
+        serializedVersion: 2
+        x: 6240
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3292174c4a1d7cc4aaeb16a802616e54
+      internalID: -1313948055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_DISGUSTING_14
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c96758cf32994241892e153cd22d830
+      internalID: -690665840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_DISGUSTING_15
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a2ef09186fb9bd4fae5e4c82d723d9a
+      internalID: 904416533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_DISGUSTING_16
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d16633b061fa4b24089b45b05dee9622
+      internalID: -2056149358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_DISGUSTING_17
+      rect:
+        serializedVersion: 2
+        x: 8160
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 427ca79dfeccf7b4c9bca87a09cf0bdb
+      internalID: -313033065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_DISGUSTING_18
+      rect:
+        serializedVersion: 2
+        x: 8640
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37a320985011ca24dbe55e1fbb97e96e
+      internalID: -191759984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_DISGUSTING_19
+      rect:
+        serializedVersion: 2
+        x: 9120
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b2c28e95d9b24c4da721773dd867a5f
+      internalID: 283736553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 58446dff18c70d1469400f6ba12edf91
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":20.0,"y":1.0},"gridSpriteSize":{"x":480.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_UNKNOWN_WOMEN_DISGUSTING_0: 1433693645
+      SPRITE_UNKNOWN_WOMEN_DISGUSTING_1: -105590544
+      SPRITE_UNKNOWN_WOMEN_DISGUSTING_10: 1170319285
+      SPRITE_UNKNOWN_WOMEN_DISGUSTING_11: 1114423410
+      SPRITE_UNKNOWN_WOMEN_DISGUSTING_12: -340458881
+      SPRITE_UNKNOWN_WOMEN_DISGUSTING_13: -1313948055
+      SPRITE_UNKNOWN_WOMEN_DISGUSTING_14: -690665840
+      SPRITE_UNKNOWN_WOMEN_DISGUSTING_15: 904416533
+      SPRITE_UNKNOWN_WOMEN_DISGUSTING_16: -2056149358
+      SPRITE_UNKNOWN_WOMEN_DISGUSTING_17: -313033065
+      SPRITE_UNKNOWN_WOMEN_DISGUSTING_18: -191759984
+      SPRITE_UNKNOWN_WOMEN_DISGUSTING_19: 283736553
+      SPRITE_UNKNOWN_WOMEN_DISGUSTING_2: 1565022102
+      SPRITE_UNKNOWN_WOMEN_DISGUSTING_3: -1565327593
+      SPRITE_UNKNOWN_WOMEN_DISGUSTING_4: 1425230293
+      SPRITE_UNKNOWN_WOMEN_DISGUSTING_5: -1750988330
+      SPRITE_UNKNOWN_WOMEN_DISGUSTING_6: -664916793
+      SPRITE_UNKNOWN_WOMEN_DISGUSTING_7: 1065738962
+      SPRITE_UNKNOWN_WOMEN_DISGUSTING_8: -186724979
+      SPRITE_UNKNOWN_WOMEN_DISGUSTING_9: -35818390
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

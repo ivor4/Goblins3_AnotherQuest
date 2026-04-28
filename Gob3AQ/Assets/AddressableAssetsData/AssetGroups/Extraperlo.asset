@@ -35,6 +35,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 069c0c9bf6eda8c40a0683d4eb315a9a
+    m_Address: SOUND_UNKNOWN_WOMEN_INTRO_1_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0927f92e6d099754f8076701e4f0cc3f
     m_Address: SOUND_WAITER_USE_NEW_INVITATION_1_SPANISH
     m_ReadOnly: 0
@@ -77,6 +82,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 28553b4f9295d324097c9e0c7add3eb3
     m_Address: SOUND_WAITER_INTRO_1_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f72f864738bda444a80870be2979150
+    m_Address: ANIMATION_UNKNOWN_WOMEN_STEADY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -125,6 +135,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a07966fe9f5dce4397552073fac3fc7
+    m_Address: SPRITE_UNKNOWN_WOMEN_GOSSIP
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3c071a350b83828419ad5dbd3f978114
     m_Address: SOUND_WAITER_USE_INVITATION_1_SPANISH
     m_ReadOnly: 0
@@ -170,6 +185,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 49e505f76186d444fb311fbb24290bda
+    m_Address: ANIMATION_UNKNOWN_WOMEN_DISGUSTING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4a26e9addc6ced44397b9a389d72224b
     m_Address: ANIMATION_GERMAN_STEADY
     m_ReadOnly: 0
@@ -205,6 +225,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5743b86cec143664fbeb44d82210f6c6
+    m_Address: SPRITE_UNKNOWN_WOMEN_DISGUSTING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 57b00f3ca19567140a4856de15b53409
     m_Address: SOUND_FIK_1_OP_2_0_SPANISH
     m_ReadOnly: 0
@@ -212,6 +237,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 68085ed6f2f37a14ab8bf4e9976931e9
     m_Address: ANIMATION_WAITER_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 69535e413a1c9f746b455edfa5ccad10
+    m_Address: ANIMATOR_UNKNOWN_WOMEN
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -315,8 +345,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae46dd7e06c2d82428d0b74b8888fad7
+    m_Address: SPRITE_UNKNOWN_WOMEN_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b1920bf7bb312a249b68e89b42fc1580
+    m_Address: ANIMATION_UNKNOWN_WOMEN_TALKING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b355593c41897da4aaa01203bf7efbb8
     m_Address: ANIMATOR_GERMAN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b426f637ea9768e4bb3805b406e218a2
+    m_Address: SOUND_UNKNOWN_WOMEN_INTRO_1_0_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -377,6 +422,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d7cc7bd2ae33f9843a726f26e6e07015
     m_Address: SOUND_FIK_2_OP_1_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d976682e583a6d140a0815cbb40f87c7
+    m_Address: SPRITE_ATLAS_UNKNOWN_WOMEN_1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

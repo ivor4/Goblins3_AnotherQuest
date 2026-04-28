@@ -1,0 +1,696 @@
+fileFormatVersion: 2
+guid: ae46dd7e06c2d82428d0b74b8888fad7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5247616859490301793
+    second: SPRITE_TWO_FRIENDS_TALK_0
+  - first:
+      213: -5884151951325915724
+    second: SPRITE_TWO_FRIENDS_TALK_1
+  - first:
+      213: 2375001046967245609
+    second: SPRITE_TWO_FRIENDS_TALK_2
+  - first:
+      213: -8625704177309531776
+    second: SPRITE_TWO_FRIENDS_TALK_3
+  - first:
+      213: 7924293475718665095
+    second: SPRITE_TWO_FRIENDS_TALK_4
+  - first:
+      213: 1965889686848904020
+    second: SPRITE_TWO_FRIENDS_TALK_5
+  - first:
+      213: -2231053264676533214
+    second: SPRITE_TWO_FRIENDS_TALK_6
+  - first:
+      213: 470581356955168662
+    second: SPRITE_TWO_FRIENDS_TALK_7
+  - first:
+      213: -6764417324967136826
+    second: SPRITE_TWO_FRIENDS_TALK_8
+  - first:
+      213: -8126644159776210099
+    second: SPRITE_TWO_FRIENDS_TALK_9
+  - first:
+      213: 6056114351276321519
+    second: SPRITE_TWO_FRIENDS_TALK_10
+  - first:
+      213: -381215424819812685
+    second: SPRITE_TWO_FRIENDS_TALK_11
+  - first:
+      213: -5271165553751122422
+    second: SPRITE_TWO_FRIENDS_TALK_12
+  - first:
+      213: -1228976653293594594
+    second: SPRITE_TWO_FRIENDS_TALK_13
+  - first:
+      213: 6273618504825885236
+    second: SPRITE_TWO_FRIENDS_TALK_14
+  - first:
+      213: 2889255018013063769
+    second: SPRITE_TWO_FRIENDS_TALK_15
+  - first:
+      213: 8481638424437783444
+    second: SPRITE_TWO_FRIENDS_TALK_16
+  - first:
+      213: 1767598079976845283
+    second: SPRITE_TWO_FRIENDS_TALK_17
+  - first:
+      213: 8626356706014342035
+    second: SPRITE_TWO_FRIENDS_TALK_18
+  - first:
+      213: -5625828879118388196
+    second: SPRITE_TWO_FRIENDS_TALK_19
+  - first:
+      213: -8104230252327733404
+    second: SPRITE_TWO_FRIENDS_TALK_20
+  - first:
+      213: -6130663250754489068
+    second: SPRITE_TWO_FRIENDS_TALK_21
+  - first:
+      213: 3790768661831912746
+    second: SPRITE_TWO_FRIENDS_TALK_22
+  - first:
+      213: -1296566123494202960
+    second: SPRITE_TWO_FRIENDS_TALK_23
+  - first:
+      213: -3440751621512691659
+    second: SPRITE_TWO_FRIENDS_TALK_24
+  - first:
+      213: 4269198056768855050
+    second: SPRITE_TWO_FRIENDS_TALK_25
+  - first:
+      213: -8713200427491369530
+    second: SPRITE_TWO_FRIENDS_TALK_26
+  - first:
+      213: 8963408698793487927
+    second: SPRITE_TWO_FRIENDS_TALK_27
+  - first:
+      213: 4556985073627076448
+    second: SPRITE_TWO_FRIENDS_TALK_28
+  - first:
+      213: 7819888866371064281
+    second: SPRITE_TWO_FRIENDS_TALK_29
+  - first:
+      213: 6810765737472928585
+    second: SPRITE_TWO_FRIENDS_TALK_30
+  - first:
+      213: 5430324319294838973
+    second: SPRITE_TWO_FRIENDS_TALK_31
+  - first:
+      213: 6364781118329887012
+    second: SPRITE_TWO_FRIENDS_TALK_32
+  - first:
+      213: 2379068004530321523
+    second: SPRITE_TWO_FRIENDS_TALK_33
+  - first:
+      213: -3760584484326829746
+    second: SPRITE_TWO_FRIENDS_TALK_34
+  - first:
+      213: 3811493409082601062
+    second: SPRITE_TWO_FRIENDS_TALK_35
+  - first:
+      213: -2679478927628068571
+    second: SPRITE_TWO_FRIENDS_TALK_36
+  - first:
+      213: -4596553001048567966
+    second: SPRITE_TWO_FRIENDS_TALK_37
+  - first:
+      213: -5919364644735224045
+    second: SPRITE_TWO_FRIENDS_TALK_38
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_STEADY_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37201b6bb7b50a242ad55c572799446d
+      internalID: -1718229388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_STEADY_1
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 834dacd6095dadd4c82e40bc4775aafa
+      internalID: 1784402080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_STEADY_2
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac3f881ec44fc0e489e37fe25c7ebeba
+      internalID: -352217709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_STEADY_3
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ab11e43414883149adcbd4240a08322
+      internalID: -264842747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_STEADY_4
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 107af14d724654845927ff627fe6b75b
+      internalID: 698241212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_STEADY_5
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f096b41affd7a14490f7b2226e351e5
+      internalID: -1658409381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_STEADY_6
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2c76559823ab514297561e3bcc1865e
+      internalID: 343615218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_STEADY_7
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f065f45f8d006a9459b5240cbae58e70
+      internalID: -1522960919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_STEADY_8
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2641188c5560a204da76d681bf85057b
+      internalID: 1929820813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_STEADY_9
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7f211d4c5ddf634c85739efe2449aeb
+      internalID: 172853320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_STEADY_10
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f792c4494407d74eb05ff7111e736f5
+      internalID: -2135801409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_STEADY_11
+      rect:
+        serializedVersion: 2
+        x: 5280
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52e6c772cdf1a2c4e8419b4c58027cb1
+      internalID: -1239435346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_STEADY_12
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d379bd321c2e0554082cd2bb1720f1f1
+      internalID: 1500984297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_STEADY_13
+      rect:
+        serializedVersion: 2
+        x: 6240
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a32fcee725079a4492b2290e666ea15
+      internalID: 861345517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_STEADY_14
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa31e52a84b9eca458d12bebab44851d
+      internalID: -539657983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_STEADY_15
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9748a9c5f9f6813428291010c58cdfa1
+      internalID: -1372539668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_STEADY_16
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63211417531232b4bb14890556ba11de
+      internalID: 563134913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_STEADY_17
+      rect:
+        serializedVersion: 2
+        x: 8160
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66991908753b40f4f812a1139fa99281
+      internalID: -1524975141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_STEADY_18
+      rect:
+        serializedVersion: 2
+        x: 8640
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed18aeaed01c7d84b9416d586fd8a8b6
+      internalID: -1513555662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_STEADY_19
+      rect:
+        serializedVersion: 2
+        x: 9120
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a92b70b1ff4b5c4cb6ae354a5f061fc
+      internalID: 568179008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d5f0207a9dd9f0d47a8e58a42cb6a1d2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":20.0,"y":1.0},"gridSpriteSize":{"x":480.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_UNKNOWN_WOMEN_STEADY_0: -1718229388
+      SPRITE_UNKNOWN_WOMEN_STEADY_1: 1784402080
+      SPRITE_UNKNOWN_WOMEN_STEADY_10: -2135801409
+      SPRITE_UNKNOWN_WOMEN_STEADY_11: -1239435346
+      SPRITE_UNKNOWN_WOMEN_STEADY_12: 1500984297
+      SPRITE_UNKNOWN_WOMEN_STEADY_13: 861345517
+      SPRITE_UNKNOWN_WOMEN_STEADY_14: -539657983
+      SPRITE_UNKNOWN_WOMEN_STEADY_15: -1372539668
+      SPRITE_UNKNOWN_WOMEN_STEADY_16: 563134913
+      SPRITE_UNKNOWN_WOMEN_STEADY_17: -1524975141
+      SPRITE_UNKNOWN_WOMEN_STEADY_18: -1513555662
+      SPRITE_UNKNOWN_WOMEN_STEADY_19: 568179008
+      SPRITE_UNKNOWN_WOMEN_STEADY_2: -352217709
+      SPRITE_UNKNOWN_WOMEN_STEADY_3: -264842747
+      SPRITE_UNKNOWN_WOMEN_STEADY_4: 698241212
+      SPRITE_UNKNOWN_WOMEN_STEADY_5: -1658409381
+      SPRITE_UNKNOWN_WOMEN_STEADY_6: 343615218
+      SPRITE_UNKNOWN_WOMEN_STEADY_7: -1522960919
+      SPRITE_UNKNOWN_WOMEN_STEADY_8: 1929820813
+      SPRITE_UNKNOWN_WOMEN_STEADY_9: 172853320
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

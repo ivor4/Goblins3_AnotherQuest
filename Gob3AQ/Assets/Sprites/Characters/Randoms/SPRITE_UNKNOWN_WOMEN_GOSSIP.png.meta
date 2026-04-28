@@ -1,0 +1,467 @@
+fileFormatVersion: 2
+guid: 3a07966fe9f5dce4397552073fac3fc7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1529775752020185221
+    second: SPRITE_TWO_FRIENDS_GOSSIP_0
+  - first:
+      213: -1732836120833088500
+    second: SPRITE_TWO_FRIENDS_GOSSIP_1
+  - first:
+      213: -3313263059795515972
+    second: SPRITE_TWO_FRIENDS_GOSSIP_2
+  - first:
+      213: 7794181866571227087
+    second: SPRITE_TWO_FRIENDS_GOSSIP_3
+  - first:
+      213: 3168406597221402781
+    second: SPRITE_TWO_FRIENDS_GOSSIP_4
+  - first:
+      213: -90065027735207771
+    second: SPRITE_TWO_FRIENDS_GOSSIP_5
+  - first:
+      213: -9101831746319500842
+    second: SPRITE_TWO_FRIENDS_GOSSIP_6
+  - first:
+      213: 5549984629865296274
+    second: SPRITE_TWO_FRIENDS_GOSSIP_7
+  - first:
+      213: 6181842079608830720
+    second: SPRITE_TWO_FRIENDS_GOSSIP_8
+  - first:
+      213: -5689984549268800737
+    second: SPRITE_TWO_FRIENDS_GOSSIP_9
+  - first:
+      213: -4268399419532548622
+    second: SPRITE_TWO_FRIENDS_GOSSIP_10
+  - first:
+      213: 4412920318593852429
+    second: SPRITE_TWO_FRIENDS_GOSSIP_11
+  - first:
+      213: -2080670948679626668
+    second: SPRITE_TWO_FRIENDS_GOSSIP_12
+  - first:
+      213: 1535843832365784925
+    second: SPRITE_TWO_FRIENDS_GOSSIP_13
+  - first:
+      213: 1077662625985319781
+    second: SPRITE_TWO_FRIENDS_GOSSIP_14
+  - first:
+      213: 341651567001446938
+    second: SPRITE_TWO_FRIENDS_GOSSIP_15
+  - first:
+      213: 1714269971451590400
+    second: SPRITE_TWO_FRIENDS_GOSSIP_16
+  - first:
+      213: -1460910789085492634
+    second: SPRITE_TWO_FRIENDS_GOSSIP_17
+  - first:
+      213: -4672304114174834325
+    second: SPRITE_TWO_FRIENDS_GOSSIP_18
+  - first:
+      213: 7182170284379275179
+    second: SPRITE_TWO_FRIENDS_GOSSIP_19
+  - first:
+      213: -5642044103727476286
+    second: SPRITE_TWO_FRIENDS_GOSSIP_20
+  - first:
+      213: 3463098971754023303
+    second: SPRITE_TWO_FRIENDS_GOSSIP_21
+  - first:
+      213: 3680067589143091064
+    second: SPRITE_TWO_FRIENDS_GOSSIP_22
+  - first:
+      213: 8723932023446476576
+    second: SPRITE_TWO_FRIENDS_GOSSIP_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_GOSSIP_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 896913d70cbc4cd479779eda9a359953
+      internalID: -212125846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_GOSSIP_1
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90674df72b4f7f24d99f6b8cc5a6215f
+      internalID: -141464174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_GOSSIP_2
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dad46c3d0539b604a8cb95078b5ef84a
+      internalID: 894052155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_GOSSIP_3
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03d630a7964deec40840ef8883a36de4
+      internalID: 630560313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_GOSSIP_4
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77019db3be29a8441a2b40d74e5aeddb
+      internalID: -934015703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_GOSSIP_5
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d8be5a8abd12cb49aedd3fd277ee289
+      internalID: 1775021783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_GOSSIP_6
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b705284ef882dd842a32a66d4ba08a3e
+      internalID: 1156705822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_GOSSIP_7
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71ade45c05986ee4e9723de4f630c1b8
+      internalID: 1883288770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_GOSSIP_8
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a83ccb5d23ed1be43a37639fefb352b4
+      internalID: 232733385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_GOSSIP_9
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94b8617298af32343a18ef0ad9922c77
+      internalID: 938714494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_GOSSIP_10
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4159c4a28d49c904098b24147f1b5c5d
+      internalID: -735170181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_UNKNOWN_WOMEN_GOSSIP_11
+      rect:
+        serializedVersion: 2
+        x: 5280
+        y: 0
+        width: 480
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74fea850ff837d542ad39640b8493fc5
+      internalID: 1380038197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 0c4405f2359dff7468981d30dc05361a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":12.0,"y":1.0},"gridSpriteSize":{"x":480.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_UNKNOWN_WOMEN_GOSSIP_0: -212125846
+      SPRITE_UNKNOWN_WOMEN_GOSSIP_1: -141464174
+      SPRITE_UNKNOWN_WOMEN_GOSSIP_10: -735170181
+      SPRITE_UNKNOWN_WOMEN_GOSSIP_11: 1380038197
+      SPRITE_UNKNOWN_WOMEN_GOSSIP_2: 894052155
+      SPRITE_UNKNOWN_WOMEN_GOSSIP_3: 630560313
+      SPRITE_UNKNOWN_WOMEN_GOSSIP_4: -934015703
+      SPRITE_UNKNOWN_WOMEN_GOSSIP_5: 1775021783
+      SPRITE_UNKNOWN_WOMEN_GOSSIP_6: 1156705822
+      SPRITE_UNKNOWN_WOMEN_GOSSIP_7: 1883288770
+      SPRITE_UNKNOWN_WOMEN_GOSSIP_8: 232733385
+      SPRITE_UNKNOWN_WOMEN_GOSSIP_9: 938714494
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

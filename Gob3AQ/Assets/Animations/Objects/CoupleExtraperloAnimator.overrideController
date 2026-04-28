@@ -6,10 +6,8 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WaterFlowingAnimator
+  m_Name: CoupleExtraperloAnimator
   m_Controller: {fileID: 9100000, guid: 65e313ed732dd95429b91949e02f8ef3, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: 6306ba7acd6778444a6b50dafc4e9f74, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 5e64325608f8a364ebd5c9e498f7b7ff, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: 8dfa7dda9197ea94882a5de9f0d40928, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: fe2e2d70e7c7a404684ddbe0d93e40c2, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 1994cf3ff8de9c8489f52e5a444c36cc, type: 2}

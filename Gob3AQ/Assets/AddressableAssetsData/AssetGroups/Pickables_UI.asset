@@ -100,6 +100,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8dfa7dda9197ea94882a5de9f0d40928
+    m_Address: ANIMATION_GENERIC_SPECIAL_CYCLE_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 92d845b6379f4fd45bb81c5c91f0fb6f
     m_Address: SCENE_BASE
     m_ReadOnly: 0

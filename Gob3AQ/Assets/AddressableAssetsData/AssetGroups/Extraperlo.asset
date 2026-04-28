@@ -60,6 +60,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1994cf3ff8de9c8489f52e5a444c36cc
+    m_Address: ANIMATION_COUPLE_EXTRAPERLO_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1a3e504c5cfea20469ab483141603f8c
     m_Address: SOUND_WAITER_INTRO_1_3_SPANISH
     m_ReadOnly: 0
@@ -82,6 +87,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 28553b4f9295d324097c9e0c7add3eb3
     m_Address: SOUND_WAITER_INTRO_1_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b9fd097ba1ec284a823a5b5d0d6e32e
+    m_Address: SPRITE_EXTRAPERLO_COUPLE_TALKING
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -305,6 +315,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f22180bb75cf934191cb5f31f62bc9a
+    m_Address: ANIMATOR_COUPLE_EXTRAPERLO
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 91c7fcbcd14684148838b17b9d4247f4
     m_Address: SOUND_GERMAN_1_OP_1_1_SPANISH
     m_ReadOnly: 0
@@ -487,6 +502,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fe08bd0b27c5f7d498582c315de47a93
     m_Address: SOUND_AMBIENCE_OUTSIDE_PUB
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff35b0d97ac26354faa7a12053615bad
+    m_Address: SPRITE_ATLAS_EXTRAPERLO_COUPLE
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

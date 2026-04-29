@@ -40,6 +40,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 073ce859b2166a54abbe67ec7fe5d6d1
+    m_Address: SOUND_ARTURO_EXTRAPERLO_INTRO_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0927f92e6d099754f8076701e4f0cc3f
     m_Address: SOUND_WAITER_USE_NEW_INVITATION_1_SPANISH
     m_ReadOnly: 0
@@ -57,6 +62,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 11e946a5770b3c14c9d08cc14a375bab
     m_Address: SPRITE_ARTURO_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 12a9c37928c50df478b500ad18606167
+    m_Address: SOUND_ARTURO_EXTRAPERLO_OP_2_6_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -95,6 +105,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 28eff4afd8f26c0418b611223c2d0b3d
+    m_Address: SOUND_ARTURO_EXTRAPERLO_OP_1_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2b9fd097ba1ec284a823a5b5d0d6e32e
     m_Address: SPRITE_EXTRAPERLO_COUPLE_TALKING
     m_ReadOnly: 0
@@ -122,6 +137,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 334dc900517d3b045a29d6a884cc39c3
     m_Address: SOUND_FIK_1_OP_0_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 336a3bd4433be3f408c1ce237a540e70
+    m_Address: SOUND_ARTURO_EXTRAPERLO_OP_2_0_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -180,6 +200,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44c6307f37dac0b4ea34303d83307ff6
+    m_Address: SOUND_ARTURO_EXTRAPERLO_OP_0_3_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 45ed457161bca684f8e1fdee237031d7
     m_Address: SOUND_FIK_INTRO_1_SPANISH
     m_ReadOnly: 0
@@ -215,6 +240,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51f1bb1c6cba3c14db7cfb30100f4751
+    m_Address: ANIMATOR_ARTURO
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 52618f438a2f4be4db556cc572da3446
     m_Address: SOUND_FIK_2_OP_2_0_SPANISH
     m_ReadOnly: 0
@@ -245,6 +275,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 577cc2344471bc54b975ca1d49caf91e
+    m_Address: SOUND_ARTURO_EXTRAPERLO_OP_0_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 57b00f3ca19567140a4856de15b53409
     m_Address: SOUND_FIK_1_OP_2_0_SPANISH
     m_ReadOnly: 0
@@ -252,6 +287,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 68085ed6f2f37a14ab8bf4e9976931e9
     m_Address: ANIMATION_WAITER_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68e71c3d563d7b942815839d80f4f420
+    m_Address: SOUND_ARTURO_EXTRAPERLO_OP_2_2_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -280,8 +320,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7260b020937d1924aa71c471a24dd68a
+    m_Address: SOUND_ARTURO_EXTRAPERLO_OP_2_5_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 785850153a68df44f8a532974bea456a
     m_Address: ANIMATOR_FIRE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79eb1b858a04e944ebf2c28336661380
+    m_Address: SOUND_ARTURO_EXTRAPERLO_OP_0_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a1461abe33cfd4429596b9b2c02c09d
+    m_Address: SOUND_ARTURO_EXTRAPERLO_OP_0_2_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -320,6 +375,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d074f52d9d77c145b62e5455c91e4f2
+    m_Address: SOUND_ARTURO_EXTRAPERLO_OP_1_3_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d4fda07694ac524d9369ab6202a1bbf
+    m_Address: SOUND_ARTURO_EXTRAPERLO_OP_1_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8f22180bb75cf934191cb5f31f62bc9a
     m_Address: ANIMATOR_COUPLE_EXTRAPERLO
     m_ReadOnly: 0
@@ -352,6 +417,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a37a5e345e47ee64b9522aae3283ddef
     m_Address: SPRITE_NPC_FIK_TALKING_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a5c6d07b7fae3b940a5587be1a6a74fb
+    m_Address: SOUND_ARTURO_EXTRAPERLO_OP_2_3_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -435,6 +505,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c888b1d337cef3a42af9232c1cba7711
+    m_Address: SOUND_ARTURO_EXTRAPERLO_OP_2_7_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c94e104ce2014b544898f8b28520177d
     m_Address: SOUND_FIK_1_OP_1_3_SPANISH
     m_ReadOnly: 0
@@ -442,6 +517,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cfa6f3a9dfc336341a88af21b313d3bf
     m_Address: SOUND_FIK_NOT_CROSS_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d57e6979b653126488d3a65fccfffe68
+    m_Address: SOUND_ARTURO_EXTRAPERLO_OP_2_4_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d654416b1ef085a4986d322e4e3c6646
+    m_Address: SOUND_ARTURO_EXTRAPERLO_OP_2_1_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -465,8 +550,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df698d525a906d34b98987c33ee7764e
+    m_Address: ANIMATION_ARTURO_TALKING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: df9c5491fa5b75741987ae8c77acc1d2
     m_Address: SOUND_GERMAN_1_OP_1_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dfdc72d911d2de44c80af6f8d8e05bb9
+    m_Address: SOUND_ARTURO_EXTRAPERLO_OP_1_4_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -482,6 +577,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e45ee3065a345494ba9ebc8ad63abfac
     m_Address: MUSIC_SOUTH_NEIGH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e53d29b0695910c4783b58fa0dcc1e9a
+    m_Address: SOUND_OBSERVE_EXTRAPERLO_ARTURO_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e5bfa4717bd308743a14a0e75e18d144
+    m_Address: SOUND_ARTURO_EXTRAPERLO_OP_1_1_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -502,6 +607,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f253c8c93976abe4e813c60d6de9cd85
     m_Address: ANIMATION_WAITER_SHORT_ANSWER
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f3d0a7c5156c0fe438bdfc158036212e
+    m_Address: ANIMATION_ARTURO_STEADY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -1,0 +1,639 @@
+fileFormatVersion: 2
+guid: 11e946a5770b3c14c9d08cc14a375bab
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1674967879303853684
+    second: SPRITE_ARTURO_STEADY_0
+  - first:
+      213: 3493231825000603544
+    second: SPRITE_ARTURO_STEADY_1
+  - first:
+      213: -6932815002707186721
+    second: SPRITE_ARTURO_STEADY_2
+  - first:
+      213: -7877044719868048069
+    second: SPRITE_ARTURO_STEADY_3
+  - first:
+      213: -3776203512995312338
+    second: SPRITE_ARTURO_STEADY_4
+  - first:
+      213: -3920917086434654300
+    second: SPRITE_ARTURO_STEADY_5
+  - first:
+      213: -6164225772010963074
+    second: SPRITE_ARTURO_STEADY_6
+  - first:
+      213: 4055334326839833885
+    second: SPRITE_ARTURO_STEADY_7
+  - first:
+      213: 4702403273802003317
+    second: SPRITE_ARTURO_STEADY_8
+  - first:
+      213: 7735968802484445374
+    second: SPRITE_ARTURO_STEADY_9
+  - first:
+      213: -3413164263632189390
+    second: SPRITE_ARTURO_STEADY_10
+  - first:
+      213: -6905119515373922847
+    second: SPRITE_ARTURO_STEADY_11
+  - first:
+      213: 7450130406913878082
+    second: SPRITE_ARTURO_STEADY_12
+  - first:
+      213: -4766629186236779178
+    second: SPRITE_ARTURO_STEADY_13
+  - first:
+      213: 6878390414646587075
+    second: SPRITE_ARTURO_STEADY_14
+  - first:
+      213: 4608449995687660209
+    second: SPRITE_ARTURO_STEADY_15
+  - first:
+      213: -5225786862056841847
+    second: SPRITE_ARTURO_STEADY_16
+  - first:
+      213: 8928507680225124157
+    second: SPRITE_ARTURO_STEADY_17
+  - first:
+      213: -5629170499450154040
+    second: SPRITE_ARTURO_STEADY_18
+  - first:
+      213: -5539173702508178811
+    second: SPRITE_ARTURO_STEADY_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_ARTURO_STEADY_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 384
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8987ef869151c8e0800000000000000
+      internalID: -1674967879303853684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ARTURO_STEADY_1
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 384
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89f104f36d37a7030800000000000000
+      internalID: 3493231825000603544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ARTURO_STEADY_2
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 384
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdba3269c71b9cf90800000000000000
+      internalID: -6932815002707186721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ARTURO_STEADY_3
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 384
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3d0668cf8d1fa290800000000000000
+      internalID: -7877044719868048069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ARTURO_STEADY_4
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 384
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2d055089ea389bc0800000000000000
+      internalID: -3776203512995312338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ARTURO_STEADY_5
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 384
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a78d4d0faa1699c0800000000000000
+      internalID: -3920917086434654300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ARTURO_STEADY_6
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 384
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7f7affd155447aa0800000000000000
+      internalID: -6164225772010963074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ARTURO_STEADY_7
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 0
+        width: 384
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d157cbc8511774830800000000000000
+      internalID: 4055334326839833885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ARTURO_STEADY_8
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 384
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5733a95fcda424140800000000000000
+      internalID: 4702403273802003317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ARTURO_STEADY_9
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 0
+        width: 384
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb0e69193aeab5b60800000000000000
+      internalID: 7735968802484445374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ARTURO_STEADY_10
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 384
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 238452a9f2102a0d0800000000000000
+      internalID: -3413164263632189390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ARTURO_STEADY_11
+      rect:
+        serializedVersion: 2
+        x: 4224
+        y: 0
+        width: 384
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e5158ab2661c20a0800000000000000
+      internalID: -6905119515373922847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ARTURO_STEADY_12
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 0
+        width: 384
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2482072f12e246760800000000000000
+      internalID: 7450130406913878082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ARTURO_STEADY_13
+      rect:
+        serializedVersion: 2
+        x: 4992
+        y: 0
+        width: 384
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 655f852820889ddb0800000000000000
+      internalID: -4766629186236779178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ARTURO_STEADY_14
+      rect:
+        serializedVersion: 2
+        x: 5376
+        y: 0
+        width: 384
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ce267b83a3f47f50800000000000000
+      internalID: 6878390414646587075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ARTURO_STEADY_15
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 0
+        width: 384
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ba0d1ebad084ff30800000000000000
+      internalID: 4608449995687660209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ARTURO_STEADY_16
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 0
+        width: 384
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98dd23f49864a77b0800000000000000
+      internalID: -5225786862056841847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ARTURO_STEADY_17
+      rect:
+        serializedVersion: 2
+        x: 6528
+        y: 0
+        width: 384
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3f5a2e0e6e68eb70800000000000000
+      internalID: 8928507680225124157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ARTURO_STEADY_18
+      rect:
+        serializedVersion: 2
+        x: 6912
+        y: 0
+        width: 384
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c35a20614b21e1b0800000000000000
+      internalID: -5629170499450154040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ARTURO_STEADY_19
+      rect:
+        serializedVersion: 2
+        x: 7296
+        y: 0
+        width: 384
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58290d88dd6e023b0800000000000000
+      internalID: -5539173702508178811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f5e288ddbf4e81d4caf9d6868837a7b4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":20.0,"y":1.0},"gridSpriteSize":{"x":384.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_ARTURO_STEADY_0: -1674967879303853684
+      SPRITE_ARTURO_STEADY_1: 3493231825000603544
+      SPRITE_ARTURO_STEADY_10: -3413164263632189390
+      SPRITE_ARTURO_STEADY_11: -6905119515373922847
+      SPRITE_ARTURO_STEADY_12: 7450130406913878082
+      SPRITE_ARTURO_STEADY_13: -4766629186236779178
+      SPRITE_ARTURO_STEADY_14: 6878390414646587075
+      SPRITE_ARTURO_STEADY_15: 4608449995687660209
+      SPRITE_ARTURO_STEADY_16: -5225786862056841847
+      SPRITE_ARTURO_STEADY_17: 8928507680225124157
+      SPRITE_ARTURO_STEADY_18: -5629170499450154040
+      SPRITE_ARTURO_STEADY_19: -5539173702508178811
+      SPRITE_ARTURO_STEADY_2: -6932815002707186721
+      SPRITE_ARTURO_STEADY_3: -7877044719868048069
+      SPRITE_ARTURO_STEADY_4: -3776203512995312338
+      SPRITE_ARTURO_STEADY_5: -3920917086434654300
+      SPRITE_ARTURO_STEADY_6: -6164225772010963074
+      SPRITE_ARTURO_STEADY_7: 4055334326839833885
+      SPRITE_ARTURO_STEADY_8: 4702403273802003317
+      SPRITE_ARTURO_STEADY_9: 7735968802484445374
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

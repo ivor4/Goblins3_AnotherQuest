@@ -55,6 +55,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 11e946a5770b3c14c9d08cc14a375bab
+    m_Address: SPRITE_ARTURO_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 158a779f324e8c04491a1416298df7c9
     m_Address: SCENE_CITY1_SOUTH_STREET_2
     m_ReadOnly: 0
@@ -330,6 +335,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 99d8b0b7725cd164b98a749c0a514bf4
+    m_Address: SPRITE_ATLAS_ARTURO1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9bb6744a33276f249afc0429ebdb60f8
     m_Address: SCENE_EXTRAPERLO
     m_ReadOnly: 0
@@ -442,6 +452,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d976682e583a6d140a0815cbb40f87c7
     m_Address: SPRITE_ATLAS_UNKNOWN_WOMEN_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dda43d2412dadcd4ca433a170f552453
+    m_Address: SPRITE_ARTURO_TALKING
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

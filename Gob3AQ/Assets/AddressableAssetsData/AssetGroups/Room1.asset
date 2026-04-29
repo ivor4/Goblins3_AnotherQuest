@@ -175,11 +175,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c42e3a39f4dec2541bfae47e5e1ed865
-    m_Address: SPRITE_ARTURO_STANDING
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cc5294fcb7eef2248b5dd6fc945da8fd
     m_Address: SPRITE_HIVE1_ROACH_HEAD
     m_ReadOnly: 0

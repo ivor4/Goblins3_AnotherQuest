@@ -666,6 +666,16 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
             new GameAction[1]{GameAction.ACTION_TAKE_UNKNOWN_WOMEN,}), 
             
+            new( /* COND_OBSERVE_ITEM_NPC_ARTURO_EXTRAPERLO */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_ITEM_NPC_ARTURO_EXTRAPERLO,}), 
+            
+            new( /* COND_TALK_ITEM_NPC_ARTURO_EXTRAPERLO */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,
+            new GameAction[1]{GameAction.ACTION_TALK_DIALOG_ARTURO_EXTRAPERLO,}), 
+            
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,
@@ -851,8 +861,8 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new(new HashSet<ActionConditions>(3){ActionConditions.COND_OBSERVE_ITEM_HIVE1_VALVE,ActionConditions.COND_TAKE_HIVE1_VALVE,ActionConditions.COND_TAKE_HIVE1_VALVE_2,})),
             
             new ( /* ITEM_HIVE1_MAN_WC_CURED */
-            NameType.NAME_ARTURO,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ARTURO_STANDING,}),
-            GameSprite.SPRITE_ARTURO_STANDING,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
+            NameType.NAME_ARTURO,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ARTURO_STEADY,}),
+            GameSprite.SPRITE_ARTURO_STEADY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_HIVE1_MAN_WC_CURED,ActionConditions.COND_TALK_ITEM_HIVE1_MAN_WC_CURED,})),
             
             new ( /* ITEM_EXTRAPERLO_INVITATION */
@@ -914,6 +924,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
             NameType.NAME_UNKNOWN_GIRLS,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_UNKNOWN_WOMEN_STEADY,}),
             GameSprite.SPRITE_UNKNOWN_WOMEN_STEADY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_TALK_UNKNOWN_WOMEN,ActionConditions.COND_TAKE_UNKNOWN_WOMEN,})),
+            
+            new ( /* ITEM_NPC_ARTURO_EXTRAPERLO */
+            NameType.NAME_ARTURO,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ARTURO_STEADY,}),
+            GameSprite.SPRITE_ARTURO_STEADY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
+            new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_NPC_ARTURO_EXTRAPERLO,ActionConditions.COND_TALK_ITEM_NPC_ARTURO_EXTRAPERLO,})),
             
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST,}),
@@ -1901,6 +1916,18 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_TAKE_UNKNOWN_WOMEN,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            
+            new( /* ACTION_DIALOGUE_OBSERVE_ITEM_NPC_ARTURO_EXTRAPERLO */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_NPC_ARTURO_EXTRAPERLO,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            
+            new( /* ACTION_TALK_DIALOG_ARTURO_EXTRAPERLO */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_ARTURO_EXTRAPERLO_INTRO,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
             
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

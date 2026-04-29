@@ -2119,7 +2119,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 910235633404127178, guid: 0a8c3e6d84ff874438ebfdadc10315bd, type: 3}
       propertyPath: sprite
-      value: 56
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 1962028593408209329, guid: 0a8c3e6d84ff874438ebfdadc10315bd, type: 3}
       propertyPath: m_Name

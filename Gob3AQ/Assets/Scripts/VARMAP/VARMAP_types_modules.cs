@@ -14,6 +14,7 @@ namespace Gob3AQ.VARMAP.Types
         MODULE_DialogMaster,
         MODULE_PlayerMaster,
         MODULE_ItemMaster,
+        MODULE_CardMaster,
         MODULE_GameEventMaster,
         
         MODULE_TOTAL 

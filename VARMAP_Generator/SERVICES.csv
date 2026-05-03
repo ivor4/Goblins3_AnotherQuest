@@ -1,48 +1,48 @@
-﻿N,SERVICE_ID,SPECIAL_DELEGATE,SERVICE_ROUTE,Description,Separator,GameMaster,InputMaster,LevelMaster,GraphicsMaster,SoundMaster,GameMenu,DialogMaster,PlayerMaster,ItemMaster,GameEventMaster
-0,START_GAME,START_GAME_DELEGATE,GameMasterClass.StartGameService,Starts game from main menu,,W,-,-,-,-,X,-,-,-,-
-1,SAVE_GAME,SAVE_GAME_DELEGATE,GameMasterClass.SaveGameService,Saves game at any moment,,W,-,X,-,-,X,-,-,-,-
-2,LOAD_GAME,LOAD_GAME_DELEGATE,GameMasterClass.LoadGameService,Loads game from any moment,,W,-,-,-,-,X,-,-,-,-
-3,LOAD_ROOM,LOAD_ROOM_DELEGATE,GameMasterClass.LoadRoomService,Loads a room (for example when crossing a door),,W,-,X,-,-,-,-,-,-,-
-4,EXIT_GAME,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Exits games to OS,,W,-,-,-,-,X,-,-,-,-
-5,MODULE_LOADING_COMPLETED,LODING_COMPLETED_DELEGATE,GameMasterClass.LoadingCompletedService,This service is called when whole room has been loaded,,W,X,X,X,X,X,X,X,X,X
-6,IS_MODULE_LOADED,IS_MODULE_LOADED_DELEGATE,GameMasterClass.IsModuleLoadedService,This service returns a bool which tells if given module has been loaded in Room Loading Process,,W,X,X,X,X,X,X,X,X,X
-7,ITEM_REGISTER,ITEM_REGISTER_DELEGATE,LevelMasterClass.ItemRegisterService,Registers an item in system,,-,-,W,-,-,-,-,X,X,-
-8,MONO_REGISTER,MONO_REGISTER_DELEGATE,LevelMasterClass.MonoRegisterService,Registers a player in scene,,-,-,W,-,-,-,-,X,-,-
-9,DOOR_REGISTER,DOOR_REGISTER_DELEGATE,LevelMasterClass.DoorRegisterService,Registers a door in level,,-,-,W,-,-,-,-,-,X,-
-10,OBTAIN_SCENARIO_ITEMS,OBTAIN_SCENARIO_ITEMS_DELEGATE,LevelMasterClass.ObtainScenarioItemsService,Obtains dictionary of placed elements in actual Scene,,-,-,W,-,-,-,-,-,X,-
-11,PLAYER_WAYPOINT_UPDATE,PLAYER_WAYPOINT_UPDATE_DELEGATE,LevelMasterClass.PlayerWaypointUpdateService,Updates actual player waypoint when crossing or stopping on it,,-,-,W,-,-,-,-,X,-,-
-12,GET_WP_LIST,GET_WP_LIST_DELEGATE,LevelMasterClass.GetWaypointListService,Gets list of waypoints and solutions,,-,-,W,-,-,-,-,X,-,-
-13,GET_PLAYER_LIST,GET_PLAYER_LIST_DELEGATE,LevelMasterClass.GetPlayerListService,Gets a list of actual players,,-,-,W,X,-,-,-,X,-,-
-14,GET_NEAREST_WP,GET_NEAREST_WP_DELEGATE,LevelMasterClass.GetNearestWPService,Gets nearest WP from a given coordinates of level,,-,-,W,-,-,-,-,X,X,-
-15,IS_EVENT_COMBI_OCCURRED,IS_EVENT_COMBI_OCCURRED_DELEGATE,GameEventMasterClass.IsEventCombiOccurredService,Checks if a combination of events is totally complied (event absence can also be requested),,-,-,X,-,-,X,X,-,X,W
-16,COMMIT_EVENT,COMMIT_EVENT_DELEGATE,GameEventMasterClass.CommitEventService,Activates/Deactivates an event,,X,-,-,-,-,X,-,-,-,W
-17,COMMIT_MEMENTO_NOTIF,COMMIT_MEMENTO_NOTIF_DELEGATE,GameMenuClass.CommitMementoNotifService,Tells Memento Manager (Menu) a new memento has been unlocked,,-,-,-,-,-,W,-,-,-,X
-18,IS_MEMENTO_UNLOCKED,IS_MEMENTO_UNLOCKED_DELEGATE,GameEventMasterClass.IsMementoUnlockedService,Tells if a memento is unlocked,,-,-,-,-,-,X,-,-,-,W
-19,MEMENTO_PARENT_WATCHED,MEMENTO_PARENT_WATCHED_DELEGATE,GameEventMasterClass.MementoParentWatchedService,If a Memento has been analyzed,,-,-,-,-,-,X,-,-,-,W
-20,INTERACT_PLAYER,INTERACT_PLAYER_DELEGATE,PlayerMasterClass.InteractPlayerService,Makes player interact with usage data,,-,-,X,-,-,-,-,W,-,-
-21,ACTION_TO_ITEM,ACTION_TO_ITEM_DELEGATE,ItemMasterClass.ActionToItemService,Applies an unchain event to an item such as spawn or setsprite,,-,-,-,-,-,-,-,-,W,X
-22,PLAYER_REACHED_WAYPOINT,PLAYER_REACHED_WAYPOINT_DELEGATE,LevelMasterClass.PlayerReachedWaypointService,Tells LevelMaster that player reached Waypoint to start action in case,,-,-,W,-,-,-,-,X,-,-
-23,USE_ITEM,USE_ITEM_DELEGATE,ItemMasterClass.UseItemService,Uses an item with something,,-,-,X,-,-,X,-,-,W,-
-24,CANCEL_PICKABLE_ITEM,CANCEL_PICKABLE_ITEM_DELEGATE,GameMenuClass.CancelPickableItemService,Cancels selected item,,-,-,X,-,-,W,-,-,X,-
-25,KEY_SUBSCRIPTION,KEY_SUBSCRIPTION_DELEGATE,InputMasterClass.KeySubscriptionService,Subscribe to determined key events to avoid polling,,-,W,-,-,-,X,-,-,-,-
-26,LOCK_PLAYER,LOCK_PLAYER_DELEGATE,PlayerMasterClass.LockPlayerService,Locks player so it cannot act until an action over it has been done (or removes lock),,-,-,X,-,-,-,-,W,-,-
-27,CHANGE_GAME_MODE,CHANGE_GAME_MODE_DELEGATE,GameMasterClass.ChangeGameModeService,Asks Game Master to set game mode,,W,-,X,-,-,X,X,-,-,X
-28,SHOW_DIALOGUE,SHOW_DIALOGUE_DELEGATE,DialogMasterClass.ShowDialogueService,Second part of start dialogue. Tells Game Menu to prepare menu elements,,-,-,-,-,-,-,W,-,-,X
-29,DIALOGUE_SELECT_OPTION,DIALOGUE_SELECT_OPTION_DELEGATE,DialogMasterClass.DialogueSelectOptionService,Option selection in multi option dialogue,,-,-,-,-,-,X,W,-,-,-
-30,ZOOM_SUBSCRIPTION,ZOOM_SUBSCRIPTION_DELEGATE,GraphicsMasterClass.ZoomSubscriptionService,Subscribe to zoom changes,,-,-,-,W,-,-,-,-,X,-
-31,SHOW_DECISION,SHOW_DECISION_DELEGATE,GameMenuClass.ShowDecisionService,Shows a set of decisions,,-,-,-,-,-,W,-,-,-,X
-32,CHANGE_DAY_MOMENT,CHANGE_DAY_MOMENT_DELEGATE,GameMasterClass.ChangeDayMomentService,Requests to change moment of day to a given one,,W,-,-,-,-,-,-,-,-,X
-33,LOAD_ADDITIONAL_PREFAB,LOAD_ADDITIONAL_PREFAB_DELEGATE,GameMasterClass.LoadAdditionalPrefabService,Loads/Unloads a set of names and Phrases,,W,-,-,-,-,X,-,-,-,-
-34,LOAD_ADDITIONAL_SOUND,LOAD_ADDITIONAL_SOUND_DELEGATE,GameMasterClass.LoadAdditionalSoundService,Loads/Unloads a set of names and Phrases,,W,-,-,-,X,-,-,-,-,-
-35,PLAY_SOUND,PLAY_SOUND_DELEGATE,SoundMasterClass.PlaySoundService,Plays a sound and (optionally) callback is called,,-,-,-,-,W,-,X,-,-,X
-36,STOP_SOUND,STOP_SOUND_DELEGATE,SoundMasterClass.StopSoundService,Stops first match of sound with given ID which is being played,,-,-,X,-,W,-,X,-,-,X
-37,START_ANIMATION,START_ANIMATION_DELEGATE,DialogMasterClass.StartAnimationService,Starts an animation in background or main mode,,-,-,-,-,-,-,W,-,X,X
-38,ITEM_PERFORM_ANIMATION,ITEM_PERFORM_ANIMATION_DELEGATE,ItemMasterClass.PerformAnimationService,Makes an item start an animation,,-,-,-,-,-,-,X,-,W,-
-39,PERFORM_ACTION,PERFORM_ACTION_DELEGATE,GameEventMasterClass.PerformActionService,Performs a named action,,-,-,X,-,-,X,X,-,X,W
-40,IS_DIALOG_ACTIVE,IS_DIALOG_ACTIVE_DELEGATE,DialogMasterClass.IsDialogActiveService,Returns if a dialog (Background or not) is active,,-,-,-,-,-,-,W,-,-,X
-41,NOTIFY_ENDED_ACTION,NOTIFY_ENDED_ACTION_DELEGATE,GameEventMasterClass.NotifyEndedActionService,Notifies Event manager a Dialog / Animation action has been performed,,-,-,-,-,-,-,X,-,-,W
-42,TAKE_LOADING_SNAPSHOT,TAKE_LOADING_SNAPSHOT_DELEGATE,GraphicsMasterClass.TakeLoadingSnapshotService,Takes snapshot to be used in fading while loading next scene,,X,-,-,W,-,-,-,-,-,-
-43,EXECUTE_EXIT_ROOM_CONDS,EXECUTE_EXIT_ROOM_CONDS_DELEGATE,GameEventMasterClass.ExecuteExitRoomCondsService,Executes exit room unchainers before leaving room,,X,-,-,-,-,-,-,-,-,W
-44,ACTIVATE_FORCED_ZOOM_MODE,ACTIVATE_FORCED_ZOOM_MODE_DELEGATE,GraphicsMasterClass.ActivateForcedZoomMode,Service for GraphicsMaste to make zoom into a region of interest,,-,-,-,W,-,-,X,-,-,-
-45,GET_ITEM_SPRITE_BOUNDARIES,GET_ITEM_SPRITE_BOUNDARIES_DELEGATE,ItemMasterClass.GetItemBoundariesService,Gets world boundaries of given item,,-,-,-,-,-,-,X,-,W,-
-46,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-,-,-
+﻿N,SERVICE_ID,SPECIAL_DELEGATE,SERVICE_ROUTE,Description,Separator,GameMaster,InputMaster,LevelMaster,GraphicsMaster,SoundMaster,GameMenu,DialogMaster,PlayerMaster,ItemMaster,CardMaster,GameEventMaster
+0,START_GAME,START_GAME_DELEGATE,GameMasterClass.StartGameService,Starts game from main menu,,W,-,-,-,-,X,-,-,-,-,-
+1,SAVE_GAME,SAVE_GAME_DELEGATE,GameMasterClass.SaveGameService,Saves game at any moment,,W,-,X,-,-,X,-,-,-,-,-
+2,LOAD_GAME,LOAD_GAME_DELEGATE,GameMasterClass.LoadGameService,Loads game from any moment,,W,-,-,-,-,X,-,-,-,-,-
+3,LOAD_ROOM,LOAD_ROOM_DELEGATE,GameMasterClass.LoadRoomService,Loads a room (for example when crossing a door),,W,-,X,-,-,-,-,-,-,-,-
+4,EXIT_GAME,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Exits games to OS,,W,-,-,-,-,X,-,-,-,-,-
+5,MODULE_LOADING_COMPLETED,LODING_COMPLETED_DELEGATE,GameMasterClass.LoadingCompletedService,This service is called when whole room has been loaded,,W,X,X,X,X,X,X,X,X,X,X
+6,IS_MODULE_LOADED,IS_MODULE_LOADED_DELEGATE,GameMasterClass.IsModuleLoadedService,This service returns a bool which tells if given module has been loaded in Room Loading Process,,W,X,X,X,X,X,X,X,X,X,X
+7,ITEM_REGISTER,ITEM_REGISTER_DELEGATE,LevelMasterClass.ItemRegisterService,Registers an item in system,,-,-,W,-,-,-,-,X,X,-,-
+8,MONO_REGISTER,MONO_REGISTER_DELEGATE,LevelMasterClass.MonoRegisterService,Registers a player in scene,,-,-,W,-,-,-,-,X,-,-,-
+9,DOOR_REGISTER,DOOR_REGISTER_DELEGATE,LevelMasterClass.DoorRegisterService,Registers a door in level,,-,-,W,-,-,-,-,-,X,-,-
+10,OBTAIN_SCENARIO_ITEMS,OBTAIN_SCENARIO_ITEMS_DELEGATE,LevelMasterClass.ObtainScenarioItemsService,Obtains dictionary of placed elements in actual Scene,,-,-,W,-,-,-,-,-,X,-,-
+11,PLAYER_WAYPOINT_UPDATE,PLAYER_WAYPOINT_UPDATE_DELEGATE,LevelMasterClass.PlayerWaypointUpdateService,Updates actual player waypoint when crossing or stopping on it,,-,-,W,-,-,-,-,X,-,-,-
+12,GET_WP_LIST,GET_WP_LIST_DELEGATE,LevelMasterClass.GetWaypointListService,Gets list of waypoints and solutions,,-,-,W,-,-,-,-,X,-,-,-
+13,GET_PLAYER_LIST,GET_PLAYER_LIST_DELEGATE,LevelMasterClass.GetPlayerListService,Gets a list of actual players,,-,-,W,X,-,-,-,X,-,-,-
+14,GET_NEAREST_WP,GET_NEAREST_WP_DELEGATE,LevelMasterClass.GetNearestWPService,Gets nearest WP from a given coordinates of level,,-,-,W,-,-,-,-,X,X,-,-
+15,IS_EVENT_COMBI_OCCURRED,IS_EVENT_COMBI_OCCURRED_DELEGATE,GameEventMasterClass.IsEventCombiOccurredService,Checks if a combination of events is totally complied (event absence can also be requested),,-,-,X,-,-,X,X,-,X,-,W
+16,COMMIT_EVENT,COMMIT_EVENT_DELEGATE,GameEventMasterClass.CommitEventService,Activates/Deactivates an event,,X,-,-,-,-,X,-,-,-,-,W
+17,COMMIT_MEMENTO_NOTIF,COMMIT_MEMENTO_NOTIF_DELEGATE,GameMenuClass.CommitMementoNotifService,Tells Memento Manager (Menu) a new memento has been unlocked,,-,-,-,-,-,W,-,-,-,-,X
+18,IS_MEMENTO_UNLOCKED,IS_MEMENTO_UNLOCKED_DELEGATE,GameEventMasterClass.IsMementoUnlockedService,Tells if a memento is unlocked,,-,-,-,-,-,X,-,-,-,-,W
+19,MEMENTO_PARENT_WATCHED,MEMENTO_PARENT_WATCHED_DELEGATE,GameEventMasterClass.MementoParentWatchedService,If a Memento has been analyzed,,-,-,-,-,-,X,-,-,-,-,W
+20,INTERACT_PLAYER,INTERACT_PLAYER_DELEGATE,PlayerMasterClass.InteractPlayerService,Makes player interact with usage data,,-,-,X,-,-,-,-,W,-,-,-
+21,ACTION_TO_ITEM,ACTION_TO_ITEM_DELEGATE,ItemMasterClass.ActionToItemService,Applies an unchain event to an item such as spawn or setsprite,,-,-,-,-,-,-,-,-,W,-,X
+22,PLAYER_REACHED_WAYPOINT,PLAYER_REACHED_WAYPOINT_DELEGATE,LevelMasterClass.PlayerReachedWaypointService,Tells LevelMaster that player reached Waypoint to start action in case,,-,-,W,-,-,-,-,X,-,-,-
+23,USE_ITEM,USE_ITEM_DELEGATE,ItemMasterClass.UseItemService,Uses an item with something,,-,-,X,-,-,X,-,-,W,-,-
+24,CANCEL_PICKABLE_ITEM,CANCEL_PICKABLE_ITEM_DELEGATE,GameMenuClass.CancelPickableItemService,Cancels selected item,,-,-,X,-,-,W,-,-,X,-,-
+25,KEY_SUBSCRIPTION,KEY_SUBSCRIPTION_DELEGATE,InputMasterClass.KeySubscriptionService,Subscribe to determined key events to avoid polling,,-,W,-,-,-,X,-,-,-,-,-
+26,LOCK_PLAYER,LOCK_PLAYER_DELEGATE,PlayerMasterClass.LockPlayerService,Locks player so it cannot act until an action over it has been done (or removes lock),,-,-,X,-,-,-,-,W,-,-,-
+27,CHANGE_GAME_MODE,CHANGE_GAME_MODE_DELEGATE,GameMasterClass.ChangeGameModeService,Asks Game Master to set game mode,,W,-,X,-,-,X,X,-,-,-,X
+28,SHOW_DIALOGUE,SHOW_DIALOGUE_DELEGATE,DialogMasterClass.ShowDialogueService,Second part of start dialogue. Tells Game Menu to prepare menu elements,,-,-,-,-,-,-,W,-,-,-,X
+29,DIALOGUE_SELECT_OPTION,DIALOGUE_SELECT_OPTION_DELEGATE,DialogMasterClass.DialogueSelectOptionService,Option selection in multi option dialogue,,-,-,-,-,-,X,W,-,-,-,-
+30,ZOOM_SUBSCRIPTION,ZOOM_SUBSCRIPTION_DELEGATE,GraphicsMasterClass.ZoomSubscriptionService,Subscribe to zoom changes,,-,-,-,W,-,-,-,-,X,-,-
+31,SHOW_DECISION,SHOW_DECISION_DELEGATE,GameMenuClass.ShowDecisionService,Shows a set of decisions,,-,-,-,-,-,W,-,-,-,-,X
+32,CHANGE_DAY_MOMENT,CHANGE_DAY_MOMENT_DELEGATE,GameMasterClass.ChangeDayMomentService,Requests to change moment of day to a given one,,W,-,-,-,-,-,-,-,-,-,X
+33,LOAD_ADDITIONAL_PREFAB,LOAD_ADDITIONAL_PREFAB_DELEGATE,GameMasterClass.LoadAdditionalPrefabService,Loads/Unloads a set of names and Phrases,,W,-,-,-,-,X,-,-,-,-,-
+34,LOAD_ADDITIONAL_SOUND,LOAD_ADDITIONAL_SOUND_DELEGATE,GameMasterClass.LoadAdditionalSoundService,Loads/Unloads a set of names and Phrases,,W,-,-,-,X,-,-,-,-,-,-
+35,PLAY_SOUND,PLAY_SOUND_DELEGATE,SoundMasterClass.PlaySoundService,Plays a sound and (optionally) callback is called,,-,-,-,-,W,-,X,-,-,X,X
+36,STOP_SOUND,STOP_SOUND_DELEGATE,SoundMasterClass.StopSoundService,Stops first match of sound with given ID which is being played,,-,-,X,-,W,-,X,-,-,-,X
+37,START_ANIMATION,START_ANIMATION_DELEGATE,DialogMasterClass.StartAnimationService,Starts an animation in background or main mode,,-,-,-,-,-,-,W,-,X,-,X
+38,ITEM_PERFORM_ANIMATION,ITEM_PERFORM_ANIMATION_DELEGATE,ItemMasterClass.PerformAnimationService,Makes an item start an animation,,-,-,-,-,-,-,X,-,W,-,-
+39,PERFORM_ACTION,PERFORM_ACTION_DELEGATE,GameEventMasterClass.PerformActionService,Performs a named action,,-,-,X,-,-,X,X,-,X,X,W
+40,IS_DIALOG_ACTIVE,IS_DIALOG_ACTIVE_DELEGATE,DialogMasterClass.IsDialogActiveService,Returns if a dialog (Background or not) is active,,-,-,-,-,-,-,W,-,-,-,X
+41,NOTIFY_ENDED_ACTION,NOTIFY_ENDED_ACTION_DELEGATE,GameEventMasterClass.NotifyEndedActionService,Notifies Event manager a Dialog / Animation action has been performed,,-,-,-,-,-,-,X,-,-,-,W
+42,TAKE_LOADING_SNAPSHOT,TAKE_LOADING_SNAPSHOT_DELEGATE,GraphicsMasterClass.TakeLoadingSnapshotService,Takes snapshot to be used in fading while loading next scene,,X,-,-,W,-,-,-,-,-,-,-
+43,EXECUTE_EXIT_ROOM_CONDS,EXECUTE_EXIT_ROOM_CONDS_DELEGATE,GameEventMasterClass.ExecuteExitRoomCondsService,Executes exit room unchainers before leaving room,,X,-,-,-,-,-,-,-,-,-,W
+44,ACTIVATE_FORCED_ZOOM_MODE,ACTIVATE_FORCED_ZOOM_MODE_DELEGATE,GraphicsMasterClass.ActivateForcedZoomMode,Service for GraphicsMaste to make zoom into a region of interest,,-,-,-,W,-,-,X,-,-,-,-
+45,GET_ITEM_SPRITE_BOUNDARIES,GET_ITEM_SPRITE_BOUNDARIES_DELEGATE,ItemMasterClass.GetItemBoundariesService,Gets world boundaries of given item,,-,-,-,-,-,-,X,-,W,-,-
+46,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-,-,-,-

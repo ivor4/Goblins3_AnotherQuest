@@ -21,6 +21,7 @@ using Gob3AQ.VARMAP.DialogMaster;
 using System.IO;
 using Gob3AQ.FixedConfig;
 using System;
+using Gob3AQ.VARMAP.CardMaster;
 
 
 namespace Gob3AQ.VARMAP.Initialization
@@ -60,6 +61,7 @@ namespace Gob3AQ.VARMAP.Initialization
             VARMAP_DialogMaster.UpdateDelegates();
             VARMAP_PlayerMaster.UpdateDelegates();
             VARMAP_ItemMaster.UpdateDelegates();
+            VARMAP_CardMaster.UpdateDelegates();
             VARMAP_GameEventMaster.UpdateDelegates();
 
 

@@ -1,11 +1,11 @@
-﻿NewItem,NewName,NewSprite,Pickable,Spawn,Picker_Character,ObservationPhrase,TakePhrase,Room,Output,Unnamed: 10
-ITEM_NPC_ARTURO_EXTRAPERLO,NAME_ARTURO,SPRITE_PHARMACY_INKWELL_WASTED,False,False,CHARACTER_NONE,Era Arturo. En mejor estado que cuando lo conocí,,CITY1_EXTRAPERLO2,,
-,,,,,,,,,,
-NewRoom,Background,BackgroundNight,Music,Output,,,,,,
-CITY1_EXTRAPERLO1,BACKGROUND_CITY1_EXTRAPERLO,BACKGROUND_CITY1_EXTRAPERLO,MUSIC_EXTRAPERLO,,,,,,,
-,,,,,,,,,,
-NewDialog,IntroPhrase,Talkers,AddAction,ItemDest,Option1,Option2,Option3,Option4,Option5,Option6
-DIALOG_ARTURO_EXTRAPERLO,Hey por fin te veo!,"ITEM_PLAYER_MAIN, ITEM_NPC_ARTURO_EXTRAPERLO",True,ITEM_NPC_ARTURO_EXTRAPERLO,"En qué andas metido ahora?, Nada del otro mundo! Espero la llegada del amor. Pero parece estar retrasándose, Si no haces por que venga..., Ahora lo que se lleva es la brisca","Háblame de la brisca esa. Qué es eso?, Es un juego de cartas nuestro. Pata negra nacional, Y en qué consiste?, Conoces los palos? Copas. Bastos. Espadas. Oros. Todo es una estrategia para conseguir más puntos que el otro, Suena bien. Me enseñas?","Ahora que ya nos hemos divertido. Sabes de algún contacto que pueda darme trabajo en esta ciudad?, Bueno... A alguien conozco. Pero no sé si te va a gustar, Conoces la fábrica de harinas? Pues están contratando gente. Quieren mantenedores y también peones para llevar la vía del tren hasta la factoría, Y con quién tendría que hablar?, Ese es el problema amigo. Que muchos ya están enchufados porque conocen al jefe de turno, Y no está por aquí verdad?, Él no. Pero su hija sí, Bien. Suficiente por hoy",,,
-,,,,,,,,,,
-NewMementoParent,MementoIconSprite,MementoParentPhrase,Mementos,MementoPhrases,,,,,,
-MEMENTO_PARENT_POOR_MAN_WC,SPRITE_MEMENTO_POOR_MAN_WC,A poor man in WC,"MEMENTO_POOR_MAN_WC_1, MEMENTO_POOR_MAN_WC_2, MEMENTO_POOR_MAN_WC_3","A poor man can't leave WC because there is no water, It seems to be a valve in back alley but is closed, When water came back. This man gave me an invitation to a Pub where I could meet someone for a job",,,,,,
+﻿NewItem,NewName,NewSprite,Pickable,Spawn,Picker_Character,ObservationPhrase,TakePhrase,Room,Output,Unnamed: 10,Unnamed: 11
+ITEM_NPC_ARTURO_EXTRAPERLO,NAME_ARTURO,SPRITE_PHARMACY_INKWELL_WASTED,False,False,CHARACTER_NONE,Era Arturo. En mejor estado que cuando lo conocí,,CITY1_EXTRAPERLO2,,,
+,,,,,,,,,,,
+NewRoom,Background,BackgroundNight,Music,Output,,,,,,,
+CITY1_EXTRAPERLO1,BACKGROUND_CITY1_EXTRAPERLO,BACKGROUND_CITY1_EXTRAPERLO,MUSIC_EXTRAPERLO,,,,,,,,
+,,,,,,,,,,,
+NewDialog,IntroPhrase,Talkers,AddAction,AddSounds,ItemDest,Option1,Option2,Option3,Option4,Option5,Option6
+DIALOG_ARTURO_EXTRAPERLO,Hey por fin te veo!,"ITEM_PLAYER_MAIN, ITEM_NPC_ARTURO_EXTRAPERLO",True,True,ITEM_NPC_ARTURO_EXTRAPERLO,"En qué andas metido ahora?, Nada del otro mundo! Espero la llegada del amor. Pero parece estar retrasándose, Si no haces por que venga..., Ahora lo que se lleva es la brisca","Háblame de la brisca esa. Qué es eso?, Es un juego de cartas nuestro. Pata negra nacional, Y en qué consiste?, Conoces los palos? Copas. Bastos. Espadas. Oros. Todo es una estrategia para conseguir más puntos que el otro, Suena bien. Me enseñas?","Ahora que ya nos hemos divertido. Sabes de algún contacto que pueda darme trabajo en esta ciudad?, Bueno... A alguien conozco. Pero no sé si te va a gustar, Conoces la fábrica de harinas? Pues están contratando gente. Quieren mantenedores y también peones para llevar la vía del tren hasta la factoría, Y con quién tendría que hablar?, Ese es el problema amigo. Que muchos ya están enchufados porque conocen al jefe de turno, Y no está por aquí verdad?, Él no. Pero su hija sí, Bien. Suficiente por hoy",,,
+,,,,,,,,,,,
+NewMementoParent,MementoIconSprite,MementoParentPhrase,Mementos,MementoPhrases,,,,,,,
+MEMENTO_PARENT_POOR_MAN_WC,SPRITE_MEMENTO_POOR_MAN_WC,A poor man in WC,"MEMENTO_POOR_MAN_WC_1, MEMENTO_POOR_MAN_WC_2, MEMENTO_POOR_MAN_WC_3","A poor man can't leave WC because there is no water, It seems to be a valve in back alley but is closed, When water came back. This man gave me an invitation to a Pub where I could meet someone for a job",,,,,,,

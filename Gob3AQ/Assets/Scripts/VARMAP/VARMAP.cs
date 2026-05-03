@@ -186,14 +186,14 @@ namespace Gob3AQ.VARMAP
         /// <summary> 
         /// This service is called when whole room has been loaded
         /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, GameEventMaster,  </para> 
+        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, CardMaster, GameEventMaster,  </para> 
         /// <para> Method: <see cref="GameMasterClass.LoadingCompletedService"/> </para> 
         /// </summary>
         protected static LODING_COMPLETED_DELEGATE _MODULE_LOADING_COMPLETED;
         /// <summary> 
         /// This service returns a bool which tells if given module has been loaded in Room Loading Process
         /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, GameEventMaster,  </para> 
+        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, CardMaster, GameEventMaster,  </para> 
         /// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
         /// </summary>
         protected static IS_MODULE_LOADED_DELEGATE _IS_MODULE_LOADED;
@@ -396,7 +396,7 @@ namespace Gob3AQ.VARMAP
         /// <summary> 
         /// Plays a sound and (optionally) callback is called
         /// <para> Owner: SoundMaster </para> 
-        /// <para> Accessors: DialogMaster, GameEventMaster,  </para> 
+        /// <para> Accessors: DialogMaster, CardMaster, GameEventMaster,  </para> 
         /// <para> Method: <see cref="SoundMasterClass.PlaySoundService"/> </para> 
         /// </summary>
         protected static PLAY_SOUND_DELEGATE _PLAY_SOUND;
@@ -424,7 +424,7 @@ namespace Gob3AQ.VARMAP
         /// <summary> 
         /// Performs a named action
         /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, DialogMaster, ItemMaster,  </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, DialogMaster, ItemMaster, CardMaster,  </para> 
         /// <para> Method: <see cref="GameEventMasterClass.PerformActionService"/> </para> 
         /// </summary>
         protected static PERFORM_ACTION_DELEGATE _PERFORM_ACTION;

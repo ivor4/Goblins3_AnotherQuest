@@ -13,6 +13,9 @@ namespace Gob3AQ.FixedConfig
         public static ReadOnlySpan<byte> LOAD_SAVE_FILE_FORMAT_VERSION => _LOAD_SAVE_FILE_FORMAT_VERSION;
         public static ReadOnlySpan<string> ROOM_TO_SCENE_NAME => _ROOM_TO_SCENE_NAME;
 
+        /* Config */
+        public const int CARD_GAME_MAX_PLAYERS = 2;
+
         /* Release data */
         public const bool PERIPH_PC = true;
         private static readonly byte[] _GAME_VERSION = { 0, 0, 1 };

@@ -2,6 +2,7 @@ using Gob3AQ.FixedConfig;
 using Gob3AQ.ResourceSoundsAtlas;
 using Gob3AQ.VARMAP.CardMaster;
 using Gob3AQ.VARMAP.Types;
+using Gob3AQ.VARMAP.Types.Cards;
 using Gob3AQ.VARMAP.Types.Delegates;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,18 @@ namespace Gob3AQ.CardMaster
     {
         private static CardMasterClass _singleton;
 
+        private int[] playerScore;
+        private Queue<CardInfo> remainingDeckCards;
+        private List<CardInfo>[] playerHandCards;
+        private List<CardInfo>[] playerScoredCards;
+        private CardSuit gameSuit;
+        private CardInfo exposedSuitCard;
+        private bool exposedSuitCardExchanged;
+        private int currentPlayer;
+        private bool playerWonLastCards;
+
+
+
 
         private void Awake()
         {
@@ -24,6 +37,12 @@ namespace Gob3AQ.CardMaster
             else
             {
                 _singleton = this;
+                playerScore = new int[GameFixedConfig.CARD_GAME_MAX_PLAYERS];
+                remainingDeckCards = new Queue<CardInfo>((int)CardType.TOTAL_CARDS);
+                playerHandCards = new List<CardInfo>[GameFixedConfig.CARD_GAME_MAX_PLAYERS];
+                playerScoredCards = new List<CardInfo>[GameFixedConfig.CARD_GAME_MAX_PLAYERS];
+
+                ResetGame();
             }
 
         }
@@ -32,8 +51,6 @@ namespace Gob3AQ.CardMaster
         private void Start()
         {
             VARMAP_CardMaster.REG_GAMESTATUS(_GameStatusChanged);
-
-
             VARMAP_CardMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_CardMaster);
         }
 
@@ -44,7 +61,6 @@ namespace Gob3AQ.CardMaster
             if(_singleton == this)
             {
                 _singleton = null;
-
                 VARMAP_CardMaster.UNREG_GAMESTATUS(_GameStatusChanged);
             }
         }
@@ -55,6 +71,21 @@ namespace Gob3AQ.CardMaster
 
         }
 
+        private void ResetGame()
+        {
+            gameSuit = CardSuit.SUIT_NONE;
+            exposedSuitCard = CardInfo.UNDEFINED_CARD;
+            exposedSuitCardExchanged = false;
+            currentPlayer = 0;
+            playerWonLastCards = false;
+
+            for(int i= 0; i < GameFixedConfig.CARD_GAME_MAX_PLAYERS; i++)
+            {
+                playerScore[i] = 0;
+                playerHandCards[i].Clear();
+                playerScoredCards[i].Clear();
+            }
+        }
 
 
         private void _GameStatusChanged(ChangedEventType evtype, in Game_Status oldval, in Game_Status newval)

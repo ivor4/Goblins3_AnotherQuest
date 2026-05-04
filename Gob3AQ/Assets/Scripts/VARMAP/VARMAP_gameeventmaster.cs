@@ -8,6 +8,7 @@ using Gob3AQ.ItemMaster;
 using Gob3AQ.GameEventMaster;
 using Gob3AQ.GameMenu;
 using Gob3AQ.DialogMaster;
+using Gob3AQ.CardMaster;
 
 namespace Gob3AQ.VARMAP.GameEventMaster
 {
@@ -69,6 +70,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             IS_DIALOG_ACTIVE = _IS_DIALOG_ACTIVE;
             NOTIFY_ENDED_ACTION = _NOTIFY_ENDED_ACTION;
             EXECUTE_EXIT_ROOM_CONDS = _EXECUTE_EXIT_ROOM_CONDS;
+            START_CARD_GAME = _START_CARD_GAME;
             /* > ATG 1 END */
         }
 
@@ -243,6 +245,13 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         /// <para> Method: <see cref="GameEventMasterClass.ExecuteExitRoomCondsService"/> </para> 
         /// </summary>
         public static EXECUTE_EXIT_ROOM_CONDS_DELEGATE EXECUTE_EXIT_ROOM_CONDS;
+        /// <summary> 
+        /// Tells Card Master to prepare a game with given parameters
+        /// <para> Owner: CardMaster </para> 
+        /// <para> Accessors: GameEventMaster,  </para> 
+        /// <para> Method: <see cref="CardMasterClass.StartCardGameService"/> </para> 
+        /// </summary>
+        public static START_CARD_GAME_DELEGATE START_CARD_GAME;
         /* > ATG 3 END */
     }
 }

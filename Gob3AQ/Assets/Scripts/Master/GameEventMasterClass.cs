@@ -3,6 +3,7 @@ using Gob3AQ.FixedConfig;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.VARMAP.GameEventMaster;
 using Gob3AQ.VARMAP.Types;
+using Gob3AQ.VARMAP.Types.Cards;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -779,6 +780,11 @@ namespace Gob3AQ.GameEventMaster
                         mustWait = info.waitForEnd;
                         _actionExpectedFlag = NotifyAction.NOTIFY_ANIMATION;
                         VARMAP_GameEventMaster.START_ANIMATION(info.targetAnimation, false);
+                        break;
+                    case ActionType.ACTION_TYPE_START_CARD_GAME:
+                        mustWait = false;
+                        VARMAP_GameEventMaster.START_CARD_GAME(0, -1, CardType.CARD_NONE, CardType.CARD_NONE, CardType.CARD_NONE, CardType.CARD_NONE);
+                        VARMAP_GameEventMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_CARDS, out error);
                         break;
                     default:
                         VARMAP_GameEventMaster.ACTION_TO_ITEM(in info);

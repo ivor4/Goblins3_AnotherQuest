@@ -2,6 +2,7 @@ using UnityEngine;
 using Gob3AQ.VARMAP.Types;
 using System;
 using System.Collections.Generic;
+using Gob3AQ.VARMAP.Types.Cards;
 
 namespace Gob3AQ.Brain.ItemsInteraction
 { 
@@ -1051,889 +1052,895 @@ namespace Gob3AQ.Brain.ItemsInteraction
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DAY_MOMENT_DAY */
             false,ActionType.ACTION_TYPE_CHANGE_MOMENT_DAY,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_MORNING,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_MORNING,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DAY_MOMENT_NIGHT */
             false,ActionType.ACTION_TYPE_CHANGE_MOMENT_DAY,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_NIGHT,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_NIGHT,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_INITIAL_MEMENTO */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_FIRST, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_MEMENTO_INITIAL_MEMENTO */
             false,ActionType.ACTION_TYPE_MEMENTO,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_JOB_FIND_1_1,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_SET_SPRITE_CHEST_OPENED */
             false,ActionType.ACTION_TYPE_SET_SPRITE,GameItem.ITEM_HIVE1_CHEST,GameSprite.SPRITE_ITEM_CHEST_OPENED,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_SPAWN_HIVE1_CARDS */
             false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_CARDS_PICKABLE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_SPAWN_HIVE1_PERFUME */
             false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_HIVE1_PERFUME,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_SET_SPRITE_CHEST_CLOSED */
             false,ActionType.ACTION_TYPE_SET_SPRITE,GameItem.ITEM_HIVE1_CHEST,GameSprite.SPRITE_ITEM_CHEST_CLOSED,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DESPAWN_HIVE1_CARDS */
             false,ActionType.ACTION_TYPE_DESPAWN,GameItem.ITEM_CARDS_PICKABLE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DESPAWN_HIVE1_PERFUME */
             false,ActionType.ACTION_TYPE_DESPAWN,GameItem.ITEM_HIVE1_PERFUME,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DESTROY_HIVE1_CARDS */
             false,ActionType.ACTION_TYPE_DESTROY,GameItem.ITEM_CARDS_PICKABLE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_OBTAIN_HIVE1_CARDS */
             false,ActionType.ACTION_TYPE_EARN_ITEM,GameItem.ITEM_CARDS_PICKABLE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_SPAWN_HIVE1_WARDROBE_OPENED */
             false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_HIVE1_WARDROBE_OPENED,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DESPAWN_HIVE1_WARDROBE */
             false,ActionType.ACTION_TYPE_DESPAWN,GameItem.ITEM_HIVE1_WARDROBE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_SPAWN_SOAP */
             false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_SOAP_PICKABLE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_SPAWN_HIVE1_WARDROBE */
             false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_HIVE1_WARDROBE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DESPAWN_HIVE1_WARDROBE_OPENED */
             false,ActionType.ACTION_TYPE_DESPAWN,GameItem.ITEM_HIVE1_WARDROBE_OPENED,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DESPAWN_SOAP */
             false,ActionType.ACTION_TYPE_DESPAWN,GameItem.ITEM_SOAP_PICKABLE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_MEMENTO_JOB_FIND_1_2 */
             false,ActionType.ACTION_TYPE_MEMENTO,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_JOB_FIND_1_2,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DESTROY_SOAP */
             false,ActionType.ACTION_TYPE_DESTROY,GameItem.ITEM_SOAP_PICKABLE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_OBTAIN_SOAP */
             false,ActionType.ACTION_TYPE_EARN_ITEM,GameItem.ITEM_SOAP_PICKABLE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DECISION_SLEEP */
             false,ActionType.ACTION_TYPE_DECISION,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_SLEEP_1,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_SLEEP_1,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_SPAWN_REME_DAY */
             false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_HIVE1_NPC_REME,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_SPAWN_PHARMACY_DOOR */
             false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_PHARMACY_DOOR,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_SPAWN_MANYO_OWNER_DAY */
             false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_ELMANYO_OWNER,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_SPAWN_MANYO_OWNER_NIGHT */
             false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_ELMANYO_OWNER_NIGHT,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_MEMENTO_RECEIPT_MISSION */
             false,ActionType.ACTION_TYPE_MEMENTO,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_RECIPE_MISSION_1,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DESTROY_UMBRELLA */
             false,ActionType.ACTION_TYPE_DESTROY,GameItem.ITEM_CITY1_UMBRELLA,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_OBTAIN_UMBRELLA */
             false,ActionType.ACTION_TYPE_EARN_ITEM,GameItem.ITEM_CITY1_UMBRELLA,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_SPAWN_HIVE1_POOR_MAN_WC */
             false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_HIVE1_POOR_MAN_WC,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_MEMENTO_POOR_MAN_WC_1 */
             false,ActionType.ACTION_TYPE_MEMENTO,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_POOR_MAN_WC_1,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_SPAWN_HIVE1_ROACH_HEAD */
             false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_HIVE1_ROACH_HEAD,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DESPAWN_HIVE1_ROACH_HEAD */
             false,ActionType.ACTION_TYPE_DESPAWN,GameItem.ITEM_HIVE1_ROACH_HEAD,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_REBUILD_ROACH_SCARED */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_COCKROACH_SCARED, true),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DESTROY_HIVE1_SHOELACE */
             false,ActionType.ACTION_TYPE_DESTROY,GameItem.ITEM_HIVE1_SHOELACE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_OBTAIN_HIVE1_SHOELACE */
             false,ActionType.ACTION_TYPE_EARN_ITEM,GameItem.ITEM_HIVE1_SHOELACE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DESTROY_HIVE1_VALVE_BOX */
             false,ActionType.ACTION_TYPE_DESTROY,GameItem.ITEM_HIVE1_VALVE_BOX,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_SPAWN_HIVE1_VALVE */
             false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_HIVE1_VALVE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_SPAWN_HIVE1_MAN_WC_CURED */
             false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_HIVE1_MAN_WC_CURED,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_OBTAIN_EXTRAPERLO_INVITATION */
             false,ActionType.ACTION_TYPE_EARN_ITEM,GameItem.ITEM_EXTRAPERLO_INVITATION,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DESPAWN_INKWELL */
             false,ActionType.ACTION_TYPE_DESPAWN,GameItem.ITEM_PHARMACY_INKWELL,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_SPAWN_INK */
             false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_PHARMACY_INK,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_REME_1 */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_REME_INTRO,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_REME_INTRO,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_HIVE1_AD_BOARD_1 */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_HIVE1_AD_BOARD_1,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_HIVE1_AD_BOARD_1,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_EXIT_HIVE1_HALL_1 */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NOT_EXIT_HIVE1_HALL_1,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NOT_EXIT_HIVE1_HALL_1,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_EXIT_HIVE1_HALL_2 */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NOT_EXIT_HIVE1_HALL_2,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NOT_EXIT_HIVE1_HALL_2,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_EXIT_HIVE1_HALL_3 */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NOT_EXIT_HIVE1_HALL_2,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NOT_EXIT_HIVE1_HALL_2,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_USE_BASIN_NO_SOAP */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_TAKE_HIVE1_BASIN_NO_SOAP,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_TAKE_HIVE1_BASIN_NO_SOAP,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_USE_BASIN_W_SOAP */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_TAKE_HIVE1_BASIN_SOAP,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_TAKE_HIVE1_BASIN_SOAP,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_USE_BASIN_W_SOAP_REPEAT */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_ALREADY_COMBI,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_ALREADY_COMBI,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_USE_PERFUME */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_HIVE1_PERFUME,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_HIVE1_PERFUME,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_USE_PERFUME_NOT_1 */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_HIVE1_PERFUME_NOT_1,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_HIVE1_PERFUME_NOT_1,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_USE_PERFUME_NOT_2 */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_HIVE1_PERFUME_NOT_2,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_HIVE1_PERFUME_NOT_2,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_USE_CARDS_REME */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_REME_CARDS,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_REME_CARDS,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_NOT_GO_SOUTH_NEIGH */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_WONT_GO_SOUTH_NEIGH,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_WONT_GO_SOUTH_NEIGH,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_TRY_TALK_PHARMACIST */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_TRY_TALK_PHARMACIST_1,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_TRY_TALK_PHARMACIST_1,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_TALK_DEER */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_HELLO_DEER,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_HELLO_DEER,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_TALK_MANYO_OWNER */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_MANYO_OWNER_INTRO,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_MANYO_OWNER_INTRO,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_TAKE_UMBRELLA_MORNING */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_MANYO_UMBRELLA,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_MANYO_UMBRELLA,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_TAKE_UMBRELLA_NIGHT */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_DIALOG_UMBRELLA_TAKEN,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_DIALOG_UMBRELLA_TAKEN,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_MANYO_BCKG */
             false,ActionType.ACTION_TYPE_START_DIALOGUE_BCKG,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_MANYO_BCKG_CROWD,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_MANYO_BCKG_CROWD,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_OBSERVE_POOR_MAN_WC */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_POOR_MAN_WC,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_POOR_MAN_WC,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_TALK_POOR_MAN_WC_BCKG */
             false,ActionType.ACTION_TYPE_START_DIALOGUE_BCKG,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_HIVE1_BCKG_POOR_MAN_WC,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_HIVE1_BCKG_POOR_MAN_WC,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_TALK_POOR_MAN_WC */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_HIVE1_POOR_MAN_WC_INTRO,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_HIVE1_POOR_MAN_WC_INTRO,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_OBSERVE_HIVE1_ROACH */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_ROACH,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_ROACH,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_OBSERVE_HIVE1_PIPE */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_BACKALLEY_PIPE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_BACKALLEY_PIPE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_OBSERVE_HIVE1_PIPE_2 */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_PIPE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_PIPE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_TAKE_HIVE1_ROACH_HEAD */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_TAKE_ITEM_HIVE1_ROACH_HEAD,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_TAKE_ITEM_HIVE1_ROACH_HEAD,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_OBSERVE_VALVE_BOX */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_VALVE_BOX,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_VALVE_BOX,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_OBSERVE_BACKALLEY_PIPE */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_BACKALLEY_PIPE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_BACKALLEY_PIPE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_OBSERVE_BACKALLEY_PIPE_2 */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_BACKALLEY_PIPE_2,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_BACKALLEY_PIPE_2,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_OBSERVE_VALVE_BOX_2 */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_VALVE_BOX_2,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_VALVE_BOX_2,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_TAKE_VALVE_BOX_1 */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_TAKE_VALVE_BOX_CLOSED,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_TAKE_VALVE_BOX_CLOSED,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_TAKE_VALVE_BOX_MORNING */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_TAKE_VALVE_BOX_CLOSED_MORNING,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_TAKE_VALVE_BOX_CLOSED_MORNING,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_OBSERVE_SHOEALCE */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_SHOELACE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_SHOELACE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_TAKE_SHOEALCE_NOT */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NO_REASON_TO_DO,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NO_REASON_TO_DO,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_TAKE_SHOEALCE_NOT_2 */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NO_REASON_TO_DO,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NO_REASON_TO_DO,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_TAKE_SHOEALCE */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_TAKE_ITEM_HIVE1_SHOELACE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_TAKE_ITEM_HIVE1_SHOELACE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_OBSERVE_VALVE */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_VALVE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_VALVE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_USE_SHOELACE_VALVE_BOX */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_SHOELACE_VALVE_BOX,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_SHOELACE_VALVE_BOX,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_TAKE_HIVE1_VALVE */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_HIVE1_VALVE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_HIVE1_VALVE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_TAKE_HIVE1_VALVE_2 */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_HIVE1_VALVE_NOT,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_HIVE1_VALVE_NOT,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_OBSERVE_MAN_WC_CURED */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_MAN_WC_CURED,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_HIVE1_MAN_WC_CURED,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_TALK_MAN_WC_CURED */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_ARTURO_HALL_INN_INTRO,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_ARTURO_HALL_INN_INTRO,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_OBSERVE_INVITATION_DETAIL_1 */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL_BLURR,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL_BLURR,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_OBSERVE_INVITATION_DETAIL_2 */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_OBSERVE_PHARMACY_INKWELL */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_PHARMACY_INKWELL,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_PHARMACY_INKWELL,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_OBSERVE_PHARMACY_INK */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_PHARMACY_INK,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_PHARMACY_INK,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_TAKE_INKWELL_NOT_1 */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NO_REASON_TO_DO,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NO_REASON_TO_DO,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_TAKE_INKWELL_NOT_2 */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_PHARMACIST_NOT_TAKE_INKWELL,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_PHARMACIST_NOT_TAKE_INKWELL,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_TAKE_INKWELL_NOT_3 */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_PHARMACIST_NOT_TAKE_INKWELL,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_PHARMACIST_NOT_TAKE_INKWELL,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_USE_UMBRELLA_INKWELL */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_USE_UMBRELLA_WITH_INKWELL,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_USE_UMBRELLA_WITH_INKWELL,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_USE_INVITATION_INK */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_INVITATION_WITH_INK,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_INVITATION_WITH_INK,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_USE_INVITATION_INK_2 */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_INVITATION_WITH_INK_ALREADY,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_INVITATION_WITH_INK_ALREADY,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_OPEN_CHEST */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_CANCEL_OPEN_CHEST */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_CHEST_OPENED, true),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_CARDS_PICKABLE_TAKEN */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_CARDS_PICKABLE_TAKEN, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_OPEN_WARDROBE */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_CANCEL_OPEN_WARDROBE */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_WARDROBE_OPENED, true),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_HIVE1_AD_OBSERVED */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_AD_BOARD_OBSERVED_1, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_USED_BASIN */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_USED_BASIN, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_SOAP_PICKABLE_TAKEN */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_SOAP_PICKABLE_TAKEN, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_USED_PERFUME */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_USED_PERFUME, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_UMBRELLA_PICKABLE_TAKEN */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_UMBRELLA_PICKABLE_TAKEN, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_PIPE_OBSERVATION_1 */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_PIPE_OBSERVATION_1, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_PIPE_OBSERVATION_2 */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_PIPE_OBSERVATION_2, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_COCKROACH_SCARED */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_COCKROACH_SCARED, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_VALVE_BOX_NEED_OPEN */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_VALVE_BOX_NEED_OPEN, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_SHOELACE_PICKABLE_TAKEN */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_ITEM_HIVE1_SHOELACE_PICKABLE_TAKEN, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_VALVE_BOX_OPENED */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_VALVE_BOX_OPENED, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_VALVE_ACTIVATED */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE1_VALVE_ACTIVATED, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_OBSERVED_INVITATION_RELIEF */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_OBSERVED_INVITATION_RELIEF, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_INVITATION_UNDERSTOOD_PHRASE */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_INVITATION_UNDERSTOOD_PHRASE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_INKWELL_NOT_TOUCH_WARN */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_INKWELL_NOT_TOUCH_WARN, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_INVITATION_REVEALED */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_INVITATION_REVEALED, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_MANYO_REFUSED_WORK */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_MANYO_REFUSED_WORK, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_MANYO_LOOK_FOR_RECIPE_MISSION */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_MANYO_LOOK_FOR_RECIPE_MISSION, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_POOR_MAN_WC_NEEDS_WATER */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_POOR_MAN_WC_NEED_WATER, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_TALKED_ARTURO_HALL_PUB */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_TALKED_ARTURO_HALL_PUB, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_TALKED_ARTURO_HALL_COMPLETED */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_TALKED_ARTURO_HALL_INN_COMPLETED, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_INVITATION_PICKABLE_TAKEN */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_ITEM_EXTRAPERLO_INVITATION_PICKABLE_TAKEN, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_INKWELL_WASTED */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_INKWELL_WASTED, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOG_USELESS_OBSERVE */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NONSENSE_OBSERVE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NONSENSE_OBSERVE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOG_USELESS_TALK */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NONSENSE_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NONSENSE_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOG_USELESS_ACTION */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NONSENSE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_NONSENSE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_ANIMATE_REME_TEST */
             true,ActionType.ACTION_TYPE_START_ANIMATION,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_REME_TEST),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_REME_TEST,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_SPAWN_FIK_1 */
             false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_NPC_FIK,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_TALK_FIK */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_FIK_1_INTRO,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_FIK_1_INTRO,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_EXTRAPERLO_SAID_PHRASE */
             true,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_EXTRAPERLO_SAID_PHRASE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_TALK_FIK_NOT_CROSS */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_FIK_NOT_CROSS_DOOR,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_FIK_NOT_CROSS_DOOR,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_SPAWN_EXTRAPERLO_DOOR */
             false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_DOOR_EXTRAPERLO,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_SPAWN_EXTRAPERLO_WALL */
             false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_FOREGROUND_EXTRP_WALL,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DESPAWN_EXTRAPERLO_DOOR */
             false,ActionType.ACTION_TYPE_DESPAWN,GameItem.ITEM_DOOR_EXTRAPERLO,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_SPAWN_EXTRAPERLO_DOOR_REAL */
             false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_DOOR_EXTRAPERLO_REAL,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_ANIMATE_WATER_FLOWING_NIGHT */
             false,ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION,GameItem.ITEM_HIVE1_WATER_FLOWING,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_TALK_GERMAN */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_GERMAN_1_INTRO,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_GERMAN_1_INTRO,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_SPWAN_GERMAN_1 */
             false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_NPC_GERMAN,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_SHOWN_OLD_INVITATION */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_EXTRAPERLO_SHOWN_OLD_INVITATION, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_FOLD_CORNERS */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_EXTRAPERLO_INV_FOLDED_CORNERS, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_EVENT_SHOWN_NEW_INVITATION */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_EXTRAPERLO_SHOWN_NEW_INVITATION, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_TALK_WAITER_NO_INVITATION */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_WAITER_1_INTRO,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_WAITER_1_INTRO,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_TALK_WAITER_OLD_INVITATION */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_WAITER_USE_OLD_INVITATION,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_WAITER_USE_OLD_INVITATION,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_TALK_UNKNOWN_WOMEN */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_UNKNOWN_GIRLS_1,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_UNKNOWN_GIRLS_1,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_TAKE_UNKNOWN_WOMEN */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_TAKE_UNKNOWN_WOMEN,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_TAKE_UNKNOWN_WOMEN,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_DIALOGUE_OBSERVE_ITEM_NPC_ARTURO_EXTRAPERLO */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_NPC_ARTURO_EXTRAPERLO,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_NPC_ARTURO_EXTRAPERLO,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             new( /* ACTION_TALK_DIALOG_ARTURO_EXTRAPERLO */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_ARTURO_EXTRAPERLO_INTRO,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_ARTURO_EXTRAPERLO_INTRO,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
+            
+            new( /* ACTION_START_TEST_CARD_GAME */
+            false,ActionType.ACTION_TYPE_START_CARD_GAME,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_TEST), 
             
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false),}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE),
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
             
             /* > ATG 10 END < */
         };

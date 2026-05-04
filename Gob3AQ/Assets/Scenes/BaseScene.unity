@@ -281,6 +281,116 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6910175552404248689, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
   m_PrefabInstance: {fileID: 324695409}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &324695411 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6427771199482737971, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
+  m_PrefabInstance: {fileID: 324695409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff4eaf9e615c1d541a128a1a012228ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameCode::CardClass
+--- !u!114 &324695412 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 370602352807295566, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
+  m_PrefabInstance: {fileID: 324695409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff4eaf9e615c1d541a128a1a012228ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameCode::CardClass
+--- !u!114 &324695413 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5842209503423638544, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
+  m_PrefabInstance: {fileID: 324695409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff4eaf9e615c1d541a128a1a012228ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameCode::CardClass
+--- !u!114 &324695414 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 137484534841612896, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
+  m_PrefabInstance: {fileID: 324695409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff4eaf9e615c1d541a128a1a012228ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameCode::CardClass
+--- !u!114 &324695415 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6403882581038218014, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
+  m_PrefabInstance: {fileID: 324695409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff4eaf9e615c1d541a128a1a012228ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameCode::CardClass
+--- !u!114 &324695416 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8430860741450138179, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
+  m_PrefabInstance: {fileID: 324695409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff4eaf9e615c1d541a128a1a012228ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameCode::CardClass
+--- !u!114 &324695417 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5383035452114356579, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
+  m_PrefabInstance: {fileID: 324695409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff4eaf9e615c1d541a128a1a012228ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameCode::CardClass
+--- !u!114 &324695418 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5650542214897032132, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
+  m_PrefabInstance: {fileID: 324695409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff4eaf9e615c1d541a128a1a012228ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameCode::CardClass
+--- !u!114 &324695419 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7935704171924096497, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
+  m_PrefabInstance: {fileID: 324695409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff4eaf9e615c1d541a128a1a012228ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameCode::CardClass
+--- !u!114 &324695420 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6555720124285784495, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
+  m_PrefabInstance: {fileID: 324695409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff4eaf9e615c1d541a128a1a012228ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameCode::CardClass
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,6 +970,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2090582329375258931, guid: 06a6230f158ef504caddaaffbcc5e4d6, type: 3}
+      propertyPath: card_resource_pool.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2090582329375258931, guid: 06a6230f158ef504caddaaffbcc5e4d6, type: 3}
+      propertyPath: 'card_resource_pool.Array.data[0]'
+      value: 
+      objectReference: {fileID: 324695420}
+    - target: {fileID: 2090582329375258931, guid: 06a6230f158ef504caddaaffbcc5e4d6, type: 3}
+      propertyPath: 'card_resource_pool.Array.data[1]'
+      value: 
+      objectReference: {fileID: 324695419}
+    - target: {fileID: 2090582329375258931, guid: 06a6230f158ef504caddaaffbcc5e4d6, type: 3}
+      propertyPath: 'card_resource_pool.Array.data[2]'
+      value: 
+      objectReference: {fileID: 324695418}
+    - target: {fileID: 2090582329375258931, guid: 06a6230f158ef504caddaaffbcc5e4d6, type: 3}
+      propertyPath: 'card_resource_pool.Array.data[3]'
+      value: 
+      objectReference: {fileID: 324695417}
+    - target: {fileID: 2090582329375258931, guid: 06a6230f158ef504caddaaffbcc5e4d6, type: 3}
+      propertyPath: 'card_resource_pool.Array.data[4]'
+      value: 
+      objectReference: {fileID: 324695416}
+    - target: {fileID: 2090582329375258931, guid: 06a6230f158ef504caddaaffbcc5e4d6, type: 3}
+      propertyPath: 'card_resource_pool.Array.data[5]'
+      value: 
+      objectReference: {fileID: 324695415}
+    - target: {fileID: 2090582329375258931, guid: 06a6230f158ef504caddaaffbcc5e4d6, type: 3}
+      propertyPath: 'card_resource_pool.Array.data[6]'
+      value: 
+      objectReference: {fileID: 324695414}
+    - target: {fileID: 2090582329375258931, guid: 06a6230f158ef504caddaaffbcc5e4d6, type: 3}
+      propertyPath: 'card_resource_pool.Array.data[7]'
+      value: 
+      objectReference: {fileID: 324695413}
+    - target: {fileID: 2090582329375258931, guid: 06a6230f158ef504caddaaffbcc5e4d6, type: 3}
+      propertyPath: 'card_resource_pool.Array.data[8]'
+      value: 
+      objectReference: {fileID: 324695412}
+    - target: {fileID: 2090582329375258931, guid: 06a6230f158ef504caddaaffbcc5e4d6, type: 3}
+      propertyPath: 'card_resource_pool.Array.data[9]'
+      value: 
+      objectReference: {fileID: 324695411}
     - target: {fileID: 4182633690246984581, guid: 06a6230f158ef504caddaaffbcc5e4d6, type: 3}
       propertyPath: m_Name
       value: CardMaster

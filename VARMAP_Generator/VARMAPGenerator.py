@@ -27,6 +27,7 @@ names_types_path = atg_path + "VARMAP_types_names.cs"
 sprite_types_path = atg_path + "VARMAP_types_sprites.cs"
 sound_types_path = atg_path + "VARMAP_types_sounds.cs"
 event_types_path = atg_path + "VARMAP_types_events.cs"
+card_types_path = atg_path + "VARMAP_types_cards.cs"
 animation_types_path = atg_path + "VARMAP_types_animations.cs"
 items_interaction_path = atg_path + "../Static/ItemsInteractionsClass.cs"
 dialog_atlas_path = atg_path + "../Static/ResourceDialogsAtlas.cs"
@@ -126,6 +127,7 @@ names_types_lines = ATGFile(names_types_path, 1)
 sprite_types_lines = ATGFile(sprite_types_path, 1)
 sound_types_lines = ATGFile(sound_types_path, 1)
 event_types_lines = ATGFile(event_types_path, 4)
+card_types_lines = ATGFile(card_types_path, 1)
 animation_types_lines = ATGFile(animation_types_path, 1)
 modules_types_lines = ATGFile(modules_types_path, 1)
 items_types_lines = ATGFile(items_types_path, 6)
@@ -716,6 +718,7 @@ moment_prefix = 'MomentType.'
 animation_prefix = 'GameAnimation.'
 detail_prefix = 'DetailType.'
 unchaincondition_prefix = 'UnchainConditions.'
+cardgame_prefix = 'CardGameID.'
 
 
 print('\n\n------DIALOGS (Custom GOB3) -------\n\n')
@@ -1306,6 +1309,7 @@ for line in ACTIONCONDSinputFile:
         ItemVar["targetPhrase"] = str(columns[12])
         ItemVar["targetTriggerAnim"] = str(columns[13])
         ItemVar["targetAnimation"] = str(columns[14])
+        ItemVar["targetCardGame"] = str(columns[15])
         
         # Write in item enum
         stringToWrite = ItemVar["name"]
@@ -1346,7 +1350,8 @@ for line in ACTIONCONDSinputFile:
         stringToWrite += dialog_prefix + ItemVar["targetDialog"] + ','
         stringToWrite += phrase_prefix + ItemVar["targetPhrase"] + ','
         stringToWrite += animation_trigger_prefix + ItemVar["targetTriggerAnim"] + ','
-        stringToWrite += animation_prefix + ItemVar["targetAnimation"] + '),\n'
+        stringToWrite += animation_prefix + ItemVar["targetAnimation"] + ','
+        stringToWrite += cardgame_prefix + ItemVar["targetCardGame"] + '), \n'
         items_interaction_lines.InsertLineInATG(10, stringToWrite)
         
         items_interaction_lines.InsertLineInATG(10, '\n')
@@ -1500,7 +1505,7 @@ stringToWrite = 'NAME_TOTAL\n'
 names_types_lines.InsertLineInATG(1, stringToWrite)
 
 
-print('\n\n------ANIMATIONS (Custom GOB3) -------\n\n')
+print('\n\n------ANIMATIONS and CARD GAMES (Custom GOB3) -------\n\n')
 linecount = -1
 zone = 1
 
@@ -1518,21 +1523,37 @@ for line in ANIMATIONSinputFile:
         continue
     
     
+    if(columns[0] == ''):
+        if(zone == 1):
+            stringToWrite = '\n'
+            animation_types_lines.InsertLineInATG(1, stringToWrite)
+            stringToWrite = 'ANIMATION_TOTAL\n'
+            animation_types_lines.InsertLineInATG(1, stringToWrite)
+            
+        zone += 1
+        linecount = -1
+        continue
+    
+    
     stringToWrite = columns[1]
     if('NONE' in columns[1]):
         stringToWrite += ' = -1'
     stringToWrite += ', \n'
-    animation_types_lines.InsertLineInATG(1, stringToWrite)
+    
+    if(zone == 1):
+        animation_types_lines.InsertLineInATG(1, stringToWrite)
+    elif(zone == 2):
+        card_types_lines.InsertLineInATG(1, stringToWrite)
     
     
 
 
     
 stringToWrite = '\n'
-animation_types_lines.InsertLineInATG(1, stringToWrite)
+card_types_lines.InsertLineInATG(1, stringToWrite)
 
-stringToWrite = 'ANIMATION_TOTAL\n'
-animation_types_lines.InsertLineInATG(1, stringToWrite)
+stringToWrite = 'CARD_GAME_TOTAL\n'
+card_types_lines.InsertLineInATG(1, stringToWrite)
 
 
 
@@ -1830,6 +1851,7 @@ names_types_lines.SaveFile()
 sprite_types_lines.SaveFile()
 sound_types_lines.SaveFile()
 event_types_lines.SaveFile()
+card_types_lines.SaveFile()
 animation_types_lines.SaveFile()
 sprite_atlas_lines.SaveFile()
 sound_atlas_lines.SaveFile()

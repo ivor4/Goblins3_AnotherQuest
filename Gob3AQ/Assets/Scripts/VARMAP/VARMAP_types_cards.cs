@@ -4,6 +4,16 @@ using System;
 
 namespace Gob3AQ.VARMAP.Types.Cards
 {
+    public enum CardGameID
+    {
+        /* > ATG 1 START < */
+        CARD_GAME_NONE = -1, 
+        CARD_GAME_TEST, 
+        
+        CARD_GAME_TOTAL
+        /* > ATG 1 END < */
+    }
+
     public enum CardType
     {
         CARD_NONE = -1,

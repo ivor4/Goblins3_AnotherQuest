@@ -8,6 +8,7 @@ using Gob3AQ.ItemMaster;
 using Gob3AQ.GraphicsMaster;
 using Gob3AQ.SoundMaster;
 using Gob3AQ.DialogMaster;
+using Gob3AQ.CardMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.VARMAP.Types.Delegates;
 using Gob3AQ.VARMAP.Variable;
@@ -470,6 +471,13 @@ namespace Gob3AQ.VARMAP
         /// <para> Method: <see cref="ItemMasterClass.GetItemBoundariesService"/> </para> 
         /// </summary>
         protected static GET_ITEM_SPRITE_BOUNDARIES_DELEGATE _GET_ITEM_SPRITE_BOUNDARIES;
+        /// <summary> 
+        /// Tells Card Master to prepare a game with given parameters
+        /// <para> Owner: CardMaster </para> 
+        /// <para> Accessors: GameEventMaster,  </para> 
+        /// <para> Method: <see cref="CardMasterClass.StartCardGameService"/> </para> 
+        /// </summary>
+        protected static START_CARD_GAME_DELEGATE _START_CARD_GAME;
         /// <summary> 
         /// Last service
         /// <para> Owner: GameMaster </para> 

@@ -29,6 +29,7 @@ namespace Gob3AQ.VARMAP.CardMaster
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             PLAY_SOUND = _PLAY_SOUND;
             PERFORM_ACTION = _PERFORM_ACTION;
+            START_CARD_GAME = _START_CARD_GAME;
             /* > ATG 1 END */
         }
 
@@ -74,6 +75,13 @@ namespace Gob3AQ.VARMAP.CardMaster
         /// <para> Method: <see cref="GameEventMasterClass.PerformActionService"/> </para> 
         /// </summary>
         public static PERFORM_ACTION_DELEGATE PERFORM_ACTION;
+        /// <summary> 
+        /// Tells Card Master to prepare a game with given parameters
+        /// <para> Owner: CardMaster </para> 
+        /// <para> Accessors: GameEventMaster,  </para> 
+        /// <para> Method: <see cref="CardMasterClass.StartCardGameService"/> </para> 
+        /// </summary>
+        public static START_CARD_GAME_DELEGATE START_CARD_GAME;
         /* > ATG 3 END */
     }
 }

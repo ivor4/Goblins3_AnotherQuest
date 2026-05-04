@@ -1,4 +1,5 @@
 using Gob3AQ.Libs.Arith;
+using Gob3AQ.VARMAP.Types.Cards;
 using Gob3AQ.VARMAP.Variable.IstreamableNamespace;
 using System;
 using System.Collections.Generic;
@@ -525,6 +526,7 @@ namespace Gob3AQ.VARMAP.Types
         public readonly DialogPhrase targetPhrase;
         public readonly AnimationTrigger animTrigger;
         public readonly GameAnimation targetAnimation;
+        public readonly CardGameID targetCardGame;
 
         public ReadOnlySpan<GameEventCombi> TargetEvents => targetEvents;
 
@@ -532,16 +534,16 @@ namespace Gob3AQ.VARMAP.Types
         {
             return new ActionInfo(false, ActionType.ACTION_TYPE_DESPAWN, targetItem, GameSprite.SPRITE_NONE,
                 CharacterType.CHARACTER_NONE, Memento.MEMENTO_NONE, new GameEventCombi[0], DecisionType.DECISION_NONE,
-                MomentType.MOMENT_ANY, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, AnimationTrigger.ANIMATION_TRIGGER_NONE, GameAnimation.ANIMATION_NONE);
+                MomentType.MOMENT_ANY, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, AnimationTrigger.ANIMATION_TRIGGER_NONE, GameAnimation.ANIMATION_NONE, CardGameID.CARD_GAME_NONE);
         }
 
         public static readonly ActionInfo EMPTY = new(false, ActionType.ACTION_TYPE_NONE, GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE, Memento.MEMENTO_NONE, new GameEventCombi[0], DecisionType.DECISION_NONE,
-            MomentType.MOMENT_ANY, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, AnimationTrigger.ANIMATION_TRIGGER_NONE, GameAnimation.ANIMATION_NONE);
+            MomentType.MOMENT_ANY, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, AnimationTrigger.ANIMATION_TRIGGER_NONE, GameAnimation.ANIMATION_NONE, CardGameID.CARD_GAME_NONE);
 
         public ActionInfo(bool waitForEnd, ActionType type, GameItem targetItem, GameSprite targetSprite, CharacterType targetCharacter, Memento targetMemento,
             GameEventCombi[] targetEvents, DecisionType targetDecision, MomentType targetMomentOfDay, DialogType targetDialog,
-            DialogPhrase targetPhrase, AnimationTrigger animTrigger, GameAnimation targetAnimation)
+            DialogPhrase targetPhrase, AnimationTrigger animTrigger, GameAnimation targetAnimation, CardGameID targetCardGame)
         {
             this.waitForEnd = waitForEnd;
             this.type = type;
@@ -556,6 +558,7 @@ namespace Gob3AQ.VARMAP.Types
             this.targetPhrase = targetPhrase;
             this.animTrigger = animTrigger;
             this.targetAnimation = targetAnimation;
+            this.targetCardGame = targetCardGame;
         }
     }
 

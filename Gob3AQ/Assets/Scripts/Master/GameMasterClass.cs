@@ -340,7 +340,11 @@ namespace Gob3AQ.GameMaster
                         (oldmode == Game_Status.GAME_STATUS_PLAY_MEMENTO) ||
                         (oldmode == Game_Status.GAME_STATUS_STOPPED) ||
                         (oldmode == Game_Status.GAME_STATUS_PLAY_ITEM_MENU) ||
-                        (oldmode == Game_Status.GAME_STATUS_PAUSE);
+                        (oldmode == Game_Status.GAME_STATUS_PAUSE) ||
+                        (oldmode == Game_Status.GAME_STATUS_PLAY_CARDS);
+                    break;
+                case Game_Status.GAME_STATUS_PLAY_CARDS:
+                    valid = (oldmode == Game_Status.GAME_STATUS_PLAY) || (oldmode == Game_Status.GAME_STATUS_PLAY_DIALOG);
                     break;
                 default:
                     valid = false;

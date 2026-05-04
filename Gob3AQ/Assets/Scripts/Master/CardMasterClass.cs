@@ -54,7 +54,7 @@ namespace Gob3AQ.CardMaster
         private int numPlayers;
 
 
-        public static void StartGameService(int difficulty, int startingPlayer, CardType othercard1, CardType othercard2, CardType othercard3, CardType gamesuit)
+        public static void StartCardGameService(int difficulty, int startingPlayer, CardType othercard1, CardType othercard2, CardType othercard3, CardType gamesuit)
         {
             if(_singleton != null)
             {
@@ -84,6 +84,9 @@ namespace Gob3AQ.CardMaster
                 }
 
                 _singleton.ShuffleDeck(_singleton.initialTrickedCards);
+
+                _singleton.gameMoment = CardGameMoment.GAME_MOMENT_DRAW_FIRST_CARDS;
+                _singleton.momentSubStep = 0;
             }
         }
 
@@ -145,7 +148,6 @@ namespace Gob3AQ.CardMaster
 
                 ResetGame();
             }
-
         }
 
         // Start is called before the first frame update

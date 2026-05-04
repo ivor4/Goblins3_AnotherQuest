@@ -45,4 +45,5 @@
 43,EXECUTE_EXIT_ROOM_CONDS,EXECUTE_EXIT_ROOM_CONDS_DELEGATE,GameEventMasterClass.ExecuteExitRoomCondsService,Executes exit room unchainers before leaving room,,X,-,-,-,-,-,-,-,-,-,W
 44,ACTIVATE_FORCED_ZOOM_MODE,ACTIVATE_FORCED_ZOOM_MODE_DELEGATE,GraphicsMasterClass.ActivateForcedZoomMode,Service for GraphicsMaste to make zoom into a region of interest,,-,-,-,W,-,-,X,-,-,-,-
 45,GET_ITEM_SPRITE_BOUNDARIES,GET_ITEM_SPRITE_BOUNDARIES_DELEGATE,ItemMasterClass.GetItemBoundariesService,Gets world boundaries of given item,,-,-,-,-,-,-,X,-,W,-,-
-46,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-,-,-,-
+46,START_CARD_GAME,START_CARD_GAME_DELEGATE,CardMasterClass.StartCardGameService,Tells Card Master to prepare a game with given parameters,,-,-,-,-,-,-,-,-,-,W,X
+47,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-,-,-,-

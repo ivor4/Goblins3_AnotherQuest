@@ -581,8 +581,8 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new( /* DIALOG_ARTURO_EXTRAPERLO_OPTION_1 */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
-            DialogType.DIALOG_ARTURO_EXTRAPERLO,false,
+            new GameAction[1]{GameAction.ACTION_START_TEST_CARD_GAME, },
+            DialogType.DIALOG_NONE,false,
             new DialogPhrase[5]{DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_1_0, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_1_1, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_1_2, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_1_3, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_1_4, }
             ),
             new( /* DIALOG_ARTURO_EXTRAPERLO_OPTION_2 */

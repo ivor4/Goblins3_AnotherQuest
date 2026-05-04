@@ -14,6 +14,7 @@ using Gob3AQ.GameEventMaster;
 using Gob3AQ.ItemMaster;
 using Gob3AQ.GameMenu;
 using Gob3AQ.DialogMaster;
+using Gob3AQ.CardMaster;
 
 namespace Gob3AQ.VARMAP.Initialization
 {
@@ -197,6 +198,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _EXECUTE_EXIT_ROOM_CONDS = GameEventMasterClass.ExecuteExitRoomCondsService;
             _ACTIVATE_FORCED_ZOOM_MODE = GraphicsMasterClass.ActivateForcedZoomMode;
             _GET_ITEM_SPRITE_BOUNDARIES = ItemMasterClass.GetItemBoundariesService;
+            _START_CARD_GAME = CardMasterClass.StartCardGameService;
             _LAST_SERVICE = GameMasterClass.ExitGameService;
             /* > ATG 2 END */
         }

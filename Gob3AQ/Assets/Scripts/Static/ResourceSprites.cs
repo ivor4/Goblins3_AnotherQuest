@@ -42,7 +42,8 @@ namespace Gob3AQ.ResourceSprites
                 GameSprite.SPRITE_UI_OBSERVE,
                 GameSprite.SPRITE_UI_MOUSE_MOVE,
                 GameSprite.SPRITE_UI_CURSOR_DOOR,
-                GameSprite.SPRITE_MAINCHAR_STEADY
+                GameSprite.SPRITE_MAINCHAR_STEADY,
+                GameSprite.SPRITE_CARD_REVERSE
             };
 
             for (GamePickableItem i = 0; i < GamePickableItem.ITEM_PICK_TOTAL; i++)

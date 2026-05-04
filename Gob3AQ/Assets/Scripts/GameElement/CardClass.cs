@@ -12,6 +12,7 @@ public class CardClass : MonoBehaviour, IPointerClickHandler
     private Animator myAnimator;
     private GenericAnimBehavior animBehavior;
     private Image myImage;
+    private RectTransform rectTransform;
     private bool isFrontal;
     private bool currentFlipToFrontal;
     private bool isClickable;
@@ -27,6 +28,12 @@ public class CardClass : MonoBehaviour, IPointerClickHandler
     {
         myAnimator.SetTrigger(ANIM_TRIGGER_FLIP);
         currentFlipToFrontal = toFrontal;
+    }
+
+    public void SetPositionAndRotation(Vector3 position, Quaternion rotation)
+    {
+        rectTransform.anchoredPosition = position;
+        rectTransform.localRotation = rotation;
     }
 
     public void SetFrontal(bool frontal)
@@ -76,6 +83,7 @@ public class CardClass : MonoBehaviour, IPointerClickHandler
         myAnimator = GetComponent<Animator>();
         animBehavior = myAnimator.GetBehaviour<GenericAnimBehavior>();
         myImage = GetComponent<Image>();
+        rectTransform = GetComponent<RectTransform>();
         animBehavior.SetOnStartEndCallback(OnAnimationStart, OnAnimationEnd);
 
         isFrontal = false;

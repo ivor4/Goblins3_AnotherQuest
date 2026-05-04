@@ -75,6 +75,8 @@ namespace Gob3AQ.VARMAP.Types
         SPRITE_EXTRAPERLO_COUPLE_TALKING, 
         SPRITE_FIRE_DANCING, 
         SPRITE_ARTURO_STEADY, 
+        SPRITE_CARD_REVERSE, 
+        SPRITE_CARDS, 
         SPRITE_LAST, 
         
         SPRITE_TOTAL

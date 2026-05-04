@@ -783,7 +783,7 @@ namespace Gob3AQ.GameEventMaster
                         break;
                     case ActionType.ACTION_TYPE_START_CARD_GAME:
                         mustWait = false;
-                        VARMAP_GameEventMaster.START_CARD_GAME(0, -1, CardType.CARD_NONE, CardType.CARD_NONE, CardType.CARD_NONE, CardType.CARD_NONE);
+                        VARMAP_GameEventMaster.START_CARD_GAME(0, 0, CardType.CARD_NONE, CardType.CARD_NONE, CardType.CARD_NONE, CardType.CARD_NONE);
                         VARMAP_GameEventMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_CARDS, out error);
                         break;
                     default:

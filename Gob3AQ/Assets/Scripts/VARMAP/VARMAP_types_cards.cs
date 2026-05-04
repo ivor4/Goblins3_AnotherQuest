@@ -72,8 +72,22 @@ namespace Gob3AQ.VARMAP.Types.Cards
         GAME_MOMENT_EXPOSE_SUIT_CARD,
         GAME_MOMENT_RANDOM_FIRST_TURN,
         GAME_MOMENT_PLAY,
+        GAME_MOMENT_COMPUTE_ROUND,
+        GAME_MOMENT_DECIDE_EXCHANGE,
         GAME_MOMENT_DRAW,
         GAME_MOMENT_FINAL_RESULT
+    }
+
+    public readonly struct CardBoardInfo
+    {
+        public readonly CardInfo cardInfo;
+        public readonly int playerID;
+
+        public CardBoardInfo(CardInfo cardInfo, int playerID)
+        {
+            this.cardInfo = cardInfo;
+            this.playerID = playerID;
+        }
     }
 
     public readonly struct CardInfo

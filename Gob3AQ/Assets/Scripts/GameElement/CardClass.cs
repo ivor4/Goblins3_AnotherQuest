@@ -14,12 +14,14 @@ public class CardClass : MonoBehaviour, IPointerClickHandler
     private Image myImage;
     private bool isFrontal;
     private bool currentFlipToFrontal;
+    private bool isClickable;
     private CardType cardType;
     private Sprite frontalSprite;
     private Sprite backSprite;
     private CARD_CLICK_CALLBACK onCardClickCallback;
 
     public CardType CardType => cardType;
+    public bool IsClickable => isClickable;
 
     public void DoFlip(bool toFrontal)
     {
@@ -46,6 +48,7 @@ public class CardClass : MonoBehaviour, IPointerClickHandler
     public void SetVisible(bool visible)
     {
         myImage.enabled = visible;
+        isClickable = visible;
     }
 
     public void SetOnClickCallback(CARD_CLICK_CALLBACK callback)
@@ -76,6 +79,7 @@ public class CardClass : MonoBehaviour, IPointerClickHandler
         animBehavior.SetOnStartEndCallback(OnAnimationStart, OnAnimationEnd);
 
         isFrontal = false;
+        isClickable = false;
     }
 
 

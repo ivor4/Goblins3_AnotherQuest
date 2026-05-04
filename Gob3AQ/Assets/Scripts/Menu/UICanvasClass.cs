@@ -30,6 +30,7 @@ namespace Gob3AQ.GameMenu.UICanvas
         DISPLAY_MODE_DECISION,
         DISPLAY_MODE_MEMENTO,
         DISPLAY_MODE_DETAIL,
+        DISPLAY_MODE_CARDS,
         DISPLAY_MODE_LOADING
     }
 
@@ -63,6 +64,7 @@ namespace Gob3AQ.GameMenu.UICanvas
         private GameObject UICanvas_mementoObj;
         private GameObject UICanvas_itemMenuObj;
         private GameObject UICanvas_detailObj;
+        private GameObject UICanvas_cardObj;
 
         private Image UICanvas_dialogObj_background;
         private TMP_Text UICanvas_dialogObj_sender;
@@ -139,6 +141,7 @@ namespace Gob3AQ.GameMenu.UICanvas
             UICanvas_mementoObj = transform.Find("MementoObj").gameObject;
             UICanvas_itemMenuObj = transform.Find("ItemMenuObj").gameObject;
             UICanvas_detailObj = transform.Find("DetailObj").gameObject;
+            UICanvas_cardObj = transform.Find("CardObj").gameObject;
 
             UICanvas_loadingObj_image = UICanvas_loadingObj.GetComponent<Image>();
             UICanvas_loadingObj_image_initial = UICanvas_loadingObj_image.sprite;
@@ -216,6 +219,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_mementoObj.SetActive(false);
                     UICanvas_itemMenuObj.SetActive(true);
                     UICanvas_detailObj.SetActive(false);
+                    UICanvas_cardObj.SetActive(false);
 
                     break;
 
@@ -225,6 +229,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_mementoObj.SetActive(false);
                     UICanvas_itemMenuObj.SetActive(false);
                     UICanvas_detailObj.SetActive(false);
+                    UICanvas_cardObj.SetActive(false);
                     break;
 
                 case DisplayMode.DISPLAY_MODE_DECISION:
@@ -233,6 +238,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_mementoObj.SetActive(false);
                     UICanvas_itemMenuObj.SetActive(false);
                     UICanvas_detailObj.SetActive(false);
+                    UICanvas_cardObj.SetActive(false);
                     break;
 
                 case DisplayMode.DISPLAY_MODE_MEMENTO:
@@ -241,6 +247,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_mementoObj.SetActive(true);
                     UICanvas_itemMenuObj.SetActive(false);
                     UICanvas_detailObj.SetActive(false);
+                    UICanvas_cardObj.SetActive(false);
                     break;
 
                 case DisplayMode.DISPLAY_MODE_DETAIL:
@@ -248,6 +255,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_mementoObj.SetActive(false);
                     UICanvas_itemMenuObj.SetActive(false);
                     UICanvas_detailObj.SetActive(true);
+                    UICanvas_cardObj.SetActive(false);
                     break;
 
                 case DisplayMode.DISPLAY_MODE_LOADING:
@@ -257,6 +265,17 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_mementoObj.SetActive(false);
                     UICanvas_itemMenuObj.SetActive(false);
                     UICanvas_detailObj.SetActive(false);
+                    UICanvas_cardObj.SetActive(false);
+                    break;
+
+                case DisplayMode.DISPLAY_MODE_CARDS:
+                    UICanvas_loadingObj.SetActive(false);
+                    UICanvas_dialogObj.SetActive(false);
+                    UICanvas_decisionObj.SetActive(false);
+                    UICanvas_mementoObj.SetActive(false);
+                    UICanvas_itemMenuObj.SetActive(false);
+                    UICanvas_detailObj.SetActive(false);
+                    UICanvas_cardObj.SetActive(true);
                     break;
 
                 default:
@@ -265,6 +284,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_mementoObj.SetActive(false);
                     UICanvas_itemMenuObj.SetActive(false);
                     UICanvas_detailObj.SetActive(false);
+                    UICanvas_cardObj.SetActive(false);
                     break;
             }
 

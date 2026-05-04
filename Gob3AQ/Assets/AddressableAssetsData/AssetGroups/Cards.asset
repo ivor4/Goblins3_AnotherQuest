@@ -20,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ec8e151f8807a1438a6bd95bdf6ed7a
+    m_Address: ANIMATOR_CARD
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4df4fa256acea4443b400888bd4d14b8
     m_Address: SPRITE_ATLAS_CARDS1
     m_ReadOnly: 0
@@ -30,8 +35,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d5c845c97577d846a34ec20b5525cd2
+    m_Address: ANIMATION_CARD_FLIP
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cba202edbb09f744c9c6972202094456
     m_Address: SPRITE_CARDS
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff6d2ffa3ce8fbe43aaf78d931083cf5
+    m_Address: ANIMATION_CARD_FLIP_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

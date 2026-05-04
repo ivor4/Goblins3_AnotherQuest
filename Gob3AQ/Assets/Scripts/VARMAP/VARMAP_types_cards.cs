@@ -65,6 +65,17 @@ namespace Gob3AQ.VARMAP.Types.Cards
         ESPADAS,
     }
 
+    public enum CardGameMoment
+    {
+        GAME_MOMENT_STOP,
+        GAME_MOMENT_DRAW_FIRST_CARDS,
+        GAME_MOMENT_EXPOSE_SUIT_CARD,
+        GAME_MOMENT_RANDOM_FIRST_TURN,
+        GAME_MOMENT_PLAY,
+        GAME_MOMENT_DRAW,
+        GAME_MOMENT_FINAL_RESULT
+    }
+
     public readonly struct CardInfo
     {
         public readonly CardType cardType;

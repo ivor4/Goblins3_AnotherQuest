@@ -605,6 +605,9 @@ namespace Gob3AQ.GameMenu
                     case Game_Status.GAME_STATUS_PLAY_DIALOG:
                         _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_DIALOG);
                         break;
+                    case Game_Status.GAME_STATUS_PLAY_CARDS:
+                        _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_CARDS);
+                        break;
                     default:
                         break;
                 }

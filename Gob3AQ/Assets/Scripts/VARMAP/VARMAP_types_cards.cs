@@ -1,6 +1,8 @@
 
 
+using Gob3AQ.Libs.Arith;
 using System;
+using System.Collections.Generic;
 
 namespace Gob3AQ.VARMAP.Types.Cards
 {
@@ -164,6 +166,72 @@ namespace Gob3AQ.VARMAP.Types.Cards
             this.cardSuit = cardSuit;
             this.cardValue = cardValue;
             this.cardScore = cardScore;
+        }
+    }
+
+    public readonly struct CardHandStats
+    {
+        public readonly int lowestUnsuitedScoreIndex;
+        public readonly int lowestSuitedScoreIndex;
+        public readonly int highestUnsuitedScoreIndex;
+        public readonly int highestSuitedScoreIndex;
+
+        public static CardHandStats CalcHandStats(IReadOnlyList<CardInfo> cards, CardSuit gameSuit)
+        {
+            int lusscore = 1000;
+            int lsscore = 1000;
+            int husscore = -1;
+            int hsscore = -1;
+
+            int lusindex = -1;
+            int lsindex = -1;
+            int husindex = -1;
+            int hsindex = -1;
+
+            for(int i=0; i < cards.Count; ++i)
+            {
+                CardInfo cardInfo = cards[i];
+                int score = cardInfo.cardScore;
+
+                if (cardInfo.cardSuit == gameSuit)
+                {
+                    if (score > hsscore)
+                    {
+                        hsscore = score;
+                        hsindex = i;
+                    }
+
+                    if (score < lsscore)
+                    {
+                        lsscore = score;
+                        lsindex = i;
+                    }
+                }
+                else
+                {
+                    if (score > husscore)
+                    {
+                        husscore = score;
+                        husindex = i;
+                    }
+
+                    if (score < lusscore)
+                    {
+                        lusscore = score;
+                        lusindex = i;
+                    }
+                }
+            }
+
+            return new CardHandStats(lusindex, lsindex, husindex, hsindex);
+        }
+
+        public CardHandStats(int lusindex, int lsindex, int husindex, int hsindex)
+        {
+            lowestUnsuitedScoreIndex = lusindex;
+            lowestSuitedScoreIndex = lsindex;
+            highestUnsuitedScoreIndex = husindex;
+            highestSuitedScoreIndex = hsindex;
         }
     }
 

@@ -1,9 +1,7 @@
 using Gob3AQ.FixedConfig;
-using Gob3AQ.ResourceSoundsAtlas;
 using Gob3AQ.VARMAP.CardMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.VARMAP.Types.Cards;
-using Gob3AQ.VARMAP.Types.Delegates;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -65,6 +63,12 @@ namespace Gob3AQ.CardMaster
         private byte momentSubStep;
         private int turnNum;
         private ulong lastActionTimestamp;
+
+        private int round_winningPlayer;
+        private CardSuit round_winningSuit;
+        private int round_winningScore;
+        private int round_winningValue;
+        private int round_accumScore;
 
 
         /* GAME STUP */
@@ -335,13 +339,11 @@ namespace Gob3AQ.CardMaster
             {
                 currentPlayer = (int)(UnityEngine.Random.value * numPlayers) % numPlayers;
             }
-    
+
             /* Animate to show first player */
-    
+
             /**/
-    
-            gameMoment = CardGameMoment.GAME_MOMENT_PLAY;
-            momentSubStep = 0;
+            NextRound();
         }
 
         private void Game_Moment_Play(ulong timestamp)
@@ -377,75 +379,14 @@ namespace Gob3AQ.CardMaster
 
         private void Game_Moment_ComputeRound(ulong timestamp)
         {
-            CardSuit winningSuit = CardSuit.SUIT_NONE;
-            int winningPlayer = -1;
-            int winningScore = -1;
-            int winningValue = -1;
-            int sumScore = 0;
+            playerScore[round_winningPlayer] += round_accumScore;
 
-            for(int i=0; i < placedBoardCards.Count; i++)
-            {
-                CardBoardInfo cardBoardInfo = placedBoardCards[i];
-                sumScore += cardBoardInfo.cardInfo.cardScore;
-                bool winCycle;
-
-                /* First card */
-                if(winningSuit == CardSuit.SUIT_NONE)
-                {
-                    winCycle = true;
-                    winningSuit = cardBoardInfo.cardInfo.cardSuit;
-                    Debug.Log("Won by first card for player " + cardBoardInfo.playerID);
-                }
-                /* Change from a loser suit to game suit */
-                else if ((cardBoardInfo.cardInfo.cardSuit == gameSuit) && (winningSuit != gameSuit))
-                {
-                    Debug.Log("Won by game suit for player " + cardBoardInfo.playerID);
-                    winCycle = true;
-                    winningSuit = cardBoardInfo.cardInfo.cardSuit;
-                }
-                /* A card of actual winning suit */
-                else if (cardBoardInfo.cardInfo.cardSuit == winningSuit)
-                {
-                    /* Card has more value than highest in board stack */
-                    if (cardBoardInfo.cardInfo.cardScore > winningScore)
-                    {
-                        Debug.Log("Won by same suit and score for player " + cardBoardInfo.playerID);
-                        winCycle = true;
-                    }
-                    /* Card has score 0, but its number is higher */
-                    else if ((cardBoardInfo.cardInfo.cardScore == winningScore) && (cardBoardInfo.cardInfo.cardValue > winningValue))
-                    {
-                        Debug.Log("Won by same suit, same score and higher value for player " + cardBoardInfo.playerID);
-                        winCycle = true;
-                    }
-                    /* A card with less score or numeric value */
-                    else
-                    {
-                        winCycle = false;
-                    }
-                }
-                /* A card from a losing suit against a higher placed */
-                else
-                {
-                    winCycle = false;
-                }
-
-                if (winCycle)
-                {
-                    winningPlayer = cardBoardInfo.playerID;
-                    winningScore = cardBoardInfo.cardInfo.cardScore;
-                    winningValue = cardBoardInfo.cardInfo.cardValue;
-                }
-            }
-
-            playerScore[winningPlayer] += sumScore;
-
-            Debug.Log("Player " + winningPlayer + " wins the round with score " + sumScore + " and total score " + playerScore[winningPlayer]);
+            Debug.Log("Player " + round_winningPlayer + " wins the round with score " + round_accumScore + " and total score " + playerScore[round_winningPlayer]);
 
             for (int i = 0; i < placedBoardCards.Count; i++)
             {
                 Debug.Log(placedBoardCards[i].cardInfo.cardType);
-                playerScoredCards[winningPlayer].Add(placedBoardCards[i].cardInfo);
+                playerScoredCards[round_winningPlayer].Add(placedBoardCards[i].cardInfo);
                 card_instances_placedBoard[i].SetCardType(CardType.CARD_NONE, card_resource_reverse_sprite, card_resource_reverse_sprite);
                 card_instances_placedBoard[i].SetFrontal(false);
                 card_instances_placedBoard[i].SetVisible(false);
@@ -455,7 +396,7 @@ namespace Gob3AQ.CardMaster
 
             if((remainingDeckCards.Count > 0)||(!exposedSuitCardDrawn))
             {
-                if ((remainingDeckCards.Count > 0) && isExchangeAvailable(winningPlayer, out _))
+                if ((remainingDeckCards.Count > 0) && IsExchangeAvailable(round_winningPlayer, out _))
                 {
                     gameMoment = CardGameMoment.GAME_MOMENT_DECIDE_EXCHANGE;
                     momentSubStep = 0;
@@ -465,26 +406,34 @@ namespace Gob3AQ.CardMaster
                     gameMoment = CardGameMoment.GAME_MOMENT_DRAW;
                     momentSubStep = 0;
                 }
-                currentPlayer = winningPlayer;
+                currentPlayer = round_winningPlayer;
             }
             else
             {
                 int handCards = 0;
+                int maxScore = -1;
+                int playerWinner = -1;
+
                 for(int i=0; i < numPlayers; i++)
                 {
                     handCards += playerHandCards[i].Count;
+                    if (playerScore[i] > maxScore)
+                    {
+                        maxScore = playerScore[i];
+                        playerWinner = i;
+                    }
                 }
 
                 if (handCards > 0)
                 {
-                    gameMoment = CardGameMoment.GAME_MOMENT_PLAY;
-                    momentSubStep = 0;
-                    currentPlayer = winningPlayer;
+                    currentPlayer = round_winningPlayer;
+                    NextRound();
                 }
                 else
                 {
                     gameMoment = CardGameMoment.GAME_MOMENT_FINAL_RESULT;
                     momentSubStep = 0;
+                    Debug.Log("Winner is player: " + playerWinner + " with score of: " + maxScore);
                 }
             }
         }
@@ -539,14 +488,30 @@ namespace Gob3AQ.CardMaster
             }
             else
             {
-                gameMoment = CardGameMoment.GAME_MOMENT_PLAY;
-                momentSubStep = 0;
+                NextRound();
             }
         }
 
         private void Game_Action_AI_Turn(int player, ulong timestamp)
         {
+            CardHandStats handStats = CardHandStats.CalcHandStats(playerHandCards[player], gameSuit);
+
+            switch(gameDifficulty)
+            {
+                case 0:
+                    Game_Action_AI_Easy(player, timestamp, in handStats);
+                    break;
+                case 1:
+                    Game_Action_AI_Medium(player, timestamp, in handStats);
+                    break;
+            }
+        }
+
+        private void Game_Action_AI_Easy(int player, ulong timestamp, in CardHandStats stats)
+        {
             bool done = false;
+
+            _ = stats;
 
             while (!done)
             {
@@ -562,6 +527,169 @@ namespace Gob3AQ.CardMaster
             }
         }
 
+        private void Game_Action_AI_Medium(int player, ulong timestamp, in CardHandStats stats)
+        {
+            List<CardInfo> handCards = playerHandCards[player];
+
+            foreach(CardInfo cinfo in handCards)
+            {
+                Debug.Log("I have " + cinfo.cardType);
+            }
+
+            /* Blind situation. Throw lowest card (prefer unsuited) */
+            if(turnNum == 0)
+            {
+                Debug.Log("Used lowest card strategy");
+
+                if(stats.lowestUnsuitedScoreIndex != -1)
+                {
+                    Game_Action_PlaceCard(player, stats.lowestUnsuitedScoreIndex, timestamp);
+                }
+                else
+                {
+                    Game_Action_PlaceCard(player, stats.lowestSuitedScoreIndex, timestamp);
+                }
+            }
+            /* Already present cards in board */
+            else
+            {
+                int handIndex_suit = AI_GetHighestScoreMove(playerHandCards[player], true, out int potentialDeltaScore_suit);
+                int handIndex_woutsuit = AI_GetHighestScoreMove(playerHandCards[player], false, out int potentialDeltaScore_woutsuit);
+
+                /* In case there are no unsuited chances, make equal to suited chances */
+                if(handIndex_woutsuit == -1)
+                {
+                    Debug.Log("All my cards are suit cards");
+                    handIndex_woutsuit = handIndex_suit;
+                    potentialDeltaScore_woutsuit = potentialDeltaScore_suit;
+                }
+
+                /* Inconditional */
+                if ((potentialDeltaScore_suit >= 20)||(remainingDeckCards.Count == 0))
+                {
+                    Debug.Log("Inconditional or remaining deck 0");
+                    Game_Action_PlaceCard(player, handIndex_suit, timestamp);
+                }
+                else if(round_winningSuit == gameSuit)
+                {
+                    /* King vs horse or similar */
+                    if((round_winningScore > 0) && (potentialDeltaScore_suit > round_winningScore))
+                    {
+                        Debug.Log("Suit slight win");
+                        Game_Action_PlaceCard(player, handIndex_suit, timestamp);
+                    }
+                    else
+                    {
+                        Debug.Log("Lowest against suit");
+                        /* Use lowest */
+                        if (stats.lowestUnsuitedScoreIndex != -1)
+                        {
+                            Game_Action_PlaceCard(player, stats.lowestUnsuitedScoreIndex, timestamp);
+                        }
+                        else
+                        {
+                            Game_Action_PlaceCard(player, stats.lowestSuitedScoreIndex, timestamp);
+                        }
+                    }
+                }
+                /* A suit which is not game suit */
+                else
+                {
+                    if (round_winningScore > 0)
+                    {
+                        if ((potentialDeltaScore_woutsuit > potentialDeltaScore_suit)||((potentialDeltaScore_suit - potentialDeltaScore_woutsuit) >= 10))
+                        {
+                            Debug.Log("Unsuited win against unsuit w score");
+                            Game_Action_PlaceCard(player, handIndex_woutsuit, timestamp);
+                        }
+                        else
+                        {
+                            Debug.Log("Suited win against unsuit w score");
+                            Game_Action_PlaceCard(player, handIndex_suit, timestamp);
+                        }
+                    }
+                    else
+                    {
+                        if(potentialDeltaScore_woutsuit > 0)
+                        {
+                            Debug.Log("Unsuited win against unsuit wout score");
+                            Game_Action_PlaceCard(player, handIndex_woutsuit, timestamp);
+                        }
+                        else
+                        {
+                            Debug.Log("Lowest against unsuit");
+                            /* Use lowest */
+                            if (stats.lowestUnsuitedScoreIndex != -1)
+                            {
+                                Game_Action_PlaceCard(player, stats.lowestUnsuitedScoreIndex, timestamp);
+                            }
+                            else
+                            {
+                                Game_Action_PlaceCard(player, stats.lowestSuitedScoreIndex, timestamp);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private int AI_GetHighestScoreMove(IReadOnlyList<CardInfo> handCards, bool withGameSuite, out int potentialDeltaScore)
+        {
+            potentialDeltaScore = -1000;
+            int index = -1;
+
+            for(int i=0; i < handCards.Count; ++i)
+            {
+                CardInfo cardInfo = handCards[i];
+
+                if((cardInfo.cardSuit == gameSuit) && (!withGameSuite))
+                {
+                    continue;
+                }
+
+                int candidateScore = -cardInfo.cardScore;
+
+                if (round_winningSuit == cardInfo.cardSuit)
+                {
+                    if(cardInfo.cardScore > round_winningScore)
+                    {
+                        candidateScore = cardInfo.cardScore + round_winningScore;
+                    }
+                    else if(cardInfo.cardScore == round_winningScore)
+                    {
+                        if(cardInfo.cardValue > round_winningValue)
+                        {
+                            candidateScore = cardInfo.cardScore + round_winningScore;
+                        }
+                        else
+                        {
+                            /* Lose */
+                        }
+                    }
+                    else
+                    {
+                        /* Lose */
+                    }
+                }
+                else if(((round_winningSuit != gameSuit) && (cardInfo.cardSuit == gameSuit))||(round_winningSuit == CardSuit.SUIT_NONE))
+                {
+                    candidateScore = cardInfo.cardScore + round_winningScore;
+                }
+                else
+                {
+                    /* Lose */
+                }
+
+                if(candidateScore > potentialDeltaScore)
+                {
+                    potentialDeltaScore = candidateScore;
+                    index = i;
+                }
+            }
+
+            return index;
+        }
+
         private void Card_Clicked(CardClass instance)
         {
             if ((momentSubStep == 0) && instance.IsClickable)
@@ -571,7 +699,7 @@ namespace Gob3AQ.CardMaster
                     /* Use hand card */
                     if (gameMoment == CardGameMoment.GAME_MOMENT_PLAY)
                     {
-                        if (isCardInPlayerHand(instance, currentPlayer, out int handIndex))
+                        if (IsCardInPlayerHand(instance, currentPlayer, out int handIndex))
                         {
                             Game_Action_PlaceCard(currentPlayer, handIndex, VARMAP_CardMaster.GET_ELAPSED_TIME_MS());
                         }
@@ -611,10 +739,21 @@ namespace Gob3AQ.CardMaster
                 card_instances_placedBoard[actualBoardCards].SetFrontal(true);
                 card_instances_placedBoard[actualBoardCards].SetVisible(true);
 
-                float random = UnityEngine.Random.value - 0.5f;
-                float random2 = UnityEngine.Random.value - 0.5f;
-                Vector3 position = card_placement_board.anchoredPosition + random * card_placement_board.rect.size;
-                card_instances_placedBoard[actualBoardCards].SetPositionAndRotation(position, Quaternion.Euler(0, 0, 10f * random2));
+                Vector3 position;
+                float angle;
+
+                if (actualBoardCards == 0)
+                {
+                    position = card_placement_board.anchoredPosition + new Vector2(card_placement_board.rect.size.x*0.5f, 0);
+                    angle = -30f;
+                }
+                else
+                {
+                    position = card_placement_board.anchoredPosition - new Vector2(card_placement_board.rect.size.x * 0.5f, 0);
+                    angle = 30f;
+                }
+
+                card_instances_placedBoard[actualBoardCards].SetPositionAndRotation(position, Quaternion.Euler(0, 0, angle));
 
                 CardBoardInfo cardBoardInfo = new CardBoardInfo(usedCard, player);
                 placedBoardCards.Add(cardBoardInfo);
@@ -639,6 +778,46 @@ namespace Gob3AQ.CardMaster
                     }
                 }
 
+                bool isWinning;
+
+                if(round_winningSuit == CardSuit.SUIT_NONE)
+                {
+                    isWinning = true;
+                }
+                else if((round_winningSuit != gameSuit) && (usedCard.cardSuit == gameSuit))
+                {
+                    isWinning = true;
+                }
+                else if(usedCard.cardSuit == round_winningSuit)
+                {
+                    if(usedCard.cardScore > round_winningScore)
+                    {
+                        isWinning = true;
+                    }
+                    else if(usedCard.cardScore == round_winningScore)
+                    {
+                        isWinning = usedCard.cardValue > round_winningValue;
+                    }
+                    else
+                    {
+                        isWinning = false;
+                    }
+                }
+                else
+                {
+                    isWinning = false;
+                }
+
+                round_accumScore += usedCard.cardScore;
+
+                if(isWinning)
+                {
+                    round_winningPlayer = player;
+                    round_winningScore = usedCard.cardScore;
+                    round_winningValue = usedCard.cardValue;
+                    round_winningSuit = usedCard.cardSuit;
+                }
+
                 currentPlayer = (currentPlayer + 1) % numPlayers;
 
                 lastActionTimestamp = timestamp;
@@ -660,7 +839,7 @@ namespace Gob3AQ.CardMaster
         {
             if ((currentPlayer == player) && (gameMoment == CardGameMoment.GAME_MOMENT_DECIDE_EXCHANGE) && (momentSubStep == 0))
             {
-                if (isExchangeAvailable(player, out int handIndex))
+                if (IsExchangeAvailable(player, out int handIndex))
                 {
                     CardInfo handCardInfo = playerHandCards[player][handIndex];
                     playerHandCards[player][handIndex] = exposedSuitCard;
@@ -692,6 +871,11 @@ namespace Gob3AQ.CardMaster
             currentPlayer = 0;
             numPlayers = 2;
             turnNum = 0;
+            round_winningPlayer = -1;
+            round_winningScore = -1;
+            round_winningValue = -1;
+            round_accumScore = 0;
+            round_winningSuit = CardSuit.SUIT_NONE;
             gameMoment = CardGameMoment.GAME_MOMENT_STOP;
             momentSubStep = 0;
             remainingDeckCards.Clear();
@@ -771,7 +955,7 @@ namespace Gob3AQ.CardMaster
             }
         }
 
-        private bool isCardInPlayerHand(CardClass instance, int player, out int handIndex)
+        private bool IsCardInPlayerHand(CardClass instance, int player, out int handIndex)
         {
             for(int i = 0; i < MAX_HAND_CARDS; i++)
             {
@@ -785,7 +969,7 @@ namespace Gob3AQ.CardMaster
             return false;
         }
 
-        private bool isExchangeAvailable(int player, out int handIndex)
+        private bool IsExchangeAvailable(int player, out int handIndex)
         {
             bool available = false;
             handIndex = -1;
@@ -817,6 +1001,18 @@ namespace Gob3AQ.CardMaster
 
 
             return available;
+        }
+
+        private void NextRound()
+        {
+            gameMoment = CardGameMoment.GAME_MOMENT_PLAY;
+            momentSubStep = 0;
+            turnNum = 0;
+            round_winningPlayer = -1;
+            round_winningScore = -1;
+            round_winningValue = -1;
+            round_winningSuit = CardSuit.SUIT_NONE;
+            round_accumScore = 0;
         }
 
 

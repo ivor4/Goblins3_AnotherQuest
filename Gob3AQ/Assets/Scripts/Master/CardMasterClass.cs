@@ -113,7 +113,7 @@ namespace Gob3AQ.CardMaster
 
                 _singleton.card_instance_deck.SetVisible(true);
 
-                _singleton.gameMoment = CardGameMoment.GAME_MOMENT_DRAW_FIRST_CARDS;
+                _singleton.gameMoment = CardGameMoment.GAME_MOMENT_RANDOM_FIRST_TURN;
                 _singleton.momentSubStep = 0;
             }
         }
@@ -147,29 +147,22 @@ namespace Gob3AQ.CardMaster
                 initialTrickedCards = new HashSet<CardType>(MAX_HAND_CARDS + 1);
                 imposedOtherPlayerCards = new CardType[MAX_HAND_CARDS];
 
+                /* First assign board cards. They will be placed in deepest draw order */
                 for (int i= 0; i < GameFixedConfig.CARD_GAME_MAX_PLAYERS; i++)
+                {
+                    dequeuedInstance = card_instance_available.Dequeue();
+                    card_instances_placedBoard[i] = dequeuedInstance;
+                }
+
+                for(int i = 0; i < GameFixedConfig.CARD_GAME_MAX_PLAYERS; i++)
                 {
                     playerHandCards[i] = new List<CardInfo>(MAX_HAND_CARDS);
                     playerScoredCards[i] = new List<CardInfo>((int)CardType.TOTAL_CARDS);
 
-                    dequeuedInstance = card_instance_available.Dequeue();
-                    card_instances_placedBoard[i] = dequeuedInstance;
-
-                    RectTransform handPlacement;
-
-                    if(i==0)
-                    {
-                        handPlacement = card_placement_p1_hand;
-                    }
-                    else
-                    {
-                        handPlacement = card_placement_p2_hand;
-                    }
-
                     for (int e = 0; e < MAX_HAND_CARDS; e++)
                     {
                         dequeuedInstance = card_instance_available.Dequeue();
-                        card_instances_playerHand[i,e] = dequeuedInstance;
+                        card_instances_playerHand[i, e] = dequeuedInstance;
                     }
                 }
 
@@ -221,14 +214,14 @@ namespace Gob3AQ.CardMaster
         {
             switch(gameMoment)
             {
+                case CardGameMoment.GAME_MOMENT_RANDOM_FIRST_TURN:
+                    Game_Moment_RandomFirstTurn(timestamp);
+                    break;
                 case CardGameMoment.GAME_MOMENT_DRAW_FIRST_CARDS:
                     Game_Moment_DrawFirstCards(timestamp);
                     break;
                 case CardGameMoment.GAME_MOMENT_EXPOSE_SUIT_CARD:
                     Game_Moment_ExposeSuitCard(timestamp);
-                    break;
-                case CardGameMoment.GAME_MOMENT_RANDOM_FIRST_TURN:
-                    Game_Moment_RandomFirstTurn(timestamp);
                     break;
                 case CardGameMoment.GAME_MOMENT_PLAY:
                     Game_Moment_Play(timestamp);
@@ -254,13 +247,31 @@ namespace Gob3AQ.CardMaster
             }
         }
 
+        private void Game_Moment_RandomFirstTurn(ulong timestamp)
+        {
+            if (imposedStartingPlayer != -1)
+            {
+                currentPlayer = imposedStartingPlayer;
+            }
+            else
+            {
+                currentPlayer = (int)(UnityEngine.Random.value * numPlayers) % numPlayers;
+            }
+
+            /* Animate to show first player */
+
+            /**/
+            gameMoment = CardGameMoment.GAME_MOMENT_DRAW_FIRST_CARDS;
+            momentSubStep = 0;
+        }
+
         private void Game_Moment_DrawFirstCards(ulong timestamp)
         {
             /* One card per cycle */
             if(momentSubStep < (numPlayers * MAX_HAND_CARDS))
             {
                 CardInfo drawnCard;
-                int playerToDraw = momentSubStep % numPlayers;
+                int playerToDraw = (currentPlayer + momentSubStep) % numPlayers;
                 int cardNumToDraw = momentSubStep / numPlayers;
 
                 /* Tricked Cards */
@@ -324,25 +335,6 @@ namespace Gob3AQ.CardMaster
             /* Animate to center */
 
             /**/
-
-            gameMoment = CardGameMoment.GAME_MOMENT_RANDOM_FIRST_TURN;
-            momentSubStep = 0;
-        }
-
-        private void Game_Moment_RandomFirstTurn(ulong timestamp)
-        {
-            if(imposedStartingPlayer != -1)
-            {
-                currentPlayer = imposedStartingPlayer;
-            }
-            else
-            {
-                currentPlayer = (int)(UnityEngine.Random.value * numPlayers) % numPlayers;
-            }
-
-            /* Animate to show first player */
-
-            /**/
             NextRound();
         }
 
@@ -381,11 +373,8 @@ namespace Gob3AQ.CardMaster
         {
             playerScore[round_winningPlayer] += round_accumScore;
 
-            Debug.Log("Player " + round_winningPlayer + " wins the round with score " + round_accumScore + " and total score " + playerScore[round_winningPlayer]);
-
             for (int i = 0; i < placedBoardCards.Count; i++)
             {
-                Debug.Log(placedBoardCards[i].cardInfo.cardType);
                 playerScoredCards[round_winningPlayer].Add(placedBoardCards[i].cardInfo);
                 card_instances_placedBoard[i].SetCardType(CardType.CARD_NONE, card_resource_reverse_sprite, card_resource_reverse_sprite);
                 card_instances_placedBoard[i].SetFrontal(false);
@@ -502,40 +491,43 @@ namespace Gob3AQ.CardMaster
                 case 1:
                     Game_Action_AI_Medium(player, timestamp);
                     break;
+                default:
+                    Game_Action_AI_Hard(player, timestamp);
+                    break;
             }
         }
 
         private void Game_Action_AI_Easy(int player, ulong timestamp)
         {
-            bool done = false;
-
-            while (!done)
-            {
-                for (int i = 0; i < playerHandCards[player].Count; i++)
-                {
-                    if (UnityEngine.Random.value > 0.5f)
-                    {
-                        Game_Action_PlaceCard(player, i, timestamp);
-                        done = true;
-                        break;
-                    }
-                }
-            }
+            int chosenIndex = Mathf.RoundToInt(UnityEngine.Random.value * (playerHandCards[player].Count - 1));
+            chosenIndex = Mathf.Clamp(chosenIndex, 0, playerHandCards[player].Count - 1);
+            Game_Action_PlaceCard(player, chosenIndex, timestamp);
         }
 
         private void Game_Action_AI_Medium(int player, ulong timestamp)
         {
             List<CardInfo> handCards = playerHandCards[player];
 
-            foreach(CardInfo cinfo in handCards)
+            /* Blind situation. Throw lowest card (prefer unsuited) */
+            if (turnNum == 0)
             {
-                Debug.Log("I have " + cinfo.cardType);
+                Game_Action_PlaceCard(player, AI_GetLowestLossScore(handCards), timestamp);
             }
+            /* Already present cards in board */
+            else
+            {
+                int handIndex_suit = AI_GetHighestScoreMove(playerHandCards[player], true, out int potentialDeltaScore_suit);
+                Game_Action_PlaceCard(player, handIndex_suit, timestamp);
+            }
+        }
+
+        private void Game_Action_AI_Hard(int player, ulong timestamp)
+        {
+            List<CardInfo> handCards = playerHandCards[player];
 
             /* Blind situation. Throw lowest card (prefer unsuited) */
             if(turnNum == 0)
             {
-                Debug.Log("Used lowest card strategy");
                 Game_Action_PlaceCard(player, AI_GetLowestLossScore(handCards), timestamp);
             }
             /* Already present cards in board */
@@ -545,9 +537,16 @@ namespace Gob3AQ.CardMaster
                 int handIndex_woutsuit = AI_GetHighestScoreMove(playerHandCards[player], false, out int potentialDeltaScore_woutsuit);
 
                 /* Inconditional */
-                if ((potentialDeltaScore_suit >= 2000)||(remainingDeckCards.Count == 0)||(handIndex_woutsuit == -1))
+                if (potentialDeltaScore_suit >= 2000)
                 {
-                    Debug.Log("Inconditional or remaining deck 0 or no unsuited cards");
+                    Game_Action_PlaceCard(player, handIndex_suit, timestamp);
+                }
+                else if (handIndex_woutsuit == -1)
+                {
+                    Game_Action_PlaceCard(player, AI_GetLowestLossScore(handCards), timestamp);
+                }
+                else if (remainingDeckCards.Count == 0)
+                {
                     Game_Action_PlaceCard(player, handIndex_suit, timestamp);
                 }
                 else if(round_winningSuit == gameSuit)
@@ -555,12 +554,10 @@ namespace Gob3AQ.CardMaster
                     /* King vs horse or similar */
                     if((round_winningScore > 0) && (potentialDeltaScore_suit > round_winningScore))
                     {
-                        Debug.Log("Suit slight win");
                         Game_Action_PlaceCard(player, handIndex_suit, timestamp);
                     }
                     else
                     {
-                        Debug.Log("Lowest against suit");
                         /* Use lowest */
                         Game_Action_PlaceCard(player, AI_GetLowestLossScore(handCards), timestamp);
                     }
@@ -572,12 +569,10 @@ namespace Gob3AQ.CardMaster
                     {
                         if ((potentialDeltaScore_woutsuit > potentialDeltaScore_suit)||((potentialDeltaScore_suit - potentialDeltaScore_woutsuit) < 1000))
                         {
-                            Debug.Log("Unsuited win against unsuit w score");
                             Game_Action_PlaceCard(player, handIndex_woutsuit, timestamp);
                         }
                         else
                         {
-                            Debug.Log("Suited win against unsuit w score");
                             Game_Action_PlaceCard(player, handIndex_suit, timestamp);
                         }
                     }
@@ -585,12 +580,10 @@ namespace Gob3AQ.CardMaster
                     {
                         if(potentialDeltaScore_woutsuit > 0)
                         {
-                            Debug.Log("Unsuited win against unsuit wout score");
                             Game_Action_PlaceCard(player, handIndex_woutsuit, timestamp);
                         }
                         else
                         {
-                            Debug.Log("Lowest against unsuit");
                             /* Use lowest */
                             Game_Action_PlaceCard(player, AI_GetLowestLossScore(handCards), timestamp);
                         }
@@ -732,22 +725,6 @@ namespace Gob3AQ.CardMaster
                 card_instances_placedBoard[actualBoardCards].SetCardType(usedCard.cardType, card_resource_sprites[(int)usedCard.cardType], card_resource_reverse_sprite);
                 card_instances_placedBoard[actualBoardCards].SetFrontal(true);
                 card_instances_placedBoard[actualBoardCards].SetVisible(true);
-
-                Vector3 position;
-                float angle;
-
-                if (actualBoardCards == 0)
-                {
-                    position = card_placement_board.anchoredPosition + new Vector2(card_placement_board.rect.size.x * 0.5f, 0);
-                    angle = -30f;
-                }
-                else
-                {
-                    position = card_placement_board.anchoredPosition - new Vector2(card_placement_board.rect.size.x * 0.5f, 0);
-                    angle = 30f;
-                }
-
-                card_instances_placedBoard[actualBoardCards].SetPositionAndRotation(position, Quaternion.Euler(0, 0, angle));
 
                 CardBoardInfo cardBoardInfo = new CardBoardInfo(usedCard, player);
                 placedBoardCards.Add(cardBoardInfo);
@@ -894,8 +871,8 @@ namespace Gob3AQ.CardMaster
                 playerHandCards[i].Clear();
                 playerScoredCards[i].Clear();
 
-                card_instances_placedBoard[i].SetPositionAndRotation(card_placement_board.anchoredPosition, Quaternion.identity);
-
+                Vector2 p2_position;
+                float angle;
                 RectTransform handPlacement;
                 float baseRotation;
                 float rotMult;
@@ -905,13 +882,19 @@ namespace Gob3AQ.CardMaster
                     handPlacement = card_placement_p1_hand;
                     baseRotation = 0;
                     rotMult = -1f;
+                    p2_position = card_placement_board.anchoredPosition + new Vector2(card_placement_board.rect.size.x * 0.5f, 0);
+                    angle = -30f;
                 }
                 else
                 {
                     handPlacement = card_placement_p2_hand;
                     baseRotation = 180;
                     rotMult = 1f;
+                    p2_position = card_placement_board.anchoredPosition - new Vector2(card_placement_board.rect.size.x * 0.5f, 0);
+                    angle = 30f;
                 }
+
+                card_instances_placedBoard[i].SetPositionAndRotation(p2_position, Quaternion.Euler(0, 0, angle));
 
                 for (int e=0; e < MAX_HAND_CARDS; e++)
                 {

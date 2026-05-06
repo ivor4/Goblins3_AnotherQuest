@@ -9,8 +9,6 @@ public class CardClass : MonoBehaviour, IPointerClickHandler
 
     private static readonly int ANIM_TRIGGER_FLIP = Animator.StringToHash("Tr_Flip");
 
-    private Animator myAnimator;
-    private GenericAnimBehavior animBehavior;
     private Image myImage;
     private RectTransform rectTransform;
     private bool isFrontal;
@@ -26,7 +24,6 @@ public class CardClass : MonoBehaviour, IPointerClickHandler
 
     public void DoFlip(bool toFrontal)
     {
-        myAnimator.SetTrigger(ANIM_TRIGGER_FLIP);
         currentFlipToFrontal = toFrontal;
     }
 
@@ -80,11 +77,8 @@ public class CardClass : MonoBehaviour, IPointerClickHandler
 
     private void Awake()
     {
-        myAnimator = GetComponent<Animator>();
-        animBehavior = myAnimator.GetBehaviour<GenericAnimBehavior>();
         myImage = GetComponent<Image>();
         rectTransform = GetComponent<RectTransform>();
-        animBehavior.SetOnStartEndCallback(OnAnimationStart, OnAnimationEnd);
 
         isFrontal = false;
         isClickable = false;
@@ -95,15 +89,5 @@ public class CardClass : MonoBehaviour, IPointerClickHandler
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
-    }
-
-    private void OnAnimationStart()
-    {
-
-    }
-
-    private void OnAnimationEnd()
-    {
-        SetFrontal(currentFlipToFrontal);
     }
 }

@@ -175,6 +175,10 @@ namespace Gob3AQ.VARMAP.Types.Cards
         public readonly int lowestSuitedScoreIndex;
         public readonly int highestUnsuitedScoreIndex;
         public readonly int highestSuitedScoreIndex;
+        public readonly int lowestUnsuitedScore;
+        public readonly int lowestSuitedScore;
+        public readonly int highestUnsuitedScore;
+        public readonly int highestSuitedScore;
 
         public static CardHandStats CalcHandStats(IReadOnlyList<CardInfo> cards, CardSuit gameSuit)
         {
@@ -223,15 +227,21 @@ namespace Gob3AQ.VARMAP.Types.Cards
                 }
             }
 
-            return new CardHandStats(lusindex, lsindex, husindex, hsindex);
+            return new CardHandStats(lusindex, lsindex, husindex, hsindex,
+                                        lusscore, lsscore, husscore, hsscore);
         }
 
-        public CardHandStats(int lusindex, int lsindex, int husindex, int hsindex)
+        public CardHandStats(int lusindex, int lsindex, int husindex, int hsindex,
+                                int lusscore, int lsscore, int husscore, int hsscore)
         {
             lowestUnsuitedScoreIndex = lusindex;
             lowestSuitedScoreIndex = lsindex;
             highestUnsuitedScoreIndex = husindex;
             highestSuitedScoreIndex = hsindex;
+            lowestUnsuitedScore = lusscore;
+            lowestSuitedScore = lsscore;
+            highestUnsuitedScore = husscore;
+            highestSuitedScore = hsscore;
         }
     }
 

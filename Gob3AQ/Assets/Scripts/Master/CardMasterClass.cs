@@ -4,6 +4,7 @@ using Gob3AQ.VARMAP.Types;
 using Gob3AQ.VARMAP.Types.Cards;
 using System;
 using System.Collections.Generic;
+using Gob3AQ.GameElement.Item.Card;
 using UnityEngine;
 
 namespace Gob3AQ.CardMaster
@@ -12,6 +13,13 @@ namespace Gob3AQ.CardMaster
     public class CardMasterClass : MonoBehaviour
     {
         private const int MAX_HAND_CARDS = 3;
+        private const ulong COMPUTE_ROUND_DELAY_MS = 500;
+        
+        /* AI CONSTANTS */
+        private const int AI_SCORE_TRUMP_PENALTY = 400;
+        private const int AI_BASE_WORST_SCORE = -10000;
+        private const int AI_HARD_GUARANTEED_PLAY_THRESHOLD = 2000;
+        private const int AI_HARD_SUIT_PREFERENCE_MARGIN = 1000;
 
         private static CardMasterClass _singleton;
 
@@ -46,6 +54,11 @@ namespace Gob3AQ.CardMaster
         private CardClass[] card_instances_placedBoard;
         private CardClass[,] card_instances_playerHand;
         private CardClass card_instance_deck;
+        
+        private CardClass card_animated;
+
+        // Temporary instance for animations
+        private CardClass card_instance_anim;
 
         /* IN-GAME VARIABLES */
         private int[] playerScore;
@@ -71,7 +84,7 @@ namespace Gob3AQ.CardMaster
         private int round_accumScore;
 
 
-        /* GAME STUP */
+        /* GAME SETUP */
         private CardType imposedGameSuit;
         private CardType[] imposedOtherPlayerCards;
         private int imposedOtherPlayerCardNum;
@@ -82,46 +95,44 @@ namespace Gob3AQ.CardMaster
 
         public static void StartCardGameService(int difficulty, int startingPlayer, CardType othercard1, CardType othercard2, CardType othercard3, CardType gamesuit)
         {
-            if(_singleton != null)
+            if (!_singleton) return;
+            
+            _singleton.ResetGame();
+
+            _singleton.gameDifficulty = difficulty;
+            _singleton.imposedStartingPlayer = startingPlayer;
+            _singleton.imposedOtherPlayerCards[0] = othercard1;
+            _singleton.imposedOtherPlayerCards[1] = othercard2;
+            _singleton.imposedOtherPlayerCards[2] = othercard3;
+            _singleton.imposedGameSuit = gamesuit;
+            _singleton.numPlayers = 2;
+
+
+            if(gamesuit != CardType.CARD_NONE)
             {
-                _singleton.ResetGame();
-
-                _singleton.gameDifficulty = difficulty;
-                _singleton.imposedStartingPlayer = startingPlayer;
-                _singleton.imposedOtherPlayerCards[0] = othercard1;
-                _singleton.imposedOtherPlayerCards[1] = othercard2;
-                _singleton.imposedOtherPlayerCards[2] = othercard3;
-                _singleton.imposedGameSuit = gamesuit;
-                _singleton.numPlayers = 2;
-
-
-                if(gamesuit != CardType.CARD_NONE)
-                {
-                    _singleton.initialTrickedCards.Add(gamesuit);
-                }
-
-                for(int i= 0; i < MAX_HAND_CARDS; i++)
-                {
-                    if(_singleton.imposedOtherPlayerCards[i] != CardType.CARD_NONE)
-                    {
-                        _singleton.initialTrickedCards.Add(_singleton.imposedOtherPlayerCards[i]);
-                        ++_singleton.imposedOtherPlayerCardNum;
-                    }
-                }
-
-                _singleton.ShuffleDeck(_singleton.initialTrickedCards);
-
-                _singleton.card_instance_deck.SetVisible(true);
-
-                _singleton.gameMoment = CardGameMoment.GAME_MOMENT_RANDOM_FIRST_TURN;
-                _singleton.momentSubStep = 0;
+                _singleton.initialTrickedCards.Add(gamesuit);
             }
+
+            for(int i= 0; i < MAX_HAND_CARDS; i++)
+            {
+                if (_singleton.imposedOtherPlayerCards[i] == CardType.CARD_NONE) continue;
+                
+                _singleton.initialTrickedCards.Add(_singleton.imposedOtherPlayerCards[i]);
+                ++_singleton.imposedOtherPlayerCardNum;
+            }
+
+            _singleton.ShuffleDeck(_singleton.initialTrickedCards);
+
+            _singleton.card_instance_deck.SetVisible(true);
+
+            _singleton.gameMoment = CardGameMoment.GAME_MOMENT_RANDOM_FIRST_TURN;
+            _singleton.momentSubStep = 0;
         }
 
 
         private void Awake()
         {
-            if (_singleton != null)
+            if (_singleton)
             {
                 Destroy(gameObject);
             }
@@ -132,9 +143,9 @@ namespace Gob3AQ.CardMaster
 
                 card_instance_available = new Queue<CardClass>(card_resource_pool);
 
-                for (int i = 0; i < card_resource_pool.Count; i++)
+                foreach (var t in card_resource_pool)
                 {
-                    card_resource_pool[i].SetOnClickCallback(Card_Clicked);
+                    t.SetOnClickCallback(Card_Clicked);
                 }
 
                 playerScore = new int[GameFixedConfig.CARD_GAME_MAX_PLAYERS];
@@ -172,6 +183,9 @@ namespace Gob3AQ.CardMaster
 
                 dequeuedInstance = card_instance_available.Dequeue();
                 card_instance_deck = dequeuedInstance;
+
+                dequeuedInstance = card_instance_available.Dequeue();
+                card_instance_anim = dequeuedInstance;
             }
         }
 
@@ -187,20 +201,19 @@ namespace Gob3AQ.CardMaster
 
         private void OnDestroy()
         {
-            if(_singleton == this)
-            {
-                _singleton = null;
-                VARMAP_CardMaster.UNREG_GAMESTATUS(_GameStatusChanged);
-            }
+            if (_singleton != this) return;
+            
+            _singleton = null;
+            VARMAP_CardMaster.UNREG_GAMESTATUS(_GameStatusChanged);
         }
 
 
         private void Update()
         {
-            Game_Status gstatus = VARMAP_CardMaster.GET_GAMESTATUS();
+            Game_Status status = VARMAP_CardMaster.GET_GAMESTATUS();
             ulong timestamp = VARMAP_CardMaster.GET_ELAPSED_TIME_MS();
 
-            switch(gstatus)
+            switch(status)
             {
                 case Game_Status.GAME_STATUS_PLAY_CARDS:
                     Game_Cycle(timestamp);
@@ -212,6 +225,15 @@ namespace Gob3AQ.CardMaster
 
         private void Game_Cycle(ulong timestamp)
         {
+            if (card_animated && card_animated.IsAnimating)
+            {
+                card_animated.DoAnimationStep();
+                return;
+            }
+            else
+            {
+                card_animated = null;
+            }
             switch(gameMoment)
             {
                 case CardGameMoment.GAME_MOMENT_RANDOM_FIRST_TURN:
@@ -226,8 +248,21 @@ namespace Gob3AQ.CardMaster
                 case CardGameMoment.GAME_MOMENT_PLAY:
                     Game_Moment_Play(timestamp);
                     break;
+                case CardGameMoment.GAME_MOMENT_PLACE_CARD_ANIM:
+                {
+                    int actualBoardCards = placedBoardCards.Count - 1;
+                    CardInfo usedCard = placedBoardCards[actualBoardCards].cardInfo;
+                    card_instances_placedBoard[actualBoardCards]
+                        .SetSprites(card_resource_sprites[(int)usedCard.cardType], card_resource_reverse_sprite);
+                    card_instances_placedBoard[actualBoardCards].SetFrontalAndStopMotion(true);
+                    card_instances_placedBoard[actualBoardCards].SetVisible(true);
+                    card_instance_anim.SetVisible(false);
+
+                    gameMoment = CardGameMoment.GAME_MOMENT_PLAY;
+                }
+                    break;
                 case CardGameMoment.GAME_MOMENT_COMPUTE_ROUND:
-                    if ((timestamp - lastActionTimestamp) > 3000)
+                    if ((timestamp - lastActionTimestamp) > COMPUTE_ROUND_DELAY_MS)
                     {
                         Game_Moment_ComputeRound(timestamp);
                     }
@@ -267,6 +302,24 @@ namespace Gob3AQ.CardMaster
 
         private void Game_Moment_DrawFirstCards(ulong timestamp)
         {
+            /* After animation pop-up */
+            if (momentSubStep > 0)
+            {
+                /* Retrieve last operation info */
+                int prevMomentSubStep = momentSubStep - 1;
+                int playerToDraw = (currentPlayer + prevMomentSubStep) % numPlayers;
+                int cardNumToDraw = prevMomentSubStep / numPlayers;
+                CardClass handInstance = card_instances_playerHand[playerToDraw, cardNumToDraw];
+                
+                /* Make hand instance appear */
+                CardInfo prevCard = playerHandCards[playerToDraw][cardNumToDraw];
+                handInstance.SetSprites( playerToDraw == 0 ? card_resource_sprites[(int)prevCard.cardType] : card_resource_reverse_sprite, card_resource_reverse_sprite);
+                handInstance.SetFrontalAndStopMotion(playerToDraw == 0);
+                handInstance.SetVisible(true);
+                
+                card_instance_anim.SetVisible(false);
+            }
+
             /* One card per cycle */
             if(momentSubStep < (numPlayers * MAX_HAND_CARDS))
             {
@@ -282,28 +335,30 @@ namespace Gob3AQ.CardMaster
                 /* Non-tricked Cards */
                 else
                 {
-                    drawnCard = remainingDeckCards[remainingDeckCards.Count - 1];
+                    drawnCard = remainingDeckCards[^1];
                     remainingDeckCards.RemoveAt(remainingDeckCards.Count - 1);
                 }
 
                 playerHandCards[playerToDraw].Add(drawnCard);
-                CardClass handInstance = card_instances_playerHand[playerToDraw, cardNumToDraw];
 
-                if (playerToDraw == 0)
+
+                card_animated = card_instance_anim;
+                card_instance_anim.SetPositionAndRotation(card_instance_deck.AnchoredPosition, card_instance_deck.ActualQuaternion);
+                card_instance_anim.SetVisible(true);
+                card_instance_anim.SetFrontalAndStopMotion(false);
+                Sprite frontalSprite;
+                if(playerToDraw == 0)
                 {
-                    handInstance.SetCardType(drawnCard.cardType, card_resource_sprites[(int)drawnCard.cardType], card_resource_reverse_sprite);
-                    handInstance.SetFrontal(true);
+                    card_instance_anim.DoFlip(true, 0.5f);
+                    frontalSprite = card_resource_sprites[(int)drawnCard.cardType];
                 }
                 else
                 {
-                    handInstance.SetCardType(CardType.CARD_NONE, card_resource_reverse_sprite, card_resource_reverse_sprite);
-                    handInstance.SetFrontal(false);
+                    frontalSprite = card_resource_reverse_sprite;
                 }
-                handInstance.SetVisible(true);
-
-                /* Animate to player deck */
-
-                /**/
+                card_instance_anim.SetSprites(frontalSprite, card_resource_reverse_sprite);
+                card_instance_anim.SetTargetPositionAndRotation(card_instances_playerHand[playerToDraw, cardNumToDraw].AnchoredPosition, 
+                    card_instances_playerHand[playerToDraw, cardNumToDraw].ActualQuaternion, 0.5f);
 
                 ++momentSubStep;
             }
@@ -316,129 +371,190 @@ namespace Gob3AQ.CardMaster
 
         private void Game_Moment_ExposeSuitCard(ulong timestamp)
         {
-            if (imposedGameSuit != CardType.CARD_NONE)
+            switch (momentSubStep)
             {
-                exposedSuitCard = CardInfo.GAME_CARDS[(int)imposedGameSuit];
-                gameSuit = exposedSuitCard.cardSuit;
+                case 0:
+                {
+                    if (imposedGameSuit != CardType.CARD_NONE)
+                    {
+                        exposedSuitCard = CardInfo.GAME_CARDS[(int)imposedGameSuit];
+                    }
+                    else
+                    {
+                        exposedSuitCard = remainingDeckCards[^1];
+                        remainingDeckCards.RemoveAt(remainingDeckCards.Count - 1);
+                    }
+
+                    gameSuit = exposedSuitCard.cardSuit;
+                    
+                    card_animated = card_instance_anim;
+                    card_instance_anim.SetPositionAndRotation(card_instance_deck.AnchoredPosition, card_instance_deck.ActualQuaternion);
+                    card_instance_anim.SetVisible(true);
+                    card_instance_anim.SetFrontalAndStopMotion(false);
+                    card_instance_anim.SetSprites(card_resource_sprites[(int)exposedSuitCard.cardType], card_resource_reverse_sprite);
+                    Vector2 finalPosition =
+                        (card_placement_deck.anchoredPosition + card_placement_board.anchoredPosition) * 0.5f;
+                    card_instance_anim.SetTargetPositionAndRotation(finalPosition, card_instance_exposedSuit.ActualQuaternion, 0.5f);
+                    card_instance_anim.DoFlip(true, 0.5f);
+                    ++momentSubStep;
+                } break;
+                
+                case 1:
+                {
+                    card_instance_anim.SetVisible(false);
+                    
+                    card_animated = card_instance_exposedSuit;
+                    card_instance_exposedSuit.SetSprites( card_resource_sprites[(int)exposedSuitCard.cardType], card_resource_reverse_sprite);
+                    card_instance_exposedSuit.SetVisible(true);
+                    card_instance_exposedSuit.SetFrontalAndStopMotion(true);
+                    card_instance_exposedSuit.SetPositionAndRotation(card_instance_anim.AnchoredPosition, card_instance_exposedSuit.ActualQuaternion);
+                    card_instance_exposedSuit.SetTargetPositionAndRotation(card_placement_exposed.anchoredPosition, card_instance_exposedSuit.ActualQuaternion, 0.5f);
+                    ++momentSubStep;
+                }
+                break;
+
+                default:
+                {
+                    NextRound();
+                } break;
             }
-            else
-            {
-                exposedSuitCard = remainingDeckCards[remainingDeckCards.Count - 1];
-                remainingDeckCards.RemoveAt(remainingDeckCards.Count - 1);
-                gameSuit = exposedSuitCard.cardSuit;
-            }
-
-            card_instance_exposedSuit.SetCardType(exposedSuitCard.cardType, card_resource_sprites[(int)exposedSuitCard.cardType], card_resource_reverse_sprite);
-            card_instance_exposedSuit.SetVisible(true);
-            card_instance_exposedSuit.SetFrontal(true);
-
-            /* Animate to center */
-
-            /**/
-            NextRound();
         }
 
         private void Game_Moment_Play(ulong timestamp)
         {
-            /* Animations and AI */
-            switch(momentSubStep)
+            if (turnNum == numPlayers)
             {
-                case 0:
-                    if (turnNum == numPlayers)
-                    {
-                        turnNum = 0;
-                        momentSubStep = 0;
-                        gameMoment = CardGameMoment.GAME_MOMENT_COMPUTE_ROUND;
-                    }
-                    else if (playerHandCards[currentPlayer].Count == 0)
-                    {
-                        currentPlayer = (currentPlayer + 1) % numPlayers;
-                        ++turnNum;
-                    }
-                    else if (currentPlayer != 0)
-                    {
-                        Game_Action_AI_Turn(currentPlayer, timestamp);
-                    }
-                    else
-                    {
-                        /**/
-                    }
-                    break;
-                default:
-                    break;
+                turnNum = 0;
+                momentSubStep = 0;
+                gameMoment = CardGameMoment.GAME_MOMENT_COMPUTE_ROUND;
+            }
+            else if (playerHandCards[currentPlayer].Count == 0)
+            {
+                currentPlayer = (currentPlayer + 1) % numPlayers;
+                ++turnNum;
+            }
+            else if (currentPlayer != 0)
+            {
+                Game_Action_AI_Turn(currentPlayer, timestamp);
             }
         }
 
         private void Game_Moment_ComputeRound(ulong timestamp)
         {
-            playerScore[round_winningPlayer] += round_accumScore;
+            _ = timestamp;
 
-            for (int i = 0; i < placedBoardCards.Count; i++)
+            int indexToRemove = placedBoardCards.Count - 1;
+            
+            if (indexToRemove >= 0)
             {
-                playerScoredCards[round_winningPlayer].Add(placedBoardCards[i].cardInfo);
-                card_instances_placedBoard[i].SetCardType(CardType.CARD_NONE, card_resource_reverse_sprite, card_resource_reverse_sprite);
-                card_instances_placedBoard[i].SetFrontal(false);
-                card_instances_placedBoard[i].SetVisible(false);
-            }
-
-            placedBoardCards.Clear();
-
-            if((remainingDeckCards.Count > 0)||(!exposedSuitCardDrawn))
-            {
-                if ((remainingDeckCards.Count > 0) && IsExchangeAvailable(round_winningPlayer, out _))
-                {
-                    gameMoment = CardGameMoment.GAME_MOMENT_DECIDE_EXCHANGE;
-                    momentSubStep = 0;
-                }
-                else
-                {
-                    gameMoment = CardGameMoment.GAME_MOMENT_DRAW;
-                    momentSubStep = 0;
-                }
-                currentPlayer = round_winningPlayer;
+                CardType removedCardType = placedBoardCards[indexToRemove].cardInfo.cardType;
+                placedBoardCards.RemoveAt(indexToRemove);
+                
+                card_animated = card_instance_anim;
+                card_instance_anim.SetPositionAndRotation(card_instances_placedBoard[indexToRemove].AnchoredPosition,
+                    card_instances_placedBoard[indexToRemove].ActualQuaternion);
+                card_instance_anim.SetSprites(card_resource_sprites[(int)removedCardType], card_resource_reverse_sprite);
+                card_instance_anim.SetFrontalAndStopMotion(true);
+                card_instance_anim.SetVisible(true);
+                Vector2 finalPosition = 3f * card_placement_board.anchoredPosition;
+                if (round_winningPlayer != 0) finalPosition.y *= -1;
+                card_instance_anim.SetTargetPositionAndRotation(finalPosition, card_instances_placedBoard[indexToRemove].ActualQuaternion, 0.75f);
+                card_instance_anim.DoFlip(false, 0.5f);
+                
+                card_instances_placedBoard[indexToRemove].SetSprites(card_resource_reverse_sprite, card_resource_reverse_sprite);
+                card_instances_placedBoard[indexToRemove].SetFrontalAndStopMotion(false);
+                card_instances_placedBoard[indexToRemove].SetVisible(false);
             }
             else
             {
-                int handCards = 0;
-                int maxScore = -1;
-                int playerWinner = -1;
-
-                for(int i=0; i < numPlayers; i++)
+                card_instance_anim.SetVisible(false);
+                
+                playerScore[round_winningPlayer] += round_accumScore;
+                
+                if((remainingDeckCards.Count > 0)||(!exposedSuitCardDrawn))
                 {
-                    handCards += playerHandCards[i].Count;
-                    if (playerScore[i] > maxScore)
+                    if ((remainingDeckCards.Count > 0) && IsExchangeAvailable(round_winningPlayer, out _))
                     {
-                        maxScore = playerScore[i];
-                        playerWinner = i;
+                        gameMoment = CardGameMoment.GAME_MOMENT_DECIDE_EXCHANGE;
+                        momentSubStep = 0;
                     }
-                }
-
-                if (handCards > 0)
-                {
+                    else
+                    {
+                        gameMoment = CardGameMoment.GAME_MOMENT_DRAW;
+                        momentSubStep = 0;
+                    }
                     currentPlayer = round_winningPlayer;
-                    NextRound();
                 }
                 else
                 {
-                    gameMoment = CardGameMoment.GAME_MOMENT_FINAL_RESULT;
-                    momentSubStep = 0;
-                    Debug.Log("Winner is player: " + playerWinner + " with score of: " + maxScore);
+                    int handCards = 0;
+                    int maxScore = -1;
+                    int playerWinner = -1;
+
+                    for(int i=0; i < numPlayers; i++)
+                    {
+                        handCards += playerHandCards[i].Count;
+                        if (playerScore[i] > maxScore)
+                        {
+                            maxScore = playerScore[i];
+                            playerWinner = i;
+                        }
+                    }
+
+                    if (handCards > 0)
+                    {
+                        currentPlayer = round_winningPlayer;
+                        NextRound();
+                    }
+                    else
+                    {
+                        gameMoment = CardGameMoment.GAME_MOMENT_FINAL_RESULT;
+                        momentSubStep = 0;
+                        Debug.Log("Winner is player: " + playerWinner + " with score of: " + maxScore);
+                    }
                 }
             }
+
         }
 
         private void Game_Moment_DrawNextRound(ulong timestamp)
         {
+            /* Make appear previous player hand card */
+            if (momentSubStep > 0)
+            {
+                int playerToDraw = (momentSubStep - 1 + currentPlayer) % numPlayers;
+                CardClass handInstance = card_instances_playerHand[playerToDraw, playerHandCards[playerToDraw].Count-1];
+                if (playerToDraw == 0)
+                {
+                    handInstance.SetSprites(card_resource_sprites[(int)playerHandCards[playerToDraw][^1].cardType], card_resource_reverse_sprite);
+                    handInstance.SetFrontalAndStopMotion(true);
+                }
+                else
+                {
+                    handInstance.SetSprites(card_resource_reverse_sprite, card_resource_reverse_sprite);
+                    handInstance.SetFrontalAndStopMotion(false);
+                }
+                handInstance.SetVisible(true);
+                card_instance_anim.SetVisible(false);
+            }
+            
             /* Suit card */
             if (((remainingDeckCards.Count > 0) || (!exposedSuitCardDrawn)) && (momentSubStep < numPlayers))
             {
                 CardInfo drawnCard;
                 int playerToDraw = (momentSubStep + currentPlayer) % numPlayers;
 
+                Vector2 posOrigin;
+                Quaternion quaternionOrigin;
+                bool fromExposedSuit;
+                
                 if (remainingDeckCards.Count > 0)
                 {
-                    drawnCard = remainingDeckCards[remainingDeckCards.Count - 1];
+                    drawnCard = remainingDeckCards[^1];
                     remainingDeckCards.RemoveAt(remainingDeckCards.Count - 1);
+                    posOrigin = card_placement_deck.anchoredPosition;
+                    quaternionOrigin = card_instance_deck.ActualQuaternion;
+                    fromExposedSuit = false;
 
                     if(remainingDeckCards.Count == 0)
                     {
@@ -449,30 +565,30 @@ namespace Gob3AQ.CardMaster
                 {
                     drawnCard = exposedSuitCard;
                     exposedSuitCardDrawn = true;
+                    posOrigin = card_placement_exposed.anchoredPosition;
+                    quaternionOrigin = card_instance_exposedSuit.ActualQuaternion;
+                    fromExposedSuit = true;
 
-                    card_instance_exposedSuit.SetCardType(CardType.CARD_NONE, card_resource_reverse_sprite, card_resource_reverse_sprite);
-                    card_instance_exposedSuit.SetFrontal(false);
+                    card_instance_exposedSuit.SetSprites(card_resource_reverse_sprite, card_resource_reverse_sprite);
+                    card_instance_exposedSuit.SetFrontalAndStopMotion(false);
                     card_instance_exposedSuit.SetVisible(false);
                 }
 
                 playerHandCards[playerToDraw].Add(drawnCard);
-                CardClass handInstance = card_instances_playerHand[playerToDraw, playerHandCards[playerToDraw].Count-1];
-                if (playerToDraw == 0)
+                
+                card_animated = card_instance_anim;
+                card_instance_anim.SetPositionAndRotation(posOrigin, quaternionOrigin);
+                card_instance_anim.SetSprites(
+                    playerToDraw == 0 ? card_resource_sprites[(int)drawnCard.cardType] : card_resource_reverse_sprite, card_resource_reverse_sprite);
+                card_instance_anim.SetFrontalAndStopMotion(fromExposedSuit);
+                card_instance_anim.SetVisible(true);
+                card_instance_anim.SetTargetPositionAndRotation(card_instances_playerHand[playerToDraw, playerHandCards[playerToDraw].Count-1].AnchoredPosition,
+                    card_instances_playerHand[playerToDraw, playerHandCards[playerToDraw].Count-1].ActualQuaternion, 0.5f);
+                if(((playerToDraw == 0) && (!fromExposedSuit))||((playerToDraw != 0) && fromExposedSuit))
                 {
-                    handInstance.SetCardType(drawnCard.cardType, card_resource_sprites[(int)drawnCard.cardType], card_resource_reverse_sprite);
-                    handInstance.SetFrontal(true);
+                    card_instance_anim.DoFlip(playerToDraw == 0, 0.5f);
                 }
-                else
-                {
-                    handInstance.SetCardType(CardType.CARD_NONE, card_resource_reverse_sprite, card_resource_reverse_sprite);
-                    handInstance.SetFrontal(false);
-                }
-                handInstance.SetVisible(true);
-
-                /* Animate to player deck */
-
-                /**/
-
+                
                 ++momentSubStep;
             }
             else
@@ -536,8 +652,8 @@ namespace Gob3AQ.CardMaster
                 int handIndex_suit = AI_GetHighestScoreMove(playerHandCards[player], true, out int potentialDeltaScore_suit);
                 int handIndex_woutsuit = AI_GetHighestScoreMove(playerHandCards[player], false, out int potentialDeltaScore_woutsuit);
 
-                /* Inconditional */
-                if (potentialDeltaScore_suit >= 2000)
+                /* Unconditional */
+                if (potentialDeltaScore_suit >= AI_HARD_GUARANTEED_PLAY_THRESHOLD)
                 {
                     Game_Action_PlaceCard(player, handIndex_suit, timestamp);
                 }
@@ -567,7 +683,7 @@ namespace Gob3AQ.CardMaster
                 {
                     if (round_winningScore > 0)
                     {
-                        if ((potentialDeltaScore_woutsuit > potentialDeltaScore_suit)||((potentialDeltaScore_suit - potentialDeltaScore_woutsuit) < 1000))
+                        if ((potentialDeltaScore_woutsuit > potentialDeltaScore_suit)||((potentialDeltaScore_suit - potentialDeltaScore_woutsuit) < AI_HARD_SUIT_PREFERENCE_MARGIN))
                         {
                             Game_Action_PlaceCard(player, handIndex_woutsuit, timestamp);
                         }
@@ -594,7 +710,7 @@ namespace Gob3AQ.CardMaster
 
         private int AI_GetLowestLossScore(IReadOnlyList<CardInfo> handCards)
         {
-            int bestLossScore = -10000;
+            int bestLossScore = AI_BASE_WORST_SCORE;
             int handIndex = -1;
 
             for(int i=0; i < handCards.Count; ++i)
@@ -604,7 +720,7 @@ namespace Gob3AQ.CardMaster
                 negScore += -cardInfo.cardValue;
                 if(cardInfo.cardSuit == gameSuit)
                 {
-                    negScore -= 400;
+                    negScore -= AI_SCORE_TRUMP_PENALTY;
                 }
 
                 if(negScore > bestLossScore)
@@ -619,7 +735,7 @@ namespace Gob3AQ.CardMaster
 
         private int AI_GetHighestScoreMove(IReadOnlyList<CardInfo> handCards, bool withGameSuite, out int potentialDeltaScore)
         {
-            potentialDeltaScore = -10000;
+            potentialDeltaScore = AI_BASE_WORST_SCORE;
             int index = -1;
 
             for(int i=0; i < handCards.Count; ++i)
@@ -722,13 +838,10 @@ namespace Gob3AQ.CardMaster
                 int actualBoardCards = placedBoardCards.Count;
                 CardInfo usedCard = playerHandCards[player][handIndex];
 
-                card_instances_placedBoard[actualBoardCards].SetCardType(usedCard.cardType, card_resource_sprites[(int)usedCard.cardType], card_resource_reverse_sprite);
-                card_instances_placedBoard[actualBoardCards].SetFrontal(true);
-                card_instances_placedBoard[actualBoardCards].SetVisible(true);
-
                 CardBoardInfo cardBoardInfo = new CardBoardInfo(usedCard, player);
                 placedBoardCards.Add(cardBoardInfo);
                 playerHandCards[player].RemoveAt(handIndex);
+
 
                 for(int i = handIndex; i < MAX_HAND_CARDS; i++)
                 {
@@ -737,16 +850,29 @@ namespace Gob3AQ.CardMaster
                         if (player == 0)
                         {
                             CardClass dstInstance = card_instances_playerHand[player, i];
-                            dstInstance.SetCardType(playerHandCards[player][i].cardType, card_resource_sprites[(int)playerHandCards[player][i].cardType], card_resource_reverse_sprite);
-                            dstInstance.SetFrontal(true);
+                            dstInstance.SetSprites(card_resource_sprites[(int)playerHandCards[player][i].cardType], card_resource_reverse_sprite);
+                            dstInstance.SetFrontalAndStopMotion(true);
                         }
                     }
                     else
                     {
-                        card_instances_playerHand[player, i].SetCardType(CardType.CARD_NONE, card_resource_reverse_sprite, card_resource_reverse_sprite);
-                        card_instances_playerHand[player, i].SetFrontal(false);
+                        card_instances_playerHand[player, i].SetSprites( card_resource_reverse_sprite, card_resource_reverse_sprite);
+                        card_instances_playerHand[player, i].SetFrontalAndStopMotion(false);
                         card_instances_playerHand[player, i].SetVisible(false);
                     }
+                }
+                
+                card_animated = card_instance_anim;
+                card_instance_anim.SetPositionAndRotation(card_instances_playerHand[player, handIndex].AnchoredPosition,
+                    card_instances_playerHand[player, handIndex].ActualQuaternion);
+                card_instance_anim.SetSprites(card_resource_sprites[(int)usedCard.cardType], card_resource_reverse_sprite);
+                card_instance_anim.SetFrontalAndStopMotion(player == 0);
+                card_instance_anim.SetVisible(true);
+                card_instance_anim.SetTargetPositionAndRotation(card_instances_placedBoard[actualBoardCards].AnchoredPosition,
+                    card_instances_placedBoard[actualBoardCards].ActualQuaternion, 0.5f);
+                if(player != 0)
+                {
+                    card_instance_anim.DoFlip(true, 0.5f);
                 }
 
                 bool isWinning;
@@ -793,6 +919,8 @@ namespace Gob3AQ.CardMaster
 
                 lastActionTimestamp = timestamp;
 
+                gameMoment = CardGameMoment.GAME_MOMENT_PLACE_CARD_ANIM;
+
                 ++turnNum;
             }
         }
@@ -816,14 +944,14 @@ namespace Gob3AQ.CardMaster
                     playerHandCards[player][handIndex] = exposedSuitCard;
                     exposedSuitCard = handCardInfo;
 
-                    card_instance_exposedSuit.SetCardType(handCardInfo.cardType, card_resource_sprites[(int)handCardInfo.cardType], card_resource_reverse_sprite);
-                    card_instance_exposedSuit.SetFrontal(true);
+                    card_instance_exposedSuit.SetSprites(card_resource_sprites[(int)handCardInfo.cardType], card_resource_reverse_sprite);
+                    card_instance_exposedSuit.SetFrontalAndStopMotion(true);
 
                     if (player == 0)
                     {
-                        card_instances_playerHand[player, handIndex].SetCardType(playerHandCards[player][handIndex].cardType,
+                        card_instances_playerHand[player, handIndex].SetSprites(
                             card_resource_sprites[(int)playerHandCards[player][handIndex].cardType], card_resource_reverse_sprite);
-                        card_instances_playerHand[player, handIndex].SetFrontal(true);
+                        card_instances_playerHand[player, handIndex].SetFrontalAndStopMotion(true);
                     }
 
                     exposedSuitCardExchanged = true;
@@ -849,6 +977,7 @@ namespace Gob3AQ.CardMaster
             round_winningSuit = CardSuit.SUIT_NONE;
             gameMoment = CardGameMoment.GAME_MOMENT_STOP;
             momentSubStep = 0;
+            card_animated = null;
             remainingDeckCards.Clear();
             initialTrickedCards.Clear();
             placedBoardCards.Clear();
@@ -857,13 +986,18 @@ namespace Gob3AQ.CardMaster
 
             for (int i = 0; i < card_resource_pool.Count; i++)
             {
-                card_resource_pool[i].SetCardType(CardType.CARD_NONE, card_resource_reverse_sprite, card_resource_reverse_sprite);
+                card_resource_pool[i].SetSprites(card_resource_reverse_sprite, card_resource_reverse_sprite);
                 card_resource_pool[i].SetVisible(false);
-                card_resource_pool[i].SetFrontal(false);
+                card_resource_pool[i].SetFrontalAndStopMotion(false);
             }
 
             card_instance_deck.SetPositionAndRotation(card_placement_deck.anchoredPosition, Quaternion.identity);
             card_instance_exposedSuit.SetPositionAndRotation(card_placement_exposed.anchoredPosition, Quaternion.Euler(0, 0, -90));
+            
+            card_instance_anim.SetVisible(false);
+            card_instance_anim.SetSprites(card_resource_reverse_sprite, card_resource_reverse_sprite);
+            card_instance_anim.SetFrontalAndStopMotion(false);
+            
 
             for (int i= 0; i < GameFixedConfig.CARD_GAME_MAX_PLAYERS; i++)
             {
@@ -915,8 +1049,6 @@ namespace Gob3AQ.CardMaster
 
         private void ShuffleDeck(HashSet<CardType> alreadyTakenCards)
         {
-            UnityEngine.Random.InitState((int)DateTime.Now.Ticks);
-
             for (int i = 0; i < (int)CardType.TOTAL_CARDS; i++)
             {
                 if (!alreadyTakenCards.Contains((CardType)i))

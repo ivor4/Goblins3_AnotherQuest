@@ -1,6 +1,3 @@
-
-
-using Gob3AQ.Libs.Arith;
 using System;
 using System.Collections.Generic;
 
@@ -84,6 +81,7 @@ namespace Gob3AQ.VARMAP.Types.Cards
         GAME_MOMENT_DRAW_FIRST_CARDS,
         GAME_MOMENT_EXPOSE_SUIT_CARD,
         GAME_MOMENT_PLAY,
+        GAME_MOMENT_PLACE_CARD_ANIM,
         GAME_MOMENT_COMPUTE_ROUND,
         GAME_MOMENT_DECIDE_EXCHANGE,
         GAME_MOMENT_DRAW,
@@ -160,7 +158,7 @@ namespace Gob3AQ.VARMAP.Types.Cards
             new CardInfo(CardType.REY_DE_BASTOS, CardSuit.BASTOS, 12 , 4)
         };
 
-        public CardInfo(CardType cardType, CardSuit cardSuit, byte cardValue, byte cardScore)
+        private CardInfo(CardType cardType, CardSuit cardSuit, byte cardValue, byte cardScore)
         {
             this.cardType = cardType;
             this.cardSuit = cardSuit;

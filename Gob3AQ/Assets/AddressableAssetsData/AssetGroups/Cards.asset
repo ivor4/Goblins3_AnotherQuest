@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Cards
   m_GUID: 4530c96368cc110468f0f1acf8b8c240
   m_SerializeEntries:
+  - m_GUID: 2968527f146184e4ab612dc0a1a0e812
+    m_Address: SOUND_CARD_PLACE_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3e3a2dd8ff316a541ba20760876eb360
     m_Address: SPRITE_CARD_REVERSE
     m_ReadOnly: 0
@@ -30,8 +35,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 661d6c276b875dc4ab203ada39e97650
+    m_Address: SOUND_CARD_TAKEBACK
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b6639a0fb5dcca644a264b3aeffb3644
+    m_Address: SOUND_CARD_PLACE_3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cba202edbb09f744c9c6972202094456
     m_Address: SPRITE_CARDS
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc79a28683cd8bf4684729134849431d
+    m_Address: SOUND_CARD_PLACE_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

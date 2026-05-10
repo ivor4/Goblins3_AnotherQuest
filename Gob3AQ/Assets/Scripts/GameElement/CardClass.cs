@@ -42,7 +42,7 @@ namespace Gob3AQ.GameElement.Item.Card
 
         public bool IsAnimating => isAnimatingPosition || isAnimatingRotation || isAnimatingFlip;
 
-        public void DoFlip(bool toFrontal, float duration = 0.5f)
+        public void DoFlip(bool toFrontal, float duration)
         {
             flipTargetState = toFrontal;
 

@@ -12,6 +12,12 @@ namespace Gob3AQ.CardMaster
     [Serializable]
     public class CardMasterClass : MonoBehaviour
     {
+        private static readonly IReadOnlyList<GameSound> CARD_PLACE_SOUNDS = new List<GameSound>()
+        {
+            GameSound.SOUND_CARD_PLACE_1,
+            GameSound.SOUND_CARD_PLACE_2,
+            GameSound.SOUND_CARD_PLACE_3
+        };
         private const int MAX_HAND_CARDS = 3;
         private const ulong COMPUTE_ROUND_DELAY_MS = 500;
         
@@ -57,6 +63,8 @@ namespace Gob3AQ.CardMaster
         
         private CardClass card_animated;
 
+        private int exchange_hand_index;
+
         // Temporary instance for animations
         private CardClass card_instance_anim;
 
@@ -70,8 +78,8 @@ namespace Gob3AQ.CardMaster
         private CardSuit gameSuit;
         private CardInfo exposedSuitCard;
         private CardGameMoment gameMoment;
-        private bool exposedSuitCardExchanged;
-        private bool exposedSuitCardDrawn;
+        private bool isExposedSuitCardExchanged;
+        private bool isExposedSuitCardDrawn;
         private int currentPlayer;
         private byte momentSubStep;
         private int turnNum;
@@ -211,16 +219,11 @@ namespace Gob3AQ.CardMaster
         private void Update()
         {
             Game_Status status = VARMAP_CardMaster.GET_GAMESTATUS();
-            ulong timestamp = VARMAP_CardMaster.GET_ELAPSED_TIME_MS();
 
-            switch(status)
-            {
-                case Game_Status.GAME_STATUS_PLAY_CARDS:
-                    Game_Cycle(timestamp);
-                    break;
-                default:
-                    break;
-            }
+            if (status != Game_Status.GAME_STATUS_PLAY_CARDS) return;
+            
+            ulong timestamp = VARMAP_CardMaster.GET_ELAPSED_TIME_MS();
+            Game_Cycle(timestamp);
         }
 
         private void Game_Cycle(ulong timestamp)
@@ -230,10 +233,9 @@ namespace Gob3AQ.CardMaster
                 card_animated.DoAnimationStep();
                 return;
             }
-            else
-            {
-                card_animated = null;
-            }
+
+            card_animated = null;
+            
             switch(gameMoment)
             {
                 case CardGameMoment.GAME_MOMENT_RANDOM_FIRST_TURN:
@@ -273,11 +275,15 @@ namespace Gob3AQ.CardMaster
                         Game_Action_ExchangeExposedSuitCard(currentPlayer);
                     }
                     break;
+                case CardGameMoment.GAME_MOMENT_EXCHANGE_ANIM:
+                    Game_Moment_Exchange_Anim(timestamp);
+                    break;
                 case CardGameMoment.GAME_MOMENT_DRAW:
                     Game_Moment_DrawNextRound(timestamp);
                     break;
 
                 default:
+                    /* Final result */
                     break;
             }
         }
@@ -360,6 +366,8 @@ namespace Gob3AQ.CardMaster
                 card_instance_anim.SetTargetPositionAndRotation(card_instances_playerHand[playerToDraw, cardNumToDraw].AnchoredPosition, 
                     card_instances_playerHand[playerToDraw, cardNumToDraw].ActualQuaternion, 0.5f);
 
+                PlayRandomCardPlaceSound();
+
                 ++momentSubStep;
             }
             else
@@ -396,6 +404,9 @@ namespace Gob3AQ.CardMaster
                         (card_placement_deck.anchoredPosition + card_placement_board.anchoredPosition) * 0.5f;
                     card_instance_anim.SetTargetPositionAndRotation(finalPosition, card_instance_exposedSuit.ActualQuaternion, 0.5f);
                     card_instance_anim.DoFlip(true, 0.5f);
+                    
+                    PlayRandomCardPlaceSound();
+                    
                     ++momentSubStep;
                 } break;
                 
@@ -464,6 +475,8 @@ namespace Gob3AQ.CardMaster
                 card_instances_placedBoard[indexToRemove].SetSprites(card_resource_reverse_sprite, card_resource_reverse_sprite);
                 card_instances_placedBoard[indexToRemove].SetFrontalAndStopMotion(false);
                 card_instances_placedBoard[indexToRemove].SetVisible(false);
+
+                VARMAP_CardMaster.PLAY_SOUND(GameSound.SOUND_CARD_TAKEBACK, null, false);
             }
             else
             {
@@ -471,7 +484,7 @@ namespace Gob3AQ.CardMaster
                 
                 playerScore[round_winningPlayer] += round_accumScore;
                 
-                if((remainingDeckCards.Count > 0)||(!exposedSuitCardDrawn))
+                if((remainingDeckCards.Count > 0)||(!isExposedSuitCardDrawn))
                 {
                     if ((remainingDeckCards.Count > 0) && IsExchangeAvailable(round_winningPlayer, out _))
                     {
@@ -539,7 +552,7 @@ namespace Gob3AQ.CardMaster
             }
             
             /* Suit card */
-            if (((remainingDeckCards.Count > 0) || (!exposedSuitCardDrawn)) && (momentSubStep < numPlayers))
+            if (((remainingDeckCards.Count > 0) || (!isExposedSuitCardDrawn)) && (momentSubStep < numPlayers))
             {
                 CardInfo drawnCard;
                 int playerToDraw = (momentSubStep + currentPlayer) % numPlayers;
@@ -564,7 +577,7 @@ namespace Gob3AQ.CardMaster
                 else
                 {
                     drawnCard = exposedSuitCard;
-                    exposedSuitCardDrawn = true;
+                    isExposedSuitCardDrawn = true;
                     posOrigin = card_placement_exposed.anchoredPosition;
                     quaternionOrigin = card_instance_exposedSuit.ActualQuaternion;
                     fromExposedSuit = true;
@@ -589,11 +602,84 @@ namespace Gob3AQ.CardMaster
                     card_instance_anim.DoFlip(playerToDraw == 0, 0.5f);
                 }
                 
+                PlayRandomCardPlaceSound();
+                
                 ++momentSubStep;
             }
             else
             {
                 NextRound();
+            }
+        }
+
+        private void Game_Moment_Exchange_Anim(ulong timestamp)
+        {
+            switch (momentSubStep)
+            {
+                case 0:
+                {
+                    card_instances_playerHand[currentPlayer, exchange_hand_index].SetVisible(false);
+                    
+                    card_animated = card_instance_anim;
+                    card_instance_anim.SetPositionAndRotation(card_instances_playerHand[currentPlayer, exchange_hand_index].AnchoredPosition,
+                        card_instances_playerHand[currentPlayer, exchange_hand_index].ActualQuaternion);
+                    card_instance_anim.SetSprites(card_resource_sprites[(int)exposedSuitCard.cardType], card_resource_reverse_sprite);
+                    card_instance_anim.SetFrontalAndStopMotion(currentPlayer == 0);
+                    card_instance_anim.SetVisible(true);
+                    card_instance_anim.SetTargetPositionAndRotation(card_instance_exposedSuit.AnchoredPosition,
+                        card_instance_exposedSuit.ActualQuaternion, 0.5f);
+                    if(currentPlayer != 0) card_instance_anim.DoFlip(true, 0.5f);
+                    
+                    PlayRandomCardPlaceSound();
+
+                    ++momentSubStep;
+                    break;
+                }
+                case 1:
+                {
+                    card_instance_exposedSuit.SetSprites(card_resource_sprites[(int)exposedSuitCard.cardType], card_resource_reverse_sprite);
+                    card_instance_exposedSuit.SetFrontalAndStopMotion(true);
+                
+                    card_animated = card_instance_anim;
+                    card_instance_anim.SetPositionAndRotation(card_instance_exposedSuit.AnchoredPosition,
+                        card_instance_exposedSuit.ActualQuaternion);
+                    card_instance_anim.SetSprites(card_resource_sprites[(int)playerHandCards[currentPlayer][exchange_hand_index].cardType], card_resource_reverse_sprite);
+                    card_instance_anim.SetFrontalAndStopMotion(true);
+                    card_instance_anim.SetVisible(true);
+                    card_instance_anim.SetTargetPositionAndRotation(card_instances_playerHand[currentPlayer, exchange_hand_index].AnchoredPosition,
+                        card_instances_playerHand[currentPlayer, exchange_hand_index].ActualQuaternion, 0.5f);
+                    if(currentPlayer != 0) card_instance_anim.DoFlip(false, 0.5f);
+                    
+                    PlayRandomCardPlaceSound();
+                
+                    ++momentSubStep;
+                    break;
+                }
+                case 2:
+                {
+                    card_instance_anim.SetVisible(false);
+                    
+                    if (currentPlayer == 0)
+                    {
+                        card_instances_playerHand[currentPlayer, exchange_hand_index].SetSprites(
+                            card_resource_sprites[(int)playerHandCards[currentPlayer][exchange_hand_index].cardType], card_resource_reverse_sprite);
+                        card_instances_playerHand[currentPlayer, exchange_hand_index].SetFrontalAndStopMotion(true);
+                    }
+                
+                    card_instances_playerHand[currentPlayer, exchange_hand_index].SetVisible(true);
+
+                    card_animated = card_instance_exposedSuit;
+                    card_instance_exposedSuit.SetTargetPositionAndRotation(card_placement_exposed.anchoredPosition, card_instance_exposedSuit.ActualQuaternion, 0.5f);
+                    
+                    ++momentSubStep;
+                    break;
+                }
+                default:
+                {
+                    gameMoment = CardGameMoment.GAME_MOMENT_DRAW;
+                    momentSubStep = 0;
+                    break;
+                }
             }
         }
 
@@ -615,8 +701,7 @@ namespace Gob3AQ.CardMaster
 
         private void Game_Action_AI_Easy(int player, ulong timestamp)
         {
-            int chosenIndex = Mathf.RoundToInt(UnityEngine.Random.value * (playerHandCards[player].Count - 1));
-            chosenIndex = Mathf.Clamp(chosenIndex, 0, playerHandCards[player].Count - 1);
+            int chosenIndex = UnityEngine.Random.Range(0, playerHandCards[player].Count);
             Game_Action_PlaceCard(player, chosenIndex, timestamp);
         }
 
@@ -874,6 +959,8 @@ namespace Gob3AQ.CardMaster
                 {
                     card_instance_anim.DoFlip(true, 0.5f);
                 }
+                
+                PlayRandomCardPlaceSound();
 
                 bool isWinning;
 
@@ -936,37 +1023,32 @@ namespace Gob3AQ.CardMaster
 
         private void Game_Action_ExchangeExposedSuitCard(int player)
         {
-            if ((currentPlayer == player) && (gameMoment == CardGameMoment.GAME_MOMENT_DECIDE_EXCHANGE) && (momentSubStep == 0))
-            {
-                if (IsExchangeAvailable(player, out int handIndex))
-                {
-                    CardInfo handCardInfo = playerHandCards[player][handIndex];
-                    playerHandCards[player][handIndex] = exposedSuitCard;
-                    exposedSuitCard = handCardInfo;
+            if ((currentPlayer != player) || (gameMoment != CardGameMoment.GAME_MOMENT_DECIDE_EXCHANGE) ||
+                (momentSubStep != 0)) return;
+            
+            if (!IsExchangeAvailable(player, out int handIndex)) return;
+                
+            (playerHandCards[player][handIndex], exposedSuitCard) = (exposedSuitCard, playerHandCards[player][handIndex]);
+            exchange_hand_index = handIndex;
+            
+            card_animated = card_instance_exposedSuit;
+            Vector2 finalPos = (card_placement_deck.anchoredPosition + card_placement_board.anchoredPosition) * 0.5f;
+            card_instance_exposedSuit.SetTargetPositionAndRotation(finalPos, card_instance_exposedSuit.ActualQuaternion, 0.5f);
 
-                    card_instance_exposedSuit.SetSprites(card_resource_sprites[(int)handCardInfo.cardType], card_resource_reverse_sprite);
-                    card_instance_exposedSuit.SetFrontalAndStopMotion(true);
 
-                    if (player == 0)
-                    {
-                        card_instances_playerHand[player, handIndex].SetSprites(
-                            card_resource_sprites[(int)playerHandCards[player][handIndex].cardType], card_resource_reverse_sprite);
-                        card_instances_playerHand[player, handIndex].SetFrontalAndStopMotion(true);
-                    }
-
-                    exposedSuitCardExchanged = true;
-                    gameMoment = CardGameMoment.GAME_MOMENT_DRAW;
-                    momentSubStep = 0;
-                }
-            }
+            isExposedSuitCardExchanged = true;
+            gameMoment = CardGameMoment.GAME_MOMENT_EXCHANGE_ANIM;
+            momentSubStep = 0;
+            
+            PlayRandomCardPlaceSound();
         }
 
         private void ResetGame()
         {
             gameSuit = CardSuit.SUIT_NONE;
             exposedSuitCard = CardInfo.UNDEFINED_CARD;
-            exposedSuitCardExchanged = false;
-            exposedSuitCardDrawn = false;
+            isExposedSuitCardExchanged = false;
+            isExposedSuitCardDrawn = false;
             currentPlayer = 0;
             numPlayers = 2;
             turnNum = 0;
@@ -1085,7 +1167,7 @@ namespace Gob3AQ.CardMaster
             bool available = false;
             handIndex = -1;
 
-            if ((!exposedSuitCardExchanged) && (!exposedSuitCardDrawn))
+            if ((!isExposedSuitCardExchanged) && (!isExposedSuitCardDrawn))
             {
                 int neededValue;
 
@@ -1112,6 +1194,13 @@ namespace Gob3AQ.CardMaster
 
 
             return available;
+        }
+
+        private void PlayRandomCardPlaceSound()
+        {
+            int soundIndex = UnityEngine.Random.Range(0, CARD_PLACE_SOUNDS.Count);
+            VARMAP_CardMaster.PLAY_SOUND(
+                CARD_PLACE_SOUNDS[soundIndex], null, false);
         }
 
         private void NextRound()

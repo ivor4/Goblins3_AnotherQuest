@@ -104,6 +104,10 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_ARTURO_EXTRAPERLO_OP_2_5_SPANISH"), /* SOUND_ARTURO_EXTRAPERLO_OP_2_5 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_ARTURO_EXTRAPERLO_OP_2_6_SPANISH"), /* SOUND_ARTURO_EXTRAPERLO_OP_2_6 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_ARTURO_EXTRAPERLO_OP_2_7_SPANISH"), /* SOUND_ARTURO_EXTRAPERLO_OP_2_7 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_CARD_PLACE_1"), /* SOUND_CARD_PLACE_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_CARD_PLACE_2"), /* SOUND_CARD_PLACE_2 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_CARD_PLACE_3"), /* SOUND_CARD_PLACE_3 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_CARD_TAKEBACK"), /* SOUND_CARD_TAKEBACK */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

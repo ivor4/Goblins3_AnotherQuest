@@ -1,3 +1,4 @@
+using Gob3AQ.CardMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.VARMAP.Types.Delegates;
 using UnityEngine;

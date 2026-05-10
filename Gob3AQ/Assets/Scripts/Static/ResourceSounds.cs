@@ -32,7 +32,10 @@ namespace Gob3AQ.ResourceSounds
 
             HashSet<GameSound> editableHash = new(GameFixedConfig.MAX_CACHED_SPRITES)
             {
-
+                GameSound.SOUND_CARD_PLACE_1,
+                GameSound.SOUND_CARD_PLACE_2,
+                GameSound.SOUND_CARD_PLACE_3,
+                GameSound.SOUND_CARD_TAKEBACK
             };
 
 

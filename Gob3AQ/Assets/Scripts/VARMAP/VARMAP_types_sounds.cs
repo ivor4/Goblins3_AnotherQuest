@@ -87,6 +87,10 @@ namespace Gob3AQ.VARMAP.Types
         SOUND_ARTURO_EXTRAPERLO_OP_2_5, 
         SOUND_ARTURO_EXTRAPERLO_OP_2_6, 
         SOUND_ARTURO_EXTRAPERLO_OP_2_7, 
+        SOUND_CARD_PLACE_1, 
+        SOUND_CARD_PLACE_2, 
+        SOUND_CARD_PLACE_3, 
+        SOUND_CARD_TAKEBACK, 
         SOUND_LAST, 
         
         SOUND_TOTAL

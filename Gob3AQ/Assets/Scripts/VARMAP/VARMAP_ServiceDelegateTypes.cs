@@ -87,6 +87,5 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void EXECUTE_EXIT_ROOM_CONDS_DELEGATE();
     public delegate void GET_ITEM_SPRITE_BOUNDARIES_DELEGATE(GameItem item, out Bounds worldBounds);
     public delegate void ACTIVATE_FORCED_ZOOM_MODE_DELEGATE(bool activate, Bounds regionOfInterest);
-    public delegate void START_CARD_GAME_DELEGATE(int difficulty, int startingPlayer, CardType othercard1, CardType othercard2, CardType othercard3, CardType gamesuit);
-
+    public delegate void START_CARD_GAME_DELEGATE(CardGameID cardGameID);
 }

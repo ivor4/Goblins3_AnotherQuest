@@ -13,6 +13,7 @@ namespace Gob3AQ.VARMAP.Types.Cards
         /* > ATG 1 END < */
     }
 
+
     public enum CardType
     {
         CARD_NONE = -1,
@@ -89,6 +90,25 @@ namespace Gob3AQ.VARMAP.Types.Cards
         GAME_MOMENT_FINAL_RESULT
     }
 
+    public enum CardGameEvent
+    {
+        GAME_EVENT_NONE = -1,
+        GAME_EVENT_WIN_NOTHING_START_TURN,
+        GAME_EVENT_WIN_NOTHING_END_TURN,
+        GAME_EVENT_LOSE_HIGH_START_TURN,
+        GAME_EVENT_LOSE_HIGH_END_TURN,
+        GAME_EVENT_LOSE_LOW_START_TURN,
+        GAME_EVENT_LOSE_LOW_END_TURN,
+        GAME_EVENT_WIN_HIGH_START_TURN,
+        GAME_EVENT_WIN_HIGH_END_TURN,
+        GAME_EVENT_WIN_LOW_START_TURN,
+        GAME_EVENT_WIN_LOW_END_TURN,
+        GAME_EVENT_WIN_BIG_COMBO,
+        GAME_EVENT_LOSE_BIG_COMBO,
+        
+        GAME_EVENT_TOTAL
+    }
+
     public readonly struct CardBoardInfo
     {
         public readonly CardInfo cardInfo;
@@ -110,53 +130,53 @@ namespace Gob3AQ.VARMAP.Types.Cards
 
         public static ReadOnlySpan<CardInfo> GAME_CARDS => _GAME_CARDS;
 
-        public static CardInfo UNDEFINED_CARD = new CardInfo(CardType.CARD_NONE, CardSuit.SUIT_NONE, 0, 0);
+        public static CardInfo UNDEFINED_CARD = new(CardType.CARD_NONE, CardSuit.SUIT_NONE, 0, 0);
 
-        private static readonly CardInfo[] _GAME_CARDS = new CardInfo[]
+        private static readonly CardInfo[] _GAME_CARDS = 
         {
-            new CardInfo(CardType.AS_DE_OROS, CardSuit.OROS, 1, 11),
-            new CardInfo(CardType.DOS_DE_OROS, CardSuit.OROS, 2, 0),
-            new CardInfo(CardType.TRES_DE_OROS, CardSuit.OROS, 3, 10),
-            new CardInfo(CardType.CUATRO_DE_OROS, CardSuit.OROS, 4, 0),
-            new CardInfo(CardType.CINCO_DE_OROS, CardSuit.OROS, 5, 0),
-            new CardInfo(CardType.SEIS_DE_OROS, CardSuit.OROS, 6, 0),
-            new CardInfo(CardType.SIETE_DE_OROS, CardSuit.OROS, 7, 0),
-            new CardInfo(CardType.SOTA_DE_OROS, CardSuit.OROS, 10, 2),
-            new CardInfo(CardType.CABALLO_DE_OROS, CardSuit.OROS, 11, 3),
-            new CardInfo(CardType.REY_DE_OROS, CardSuit.OROS, 12 , 4),
+            new(CardType.AS_DE_OROS, CardSuit.OROS, 1, 11),
+            new(CardType.DOS_DE_OROS, CardSuit.OROS, 2, 0),
+            new(CardType.TRES_DE_OROS, CardSuit.OROS, 3, 10),
+            new(CardType.CUATRO_DE_OROS, CardSuit.OROS, 4, 0),
+            new(CardType.CINCO_DE_OROS, CardSuit.OROS, 5, 0),
+            new(CardType.SEIS_DE_OROS, CardSuit.OROS, 6, 0),
+            new(CardType.SIETE_DE_OROS, CardSuit.OROS, 7, 0),
+            new(CardType.SOTA_DE_OROS, CardSuit.OROS, 10, 2),
+            new(CardType.CABALLO_DE_OROS, CardSuit.OROS, 11, 3),
+            new(CardType.REY_DE_OROS, CardSuit.OROS, 12 , 4),
 
-            new CardInfo(CardType.AS_DE_COPAS, CardSuit.COPAS, 1, 11),
-            new CardInfo(CardType.DOS_DE_COPAS, CardSuit.COPAS, 2, 0),
-            new CardInfo(CardType.TRES_DE_COPAS, CardSuit.COPAS, 3, 10),
-            new CardInfo(CardType.CUATRO_DE_COPAS, CardSuit.COPAS, 4, 0),
-            new CardInfo(CardType.CINCO_DE_COPAS, CardSuit.COPAS, 5, 0),
-            new CardInfo(CardType.SEIS_DE_COPAS, CardSuit.COPAS, 6, 0),
-            new CardInfo(CardType.SIETE_DE_COPAS, CardSuit.COPAS, 7, 0),
-            new CardInfo(CardType.SOTA_DE_COPAS, CardSuit.COPAS, 10, 2),
-            new CardInfo(CardType.CABALLO_DE_COPAS, CardSuit.COPAS, 11, 3),
-            new CardInfo(CardType.REY_DE_COPAS, CardSuit.COPAS, 12 , 4),
+            new(CardType.AS_DE_COPAS, CardSuit.COPAS, 1, 11),
+            new(CardType.DOS_DE_COPAS, CardSuit.COPAS, 2, 0),
+            new(CardType.TRES_DE_COPAS, CardSuit.COPAS, 3, 10),
+            new(CardType.CUATRO_DE_COPAS, CardSuit.COPAS, 4, 0),
+            new(CardType.CINCO_DE_COPAS, CardSuit.COPAS, 5, 0),
+            new(CardType.SEIS_DE_COPAS, CardSuit.COPAS, 6, 0),
+            new(CardType.SIETE_DE_COPAS, CardSuit.COPAS, 7, 0),
+            new(CardType.SOTA_DE_COPAS, CardSuit.COPAS, 10, 2),
+            new(CardType.CABALLO_DE_COPAS, CardSuit.COPAS, 11, 3),
+            new(CardType.REY_DE_COPAS, CardSuit.COPAS, 12 , 4),
 
-            new CardInfo(CardType.AS_DE_ESPADAS, CardSuit.ESPADAS, 1, 11),
-            new CardInfo(CardType.DOS_DE_ESPADAS, CardSuit.ESPADAS, 2, 0),
-            new CardInfo(CardType.TRES_DE_ESPADAS, CardSuit.ESPADAS, 3, 10),
-            new CardInfo(CardType.CUATRO_DE_ESPADAS, CardSuit.ESPADAS, 4, 0),
-            new CardInfo(CardType.CINCO_DE_ESPADAS, CardSuit.ESPADAS, 5, 0),
-            new CardInfo(CardType.SEIS_DE_ESPADAS, CardSuit.ESPADAS, 6, 0),
-            new CardInfo(CardType.SIETE_DE_ESPADAS, CardSuit.ESPADAS, 7, 0),
-            new CardInfo(CardType.SOTA_DE_ESPADAS, CardSuit.ESPADAS, 10, 2),
-            new CardInfo(CardType.CABALLO_DE_ESPADAS, CardSuit.ESPADAS, 11, 3),
-            new CardInfo(CardType.REY_DE_ESPADAS, CardSuit.ESPADAS, 12 , 4),
+            new(CardType.AS_DE_ESPADAS, CardSuit.ESPADAS, 1, 11),
+            new(CardType.DOS_DE_ESPADAS, CardSuit.ESPADAS, 2, 0),
+            new(CardType.TRES_DE_ESPADAS, CardSuit.ESPADAS, 3, 10),
+            new(CardType.CUATRO_DE_ESPADAS, CardSuit.ESPADAS, 4, 0),
+            new(CardType.CINCO_DE_ESPADAS, CardSuit.ESPADAS, 5, 0),
+            new(CardType.SEIS_DE_ESPADAS, CardSuit.ESPADAS, 6, 0),
+            new(CardType.SIETE_DE_ESPADAS, CardSuit.ESPADAS, 7, 0),
+            new(CardType.SOTA_DE_ESPADAS, CardSuit.ESPADAS, 10, 2),
+            new(CardType.CABALLO_DE_ESPADAS, CardSuit.ESPADAS, 11, 3),
+            new(CardType.REY_DE_ESPADAS, CardSuit.ESPADAS, 12 , 4),
 
-            new CardInfo(CardType.AS_DE_BASTOS, CardSuit.BASTOS, 1, 11),
-            new CardInfo(CardType.DOS_DE_BASTOS, CardSuit.BASTOS, 2, 0),
-            new CardInfo(CardType.TRES_DE_BASTOS, CardSuit.BASTOS, 3, 10),
-            new CardInfo(CardType.CUATRO_DE_BASTOS, CardSuit.BASTOS, 4, 0),
-            new CardInfo(CardType.CINCO_DE_BASTOS, CardSuit.BASTOS, 5, 0),
-            new CardInfo(CardType.SEIS_DE_BASTOS, CardSuit.BASTOS, 6, 0),
-            new CardInfo(CardType.SIETE_DE_BASTOS, CardSuit.BASTOS, 7, 0),
-            new CardInfo(CardType.SOTA_DE_BASTOS, CardSuit.BASTOS, 10, 2),
-            new CardInfo(CardType.CABALLO_DE_BASTOS, CardSuit.BASTOS, 11, 3),
-            new CardInfo(CardType.REY_DE_BASTOS, CardSuit.BASTOS, 12 , 4)
+            new(CardType.AS_DE_BASTOS, CardSuit.BASTOS, 1, 11),
+            new(CardType.DOS_DE_BASTOS, CardSuit.BASTOS, 2, 0),
+            new(CardType.TRES_DE_BASTOS, CardSuit.BASTOS, 3, 10),
+            new(CardType.CUATRO_DE_BASTOS, CardSuit.BASTOS, 4, 0),
+            new(CardType.CINCO_DE_BASTOS, CardSuit.BASTOS, 5, 0),
+            new(CardType.SEIS_DE_BASTOS, CardSuit.BASTOS, 6, 0),
+            new(CardType.SIETE_DE_BASTOS, CardSuit.BASTOS, 7, 0),
+            new(CardType.SOTA_DE_BASTOS, CardSuit.BASTOS, 10, 2),
+            new(CardType.CABALLO_DE_BASTOS, CardSuit.BASTOS, 11, 3),
+            new(CardType.REY_DE_BASTOS, CardSuit.BASTOS, 12 , 4)
         };
 
         private CardInfo(CardType cardType, CardSuit cardSuit, byte cardValue, byte cardScore)
@@ -167,82 +187,4 @@ namespace Gob3AQ.VARMAP.Types.Cards
             this.cardScore = cardScore;
         }
     }
-
-    public readonly struct CardHandStats
-    {
-        public readonly int lowestUnsuitedScoreIndex;
-        public readonly int lowestSuitedScoreIndex;
-        public readonly int highestUnsuitedScoreIndex;
-        public readonly int highestSuitedScoreIndex;
-        public readonly int lowestUnsuitedScore;
-        public readonly int lowestSuitedScore;
-        public readonly int highestUnsuitedScore;
-        public readonly int highestSuitedScore;
-
-        public static CardHandStats CalcHandStats(IReadOnlyList<CardInfo> cards, CardSuit gameSuit)
-        {
-            int lusscore = 1000;
-            int lsscore = 1000;
-            int husscore = -1;
-            int hsscore = -1;
-
-            int lusindex = -1;
-            int lsindex = -1;
-            int husindex = -1;
-            int hsindex = -1;
-
-            for(int i=0; i < cards.Count; ++i)
-            {
-                CardInfo cardInfo = cards[i];
-                int score = cardInfo.cardScore;
-
-                if (cardInfo.cardSuit == gameSuit)
-                {
-                    if (score > hsscore)
-                    {
-                        hsscore = score;
-                        hsindex = i;
-                    }
-
-                    if (score < lsscore)
-                    {
-                        lsscore = score;
-                        lsindex = i;
-                    }
-                }
-                else
-                {
-                    if (score > husscore)
-                    {
-                        husscore = score;
-                        husindex = i;
-                    }
-
-                    if (score < lusscore)
-                    {
-                        lusscore = score;
-                        lusindex = i;
-                    }
-                }
-            }
-
-            return new CardHandStats(lusindex, lsindex, husindex, hsindex,
-                                        lusscore, lsscore, husscore, hsscore);
-        }
-
-        public CardHandStats(int lusindex, int lsindex, int husindex, int hsindex,
-                                int lusscore, int lsscore, int husscore, int hsscore)
-        {
-            lowestUnsuitedScoreIndex = lusindex;
-            lowestSuitedScoreIndex = lsindex;
-            highestUnsuitedScoreIndex = husindex;
-            highestSuitedScoreIndex = hsindex;
-            lowestUnsuitedScore = lusscore;
-            lowestSuitedScore = lsscore;
-            highestUnsuitedScore = husscore;
-            highestSuitedScore = hsscore;
-        }
-    }
-
-
 }

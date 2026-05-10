@@ -28,6 +28,7 @@ namespace Gob3AQ.VARMAP.CardMaster
             GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
+            SHOW_DIALOGUE = _SHOW_DIALOGUE;
             PLAY_SOUND = _PLAY_SOUND;
             PERFORM_ACTION = _PERFORM_ACTION;
             START_CARD_GAME = _START_CARD_GAME;
@@ -62,6 +63,13 @@ namespace Gob3AQ.VARMAP.CardMaster
         /// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
         /// </summary>
         public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
+        /// <summary> 
+        /// Second part of start dialogue. Tells Game Menu to prepare menu elements
+        /// <para> Owner: DialogMaster </para> 
+        /// <para> Accessors: CardMaster, GameEventMaster,  </para> 
+        /// <para> Method: <see cref="DialogMasterClass.ShowDialogueService"/> </para> 
+        /// </summary>
+        public static SHOW_DIALOGUE_DELEGATE SHOW_DIALOGUE;
         /// <summary> 
         /// Plays a sound and (optionally) callback is called
         /// <para> Owner: SoundMaster </para> 

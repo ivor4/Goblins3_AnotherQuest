@@ -5,6 +5,7 @@ using Gob3AQ.VARMAP.Types.Cards;
 using System;
 using System.Collections.Generic;
 using Gob3AQ.GameElement.Item.Card;
+using Gob3AQ.CardGameAtlas;
 using UnityEngine;
 
 namespace Gob3AQ.CardMaster
@@ -64,11 +65,11 @@ namespace Gob3AQ.CardMaster
         private CardClass card_animated;
 
         private int exchange_hand_index;
-
-        // Temporary instance for animations
+        
         private CardClass card_instance_anim;
 
         /* IN-GAME VARIABLES */
+        private HashSet<CardGameEvent> pendingEvents;
         private int[] playerScore;
         private HashSet<CardType> initialTrickedCards;
         private List<CardInfo> remainingDeckCards;
@@ -95,41 +96,32 @@ namespace Gob3AQ.CardMaster
 
 
         /* GAME SETUP */
-        private CardType imposedGameSuit;
-        private CardType[] imposedOtherPlayerCards;
-        private int imposedOtherPlayerCardNum;
-        private int imposedStartingPlayer;
-        private int gameDifficulty;
+        private CardGameInfo gameInfo;
         private int numPlayers;
 
 
-        public static void StartCardGameService(int difficulty, int startingPlayer, CardType othercard1, CardType othercard2, CardType othercard3, CardType gamesuit)
+        public static void StartCardGameService(CardGameID cardGameID)
         {
             if (!_singleton) return;
-            
-            _singleton.ResetGame();
 
-            _singleton.gameDifficulty = difficulty;
-            _singleton.imposedStartingPlayer = startingPlayer;
-            _singleton.imposedOtherPlayerCards[0] = othercard1;
-            _singleton.imposedOtherPlayerCards[1] = othercard2;
-            _singleton.imposedOtherPlayerCards[2] = othercard3;
-            _singleton.imposedGameSuit = gamesuit;
+            _singleton.ResetGame();
+            _singleton.gameInfo = CardGameAtlasClass.GetCardGameInfo(cardGameID);
             _singleton.numPlayers = 2;
 
 
-            if(gamesuit != CardType.CARD_NONE)
+            if(_singleton.gameInfo.gamesuit != CardType.CARD_NONE)
             {
-                _singleton.initialTrickedCards.Add(gamesuit);
+                _singleton.initialTrickedCards.Add(_singleton.gameInfo.gamesuit);
             }
 
-            for(int i= 0; i < MAX_HAND_CARDS; i++)
+            foreach (var t in _singleton.gameInfo.TrickedCards)
             {
-                if (_singleton.imposedOtherPlayerCards[i] == CardType.CARD_NONE) continue;
+                if(t == CardType.CARD_NONE) continue;
                 
-                _singleton.initialTrickedCards.Add(_singleton.imposedOtherPlayerCards[i]);
-                ++_singleton.imposedOtherPlayerCardNum;
+                _singleton.initialTrickedCards.Add(t);
             }
+
+            _singleton.pendingEvents.UnionWith(_singleton.gameInfo.comments.Keys);
 
             _singleton.ShuffleDeck(_singleton.initialTrickedCards);
 
@@ -168,7 +160,7 @@ namespace Gob3AQ.CardMaster
                 card_instances_playerHand = new CardClass[GameFixedConfig.CARD_GAME_MAX_PLAYERS, MAX_HAND_CARDS];
                 card_instances_placedBoard = new CardClass[GameFixedConfig.CARD_GAME_MAX_PLAYERS];
                 initialTrickedCards = new HashSet<CardType>(MAX_HAND_CARDS + 1);
-                imposedOtherPlayerCards = new CardType[MAX_HAND_CARDS];
+                pendingEvents = new HashSet<CardGameEvent>((int)CardGameEvent.GAME_EVENT_TOTAL);
 
                 /* First assign board cards. They will be placed in deepest draw order */
                 for (int i= 0; i < GameFixedConfig.CARD_GAME_MAX_PLAYERS; i++)
@@ -296,9 +288,9 @@ namespace Gob3AQ.CardMaster
 
         private void Game_Moment_RandomFirstTurn(ulong timestamp)
         {
-            if (imposedStartingPlayer != -1)
+            if (gameInfo.startingPlayer != -1)
             {
-                currentPlayer = imposedStartingPlayer;
+                currentPlayer = gameInfo.startingPlayer;
             }
             else
             {
@@ -341,9 +333,9 @@ namespace Gob3AQ.CardMaster
                 int cardNumToDraw = momentSubStep / numPlayers;
 
                 /* Tricked Cards */
-                if ((playerToDraw == 1) && (cardNumToDraw < imposedOtherPlayerCardNum))
+                if ((playerToDraw == 1) && (cardNumToDraw < gameInfo.TrickedCards.Length))
                 {
-                    drawnCard = CardInfo.GAME_CARDS[(int)imposedOtherPlayerCards[cardNumToDraw]];
+                    drawnCard = CardInfo.GAME_CARDS[(int)gameInfo.TrickedCards[cardNumToDraw]];
                 }
                 /* Non-tricked Cards */
                 else
@@ -393,9 +385,9 @@ namespace Gob3AQ.CardMaster
             {
                 case 0:
                 {
-                    if (imposedGameSuit != CardType.CARD_NONE)
+                    if (gameInfo.gamesuit != CardType.CARD_NONE)
                     {
-                        exposedSuitCard = CardInfo.GAME_CARDS[(int)imposedGameSuit];
+                        exposedSuitCard = CardInfo.GAME_CARDS[(int)gameInfo.gamesuit];
                     }
                     else
                     {
@@ -463,6 +455,12 @@ namespace Gob3AQ.CardMaster
         private void Game_Moment_ComputeRound(ulong timestamp)
         {
             _ = timestamp;
+
+            if (momentSubStep == 0)
+            {
+                EvaluateOccurredEventsInRound();
+                ++momentSubStep;
+            }
 
             int indexToRemove = placedBoardCards.Count - 1;
             
@@ -704,7 +702,7 @@ namespace Gob3AQ.CardMaster
 
         private void Game_Action_AI_Turn(int player, ulong timestamp)
         {
-            switch(gameDifficulty)
+            switch(gameInfo.difficulty)
             {
                 case 0:
                     Game_Action_AI_Easy(player, timestamp);
@@ -922,6 +920,83 @@ namespace Gob3AQ.CardMaster
             }
         }
 
+        private void EvaluateOccurredEventsInRound()
+        {
+            CardGameEvent eventToRemove = CardGameEvent.GAME_EVENT_NONE;
+            
+            foreach (var e in pendingEvents)
+            {
+                bool occurred;
+                
+                
+                switch(e)
+                {
+                    case CardGameEvent.GAME_EVENT_WIN_NOTHING_START_TURN:
+                        occurred = (round_winningPlayer == 0) && (placedBoardCards[0].playerID == 0) &&
+                                   (round_accumScore == 0);
+                        break;
+                    case CardGameEvent.GAME_EVENT_WIN_NOTHING_END_TURN:
+                        occurred = (round_winningPlayer == 0) && (placedBoardCards[0].playerID != 0) &&
+                                   (round_accumScore == 0);
+                        break;
+                    case CardGameEvent.GAME_EVENT_LOSE_HIGH_START_TURN:
+                        occurred = (round_winningPlayer != 0) && (placedBoardCards[0].playerID == 0) &&
+                                   (placedBoardCards[0].cardInfo.cardScore >= 10);
+                        break;
+                    case CardGameEvent.GAME_EVENT_LOSE_HIGH_END_TURN:
+                        occurred = (round_winningPlayer != 0) && (placedBoardCards[0].playerID != 0) &&
+                                   (placedBoardCards[1].cardInfo.cardScore >= 10);
+                        break;
+                    case CardGameEvent.GAME_EVENT_LOSE_LOW_START_TURN:
+                        occurred = (round_winningPlayer != 0) && (placedBoardCards[0].playerID == 0) &&
+                                   (round_accumScore > 0) && 
+                                   (round_accumScore < 10);
+                        break;
+                    case CardGameEvent.GAME_EVENT_LOSE_LOW_END_TURN:
+                        occurred = (round_winningPlayer != 0) && (placedBoardCards[0].playerID != 0) &&
+                                   (round_accumScore > 0) && 
+                                   (round_accumScore < 10);
+                        break;
+                    case CardGameEvent.GAME_EVENT_WIN_HIGH_START_TURN:
+                        occurred = (round_winningPlayer == 0) && (placedBoardCards[0].playerID == 0) &&
+                                   (round_accumScore < 20) && 
+                                   (round_accumScore >= 10);
+                        break;
+                    case CardGameEvent.GAME_EVENT_WIN_HIGH_END_TURN:
+                        occurred = (round_winningPlayer == 0) && (placedBoardCards[0].playerID != 0) &&
+                                   (round_accumScore < 20) && 
+                                   (round_accumScore >= 10);
+                        break;
+                    case CardGameEvent.GAME_EVENT_WIN_LOW_START_TURN:
+                        occurred = (round_winningPlayer == 0) && (placedBoardCards[0].playerID == 0) &&
+                                   (round_accumScore > 0) && 
+                                   (round_accumScore < 10);
+                        break;
+                    case CardGameEvent.GAME_EVENT_WIN_LOW_END_TURN:
+                        occurred = (round_winningPlayer == 0) && (placedBoardCards[0].playerID != 0) &&
+                                   (round_accumScore > 0) && 
+                                   (round_accumScore < 10);
+                        break;
+                    case CardGameEvent.GAME_EVENT_WIN_BIG_COMBO:
+                        occurred = (round_winningPlayer == 0) &&
+                                   (round_accumScore >= 20);
+                        break;
+                    default:
+                        occurred = (round_winningPlayer != 0) &&
+                                   (round_accumScore >= 20);
+                        break;
+                }
+
+                if (!occurred) continue;
+                
+                eventToRemove = e;
+                VARMAP_CardMaster.SHOW_DIALOGUE(DialogType.DIALOG_SIMPLE, gameInfo.comments[e], true);
+                break;
+            }
+
+            pendingEvents.Remove(eventToRemove);
+        }
+
         private void Game_Action_PlaceCard(int player, int handIndex, ulong timestamp)
         {
             if ((playerHandCards[player].Count > handIndex) && (currentPlayer == player) && (gameMoment == CardGameMoment.GAME_MOMENT_PLAY) && (momentSubStep == 0))
@@ -1056,6 +1131,7 @@ namespace Gob3AQ.CardMaster
             remainingDeckCards.Clear();
             initialTrickedCards.Clear();
             placedBoardCards.Clear();
+            pendingEvents.Clear();
 
 
 
@@ -1115,14 +1191,7 @@ namespace Gob3AQ.CardMaster
                 }
             }
 
-            imposedGameSuit = CardType.CARD_NONE;
-            imposedOtherPlayerCards[0] = CardType.CARD_NONE;
-            imposedOtherPlayerCards[1] = CardType.CARD_NONE;
-            imposedOtherPlayerCards[2] = CardType.CARD_NONE;
-            imposedOtherPlayerCardNum = 0;
-
-            imposedStartingPlayer = -1;
-            gameDifficulty = 0;
+            gameInfo = CardGameInfo.EMPTY;
         }
 
         private void ShuffleDeck(HashSet<CardType> alreadyTakenCards)

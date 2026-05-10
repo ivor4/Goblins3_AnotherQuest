@@ -178,7 +178,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         /// <summary> 
         /// Second part of start dialogue. Tells Game Menu to prepare menu elements
         /// <para> Owner: DialogMaster </para> 
-        /// <para> Accessors: GameEventMaster,  </para> 
+        /// <para> Accessors: CardMaster, GameEventMaster,  </para> 
         /// <para> Method: <see cref="DialogMasterClass.ShowDialogueService"/> </para> 
         /// </summary>
         public static SHOW_DIALOGUE_DELEGATE SHOW_DIALOGUE;

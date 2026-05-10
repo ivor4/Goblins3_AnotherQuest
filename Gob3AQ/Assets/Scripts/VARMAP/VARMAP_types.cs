@@ -107,6 +107,28 @@ namespace Gob3AQ.VARMAP.Types
         }
     }
 
+    public readonly struct CardGameInfo
+    {
+        public readonly IReadOnlyDictionary<CardGameEvent, DialogPhrase> comments;
+        public readonly int difficulty;
+        public readonly int startingPlayer;
+        private readonly CardType[] trickedCards;
+        public readonly ReadOnlySpan<CardType> TrickedCards => trickedCards;
+        public readonly CardType gamesuit;
+        
+        public static readonly CardGameInfo EMPTY = new(new Dictionary<CardGameEvent, DialogPhrase>(), 
+            0, -1, new CardType[0], CardType.CARD_NONE);
+
+        public CardGameInfo(Dictionary<CardGameEvent, DialogPhrase> comments, int difficulty, int startingPlayer, CardType[] trickedCards, CardType gamesuit)
+        {
+            this.comments = comments;
+            this.difficulty = difficulty;
+            this.startingPlayer = startingPlayer;
+            this.trickedCards = trickedCards;
+            this.gamesuit = gamesuit;
+        }
+    }
+
     public readonly struct DoorInfo : IEquatable<DoorInfo>
     {
         public readonly Room roomLeadTo;
@@ -118,17 +140,17 @@ namespace Gob3AQ.VARMAP.Types
             this.waypointLeadTo = waypointLeadTo;
         }
 
-        public readonly bool Equals(DoorInfo other)
+        public bool Equals(DoorInfo other)
         {
             return (roomLeadTo == other.roomLeadTo) && (waypointLeadTo == other.waypointLeadTo);
         }
 
-        public override readonly bool Equals(object other)
+        public override bool Equals(object other)
         {
             return other is LevelElemInfo info && Equals(info);
         }
 
-        public override readonly int GetHashCode()
+        public override int GetHashCode()
         {
             return HashCode.Combine(roomLeadTo, waypointLeadTo);
         }

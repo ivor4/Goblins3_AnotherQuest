@@ -113,7 +113,7 @@ namespace Gob3AQ.DialogMaster
                                 state = AnimationState.WAITING_TRIGGER;
                             }
                         }
-                    break;
+                        break;
 
                     default:
                         ended = true;
@@ -173,7 +173,7 @@ namespace Gob3AQ.DialogMaster
         /// <param name="backgroundDialog">If background does not need user interaction (as a background conversation).</param>
         public static void ShowDialogueService(DialogType dialog, DialogPhrase phrase, bool backgroundDialog)
         {
-            if (_singleton != null)
+            if (_singleton)
             {
                 if ((_singleton.dialog_actualTaskType == DialogTaskType.DIALOG_STATE_NONE) || _singleton.dialog_input_backgroundDialog)
                 {
@@ -194,7 +194,7 @@ namespace Gob3AQ.DialogMaster
 
         public static void IsDialogActiveService(out bool active)
         {
-            if (_singleton != null)
+            if (_singleton)
             {
                 active = _singleton.dialog_actualTaskType != DialogTaskType.DIALOG_STATE_NONE;
             }
@@ -206,7 +206,7 @@ namespace Gob3AQ.DialogMaster
 
         public static void StartAnimationService(GameAnimation animation, bool mainMode)
         {
-            if (_singleton != null)
+            if (_singleton)
             {
                 if (_singleton.animation_freeAnimations.TryDequeue(out AnimationRuntime animationRuntime))
                 {
@@ -218,7 +218,7 @@ namespace Gob3AQ.DialogMaster
 
         public static void DialogueSelectOptionService(DialogOption option, DialogPhrase phrase)
         {
-            if (_singleton != null)
+            if (_singleton)
             {
                 if ((VARMAP_DialogMaster.GET_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY_DIALOG) && _singleton.dialog_optionPending)
                 {

@@ -112,20 +112,23 @@ namespace Gob3AQ.VARMAP.Types
         public readonly IReadOnlyDictionary<CardGameEvent, DialogPhrase> comments;
         public readonly int difficulty;
         public readonly int startingPlayer;
+        public readonly GameItem opponent;
         private readonly CardType[] trickedCards;
-        public readonly ReadOnlySpan<CardType> TrickedCards => trickedCards;
-        public readonly CardType gamesuit;
+        public ReadOnlySpan<CardType> TrickedCards => trickedCards;
+        public readonly CardType gameSuit;
         
         public static readonly CardGameInfo EMPTY = new(new Dictionary<CardGameEvent, DialogPhrase>(), 
-            0, -1, new CardType[0], CardType.CARD_NONE);
+            0, -1, GameItem.ITEM_NONE, Array.Empty<CardType>(), CardType.CARD_NONE);
 
-        public CardGameInfo(Dictionary<CardGameEvent, DialogPhrase> comments, int difficulty, int startingPlayer, CardType[] trickedCards, CardType gamesuit)
+        public CardGameInfo(Dictionary<CardGameEvent, DialogPhrase> comments, int difficulty, int startingPlayer,
+            GameItem opponent, CardType[] trickedCards, CardType gameSuit)
         {
             this.comments = comments;
             this.difficulty = difficulty;
             this.startingPlayer = startingPlayer;
+            this.opponent = opponent;
             this.trickedCards = trickedCards;
-            this.gamesuit = gamesuit;
+            this.gameSuit = gameSuit;
         }
     }
 

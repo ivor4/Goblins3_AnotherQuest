@@ -768,13 +768,13 @@ namespace Gob3AQ.GameEventMaster
                         {
                             mustWait = info.waitForEnd;
                             _actionExpectedFlag = NotifyAction.NOTIFY_DIALOG;
-                            VARMAP_GameEventMaster.SHOW_DIALOGUE(info.targetDialog, info.targetPhrase, false);
+                            VARMAP_GameEventMaster.SHOW_DIALOGUE(info.targetDialog, info.targetPhrase, GameItem.ITEM_NONE,false);
                         }
                         break;
                     case ActionType.ACTION_TYPE_START_DIALOGUE_BCKG:
                         mustWait = info.waitForEnd;
                         _actionExpectedFlag = NotifyAction.NOTIFY_DIALOG;
-                        VARMAP_GameEventMaster.SHOW_DIALOGUE(info.targetDialog, info.targetPhrase, true);
+                        VARMAP_GameEventMaster.SHOW_DIALOGUE(info.targetDialog, info.targetPhrase, GameItem.ITEM_NONE, true);
                         break;
                     case ActionType.ACTION_TYPE_START_ANIMATION:
                         mustWait = info.waitForEnd;

@@ -109,9 +109,9 @@ namespace Gob3AQ.CardMaster
             _singleton.numPlayers = 2;
 
 
-            if(_singleton.gameInfo.gamesuit != CardType.CARD_NONE)
+            if(_singleton.gameInfo.gameSuit != CardType.CARD_NONE)
             {
-                _singleton.initialTrickedCards.Add(_singleton.gameInfo.gamesuit);
+                _singleton.initialTrickedCards.Add(_singleton.gameInfo.gameSuit);
             }
 
             foreach (var t in _singleton.gameInfo.TrickedCards)
@@ -385,9 +385,9 @@ namespace Gob3AQ.CardMaster
             {
                 case 0:
                 {
-                    if (gameInfo.gamesuit != CardType.CARD_NONE)
+                    if (gameInfo.gameSuit != CardType.CARD_NONE)
                     {
-                        exposedSuitCard = CardInfo.GAME_CARDS[(int)gameInfo.gamesuit];
+                        exposedSuitCard = CardInfo.GAME_CARDS[(int)gameInfo.gameSuit];
                     }
                     else
                     {
@@ -693,6 +693,7 @@ namespace Gob3AQ.CardMaster
                 }
                 default:
                 {
+                    EvaluateSingleEvent(currentPlayer == 0 ? CardGameEvent.GAME_EVENT_EXCHANGE_SUIT_OWN : CardGameEvent.GAME_EVENT_EXCHANGE_SUIT_OTHER);
                     gameMoment = CardGameMoment.GAME_MOMENT_DRAW;
                     momentSubStep = 0;
                     break;
@@ -920,6 +921,14 @@ namespace Gob3AQ.CardMaster
             }
         }
 
+        private void EvaluateSingleEvent(CardGameEvent cardEvent)
+        {
+            if (!pendingEvents.Contains(cardEvent)) return;
+            
+            VARMAP_CardMaster.SHOW_DIALOGUE(DialogType.DIALOG_SIMPLE, gameInfo.comments[cardEvent], gameInfo.opponent, true);
+            pendingEvents.Remove(cardEvent);
+        }
+
         private void EvaluateOccurredEventsInRound()
         {
             CardGameEvent eventToRemove = CardGameEvent.GAME_EVENT_NONE;
@@ -981,16 +990,19 @@ namespace Gob3AQ.CardMaster
                         occurred = (round_winningPlayer == 0) &&
                                    (round_accumScore >= 20);
                         break;
-                    default:
+                    case CardGameEvent.GAME_EVENT_LOSE_BIG_COMBO:
                         occurred = (round_winningPlayer != 0) &&
                                    (round_accumScore >= 20);
+                        break;
+                    default:
+                        occurred = false;
                         break;
                 }
 
                 if (!occurred) continue;
                 
                 eventToRemove = e;
-                VARMAP_CardMaster.SHOW_DIALOGUE(DialogType.DIALOG_SIMPLE, gameInfo.comments[e], true);
+                VARMAP_CardMaster.SHOW_DIALOGUE(DialogType.DIALOG_SIMPLE, gameInfo.comments[e], gameInfo.opponent, true);
                 break;
             }
 

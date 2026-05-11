@@ -77,7 +77,7 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, CardMaster, GameEventMaster,  </para> 
         /// <para> Method: <see cref="GameMasterClass.LoadingCompletedService"/> </para> 
         /// </summary>
-        public static LODING_COMPLETED_DELEGATE MODULE_LOADING_COMPLETED;
+        public static LOADING_COMPLETED_DELEGATE MODULE_LOADING_COMPLETED;
         /// <summary> 
         /// This service returns a bool which tells if given module has been loaded in Room Loading Process
         /// <para> Owner: GameMaster </para> 

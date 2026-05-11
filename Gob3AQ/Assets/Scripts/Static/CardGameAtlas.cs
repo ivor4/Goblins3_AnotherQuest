@@ -24,9 +24,15 @@ namespace Gob3AQ.CardGameAtlas
             new (
                 new Dictionary<CardGameEvent, DialogPhrase>()
                 {
-                    {CardGameEvent.GAME_EVENT_LOSE_HIGH_END_TURN, DialogPhrase.PHRASE_NONSENSE}
+                    { CardGameEvent.GAME_EVENT_LOSE_HIGH_END_TURN, DialogPhrase.PHRASE_CARDS1_ARTURO_TAUNT_1 },
+                    { CardGameEvent.GAME_EVENT_LOSE_BIG_COMBO , DialogPhrase.PHRASE_CARDS1_ARTURO_TAUNT_2 },
+                    { CardGameEvent.GAME_EVENT_EXCHANGE_SUIT_OTHER, DialogPhrase.PHRASE_CARDS1_ARTURO_TAUNT_3 },
+                    { CardGameEvent.GAME_EVENT_WIN_BIG_COMBO, DialogPhrase.PHRASE_CARDS1_MAINCHAR_TAUNT_1},
+                    { CardGameEvent.GAME_EVENT_EXCHANGE_SUIT_OWN, DialogPhrase.PHRASE_CARDS1_MAINCHAR_TAUNT_2},
+                    { CardGameEvent.GAME_EVENT_WIN_NOTHING_END_TURN, DialogPhrase.PHRASE_CARDS1_MAINCHAR_TAUNT_3},
+                    { CardGameEvent.GAME_EVENT_WIN_LOW_END_TURN, DialogPhrase.PHRASE_CARDS1_MAINCHAR_TAUNT_4},
                 },
-                0, -1, Array.Empty<CardType>(), CardType.CARD_NONE
+                0, -1, GameItem.ITEM_NPC_ARTURO_EXTRAPERLO, Array.Empty<CardType>(), CardType.CARD_NONE
             )
         };
     }

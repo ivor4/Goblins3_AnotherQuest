@@ -30,6 +30,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 05d2c078bbf30dc45bc3c0a0c5ac6d43
+    m_Address: SOUND_CARDS1_MAINCHAR_TAUNT_4_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 06067ac0f942bd94cbc450bc4b77890c
     m_Address: SOUND_WAITER_USE_INVITATION_2_SPANISH
     m_ReadOnly: 0
@@ -87,6 +92,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1dec573841155604ca9f2f6925fe891c
     m_Address: BACKGROUND_CITY1_EXTRAPERLO2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21f8519b79d891e498246b7ed9425c6d
+    m_Address: SOUND_CARDS1_TAUNT_ARTURO_3_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -175,6 +185,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a7b58bbba1e7dd40a9b8dcbd582a44f
+    m_Address: SOUND_CARDS1_MAINCHAR_TAUNT_3_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3c071a350b83828419ad5dbd3f978114
     m_Address: SOUND_WAITER_USE_INVITATION_1_SPANISH
     m_ReadOnly: 0
@@ -217,6 +232,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 46528fa20a241db4782d73c4c9178075
     m_Address: SOUND_FIK_1_OP_1_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 49278e85d1ab19a41bae5254d082a6ce
+    m_Address: SOUND_CARDS1_MAINCHAR_TAUNT_2_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -282,6 +302,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 57b00f3ca19567140a4856de15b53409
     m_Address: SOUND_FIK_1_OP_2_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6589aa86dacc96d4da52dfea14d50d5b
+    m_Address: SOUND_CARDS1_MAINCHAR_TAUNT_1_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -515,6 +540,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb30b3246a0517140ac755d8745b9407
+    m_Address: SOUND_CARDS1_TAUNT_ARTURO_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cfa6f3a9dfc336341a88af21b313d3bf
     m_Address: SOUND_FIK_NOT_CROSS_SPANISH
     m_ReadOnly: 0
@@ -537,6 +567,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d976682e583a6d140a0815cbb40f87c7
     m_Address: SPRITE_ATLAS_UNKNOWN_WOMEN_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da5221002d6b60f499d7b4760204d8f4
+    m_Address: SOUND_CARDS1_TAUNT_ARTURO_2_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

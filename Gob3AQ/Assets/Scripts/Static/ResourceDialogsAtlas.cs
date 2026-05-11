@@ -795,6 +795,13 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(1,GameSound.SOUND_ARTURO_EXTRAPERLO_OP_2_6, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_2_6 */ 
             new(0,GameSound.SOUND_ARTURO_EXTRAPERLO_OP_2_7, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_2_7 */ 
             new(1,GameSound.SOUND_ARTURO_EXTRAPERLO_INTRO_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_ARTURO_EXTRAPERLO_INTRO */ 
+            new(0,GameSound.SOUND_CARDS1_TAUNT_ARTURO_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_CARDS1_ARTURO_TAUNT_1 */ 
+            new(0,GameSound.SOUND_CARDS1_TAUNT_ARTURO_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_CARDS1_ARTURO_TAUNT_2 */ 
+            new(0,GameSound.SOUND_CARDS1_TAUNT_ARTURO_3, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_CARDS1_ARTURO_TAUNT_3 */ 
+            new(0,GameSound.SOUND_CARDS1_MAINCHAR_TAUNT1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_CARDS1_MAINCHAR_TAUNT_1 */ 
+            new(0,GameSound.SOUND_CARDS1_MAINCHAR_TAUNT2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_CARDS1_MAINCHAR_TAUNT_2 */ 
+            new(0,GameSound.SOUND_CARDS1_MAINCHAR_TAUNT3, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_CARDS1_MAINCHAR_TAUNT_3 */ 
+            new(0,GameSound.SOUND_CARDS1_MAINCHAR_TAUNT4, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_CARDS1_MAINCHAR_TAUNT_4 */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

@@ -140,6 +140,7 @@ namespace Gob3AQ.DialogMaster
         private int dialog_input_numTalkers;
         private DialogType dialog_input_type;
         private DialogPhrase dialog_input_phrase;
+        private GameItem dialog_input_forcedSingleTalker;
         private bool dialog_input_backgroundDialog;
 
         private int dialog_currentPhraseIndex;
@@ -162,16 +163,17 @@ namespace Gob3AQ.DialogMaster
 
 
         /// <summary>
-        /// Displays a dialogue interface based on the specified character type, dialogue type, and initial phrase.
+        /// Requests the display of a dialogue interface.
         /// </summary>
-        /// <remarks>This method configures and displays a dialogue interface based on the provided
-        /// parameters. For simple dialogues,  the specified phrase is displayed directly. For multi-choice dialogues,
-        /// the available options are dynamically  populated based on the active dialogue configurations. If no valid
-        /// options are found, an error is logged.</remarks>
+        /// <remarks>
+        /// This method schedules a dialogue to start. If a background dialogue is already running, it will be interrupted.
+        /// The actual processing occurs in the next Update cycle via the DIALOG_STATE_STARTING state.
+        /// </remarks>
         /// <param name="dialog">The type of dialogue to display, which determines the structure and options available.</param>
         /// <param name="phrase">The initial phrase to display if the dialogue type is simple.</param>
-        /// <param name="backgroundDialog">If background does not need user interaction (as a background conversation).</param>
-        public static void ShowDialogueService(DialogType dialog, DialogPhrase phrase, bool backgroundDialog)
+        /// <param name="forcedSingleTalker">An optional specific item to act as the speaker, overriding defaults.</param>
+        /// <param name="backgroundDialog">If true, the dialogue plays without blocking user interaction.</param>
+        public static void ShowDialogueService(DialogType dialog, DialogPhrase phrase, GameItem forcedSingleTalker, bool backgroundDialog)
         {
             if (_singleton)
             {
@@ -186,6 +188,7 @@ namespace Gob3AQ.DialogMaster
                     /* Copy default talkers to array */
                     _singleton.dialog_input_type = dialog;
                     _singleton.dialog_input_phrase = phrase;
+                    _singleton.dialog_input_forcedSingleTalker = forcedSingleTalker;
                     _singleton.dialog_input_backgroundDialog = backgroundDialog;
                     _singleton.dialog_actualTaskType = DialogTaskType.DIALOG_STATE_STARTING;
                 }
@@ -249,7 +252,7 @@ namespace Gob3AQ.DialogMaster
             dialog_actualPhraseSoundStop = GameSound.SOUND_NONE;
         }
 
-        private void ShowDialogueExec(DialogType dialog, DialogPhrase phrase, bool background, bool dialogStart)
+        private void ShowDialogueExec(DialogType dialog, DialogPhrase phrase, GameItem forcedSingleTalker,bool background, bool dialogStart)
         {
             int selectableOptions;
 
@@ -353,9 +356,19 @@ namespace Gob3AQ.DialogMaster
             }
             else
             {
+                GameItem selectedCharacterItem;
+                
                 /* Default talker, Player */
-                CharacterType selectedCharacter = VARMAP_DialogMaster.GET_PLAYER_SELECTED();
-                GameItem selectedCharacterItem = ResourceDialogsAtlasClass.GetItemForCharacter(selectedCharacter);
+                if (forcedSingleTalker == GameItem.ITEM_NONE)
+                {
+                    CharacterType selectedCharacter = VARMAP_DialogMaster.GET_PLAYER_SELECTED();
+                    selectedCharacterItem = ResourceDialogsAtlasClass.GetItemForCharacter(selectedCharacter);
+                }
+                else
+                {
+                    selectedCharacterItem = forcedSingleTalker;
+                }
+                
                 dialog_input_talkers[0] = selectedCharacterItem;
                 dialog_input_numTalkers = 1;
             }
@@ -627,7 +640,7 @@ namespace Gob3AQ.DialogMaster
             {
                 case DialogTaskType.DIALOG_STATE_STARTING:
                     dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
-                    ShowDialogueExec(dialog_input_type, dialog_input_phrase, dialog_input_backgroundDialog, true);
+                    ShowDialogueExec(dialog_input_type, dialog_input_phrase, dialog_input_forcedSingleTalker, dialog_input_backgroundDialog, true);
                     break;
 
                 case DialogTaskType.DIALOG_STATE_SAYING:
@@ -651,7 +664,7 @@ namespace Gob3AQ.DialogMaster
                     {
                         dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
                         DialogOptionConfig dialogConfig = ResourceDialogsAtlasClass.GetDialogOptionConfig(dialog_optionPhrases);
-                        ShowDialogueExec(dialogConfig.dialogTriggered, DialogPhrase.PHRASE_NONE, dialog_background, false);
+                        ShowDialogueExec(dialogConfig.dialogTriggered, DialogPhrase.PHRASE_NONE, GameItem.ITEM_NONE, dialog_background, false);
                     }
                     break;
 

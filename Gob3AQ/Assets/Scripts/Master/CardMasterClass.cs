@@ -925,7 +925,8 @@ namespace Gob3AQ.CardMaster
         {
             if (!pendingEvents.Contains(cardEvent)) return;
             
-            VARMAP_CardMaster.SHOW_DIALOGUE(DialogType.DIALOG_SIMPLE, gameInfo.comments[cardEvent], gameInfo.opponent, true);
+            TauntInfo tauntInfo = gameInfo.comments[cardEvent];
+            VARMAP_CardMaster.SHOW_DIALOGUE(DialogType.DIALOG_SIMPLE, tauntInfo.phrase, tauntInfo.phraseSrc, true);
             pendingEvents.Remove(cardEvent);
         }
 
@@ -940,21 +941,29 @@ namespace Gob3AQ.CardMaster
                 
                 switch(e)
                 {
-                    case CardGameEvent.GAME_EVENT_WIN_NOTHING_START_TURN:
-                        occurred = (round_winningPlayer == 0) && (placedBoardCards[0].playerID == 0) &&
-                                   (round_accumScore == 0);
+                    case CardGameEvent.GAME_EVENT_WIN_NOTHING:
+                        occurred = (round_winningPlayer == 0) && (round_accumScore == 0);
                         break;
-                    case CardGameEvent.GAME_EVENT_WIN_NOTHING_END_TURN:
-                        occurred = (round_winningPlayer == 0) && (placedBoardCards[0].playerID != 0) &&
-                                   (round_accumScore == 0);
+                    case CardGameEvent.GAME_EVENT_LOSE_NOTHING:
+                        occurred = (round_winningPlayer != 0) && (round_accumScore == 0);
                         break;
-                    case CardGameEvent.GAME_EVENT_LOSE_HIGH_START_TURN:
+                    case CardGameEvent.GAME_EVENT_LOSE_HIGH_CARD_START_TURN:
                         occurred = (round_winningPlayer != 0) && (placedBoardCards[0].playerID == 0) &&
                                    (placedBoardCards[0].cardInfo.cardScore >= 10);
                         break;
-                    case CardGameEvent.GAME_EVENT_LOSE_HIGH_END_TURN:
+                    case CardGameEvent.GAME_EVENT_LOSE_HIGH_CARD_END_TURN:
                         occurred = (round_winningPlayer != 0) && (placedBoardCards[0].playerID != 0) &&
                                    (placedBoardCards[1].cardInfo.cardScore >= 10);
+                        break;
+                    case CardGameEvent.GAME_EVENT_LOSE_HIGH_START_TURN:
+                        occurred = (round_winningPlayer != 0) && (placedBoardCards[0].playerID == 0) &&
+                                   (round_accumScore < 20) && 
+                                   (round_accumScore >= 10);
+                        break;
+                    case CardGameEvent.GAME_EVENT_LOSE_HIGH_END_TURN:
+                        occurred = (round_winningPlayer != 0) && (placedBoardCards[0].playerID != 0) &&
+                                   (round_accumScore < 20) && 
+                                   (round_accumScore >= 10);
                         break;
                     case CardGameEvent.GAME_EVENT_LOSE_LOW_START_TURN:
                         occurred = (round_winningPlayer != 0) && (placedBoardCards[0].playerID == 0) &&
@@ -1002,7 +1011,8 @@ namespace Gob3AQ.CardMaster
                 if (!occurred) continue;
                 
                 eventToRemove = e;
-                VARMAP_CardMaster.SHOW_DIALOGUE(DialogType.DIALOG_SIMPLE, gameInfo.comments[e], gameInfo.opponent, true);
+                TauntInfo tauntInfo = gameInfo.comments[e];
+                VARMAP_CardMaster.SHOW_DIALOGUE(DialogType.DIALOG_SIMPLE, tauntInfo.phrase, tauntInfo.phraseSrc, true);
                 break;
             }
 

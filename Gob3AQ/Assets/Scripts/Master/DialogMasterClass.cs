@@ -221,29 +221,28 @@ namespace Gob3AQ.DialogMaster
 
         public static void DialogueSelectOptionService(DialogOption option, DialogPhrase phrase)
         {
-            if (_singleton)
-            {
-                if ((VARMAP_DialogMaster.GET_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY_DIALOG) && _singleton.dialog_optionPending)
-                {
-                    ref readonly DialogOptionConfig dialogOptionConfig = ref ResourceDialogsAtlasClass.GetDialogOptionConfig(option);
+            if (!_singleton) return;
+            
+            if ((VARMAP_DialogMaster.GET_GAMESTATUS() != Game_Status.GAME_STATUS_PLAY_DIALOG) ||
+                !_singleton.dialog_optionPending) return;
+            
+            ref readonly DialogOptionConfig dialogOptionConfig = ref ResourceDialogsAtlasClass.GetDialogOptionConfig(option);
 
-                    _singleton.dialog_optionPending = false;
+            _singleton.dialog_optionPending = false;
 
-                    /* If option is permitted, show it */
-                    VARMAP_DialogMaster.IS_EVENT_COMBI_OCCURRED(dialogOptionConfig.ConditionEvents, out bool valid);
-                    MomentType currentMoment = VARMAP_DialogMaster.GET_DAY_MOMENT();
+            /* If option is permitted, show it */
+            VARMAP_DialogMaster.IS_EVENT_COMBI_OCCURRED(dialogOptionConfig.ConditionEvents, out bool valid);
+            MomentType currentMoment = VARMAP_DialogMaster.GET_DAY_MOMENT();
 
 
-                    if (valid && ((currentMoment == dialogOptionConfig.momentType) || (dialogOptionConfig.momentType == MomentType.MOMENT_ANY)))
-                    {
-                        ReadOnlySpan<DialogPhrase> dialogPhrases = dialogOptionConfig.Phrases;
-                        int length = dialogOptionConfig.randomized ? 1 : dialogPhrases.Length;
+            if (!valid || ((currentMoment != dialogOptionConfig.momentType) &&
+                           (dialogOptionConfig.momentType != MomentType.MOMENT_ANY))) return;
+            
+            ReadOnlySpan<DialogPhrase> dialogPhrases = dialogOptionConfig.Phrases;
+            int length = dialogOptionConfig.randomized ? 1 : dialogPhrases.Length;
 
-                        _singleton.PreloadDialogueData(option, length, false);
-                        _singleton.StartPhrase(phrase);
-                    }
-                }
-            }
+            _singleton.PreloadDialogueData(option, length, false);
+            _singleton.StartPhrase(phrase);
         }
 
 
@@ -272,7 +271,7 @@ namespace Gob3AQ.DialogMaster
                 uniqueNumPhrases = 1;
             }
             /* A dialog with only one option should be given. But, in case, take always first option for background mode */
-            /* This is inconditional, even if option would not be available due to Needed Events */
+            /* This is unconditional, even if option would not be available due to Needed Events */
             else if (background)
             {
                 ReadOnlySpan<DialogOption> dialogOptions = dialogConfig.Options;

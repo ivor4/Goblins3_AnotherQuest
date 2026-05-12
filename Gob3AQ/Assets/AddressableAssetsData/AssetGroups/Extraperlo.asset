@@ -305,6 +305,21 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5957806f49e1ef6469c658f23d18fd60
+    m_Address: SOUND_CARDS1_MAINCHAR_TAUNT_5_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59a58275d573afd4e85a9565f65dc44e
+    m_Address: SOUND_CARDS1_TAUNT_ARTURO_4_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5c5927e8e04786f47ba4a254b2011441
+    m_Address: SOUND_CARDS1_TAUNT_ARTURO_5_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6589aa86dacc96d4da52dfea14d50d5b
     m_Address: SOUND_CARDS1_MAINCHAR_TAUNT_1_SPANISH
     m_ReadOnly: 0
@@ -472,6 +487,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b1920bf7bb312a249b68e89b42fc1580
     m_Address: ANIMATION_UNKNOWN_WOMEN_TALKING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b2180d9f6bd62b347a1de97220e13cb2
+    m_Address: SOUND_CARDS1_TAUNT_ARTURO_6_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -106,27 +106,37 @@ namespace Gob3AQ.VARMAP.Types
             waypointTo = to;
         }
     }
+    
+    public readonly struct TauntInfo
+    {
+        public readonly DialogPhrase phrase;
+        public readonly GameItem phraseSrc;
+
+        public TauntInfo(DialogPhrase phrase, GameItem phraseSrc)
+        {
+            this.phrase = phrase;
+            this.phraseSrc = phraseSrc;
+        }
+    }
 
     public readonly struct CardGameInfo
     {
-        public readonly IReadOnlyDictionary<CardGameEvent, DialogPhrase> comments;
+        public readonly IReadOnlyDictionary<CardGameEvent, TauntInfo> comments;
         public readonly int difficulty;
         public readonly int startingPlayer;
-        public readonly GameItem opponent;
         private readonly CardType[] trickedCards;
         public ReadOnlySpan<CardType> TrickedCards => trickedCards;
         public readonly CardType gameSuit;
         
-        public static readonly CardGameInfo EMPTY = new(new Dictionary<CardGameEvent, DialogPhrase>(), 
-            0, -1, GameItem.ITEM_NONE, Array.Empty<CardType>(), CardType.CARD_NONE);
+        public static readonly CardGameInfo EMPTY = new(new Dictionary<CardGameEvent, TauntInfo>(), 
+            0, -1, Array.Empty<CardType>(), CardType.CARD_NONE);
 
-        public CardGameInfo(Dictionary<CardGameEvent, DialogPhrase> comments, int difficulty, int startingPlayer,
-            GameItem opponent, CardType[] trickedCards, CardType gameSuit)
+        public CardGameInfo(Dictionary<CardGameEvent, TauntInfo> comments, int difficulty, int startingPlayer,
+            CardType[] trickedCards, CardType gameSuit)
         {
             this.comments = comments;
             this.difficulty = difficulty;
             this.startingPlayer = startingPlayer;
-            this.opponent = opponent;
             this.trickedCards = trickedCards;
             this.gameSuit = gameSuit;
         }

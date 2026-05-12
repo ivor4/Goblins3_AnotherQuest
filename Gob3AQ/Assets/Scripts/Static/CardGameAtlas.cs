@@ -30,13 +30,15 @@ namespace Gob3AQ.CardGameAtlas
                     { CardGameEvent.GAME_EVENT_LOSE_HIGH_END_TURN, new TauntInfo(DialogPhrase.PHRASE_CARDS1_ARTURO_TAUNT_4, GameItem.ITEM_NPC_ARTURO_EXTRAPERLO) },
                     { CardGameEvent.GAME_EVENT_LOSE_NOTHING, new TauntInfo(DialogPhrase.PHRASE_CARDS1_ARTURO_TAUNT_5, GameItem.ITEM_NPC_ARTURO_EXTRAPERLO) },
                     { CardGameEvent.GAME_EVENT_LOSE_LOW_END_TURN, new TauntInfo(DialogPhrase.PHRASE_CARDS1_ARTURO_TAUNT_6, GameItem.ITEM_NPC_ARTURO_EXTRAPERLO) },
+                    { CardGameEvent.GAME_EVENT_LOSE_GAME, new TauntInfo(DialogPhrase.PHRASE_CARDS1_ARTURO_TAUNT_WIN, GameItem.ITEM_NPC_ARTURO_EXTRAPERLO) },
                     { CardGameEvent.GAME_EVENT_WIN_BIG_COMBO, new TauntInfo(DialogPhrase.PHRASE_CARDS1_MAINCHAR_TAUNT_1, GameItem.ITEM_PLAYER_MAIN)},
                     { CardGameEvent.GAME_EVENT_EXCHANGE_SUIT_OWN, new TauntInfo(DialogPhrase.PHRASE_CARDS1_MAINCHAR_TAUNT_2, GameItem.ITEM_PLAYER_MAIN)},
                     { CardGameEvent.GAME_EVENT_WIN_NOTHING, new TauntInfo(DialogPhrase.PHRASE_CARDS1_MAINCHAR_TAUNT_3, GameItem.ITEM_PLAYER_MAIN)},
                     { CardGameEvent.GAME_EVENT_WIN_LOW_END_TURN, new TauntInfo(DialogPhrase.PHRASE_CARDS1_MAINCHAR_TAUNT_4, GameItem.ITEM_PLAYER_MAIN)},
                     { CardGameEvent.GAME_EVENT_WIN_HIGH_END_TURN, new TauntInfo(DialogPhrase.PHRASE_CARDS1_MAINCHAR_TAUNT_5, GameItem.ITEM_PLAYER_MAIN) },
+                    { CardGameEvent.GAME_EVENT_WIN_GAME, new TauntInfo(DialogPhrase.PHRASE_CARDS1_MAINCHAR_TAUNT_WIN, GameItem.ITEM_PLAYER_MAIN) },
                 },
-                2, -1, Array.Empty<CardType>(), CardType.CARD_NONE
+                0, -1,GameAction.ACTION_EVENT_WIN_CARDS_ARTURO, GameAction.ACTION_NONE, Array.Empty<CardType>(), CardType.CARD_NONE
             )
         };
     }

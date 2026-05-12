@@ -171,7 +171,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         /// <summary> 
         /// Asks Game Master to set game mode
         /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, DialogMaster, GameEventMaster,  </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, DialogMaster, CardMaster, GameEventMaster,  </para> 
         /// <para> Method: <see cref="GameMasterClass.ChangeGameModeService"/> </para> 
         /// </summary>
         public static CHANGE_GAME_MODE_DELEGATE CHANGE_GAME_MODE;
@@ -227,7 +227,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         /// <summary> 
         /// Returns if a dialog (Background or not) is active
         /// <para> Owner: DialogMaster </para> 
-        /// <para> Accessors: GameEventMaster,  </para> 
+        /// <para> Accessors: CardMaster, GameEventMaster,  </para> 
         /// <para> Method: <see cref="DialogMasterClass.IsDialogActiveService"/> </para> 
         /// </summary>
         public static IS_DIALOG_ACTIVE_DELEGATE IS_DIALOG_ACTIVE;

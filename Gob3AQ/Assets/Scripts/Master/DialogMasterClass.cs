@@ -692,6 +692,7 @@ namespace Gob3AQ.DialogMaster
                 switch (newval)
                 {
                     case Game_Status.GAME_STATUS_CHANGING_ROOM:
+                    case Game_Status.GAME_STATUS_PLAY_CARDS:
                         Stop_DialogAndPhrase();
                         Stop_Animations();
                         dialog_randomized_left_indexes.Clear();

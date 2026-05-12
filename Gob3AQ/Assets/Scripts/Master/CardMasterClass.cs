@@ -88,6 +88,7 @@ namespace Gob3AQ.CardMaster
         private int turnNum;
         private ulong lastActionTimestamp;
 
+        private int game_winningPlayer;
         private int round_winningPlayer;
         private CardSuit round_winningSuit;
         private int round_winningScore;
@@ -279,6 +280,29 @@ namespace Gob3AQ.CardMaster
                 case CardGameMoment.GAME_MOMENT_DRAW:
                     Game_Moment_DrawNextRound(timestamp);
                     break;
+                case CardGameMoment.GAME_MOMENT_FINAL_RESULT:
+                {
+                    if (momentSubStep == 0)
+                    {
+                        ++momentSubStep;
+                    }
+                    else
+                    {
+                        VARMAP_CardMaster.IS_DIALOG_ACTIVE(out bool active);
+                        
+                        
+                        if (!active)
+                        {
+                            Span<GameAction> onlyAction = stackalloc GameAction[1];
+                            onlyAction[0] = game_winningPlayer == 0 ? gameInfo.actionWhenWin : gameInfo.actionWhenLose;
+                            VARMAP_CardMaster.PERFORM_ACTION(onlyAction, null);
+                            
+                            VARMAP_CardMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
+                        }
+                    }
+
+                    break;
+                }
 
                 default:
                     /* Final result */
@@ -529,9 +553,13 @@ namespace Gob3AQ.CardMaster
                     }
                     else
                     {
+                        game_winningPlayer = playerWinner;
+                        EvaluateSingleEvent(game_winningPlayer == 0
+                            ? CardGameEvent.GAME_EVENT_WIN_GAME
+                            : CardGameEvent.GAME_EVENT_LOSE_GAME);
                         gameMoment = CardGameMoment.GAME_MOMENT_FINAL_RESULT;
                         momentSubStep = 0;
-                        Debug.Log("Winner is player: " + playerWinner + " with score of: " + maxScore);
+                        lastActionTimestamp = timestamp;
                     }
                 }
             }
@@ -735,7 +763,7 @@ namespace Gob3AQ.CardMaster
             /* Already present cards in board */
             else
             {
-                int handIndex_suit = AI_GetHighestScoreMove(playerHandCards[player], true, out int potentialDeltaScore_suit);
+                int handIndex_suit = AI_GetHighestScoreMove(playerHandCards[player], true, out _);
                 Game_Action_PlaceCard(player, handIndex_suit, timestamp);
             }
         }
@@ -1147,6 +1175,7 @@ namespace Gob3AQ.CardMaster
             round_winningValue = -1;
             round_accumScore = 0;
             round_winningSuit = CardSuit.SUIT_NONE;
+            game_winningPlayer = -1;
             gameMoment = CardGameMoment.GAME_MOMENT_STOP;
             momentSubStep = 0;
             card_animated = null;

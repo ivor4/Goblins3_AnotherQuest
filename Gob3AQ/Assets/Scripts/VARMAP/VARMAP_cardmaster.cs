@@ -29,9 +29,11 @@ namespace Gob3AQ.VARMAP.CardMaster
             GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
+            CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
             SHOW_DIALOGUE = _SHOW_DIALOGUE;
             PLAY_SOUND = _PLAY_SOUND;
             PERFORM_ACTION = _PERFORM_ACTION;
+            IS_DIALOG_ACTIVE = _IS_DIALOG_ACTIVE;
             START_CARD_GAME = _START_CARD_GAME;
             /* > ATG 1 END */
         }
@@ -65,6 +67,13 @@ namespace Gob3AQ.VARMAP.CardMaster
         /// </summary>
         public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
         /// <summary> 
+        /// Asks Game Master to set game mode
+        /// <para> Owner: GameMaster </para> 
+        /// <para> Accessors: LevelMaster, GameMenu, DialogMaster, CardMaster, GameEventMaster,  </para> 
+        /// <para> Method: <see cref="GameMasterClass.ChangeGameModeService"/> </para> 
+        /// </summary>
+        public static CHANGE_GAME_MODE_DELEGATE CHANGE_GAME_MODE;
+        /// <summary> 
         /// Second part of start dialogue. Tells Game Menu to prepare menu elements
         /// <para> Owner: DialogMaster </para> 
         /// <para> Accessors: CardMaster, GameEventMaster,  </para> 
@@ -85,6 +94,13 @@ namespace Gob3AQ.VARMAP.CardMaster
         /// <para> Method: <see cref="GameEventMasterClass.PerformActionService"/> </para> 
         /// </summary>
         public static PERFORM_ACTION_DELEGATE PERFORM_ACTION;
+        /// <summary> 
+        /// Returns if a dialog (Background or not) is active
+        /// <para> Owner: DialogMaster </para> 
+        /// <para> Accessors: CardMaster, GameEventMaster,  </para> 
+        /// <para> Method: <see cref="DialogMasterClass.IsDialogActiveService"/> </para> 
+        /// </summary>
+        public static IS_DIALOG_ACTIVE_DELEGATE IS_DIALOG_ACTIVE;
         /// <summary> 
         /// Tells Card Master to prepare a game with given parameters
         /// <para> Owner: CardMaster </para> 

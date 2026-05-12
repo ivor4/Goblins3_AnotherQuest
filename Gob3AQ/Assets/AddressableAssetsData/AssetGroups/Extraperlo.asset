@@ -235,6 +235,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 481984563e46b5f47a65751f24854885
+    m_Address: SOUND_CARDS1_MAINCHAR_TAUNT_WIN_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 49278e85d1ab19a41bae5254d082a6ce
     m_Address: SOUND_CARDS1_MAINCHAR_TAUNT_2_SPANISH
     m_ReadOnly: 0
@@ -382,6 +387,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7ca07d034070090499d7ed9c6d954799
     m_Address: SPRITE_ATLAS_CITY4_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 841d6635d12c14346a5a6f2c71c3573a
+    m_Address: SOUND_CARDS1_TAUNT_ARTURO_WIN_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

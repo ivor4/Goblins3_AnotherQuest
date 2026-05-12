@@ -96,59 +96,55 @@ namespace Gob3AQ.SoundMaster
 
         public static void PlaySoundService(GameSound sound, Action callback, bool loop)
         {
-            if(_singleton != null)
+            if (_singleton == null) return;
+            
+            if (!_singleton.availableSources.TryDequeue(out PooledAudioSource source)) return;
+            
+            ref readonly SoundConfig soundConfig = ref ResourceSoundsAtlasClass.GetSoundConfig(sound);
+
+            AudioMixerGroup group;
+
+            switch(soundConfig.effect)
             {
-                if (_singleton.availableSources.TryDequeue(out PooledAudioSource source))
-                {
-                    ref readonly SoundConfig soundConfig = ref ResourceSoundsAtlasClass.GetSoundConfig(sound);
-
-                    AudioMixerGroup group;
-
-                    switch(soundConfig.effect)
-                    {
-                        case SoundEffect.EFFECT_ECHO:
-                            group = _singleton.echoMixer;
-                            break;
-                        case SoundEffect.EFFECT_CHORUS:
-                            group = _singleton.chorusMixer;
-                            break;
-                        case SoundEffect.EFFECT_REVERB:
-                            group = _singleton.reverbmixer;
-                            break;
-                        default:
-                            group = _singleton.normalMixer;
-                            break;
-                    }
-
-                    source.PreparePlay(sound, group, callback, loop);
-                    _singleton.usedSources.Add(source);
-
-                    VARMAP_SoundMaster.LOAD_ADDITIONAL_SOUND(true, sound, source.ReceiveLoadedClip);
-                    _singleton.loadedSounds.Add(sound);
-                }
+                case SoundEffect.EFFECT_ECHO:
+                    group = _singleton.echoMixer;
+                    break;
+                case SoundEffect.EFFECT_CHORUS:
+                    group = _singleton.chorusMixer;
+                    break;
+                case SoundEffect.EFFECT_REVERB:
+                    group = _singleton.reverbmixer;
+                    break;
+                default:
+                    group = _singleton.normalMixer;
+                    break;
             }
+
+            source.PreparePlay(sound, group, callback, loop);
+            _singleton.usedSources.Add(source);
+
+            VARMAP_SoundMaster.LOAD_ADDITIONAL_SOUND(true, sound, source.ReceiveLoadedClip);
+            _singleton.loadedSounds.Add(sound);
         }
 
         public static void StopSoundService(GameSound sound)
         {
-            if ((_singleton != null) && (sound != GameSound.SOUND_NONE))
+            if ((_singleton == null) || (sound == GameSound.SOUND_NONE)) return;
+            
+            for(int i = 0; i < _singleton.usedSources.Count; ++i)
             {
-                for(int i = 0; i < _singleton.usedSources.Count; ++i)
-                {
-                    PooledAudioSource audio = _singleton.usedSources[i];
-                    if (audio.Sound == sound)
-                    {
-                        audio.Stop();
-                        _singleton.usedSources.RemoveAt(i);
-                        _singleton.availableSources.Enqueue(audio);
-                        break;
-                    }
-                }
+                PooledAudioSource audio = _singleton.usedSources[i];
+                if (audio.Sound != sound) continue;
+                
+                audio.Stop();
+                _singleton.usedSources.RemoveAt(i);
+                _singleton.availableSources.Enqueue(audio);
+                break;
+            }
 
-                if(_singleton.usedSources.Count == 0)
-                {
-                    _singleton.UnloadLoadedSounds();
-                }
+            if(_singleton.usedSources.Count == 0)
+            {
+                _singleton.UnloadLoadedSounds();
             }
         }
 
@@ -183,7 +179,7 @@ namespace Gob3AQ.SoundMaster
             for (int i = 0; i < pooledSources.Length; i++)
             {
                 AudioSource source = pooledSources[i];
-                if (source != null)
+                if (source)
                 {
                     availableSources.Enqueue(new PooledAudioSource(source));
                 }
@@ -203,9 +199,10 @@ namespace Gob3AQ.SoundMaster
         {
             while(usedSources.Count > 0)
             {
-                usedSources[0].Stop();
-                availableSources.Enqueue(usedSources[0]);
-                usedSources.RemoveAt(0);
+                int index = usedSources.Count - 1;
+                usedSources[index].Stop();
+                availableSources.Enqueue(usedSources[index]);
+                usedSources.RemoveAt(index);
             }
 
             UnloadLoadedSounds();
@@ -225,19 +222,11 @@ namespace Gob3AQ.SoundMaster
 
         private GameSound GetRoomMusic(Room room)
         {
-            ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(VARMAP_SoundMaster.GET_ACTUAL_ROOM());
+            ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(room);
 
-            GameSound nextBgMusic;
             MomentType actualMoment = VARMAP_SoundMaster.GET_DAY_MOMENT();
 
-            if (roomInfo.BackgroundMusic.Length > 1)
-            {
-                nextBgMusic = roomInfo.BackgroundMusic[(int)actualMoment];
-            }
-            else
-            {
-                nextBgMusic = roomInfo.BackgroundMusic[0];
-            }
+            GameSound nextBgMusic = roomInfo.BackgroundMusic.Length > 1 ? roomInfo.BackgroundMusic[(int)actualMoment] : roomInfo.BackgroundMusic[0];
 
             return nextBgMusic;
         }
@@ -283,26 +272,24 @@ namespace Gob3AQ.SoundMaster
 
         private void Update()
         {
-            if (!applicationPaused)
+            if (applicationPaused) return;
+            
+            bool removed = false;
+            for (int i = usedSources.Count - 1; i >= 0; --i)
             {
-                bool removed = false;
-                for (int i = usedSources.Count - 1; i >= 0; --i)
-                {
-                    PooledAudioSource usedSource = usedSources[i];
-                    if (!(usedSource.IsPlaying || usedSource.IsLoading))
-                    {
-                        usedSource.Callback?.Invoke();
-                        usedSource.Stop();
-                        availableSources.Enqueue(usedSource);
-                        usedSources.RemoveAt(i);
-                        removed = true;
-                    }
-                }
+                PooledAudioSource usedSource = usedSources[i];
+                if (usedSource.IsPlaying || usedSource.IsLoading) continue;
+                
+                usedSource.Callback?.Invoke();
+                usedSource.Stop();
+                availableSources.Enqueue(usedSource);
+                usedSources.RemoveAt(i);
+                removed = true;
+            }
 
-                if (removed && (usedSources.Count == 0))
-                {
-                    UnloadLoadedSounds();
-                }
+            if (removed && (usedSources.Count == 0))
+            {
+                UnloadLoadedSounds();
             }
         }
 
@@ -319,31 +306,41 @@ namespace Gob3AQ.SoundMaster
         {
             _ = evtype;
 
-            if (oldval != newval)
+            if (oldval == newval) return;
+            
+            switch (newval)
             {
-                switch (newval)
-                {
-                    /* In this moment, actual room is next one. If bgMusic is not actual, stop sound */
-                    case Game_Status.GAME_STATUS_CHANGING_ROOM:
-                        ChangingRoom();
-                        break;
-                    case Game_Status.GAME_STATUS_LOADING:
-                        VARMAP_SoundMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_SoundMaster);
-                        break;
-                    /* Not always coming from loading, could come from Inventory or Dialog */
-                    case Game_Status.GAME_STATUS_PLAY:
-                        if (oldval == Game_Status.GAME_STATUS_LOADING)
+                /* At this moment, actual room is next one. If bgMusic is not actual, stop sound */
+                case Game_Status.GAME_STATUS_CHANGING_ROOM:
+                    ChangingRoom();
+                    break;
+                case Game_Status.GAME_STATUS_LOADING:
+                    VARMAP_SoundMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_SoundMaster);
+                    break;
+                /* Not always coming from loading, could come from Inventory or Dialog */
+                case Game_Status.GAME_STATUS_PLAY:
+                    if ((oldval == Game_Status.GAME_STATUS_LOADING)||(oldval == Game_Status.GAME_STATUS_PLAY_CARDS))
+                    {
+                        if (oldval == Game_Status.GAME_STATUS_PLAY_CARDS)
                         {
-                            NewSceneStarted();
+                            StopAllSounds();
                         }
-                        break;
-                    case Game_Status.GAME_STATUS_STOPPED:
-                        StopAllSounds();
-                        StopMusic();
-                        break;
-                    default:
-                        break;
+                        NewSceneStarted();
+                    }
+                    break;
+                case Game_Status.GAME_STATUS_PLAY_CARDS:
+                {
+                    StopAllSounds();
+                    StopMusic();
+
+                    PlaySoundService(GameSound.MUSIC_CARDS, null, true);
+
+                    break;
                 }
+                case Game_Status.GAME_STATUS_STOPPED:
+                    StopAllSounds();
+                    StopMusic();
+                    break;
             }
         }
     }

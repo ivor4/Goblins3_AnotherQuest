@@ -119,6 +119,9 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_CARDS1_TAUNT_ARTURO_4_SPANISH"), /* SOUND_CARDS1_TAUNT_ARTURO_4 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_CARDS1_TAUNT_ARTURO_5_SPANISH"), /* SOUND_CARDS1_TAUNT_ARTURO_5 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_CARDS1_TAUNT_ARTURO_6_SPANISH"), /* SOUND_CARDS1_TAUNT_ARTURO_6 */ 
+            new(SoundEffect.EFFECT_NONE,"MUSIC_CARDS"), /* MUSIC_CARDS */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_CARDS1_MAINCHAR_TAUNT_WIN_SPANISH"), /* SOUND_CARDS1_MAINCHAR_WIN */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_CARDS1_TAUNT_ARTURO_WIN_SPANISH"), /* SOUND_CARDS1_TAUNT_ARTURO_WIN */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

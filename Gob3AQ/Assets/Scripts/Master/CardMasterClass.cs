@@ -95,6 +95,8 @@ namespace Gob3AQ.CardMaster
         private int round_winningValue;
         private int round_accumScore;
 
+        private bool giveupPending;
+
 
         /* GAME SETUP */
         private CardGameInfo gameInfo;
@@ -130,6 +132,15 @@ namespace Gob3AQ.CardMaster
 
             _singleton.gameMoment = CardGameMoment.GAME_MOMENT_RANDOM_FIRST_TURN;
             _singleton.momentSubStep = 0;
+        }
+
+        public static void GiveUpCardGameService()
+        {
+            if (!_singleton) return;
+
+            if (_singleton.gameMoment == CardGameMoment.GAME_MOMENT_STOP) return;
+
+            _singleton.giveupPending = true;
         }
 
 
@@ -459,7 +470,16 @@ namespace Gob3AQ.CardMaster
 
         private void Game_Moment_Play(ulong timestamp)
         {
-            if (turnNum == numPlayers)
+            if (giveupPending)
+            {
+                game_winningPlayer = 1;
+                EvaluateSingleEvent(CardGameEvent.GAME_EVENT_LOSE_GAME);
+                gameMoment = CardGameMoment.GAME_MOMENT_FINAL_RESULT;
+                momentSubStep = 0;
+                lastActionTimestamp = VARMAP_CardMaster.GET_ELAPSED_TIME_MS();
+                giveupPending = false;
+            }
+            else if (turnNum == numPlayers)
             {
                 turnNum = 0;
                 momentSubStep = 0;
@@ -1178,6 +1198,7 @@ namespace Gob3AQ.CardMaster
             game_winningPlayer = -1;
             gameMoment = CardGameMoment.GAME_MOMENT_STOP;
             momentSubStep = 0;
+            giveupPending = false;
             card_animated = null;
             remainingDeckCards.Clear();
             initialTrickedCards.Clear();

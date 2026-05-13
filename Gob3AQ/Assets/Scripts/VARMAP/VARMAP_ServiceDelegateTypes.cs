@@ -73,4 +73,5 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void GET_ITEM_SPRITE_BOUNDARIES_DELEGATE(GameItem item, out Bounds worldBounds);
     public delegate void ACTIVATE_FORCED_ZOOM_MODE_DELEGATE(bool activate, Bounds regionOfInterest);
     public delegate void START_CARD_GAME_DELEGATE(CardGameID cardGameID);
+    public delegate void GIVE_UP_CARD_GAME_DELEGATE();
 }

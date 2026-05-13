@@ -204,6 +204,12 @@ namespace Gob3AQ.GameMenu
                         /**/
                     }
                     break;
+                case MenuButtonType.MENU_BUTTON_GIVEUP:
+                    if (gstatus == Game_Status.GAME_STATUS_PLAY_CARDS)
+                    {
+                        VARMAP_GameMenu.GIVE_UP_CARD_GAME();
+                    }
+                    break;
                 case MenuButtonType.MENU_BUTTON_TAKE:
                     SetUserInteraction(UserInputInteraction.INPUT_INTERACTION_TAKE);
                     break;

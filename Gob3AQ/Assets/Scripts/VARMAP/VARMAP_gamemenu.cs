@@ -1,3 +1,4 @@
+using Gob3AQ.CardMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.VARMAP.Types.Delegates;
 using Gob3AQ.GameMaster;
@@ -69,6 +70,7 @@ namespace Gob3AQ.VARMAP.GameMenu
             SHOW_DECISION = _SHOW_DECISION;
             LOAD_ADDITIONAL_PREFAB = _LOAD_ADDITIONAL_PREFAB;
             PERFORM_ACTION = _PERFORM_ACTION;
+            GIVE_UP_CARD_GAME = _GIVE_UP_CARD_GAME;
             /* > ATG 1 END */
         }
 
@@ -242,6 +244,13 @@ namespace Gob3AQ.VARMAP.GameMenu
         /// <para> Method: <see cref="GameEventMasterClass.PerformActionService"/> </para> 
         /// </summary>
         public static PERFORM_ACTION_DELEGATE PERFORM_ACTION;
+        /// <summary> 
+        /// Tells Card Master to give up match
+        /// <para> Owner: CardMaster </para> 
+        /// <para> Accessors: GameMenu,  </para> 
+        /// <para> Method: <see cref="CardMasterClass.GiveUpCardGameService"/> </para> 
+        /// </summary>
+        public static GIVE_UP_CARD_GAME_DELEGATE GIVE_UP_CARD_GAME;
         /* > ATG 3 END */
     }
 }

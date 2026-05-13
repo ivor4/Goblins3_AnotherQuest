@@ -24,7 +24,7 @@ namespace Gob3AQ.GameMenu.UICanvas
     public delegate void MENU_BUTTON_CLICK_DELEGATE(MenuButtonType type);
     public enum DisplayMode
     {
-        DISPLAY_MODE_NONE,
+        DISPLAY_MODE_NONE = -1,
         DISPLAY_MODE_INVENTORY,
         DISPLAY_MODE_DIALOG,
         DISPLAY_MODE_DECISION,
@@ -36,7 +36,7 @@ namespace Gob3AQ.GameMenu.UICanvas
 
     public enum DialogMode
     {
-        DIALOG_MODE_NONE,
+        DIALOG_MODE_NONE = -1,
         DIALOG_MODE_OPTIONS,
         DIALOG_MODE_PHRASE,
         DIALOG_MODE_BACKGROUND
@@ -44,10 +44,11 @@ namespace Gob3AQ.GameMenu.UICanvas
 
     public enum MenuButtonType
     {
-        MENU_BUTTON_NONE,
+        MENU_BUTTON_NONE = -1,
         MENU_BUTTON_SAVE,
         MENU_BUTTON_EXIT,
         MENU_BUTTON_MEMENTO,
+        MENU_BUTTON_GIVEUP,
         MENU_BUTTON_TAKE,
         MENU_BUTTON_TALK,
         MENU_BUTTON_OBSERVE,
@@ -99,6 +100,8 @@ namespace Gob3AQ.GameMenu.UICanvas
         private Button tool_saveButton;
         private Button tool_exitButton;
         private Button tool_mementoButton;
+        private GameObject tool_giveUpButtonMono;
+        private Button tool_giveUpButton;
         private Button tool_takeButton;
         private Button tool_talkButton;
         private Button tool_observeButton;
@@ -170,6 +173,8 @@ namespace Gob3AQ.GameMenu.UICanvas
             tool_saveButton = UICanvas_uppertoolbarObj.transform.Find("SaveButton").GetComponent<Button>();
             tool_exitButton = UICanvas_uppertoolbarObj.transform.Find("ExitButton").GetComponent<Button>();
             tool_mementoButton = UICanvas_uppertoolbarObj.transform.Find("MementoButton").GetComponent<Button>();
+            tool_giveUpButtonMono = UICanvas_uppertoolbarObj.transform.Find("GiveUpButton").gameObject;
+            tool_giveUpButton = tool_giveUpButtonMono.GetComponent<Button>();
             tool_takeButton = UICanvas_uppertoolbarObj.transform.Find("TakeButton").GetComponent<Button>();
             tool_talkButton = UICanvas_uppertoolbarObj.transform.Find("TalkButton").GetComponent<Button>();
             tool_observeButton = UICanvas_uppertoolbarObj.transform.Find("ObserveButton").GetComponent<Button>();
@@ -220,6 +225,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_itemMenuObj.SetActive(true);
                     UICanvas_detailObj.SetActive(false);
                     UICanvas_cardObj.SetActive(false);
+                    tool_giveUpButtonMono.SetActive(false);
 
                     break;
 
@@ -230,6 +236,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_itemMenuObj.SetActive(false);
                     UICanvas_detailObj.SetActive(false);
                     UICanvas_cardObj.SetActive(false);
+                    tool_giveUpButtonMono.SetActive(false);
                     break;
 
                 case DisplayMode.DISPLAY_MODE_DECISION:
@@ -239,6 +246,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_itemMenuObj.SetActive(false);
                     UICanvas_detailObj.SetActive(false);
                     UICanvas_cardObj.SetActive(false);
+                    tool_giveUpButtonMono.SetActive(false);
                     break;
 
                 case DisplayMode.DISPLAY_MODE_MEMENTO:
@@ -248,6 +256,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_itemMenuObj.SetActive(false);
                     UICanvas_detailObj.SetActive(false);
                     UICanvas_cardObj.SetActive(false);
+                    tool_giveUpButtonMono.SetActive(false);
                     break;
 
                 case DisplayMode.DISPLAY_MODE_DETAIL:
@@ -256,6 +265,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_itemMenuObj.SetActive(false);
                     UICanvas_detailObj.SetActive(true);
                     UICanvas_cardObj.SetActive(false);
+                    tool_giveUpButtonMono.SetActive(false);
                     break;
 
                 case DisplayMode.DISPLAY_MODE_LOADING:
@@ -266,6 +276,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_itemMenuObj.SetActive(false);
                     UICanvas_detailObj.SetActive(false);
                     UICanvas_cardObj.SetActive(false);
+                    tool_giveUpButtonMono.SetActive(false);
                     break;
 
                 case DisplayMode.DISPLAY_MODE_CARDS:
@@ -276,6 +287,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_itemMenuObj.SetActive(false);
                     UICanvas_detailObj.SetActive(false);
                     UICanvas_cardObj.SetActive(true);
+                    tool_giveUpButtonMono.SetActive(true);
                     break;
 
                 default:
@@ -285,6 +297,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_itemMenuObj.SetActive(false);
                     UICanvas_detailObj.SetActive(false);
                     UICanvas_cardObj.SetActive(false);
+                    tool_giveUpButtonMono.SetActive(false);
                     break;
             }
 
@@ -702,6 +715,7 @@ namespace Gob3AQ.GameMenu.UICanvas
             tool_saveButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_SAVE));
             tool_exitButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_EXIT));
             tool_mementoButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_MEMENTO));
+            tool_giveUpButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_GIVEUP));
             tool_takeButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_TAKE));
             tool_talkButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_TALK));
             tool_observeButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_OBSERVE));

@@ -479,6 +479,13 @@ namespace Gob3AQ.VARMAP
         /// </summary>
         protected static START_CARD_GAME_DELEGATE _START_CARD_GAME;
         /// <summary> 
+        /// Tells Card Master to give up match
+        /// <para> Owner: CardMaster </para> 
+        /// <para> Accessors: GameMenu,  </para> 
+        /// <para> Method: <see cref="CardMasterClass.GiveUpCardGameService"/> </para> 
+        /// </summary>
+        protected static GIVE_UP_CARD_GAME_DELEGATE _GIVE_UP_CARD_GAME;
+        /// <summary> 
         /// Last service
         /// <para> Owner: GameMaster </para> 
         /// <para> Accessors:  </para> 

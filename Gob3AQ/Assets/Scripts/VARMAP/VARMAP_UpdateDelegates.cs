@@ -199,6 +199,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _ACTIVATE_FORCED_ZOOM_MODE = GraphicsMasterClass.ActivateForcedZoomMode;
             _GET_ITEM_SPRITE_BOUNDARIES = ItemMasterClass.GetItemBoundariesService;
             _START_CARD_GAME = CardMasterClass.StartCardGameService;
+            _GIVE_UP_CARD_GAME = CardMasterClass.GiveUpCardGameService;
             _LAST_SERVICE = GameMasterClass.ExitGameService;
             /* > ATG 2 END */
         }

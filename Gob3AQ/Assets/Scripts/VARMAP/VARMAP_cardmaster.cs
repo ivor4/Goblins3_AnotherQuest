@@ -35,6 +35,7 @@ namespace Gob3AQ.VARMAP.CardMaster
             PERFORM_ACTION = _PERFORM_ACTION;
             IS_DIALOG_ACTIVE = _IS_DIALOG_ACTIVE;
             START_CARD_GAME = _START_CARD_GAME;
+            GIVE_UP_CARD_GAME = _GIVE_UP_CARD_GAME;
             /* > ATG 1 END */
         }
 
@@ -108,6 +109,13 @@ namespace Gob3AQ.VARMAP.CardMaster
         /// <para> Method: <see cref="CardMasterClass.StartCardGameService"/> </para> 
         /// </summary>
         public static START_CARD_GAME_DELEGATE START_CARD_GAME;
+        /// <summary> 
+        /// Tells Card Master to give up match
+        /// <para> Owner: CardMaster </para> 
+        /// <para> Accessors: GameMenu,  </para> 
+        /// <para> Method: <see cref="CardMasterClass.GiveUpCardGameService"/> </para> 
+        /// </summary>
+        public static GIVE_UP_CARD_GAME_DELEGATE GIVE_UP_CARD_GAME;
         /* > ATG 3 END */
     }
 }

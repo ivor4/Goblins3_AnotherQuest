@@ -44,18 +44,15 @@ public class BckgSoundEmmitterClass : MonoBehaviour
 
     private void OnGameStatusChanged(ChangedEventType eventType, in Game_Status oldval, in Game_Status newval)
     {
-        if((newval == Game_Status.GAME_STATUS_PLAY)&&(oldval == Game_Status.GAME_STATUS_LOADING))
-        {
-            if(soundItem != GameSound.SOUND_NONE)
-            {
-                MomentType currentMoment = VARMAP_GameEventMaster.GET_DAY_MOMENT();
-                VARMAP_GameEventMaster.IS_EVENT_COMBI_OCCURRED(baked_neededEvents, out bool eventsOk);
+        if ((newval != Game_Status.GAME_STATUS_PLAY) || ((oldval != Game_Status.GAME_STATUS_LOADING) &&
+                                                         (oldval != Game_Status.GAME_STATUS_PLAY_CARDS))) return;
+        if (soundItem == GameSound.SOUND_NONE) return;
+        
+        MomentType currentMoment = VARMAP_GameEventMaster.GET_DAY_MOMENT();
+        VARMAP_GameEventMaster.IS_EVENT_COMBI_OCCURRED(baked_neededEvents, out bool eventsOk);
 
-                if (eventsOk && ((dayMoment == MomentType.MOMENT_ANY) || (dayMoment == currentMoment)))
-                {
-                    VARMAP_GameEventMaster.PLAY_SOUND(soundItem, null, loop);
-                }
-            }
-        }
+        if (!eventsOk || ((dayMoment != MomentType.MOMENT_ANY) && (dayMoment != currentMoment))) return;
+        
+        VARMAP_GameEventMaster.PLAY_SOUND(soundItem, null, loop);
     }
 }

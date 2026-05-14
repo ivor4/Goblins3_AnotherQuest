@@ -220,6 +220,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44cc6c45cf2c36d46bc8ea6af4294206
+    m_Address: SPRITE_EXTRAPERLO_TABLE1_MASK
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 45ed457161bca684f8e1fdee237031d7
     m_Address: SOUND_FIK_INTRO_1_SPANISH
     m_ReadOnly: 0
@@ -227,6 +232,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 460d7f33a40ef5f4abcc421ade080540
     m_Address: SOUND_WAITER_INTRO_1_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4647e94e783a34d4aacab9c1c060c7cf
+    m_Address: ANIMATION_EXTRAPERLO_TABLE1_STEADY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -262,6 +272,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 50422fefc018fa64b9f5c78528cf7d96
     m_Address: SOUND_FIK_2_OP_2_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 50e0d02c58ca7024ca2f98d68117246a
+    m_Address: SPRITE_ATLAS_EXTRAPERLO_TABLES
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -325,6 +340,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 629b491b2fb19bf4b9c4e6d73d256962
+    m_Address: ANIMATOR_EXTRAPERLO_TABLE2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6589aa86dacc96d4da52dfea14d50d5b
     m_Address: SOUND_CARDS1_MAINCHAR_TAUNT_1_SPANISH
     m_ReadOnly: 0
@@ -357,6 +377,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6ba1762a01d10714f84ced6d04a3bed5
     m_Address: SOUND_FIK_2_OP_0_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6db9edf812de9b842bf91a9b18410068
+    m_Address: SPRITE_EXTRAPERLO_TABLE2_MASK
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -530,6 +555,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be7f2eb2244108e40a49ff01ff423e12
+    m_Address: SPRITE_EXTRAPERLO_TABLE2_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bf3ad71e530715441b5b7a7e7b511908
     m_Address: SPRITE_EXTRAPERLO_DOOR_OPENED
     m_ReadOnly: 0
@@ -580,6 +610,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d4c178f1cddc332498e806bc121de36f
+    m_Address: ANIMATION_EXTRAPERLO_TABLE2_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d57e6979b653126488d3a65fccfffe68
     m_Address: SOUND_ARTURO_EXTRAPERLO_OP_2_4_SPANISH
     m_ReadOnly: 0
@@ -597,6 +632,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d976682e583a6d140a0815cbb40f87c7
     m_Address: SPRITE_ATLAS_UNKNOWN_WOMEN_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d99b0464cc9e0ec46a07b836c032fc0d
+    m_Address: ANIMATOR_EXTRAPERLO_TABLE1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -627,6 +667,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dfdc72d911d2de44c80af6f8d8e05bb9
     m_Address: SOUND_ARTURO_EXTRAPERLO_OP_1_4_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e1f38e94e9889134a919842e7e4f3487
+    m_Address: SPRITE_EXTRAPERLO_TABLE1_STEADY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

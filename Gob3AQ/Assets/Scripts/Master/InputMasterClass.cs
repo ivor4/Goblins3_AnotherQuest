@@ -72,8 +72,6 @@ namespace Gob3AQ.InputMaster
         private void Update()
         {
             ref readonly KeyStruct prevCycleKeys = ref VARMAP_InputMaster.GET_PRESSED_KEYS();
-            ref readonly GameOptionsStruct gameOptions = ref VARMAP_InputMaster.GET_GAME_OPTIONS();
-            ref readonly KeyOptions keyOptions = ref gameOptions.keyOptions;
 
 
             ManageKeyEventsSubscription(in prevCycleKeys);
@@ -82,12 +80,14 @@ namespace Gob3AQ.InputMaster
             {
                 bool wheelUp;
                 bool wheelDown;
-                KeyFunctions cycleKeys = 0;
+                KeyFunctions cycleKeys;
+                
 
-                cycleKeys |= inputActions.Player.ChangeAction.IsPressed() ? KeyFunctions.KEYFUNC_CHANGEACTION : 0;
+                cycleKeys = inputActions.Player.ChangeAction.IsPressed() ? KeyFunctions.KEYFUNC_CHANGEACTION : 0;
                 cycleKeys |= inputActions.Player.Select.IsPressed() ? KeyFunctions.KEYFUNC_SELECT : 0;
                 cycleKeys |= inputActions.Player.Inventory.IsPressed() ? KeyFunctions.KEYFUNC_INVENTORY : 0;
                 cycleKeys |= inputActions.Player.Drag.IsPressed() ? KeyFunctions.KEYFUNC_DRAG : 0;
+                cycleKeys |= inputActions.Player.SkipDialog.IsPressed() ? KeyFunctions.KEYFUNC_SKIPDIALOG : 0;
 
                 ulong actualTimestamp = VARMAP_InputMaster.GET_ELAPSED_TIME_MS();
 

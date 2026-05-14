@@ -648,8 +648,10 @@ namespace Gob3AQ.DialogMaster
                     break;
 
                 case DialogTaskType.DIALOG_STATE_DEAD_TIME:
+                    ref readonly KeyStruct ks = ref VARMAP_DialogMaster.GET_PRESSED_KEYS();
                     if ((((actualTimestamp - dialog_timestamp) >= 2000) && (dialog_actualPhraseSoundStop == GameSound.SOUND_NONE)) ||
-                        (((actualTimestamp - dialog_timestamp) >= 9000) && (dialog_actualPhraseSoundStop != GameSound.SOUND_NONE))
+                        (((actualTimestamp - dialog_timestamp) >= 9000) && (dialog_actualPhraseSoundStop != GameSound.SOUND_NONE)) ||
+                        ks.isKeyCyclePressed(KeyFunctions.KEYFUNC_SKIPDIALOG)
                         )
                     {
                         dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;

@@ -1,3 +1,4 @@
+using System;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.Waypoint.Network;
 using System.Collections.Generic;
@@ -42,6 +43,11 @@ namespace Gob3AQ.Waypoint
         public GameEventCombi_prv NeededEvent => neededEvent;
         public GameAction ActionWhenCross => actionWhenCross;
         public bool FlipXForAction => flipXForAction;
+
+        private void Start()
+        {
+            gameObject.SetActive(false);
+        }
 
 
 #if UNITY_EDITOR

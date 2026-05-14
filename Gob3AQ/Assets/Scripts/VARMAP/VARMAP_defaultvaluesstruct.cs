@@ -12,18 +12,6 @@ namespace Gob3AQ.VARMAP.DefaultValues
     {
         public static GameOptionsStruct GameOptionsStruct_Default => new()
         {
-            keyOptions = new KeyOptions()
-            {
-                changeActionKey = Key.Tab,
-                pauseKey = Key.P
-            },
-            mouseOptions = new MouseOptions()
-            {
-                selectKey = MouseButton.Left,
-                inventoryKey = MouseButton.Right,
-                dragKey = MouseButton.Middle,
-                zoomUpKey = MouseButton.Forward
-            },
             timeMultiplier = 60f*24f,
             rectangleSelectionColor = new Color(0,0,1,0.12f)
         };

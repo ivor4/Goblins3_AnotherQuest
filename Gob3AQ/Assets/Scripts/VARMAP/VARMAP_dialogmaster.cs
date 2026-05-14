@@ -28,6 +28,7 @@ namespace Gob3AQ.VARMAP.DialogMaster
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
+            GET_PRESSED_KEYS = _GET_PRESSED_KEYS;
             GET_PLAYER_SELECTED = _GET_PLAYER_SELECTED;
             GET_BUSY_STATE = _GET_BUSY_STATE;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
@@ -57,6 +58,7 @@ namespace Gob3AQ.VARMAP.DialogMaster
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
+        public static GetVARMAPValueDelegate<KeyStruct> GET_PRESSED_KEYS;
         public static GetVARMAPValueDelegate<CharacterType> GET_PLAYER_SELECTED;
         public static GetVARMAPValueDelegate<BusyState> GET_BUSY_STATE;
         /* > ATG 2 END */

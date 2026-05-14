@@ -27,6 +27,7 @@ namespace Gob3AQ.VARMAP.Types
         KEYFUNC_INDEX_DRAG = 5,
         KEYFUNC_INDEX_PAUSE = 6,
         KEYFUNC_INDEX_SKIPDIALOG = 7,
+        KEYFUNC_INDEX_DOUBLETAP = 8,
 
         KEYFUNC_INDEX_TOTAL
     }
@@ -42,7 +43,8 @@ namespace Gob3AQ.VARMAP.Types
         KEYFUNC_ZOOM_DOWN = 1 << KeyFunctionsIndex.KEYFUNC_INDEX_ZOOM_DOWN,
         KEYFUNC_DRAG = 1 << KeyFunctionsIndex.KEYFUNC_INDEX_DRAG,
         KEYFUNC_PAUSE = 1 << KeyFunctionsIndex.KEYFUNC_INDEX_PAUSE,
-        KEYFUNC_SKIPDIALOG = 1 << KeyFunctionsIndex.KEYFUNC_INDEX_SKIPDIALOG
+        KEYFUNC_SKIPDIALOG = 1 << KeyFunctionsIndex.KEYFUNC_INDEX_SKIPDIALOG,
+        KEYFUNC_DOUBLETAP = 1 << KeyFunctionsIndex.KEYFUNC_INDEX_DOUBLETAP
     }
 
     public enum UserInputInteraction

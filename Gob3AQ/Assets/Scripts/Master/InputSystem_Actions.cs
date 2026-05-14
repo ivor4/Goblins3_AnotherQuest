@@ -156,6 +156,15 @@ namespace Gob3AQ.InputMaster.InputActions
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DoubleClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""ff8d9084-11fe-4051-bdf7-61b2b6d9db0c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""MultiTap(tapDelay=0.5)"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -255,6 +264,17 @@ namespace Gob3AQ.InputMaster.InputActions
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SkipDialog"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""54230c6a-04a3-47aa-81da-cb5773b0f470"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DoubleClick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -849,6 +869,7 @@ namespace Gob3AQ.InputMaster.InputActions
             m_Player_ChangeAction = m_Player.FindAction("ChangeAction", throwIfNotFound: true);
             m_Player_Drag = m_Player.FindAction("Drag", throwIfNotFound: true);
             m_Player_SkipDialog = m_Player.FindAction("SkipDialog", throwIfNotFound: true);
+            m_Player_DoubleClick = m_Player.FindAction("DoubleClick", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -949,6 +970,7 @@ namespace Gob3AQ.InputMaster.InputActions
         private readonly InputAction m_Player_ChangeAction;
         private readonly InputAction m_Player_Drag;
         private readonly InputAction m_Player_SkipDialog;
+        private readonly InputAction m_Player_DoubleClick;
         /// <summary>
         /// Provides access to input actions defined in input action map "Player".
         /// </summary>
@@ -988,6 +1010,10 @@ namespace Gob3AQ.InputMaster.InputActions
             /// Provides access to the underlying input action "Player/SkipDialog".
             /// </summary>
             public InputAction @SkipDialog => m_Wrapper.m_Player_SkipDialog;
+            /// <summary>
+            /// Provides access to the underlying input action "Player/DoubleClick".
+            /// </summary>
+            public InputAction @DoubleClick => m_Wrapper.m_Player_DoubleClick;
             /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
@@ -1035,6 +1061,9 @@ namespace Gob3AQ.InputMaster.InputActions
                 @SkipDialog.started += instance.OnSkipDialog;
                 @SkipDialog.performed += instance.OnSkipDialog;
                 @SkipDialog.canceled += instance.OnSkipDialog;
+                @DoubleClick.started += instance.OnDoubleClick;
+                @DoubleClick.performed += instance.OnDoubleClick;
+                @DoubleClick.canceled += instance.OnDoubleClick;
             }
 
             /// <summary>
@@ -1067,6 +1096,9 @@ namespace Gob3AQ.InputMaster.InputActions
                 @SkipDialog.started -= instance.OnSkipDialog;
                 @SkipDialog.performed -= instance.OnSkipDialog;
                 @SkipDialog.canceled -= instance.OnSkipDialog;
+                @DoubleClick.started -= instance.OnDoubleClick;
+                @DoubleClick.performed -= instance.OnDoubleClick;
+                @DoubleClick.canceled -= instance.OnDoubleClick;
             }
 
             /// <summary>
@@ -1416,6 +1448,13 @@ namespace Gob3AQ.InputMaster.InputActions
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnSkipDialog(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "DoubleClick" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnDoubleClick(InputAction.CallbackContext context);
         }
         /// <summary>
         /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

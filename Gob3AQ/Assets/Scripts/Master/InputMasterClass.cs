@@ -20,6 +20,7 @@ namespace Gob3AQ.InputMaster
         private InputSystem_Actions inputActions;
         private Mouse mouse;
         private ulong lastMouseWheelTimestamp;
+        private bool doubleClickDetected;
 
 
         public static void KeySubscriptionService(KeyFunctionsIndex key, KEY_SUBSCRIPTION_CALL_DELEGATE func, bool add)
@@ -52,6 +53,7 @@ namespace Gob3AQ.InputMaster
                 inputActions = new InputSystem_Actions();
                 mouse = Mouse.current;
                 wheelDebounceActive = false;
+                doubleClickDetected = false;
             }
         }
 
@@ -65,6 +67,8 @@ namespace Gob3AQ.InputMaster
             VARMAP_InputMaster.SET_PRESSED_KEYS(in KeyStruct.KEY_EMPTY);
             VARMAP_InputMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_InputMaster);
             VARMAP_InputMaster.REG_GAMESTATUS(_GameStatusChanged);
+            
+            inputActions.Player.DoubleClick.performed += ReceiveDoubleClickEvent;
 
             inputActions.Enable();
         }
@@ -122,7 +126,9 @@ namespace Gob3AQ.InputMaster
 
                 cycleKeys |= wheelUp ? KeyFunctions.KEYFUNC_ZOOM_UP : 0;
                 cycleKeys |= wheelDown ? KeyFunctions.KEYFUNC_ZOOM_DOWN : 0;
-
+                cycleKeys |= doubleClickDetected ? KeyFunctions.KEYFUNC_DOUBLETAP : 0;
+                doubleClickDetected = false;
+                
                 KeyFunctions diffKeys = cycleKeys ^ prevCycleKeys.pressedKeys;
 
                 keysHaveChanged = (diffKeys | prevCycleKeys.cyclepressedKeys | prevCycleKeys.cyclereleasedKeys) != 0;
@@ -167,7 +173,11 @@ namespace Gob3AQ.InputMaster
         }
 #endif
 
-
+        private void ReceiveDoubleClickEvent(InputAction.CallbackContext ctx)
+        {
+            _ = ctx;
+            doubleClickDetected = true;
+        }
 
         private void ManageKeyEventsSubscription(in KeyStruct prevCycleKeys)
         {
@@ -240,6 +250,7 @@ namespace Gob3AQ.InputMaster
                 {
                     case Game_Status.GAME_STATUS_LOADING:
                         wheelDebounceActive = false;
+                        doubleClickDetected = false;
                         VARMAP_InputMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_InputMaster);
                         break;
 

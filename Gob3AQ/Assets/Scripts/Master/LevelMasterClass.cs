@@ -296,13 +296,12 @@ namespace Gob3AQ.LevelMaster
             }
             yield return ResourceAtlasClass.WaitForNextFrame;
 
-            for (int i=0;i< _Player_List.Length; ++i)
+            foreach (var t in _Player_List)
             {
-                if (_Player_List[i] != null)
-                {
-                    VARMAP_LevelMaster.SET_PLAYER_SELECTED(_Player_List[i].CharType);
-                    break;
-                }
+                if (!t) continue;
+                
+                VARMAP_LevelMaster.SET_PLAYER_SELECTED(t.CharType);
+                break;
             }
 
             VARMAP_LevelMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_LevelMaster);
@@ -316,30 +315,28 @@ namespace Gob3AQ.LevelMaster
             _HoveredPending.Clear();
             UpdateHoverElements(in mouse);
 
-
-            if (busyState == BusyState.GAME_NOT_BUSY)
-            {
-                Game_Status gstatus = VARMAP_LevelMaster.GET_GAMESTATUS();
+            if (busyState != BusyState.GAME_NOT_BUSY) return;
+            
+            Game_Status gstatus = VARMAP_LevelMaster.GET_GAMESTATUS();
                
-                ref readonly KeyStruct keys = ref VARMAP_LevelMaster.GET_PRESSED_KEYS();
+            ref readonly KeyStruct keys = ref VARMAP_LevelMaster.GET_PRESSED_KEYS();
 
-                switch (gstatus)
-                {
-                    case Game_Status.GAME_STATUS_PLAY:
-                        Update_Play(gstatus, in mouse, in keys);
-                        break;
-                    case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
-                    case Game_Status.GAME_STATUS_PLAY_MEMENTO:
-                        if (keys.isKeyCycleReleased(KeyFunctions.KEYFUNC_INVENTORY))
-                        {
-                            VARMAP_LevelMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
-                            ClearHovered();
-                        }
-                        break;
+            switch (gstatus)
+            {
+                case Game_Status.GAME_STATUS_PLAY:
+                    Update_Play(gstatus, in mouse, in keys);
+                    break;
+                case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
+                case Game_Status.GAME_STATUS_PLAY_MEMENTO:
+                    if (keys.isKeyCycleReleased(KeyFunctions.KEYFUNC_INVENTORY))
+                    {
+                        VARMAP_LevelMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
+                        ClearHovered();
+                    }
+                    break;
 
-                    default:
-                        break;
-                }
+                default:
+                    break;
             }
         }
 
@@ -487,9 +484,22 @@ namespace Gob3AQ.LevelMaster
                     VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
                 }
             }
+            /* Fast track */
+            else if (keys.isKeyCyclePressed(KeyFunctions.KEYFUNC_DOUBLETAP) &&
+                     (_HoveredElem.family == GameItemFamily.ITEM_FAMILY_TYPE_DOOR))
+            {
+                ref readonly PendingCharacterInteraction pendingInter =
+                    ref _PendingCharInteractions[(int)playerSelected];
+                
+                ref readonly InteractionUsage pendingUsage = ref _PendingCharInteractions[(int)playerSelected].usage;
+                
+                if (pendingInter.ended || (pendingUsage.type != ItemInteractionType.INTERACTION_CROSS_DOOR)) return;
+                
+                /* TODO: Check all waypoints or do it when starting normal cross with a bool (FastTrackAvailable) */
+            }
             else if (keys.isKeyCycleReleased(KeyFunctions.KEYFUNC_SELECT))
             {
-                /* If there is buffered action */
+                /* If there is a hovered element, interact with it */
                 if (_HoveredElem.family != GameItemFamily.ITEM_FAMILY_TYPE_NONE)
                 {
                     CheckInteractionWithHoveredItem(playerSelected, chosenItem, in _HoveredElem);
@@ -640,10 +650,8 @@ namespace Gob3AQ.LevelMaster
                     stackAction[0] = actionWhenCross;
                     VARMAP_LevelMaster.PERFORM_ACTION(stackAction, null);
                 }
-                else if (charPendingAction.pending && (usage.type != ItemInteractionType.INTERACTION_MOVE))
+                else if (usage.type != ItemInteractionType.INTERACTION_MOVE)
                 {
-                    ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(usage.itemDest);
-
                     /* Check if it is available and is still in original position */
                     bool validTransaction = IsItemAvailable(usage.itemDest);
                     validTransaction &= _ItemDictionary[usage.itemDest].Waypoint == usage.destWaypoint_index;
@@ -662,10 +670,6 @@ namespace Gob3AQ.LevelMaster
 
                         VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
                     }
-                }
-                else
-                {
-                    /**/
                 }
             }
 

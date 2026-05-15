@@ -53,6 +53,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void IS_MEMENTO_UNLOCKED_DELEGATE(Memento memento, out bool occurred, out bool unwatched);
     public delegate void MEMENTO_PARENT_WATCHED_DELEGATE(MementoParent mementoParent);
     public delegate void USE_ITEM_DELEGATE(in InteractionUsage usage, out InteractionUsageOutcome outcome);
+    public delegate void PEEK_ITEM_DELEGATE(in InteractionUsage usage, out InteractionUsageOutcome outcome);
     public delegate void CANCEL_PICKABLE_ITEM_DELEGATE();
     public delegate void KEY_SUBSCRIPTION_DELEGATE(KeyFunctionsIndex key, KEY_SUBSCRIPTION_CALL_DELEGATE callable, bool add);
     public delegate void ZOOM_SUBSCRIPTION_DELEGATE(bool subscribe, ZOOM_CHANGED_DELEGATE callable);

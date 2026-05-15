@@ -41,6 +41,7 @@ namespace Gob3AQ.VARMAP.ItemMaster
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
             ACTION_TO_ITEM = _ACTION_TO_ITEM;
             USE_ITEM = _USE_ITEM;
+            PEEK_ITEM = _PEEK_ITEM;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             ZOOM_SUBSCRIPTION = _ZOOM_SUBSCRIPTION;
             START_ANIMATION = _START_ANIMATION;
@@ -134,6 +135,13 @@ public static ACTION_TO_ITEM_DELEGATE ACTION_TO_ITEM;
 /// <para> Method: <see cref="ItemMasterClass.UseItemService"/> </para> 
 /// </summary>
 public static USE_ITEM_DELEGATE USE_ITEM;
+        /// <summary> 
+/// Peeks if item can be used or not 
+/// <para> Owner: ItemMaster </para> 
+/// <para> Accessors: LevelMaster </para> 
+/// <para> Method: <see cref="ItemMasterClass.PeekItemService"/> </para> 
+/// </summary>
+public static PEEK_ITEM_DELEGATE PEEK_ITEM;
         /// <summary> 
 /// Cancels selected item 
 /// <para> Owner: GameMenu </para> 

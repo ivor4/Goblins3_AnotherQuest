@@ -65,6 +65,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
             INTERACT_PLAYER = _INTERACT_PLAYER;
             PLAYER_REACHED_WAYPOINT = _PLAYER_REACHED_WAYPOINT;
             USE_ITEM = _USE_ITEM;
+            PEEK_ITEM = _PEEK_ITEM;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             LOCK_PLAYER = _LOCK_PLAYER;
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
@@ -225,6 +226,13 @@ public static PLAYER_REACHED_WAYPOINT_DELEGATE PLAYER_REACHED_WAYPOINT;
 /// <para> Method: <see cref="ItemMasterClass.UseItemService"/> </para> 
 /// </summary>
 public static USE_ITEM_DELEGATE USE_ITEM;
+        /// <summary> 
+/// Peeks if item can be used or not 
+/// <para> Owner: ItemMaster </para> 
+/// <para> Accessors: LevelMaster </para> 
+/// <para> Method: <see cref="ItemMasterClass.PeekItemService"/> </para> 
+/// </summary>
+public static PEEK_ITEM_DELEGATE PEEK_ITEM;
         /// <summary> 
 /// Cancels selected item 
 /// <para> Owner: GameMenu </para> 

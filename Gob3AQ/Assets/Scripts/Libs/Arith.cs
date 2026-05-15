@@ -8,6 +8,23 @@ using UnityEngine;
 
 namespace Gob3AQ.Libs.Arith
 {
+    public static class RentedSpan<T>
+    {
+        private static readonly T[] SPAN = new T[16];
+
+        public static Span<T> GetSpanOfSize(int size)
+        {
+            if (size < SPAN.Length)
+            {
+                return SPAN.AsSpan(0, size);
+            }
+            else
+            {
+                return SPAN.AsSpan(0, SPAN.Length);
+            }
+        }
+    }
+    
     public static class Sorting<T> where T : IComparable
     {
         public static void SortArray(Span<T> span)

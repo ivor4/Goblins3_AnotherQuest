@@ -318,6 +318,13 @@ protected static PLAYER_REACHED_WAYPOINT_DELEGATE _PLAYER_REACHED_WAYPOINT;
 /// </summary>
 protected static USE_ITEM_DELEGATE _USE_ITEM;
         /// <summary> 
+/// Peeks if item can be used or not 
+/// <para> Owner: ItemMaster </para> 
+/// <para> Accessors: LevelMaster </para> 
+/// <para> Method: <see cref="ItemMasterClass.PeekItemService"/> </para> 
+/// </summary>
+protected static PEEK_ITEM_DELEGATE _PEEK_ITEM;
+        /// <summary> 
 /// Cancels selected item 
 /// <para> Owner: GameMenu </para> 
 /// <para> Accessors: LevelMaster, ItemMaster </para> 

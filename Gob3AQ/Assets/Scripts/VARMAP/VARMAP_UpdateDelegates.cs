@@ -176,6 +176,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _ACTION_TO_ITEM = ItemMasterClass.ActionToItemService;
             _PLAYER_REACHED_WAYPOINT = LevelMasterClass.PlayerReachedWaypointService;
             _USE_ITEM = ItemMasterClass.UseItemService;
+            _PEEK_ITEM = ItemMasterClass.PeekItemService;
             _CANCEL_PICKABLE_ITEM = GameMenuClass.CancelPickableItemService;
             _KEY_SUBSCRIPTION = InputMasterClass.KeySubscriptionService;
             _LOCK_PLAYER = PlayerMasterClass.LockPlayerService;

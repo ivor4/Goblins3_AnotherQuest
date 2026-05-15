@@ -10,6 +10,7 @@ using Gob3AQ.Waypoint.Network;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Gob3AQ.Libs.Arith;
 using UnityEngine;
 
 namespace Gob3AQ.LevelMaster
@@ -42,13 +43,15 @@ namespace Gob3AQ.LevelMaster
         {
             public bool pending;
             public bool ended;
+            public readonly bool fastCrossAvailable;
             public readonly InteractionUsage usage;
 
-            public PendingCharacterInteraction(in InteractionUsage interaction)
+            public PendingCharacterInteraction(in InteractionUsage interaction, bool fastCrossAvailable)
             {
                 pending = true;
                 ended = false;
                 usage = interaction;
+                this.fastCrossAvailable = fastCrossAvailable;
             }
         }
 
@@ -254,7 +257,7 @@ namespace Gob3AQ.LevelMaster
 
         public static void WPListRegister(IReadOnlyList<WaypointInfo> waypointInfoList)
         {
-            if (_singleton != null)
+            if (_singleton)
             {
                 _singleton._WP_Info_List = waypointInfoList;
             }
@@ -267,7 +270,7 @@ namespace Gob3AQ.LevelMaster
 
         private void Awake()
         {
-            if (_singleton != null)
+            if (_singleton)
             {
                 Destroy(gameObject);
             }
@@ -524,6 +527,7 @@ namespace Gob3AQ.LevelMaster
         {
             InteractionUsage usage = default;
             bool accepted = false;
+            bool fastCrossAvailable = false;
 
             switch (hovered.family)
             {
@@ -538,7 +542,7 @@ namespace Gob3AQ.LevelMaster
                         for(int i=0; i < (int)CharacterType.CHARACTER_TOTAL; ++i)
                         {
                             PlayableCharScript instance = _Player_List[i];
-                            if ((instance != null) && (instance.ItemID == hovered.item))
+                            if ((instance) && (instance.ItemID == hovered.item))
                             {
                                 VARMAP_LevelMaster.SET_PLAYER_SELECTED(instance.CharType);
                                 break;
@@ -557,15 +561,14 @@ namespace Gob3AQ.LevelMaster
 
                 case GameItemFamily.ITEM_FAMILY_TYPE_DOOR:
                     accepted = InteractWithDoor(playerSelected, ref usage, in hovered);
+                    fastCrossAvailable = CheckFastCross(in usage);
                     break;
-
-                default:
-                    break;
+                
             }
 
             if (accepted)
             {
-                _PendingCharInteractions[(int)playerSelected] = new PendingCharacterInteraction(in usage);
+                _PendingCharInteractions[(int)playerSelected] = new PendingCharacterInteraction(in usage, fastCrossAvailable);
             }
         }
 
@@ -630,7 +633,7 @@ namespace Gob3AQ.LevelMaster
                 VARMAP_LevelMaster.INTERACT_PLAYER(selectedCharacter, candidate_index, out bool accepted);
                 if (accepted)
                 {
-                    _PendingCharInteractions[(int)selectedCharacter] = new PendingCharacterInteraction(in usage);
+                    _PendingCharInteractions[(int)selectedCharacter] = new PendingCharacterInteraction(in usage, false);
                 }
             }
         }
@@ -678,6 +681,54 @@ namespace Gob3AQ.LevelMaster
             charPendingAction.ended = false;
         }
 
+        private int CheckFurthestReachableWaypoint(in InteractionUsage usage)
+        {
+            int waypointSrc = _Player_List[(int)usage.playerSource].Waypoint;
+            int waypointDst = usage.destWaypoint_index;
+            int iteratedWaypoint = waypointSrc;
+            int furthestIndex = waypointSrc;
+
+            while (iteratedWaypoint != waypointDst)
+            {
+                WaypointInfo wpInfo = _WP_Info_List[iteratedWaypoint];
+                furthestIndex = iteratedWaypoint;
+
+                iteratedWaypoint = _WP_Info_List[iteratedWaypoint].Solution.TravelTo[waypointDst];
+
+                if (wpInfo.ActionWhenCross != GameAction.ACTION_NONE) break;
+
+                if (wpInfo.Reachability != WaypointReachability.REACHABLE_WHEN_COMBI) continue;
+                
+                Span<GameEventCombi> events_needed = RentedSpan<GameEventCombi>.GetSpanOfSize(1);
+                events_needed[0] = new GameEventCombi(wpInfo.NeededEvent.ev, wpInfo.NeededEvent.not);
+
+                VARMAP_LevelMaster.IS_EVENT_COMBI_OCCURRED(events_needed, out bool occurred);
+
+                if (!occurred) break;
+            }
+
+            return furthestIndex;
+        }
+
+        private bool CheckFastCross(in InteractionUsage usage)
+        {
+            VARMAP_LevelMaster.PEEK_ITEM(in usage, out InteractionUsageOutcome outcome);
+
+            /* Doors work upside down. If no outcome, it means they can be crossed as have no attached actions */
+            if (outcome.ok) return false;
+
+            int waypointSrc = _Player_List[(int)usage.playerSource].Waypoint;
+            int waypointDst = usage.destWaypoint_index;
+            int iteratedWaypoint = waypointSrc;
+
+            while (iteratedWaypoint != waypointDst)
+            {
+                _WP_Info_List[iteratedWaypoint].Reachability
+            }
+            
+            return outcome.ok;
+        }
+
         private void PlayerEntryWalk()
         {
             Span<GameEventCombi> stackCombi = stackalloc GameEventCombi[1];
@@ -691,23 +742,22 @@ namespace Gob3AQ.LevelMaster
 
                 for (int i=0; i < _Player_List.Length; ++i)
                 {
-                    if (_Player_List[i] != null)
+                    if (!_Player_List[i]) continue;
+                    
+                    ReadOnlySpan<InitialWalkInfo> walkInfos = ResourceAtlasClass.GetInitialWalkInfo(room);
+
+                    foreach (InitialWalkInfo walkInfo in walkInfos)
                     {
-                        ReadOnlySpan<InitialWalkInfo> walkInfos = ResourceAtlasClass.GetInitialWalkInfo(room);
-
-                        foreach (InitialWalkInfo walkInfo in walkInfos)
+                        if ((walkInfo.waypointFrom == _Player_List[i].Waypoint)&&(walkInfo.waypointFrom != walkInfo.waypointTo))
                         {
-                            if ((walkInfo.waypointFrom == _Player_List[i].Waypoint)&&(walkInfo.waypointFrom != walkInfo.waypointTo))
-                            {
-                                InteractionUsage usage = InteractionUsage.CreatePlayerMove((CharacterType)i, walkInfo.waypointTo);
+                            InteractionUsage usage = InteractionUsage.CreatePlayerMove((CharacterType)i, walkInfo.waypointTo);
 
-                                VARMAP_LevelMaster.INTERACT_PLAYER(_Player_List[i].CharType, walkInfo.waypointTo, out bool accepted);
-                                if (accepted)
-                                {
-                                    _PendingCharInteractions[i] = new PendingCharacterInteraction(in usage);
-                                }
-                                break;
+                            VARMAP_LevelMaster.INTERACT_PLAYER(_Player_List[i].CharType, walkInfo.waypointTo, out bool accepted);
+                            if (accepted)
+                            {
+                                _PendingCharInteractions[i] = new PendingCharacterInteraction(in usage, false);
                             }
+                            break;
                         }
                     }
                 }

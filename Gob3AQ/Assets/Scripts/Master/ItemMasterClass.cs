@@ -100,7 +100,12 @@ namespace Gob3AQ.ItemMaster
 
         public static void UseItemService(in InteractionUsage usage, out InteractionUsageOutcome outcome)
         {
-            ItemInteractionCommon(in usage, out outcome);
+            ItemInteractionCommon(in usage, out outcome, false);
+        }
+
+        public static void PeekItemService(in InteractionUsage usage, out InteractionUsageOutcome outcome)
+        {
+            ItemInteractionCommon(in usage, out outcome, false);
         }
 
         public static void GetItemBoundariesService(GameItem item, out Bounds worldBounds)
@@ -191,14 +196,13 @@ namespace Gob3AQ.ItemMaster
             }
         }
 
-        private static void ItemInteractionCommon(in InteractionUsage usage, out InteractionUsageOutcome outcome)
+        private static void ItemInteractionCommon(in InteractionUsage usage, out InteractionUsageOutcome outcome, bool isPeek)
         {
-            bool conditionOK;
             GameAction defaultNegativeAction = GetDefaultNegativeAction(usage.type);
             Span<GameAction> negativeActions = stackalloc GameAction[] { defaultNegativeAction };
 
             /* If item is not defined, it is not possible to process it */
-            conditionOK = false;
+            var conditionOK = false;
             MomentType actualMoment = VARMAP_ItemMaster.GET_DAY_MOMENT();
 
 
@@ -226,17 +230,16 @@ namespace Gob3AQ.ItemMaster
                 {
                     VARMAP_ItemMaster.IS_EVENT_COMBI_OCCURRED(conditionInfo.NeededEvents, out bool occurred);
 
-                    if (occurred)
-                    {
-                        /* Trigger additional event (in case) */
-                        VARMAP_ItemMaster.PERFORM_ACTION(conditionInfo.UnchainActions, null);
-                        conditionOK = true;
-                        break;
-                    }
+                    if (!occurred) continue;
+                    
+                    /* Trigger additional event (in case) */
+                    if(!isPeek) VARMAP_ItemMaster.PERFORM_ACTION(conditionInfo.UnchainActions, null);
+                    conditionOK = true;
+                    break;
                 }
             }
 
-            if(!conditionOK)
+            if(!conditionOK && !isPeek)
             {
                 VARMAP_ItemMaster.PERFORM_ACTION(negativeActions, null);
             }

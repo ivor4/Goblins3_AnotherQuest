@@ -107,7 +107,7 @@ namespace Gob3AQ.VARMAP.Types
         SOUND_CARDS1_TAUNT_ARTURO_WIN, 
         SOUND_LAST, 
         
-        SOUND_TOTAL
+SOUND_TOTAL
         /* > ATG 1 END < */
     }
 

@@ -55,26 +55,26 @@ namespace Gob3AQ.VARMAP.InputMaster
         /* SERVICES */
         /* > ATG 3 START */
         /// <summary> 
-        /// This service is called when whole room has been loaded
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, CardMaster, GameEventMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.LoadingCompletedService"/> </para> 
-        /// </summary>
-        public static LOADING_COMPLETED_DELEGATE MODULE_LOADING_COMPLETED;
+/// This service is called when whole room has been loaded 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, CardMaster, GameEventMaster </para> 
+/// <para> Method: <see cref="GameMasterClass.LoadingCompletedService"/> </para> 
+/// </summary>
+public static LOADING_COMPLETED_DELEGATE MODULE_LOADING_COMPLETED;
         /// <summary> 
-        /// This service returns a bool which tells if given module has been loaded in Room Loading Process
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, CardMaster, GameEventMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
-        /// </summary>
-        public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
+/// This service returns a bool which tells if given module has been loaded in Room Loading Process 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, CardMaster, GameEventMaster </para> 
+/// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
+/// </summary>
+public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
         /// <summary> 
-        /// Subscribe to determined key events to avoid polling
-        /// <para> Owner: InputMaster </para> 
-        /// <para> Accessors: GameMenu,  </para> 
-        /// <para> Method: <see cref="InputMasterClass.KeySubscriptionService"/> </para> 
-        /// </summary>
-        public static KEY_SUBSCRIPTION_DELEGATE KEY_SUBSCRIPTION;
+/// Subscribe to determined key events to avoid polling 
+/// <para> Owner: InputMaster </para> 
+/// <para> Accessors: GameMenu </para> 
+/// <para> Method: <see cref="InputMasterClass.KeySubscriptionService"/> </para> 
+/// </summary>
+public static KEY_SUBSCRIPTION_DELEGATE KEY_SUBSCRIPTION;
         /* > ATG 3 END */
     }
 }

@@ -124,7 +124,7 @@ namespace Gob3AQ.VARMAP.Types
         MOMENT_NIGHT, 
         MOMENT_ANY, 
         
-        MOMENT_TOTAL
+MOMENT_TOTAL
         /* > ATG 7 END < */
 
     }

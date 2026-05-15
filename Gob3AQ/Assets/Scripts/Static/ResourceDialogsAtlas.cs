@@ -70,165 +70,165 @@ namespace Gob3AQ.ResourceDialogsAtlas
         {
             /* > ATG 1 START < */
             new( /* DIALOG_SIMPLE */
-            new GameItem[1]{GameItem.ITEM_NONE,},
-            new DialogOption[1]{DialogOption.DIALOG_OPTION_SIMPLE, }
+            new GameItem[1]{GameItem.ITEM_NONE},
+            new DialogOption[1]{DialogOption.DIALOG_OPTION_SIMPLE}
             ),
-            
+
             new( /* DIALOG_REME_INTRO */
-            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_HIVE1_NPC_REME,},
-            new DialogOption[1]{DialogOption.DIALOG_OPTION_REME_INTRO, }
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_HIVE1_NPC_REME},
+            new DialogOption[1]{DialogOption.DIALOG_OPTION_REME_INTRO}
             ),
-            
+
             new( /* DIALOG_REME */
-            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_HIVE1_NPC_REME,},
-            new DialogOption[3]{DialogOption.DIALOG_OPTION_REME_1, DialogOption.DIALOG_OPTION_REME_2, DialogOption.DIALOG_OPTION_REME_3, }
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_HIVE1_NPC_REME},
+            new DialogOption[3]{DialogOption.DIALOG_OPTION_REME_1, DialogOption.DIALOG_OPTION_REME_2, DialogOption.DIALOG_OPTION_REME_3}
             ),
-            
+
             new( /* DIALOG_REME_CARDS */
-            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_HIVE1_NPC_REME,},
-            new DialogOption[1]{DialogOption.DIALOG_OPTION_REME_CARDS, }
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_HIVE1_NPC_REME},
+            new DialogOption[1]{DialogOption.DIALOG_OPTION_REME_CARDS}
             ),
-            
+
             new( /* DIALOG_TRY_TALK_PHARMACIST_1 */
-            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_PHARMACY_NPC_OWNER,},
-            new DialogOption[1]{DialogOption.DIALOG_OPTION_TRY_TALK_PHARMACIST, }
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_PHARMACY_NPC_OWNER},
+            new DialogOption[1]{DialogOption.DIALOG_OPTION_TRY_TALK_PHARMACIST}
             ),
-            
+
             new( /* DIALOG_TRY_TALK_PHARMACIST_2 */
-            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_PHARMACY_NPC_OWNER,},
-            new DialogOption[1]{DialogOption.DIALOG_OPTION_PHARMACIST_BUSY, }
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_PHARMACY_NPC_OWNER},
+            new DialogOption[1]{DialogOption.DIALOG_OPTION_PHARMACIST_BUSY}
             ),
-            
+
             new( /* DIALOG_MANYO_OWNER_INTRO */
-            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_ELMANYO_OWNER,},
-            new DialogOption[1]{DialogOption.DIALOG_OPTION_MANYO_ONWER_INTRO, }
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_ELMANYO_OWNER},
+            new DialogOption[1]{DialogOption.DIALOG_OPTION_MANYO_ONWER_INTRO}
             ),
-            
+
             new( /* DIALOG_MANYO_OWNER */
-            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_ELMANYO_OWNER,},
-            new DialogOption[5]{DialogOption.DIALOG_OPTION_MANYO_WORK_NOTE, DialogOption.DIALOG_OPTION_MANYO_WORKS_CITY, DialogOption.DIALOG_OPTION_MANYO_MENU_DAY, DialogOption.DIALOG_OPTION_MANYO_CROWD, DialogOption.DIALOG_OPTION_MANYO_BYE, }
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_ELMANYO_OWNER},
+            new DialogOption[5]{DialogOption.DIALOG_OPTION_MANYO_WORK_NOTE, DialogOption.DIALOG_OPTION_MANYO_WORKS_CITY, DialogOption.DIALOG_OPTION_MANYO_MENU_DAY, DialogOption.DIALOG_OPTION_MANYO_CROWD, DialogOption.DIALOG_OPTION_MANYO_BYE}
             ),
-            
+
             new( /* DIALOG_MANYO_UMBRELLA */
-            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_ELMANYO_OWNER,},
-            new DialogOption[1]{DialogOption.DIALOG_OPTION_MANYO_UMBRELLA, }
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_ELMANYO_OWNER},
+            new DialogOption[1]{DialogOption.DIALOG_OPTION_MANYO_UMBRELLA}
             ),
-            
+
             new( /* DIALOG_MANYO_BCKG_CROWD */
-            new GameItem[1]{GameItem.ITEM_ELMANYO_CROWD,},
-            new DialogOption[1]{DialogOption.DIALOG_OPTION_MANYO_BCKG_CROWD, }
+            new GameItem[1]{GameItem.ITEM_ELMANYO_CROWD},
+            new DialogOption[1]{DialogOption.DIALOG_OPTION_MANYO_BCKG_CROWD}
             ),
-            
+
             new( /* DIALOG_HIVE1_BCKG_POOR_MAN_WC */
-            new GameItem[1]{GameItem.ITEM_HIVE1_POOR_MAN_WC,},
-            new DialogOption[1]{DialogOption.DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTIONS, }
+            new GameItem[1]{GameItem.ITEM_HIVE1_POOR_MAN_WC},
+            new DialogOption[1]{DialogOption.DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTIONS}
             ),
-            
+
             new( /* DIALOG_HIVE1_POOR_MAN_WC */
-            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_HIVE1_POOR_MAN_WC,},
-            new DialogOption[4]{DialogOption.DIALOG_HIVE1_POOR_MAN_WC_OPTION_0, DialogOption.DIALOG_HIVE1_POOR_MAN_WC_OPTION_1, DialogOption.DIALOG_HIVE1_POOR_MAN_WC_OPTION_2, DialogOption.DIALOG_HIVE1_POOR_MAN_WC_OPTION_3, }
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_HIVE1_POOR_MAN_WC},
+            new DialogOption[4]{DialogOption.DIALOG_HIVE1_POOR_MAN_WC_OPTION_0, DialogOption.DIALOG_HIVE1_POOR_MAN_WC_OPTION_1, DialogOption.DIALOG_HIVE1_POOR_MAN_WC_OPTION_2, DialogOption.DIALOG_HIVE1_POOR_MAN_WC_OPTION_3}
             ),
-            
+
             new( /* DIALOG_HIVE1_POOR_MAN_WC_INTRO */
-            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_HIVE1_POOR_MAN_WC,},
-            new DialogOption[1]{DialogOption.DIALOG_HIVE1_POOR_MAN_WC_OPTION_INTRO, }
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_HIVE1_POOR_MAN_WC},
+            new DialogOption[1]{DialogOption.DIALOG_HIVE1_POOR_MAN_WC_OPTION_INTRO}
             ),
-            
+
             new( /* DIALOG_ARTURO_HALL_INN */
-            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_HIVE1_MAN_WC_CURED,},
-            new DialogOption[3]{DialogOption.DIALOG_ARTURO_HALL_INN_OPTION_0, DialogOption.DIALOG_ARTURO_HALL_INN_OPTION_1, DialogOption.DIALOG_ARTURO_HALL_INN_OPTION_2, }
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_HIVE1_MAN_WC_CURED},
+            new DialogOption[3]{DialogOption.DIALOG_ARTURO_HALL_INN_OPTION_0, DialogOption.DIALOG_ARTURO_HALL_INN_OPTION_1, DialogOption.DIALOG_ARTURO_HALL_INN_OPTION_2}
             ),
-            
+
             new( /* DIALOG_ARTURO_HALL_INN_INTRO */
-            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_HIVE1_MAN_WC_CURED,},
-            new DialogOption[1]{DialogOption.DIALOG_ARTURO_HALL_INN_OPTION_INTRO, }
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_HIVE1_MAN_WC_CURED},
+            new DialogOption[1]{DialogOption.DIALOG_ARTURO_HALL_INN_OPTION_INTRO}
             ),
-            
+
             new( /* DIALOG_PHARMACIST_NOT_TAKE_INKWELL */
-            new GameItem[1]{GameItem.ITEM_PHARMACY_NPC_OWNER,},
-            new DialogOption[1]{DialogOption.DIALOG_PHARMACIST_NOT_TAKE_INKWELL_OPTION_INTRO, }
+            new GameItem[1]{GameItem.ITEM_PHARMACY_NPC_OWNER},
+            new DialogOption[1]{DialogOption.DIALOG_PHARMACIST_NOT_TAKE_INKWELL_OPTION_INTRO}
             ),
-            
+
             new( /* DIALOG_USE_UMBRELLA_WITH_INKWELL */
-            new GameItem[1]{GameItem.ITEM_PLAYER_MAIN,},
-            new DialogOption[1]{DialogOption.DIALOG_OPTION_USE_UMBRELLA_WITH_INKWELL, }
+            new GameItem[1]{GameItem.ITEM_PLAYER_MAIN},
+            new DialogOption[1]{DialogOption.DIALOG_OPTION_USE_UMBRELLA_WITH_INKWELL}
             ),
-            
+
             new( /* DIALOG_USE_UMBRELLA_WITH_INKWELL_REACT */
-            new GameItem[1]{GameItem.ITEM_PHARMACY_NPC_OWNER,},
-            new DialogOption[1]{DialogOption.DIALOG_OPTION_USE_UMBRELLA_WITH_INKWELL_REACT, }
+            new GameItem[1]{GameItem.ITEM_PHARMACY_NPC_OWNER},
+            new DialogOption[1]{DialogOption.DIALOG_OPTION_USE_UMBRELLA_WITH_INKWELL_REACT}
             ),
-            
+
             new( /* DIALOG_FIK_1 */
-            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_NPC_FIK,},
-            new DialogOption[4]{DialogOption.DIALOG_FIK_1_OPTION_0, DialogOption.DIALOG_FIK_1_OPTION_1, DialogOption.DIALOG_FIK_1_OPTION_2, DialogOption.DIALOG_FIK_1_OPTION_3, }
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_FIK},
+            new DialogOption[4]{DialogOption.DIALOG_FIK_1_OPTION_0, DialogOption.DIALOG_FIK_1_OPTION_1, DialogOption.DIALOG_FIK_1_OPTION_2, DialogOption.DIALOG_FIK_1_OPTION_3}
             ),
-            
+
             new( /* DIALOG_FIK_1_INTRO */
-            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_NPC_FIK,},
-            new DialogOption[1]{DialogOption.DIALOG_FIK_1_OPTION_INTRO, }
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_FIK},
+            new DialogOption[1]{DialogOption.DIALOG_FIK_1_OPTION_INTRO}
             ),
-            
+
             new( /* DIALOG_FIK_2 */
-            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_NPC_FIK,},
-            new DialogOption[4]{DialogOption.DIALOG_FIK_2_OPTION_0, DialogOption.DIALOG_FIK_2_OPTION_1, DialogOption.DIALOG_FIK_2_OPTION_2, DialogOption.DIALOG_FIK_2_OPTION_3, }
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_FIK},
+            new DialogOption[4]{DialogOption.DIALOG_FIK_2_OPTION_0, DialogOption.DIALOG_FIK_2_OPTION_1, DialogOption.DIALOG_FIK_2_OPTION_2, DialogOption.DIALOG_FIK_2_OPTION_3}
             ),
-            
+
             new( /* DIALOG_FIK_NOT_CROSS_DOOR */
-            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_NPC_FIK,},
-            new DialogOption[1]{DialogOption.DIALOG_FIK_NOT_CROSS_OPTION_0, }
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_FIK},
+            new DialogOption[1]{DialogOption.DIALOG_FIK_NOT_CROSS_OPTION_0}
             ),
-            
+
             new( /* DIALOG_GERMAN_1 */
-            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_NPC_GERMAN,},
-            new DialogOption[3]{DialogOption.DIALOG_GERMAN_1_OPTION_0, DialogOption.DIALOG_GERMAN_1_OPTION_1, DialogOption.DIALOG_GERMAN_1_OPTION_2, }
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_GERMAN},
+            new DialogOption[3]{DialogOption.DIALOG_GERMAN_1_OPTION_0, DialogOption.DIALOG_GERMAN_1_OPTION_1, DialogOption.DIALOG_GERMAN_1_OPTION_2}
             ),
-            
+
             new( /* DIALOG_GERMAN_1_INTRO */
-            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_NPC_GERMAN,},
-            new DialogOption[1]{DialogOption.DIALOG_GERMAN_1_OPTION_INTRO, }
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_GERMAN},
+            new DialogOption[1]{DialogOption.DIALOG_GERMAN_1_OPTION_INTRO}
             ),
-            
+
             new( /* DIALOG_WAITER_1_INTRO */
-            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_NPC_WAITER,},
-            new DialogOption[1]{DialogOption.DIALOG_WAITER_OPTION_INTRO_1, }
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_WAITER},
+            new DialogOption[1]{DialogOption.DIALOG_WAITER_OPTION_INTRO_1}
             ),
-            
+
             new( /* DIALOG_WAITER_2_INTRO */
-            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_NPC_WAITER,},
-            new DialogOption[1]{DialogOption.DIALOG_WAITER_OPTION_INTRO_2, }
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_WAITER},
+            new DialogOption[1]{DialogOption.DIALOG_WAITER_OPTION_INTRO_2}
             ),
-            
+
             new( /* DIALOG_WAITER_USE_OLD_INVITATION */
-            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_NPC_WAITER,},
-            new DialogOption[1]{DialogOption.DIALOG_WAITER_OPTION_USE_OLD_INVITATION, }
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_WAITER},
+            new DialogOption[1]{DialogOption.DIALOG_WAITER_OPTION_USE_OLD_INVITATION}
             ),
-            
+
             new( /* DIALOG_WAITER_USE_NEW_INVITATION */
-            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_NPC_WAITER,},
-            new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE, }
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_WAITER},
+            new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE}
             ),
-            
+
             new( /* DIALOG_UNKNOWN_GIRLS_1 */
-            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_NPC_UNKNOWN_WOMEN,},
-            new DialogOption[1]{DialogOption.DIALOG_UNKNOWN_GIRLS_OPTION_INTRO_1, }
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_UNKNOWN_WOMEN},
+            new DialogOption[1]{DialogOption.DIALOG_UNKNOWN_GIRLS_OPTION_INTRO_1}
             ),
-            
+
             new( /* DIALOG_ARTURO_EXTRAPERLO */
-            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_NPC_ARTURO_EXTRAPERLO,},
-            new DialogOption[4]{DialogOption.DIALOG_ARTURO_EXTRAPERLO_OPTION_0, DialogOption.DIALOG_ARTURO_EXTRAPERLO_OPTION_1, DialogOption.DIALOG_ARTURO_EXTRAPERLO_OPTION_2, DialogOption.DIALOG_FIK_1_OPTION_3, }
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_ARTURO_EXTRAPERLO},
+            new DialogOption[4]{DialogOption.DIALOG_ARTURO_EXTRAPERLO_OPTION_0, DialogOption.DIALOG_ARTURO_EXTRAPERLO_OPTION_1, DialogOption.DIALOG_ARTURO_EXTRAPERLO_OPTION_2, DialogOption.DIALOG_FIK_1_OPTION_3}
             ),
-            
+
             new( /* DIALOG_ARTURO_EXTRAPERLO_INTRO */
-            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN,GameItem.ITEM_NPC_ARTURO_EXTRAPERLO,},
-            new DialogOption[1]{DialogOption.DIALOG_ARTURO_EXTRAPERLO_OPTION_INTRO, }
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_ARTURO_EXTRAPERLO},
+            new DialogOption[1]{DialogOption.DIALOG_ARTURO_EXTRAPERLO_OPTION_INTRO}
             ),
-            
+
             new( /* DIALOG_LAST */
-            new GameItem[1]{GameItem.ITEM_NONE,},
-            new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE, }
+            new GameItem[1]{GameItem.ITEM_NONE},
+            new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE}
             ),
-            
+
             /* > ATG 1 END < */
         };
 
@@ -236,375 +236,375 @@ namespace Gob3AQ.ResourceDialogsAtlas
         {
             /* > ATG 2 START < */
             new( /* DIALOG_OPTION_SIMPLE */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_NONE,false,
-            new DialogPhrase[1]{DialogPhrase.PHRASE_NONE, }
+            new DialogPhrase[1]{DialogPhrase.PHRASE_NONE}
             ),
             new( /* DIALOG_OPTION_REME_INTRO */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_REME,false,
-            new DialogPhrase[3]{DialogPhrase.PHRASE_DIALOG_REME_INTRO_1, DialogPhrase.PHRASE_DIALOG_REME_INTRO_2, DialogPhrase.PHRASE_DIALOG_REME_INTRO_3, }
+            new DialogPhrase[3]{DialogPhrase.PHRASE_DIALOG_REME_INTRO_1, DialogPhrase.PHRASE_DIALOG_REME_INTRO_2, DialogPhrase.PHRASE_DIALOG_REME_INTRO_3}
             ),
             new( /* DIALOG_OPTION_REME_1 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_REME,false,
-            new DialogPhrase[3]{DialogPhrase.PHRASE_DIALOG_REME_1_1, DialogPhrase.PHRASE_DIALOG_REME_1_2, DialogPhrase.PHRASE_DIALOG_REME_1_3, }
+            new DialogPhrase[3]{DialogPhrase.PHRASE_DIALOG_REME_1_1, DialogPhrase.PHRASE_DIALOG_REME_1_2, DialogPhrase.PHRASE_DIALOG_REME_1_3}
             ),
             new( /* DIALOG_OPTION_REME_2 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_NONE,false,
-            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_REME_2_1, }
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_REME_2_1}
             ),
             new( /* DIALOG_OPTION_REME_3 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[2]{GameAction.ACTION_ANIMATE_REME_TEST, GameAction.ACTION_DIALOGUE_OBSERVE_SHOEALCE, },
+            new GameAction[2]{GameAction.ACTION_ANIMATE_REME_TEST, GameAction.ACTION_DIALOGUE_OBSERVE_SHOEALCE},
             DialogType.DIALOG_NONE,false,
-            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_REME_3_TEST, }
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_REME_3_TEST}
             ),
             new( /* DIALOG_OPTION_REME_CARDS */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_NONE,false,
-            new DialogPhrase[2]{DialogPhrase.PHRASE_USE_CARDS_REME_1, DialogPhrase.PHRASE_USE_CARDS_REME_2, }
+            new DialogPhrase[2]{DialogPhrase.PHRASE_USE_CARDS_REME_1, DialogPhrase.PHRASE_USE_CARDS_REME_2}
             ),
             new( /* DIALOG_OPTION_TRY_TALK_PHARMACIST */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_TRY_TALK_PHARMACIST_2,false,
-            new DialogPhrase[1]{DialogPhrase.PHRASE_TRY_TALK_PHARMACIST_BUSY, }
+            new DialogPhrase[1]{DialogPhrase.PHRASE_TRY_TALK_PHARMACIST_BUSY}
             ),
             new( /* DIALOG_OPTION_PHARMACIST_BUSY */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_NONE,true,
-            new DialogPhrase[2]{DialogPhrase.PHRASE_PHARMACIST_BUSY_1, DialogPhrase.PHRASE_PHARMACIST_BUSY_2, }
+            new DialogPhrase[2]{DialogPhrase.PHRASE_PHARMACIST_BUSY_1, DialogPhrase.PHRASE_PHARMACIST_BUSY_2}
             ),
             new( /* DIALOG_OPTION_MANYO_ONWER_INTRO */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_MANYO_OWNER,true,
-            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_MANYO_INTRO_1, DialogPhrase.PHRASE_DIALOG_MANYO_INTRO_2, }
+            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_MANYO_INTRO_1, DialogPhrase.PHRASE_DIALOG_MANYO_INTRO_2}
             ),
             new( /* DIALOG_OPTION_MANYO_WORK_NOTE */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_MORNING,
-            new GameAction[1]{GameAction.ACTION_EVENT_MANYO_REFUSED_WORK, },
+            new GameAction[1]{GameAction.ACTION_EVENT_MANYO_REFUSED_WORK},
             DialogType.DIALOG_MANYO_OWNER,false,
-            new DialogPhrase[4]{DialogPhrase.PHRASE_DIALOG_MANYO_WORK_NOTE_1, DialogPhrase.PHRASE_DIALOG_MANYO_WORK_NOTE_2, DialogPhrase.PHRASE_DIALOG_MANYO_WORK_NOTE_3, DialogPhrase.PHRASE_DIALOG_MANYO_WORK_NOTE_4, }
+            new DialogPhrase[4]{DialogPhrase.PHRASE_DIALOG_MANYO_WORK_NOTE_1, DialogPhrase.PHRASE_DIALOG_MANYO_WORK_NOTE_2, DialogPhrase.PHRASE_DIALOG_MANYO_WORK_NOTE_3, DialogPhrase.PHRASE_DIALOG_MANYO_WORK_NOTE_4}
             ),
             new( /* DIALOG_OPTION_MANYO_WORKS_CITY */
-            new GameEventCombi[1]{new(GameEvent.EVENT_MANYO_REFUSED_WORK, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_MANYO_REFUSED_WORK, false)},
             MomentType.MOMENT_MORNING,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_MANYO_OWNER,false,
-            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_MANYO_WORKS_CITY_1, DialogPhrase.PHRASE_DIALOG_MANYO_WORKS_CITY_2, }
+            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_MANYO_WORKS_CITY_1, DialogPhrase.PHRASE_DIALOG_MANYO_WORKS_CITY_2}
             ),
             new( /* DIALOG_OPTION_MANYO_MENU_DAY */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_MANYO_OWNER,false,
-            new DialogPhrase[6]{DialogPhrase.PHRASE_DIALOG_MANYO_MENU_DAY_1, DialogPhrase.PHRASE_DIALOG_MANYO_MENU_DAY_2, DialogPhrase.PHRASE_DIALOG_MANYO_MENU_DAY_3, DialogPhrase.PHRASE_DIALOG_MANYO_MENU_DAY_4, DialogPhrase.PHRASE_DIALOG_MANYO_MENU_DAY_5, DialogPhrase.PHRASE_DIALOG_MANYO_MENU_DAY_6, }
+            new DialogPhrase[6]{DialogPhrase.PHRASE_DIALOG_MANYO_MENU_DAY_1, DialogPhrase.PHRASE_DIALOG_MANYO_MENU_DAY_2, DialogPhrase.PHRASE_DIALOG_MANYO_MENU_DAY_3, DialogPhrase.PHRASE_DIALOG_MANYO_MENU_DAY_4, DialogPhrase.PHRASE_DIALOG_MANYO_MENU_DAY_5, DialogPhrase.PHRASE_DIALOG_MANYO_MENU_DAY_6}
             ),
             new( /* DIALOG_OPTION_MANYO_CROWD */
-            new GameEventCombi[1]{new(GameEvent.EVENT_MANYO_REFUSED_WORK, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_MANYO_REFUSED_WORK, false)},
             MomentType.MOMENT_NIGHT,
-            new GameAction[2]{GameAction.ACTION_EVENT_MANYO_LOOK_FOR_RECIPE_MISSION, GameAction.ACTION_MEMENTO_RECEIPT_MISSION, },
+            new GameAction[2]{GameAction.ACTION_EVENT_MANYO_LOOK_FOR_RECIPE_MISSION, GameAction.ACTION_MEMENTO_RECEIPT_MISSION},
             DialogType.DIALOG_MANYO_OWNER,false,
-            new DialogPhrase[5]{DialogPhrase.PHRASE_DIALOG_MANYO_CROWD_1, DialogPhrase.PHRASE_DIALOG_MANYO_CROWD_2, DialogPhrase.PHRASE_DIALOG_MANYO_CROWD_3, DialogPhrase.PHRASE_DIALOG_MANYO_CROWD_4, DialogPhrase.PHRASE_DIALOG_MANYO_CROWD_5, }
+            new DialogPhrase[5]{DialogPhrase.PHRASE_DIALOG_MANYO_CROWD_1, DialogPhrase.PHRASE_DIALOG_MANYO_CROWD_2, DialogPhrase.PHRASE_DIALOG_MANYO_CROWD_3, DialogPhrase.PHRASE_DIALOG_MANYO_CROWD_4, DialogPhrase.PHRASE_DIALOG_MANYO_CROWD_5}
             ),
             new( /* DIALOG_OPTION_MANYO_BYE */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_NONE,false,
-            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_MANYO_BYE_1, }
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_MANYO_BYE_1}
             ),
             new( /* DIALOG_OPTION_MANYO_UMBRELLA */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_NONE,false,
-            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_MANYO_UMBRELLA_NOT_1, }
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_MANYO_UMBRELLA_NOT_1}
             ),
             new( /* DIALOG_OPTION_MANYO_BCKG_CROWD */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_NONE,true,
-            new DialogPhrase[3]{DialogPhrase.PHRASE_DIALOG_MANYO_BCKG_CROWD_1, DialogPhrase.PHRASE_DIALOG_MANYO_BCKG_CROWD_2, DialogPhrase.PHRASE_DIALOG_MANYO_BCKG_CROWD_3, }
+            new DialogPhrase[3]{DialogPhrase.PHRASE_DIALOG_MANYO_BCKG_CROWD_1, DialogPhrase.PHRASE_DIALOG_MANYO_BCKG_CROWD_2, DialogPhrase.PHRASE_DIALOG_MANYO_BCKG_CROWD_3}
             ),
             new( /* DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTIONS */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_NONE,true,
-            new DialogPhrase[4]{DialogPhrase.PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_1_0, DialogPhrase.PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_2_0, DialogPhrase.PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_3_0, }
+            new DialogPhrase[4]{DialogPhrase.PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_1_0, DialogPhrase.PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_2_0, DialogPhrase.PHRASE_DIALOG_HIVE1_BCKG_POOR_MAN_WC_OPTION_3_0}
             ),
             new( /* DIALOG_HIVE1_POOR_MAN_WC_OPTION_0 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_HIVE1_POOR_MAN_WC,false,
-            new DialogPhrase[4]{DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_1, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_2, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_3, }
+            new DialogPhrase[4]{DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_1, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_2, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_0_3}
             ),
             new( /* DIALOG_HIVE1_POOR_MAN_WC_OPTION_1 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_HIVE1_POOR_MAN_WC,false,
-            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_1_0, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_1_1, }
+            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_1_0, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_1_1}
             ),
             new( /* DIALOG_HIVE1_POOR_MAN_WC_OPTION_2 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[2]{GameAction.ACTION_EVENT_POOR_MAN_WC_NEEDS_WATER, GameAction.ACTION_MEMENTO_POOR_MAN_WC_1, },
+            new GameAction[2]{GameAction.ACTION_EVENT_POOR_MAN_WC_NEEDS_WATER, GameAction.ACTION_MEMENTO_POOR_MAN_WC_1},
             DialogType.DIALOG_HIVE1_POOR_MAN_WC,false,
-            new DialogPhrase[5]{DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_0, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_1, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_2, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_3, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_4, }
+            new DialogPhrase[5]{DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_0, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_1, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_2, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_3, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_2_4}
             ),
             new( /* DIALOG_HIVE1_POOR_MAN_WC_OPTION_3 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_NONE,false,
-            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_3_0, }
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_OPTION_3_0}
             ),
             new( /* DIALOG_HIVE1_POOR_MAN_WC_OPTION_INTRO */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_HIVE1_POOR_MAN_WC,true,
-            new DialogPhrase[3]{DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_0, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_1, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_2, }
+            new DialogPhrase[3]{DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_0, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_1, DialogPhrase.PHRASE_DIALOG_HIVE1_POOR_MAN_WC_INTRO_2}
             ),
             new( /* DIALOG_ARTURO_HALL_INN_OPTION_0 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_EVENT_TALKED_ARTURO_HALL_PUB, },
+            new GameAction[1]{GameAction.ACTION_EVENT_TALKED_ARTURO_HALL_PUB},
             DialogType.DIALOG_ARTURO_HALL_INN,false,
-            new DialogPhrase[4]{DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_1, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_2, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_3, }
+            new DialogPhrase[4]{DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_1, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_2, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_0_3}
             ),
             new( /* DIALOG_ARTURO_HALL_INN_OPTION_1 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_TALKED_ARTURO_HALL_PUB, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_TALKED_ARTURO_HALL_PUB, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[3]{GameAction.ACTION_EVENT_TALKED_ARTURO_HALL_COMPLETED, GameAction.ACTION_EVENT_INVITATION_PICKABLE_TAKEN, GameAction.ACTION_OBTAIN_EXTRAPERLO_INVITATION, },
+            new GameAction[3]{GameAction.ACTION_EVENT_TALKED_ARTURO_HALL_COMPLETED, GameAction.ACTION_EVENT_INVITATION_PICKABLE_TAKEN, GameAction.ACTION_OBTAIN_EXTRAPERLO_INVITATION},
             DialogType.DIALOG_ARTURO_HALL_INN,false,
-            new DialogPhrase[7]{DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_0, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_1, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_2, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_3, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_4, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_5, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_6, }
+            new DialogPhrase[7]{DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_0, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_1, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_2, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_3, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_4, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_5, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_1_6}
             ),
             new( /* DIALOG_ARTURO_HALL_INN_OPTION_2 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_NONE,false,
-            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_2_0, }
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_OPTION_2_0}
             ),
             new( /* DIALOG_ARTURO_HALL_INN_OPTION_INTRO */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_ARTURO_HALL_INN,false,
-            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_INTRO_0, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_INTRO_1, }
+            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_INTRO_0, DialogPhrase.PHRASE_DIALOG_ARTURO_HALL_INN_INTRO_1}
             ),
             new( /* DIALOG_PHARMACIST_NOT_TAKE_INKWELL_OPTION_INTRO */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_NONE,false,
-            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_PHARMACIST_NOT_TAKE_INKWELL_INTRO, }
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_PHARMACIST_NOT_TAKE_INKWELL_INTRO}
             ),
             new( /* DIALOG_OPTION_USE_UMBRELLA_WITH_INKWELL */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_EVENT_INKWELL_WASTED, },
+            new GameAction[1]{GameAction.ACTION_EVENT_INKWELL_WASTED},
             DialogType.DIALOG_USE_UMBRELLA_WITH_INKWELL_REACT,false,
-            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_USE_UMBRELLA_WITH_INKWELL, }
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_USE_UMBRELLA_WITH_INKWELL}
             ),
             new( /* DIALOG_OPTION_USE_UMBRELLA_WITH_INKWELL_REACT */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_NONE,false,
-            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_USE_UMBRELLA_WITH_INKWELL_OWNER, DialogPhrase.PHRASE_DIALOG_USE_UMBRELLA_WITH_INKWELL_OWNER_2, }
+            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_USE_UMBRELLA_WITH_INKWELL_OWNER, DialogPhrase.PHRASE_DIALOG_USE_UMBRELLA_WITH_INKWELL_OWNER_2}
             ),
             new( /* DIALOG_FIK_1_OPTION_0 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_FIK_1,false,
-            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_FIK_1_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_FIK_1_OPTION_0_1, }
+            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_FIK_1_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_FIK_1_OPTION_0_1}
             ),
             new( /* DIALOG_FIK_1_OPTION_1 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_FIK_2,false,
-            new DialogPhrase[4]{DialogPhrase.PHRASE_DIALOG_FIK_1_OPTION_1_0, DialogPhrase.PHRASE_DIALOG_FIK_1_OPTION_1_1, DialogPhrase.PHRASE_DIALOG_FIK_1_OPTION_1_2, DialogPhrase.PHRASE_DIALOG_FIK_1_OPTION_1_3, }
+            new DialogPhrase[4]{DialogPhrase.PHRASE_DIALOG_FIK_1_OPTION_1_0, DialogPhrase.PHRASE_DIALOG_FIK_1_OPTION_1_1, DialogPhrase.PHRASE_DIALOG_FIK_1_OPTION_1_2, DialogPhrase.PHRASE_DIALOG_FIK_1_OPTION_1_3}
             ),
             new( /* DIALOG_FIK_1_OPTION_2 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_NONE,false,
-            new DialogPhrase[3]{DialogPhrase.PHRASE_DIALOG_FIK_1_OPTION_2_0, DialogPhrase.PHRASE_DIALOG_FIK_1_OPTION_2_1, DialogPhrase.PHRASE_DIALOG_FIK_1_OPTION_2_2, }
+            new DialogPhrase[3]{DialogPhrase.PHRASE_DIALOG_FIK_1_OPTION_2_0, DialogPhrase.PHRASE_DIALOG_FIK_1_OPTION_2_1, DialogPhrase.PHRASE_DIALOG_FIK_1_OPTION_2_2}
             ),
             new( /* DIALOG_FIK_1_OPTION_3 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_NONE,false,
-            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_FIK_1_OPTION_3_0, }
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_FIK_1_OPTION_3_0}
             ),
             new( /* DIALOG_FIK_1_OPTION_INTRO */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_FIK_1,true,
-            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_FIK_1_INTRO_0, DialogPhrase.PHRASE_DIALOG_FIK_1_INTRO_1, }
+            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_FIK_1_INTRO_0, DialogPhrase.PHRASE_DIALOG_FIK_1_INTRO_1}
             ),
             new( /* DIALOG_FIK_2_OPTION_0 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_FIK_1,false,
-            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_FIK_2_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_FIK_2_OPTION_0_1, }
+            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_FIK_2_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_FIK_2_OPTION_0_1}
             ),
             new( /* DIALOG_FIK_2_OPTION_1 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_FIK_1,false,
-            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_FIK_2_OPTION_1_0, DialogPhrase.PHRASE_DIALOG_FIK_2_OPTION_1_1, }
+            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_FIK_2_OPTION_1_0, DialogPhrase.PHRASE_DIALOG_FIK_2_OPTION_1_1}
             ),
             new( /* DIALOG_FIK_2_OPTION_2 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_FIK_1,false,
-            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_FIK_2_OPTION_2_0, DialogPhrase.PHRASE_DIALOG_FIK_2_OPTION_2_1, }
+            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_FIK_2_OPTION_2_0, DialogPhrase.PHRASE_DIALOG_FIK_2_OPTION_2_1}
             ),
             new( /* DIALOG_FIK_2_OPTION_3 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_INVITATION_UNDERSTOOD_PHRASE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_INVITATION_UNDERSTOOD_PHRASE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_EVENT_EXTRAPERLO_SAID_PHRASE, },
+            new GameAction[1]{GameAction.ACTION_EVENT_EXTRAPERLO_SAID_PHRASE},
             DialogType.DIALOG_NONE,false,
-            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_FIK_2_OPTION_3_0, DialogPhrase.PHRASE_DIALOG_FIK_2_OPTION_3_1, }
+            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_FIK_2_OPTION_3_0, DialogPhrase.PHRASE_DIALOG_FIK_2_OPTION_3_1}
             ),
             new( /* DIALOG_FIK_NOT_CROSS_OPTION_0 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_NONE,false,
-            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_FIK_NOT_CROSS, }
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_FIK_NOT_CROSS}
             ),
             new( /* DIALOG_GERMAN_1_OPTION_0 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_GERMAN_1,false,
-            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_GERMAN_1_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_GERMAN_1_OPTION_0_1, }
+            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_GERMAN_1_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_GERMAN_1_OPTION_0_1}
             ),
             new( /* DIALOG_GERMAN_1_OPTION_1 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_GERMAN_1,false,
-            new DialogPhrase[5]{DialogPhrase.PHRASE_DIALOG_GERMAN_1_OPTION_1_0, DialogPhrase.PHRASE_DIALOG_GERMAN_1_OPTION_1_1, DialogPhrase.PHRASE_DIALOG_GERMAN_1_OPTION_1_2, DialogPhrase.PHRASE_DIALOG_GERMAN_1_OPTION_1_3, DialogPhrase.PHRASE_DIALOG_GERMAN_1_OPTION_1_4, }
+            new DialogPhrase[5]{DialogPhrase.PHRASE_DIALOG_GERMAN_1_OPTION_1_0, DialogPhrase.PHRASE_DIALOG_GERMAN_1_OPTION_1_1, DialogPhrase.PHRASE_DIALOG_GERMAN_1_OPTION_1_2, DialogPhrase.PHRASE_DIALOG_GERMAN_1_OPTION_1_3, DialogPhrase.PHRASE_DIALOG_GERMAN_1_OPTION_1_4}
             ),
             new( /* DIALOG_GERMAN_1_OPTION_2 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_NONE,false,
-            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_FIK_1_OPTION_3_0, }
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_FIK_1_OPTION_3_0}
             ),
             new( /* DIALOG_GERMAN_1_OPTION_INTRO */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_GERMAN_1,false,
-            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_GERMAN_1_INTRO, }
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_GERMAN_1_INTRO}
             ),
             new( /* DIALOG_WAITER_OPTION_INTRO_1 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_NONE,false,
-            new DialogPhrase[4]{DialogPhrase.PHRASE_DIALOG_WAITER_INTRO_1_0, DialogPhrase.PHRASE_DIALOG_WAITER_INTRO_1_1, DialogPhrase.PHRASE_DIALOG_WAITER_INTRO_1_2, DialogPhrase.PHRASE_DIALOG_WAITER_INTRO_1_3, }
+            new DialogPhrase[4]{DialogPhrase.PHRASE_DIALOG_WAITER_INTRO_1_0, DialogPhrase.PHRASE_DIALOG_WAITER_INTRO_1_1, DialogPhrase.PHRASE_DIALOG_WAITER_INTRO_1_2, DialogPhrase.PHRASE_DIALOG_WAITER_INTRO_1_3}
             ),
             new( /* DIALOG_WAITER_OPTION_INTRO_2 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_NONE,false,
-            new DialogPhrase[1]{DialogPhrase.PHRASE_NONE, }
+            new DialogPhrase[1]{DialogPhrase.PHRASE_NONE}
             ),
             new( /* DIALOG_WAITER_OPTION_USE_OLD_INVITATION */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_EVENT_SHOWN_OLD_INVITATION, },
+            new GameAction[1]{GameAction.ACTION_EVENT_SHOWN_OLD_INVITATION},
             DialogType.DIALOG_NONE,false,
-            new DialogPhrase[3]{DialogPhrase.PHRASE_DIALOG_WAITER_USE_OLD_INV_0, DialogPhrase.PHRASE_DIALOG_WAITER_USE_OLD_INV_1, DialogPhrase.PHRASE_DIALOG_WAITER_USE_OLD_INV_2, }
+            new DialogPhrase[3]{DialogPhrase.PHRASE_DIALOG_WAITER_USE_OLD_INV_0, DialogPhrase.PHRASE_DIALOG_WAITER_USE_OLD_INV_1, DialogPhrase.PHRASE_DIALOG_WAITER_USE_OLD_INV_2}
             ),
             new( /* DIALOG_WAITER_OPTION_USE_NEW_INVITATION */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_EVENT_SHOWN_NEW_INVITATION, },
+            new GameAction[1]{GameAction.ACTION_EVENT_SHOWN_NEW_INVITATION},
             DialogType.DIALOG_NONE,false,
-            new DialogPhrase[1]{DialogPhrase.PHRASE_NONE, }
+            new DialogPhrase[1]{DialogPhrase.PHRASE_NONE}
             ),
             new( /* DIALOG_UNKNOWN_GIRLS_OPTION_INTRO_1 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_NONE,false,
-            new DialogPhrase[3]{DialogPhrase.PHRASE_DIALOG_UNKNOWN_GIRLS_INTRO_1_0, DialogPhrase.PHRASE_DIALOG_UNKNOWN_GIRLS_INTRO_1_1, DialogPhrase.PHRASE_DIALOG_UNKNOWN_GIRLS_INTRO_1_2, }
+            new DialogPhrase[3]{DialogPhrase.PHRASE_DIALOG_UNKNOWN_GIRLS_INTRO_1_0, DialogPhrase.PHRASE_DIALOG_UNKNOWN_GIRLS_INTRO_1_1, DialogPhrase.PHRASE_DIALOG_UNKNOWN_GIRLS_INTRO_1_2}
             ),
             new( /* DIALOG_ARTURO_EXTRAPERLO_OPTION_0 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_ARTURO_EXTRAPERLO,false,
-            new DialogPhrase[4]{DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_0_1, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_0_2, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_0_3, }
+            new DialogPhrase[4]{DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_0_1, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_0_2, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_0_3}
             ),
             new( /* DIALOG_ARTURO_EXTRAPERLO_OPTION_1 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_START_TEST_CARD_GAME, },
+            new GameAction[1]{GameAction.ACTION_START_TEST_CARD_GAME},
             DialogType.DIALOG_NONE,false,
-            new DialogPhrase[5]{DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_1_0, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_1_1, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_1_2, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_1_3, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_1_4, }
+            new DialogPhrase[5]{DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_1_0, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_1_1, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_1_2, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_1_3, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_1_4}
             ),
             new( /* DIALOG_ARTURO_EXTRAPERLO_OPTION_2 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_EXTRAPERLO_WON_CARDS_ARTURO, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_EXTRAPERLO_WON_CARDS_ARTURO, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_ARTURO_EXTRAPERLO,false,
-            new DialogPhrase[8]{DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_2_0, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_2_1, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_2_2, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_2_3, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_2_4, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_2_5, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_2_6, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_2_7, }
+            new DialogPhrase[8]{DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_2_0, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_2_1, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_2_2, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_2_3, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_2_4, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_2_5, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_2_6, DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_OPTION_2_7}
             ),
             new( /* DIALOG_ARTURO_EXTRAPERLO_OPTION_INTRO */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_ARTURO_EXTRAPERLO,false,
-            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_INTRO, }
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_INTRO}
             ),
             new( /* DIALOG_OPTION_LAST */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false), },
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE, },
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_NONE,false,
-            new DialogPhrase[1]{DialogPhrase.PHRASE_NONE, }
+            new DialogPhrase[1]{DialogPhrase.PHRASE_NONE}
             ),
             /* > ATG 2 END < */
         };

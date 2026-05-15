@@ -12,7 +12,7 @@ import sys         # Necesario para saber dónde está el ejecutable de python
 
 # Nombre del archivo de entrada
 archivo_excel = 'VARMAP.xlsx'
-siguiente_script = 'VARMAPGenerator.py'
+siguiente_script = 'main.py'
 
 def convertir_excel_a_csv():
     # Verificamos que el archivo exista antes de intentar abrirlo

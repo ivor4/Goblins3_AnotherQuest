@@ -72,110 +72,110 @@ namespace Gob3AQ.VARMAP.ItemMaster
         /* SERVICES */
         /* > ATG 3 START */
         /// <summary> 
-        /// This service is called when whole room has been loaded
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, CardMaster, GameEventMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.LoadingCompletedService"/> </para> 
-        /// </summary>
-        public static LOADING_COMPLETED_DELEGATE MODULE_LOADING_COMPLETED;
+/// This service is called when whole room has been loaded 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, CardMaster, GameEventMaster </para> 
+/// <para> Method: <see cref="GameMasterClass.LoadingCompletedService"/> </para> 
+/// </summary>
+public static LOADING_COMPLETED_DELEGATE MODULE_LOADING_COMPLETED;
         /// <summary> 
-        /// This service returns a bool which tells if given module has been loaded in Room Loading Process
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, CardMaster, GameEventMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
-        /// </summary>
-        public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
+/// This service returns a bool which tells if given module has been loaded in Room Loading Process 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, CardMaster, GameEventMaster </para> 
+/// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
+/// </summary>
+public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
         /// <summary> 
-        /// Registers an item in system
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: PlayerMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.ItemRegisterService"/> </para> 
-        /// </summary>
-        public static ITEM_REGISTER_DELEGATE ITEM_REGISTER;
+/// Registers an item in system 
+/// <para> Owner: LevelMaster </para> 
+/// <para> Accessors: PlayerMaster, ItemMaster </para> 
+/// <para> Method: <see cref="LevelMasterClass.ItemRegisterService"/> </para> 
+/// </summary>
+public static ITEM_REGISTER_DELEGATE ITEM_REGISTER;
         /// <summary> 
-        /// Registers a door in level
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: ItemMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.DoorRegisterService"/> </para> 
-        /// </summary>
-        public static DOOR_REGISTER_DELEGATE DOOR_REGISTER;
+/// Registers a door in level 
+/// <para> Owner: LevelMaster </para> 
+/// <para> Accessors: ItemMaster </para> 
+/// <para> Method: <see cref="LevelMasterClass.DoorRegisterService"/> </para> 
+/// </summary>
+public static DOOR_REGISTER_DELEGATE DOOR_REGISTER;
         /// <summary> 
-        /// Obtains dictionary of placed elements in actual Scene
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: ItemMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.ObtainScenarioItemsService"/> </para> 
-        /// </summary>
-        public static OBTAIN_SCENARIO_ITEMS_DELEGATE OBTAIN_SCENARIO_ITEMS;
+/// Obtains dictionary of placed elements in actual Scene 
+/// <para> Owner: LevelMaster </para> 
+/// <para> Accessors: ItemMaster </para> 
+/// <para> Method: <see cref="LevelMasterClass.ObtainScenarioItemsService"/> </para> 
+/// </summary>
+public static OBTAIN_SCENARIO_ITEMS_DELEGATE OBTAIN_SCENARIO_ITEMS;
         /// <summary> 
-        /// Gets nearest WP from a given coordinates of level
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: PlayerMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.GetNearestWPService"/> </para> 
-        /// </summary>
-        public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
+/// Gets nearest WP from a given coordinates of level 
+/// <para> Owner: LevelMaster </para> 
+/// <para> Accessors: PlayerMaster, ItemMaster </para> 
+/// <para> Method: <see cref="LevelMasterClass.GetNearestWPService"/> </para> 
+/// </summary>
+public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
         /// <summary> 
-        /// Checks if a combination of events is totally complied (event absence can also be requested)
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, DialogMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.IsEventCombiOccurredService"/> </para> 
-        /// </summary>
-        public static IS_EVENT_COMBI_OCCURRED_DELEGATE IS_EVENT_COMBI_OCCURRED;
+/// Checks if a combination of events is totally complied (event absence can also be requested) 
+/// <para> Owner: GameEventMaster </para> 
+/// <para> Accessors: LevelMaster, GameMenu, DialogMaster, ItemMaster </para> 
+/// <para> Method: <see cref="GameEventMasterClass.IsEventCombiOccurredService"/> </para> 
+/// </summary>
+public static IS_EVENT_COMBI_OCCURRED_DELEGATE IS_EVENT_COMBI_OCCURRED;
         /// <summary> 
-        /// Applies an unchain event to an item such as spawn or setsprite
-        /// <para> Owner: ItemMaster </para> 
-        /// <para> Accessors: GameEventMaster,  </para> 
-        /// <para> Method: <see cref="ItemMasterClass.ActionToItemService"/> </para> 
-        /// </summary>
-        public static ACTION_TO_ITEM_DELEGATE ACTION_TO_ITEM;
+/// Applies an unchain event to an item such as spawn or setsprite 
+/// <para> Owner: ItemMaster </para> 
+/// <para> Accessors: GameEventMaster </para> 
+/// <para> Method: <see cref="ItemMasterClass.ActionToItemService"/> </para> 
+/// </summary>
+public static ACTION_TO_ITEM_DELEGATE ACTION_TO_ITEM;
         /// <summary> 
-        /// Uses an item with something
-        /// <para> Owner: ItemMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu,  </para> 
-        /// <para> Method: <see cref="ItemMasterClass.UseItemService"/> </para> 
-        /// </summary>
-        public static USE_ITEM_DELEGATE USE_ITEM;
+/// Uses an item with something 
+/// <para> Owner: ItemMaster </para> 
+/// <para> Accessors: LevelMaster, GameMenu </para> 
+/// <para> Method: <see cref="ItemMasterClass.UseItemService"/> </para> 
+/// </summary>
+public static USE_ITEM_DELEGATE USE_ITEM;
         /// <summary> 
-        /// Cancels selected item
-        /// <para> Owner: GameMenu </para> 
-        /// <para> Accessors: LevelMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="GameMenuClass.CancelPickableItemService"/> </para> 
-        /// </summary>
-        public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
+/// Cancels selected item 
+/// <para> Owner: GameMenu </para> 
+/// <para> Accessors: LevelMaster, ItemMaster </para> 
+/// <para> Method: <see cref="GameMenuClass.CancelPickableItemService"/> </para> 
+/// </summary>
+public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
         /// <summary> 
-        /// Subscribe to zoom changes
-        /// <para> Owner: GraphicsMaster </para> 
-        /// <para> Accessors: ItemMaster,  </para> 
-        /// <para> Method: <see cref="GraphicsMasterClass.ZoomSubscriptionService"/> </para> 
-        /// </summary>
-        public static ZOOM_SUBSCRIPTION_DELEGATE ZOOM_SUBSCRIPTION;
+/// Subscribe to zoom changes 
+/// <para> Owner: GraphicsMaster </para> 
+/// <para> Accessors: ItemMaster </para> 
+/// <para> Method: <see cref="GraphicsMasterClass.ZoomSubscriptionService"/> </para> 
+/// </summary>
+public static ZOOM_SUBSCRIPTION_DELEGATE ZOOM_SUBSCRIPTION;
         /// <summary> 
-        /// Starts an animation in background or main mode
-        /// <para> Owner: DialogMaster </para> 
-        /// <para> Accessors: ItemMaster, GameEventMaster,  </para> 
-        /// <para> Method: <see cref="DialogMasterClass.StartAnimationService"/> </para> 
-        /// </summary>
-        public static START_ANIMATION_DELEGATE START_ANIMATION;
+/// Starts an animation in background or main mode 
+/// <para> Owner: DialogMaster </para> 
+/// <para> Accessors: ItemMaster, GameEventMaster </para> 
+/// <para> Method: <see cref="DialogMasterClass.StartAnimationService"/> </para> 
+/// </summary>
+public static START_ANIMATION_DELEGATE START_ANIMATION;
         /// <summary> 
-        /// Makes an item start an animation
-        /// <para> Owner: ItemMaster </para> 
-        /// <para> Accessors: DialogMaster,  </para> 
-        /// <para> Method: <see cref="ItemMasterClass.PerformAnimationService"/> </para> 
-        /// </summary>
-        public static ITEM_PERFORM_ANIMATION_DELEGATE ITEM_PERFORM_ANIMATION;
+/// Makes an item start an animation 
+/// <para> Owner: ItemMaster </para> 
+/// <para> Accessors: DialogMaster </para> 
+/// <para> Method: <see cref="ItemMasterClass.PerformAnimationService"/> </para> 
+/// </summary>
+public static ITEM_PERFORM_ANIMATION_DELEGATE ITEM_PERFORM_ANIMATION;
         /// <summary> 
-        /// Performs a named action
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, DialogMaster, ItemMaster, CardMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.PerformActionService"/> </para> 
-        /// </summary>
-        public static PERFORM_ACTION_DELEGATE PERFORM_ACTION;
+/// Performs a named action 
+/// <para> Owner: GameEventMaster </para> 
+/// <para> Accessors: LevelMaster, GameMenu, DialogMaster, ItemMaster, CardMaster </para> 
+/// <para> Method: <see cref="GameEventMasterClass.PerformActionService"/> </para> 
+/// </summary>
+public static PERFORM_ACTION_DELEGATE PERFORM_ACTION;
         /// <summary> 
-        /// Gets world boundaries of given item
-        /// <para> Owner: ItemMaster </para> 
-        /// <para> Accessors: DialogMaster,  </para> 
-        /// <para> Method: <see cref="ItemMasterClass.GetItemBoundariesService"/> </para> 
-        /// </summary>
-        public static GET_ITEM_SPRITE_BOUNDARIES_DELEGATE GET_ITEM_SPRITE_BOUNDARIES;
+/// Gets world boundaries of given item 
+/// <para> Owner: ItemMaster </para> 
+/// <para> Accessors: DialogMaster </para> 
+/// <para> Method: <see cref="ItemMasterClass.GetItemBoundariesService"/> </para> 
+/// </summary>
+public static GET_ITEM_SPRITE_BOUNDARIES_DELEGATE GET_ITEM_SPRITE_BOUNDARIES;
         /* > ATG 3 END */
     }
 }

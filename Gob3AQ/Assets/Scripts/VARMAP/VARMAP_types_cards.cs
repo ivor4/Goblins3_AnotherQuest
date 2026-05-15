@@ -9,7 +9,7 @@ namespace Gob3AQ.VARMAP.Types.Cards
         CARD_GAME_NONE = -1, 
         CARD_GAME_TEST, 
         
-        CARD_GAME_TOTAL
+CARD_GAME_TOTAL
         /* > ATG 1 END < */
     }
 

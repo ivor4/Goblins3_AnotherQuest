@@ -56,7 +56,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_UNKNOWN_GIRLS, 
         NAME_NPC_LAST, 
         
-        NAME_TOTAL
+NAME_TOTAL
         /* > ATG 1 END < */
     }
 

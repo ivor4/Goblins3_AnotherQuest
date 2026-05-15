@@ -79,110 +79,110 @@ namespace Gob3AQ.VARMAP.GameMaster
         /* SERVICES */
         /* > ATG 3 START */
         /// <summary> 
-        /// Starts game from main menu
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: GameMenu,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.StartGameService"/> </para> 
-        /// </summary>
-        public static START_GAME_DELEGATE START_GAME;
+/// Starts game from main menu 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors: GameMenu </para> 
+/// <para> Method: <see cref="GameMasterClass.StartGameService"/> </para> 
+/// </summary>
+public static START_GAME_DELEGATE START_GAME;
         /// <summary> 
-        /// Saves game at any moment
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.SaveGameService"/> </para> 
-        /// </summary>
-        public static SAVE_GAME_DELEGATE SAVE_GAME;
+/// Saves game at any moment 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors: LevelMaster, GameMenu </para> 
+/// <para> Method: <see cref="GameMasterClass.SaveGameService"/> </para> 
+/// </summary>
+public static SAVE_GAME_DELEGATE SAVE_GAME;
         /// <summary> 
-        /// Loads game from any moment
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: GameMenu,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.LoadGameService"/> </para> 
-        /// </summary>
-        public static LOAD_GAME_DELEGATE LOAD_GAME;
+/// Loads game from any moment 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors: GameMenu </para> 
+/// <para> Method: <see cref="GameMasterClass.LoadGameService"/> </para> 
+/// </summary>
+public static LOAD_GAME_DELEGATE LOAD_GAME;
         /// <summary> 
-        /// Loads a room (for example when crossing a door)
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: LevelMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.LoadRoomService"/> </para> 
-        /// </summary>
-        public static LOAD_ROOM_DELEGATE LOAD_ROOM;
+/// Loads a room (for example when crossing a door) 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors: LevelMaster </para> 
+/// <para> Method: <see cref="GameMasterClass.LoadRoomService"/> </para> 
+/// </summary>
+public static LOAD_ROOM_DELEGATE LOAD_ROOM;
         /// <summary> 
-        /// Exits games to OS
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: GameMenu,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.ExitGameService"/> </para> 
-        /// </summary>
-        public static EXIT_GAME_DELEGATE EXIT_GAME;
+/// Exits games to OS 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors: GameMenu </para> 
+/// <para> Method: <see cref="GameMasterClass.ExitGameService"/> </para> 
+/// </summary>
+public static EXIT_GAME_DELEGATE EXIT_GAME;
         /// <summary> 
-        /// This service is called when whole room has been loaded
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, CardMaster, GameEventMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.LoadingCompletedService"/> </para> 
-        /// </summary>
-        public static LOADING_COMPLETED_DELEGATE MODULE_LOADING_COMPLETED;
+/// This service is called when whole room has been loaded 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, CardMaster, GameEventMaster </para> 
+/// <para> Method: <see cref="GameMasterClass.LoadingCompletedService"/> </para> 
+/// </summary>
+public static LOADING_COMPLETED_DELEGATE MODULE_LOADING_COMPLETED;
         /// <summary> 
-        /// This service returns a bool which tells if given module has been loaded in Room Loading Process
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, CardMaster, GameEventMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
-        /// </summary>
-        public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
+/// This service returns a bool which tells if given module has been loaded in Room Loading Process 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, CardMaster, GameEventMaster </para> 
+/// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
+/// </summary>
+public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
         /// <summary> 
-        /// Activates/Deactivates an event
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: GameMaster, GameMenu,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.CommitEventService"/> </para> 
-        /// </summary>
-        public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
+/// Activates/Deactivates an event 
+/// <para> Owner: GameEventMaster </para> 
+/// <para> Accessors: GameMaster, GameMenu </para> 
+/// <para> Method: <see cref="GameEventMasterClass.CommitEventService"/> </para> 
+/// </summary>
+public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
         /// <summary> 
-        /// Asks Game Master to set game mode
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, DialogMaster, CardMaster, GameEventMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.ChangeGameModeService"/> </para> 
-        /// </summary>
-        public static CHANGE_GAME_MODE_DELEGATE CHANGE_GAME_MODE;
+/// Asks Game Master to set game mode 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors: LevelMaster, GameMenu, DialogMaster, CardMaster, GameEventMaster </para> 
+/// <para> Method: <see cref="GameMasterClass.ChangeGameModeService"/> </para> 
+/// </summary>
+public static CHANGE_GAME_MODE_DELEGATE CHANGE_GAME_MODE;
         /// <summary> 
-        /// Requests to change moment of day to a given one
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: GameEventMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.ChangeDayMomentService"/> </para> 
-        /// </summary>
-        public static CHANGE_DAY_MOMENT_DELEGATE CHANGE_DAY_MOMENT;
+/// Requests to change moment of day to a given one 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors: GameEventMaster </para> 
+/// <para> Method: <see cref="GameMasterClass.ChangeDayMomentService"/> </para> 
+/// </summary>
+public static CHANGE_DAY_MOMENT_DELEGATE CHANGE_DAY_MOMENT;
         /// <summary> 
-        /// Loads/Unloads a set of names and Phrases
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: GameMenu,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.LoadAdditionalPrefabService"/> </para> 
-        /// </summary>
-        public static LOAD_ADDITIONAL_PREFAB_DELEGATE LOAD_ADDITIONAL_PREFAB;
+/// Loads/Unloads a set of names and Phrases 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors: GameMenu </para> 
+/// <para> Method: <see cref="GameMasterClass.LoadAdditionalPrefabService"/> </para> 
+/// </summary>
+public static LOAD_ADDITIONAL_PREFAB_DELEGATE LOAD_ADDITIONAL_PREFAB;
         /// <summary> 
-        /// Loads/Unloads a set of names and Phrases
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: SoundMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.LoadAdditionalSoundService"/> </para> 
-        /// </summary>
-        public static LOAD_ADDITIONAL_SOUND_DELEGATE LOAD_ADDITIONAL_SOUND;
+/// Loads/Unloads a set of names and Phrases 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors: SoundMaster </para> 
+/// <para> Method: <see cref="GameMasterClass.LoadAdditionalSoundService"/> </para> 
+/// </summary>
+public static LOAD_ADDITIONAL_SOUND_DELEGATE LOAD_ADDITIONAL_SOUND;
         /// <summary> 
-        /// Takes snapshot to be used in fading while loading next scene
-        /// <para> Owner: GraphicsMaster </para> 
-        /// <para> Accessors: GameMaster,  </para> 
-        /// <para> Method: <see cref="GraphicsMasterClass.TakeLoadingSnapshotService"/> </para> 
-        /// </summary>
-        public static TAKE_LOADING_SNAPSHOT_DELEGATE TAKE_LOADING_SNAPSHOT;
+/// Takes snapshot to be used in fading while loading next scene 
+/// <para> Owner: GraphicsMaster </para> 
+/// <para> Accessors: GameMaster </para> 
+/// <para> Method: <see cref="GraphicsMasterClass.TakeLoadingSnapshotService"/> </para> 
+/// </summary>
+public static TAKE_LOADING_SNAPSHOT_DELEGATE TAKE_LOADING_SNAPSHOT;
         /// <summary> 
-        /// Executes exit room unchainers before leaving room
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: GameMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.ExecuteExitRoomCondsService"/> </para> 
-        /// </summary>
-        public static EXECUTE_EXIT_ROOM_CONDS_DELEGATE EXECUTE_EXIT_ROOM_CONDS;
+/// Executes exit room unchainers before leaving room 
+/// <para> Owner: GameEventMaster </para> 
+/// <para> Accessors: GameMaster </para> 
+/// <para> Method: <see cref="GameEventMasterClass.ExecuteExitRoomCondsService"/> </para> 
+/// </summary>
+public static EXECUTE_EXIT_ROOM_CONDS_DELEGATE EXECUTE_EXIT_ROOM_CONDS;
         /// <summary> 
-        /// Last service
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors:  </para> 
-        /// <para> Method: <see cref="GameMasterClass.ExitGameService"/> </para> 
-        /// </summary>
-        public static EXIT_GAME_DELEGATE LAST_SERVICE;
+/// Last service 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors:  </para> 
+/// <para> Method: <see cref="GameMasterClass.ExitGameService"/> </para> 
+/// </summary>
+public static EXIT_GAME_DELEGATE LAST_SERVICE;
         /* > ATG 3 END */
     }
 }

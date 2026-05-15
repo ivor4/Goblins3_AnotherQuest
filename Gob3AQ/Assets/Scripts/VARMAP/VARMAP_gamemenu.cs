@@ -112,145 +112,145 @@ namespace Gob3AQ.VARMAP.GameMenu
         /* SERVICES */
         /* > ATG 3 START */
         /// <summary> 
-        /// Starts game from main menu
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: GameMenu,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.StartGameService"/> </para> 
-        /// </summary>
-        public static START_GAME_DELEGATE START_GAME;
+/// Starts game from main menu 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors: GameMenu </para> 
+/// <para> Method: <see cref="GameMasterClass.StartGameService"/> </para> 
+/// </summary>
+public static START_GAME_DELEGATE START_GAME;
         /// <summary> 
-        /// Saves game at any moment
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.SaveGameService"/> </para> 
-        /// </summary>
-        public static SAVE_GAME_DELEGATE SAVE_GAME;
+/// Saves game at any moment 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors: LevelMaster, GameMenu </para> 
+/// <para> Method: <see cref="GameMasterClass.SaveGameService"/> </para> 
+/// </summary>
+public static SAVE_GAME_DELEGATE SAVE_GAME;
         /// <summary> 
-        /// Loads game from any moment
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: GameMenu,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.LoadGameService"/> </para> 
-        /// </summary>
-        public static LOAD_GAME_DELEGATE LOAD_GAME;
+/// Loads game from any moment 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors: GameMenu </para> 
+/// <para> Method: <see cref="GameMasterClass.LoadGameService"/> </para> 
+/// </summary>
+public static LOAD_GAME_DELEGATE LOAD_GAME;
         /// <summary> 
-        /// Exits games to OS
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: GameMenu,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.ExitGameService"/> </para> 
-        /// </summary>
-        public static EXIT_GAME_DELEGATE EXIT_GAME;
+/// Exits games to OS 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors: GameMenu </para> 
+/// <para> Method: <see cref="GameMasterClass.ExitGameService"/> </para> 
+/// </summary>
+public static EXIT_GAME_DELEGATE EXIT_GAME;
         /// <summary> 
-        /// This service is called when whole room has been loaded
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, CardMaster, GameEventMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.LoadingCompletedService"/> </para> 
-        /// </summary>
-        public static LOADING_COMPLETED_DELEGATE MODULE_LOADING_COMPLETED;
+/// This service is called when whole room has been loaded 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, CardMaster, GameEventMaster </para> 
+/// <para> Method: <see cref="GameMasterClass.LoadingCompletedService"/> </para> 
+/// </summary>
+public static LOADING_COMPLETED_DELEGATE MODULE_LOADING_COMPLETED;
         /// <summary> 
-        /// This service returns a bool which tells if given module has been loaded in Room Loading Process
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, CardMaster, GameEventMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
-        /// </summary>
-        public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
+/// This service returns a bool which tells if given module has been loaded in Room Loading Process 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, CardMaster, GameEventMaster </para> 
+/// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
+/// </summary>
+public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
         /// <summary> 
-        /// Checks if a combination of events is totally complied (event absence can also be requested)
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, DialogMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.IsEventCombiOccurredService"/> </para> 
-        /// </summary>
-        public static IS_EVENT_COMBI_OCCURRED_DELEGATE IS_EVENT_COMBI_OCCURRED;
+/// Checks if a combination of events is totally complied (event absence can also be requested) 
+/// <para> Owner: GameEventMaster </para> 
+/// <para> Accessors: LevelMaster, GameMenu, DialogMaster, ItemMaster </para> 
+/// <para> Method: <see cref="GameEventMasterClass.IsEventCombiOccurredService"/> </para> 
+/// </summary>
+public static IS_EVENT_COMBI_OCCURRED_DELEGATE IS_EVENT_COMBI_OCCURRED;
         /// <summary> 
-        /// Activates/Deactivates an event
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: GameMaster, GameMenu,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.CommitEventService"/> </para> 
-        /// </summary>
-        public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
+/// Activates/Deactivates an event 
+/// <para> Owner: GameEventMaster </para> 
+/// <para> Accessors: GameMaster, GameMenu </para> 
+/// <para> Method: <see cref="GameEventMasterClass.CommitEventService"/> </para> 
+/// </summary>
+public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
         /// <summary> 
-        /// Tells Memento Manager (Menu) a new memento has been unlocked
-        /// <para> Owner: GameMenu </para> 
-        /// <para> Accessors: GameEventMaster,  </para> 
-        /// <para> Method: <see cref="GameMenuClass.CommitMementoNotifService"/> </para> 
-        /// </summary>
-        public static COMMIT_MEMENTO_NOTIF_DELEGATE COMMIT_MEMENTO_NOTIF;
+/// Tells Memento Manager (Menu) a new memento has been unlocked 
+/// <para> Owner: GameMenu </para> 
+/// <para> Accessors: GameEventMaster </para> 
+/// <para> Method: <see cref="GameMenuClass.CommitMementoNotifService"/> </para> 
+/// </summary>
+public static COMMIT_MEMENTO_NOTIF_DELEGATE COMMIT_MEMENTO_NOTIF;
         /// <summary> 
-        /// Tells if a memento is unlocked
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: GameMenu,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.IsMementoUnlockedService"/> </para> 
-        /// </summary>
-        public static IS_MEMENTO_UNLOCKED_DELEGATE IS_MEMENTO_UNLOCKED;
+/// Tells if a memento is unlocked 
+/// <para> Owner: GameEventMaster </para> 
+/// <para> Accessors: GameMenu </para> 
+/// <para> Method: <see cref="GameEventMasterClass.IsMementoUnlockedService"/> </para> 
+/// </summary>
+public static IS_MEMENTO_UNLOCKED_DELEGATE IS_MEMENTO_UNLOCKED;
         /// <summary> 
-        /// If a Memento has been analyzed
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: GameMenu,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.MementoParentWatchedService"/> </para> 
-        /// </summary>
-        public static MEMENTO_PARENT_WATCHED_DELEGATE MEMENTO_PARENT_WATCHED;
+/// If a Memento has been analyzed 
+/// <para> Owner: GameEventMaster </para> 
+/// <para> Accessors: GameMenu </para> 
+/// <para> Method: <see cref="GameEventMasterClass.MementoParentWatchedService"/> </para> 
+/// </summary>
+public static MEMENTO_PARENT_WATCHED_DELEGATE MEMENTO_PARENT_WATCHED;
         /// <summary> 
-        /// Uses an item with something
-        /// <para> Owner: ItemMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu,  </para> 
-        /// <para> Method: <see cref="ItemMasterClass.UseItemService"/> </para> 
-        /// </summary>
-        public static USE_ITEM_DELEGATE USE_ITEM;
+/// Uses an item with something 
+/// <para> Owner: ItemMaster </para> 
+/// <para> Accessors: LevelMaster, GameMenu </para> 
+/// <para> Method: <see cref="ItemMasterClass.UseItemService"/> </para> 
+/// </summary>
+public static USE_ITEM_DELEGATE USE_ITEM;
         /// <summary> 
-        /// Cancels selected item
-        /// <para> Owner: GameMenu </para> 
-        /// <para> Accessors: LevelMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="GameMenuClass.CancelPickableItemService"/> </para> 
-        /// </summary>
-        public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
+/// Cancels selected item 
+/// <para> Owner: GameMenu </para> 
+/// <para> Accessors: LevelMaster, ItemMaster </para> 
+/// <para> Method: <see cref="GameMenuClass.CancelPickableItemService"/> </para> 
+/// </summary>
+public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
         /// <summary> 
-        /// Subscribe to determined key events to avoid polling
-        /// <para> Owner: InputMaster </para> 
-        /// <para> Accessors: GameMenu,  </para> 
-        /// <para> Method: <see cref="InputMasterClass.KeySubscriptionService"/> </para> 
-        /// </summary>
-        public static KEY_SUBSCRIPTION_DELEGATE KEY_SUBSCRIPTION;
+/// Subscribe to determined key events to avoid polling 
+/// <para> Owner: InputMaster </para> 
+/// <para> Accessors: GameMenu </para> 
+/// <para> Method: <see cref="InputMasterClass.KeySubscriptionService"/> </para> 
+/// </summary>
+public static KEY_SUBSCRIPTION_DELEGATE KEY_SUBSCRIPTION;
         /// <summary> 
-        /// Asks Game Master to set game mode
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, DialogMaster, CardMaster, GameEventMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.ChangeGameModeService"/> </para> 
-        /// </summary>
-        public static CHANGE_GAME_MODE_DELEGATE CHANGE_GAME_MODE;
+/// Asks Game Master to set game mode 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors: LevelMaster, GameMenu, DialogMaster, CardMaster, GameEventMaster </para> 
+/// <para> Method: <see cref="GameMasterClass.ChangeGameModeService"/> </para> 
+/// </summary>
+public static CHANGE_GAME_MODE_DELEGATE CHANGE_GAME_MODE;
         /// <summary> 
-        /// Option selection in multi option dialogue
-        /// <para> Owner: DialogMaster </para> 
-        /// <para> Accessors: GameMenu,  </para> 
-        /// <para> Method: <see cref="DialogMasterClass.DialogueSelectOptionService"/> </para> 
-        /// </summary>
-        public static DIALOGUE_SELECT_OPTION_DELEGATE DIALOGUE_SELECT_OPTION;
+/// Option selection in multi option dialogue 
+/// <para> Owner: DialogMaster </para> 
+/// <para> Accessors: GameMenu </para> 
+/// <para> Method: <see cref="DialogMasterClass.DialogueSelectOptionService"/> </para> 
+/// </summary>
+public static DIALOGUE_SELECT_OPTION_DELEGATE DIALOGUE_SELECT_OPTION;
         /// <summary> 
-        /// Shows a set of decisions
-        /// <para> Owner: GameMenu </para> 
-        /// <para> Accessors: GameEventMaster,  </para> 
-        /// <para> Method: <see cref="GameMenuClass.ShowDecisionService"/> </para> 
-        /// </summary>
-        public static SHOW_DECISION_DELEGATE SHOW_DECISION;
+/// Shows a set of decisions 
+/// <para> Owner: GameMenu </para> 
+/// <para> Accessors: GameEventMaster </para> 
+/// <para> Method: <see cref="GameMenuClass.ShowDecisionService"/> </para> 
+/// </summary>
+public static SHOW_DECISION_DELEGATE SHOW_DECISION;
         /// <summary> 
-        /// Loads/Unloads a set of names and Phrases
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: GameMenu,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.LoadAdditionalPrefabService"/> </para> 
-        /// </summary>
-        public static LOAD_ADDITIONAL_PREFAB_DELEGATE LOAD_ADDITIONAL_PREFAB;
+/// Loads/Unloads a set of names and Phrases 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors: GameMenu </para> 
+/// <para> Method: <see cref="GameMasterClass.LoadAdditionalPrefabService"/> </para> 
+/// </summary>
+public static LOAD_ADDITIONAL_PREFAB_DELEGATE LOAD_ADDITIONAL_PREFAB;
         /// <summary> 
-        /// Performs a named action
-        /// <para> Owner: GameEventMaster </para> 
-        /// <para> Accessors: LevelMaster, GameMenu, DialogMaster, ItemMaster, CardMaster,  </para> 
-        /// <para> Method: <see cref="GameEventMasterClass.PerformActionService"/> </para> 
-        /// </summary>
-        public static PERFORM_ACTION_DELEGATE PERFORM_ACTION;
+/// Performs a named action 
+/// <para> Owner: GameEventMaster </para> 
+/// <para> Accessors: LevelMaster, GameMenu, DialogMaster, ItemMaster, CardMaster </para> 
+/// <para> Method: <see cref="GameEventMasterClass.PerformActionService"/> </para> 
+/// </summary>
+public static PERFORM_ACTION_DELEGATE PERFORM_ACTION;
         /// <summary> 
-        /// Tells Card Master to give up match
-        /// <para> Owner: CardMaster </para> 
-        /// <para> Accessors: GameMenu,  </para> 
-        /// <para> Method: <see cref="CardMasterClass.GiveUpCardGameService"/> </para> 
-        /// </summary>
-        public static GIVE_UP_CARD_GAME_DELEGATE GIVE_UP_CARD_GAME;
+/// Tells Card Master to give up match 
+/// <para> Owner: CardMaster </para> 
+/// <para> Accessors: GameMenu </para> 
+/// <para> Method: <see cref="CardMasterClass.GiveUpCardGameService"/> </para> 
+/// </summary>
+public static GIVE_UP_CARD_GAME_DELEGATE GIVE_UP_CARD_GAME;
         /* > ATG 3 END */
     }
 }

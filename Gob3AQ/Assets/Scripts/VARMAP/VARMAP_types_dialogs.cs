@@ -39,7 +39,7 @@ namespace Gob3AQ.VARMAP.Types
         DIALOG_ARTURO_EXTRAPERLO_INTRO, 
         DIALOG_LAST, 
         
-        DIALOG_TOTAL
+DIALOG_TOTAL
         /* > ATG 1 END < */
     }
 
@@ -101,7 +101,7 @@ namespace Gob3AQ.VARMAP.Types
         DIALOG_ARTURO_EXTRAPERLO_OPTION_INTRO, 
         DIALOG_OPTION_LAST, 
         
-        DIALOG_OPTION_TOTAL
+DIALOG_OPTION_TOTAL
         /* > ATG 2 END < */
     }
 
@@ -307,7 +307,7 @@ namespace Gob3AQ.VARMAP.Types
         PHRASE_CARDS1_MAINCHAR_TAUNT_WIN, 
         PHRASE_DIALOG_LAST, 
         
-        PHRASE_TOTAL
+PHRASE_TOTAL
         /* > ATG 3 END < */
     }
 

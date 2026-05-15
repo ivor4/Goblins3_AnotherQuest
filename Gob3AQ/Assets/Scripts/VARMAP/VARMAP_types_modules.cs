@@ -17,7 +17,7 @@ namespace Gob3AQ.VARMAP.Types
         MODULE_CardMaster,
         MODULE_GameEventMaster,
         
-        MODULE_TOTAL 
+MODULE_TOTAL 
         /* > ATG 1 END < */
     }
 }

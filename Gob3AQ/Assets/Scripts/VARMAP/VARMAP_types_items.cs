@@ -56,7 +56,7 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_NPC_ARTURO_EXTRAPERLO, 
         ITEM_LAST, 
         
-        ITEM_TOTAL
+ITEM_TOTAL
         /* > ATG 1 END < */
     }
 
@@ -70,7 +70,7 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_PICK_HIVE1_SHOELACE, 
         ITEM_PICK_EXTRAPERLO_INVITATION, 
         
-        ITEM_PICK_TOTAL
+ITEM_PICK_TOTAL
         /* > ATG 2 END < */
     }
 
@@ -146,7 +146,7 @@ namespace Gob3AQ.VARMAP.Types
         COND_TALK_ITEM_NPC_ARTURO_EXTRAPERLO, 
         COND_LAST, 
         
-        COND_TOTAL
+COND_TOTAL
         /* > ATG 3 END < */
     }
 
@@ -186,7 +186,7 @@ namespace Gob3AQ.VARMAP.Types
         UNCHAIN_SET_SPRITE_WATER_FLOWING_NIGHT, 
         UNCHAIN_LAST, 
         
-        UNCHAIN_TOTAL
+UNCHAIN_TOTAL
         /* > ATG 4 END < */
     }
 
@@ -344,7 +344,7 @@ namespace Gob3AQ.VARMAP.Types
         ACTION_EVENT_WIN_CARDS_ARTURO, 
         ACTION_LAST, 
         
-        ACTION_TOTAL
+ACTION_TOTAL
         /* > ATG 5 END < */
     }
 
@@ -355,7 +355,7 @@ namespace Gob3AQ.VARMAP.Types
         DETAIL_EXTRAPERLO, 
         DETAIL_LAST, 
         
-        DETAIL_TOTAL
+DETAIL_TOTAL
         /* > ATG 6 END < */
     }
 }

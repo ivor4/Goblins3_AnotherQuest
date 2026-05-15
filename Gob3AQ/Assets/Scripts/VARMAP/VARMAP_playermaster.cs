@@ -60,82 +60,82 @@ namespace Gob3AQ.VARMAP.PlayerMaster
         /* SERVICES */
         /* > ATG 3 START */
         /// <summary> 
-        /// This service is called when whole room has been loaded
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, CardMaster, GameEventMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.LoadingCompletedService"/> </para> 
-        /// </summary>
-        public static LOADING_COMPLETED_DELEGATE MODULE_LOADING_COMPLETED;
+/// This service is called when whole room has been loaded 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, CardMaster, GameEventMaster </para> 
+/// <para> Method: <see cref="GameMasterClass.LoadingCompletedService"/> </para> 
+/// </summary>
+public static LOADING_COMPLETED_DELEGATE MODULE_LOADING_COMPLETED;
         /// <summary> 
-        /// This service returns a bool which tells if given module has been loaded in Room Loading Process
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, CardMaster, GameEventMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
-        /// </summary>
-        public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
+/// This service returns a bool which tells if given module has been loaded in Room Loading Process 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, CardMaster, GameEventMaster </para> 
+/// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
+/// </summary>
+public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
         /// <summary> 
-        /// Registers an item in system
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: PlayerMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.ItemRegisterService"/> </para> 
-        /// </summary>
-        public static ITEM_REGISTER_DELEGATE ITEM_REGISTER;
+/// Registers an item in system 
+/// <para> Owner: LevelMaster </para> 
+/// <para> Accessors: PlayerMaster, ItemMaster </para> 
+/// <para> Method: <see cref="LevelMasterClass.ItemRegisterService"/> </para> 
+/// </summary>
+public static ITEM_REGISTER_DELEGATE ITEM_REGISTER;
         /// <summary> 
-        /// Registers a player in scene
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: PlayerMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.MonoRegisterService"/> </para> 
-        /// </summary>
-        public static MONO_REGISTER_DELEGATE MONO_REGISTER;
+/// Registers a player in scene 
+/// <para> Owner: LevelMaster </para> 
+/// <para> Accessors: PlayerMaster </para> 
+/// <para> Method: <see cref="LevelMasterClass.MonoRegisterService"/> </para> 
+/// </summary>
+public static MONO_REGISTER_DELEGATE MONO_REGISTER;
         /// <summary> 
-        /// Updates actual player waypoint when crossing or stopping on it
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: PlayerMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.PlayerWaypointUpdateService"/> </para> 
-        /// </summary>
-        public static PLAYER_WAYPOINT_UPDATE_DELEGATE PLAYER_WAYPOINT_UPDATE;
+/// Updates actual player waypoint when crossing or stopping on it 
+/// <para> Owner: LevelMaster </para> 
+/// <para> Accessors: PlayerMaster </para> 
+/// <para> Method: <see cref="LevelMasterClass.PlayerWaypointUpdateService"/> </para> 
+/// </summary>
+public static PLAYER_WAYPOINT_UPDATE_DELEGATE PLAYER_WAYPOINT_UPDATE;
         /// <summary> 
-        /// Gets list of waypoints and solutions
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: PlayerMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.GetWaypointListService"/> </para> 
-        /// </summary>
-        public static GET_WP_LIST_DELEGATE GET_WP_LIST;
+/// Gets list of waypoints and solutions 
+/// <para> Owner: LevelMaster </para> 
+/// <para> Accessors: PlayerMaster </para> 
+/// <para> Method: <see cref="LevelMasterClass.GetWaypointListService"/> </para> 
+/// </summary>
+public static GET_WP_LIST_DELEGATE GET_WP_LIST;
         /// <summary> 
-        /// Gets a list of actual players
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: GraphicsMaster, PlayerMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.GetPlayerListService"/> </para> 
-        /// </summary>
-        public static GET_PLAYER_LIST_DELEGATE GET_PLAYER_LIST;
+/// Gets a list of actual players 
+/// <para> Owner: LevelMaster </para> 
+/// <para> Accessors: GraphicsMaster, PlayerMaster </para> 
+/// <para> Method: <see cref="LevelMasterClass.GetPlayerListService"/> </para> 
+/// </summary>
+public static GET_PLAYER_LIST_DELEGATE GET_PLAYER_LIST;
         /// <summary> 
-        /// Gets nearest WP from a given coordinates of level
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: PlayerMaster, ItemMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.GetNearestWPService"/> </para> 
-        /// </summary>
-        public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
+/// Gets nearest WP from a given coordinates of level 
+/// <para> Owner: LevelMaster </para> 
+/// <para> Accessors: PlayerMaster, ItemMaster </para> 
+/// <para> Method: <see cref="LevelMasterClass.GetNearestWPService"/> </para> 
+/// </summary>
+public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
         /// <summary> 
-        /// Makes player interact with usage data
-        /// <para> Owner: PlayerMaster </para> 
-        /// <para> Accessors: LevelMaster,  </para> 
-        /// <para> Method: <see cref="PlayerMasterClass.InteractPlayerService"/> </para> 
-        /// </summary>
-        public static INTERACT_PLAYER_DELEGATE INTERACT_PLAYER;
+/// Makes player interact with usage data 
+/// <para> Owner: PlayerMaster </para> 
+/// <para> Accessors: LevelMaster </para> 
+/// <para> Method: <see cref="PlayerMasterClass.InteractPlayerService"/> </para> 
+/// </summary>
+public static INTERACT_PLAYER_DELEGATE INTERACT_PLAYER;
         /// <summary> 
-        /// Tells LevelMaster that player reached Waypoint to start action in case
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: PlayerMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.PlayerReachedWaypointService"/> </para> 
-        /// </summary>
-        public static PLAYER_REACHED_WAYPOINT_DELEGATE PLAYER_REACHED_WAYPOINT;
+/// Tells LevelMaster that player reached Waypoint to start action in case 
+/// <para> Owner: LevelMaster </para> 
+/// <para> Accessors: PlayerMaster </para> 
+/// <para> Method: <see cref="LevelMasterClass.PlayerReachedWaypointService"/> </para> 
+/// </summary>
+public static PLAYER_REACHED_WAYPOINT_DELEGATE PLAYER_REACHED_WAYPOINT;
         /// <summary> 
-        /// Locks player so it cannot act until an action over it has been done (or removes lock)
-        /// <para> Owner: PlayerMaster </para> 
-        /// <para> Accessors: LevelMaster,  </para> 
-        /// <para> Method: <see cref="PlayerMasterClass.LockPlayerService"/> </para> 
-        /// </summary>
-        public static LOCK_PLAYER_DELEGATE LOCK_PLAYER;
+/// Locks player so it cannot act until an action over it has been done (or removes lock) 
+/// <para> Owner: PlayerMaster </para> 
+/// <para> Accessors: LevelMaster </para> 
+/// <para> Method: <see cref="PlayerMasterClass.LockPlayerService"/> </para> 
+/// </summary>
+public static LOCK_PLAYER_DELEGATE LOCK_PLAYER;
         /* > ATG 3 END */
     }
 }

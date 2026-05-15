@@ -9,7 +9,7 @@ namespace Gob3AQ.VARMAP.Types
         ANIMATION_REME_TEST, 
         ANIMATION_LAST, 
         
-        ANIMATION_TOTAL
+ANIMATION_TOTAL
         /* > ATG 1 END < */
     }
 

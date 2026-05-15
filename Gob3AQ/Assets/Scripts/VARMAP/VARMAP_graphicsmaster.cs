@@ -78,47 +78,47 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
         /* SERVICES */
         /* > ATG 3 START */
         /// <summary> 
-        /// This service is called when whole room has been loaded
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, CardMaster, GameEventMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.LoadingCompletedService"/> </para> 
-        /// </summary>
-        public static LOADING_COMPLETED_DELEGATE MODULE_LOADING_COMPLETED;
+/// This service is called when whole room has been loaded 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, CardMaster, GameEventMaster </para> 
+/// <para> Method: <see cref="GameMasterClass.LoadingCompletedService"/> </para> 
+/// </summary>
+public static LOADING_COMPLETED_DELEGATE MODULE_LOADING_COMPLETED;
         /// <summary> 
-        /// This service returns a bool which tells if given module has been loaded in Room Loading Process
-        /// <para> Owner: GameMaster </para> 
-        /// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, CardMaster, GameEventMaster,  </para> 
-        /// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
-        /// </summary>
-        public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
+/// This service returns a bool which tells if given module has been loaded in Room Loading Process 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors: InputMaster, LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, PlayerMaster, ItemMaster, CardMaster, GameEventMaster </para> 
+/// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
+/// </summary>
+public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
         /// <summary> 
-        /// Gets a list of actual players
-        /// <para> Owner: LevelMaster </para> 
-        /// <para> Accessors: GraphicsMaster, PlayerMaster,  </para> 
-        /// <para> Method: <see cref="LevelMasterClass.GetPlayerListService"/> </para> 
-        /// </summary>
-        public static GET_PLAYER_LIST_DELEGATE GET_PLAYER_LIST;
+/// Gets a list of actual players 
+/// <para> Owner: LevelMaster </para> 
+/// <para> Accessors: GraphicsMaster, PlayerMaster </para> 
+/// <para> Method: <see cref="LevelMasterClass.GetPlayerListService"/> </para> 
+/// </summary>
+public static GET_PLAYER_LIST_DELEGATE GET_PLAYER_LIST;
         /// <summary> 
-        /// Subscribe to zoom changes
-        /// <para> Owner: GraphicsMaster </para> 
-        /// <para> Accessors: ItemMaster,  </para> 
-        /// <para> Method: <see cref="GraphicsMasterClass.ZoomSubscriptionService"/> </para> 
-        /// </summary>
-        public static ZOOM_SUBSCRIPTION_DELEGATE ZOOM_SUBSCRIPTION;
+/// Subscribe to zoom changes 
+/// <para> Owner: GraphicsMaster </para> 
+/// <para> Accessors: ItemMaster </para> 
+/// <para> Method: <see cref="GraphicsMasterClass.ZoomSubscriptionService"/> </para> 
+/// </summary>
+public static ZOOM_SUBSCRIPTION_DELEGATE ZOOM_SUBSCRIPTION;
         /// <summary> 
-        /// Takes snapshot to be used in fading while loading next scene
-        /// <para> Owner: GraphicsMaster </para> 
-        /// <para> Accessors: GameMaster,  </para> 
-        /// <para> Method: <see cref="GraphicsMasterClass.TakeLoadingSnapshotService"/> </para> 
-        /// </summary>
-        public static TAKE_LOADING_SNAPSHOT_DELEGATE TAKE_LOADING_SNAPSHOT;
+/// Takes snapshot to be used in fading while loading next scene 
+/// <para> Owner: GraphicsMaster </para> 
+/// <para> Accessors: GameMaster </para> 
+/// <para> Method: <see cref="GraphicsMasterClass.TakeLoadingSnapshotService"/> </para> 
+/// </summary>
+public static TAKE_LOADING_SNAPSHOT_DELEGATE TAKE_LOADING_SNAPSHOT;
         /// <summary> 
-        /// Service for GraphicsMaste to make zoom into a region of interest
-        /// <para> Owner: GraphicsMaster </para> 
-        /// <para> Accessors: DialogMaster,  </para> 
-        /// <para> Method: <see cref="GraphicsMasterClass.ActivateForcedZoomMode"/> </para> 
-        /// </summary>
-        public static ACTIVATE_FORCED_ZOOM_MODE_DELEGATE ACTIVATE_FORCED_ZOOM_MODE;
+/// Service for GraphicsMaste to make zoom into a region of interest 
+/// <para> Owner: GraphicsMaster </para> 
+/// <para> Accessors: DialogMaster </para> 
+/// <para> Method: <see cref="GraphicsMasterClass.ActivateForcedZoomMode"/> </para> 
+/// </summary>
+public static ACTIVATE_FORCED_ZOOM_MODE_DELEGATE ACTIVATE_FORCED_ZOOM_MODE;
         /* > ATG 3 END */
     }
 }

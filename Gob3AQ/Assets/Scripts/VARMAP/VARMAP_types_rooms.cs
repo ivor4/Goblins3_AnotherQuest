@@ -21,7 +21,7 @@ namespace Gob3AQ.VARMAP.Types
         CITY1_EXTRAPERLO2, 
         ROOM_LAST, 
         
-        ROOMS_TOTAL 
+ROOMS_TOTAL 
         /* > ATG 1 END < */
     }
 }

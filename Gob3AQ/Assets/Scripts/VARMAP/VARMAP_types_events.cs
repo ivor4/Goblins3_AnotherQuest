@@ -45,7 +45,7 @@ namespace Gob3AQ.VARMAP.Types
         EVENT_EXTRAPERLO_WON_CARDS_ARTURO, 
         EVENT_LAST, 
         
-        EVENT_TOTAL
+EVENT_TOTAL
         /* > ATG 1 END < */
     }
 
@@ -58,7 +58,7 @@ namespace Gob3AQ.VARMAP.Types
         MEMENTO_PARENT_POOR_MAN_WC, 
         MEMENTO_PARENT_LAST, 
         
-        MEMENTO_PARENT_TOTAL
+MEMENTO_PARENT_TOTAL
         /* > ATG 2 END < */
     }
 
@@ -74,7 +74,7 @@ namespace Gob3AQ.VARMAP.Types
         MEMENTO_POOR_MAN_WC_3, 
         MEMENTO_LAST, 
         
-        MEMENTO_TOTAL
+MEMENTO_TOTAL
         /* > ATG 3 END < */
     }
 
@@ -83,7 +83,7 @@ namespace Gob3AQ.VARMAP.Types
         /* > ATG 4 START < */
         MEMENTO_COMBI_NONE = -1, 
         
-        MEMENTO_COMBI_TOTAL
+MEMENTO_COMBI_TOTAL
         /* > ATG 4 END < */
     }
 

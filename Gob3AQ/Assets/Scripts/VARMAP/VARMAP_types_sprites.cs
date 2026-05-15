@@ -81,7 +81,7 @@ namespace Gob3AQ.VARMAP.Types
         SPRITE_EXTRAPERLO_TABLE2_STEADY, 
         SPRITE_LAST, 
         
-        SPRITE_TOTAL
+SPRITE_TOTAL
         /* > ATG 1 END < */
     }
 }

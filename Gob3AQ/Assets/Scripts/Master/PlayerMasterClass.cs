@@ -50,11 +50,9 @@ namespace Gob3AQ.PlayerMaster
 
         private static PlayableCharScript GetPlayerInstance(CharacterType character)
         {
-            PlayableCharScript selectedPlayer;
-
             VARMAP_PlayerMaster.GET_PLAYER_LIST(out ReadOnlySpan<PlayableCharScript> playerlist);
 
-            selectedPlayer = playerlist[(int)character];
+            var selectedPlayer = playerlist[(int)character];
 
             return selectedPlayer;
         }
@@ -95,18 +93,15 @@ namespace Gob3AQ.PlayerMaster
         {
             _ = evtype;
 
-            if (newval != oldval)
+            if (newval == oldval) return;
+            
+            switch (newval)
             {
-                switch (newval)
-                {
-                    case Game_Status.GAME_STATUS_CHANGING_ROOM:
-                        playersLoaded = 0;
-                        playersToLoad = 0;
-                        break;
-
-                    default:
-                        break;
-                }
+                case Game_Status.GAME_STATUS_CHANGING_ROOM:
+                    playersLoaded = 0;
+                    playersToLoad = 0;
+                    break;
+                
             }
         }
     }

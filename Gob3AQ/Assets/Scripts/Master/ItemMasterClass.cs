@@ -105,7 +105,7 @@ namespace Gob3AQ.ItemMaster
 
         public static void PeekItemService(in InteractionUsage usage, out InteractionUsageOutcome outcome)
         {
-            ItemInteractionCommon(in usage, out outcome, false);
+            ItemInteractionCommon(in usage, out outcome, true);
         }
 
         public static void GetItemBoundariesService(GameItem item, out Bounds worldBounds)

@@ -147,7 +147,6 @@ namespace Gob3AQ.DialogMaster
         private int dialog_totalPhrases;
         private DialogOption dialog_optionPhrases;
         private bool dialog_optionPending;
-        private bool dialog_tellingInProgress;
         private bool dialog_background;
         private GameSound dialog_actualPhraseSoundStop;
         private DialogTaskType dialog_actualTaskType;
@@ -183,6 +182,7 @@ namespace Gob3AQ.DialogMaster
                     if(_singleton.dialog_actualTaskType != DialogTaskType.DIALOG_STATE_NONE)
                     {
                         VARMAP_DialogMaster.STOP_SOUND(_singleton.dialog_actualPhraseSoundStop);
+                        _singleton.dialog_actualPhraseSoundStop = GameSound.SOUND_NONE;
                     }
 
                     /* Copy default talkers to array */
@@ -395,7 +395,6 @@ namespace Gob3AQ.DialogMaster
                 _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_OPTIONS, string.Empty, string.Empty);
 
                 dialog_optionPending = true;
-                dialog_tellingInProgress = false;
             }
             else if (selectableOptions == 1)
             {
@@ -408,7 +407,6 @@ namespace Gob3AQ.DialogMaster
             else
             {
                 dialog_optionPending = false;
-                dialog_tellingInProgress = false;
                 Debug.LogError("GameMenuClass.ShowDialogueService: No valid dialog options found for dialog " + dialog.ToString());
             }
         }
@@ -423,9 +421,6 @@ namespace Gob3AQ.DialogMaster
 
         private void StartPhrase(DialogPhrase phrase)
         {
-            /* Preset */
-            dialog_tellingInProgress = true;
-
             ResourceDialogsClass.GetPhraseContent(phrase, out PhraseContent content);
             GameItem talkerItem = dialog_input_talkers[content.config.talkerIndex];
             ItemInfo talkerItemInfo = ItemsInteractionsClass.GetItemInfo(talkerItem);
@@ -469,7 +464,6 @@ namespace Gob3AQ.DialogMaster
             dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
             VARMAP_DialogMaster.STOP_SOUND(dialog_actualPhraseSoundStop);
             dialog_actualPhraseSoundStop = GameSound.SOUND_NONE;
-            dialog_tellingInProgress = false;
             dialog_optionPending = false;
 
             VARMAP_DialogMaster.ACTIVATE_FORCED_ZOOM_MODE(false, default);
@@ -502,39 +496,38 @@ namespace Gob3AQ.DialogMaster
 
         private void EndPhrase_Action()
         {
-            if (dialog_tellingInProgress)
-            {
-                dialog_tellingInProgress = false;
-                ++dialog_currentPhraseIndex;
-                DialogOptionConfig dialogConfig = ResourceDialogsAtlasClass.GetDialogOptionConfig(dialog_optionPhrases);
+            VARMAP_DialogMaster.STOP_SOUND(dialog_actualPhraseSoundStop);
+            dialog_actualPhraseSoundStop = GameSound.SOUND_NONE;
+            
+            ++dialog_currentPhraseIndex;
+            ref readonly DialogOptionConfig dialogConfig = ref ResourceDialogsAtlasClass.GetDialogOptionConfig(dialog_optionPhrases);
 
-                if (dialog_totalPhrases > dialog_currentPhraseIndex)
+            if (dialog_totalPhrases > dialog_currentPhraseIndex)
+            {
+                /* More phrases to say, wait for user interaction */
+                StartPhrase(dialogConfig.Phrases[dialog_currentPhraseIndex]);
+            }
+            else
+            {
+                /* If end of conversation triggers an event */
+                VARMAP_DialogMaster.PERFORM_ACTION(dialogConfig.TriggeredActions, null);
+
+                if (dialogConfig.dialogTriggered != DialogType.DIALOG_NONE)
                 {
-                    /* More phrases to say, wait for user interaction */
-                    StartPhrase(dialogConfig.Phrases[dialog_currentPhraseIndex]);
+                    dialog_actualTaskType = DialogTaskType.DIALOG_STATE_LAUNCH_NEXT_DIALOG;
+                    Stop_DialogTalkersAnimation();
                 }
                 else
                 {
-                    /* If end of conversation triggers an event */
-                    VARMAP_DialogMaster.PERFORM_ACTION(dialogConfig.TriggeredActions, null);
+                    /* End of dialog */
+                    _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_NONE, string.Empty, string.Empty);
 
-                    if (dialogConfig.dialogTriggered != DialogType.DIALOG_NONE)
+                    if (!dialog_background)
                     {
-                        dialog_actualTaskType = DialogTaskType.DIALOG_STATE_LAUNCH_NEXT_DIALOG;
-                        Stop_DialogTalkersAnimation();
+                        VARMAP_DialogMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
                     }
-                    else
-                    {
-                        /* End of dialog */
-                        _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_NONE, string.Empty, string.Empty);
 
-                        if (!dialog_background)
-                        {
-                            VARMAP_DialogMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
-                        }
-
-                        Stop_DialogAndPhrase();
-                    }
+                    Stop_DialogAndPhrase();
                 }
             }
         }

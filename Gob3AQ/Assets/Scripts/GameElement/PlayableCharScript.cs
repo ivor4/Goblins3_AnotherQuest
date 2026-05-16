@@ -2,7 +2,6 @@ using Gob3AQ.FixedConfig;
 using Gob3AQ.PlayerMaster;
 using Gob3AQ.ResourceAnimationsAtlas;
 using Gob3AQ.ResourceAtlas;
-using Gob3AQ.VARMAP.ItemMaster;
 using Gob3AQ.VARMAP.PlayerMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.Waypoint.Network;
@@ -274,25 +273,8 @@ namespace Gob3AQ.GameElement.PlayableChar
                 /* Store WP Index */
                 VARMAP_PlayerMaster.PLAYER_WAYPOINT_UPDATE(charType, actualProgrammedPath.target_index);
 
-                bool neededEventOk;
-
-                if (waypoints_infos[actualProgrammedPath.target_index].Reachability == WaypointReachability.REACHABLE_WHEN_COMBI)
-                {
-                    Span<GameEventCombi> eventCombi = stackalloc GameEventCombi[1];
-                    GameEventCombi_prv eventCombiPrv = waypoints_infos[actualProgrammedPath.target_index].NeededEvent;
-                    eventCombi[0] = new(eventCombiPrv.ev, eventCombiPrv.not);
-                    VARMAP_ItemMaster.IS_EVENT_COMBI_OCCURRED(eventCombi, out neededEventOk);
-                }
-                else
-                {
-                    neededEventOk = true;
-                }
-
-
                 /* If last segment or action triggered or next waypoint or really unreachable */
-                if((actualProgrammedPath.target_index == actualProgrammedPath.final_index)||
-                    (waypoints_infos[actualProgrammedPath.target_index].ActionWhenCross != GameAction.ACTION_NONE)||
-                    (!neededEventOk))
+                if((actualProgrammedPath.target_index == actualProgrammedPath.final_index))
                 {
                     actualWaypoint = actualProgrammedPath.target_index;
                     PresetProgrammedPathStruct(actualWaypoint);

@@ -150,6 +150,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f02bacca7d2fad34e81f0e4c98bf89a2
+    m_Address: SPRITE_INTERNAL_CIRCLE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f1f0d33d70d3e8f4c9f3b8298f4042a3
     m_Address: SPRITE_CURSOR_DOOR
     m_ReadOnly: 0

@@ -7,6 +7,14 @@ namespace Gob3AQ.ResourceAnimationsAtlas
 {
     public static class ResourceAnimationsAtlasClass
     {
+        public static readonly IReadOnlyDictionary<int, AnimationTrigger> STATE_HASH_TO_TRIGGER =
+            new Dictionary<int, AnimationTrigger>()
+            {
+                { Animator.StringToHash("Steady"), AnimationTrigger.ANIMATION_TRIGGER_STEADY }, 
+                { Animator.StringToHash("SpecialCycleAction1"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE },
+
+            };
+            
         public static readonly IReadOnlyDictionary<AnimationTrigger, int> ANIM_TRIGGER_TO_HASH = new Dictionary<AnimationTrigger, int>()
         {
             { AnimationTrigger.ANIMATION_TRIGGER_ONE, Animator.StringToHash("Tr_1") },

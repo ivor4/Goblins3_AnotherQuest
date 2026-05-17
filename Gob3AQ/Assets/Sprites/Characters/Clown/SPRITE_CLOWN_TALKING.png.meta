@@ -1,0 +1,657 @@
+fileFormatVersion: 2
+guid: 5e342c15078d0ff49bf9acb0980885d9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7877402859812523294
+    second: SPRITE_CLOWN_TALKING_0
+  - first:
+      213: -6132134448484966898
+    second: SPRITE_CLOWN_TALKING_1
+  - first:
+      213: -2477571818370043909
+    second: SPRITE_CLOWN_TALKING_2
+  - first:
+      213: 3856389338676146754
+    second: SPRITE_CLOWN_TALKING_3
+  - first:
+      213: -9179945832062476700
+    second: SPRITE_CLOWN_TALKING_4
+  - first:
+      213: 8072031524986784912
+    second: SPRITE_CLOWN_TALKING_5
+  - first:
+      213: 2984362695061151550
+    second: SPRITE_CLOWN_TALKING_6
+  - first:
+      213: -4458837936912422184
+    second: SPRITE_CLOWN_TALKING_7
+  - first:
+      213: 6097754927844470569
+    second: SPRITE_CLOWN_TALKING_8
+  - first:
+      213: 2904646785990192068
+    second: SPRITE_CLOWN_TALKING_9
+  - first:
+      213: -8565892929521693431
+    second: SPRITE_CLOWN_TALKING_10
+  - first:
+      213: 5294838651503677766
+    second: SPRITE_CLOWN_TALKING_11
+  - first:
+      213: -254755111281213652
+    second: SPRITE_CLOWN_TALKING_12
+  - first:
+      213: 6216530228893539879
+    second: SPRITE_CLOWN_TALKING_13
+  - first:
+      213: -6285547390114808788
+    second: SPRITE_CLOWN_TALKING_14
+  - first:
+      213: 9200980422434235614
+    second: SPRITE_CLOWN_TALKING_15
+  - first:
+      213: -5608397452066097708
+    second: SPRITE_CLOWN_TALKING_16
+  - first:
+      213: 6115166449551525657
+    second: SPRITE_CLOWN_TALKING_17
+  - first:
+      213: -7168287722150824082
+    second: SPRITE_CLOWN_TALKING_18
+  - first:
+      213: 3497023068806431943
+    second: SPRITE_CLOWN_TALKING_19
+  - first:
+      213: 2692287526252254640
+    second: SPRITE_CLOWN_TALKING_20
+  - first:
+      213: -3986483847019702691
+    second: SPRITE_CLOWN_TALKING_21
+  - first:
+      213: -8795069125173706000
+    second: SPRITE_CLOWN_TALKING_22
+  - first:
+      213: 6740577749374440551
+    second: SPRITE_CLOWN_TALKING_23
+  - first:
+      213: 5370857660228378385
+    second: SPRITE_CLOWN_TALKING_24
+  - first:
+      213: -5016693832643743353
+    second: SPRITE_CLOWN_TALKING_25
+  - first:
+      213: -2672442837719900920
+    second: SPRITE_CLOWN_TALKING_26
+  - first:
+      213: 1885594972639292042
+    second: SPRITE_CLOWN_TALKING_27
+  - first:
+      213: -7396951757406257944
+    second: SPRITE_CLOWN_TALKING_28
+  - first:
+      213: -9152183762255096996
+    second: SPRITE_CLOWN_TALKING_29
+  - first:
+      213: 3730145920712735196
+    second: SPRITE_CLOWN_TALKING_30
+  - first:
+      213: -7818772802434151693
+    second: SPRITE_CLOWN_TALKING_31
+  - first:
+      213: -2991380539840245285
+    second: SPRITE_CLOWN_TALKING_32
+  - first:
+      213: 7323161537716809132
+    second: SPRITE_CLOWN_TALKING_33
+  - first:
+      213: 1286877168275881564
+    second: SPRITE_CLOWN_TALKING_34
+  - first:
+      213: 4310701313895389043
+    second: SPRITE_CLOWN_TALKING_35
+  - first:
+      213: 3559492495458123915
+    second: SPRITE_CLOWN_TALKING_36
+  - first:
+      213: -5717973192045683846
+    second: SPRITE_CLOWN_TALKING_37
+  - first:
+      213: -485547134033866614
+    second: SPRITE_CLOWN_TALKING_38
+  - first:
+      213: -3183498008189694191
+    second: SPRITE_CLOWN_TALKING_39
+  - first:
+      213: 1268853644479609120
+    second: SPRITE_CLOWN_TALKING_40
+  - first:
+      213: -2173866837634395803
+    second: SPRITE_CLOWN_TALKING_41
+  - first:
+      213: -4411605907558040993
+    second: SPRITE_CLOWN_TALKING_42
+  - first:
+      213: 7914983814668250200
+    second: SPRITE_CLOWN_TALKING_43
+  - first:
+      213: 2059481027941004822
+    second: SPRITE_CLOWN_TALKING_44
+  - first:
+      213: -6257291748806486358
+    second: SPRITE_CLOWN_TALKING_45
+  - first:
+      213: 1674383188502289431
+    second: SPRITE_CLOWN_TALKING_46
+  - first:
+      213: 3284087621953060466
+    second: SPRITE_CLOWN_TALKING_47
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_TALKING_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1d85cb2a28225d60800000000000000
+      internalID: 7877402859812523294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_TALKING_1
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0e1e13653846eaa0800000000000000
+      internalID: -6132134448484966898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_TALKING_2
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bffe884de85ed9dd0800000000000000
+      internalID: -2477571818370043909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_TALKING_3
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2423567eba5a48530800000000000000
+      internalID: 3856389338676146754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_TALKING_4
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46e969637e74a9080800000000000000
+      internalID: -9179945832062476700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_TALKING_5
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09c879e87ed950070800000000000000
+      internalID: 8072031524986784912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_TALKING_6
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3f1c003f069a6920800000000000000
+      internalID: 2984362695061151550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_TALKING_7
+      rect:
+        serializedVersion: 2
+        x: 1624
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8daac4335860f12c0800000000000000
+      internalID: -4458837936912422184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_TALKING_8
+      rect:
+        serializedVersion: 2
+        x: 1856
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92fae81bcc39f9450800000000000000
+      internalID: 6097754927844470569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_TALKING_9
+      rect:
+        serializedVersion: 2
+        x: 2088
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cbece4ccd06f4820800000000000000
+      internalID: 2904646785990192068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_TALKING_10
+      rect:
+        serializedVersion: 2
+        x: 2320
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90d44dfb3c5df1980800000000000000
+      internalID: -8565892929521693431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_TALKING_11
+      rect:
+        serializedVersion: 2
+        x: 2552
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64192e543bb0b7940800000000000000
+      internalID: 5294838651503677766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_TALKING_12
+      rect:
+        serializedVersion: 2
+        x: 2784
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2f3e57739de67cf0800000000000000
+      internalID: -254755111281213652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_TALKING_13
+      rect:
+        serializedVersion: 2
+        x: 3016
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72e5dac7e4d854650800000000000000
+      internalID: 6216530228893539879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_TALKING_14
+      rect:
+        serializedVersion: 2
+        x: 3248
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2cb25173ff35c8a0800000000000000
+      internalID: -6285547390114808788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_TALKING_15
+      rect:
+        serializedVersion: 2
+        x: 3480
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed4248002f270bf70800000000000000
+      internalID: 9200980422434235614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_TALKING_19
+      rect:
+        serializedVersion: 2
+        x: 4408
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c4cd8bf3fbe78030800000000000000
+      internalID: 3497023068806431943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b85b711dd4ac178418821311b11b1852
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":20.0,"y":1.0},"gridSpriteSize":{"x":232.0,"y":320.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.10000000149011612},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_CLOWN_TALKING_0: 7877402859812523294
+      SPRITE_CLOWN_TALKING_1: -6132134448484966898
+      SPRITE_CLOWN_TALKING_10: -8565892929521693431
+      SPRITE_CLOWN_TALKING_11: 5294838651503677766
+      SPRITE_CLOWN_TALKING_12: -254755111281213652
+      SPRITE_CLOWN_TALKING_13: 6216530228893539879
+      SPRITE_CLOWN_TALKING_14: -6285547390114808788
+      SPRITE_CLOWN_TALKING_15: 9200980422434235614
+      SPRITE_CLOWN_TALKING_16: -5608397452066097708
+      SPRITE_CLOWN_TALKING_17: 6115166449551525657
+      SPRITE_CLOWN_TALKING_18: -7168287722150824082
+      SPRITE_CLOWN_TALKING_19: 3497023068806431943
+      SPRITE_CLOWN_TALKING_2: -2477571818370043909
+      SPRITE_CLOWN_TALKING_3: 3856389338676146754
+      SPRITE_CLOWN_TALKING_4: -9179945832062476700
+      SPRITE_CLOWN_TALKING_5: 8072031524986784912
+      SPRITE_CLOWN_TALKING_6: 2984362695061151550
+      SPRITE_CLOWN_TALKING_7: -4458837936912422184
+      SPRITE_CLOWN_TALKING_8: 6097754927844470569
+      SPRITE_CLOWN_TALKING_9: 2904646785990192068
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

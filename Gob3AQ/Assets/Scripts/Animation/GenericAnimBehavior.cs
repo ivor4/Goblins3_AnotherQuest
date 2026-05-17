@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class GenericAnimBehavior : StateMachineBehaviour
 {
-    private Action OnStartCallback;
-    private Action OnEndCallback;
+    private Action<AnimatorStateInfo> OnStartCallback;
+    private Action<AnimatorStateInfo> OnEndCallback;
 
-    public void SetOnStartEndCallback(Action callbackStart, Action callbackEnd)
+    public void SetOnStartEndCallback(Action<AnimatorStateInfo> callbackStart, Action<AnimatorStateInfo> callbackEnd)
     {
         OnStartCallback = callbackStart;
         OnEndCallback = callbackEnd;
@@ -15,7 +15,7 @@ public class GenericAnimBehavior : StateMachineBehaviour
     // OnStateEnter is called before OnStateEnter is called on any state inside this state machine
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        OnStartCallback?.Invoke();    
+        OnStartCallback?.Invoke(stateInfo);    
     }
 
     // OnStateUpdate is called before OnStateUpdate is called on any state inside this state machine
@@ -27,7 +27,7 @@ public class GenericAnimBehavior : StateMachineBehaviour
     // OnStateExit is called before OnStateExit is called on any state inside this state machine
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        OnEndCallback?.Invoke();
+        OnEndCallback?.Invoke(stateInfo);
     }
 
     // OnStateMove is called before OnStateMove is called on any state inside this state machine

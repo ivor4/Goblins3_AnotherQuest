@@ -6,6 +6,7 @@ using Gob3AQ.VARMAP.ItemMaster;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.Waypoint;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Gob3AQ.GameElement
@@ -13,6 +14,8 @@ namespace Gob3AQ.GameElement
     [System.Serializable]
     public class GameElementClass : MonoBehaviour, IGameObjectHoverable
     {
+        
+        
         [SerializeField]
         protected GameItem itemID;
 
@@ -43,6 +46,7 @@ namespace Gob3AQ.GameElement
         protected GenericAnimBehavior myAnimatorBehavior;
         protected Action animationEndCallback;
         protected bool animationStartedNewState;
+        protected AnimationTrigger actualAnimationTrigger;
         protected bool registered;
         protected bool loaded;
         private bool isAvailable;
@@ -82,6 +86,8 @@ namespace Gob3AQ.GameElement
 
             gameElementFamily = itemInfo.family;
 
+            actualAnimationTrigger = AnimationTrigger.ANIMATION_TRIGGER_STEADY;
+
             /* Register item as Level element (to be clicked and able to iteract) */
             VARMAP_ItemMaster.ITEM_REGISTER(true, this);
 
@@ -100,10 +106,11 @@ namespace Gob3AQ.GameElement
 
         public void PerformAnimation(AnimationTrigger trigger, Action callback)
         {
-            if ((myAnimator != null)&&(trigger != AnimationTrigger.ANIMATION_TRIGGER_NONE))
+            if ((myAnimator)&&(trigger != AnimationTrigger.ANIMATION_TRIGGER_NONE))
             {
                 animationStartedNewState = false;
                 animationEndCallback = callback;
+                actualAnimationTrigger = trigger;
                 myAnimator.SetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_HASH[trigger]);
             }
         }
@@ -227,9 +234,7 @@ namespace Gob3AQ.GameElement
 
         private void _Hover_Refresh()
         {
-            bool compound;
-
-            compound = isAvailable;
+            var compound = isAvailable;
             compound &= isClickable_ext & isClickable_int;
 
             hoverInfo = new(itemID, gameElementFamily, actualWaypoint, hoverPriority, compound);           
@@ -260,12 +265,15 @@ namespace Gob3AQ.GameElement
             }
         }
 
-        protected virtual void OnAnimationStart()
+        protected virtual void OnAnimationStart(AnimatorStateInfo stateInfo)
         {
+            _ = ResourceAnimationsAtlasClass.STATE_HASH_TO_TRIGGER.TryGetValue(stateInfo.shortNameHash,
+                out actualAnimationTrigger);
+            
             animationStartedNewState = true;
         }
 
-        protected virtual void OnAnimationEnd()
+        protected virtual void OnAnimationEnd(AnimatorStateInfo stateInfo)
         {
             if (animationStartedNewState)
             {

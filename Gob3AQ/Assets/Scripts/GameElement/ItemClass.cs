@@ -1,3 +1,4 @@
+using System;
 using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.ItemMaster;
 using Gob3AQ.ResourceAtlas;
@@ -5,12 +6,32 @@ using Gob3AQ.ResourceSprites;
 using Gob3AQ.VARMAP.ItemMaster;
 using Gob3AQ.VARMAP.Types;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-
+using Random = UnityEngine.Random;
 
 
 namespace Gob3AQ.GameElement.Item
 {
+    [System.Serializable]
+    public struct ItemProgrammedAnimation
+    {
+        public ulong everyMs;
+        public AnimationTrigger conditionActualTrigger;
+        public AnimationTrigger destTrigger;
+    }
+
+    public struct ItemProgrammedAnimationRuntime
+    {
+        public ItemProgrammedAnimation progAnim;
+        public ulong lastTimestampMs;
+
+        public ItemProgrammedAnimationRuntime(ItemProgrammedAnimation p, ulong actualTimestamp)
+        {
+            progAnim = p;
+            lastTimestampMs = actualTimestamp;
+        }
+    }
     [System.Serializable]
     public class ItemClass : GameElementClass
     {
@@ -23,10 +44,18 @@ namespace Gob3AQ.GameElement.Item
         [SerializeField]
         private Color nightColor;
 
+        [SerializeField]
+        private List<ItemProgrammedAnimation> programmedAnimations;
+
+        [SerializeField]
+        private AnimationTrigger startingTrigger;
+
         private float actualZoomLevel;
 
         private Color transparent_color;
         private Color original_color;
+
+        private ItemProgrammedAnimationRuntime[] programmedAnimationsRt;
 
         protected override void Awake()
         {
@@ -39,12 +68,24 @@ namespace Gob3AQ.GameElement.Item
             myRigidbody = topParent.GetComponent<Rigidbody2D>();
             myAnimator = topParent.GetComponent<Animator>();
 
-            if (myAnimator != null)
+            if (myAnimator)
             {
+                ulong actualTimestamp = VARMAP_ItemMaster.GET_ELAPSED_TIME_MS();
+                programmedAnimationsRt = new ItemProgrammedAnimationRuntime[programmedAnimations.Count];
+                for (int i = 0; i < programmedAnimations.Count; i++) { 
+                    programmedAnimationsRt[i] = new ItemProgrammedAnimationRuntime(programmedAnimations[i],
+                        actualTimestamp - (ulong)Random.Range(0, (int)programmedAnimations[i].everyMs));
+                }
+                
                 myAnimatorBehavior = myAnimator.GetBehaviour<GenericAnimBehavior>();
-                if (myAnimatorBehavior != null)
+                if (myAnimatorBehavior)
                 {
                     myAnimatorBehavior.SetOnStartEndCallback(OnAnimationStart, OnAnimationEnd);
+                }
+
+                if (startingTrigger != AnimationTrigger.ANIMATION_TRIGGER_NONE)
+                {
+                    PerformAnimation(startingTrigger, null);
                 }
             }
 
@@ -81,15 +122,38 @@ namespace Gob3AQ.GameElement.Item
             _ = StartCoroutine(Execute_Loading());
         }
 
+        protected void Update()
+        {
+            if (!myAnimator || (programmedAnimationsRt.Length <= 0)) return;
+            
+            ulong actualTimestamp = VARMAP_ItemMaster.GET_ELAPSED_TIME_MS();
+            for (int i = 0; i < programmedAnimationsRt.Length; i++)
+            {
+                ref ItemProgrammedAnimationRuntime rt = ref programmedAnimationsRt[i];
+
+                if (rt.progAnim.conditionActualTrigger != actualAnimationTrigger)
+                {
+                    rt.lastTimestampMs = actualTimestamp;
+                    continue;
+                }
+                    
+                if ((actualTimestamp - rt.lastTimestampMs) < rt.progAnim.everyMs) continue;
+                    
+                rt.lastTimestampMs = actualTimestamp;
+                
+                PerformAnimation(rt.progAnim.destTrigger, null);
+            }
+        }
+
 
         protected virtual IEnumerator Execute_Loading()
         {
-            bool loaded = false;
+            bool _loaded = false;
 
-            while (!loaded)
+            while (!_loaded)
             {
                 yield return ResourceAtlasClass.WaitForNextFrame;
-                VARMAP_ItemMaster.IS_MODULE_LOADED(GameModules.MODULE_GameMaster, out loaded);
+                VARMAP_ItemMaster.IS_MODULE_LOADED(GameModules.MODULE_GameMaster, out _loaded);
             }
 
             Loading_Task();

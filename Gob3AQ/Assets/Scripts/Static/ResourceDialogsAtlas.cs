@@ -224,6 +224,16 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new DialogOption[1]{DialogOption.DIALOG_ARTURO_EXTRAPERLO_OPTION_INTRO}
             ),
 
+            new( /* DIALOG_CLOWN_EXTRAPERLO */
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_CLOWN},
+            new DialogOption[3]{DialogOption.DIALOG_CLOWN_EXTRAPERLO_OPTION_0, DialogOption.DIALOG_CLOWN_EXTRAPERLO_OPTION_1, DialogOption.DIALOG_CLOWN_EXTRAPERLO_OPTION_2}
+            ),
+
+            new( /* DIALOG_CLOWN_EXTRAPERLO_INTRO */
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_CLOWN},
+            new DialogOption[1]{DialogOption.DIALOG_CLOWN_EXTRAPERLO_OPTION_INTRO}
+            ),
+
             new( /* DIALOG_LAST */
             new GameItem[1]{GameItem.ITEM_NONE},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE}
@@ -599,6 +609,34 @@ namespace Gob3AQ.ResourceDialogsAtlas
             DialogType.DIALOG_ARTURO_EXTRAPERLO,false,
             new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_ARTURO_EXTRAPERLO_INTRO}
             ),
+            new( /* DIALOG_CLOWN_EXTRAPERLO_OPTION_0 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_NONE},
+            DialogType.DIALOG_CLOWN_EXTRAPERLO,false,
+            new DialogPhrase[5]{DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_1_0, DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_1_1, DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_1_2, DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_1_3, DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_1_4}
+            ),
+            new( /* DIALOG_CLOWN_EXTRAPERLO_OPTION_1 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_NONE},
+            DialogType.DIALOG_CLOWN_EXTRAPERLO,false,
+            new DialogPhrase[3]{DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_2_0, DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_2_1, DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_2_2}
+            ),
+            new( /* DIALOG_CLOWN_EXTRAPERLO_OPTION_2 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_NONE},
+            DialogType.DIALOG_CLOWN_EXTRAPERLO,false,
+            new DialogPhrase[8]{DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_0, DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_2, DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_4, DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_5, DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_6, DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_7, DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_8, DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_9}
+            ),
+            new( /* DIALOG_CLOWN_EXTRAPERLO_OPTION_INTRO */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_NONE},
+            DialogType.DIALOG_CLOWN_EXTRAPERLO,false,
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_INTRO}
+            ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
@@ -808,6 +846,23 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,GameSound.SOUND_CARDS1_MAINCHAR_TAUNT4, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_CARDS1_MAINCHAR_TAUNT_4 */ 
             new(0,GameSound.SOUND_CARDS1_MAINCHAR_TAUNT5, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_CARDS1_MAINCHAR_TAUNT_5 */ 
             new(0,GameSound.SOUND_CARDS1_MAINCHAR_WIN, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_CARDS1_MAINCHAR_TAUNT_WIN */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_1_0, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_1_0 */ 
+            new(1,GameSound.SOUND_PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_1_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_1_1 */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_1_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_1_2 */ 
+            new(1,GameSound.SOUND_PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_1_3, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_1_3 */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_1_4, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_1_4 */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_2_0, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_2_0 */ 
+            new(1,GameSound.SOUND_PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_2_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_2_1 */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_2_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_2_2 */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_0, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_0 */ 
+            new(1,GameSound.SOUND_PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_2 */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_4, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_4 */ 
+            new(1,GameSound.SOUND_PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_5, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_5 */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_6, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_6 */ 
+            new(1,GameSound.SOUND_PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_7, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_7 */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_8, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_8 */ 
+            new(1,GameSound.SOUND_PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_9, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_9 */ 
+            new(1,GameSound.SOUND_PHRASE_DIALOG_CLOWN_EXTRAPERLO_INTRO, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_CLOWN_EXTRAPERLO_INTRO */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

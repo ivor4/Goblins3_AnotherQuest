@@ -245,3 +245,5 @@ MonoBehaviour:
   needsZoom: 0
   maxZoomLevel: 0
   nightColor: {r: 1, g: 1, b: 1, a: 1}
+  programmedAnimations: []
+  startingTrigger: -1

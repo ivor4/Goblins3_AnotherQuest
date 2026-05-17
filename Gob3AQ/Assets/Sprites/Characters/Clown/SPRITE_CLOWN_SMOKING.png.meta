@@ -1,0 +1,714 @@
+fileFormatVersion: 2
+guid: f8a8235df08e97a4693dff9c262a2f42
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8802194148869634781
+    second: SPRITE_CLOWN_SMOKING_0
+  - first:
+      213: -3941689546966421702
+    second: SPRITE_CLOWN_SMOKING_1
+  - first:
+      213: -8723664028647903256
+    second: SPRITE_CLOWN_SMOKING_2
+  - first:
+      213: -5061725628585390241
+    second: SPRITE_CLOWN_SMOKING_3
+  - first:
+      213: 7855205159273840505
+    second: SPRITE_CLOWN_SMOKING_4
+  - first:
+      213: -8024253223338939328
+    second: SPRITE_CLOWN_SMOKING_5
+  - first:
+      213: 8072651720714286251
+    second: SPRITE_CLOWN_SMOKING_6
+  - first:
+      213: -5419593344163136984
+    second: SPRITE_CLOWN_SMOKING_7
+  - first:
+      213: -7793605070242160159
+    second: SPRITE_CLOWN_SMOKING_8
+  - first:
+      213: -4198972340484231428
+    second: SPRITE_CLOWN_SMOKING_9
+  - first:
+      213: -7427875065716554368
+    second: SPRITE_CLOWN_SMOKING_10
+  - first:
+      213: 5816738532277100428
+    second: SPRITE_CLOWN_SMOKING_11
+  - first:
+      213: -1051360912980187523
+    second: SPRITE_CLOWN_SMOKING_12
+  - first:
+      213: 4466992579261487327
+    second: SPRITE_CLOWN_SMOKING_13
+  - first:
+      213: -7900201851356057392
+    second: SPRITE_CLOWN_SMOKING_14
+  - first:
+      213: -1993121090752755900
+    second: SPRITE_CLOWN_SMOKING_15
+  - first:
+      213: 1584789497279893677
+    second: SPRITE_CLOWN_SMOKING_16
+  - first:
+      213: 6049332427208025003
+    second: SPRITE_CLOWN_SMOKING_17
+  - first:
+      213: -3535047274761671497
+    second: SPRITE_CLOWN_SMOKING_18
+  - first:
+      213: -8380369974769704676
+    second: SPRITE_CLOWN_SMOKING_19
+  - first:
+      213: 847138262253945420
+    second: SPRITE_CLOWN_SMOKING_20
+  - first:
+      213: -4982133011923626043
+    second: SPRITE_CLOWN_SMOKING_21
+  - first:
+      213: 2548109039013811332
+    second: SPRITE_CLOWN_SMOKING_22
+  - first:
+      213: 2344668839686952282
+    second: SPRITE_CLOWN_SMOKING_23
+  - first:
+      213: -6695950083144211090
+    second: SPRITE_CLOWN_SMOKING_24
+  - first:
+      213: 4201953811429066841
+    second: SPRITE_CLOWN_SMOKING_25
+  - first:
+      213: -1803213617029260700
+    second: SPRITE_CLOWN_SMOKING_26
+  - first:
+      213: 3454647336627542898
+    second: SPRITE_CLOWN_SMOKING_27
+  - first:
+      213: -8239723744212047423
+    second: SPRITE_CLOWN_SMOKING_28
+  - first:
+      213: -3898698167723335921
+    second: SPRITE_CLOWN_SMOKING_29
+  - first:
+      213: 1356349736594982591
+    second: SPRITE_CLOWN_SMOKING_30
+  - first:
+      213: 2723030448280874177
+    second: SPRITE_CLOWN_SMOKING_31
+  - first:
+      213: -3091851756054832337
+    second: SPRITE_CLOWN_SMOKING_32
+  - first:
+      213: 8708349117341355709
+    second: SPRITE_CLOWN_SMOKING_33
+  - first:
+      213: 5235220090408577872
+    second: SPRITE_CLOWN_SMOKING_34
+  - first:
+      213: 8287724672386461117
+    second: SPRITE_CLOWN_SMOKING_35
+  - first:
+      213: -7060116911436305999
+    second: SPRITE_CLOWN_SMOKING_36
+  - first:
+      213: -578160823266493852
+    second: SPRITE_CLOWN_SMOKING_37
+  - first:
+      213: -1108760829514571514
+    second: SPRITE_CLOWN_SMOKING_38
+  - first:
+      213: -3951697013380206491
+    second: SPRITE_CLOWN_SMOKING_39
+  - first:
+      213: -1835908014775625483
+    second: SPRITE_CLOWN_SMOKING_40
+  - first:
+      213: 4639165368145286211
+    second: SPRITE_CLOWN_SMOKING_41
+  - first:
+      213: -3633882968860573575
+    second: SPRITE_CLOWN_SMOKING_42
+  - first:
+      213: -1108631480037520340
+    second: SPRITE_CLOWN_SMOKING_43
+  - first:
+      213: 5899252635158510802
+    second: SPRITE_CLOWN_SMOKING_44
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_SMOKING_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3258a90ce0358d580800000000000000
+      internalID: -8802194148869634781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_SMOKING_1
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3f2232bd3e4c49c0800000000000000
+      internalID: -3941689546966421702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_SMOKING_2
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8efa69039c15fe680800000000000000
+      internalID: -8723664028647903256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_SMOKING_3
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5f4da5eb5321c9b0800000000000000
+      internalID: -5061725628585390241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_SMOKING_4
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97f3554497b430d60800000000000000
+      internalID: 7855205159273840505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_SMOKING_5
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04c691b253024a090800000000000000
+      internalID: -8024253223338939328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_SMOKING_6
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba4fe9028f1d70070800000000000000
+      internalID: 8072651720714286251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_SMOKING_7
+      rect:
+        serializedVersion: 2
+        x: 1624
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82ab516519cb9c4b0800000000000000
+      internalID: -5419593344163136984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_SMOKING_8
+      rect:
+        serializedVersion: 2
+        x: 1856
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e1688c1b7d87d390800000000000000
+      internalID: -7793605070242160159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_SMOKING_9
+      rect:
+        serializedVersion: 2
+        x: 2088
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfe2fb747e04ab5c0800000000000000
+      internalID: -4198972340484231428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_SMOKING_10
+      rect:
+        serializedVersion: 2
+        x: 2320
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 085cbf77bf2eae890800000000000000
+      internalID: -7427875065716554368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_SMOKING_11
+      rect:
+        serializedVersion: 2
+        x: 2552
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8f14bf60e439b050800000000000000
+      internalID: 5816738532277100428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_SMOKING_12
+      rect:
+        serializedVersion: 2
+        x: 2784
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d76e51be1d0d861f0800000000000000
+      internalID: -1051360912980187523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_SMOKING_13
+      rect:
+        serializedVersion: 2
+        x: 3016
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd8df2d6512fdfd30800000000000000
+      internalID: 4466992579261487327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_SMOKING_14
+      rect:
+        serializedVersion: 2
+        x: 3248
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d0f904f548dc5290800000000000000
+      internalID: -7900201851356057392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_SMOKING_15
+      rect:
+        serializedVersion: 2
+        x: 3480
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 447c75f8de20754e0800000000000000
+      internalID: -1993121090752755900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_SMOKING_16
+      rect:
+        serializedVersion: 2
+        x: 3712
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da05325b6ad4ef510800000000000000
+      internalID: 1584789497279893677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_SMOKING_17
+      rect:
+        serializedVersion: 2
+        x: 3944
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba36cf3bacb83f350800000000000000
+      internalID: 6049332427208025003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_SMOKING_18
+      rect:
+        serializedVersion: 2
+        x: 4176
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bc2e9bab3df0fec0800000000000000
+      internalID: -3535047274761671497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_SMOKING_19
+      rect:
+        serializedVersion: 2
+        x: 4408
+        y: 0
+        width: 232
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c11a087b8e1f2bb80800000000000000
+      internalID: -8380369974769704676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: e2fd0f19689da0a42976d452fc58771f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":20.0,"y":1.0},"gridSpriteSize":{"x":232.0,"y":320.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.10000000149011612},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_CLOWN_SMOKING_0: -8802194148869634781
+      SPRITE_CLOWN_SMOKING_1: -3941689546966421702
+      SPRITE_CLOWN_SMOKING_10: -7427875065716554368
+      SPRITE_CLOWN_SMOKING_11: 5816738532277100428
+      SPRITE_CLOWN_SMOKING_12: -1051360912980187523
+      SPRITE_CLOWN_SMOKING_13: 4466992579261487327
+      SPRITE_CLOWN_SMOKING_14: -7900201851356057392
+      SPRITE_CLOWN_SMOKING_15: -1993121090752755900
+      SPRITE_CLOWN_SMOKING_16: 1584789497279893677
+      SPRITE_CLOWN_SMOKING_17: 6049332427208025003
+      SPRITE_CLOWN_SMOKING_18: -3535047274761671497
+      SPRITE_CLOWN_SMOKING_19: -8380369974769704676
+      SPRITE_CLOWN_SMOKING_2: -8723664028647903256
+      SPRITE_CLOWN_SMOKING_3: -5061725628585390241
+      SPRITE_CLOWN_SMOKING_4: 7855205159273840505
+      SPRITE_CLOWN_SMOKING_5: -8024253223338939328
+      SPRITE_CLOWN_SMOKING_6: 8072651720714286251
+      SPRITE_CLOWN_SMOKING_7: -5419593344163136984
+      SPRITE_CLOWN_SMOKING_8: -7793605070242160159
+      SPRITE_CLOWN_SMOKING_9: -4198972340484231428
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

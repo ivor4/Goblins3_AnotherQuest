@@ -19,6 +19,7 @@ namespace Gob3AQ.VARMAP.ItemMaster
         public static void UpdateDelegates()
         {
             /* > ATG 1 START */
+            GET_ELAPSED_TIME_MS = _GET_ELAPSED_TIME_MS;
             GET_ELEM_PICKABLE_ITEM_OWNER = _GET_ELEM_PICKABLE_ITEM_OWNER;
             GET_SHADOW_ELEM_PICKABLE_ITEM_OWNER = _GET_SHADOW_ELEM_PICKABLE_ITEM_OWNER;
             SET_ELEM_PICKABLE_ITEM_OWNER = _SET_ELEM_PICKABLE_ITEM_OWNER;
@@ -55,6 +56,7 @@ namespace Gob3AQ.VARMAP.ItemMaster
 
         /* GET/SET */
         /* > ATG 2 START */
+        public static GetVARMAPValueDelegate<ulong> GET_ELAPSED_TIME_MS;
         public static GetVARMAPArrayElemValueDelegate<CharacterType> GET_ELEM_PICKABLE_ITEM_OWNER;
         public static GetVARMAPArrayElemValueDelegate<CharacterType> GET_SHADOW_ELEM_PICKABLE_ITEM_OWNER;
         public static SetVARMAPArrayElemValueDelegate<CharacterType> SET_ELEM_PICKABLE_ITEM_OWNER;

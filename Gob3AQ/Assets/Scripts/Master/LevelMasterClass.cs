@@ -80,8 +80,8 @@ namespace Gob3AQ.LevelMaster
         public static void GetNearestWPService(Vector2 position, float maxRadius, out int candidate_index,
             out Vector2 candidate_pos)
         {
-            Span<GameEventCombi> gameEventCombis = stackalloc GameEventCombi[1];
-            if (_singleton != null)
+            Span<GameEventCombi> gameEventCombis = RentedSpan<GameEventCombi>.GetSpanOfSize(1);
+            if (_singleton)
             {
                 float minDistance = float.PositiveInfinity;
                 candidate_pos = Vector2.zero;
@@ -214,43 +214,7 @@ namespace Gob3AQ.LevelMaster
 
         
 
-        private void GameElementOverService(in LevelElemInfo info, bool enableMask)
-        {
-            bool changed = false;
-
-            /* Add/Remove and update */
-            if (info.active & enableMask)
-            {
-                _ = _HoveredPending.Add(info);
-            }
-            else
-            {
-                if ((_HoveredElem.family == info.family) && (_HoveredElem.item == info.item))
-                {
-                    _HoveredElem = LevelElemInfo.EMPTY;
-                    changed = true;
-                }
-            }
-
-            foreach (LevelElemInfo iteratedInfo in _HoveredPending)
-            {
-                if ((iteratedInfo.family > GameItemFamily.ITEM_FAMILY_TYPE_NONE) &&
-                    (
-                    (_HoveredElem.family < iteratedInfo.family) ||
-                    (_HoveredElem.family == iteratedInfo.family) && (_HoveredElem.hoverPriority < iteratedInfo.hoverPriority)
-                    )
-                    )
-                {
-                    _HoveredElem = iteratedInfo;
-                    changed = true;
-                }
-            }
-
-            if (changed)
-            {
-                VARMAP_LevelMaster.SET_ITEM_HOVER(_HoveredElem.item);
-            }
-        }
+        
 
         
 
@@ -322,7 +286,7 @@ namespace Gob3AQ.LevelMaster
             BusyState busyState = VARMAP_LevelMaster.GET_BUSY_STATE();
             ref readonly MousePropertiesStruct mouse = ref VARMAP_LevelMaster.GET_MOUSE_PROPERTIES();
 
-            _HoveredPending.Clear();
+            
             UpdateHoverElements(in mouse);
 
             if (busyState != BusyState.GAME_NOT_BUSY) return;
@@ -341,7 +305,6 @@ namespace Gob3AQ.LevelMaster
                     if (keys.isKeyCycleReleased(KeyFunctions.KEYFUNC_INVENTORY))
                     {
                         VARMAP_LevelMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
-                        ClearHovered();
                     }
                     break;
 
@@ -409,6 +372,7 @@ namespace Gob3AQ.LevelMaster
             Ray ray = mainCamera.ScreenPointToRay(new(mouse.posPixels.x,mouse.posPixels.y));
             int matches = Physics2D.RaycastNonAlloc(ray.origin, ray.direction, _RaycastedItemColliders, float.PositiveInfinity, _LayerPlayersAndItemsNPC);
 
+            _HoveredPending.Clear();
             _RaycastedItems.Clear();
 
             if (_playMouseArea.Contains(mouse.posPixels))
@@ -471,6 +435,44 @@ namespace Gob3AQ.LevelMaster
                 UpdateCharItemMouseEvents(in mouse, in keys);
             }
         }
+        
+        private void GameElementOverService(in LevelElemInfo info, bool enableMask)
+        {
+            bool changed = false;
+
+            /* Add/Remove and update */
+            if (info.active & enableMask)
+            {
+                _ = _HoveredPending.Add(info);
+            }
+            else
+            {
+                if ((_HoveredElem.family == info.family) && (_HoveredElem.item == info.item))
+                {
+                    _HoveredElem = LevelElemInfo.EMPTY;
+                    changed = true;
+                }
+            }
+
+            foreach (LevelElemInfo iteratedInfo in _HoveredPending)
+            {
+                if ((iteratedInfo.family > GameItemFamily.ITEM_FAMILY_TYPE_NONE) &&
+                    (
+                        (_HoveredElem.family < iteratedInfo.family) ||
+                        (_HoveredElem.family == iteratedInfo.family) && (_HoveredElem.hoverPriority < iteratedInfo.hoverPriority)
+                    )
+                   )
+                {
+                    _HoveredElem = iteratedInfo;
+                    changed = true;
+                }
+            }
+
+            if (changed)
+            {
+                VARMAP_LevelMaster.SET_ITEM_HOVER(_HoveredElem.item);
+            }
+        }
 
         
 
@@ -487,7 +489,6 @@ namespace Gob3AQ.LevelMaster
                 if ((chosenItem == GameItem.ITEM_NONE) && (playerSelected != CharacterType.CHARACTER_NONE))
                 {
                     VARMAP_LevelMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_ITEM_MENU, out _);
-                    ClearHovered();
                 }
                 else
                 {
@@ -661,7 +662,7 @@ namespace Gob3AQ.LevelMaster
                 GameAction actionWhenCross = _WP_Info_List[_Player_List[(int)character].Waypoint].ActionWhenCross;
                 if (actionWhenCross != GameAction.ACTION_NONE)
                 {
-                    Span<GameAction> stackAction = stackalloc GameAction[1];
+                    Span<GameAction> stackAction = RentedSpan<GameAction>.GetSpanOfSize(1);
                     stackAction[0] = actionWhenCross;
                     VARMAP_LevelMaster.PERFORM_ACTION(stackAction, null);
                 }
@@ -742,7 +743,7 @@ namespace Gob3AQ.LevelMaster
 
         private void PlayerEntryWalk()
         {
-            Span<GameEventCombi> stackCombi = stackalloc GameEventCombi[1];
+            Span<GameEventCombi> stackCombi = RentedSpan<GameEventCombi>.GetSpanOfSize(1);
             stackCombi[0] = new GameEventCombi(GameEvent.EVENT_MASTER_CHANGE_ROOM, false);
 
             VARMAP_LevelMaster.IS_EVENT_COMBI_OCCURRED(stackCombi, out bool occurred);
@@ -794,6 +795,8 @@ namespace Gob3AQ.LevelMaster
 
         private void ClearHovered()
         {
+            _PrevRaycastedItems.Clear();
+            _RaycastedItems.Clear();
             _HoveredPending.Clear();
             _HoveredElem = LevelElemInfo.EMPTY;
             GameElementOverService(in LevelElemInfo.EMPTY, false);
@@ -819,46 +822,41 @@ namespace Gob3AQ.LevelMaster
         {
             _ = evtype;
 
-            if (newval != oldval)
+            if (newval == oldval) return;
+            
+            ClearHovered();
+            
+            switch (newval)
             {
-                switch (newval)
-                {
-                    case Game_Status.GAME_STATUS_CHANGING_ROOM:
-                        Array.Clear(_Player_List, 0, _Player_List.Length);
-                        _ItemDictionary.Clear();
-                        _Door_Dict.Clear();
-                        _RaycastedItems.Clear();
-                        _PrevRaycastedItems.Clear();
-                        Array.Clear(_RaycastedItemColliders, 0, _RaycastedItemColliders.Length);
-                        _ItemColliderDictionary.Clear();
-                        somePlayerRegistered = false;
+                case Game_Status.GAME_STATUS_CHANGING_ROOM:
+                    Array.Clear(_Player_List, 0, _Player_List.Length);
+                    _ItemDictionary.Clear();
+                    _Door_Dict.Clear();
+                    Array.Clear(_RaycastedItemColliders, 0, _RaycastedItemColliders.Length);
+                    _ItemColliderDictionary.Clear();
+                    somePlayerRegistered = false;
 
-                        Array.Clear(_PendingCharInteractions, 0, _PendingCharInteractions.Length);
-                        _HoveredElem = LevelElemInfo.EMPTY;
-                        _HoveredPending.Clear();
-                        VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
-                        VARMAP_LevelMaster.SET_ITEM_HOVER(_HoveredElem.item);
+                    Array.Clear(_PendingCharInteractions, 0, _PendingCharInteractions.Length);
+                    
+                    VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
+                    VARMAP_LevelMaster.SET_ITEM_HOVER(_HoveredElem.item);
 
-                        _WP_Info_List = null;
-                        break;
-                    case Game_Status.GAME_STATUS_LOADING:
-                        StartCoroutine(LoadCoroutine());
-                        break;
+                    _WP_Info_List = null;
+                    break;
+                case Game_Status.GAME_STATUS_LOADING:
+                    StartCoroutine(LoadCoroutine());
+                    break;
 
-                    case Game_Status.GAME_STATUS_PLAY:
-                        /* Force new status */
-                        _PrevRaycastedItems.Clear();
+                case Game_Status.GAME_STATUS_PLAY:
+                    /* Player entry */
+                    if(oldval == Game_Status.GAME_STATUS_LOADING)
+                    {
+                        PlayerEntryWalk();
+                    }
+                    break;
 
-                        /* Player entry */
-                        if(oldval == Game_Status.GAME_STATUS_LOADING)
-                        {
-                            PlayerEntryWalk();
-                        }
-                        break;
-
-                    default:
-                        break;
-                }
+                default:
+                    break;
             }
         }
     }

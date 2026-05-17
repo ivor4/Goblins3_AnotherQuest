@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using Gob3AQ.GameElement.Item.Card;
 using Gob3AQ.CardGameAtlas;
+using Gob3AQ.Libs.Arith;
 using UnityEngine;
 
 namespace Gob3AQ.CardMaster
@@ -304,7 +305,7 @@ namespace Gob3AQ.CardMaster
                         
                         if (!active)
                         {
-                            Span<GameAction> onlyAction = stackalloc GameAction[1];
+                            Span<GameAction> onlyAction = RentedSpan<GameAction>.GetSpanOfSize(1);
                             onlyAction[0] = game_winningPlayer == 0 ? gameInfo.actionWhenWin : gameInfo.actionWhenLose;
                             VARMAP_CardMaster.PERFORM_ACTION(onlyAction, null);
                             

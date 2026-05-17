@@ -2,6 +2,7 @@ using Gob3AQ.VARMAP.GameMenu;
 using Gob3AQ.VARMAP.Types;
 using Gob3AQ.VARMAP.Types.Delegates;
 using System;
+using Gob3AQ.Libs.Arith;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -54,18 +55,12 @@ namespace Gob3AQ.GameMenu.DetailActiveElem
 
         private void RefreshActiveElemDetail()
         {
-            Span<GameEventCombi> gameEventCombi = stackalloc GameEventCombi[1] { new(GameEvent.EVENT_INVITATION_REVEALED, false)};
+            Span<GameEventCombi> gameEventCombi = RentedSpan<GameEventCombi>.GetSpanOfSize(1);
+            gameEventCombi[0] = new(GameEvent.EVENT_INVITATION_REVEALED, false);
             VARMAP_GameMenu.IS_EVENT_COMBI_OCCURRED(gameEventCombi, out bool occurred);
 
 
-            if(occurred)
-            {
-                activeElemImage.color = DETAIL_SHOWN;
-            }
-            else
-            {
-                activeElemImage.color = DETAIL_HIDDEN;
-            }
+            activeElemImage.color = occurred ? DETAIL_SHOWN : DETAIL_HIDDEN;
         }
 
         private void ObserveElemHover(GameItem item, bool enter)

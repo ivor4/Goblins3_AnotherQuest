@@ -7,6 +7,7 @@ using Gob3AQ.VARMAP.Types.Cards;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Gob3AQ.Libs.Arith;
 using UnityEngine;
 
 namespace Gob3AQ.GameEventMaster
@@ -186,32 +187,23 @@ namespace Gob3AQ.GameEventMaster
 
         public static void PerformActionService(ReadOnlySpan<GameAction> actions, Action callback)
         {
-            if (_singleton != null)
+            if (!_singleton) return;
+            
+            for(int i=0; i < actions.Length; ++i)
             {
-                for(int i=0; i < actions.Length; ++i)
+                if (actions[i] != GameAction.ACTION_NONE)
                 {
-                    if (actions[i] != GameAction.ACTION_NONE)
-                    {
-                        Action usedCallback;
-
+                    var usedCallback =
                         /* Only execute callback on last action, to avoid multiple calls when there are more than one action */
-                        if (i < (actions.Length - 1))
-                        {
-                            usedCallback = null; 
-                        }
-                        else
-                        {
-                            usedCallback = callback;
-                        }
+                        i < (actions.Length - 1) ? null : callback;
 
-                        _singleton._pendingActions.Add(new ActionOrder(actions[i], usedCallback));
-                    }
+                    _singleton._pendingActions.Add(new ActionOrder(actions[i], usedCallback));
                 }
-
-                BusyState busyState = VARMAP_GameEventMaster.GET_SHADOW_BUSY_STATE();
-                busyState = UpdateBusyState(busyState, true, false);
-                VARMAP_GameEventMaster.SET_BUSY_STATE(busyState);
             }
+
+            BusyState busyState = VARMAP_GameEventMaster.GET_SHADOW_BUSY_STATE();
+            busyState = UpdateBusyState(busyState, true, false);
+            VARMAP_GameEventMaster.SET_BUSY_STATE(busyState);
         }
 
         public static void NotifyEndedActionService(NotifyAction notify)
@@ -384,7 +376,7 @@ namespace Gob3AQ.GameEventMaster
             bool ended;
 
             /* Retrieve all Unchainers */
-            Span<GameEventCombi> ignoreIfCondition = stackalloc GameEventCombi[1];
+            Span<GameEventCombi> ignoreIfCondition = RentedSpan<GameEventCombi>.GetSpanOfSize(1);
 
             if (index < (int)UnchainConditions.UNCHAIN_TOTAL)
             {
@@ -503,7 +495,7 @@ namespace Gob3AQ.GameEventMaster
             bool pending;
 
             /* Retrieve all Unchainers */
-            Span<GameEventCombi> ignoreIfCondition = stackalloc GameEventCombi[1];
+            Span<GameEventCombi> ignoreIfCondition = RentedSpan<GameEventCombi>.GetSpanOfSize(1);
 
             /* Check if ignoreif condition comply (NONE means never ignore) */
             if (unchainer_info.ignoreif.eventType != GameEvent.EVENT_NONE)

@@ -340,6 +340,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5cf8486e925f06440a11bd83b2518bfe
+    m_Address: SPRITE_SILVANA_STEADY_READING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 629b491b2fb19bf4b9c4e6d73d256962
     m_Address: ANIMATOR_EXTRAPERLO_TABLE2
     m_ReadOnly: 0
@@ -395,6 +400,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 72aa6f78b1c43114fa243de2d49a64cf
+    m_Address: ANIMATION_SILVANA_STEADY_READING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 785850153a68df44f8a532974bea456a
     m_Address: ANIMATOR_FIRE
     m_ReadOnly: 0
@@ -427,6 +437,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 846c55dc0b8e77f46b66096b8e251754
     m_Address: SPRITE_ATLAS_EXTRAPERLO2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 85162f0640cf0b643945ef5ac2fe8a41
+    m_Address: SPRITE_CLOWN_STEADY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -465,6 +480,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f395d262b1f4304db52c9abc8cc6963
+    m_Address: ANIMATOR_CLOWN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 91663f28bdeea1c4c893f92f9e57ac1a
+    m_Address: ANIMATOR_SILVANA_EXTRAPERLO
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 91c7fcbcd14684148838b17b9d4247f4
     m_Address: SOUND_GERMAN_1_OP_1_1_SPANISH
     m_ReadOnly: 0
@@ -482,6 +507,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9bb6744a33276f249afc0429ebdb60f8
     m_Address: SCENE_EXTRAPERLO
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9c03bb20f6dcf044db08f2769a550d5b
+    m_Address: ANIMATION_CLOWN_SMOKING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9fea666bc88a0e94cb179166ab075c70
+    m_Address: ANIMATION_CLOWN_STEADY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -602,6 +637,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cb30b3246a0517140ac755d8745b9407
     m_Address: SOUND_CARDS1_TAUNT_ARTURO_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cedd512e6c2f60445beb94288e7b69d4
+    m_Address: ANIMATION_SILVANA_PASSING_PAGE
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

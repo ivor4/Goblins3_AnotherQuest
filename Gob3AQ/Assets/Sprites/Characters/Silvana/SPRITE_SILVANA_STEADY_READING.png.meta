@@ -1,0 +1,639 @@
+fileFormatVersion: 2
+guid: 5cf8486e925f06440a11bd83b2518bfe
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 364617333039883776
+    second: SPRITE_SILVANA_STEADY_READING_0
+  - first:
+      213: -379457790454366293
+    second: SPRITE_SILVANA_STEADY_READING_1
+  - first:
+      213: 5461665081960758233
+    second: SPRITE_SILVANA_STEADY_READING_2
+  - first:
+      213: 6764035519641422203
+    second: SPRITE_SILVANA_STEADY_READING_3
+  - first:
+      213: 1935169049656914146
+    second: SPRITE_SILVANA_STEADY_READING_4
+  - first:
+      213: 5236729602581585352
+    second: SPRITE_SILVANA_STEADY_READING_5
+  - first:
+      213: 7066266177016429812
+    second: SPRITE_SILVANA_STEADY_READING_6
+  - first:
+      213: -4859181208696435208
+    second: SPRITE_SILVANA_STEADY_READING_7
+  - first:
+      213: -3186518665552161078
+    second: SPRITE_SILVANA_STEADY_READING_8
+  - first:
+      213: 2498815237791561051
+    second: SPRITE_SILVANA_STEADY_READING_9
+  - first:
+      213: 7457931114187122202
+    second: SPRITE_SILVANA_STEADY_READING_10
+  - first:
+      213: -3892616158589865657
+    second: SPRITE_SILVANA_STEADY_READING_11
+  - first:
+      213: -8373579051273648989
+    second: SPRITE_SILVANA_STEADY_READING_12
+  - first:
+      213: 2335857542958983443
+    second: SPRITE_SILVANA_STEADY_READING_13
+  - first:
+      213: 313229834341962367
+    second: SPRITE_SILVANA_STEADY_READING_14
+  - first:
+      213: 6435489129001825949
+    second: SPRITE_SILVANA_STEADY_READING_15
+  - first:
+      213: -118788484532368080
+    second: SPRITE_SILVANA_STEADY_READING_16
+  - first:
+      213: -5607738373768772333
+    second: SPRITE_SILVANA_STEADY_READING_17
+  - first:
+      213: 8344504845163709314
+    second: SPRITE_SILVANA_STEADY_READING_18
+  - first:
+      213: 6329239050920798324
+    second: SPRITE_SILVANA_STEADY_READING_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_STEADY_READING_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 006eac658816f0500800000000000000
+      internalID: 364617333039883776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_STEADY_READING_1
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baf76b86625ebbaf0800000000000000
+      internalID: -379457790454366293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_STEADY_READING_2
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dbfc64747bbbcb40800000000000000
+      internalID: 5461665081960758233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_STEADY_READING_3
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b790a5cb77eaedd50800000000000000
+      internalID: 6764035519641422203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_STEADY_READING_4
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e071296ff91bda10800000000000000
+      internalID: 1935169049656914146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_STEADY_READING_5
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cdd5a204d99ca840800000000000000
+      internalID: 5236729602581585352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_STEADY_READING_6
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fcfb6936ab601260800000000000000
+      internalID: 7066266177016429812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_STEADY_READING_7
+      rect:
+        serializedVersion: 2
+        x: 1288
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fd456c8f68b09cb0800000000000000
+      internalID: -4859181208696435208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_STEADY_READING_8
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac69c95182637c3d0800000000000000
+      internalID: -3186518665552161078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_STEADY_READING_9
+      rect:
+        serializedVersion: 2
+        x: 1656
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5536ef28339da220800000000000000
+      internalID: 2498815237791561051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_STEADY_READING_10
+      rect:
+        serializedVersion: 2
+        x: 1840
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a16e474a5d4ef7760800000000000000
+      internalID: 7457931114187122202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_STEADY_READING_11
+      rect:
+        serializedVersion: 2
+        x: 2024
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7413e4c4a36aaf9c0800000000000000
+      internalID: -3892616158589865657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_STEADY_READING_12
+      rect:
+        serializedVersion: 2
+        x: 2208
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a48e2ec7321bcb80800000000000000
+      internalID: -8373579051273648989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_STEADY_READING_13
+      rect:
+        serializedVersion: 2
+        x: 2392
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 319acf53f02aa6020800000000000000
+      internalID: 2335857542958983443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_STEADY_READING_14
+      rect:
+        serializedVersion: 2
+        x: 2576
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f72d101ffd0d85400800000000000000
+      internalID: 313229834341962367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_STEADY_READING_15
+      rect:
+        serializedVersion: 2
+        x: 2760
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d96ba0224437f4950800000000000000
+      internalID: 6435489129001825949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_STEADY_READING_16
+      rect:
+        serializedVersion: 2
+        x: 2944
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03d8a00b08af95ef0800000000000000
+      internalID: -118788484532368080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_STEADY_READING_17
+      rect:
+        serializedVersion: 2
+        x: 3128
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3158f2ef8af4d22b0800000000000000
+      internalID: -5607738373768772333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_STEADY_READING_18
+      rect:
+        serializedVersion: 2
+        x: 3312
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 283428212f2adc370800000000000000
+      internalID: 8344504845163709314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_STEADY_READING_19
+      rect:
+        serializedVersion: 2
+        x: 3496
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4782aa01269f5d750800000000000000
+      internalID: 6329239050920798324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b67307368853cd149a0d6910296d907b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":20.0,"y":1.0},"gridSpriteSize":{"x":184.0,"y":320.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.10000000149011612},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_SILVANA_STEADY_READING_0: 364617333039883776
+      SPRITE_SILVANA_STEADY_READING_1: -379457790454366293
+      SPRITE_SILVANA_STEADY_READING_10: 7457931114187122202
+      SPRITE_SILVANA_STEADY_READING_11: -3892616158589865657
+      SPRITE_SILVANA_STEADY_READING_12: -8373579051273648989
+      SPRITE_SILVANA_STEADY_READING_13: 2335857542958983443
+      SPRITE_SILVANA_STEADY_READING_14: 313229834341962367
+      SPRITE_SILVANA_STEADY_READING_15: 6435489129001825949
+      SPRITE_SILVANA_STEADY_READING_16: -118788484532368080
+      SPRITE_SILVANA_STEADY_READING_17: -5607738373768772333
+      SPRITE_SILVANA_STEADY_READING_18: 8344504845163709314
+      SPRITE_SILVANA_STEADY_READING_19: 6329239050920798324
+      SPRITE_SILVANA_STEADY_READING_2: 5461665081960758233
+      SPRITE_SILVANA_STEADY_READING_3: 6764035519641422203
+      SPRITE_SILVANA_STEADY_READING_4: 1935169049656914146
+      SPRITE_SILVANA_STEADY_READING_5: 5236729602581585352
+      SPRITE_SILVANA_STEADY_READING_6: 7066266177016429812
+      SPRITE_SILVANA_STEADY_READING_7: -4859181208696435208
+      SPRITE_SILVANA_STEADY_READING_8: -3186518665552161078
+      SPRITE_SILVANA_STEADY_READING_9: 2498815237791561051
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

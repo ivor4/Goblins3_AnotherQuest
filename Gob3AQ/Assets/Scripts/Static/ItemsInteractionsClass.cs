@@ -931,6 +931,16 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_ARTURO_STEADY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_NPC_ARTURO_EXTRAPERLO, ActionConditions.COND_TALK_ITEM_NPC_ARTURO_EXTRAPERLO})),
 
+            new ( /* ITEM_NPC_CLOWN */
+            NameType.NAME_CLOWN,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_CLOWN_STEADY}),
+            GameSprite.SPRITE_CLOWN_STEADY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
+            new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
+
+            new ( /* ITEM_NPC_SILVANA_EXTRAPERLO */
+            NameType.NAME_SILVANA,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_SILVANA_STEADY_READING}),
+            GameSprite.SPRITE_SILVANA_STEADY_READING,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
+            new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
+
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST}),
             GameSprite.SPRITE_LAST,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,

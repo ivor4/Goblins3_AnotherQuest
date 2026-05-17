@@ -54,6 +54,8 @@ namespace Gob3AQ.VARMAP.Types
         NAME_GERMAN, 
         NAME_WAITER, 
         NAME_UNKNOWN_GIRLS, 
+        NAME_CLOWN, 
+        NAME_SILVANA, 
         NAME_NPC_LAST, 
         
 NAME_TOTAL

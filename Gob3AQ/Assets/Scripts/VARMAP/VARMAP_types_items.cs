@@ -54,6 +54,8 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_NPC_WAITER, 
         ITEM_NPC_UNKNOWN_WOMEN, 
         ITEM_NPC_ARTURO_EXTRAPERLO, 
+        ITEM_NPC_CLOWN, 
+        ITEM_NPC_SILVANA_EXTRAPERLO, 
         ITEM_LAST, 
         
 ITEM_TOTAL

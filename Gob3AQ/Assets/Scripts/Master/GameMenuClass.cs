@@ -354,7 +354,7 @@ namespace Gob3AQ.GameMenu
                     /* Check if triggered event is not already triggered */
                     ref readonly MementoCombiInfo memCombiInfo = ref ItemsInteractionsClass.GetMementoCombiInfo(intersected);
 
-                    Span<GameEventCombi> one_event = stackalloc GameEventCombi[1];
+                    Span<GameEventCombi> one_event = RentedSpan<GameEventCombi>.GetSpanOfSize(1);
                     one_event[0] = new(memCombiInfo.triggeredEvent, false);
                     VARMAP_GameMenu.IS_EVENT_COMBI_OCCURRED(one_event, out bool occurred);
 

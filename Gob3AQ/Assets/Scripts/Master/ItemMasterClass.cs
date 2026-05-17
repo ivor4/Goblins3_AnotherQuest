@@ -198,9 +198,6 @@ namespace Gob3AQ.ItemMaster
 
         private static void ItemInteractionCommon(in InteractionUsage usage, out InteractionUsageOutcome outcome, bool isPeek)
         {
-            GameAction defaultNegativeAction = GetDefaultNegativeAction(usage.type);
-            Span<GameAction> negativeActions = stackalloc GameAction[] { defaultNegativeAction };
-
             /* If item is not defined, it is not possible to process it */
             var conditionOK = false;
             MomentType actualMoment = VARMAP_ItemMaster.GET_DAY_MOMENT();
@@ -241,6 +238,9 @@ namespace Gob3AQ.ItemMaster
 
             if(!conditionOK && !isPeek)
             {
+                GameAction defaultNegativeAction = GetDefaultNegativeAction(usage.type);
+                Span<GameAction> negativeActions = RentedSpan<GameAction>.GetSpanOfSize(1);
+                negativeActions[0] = defaultNegativeAction;
                 VARMAP_ItemMaster.PERFORM_ACTION(negativeActions, null);
             }
 

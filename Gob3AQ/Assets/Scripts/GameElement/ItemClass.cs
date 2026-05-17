@@ -124,7 +124,7 @@ namespace Gob3AQ.GameElement.Item
 
         protected void Update()
         {
-            if (!myAnimator || (programmedAnimationsRt.Length <= 0)) return;
+            if ((!myAnimator.runtimeAnimatorController) || (programmedAnimationsRt.Length <= 0)) return;
             
             ulong actualTimestamp = VARMAP_ItemMaster.GET_ELAPSED_TIME_MS();
             for (int i = 0; i < programmedAnimationsRt.Length; i++)
@@ -143,6 +143,8 @@ namespace Gob3AQ.GameElement.Item
                 
                 PerformAnimation(rt.progAnim.destTrigger, null);
             }
+
+            animationJustStarted = false;
         }
 
 
@@ -161,7 +163,7 @@ namespace Gob3AQ.GameElement.Item
 
         protected virtual void Loading_Task()
         {
-            if (startingWaypoint == null)
+            if (!startingWaypoint)
             {
                 VARMAP_ItemMaster.GET_NEAREST_WP(transform.position, float.MaxValue, out actualWaypoint, out _);
             }

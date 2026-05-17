@@ -47,6 +47,7 @@ namespace Gob3AQ.GameElement
         protected Action animationEndCallback;
         protected bool animationStartedNewState;
         protected AnimationTrigger actualAnimationTrigger;
+        protected bool animationJustStarted;
         protected bool registered;
         protected bool loaded;
         private bool isAvailable;
@@ -87,6 +88,7 @@ namespace Gob3AQ.GameElement
             gameElementFamily = itemInfo.family;
 
             actualAnimationTrigger = AnimationTrigger.ANIMATION_TRIGGER_STEADY;
+            animationJustStarted = false;
 
             /* Register item as Level element (to be clicked and able to iteract) */
             VARMAP_ItemMaster.ITEM_REGISTER(true, this);
@@ -106,7 +108,7 @@ namespace Gob3AQ.GameElement
 
         public void PerformAnimation(AnimationTrigger trigger, Action callback)
         {
-            if ((myAnimator)&&(trigger != AnimationTrigger.ANIMATION_TRIGGER_NONE))
+            if ((myAnimator.runtimeAnimatorController)&&(trigger != AnimationTrigger.ANIMATION_TRIGGER_NONE))
             {
                 animationStartedNewState = false;
                 animationEndCallback = callback;
@@ -269,6 +271,7 @@ namespace Gob3AQ.GameElement
         {
             _ = ResourceAnimationsAtlasClass.STATE_HASH_TO_TRIGGER.TryGetValue(stateInfo.shortNameHash,
                 out actualAnimationTrigger);
+            animationJustStarted = true;
             
             animationStartedNewState = true;
         }
@@ -304,7 +307,7 @@ namespace Gob3AQ.GameElement
                         SetActive(!isUnspawned);
                         SetClickable(!isUnspawned && !isUnclickable);
                         SetMotion(!isUnspawned);
-                        if (myAnimator != null)
+                        if (myAnimator)
                         {
                             myAnimator.enabled = true;
                         }

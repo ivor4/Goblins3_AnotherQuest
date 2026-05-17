@@ -34,6 +34,12 @@ namespace Gob3AQ.ResourceAnimationsAtlas
             { AnimationTrigger.ANIMATION_TRIGGER_STEADY, Animator.StringToHash("Tr_Steady") },
 
             { AnimationTrigger.ANIMATION_TRIGGER_TALK, Animator.StringToHash("Tr_Talk") },
+            
+            { AnimationTrigger.ANIMATION_TRIGGER_TRANSITION_ONE, Animator.StringToHash("Tr_Trans1") },
+            { AnimationTrigger.ANIMATION_TRIGGER_TRANSITION_TWO, Animator.StringToHash("Tr_Trans2") },
+            
+            { AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO, Animator.StringToHash("Tr_Steady2") },
+            { AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO, Animator.StringToHash("Tr_Talk2") },
 
             { AnimationTrigger.ANIMATION_TRIGGER_WALK_FRONT, Animator.StringToHash("Tr_WalkFront") },
             { AnimationTrigger.ANIMATION_TRIGGER_WALK_BACK, Animator.StringToHash("Tr_WalkBack") },

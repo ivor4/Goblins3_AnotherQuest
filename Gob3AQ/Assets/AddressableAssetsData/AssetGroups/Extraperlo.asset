@@ -85,6 +85,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1533e49c71977034db3cb4382271782a
+    m_Address: ANIMATION_SILVANA_SEATED_TALKING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 158a779f324e8c04491a1416298df7c9
     m_Address: SCENE_CITY1_SOUTH_STREET_2
     m_ReadOnly: 0
@@ -135,6 +140,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b0dde61fe9932f409128bda80989792
+    m_Address: SOUND_SILVANA_INTRO1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2b9fd097ba1ec284a823a5b5d0d6e32e
     m_Address: SPRITE_EXTRAPERLO_COUPLE_TALKING
     m_ReadOnly: 0
@@ -162,6 +172,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 327148bc8ebe6e14d95e21d4812d7c35
     m_Address: BACKGROUND_CITY1_EXTRAPERLO
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 32f292bd9893a294694843acb2c406b7
+    m_Address: SOUND_SILVANA_INTRO2_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -380,6 +395,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e1e0965ae7d7274bbdcf7a6cdc67f76
+    m_Address: SOUND_SILVANA_OP_0_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5e342c15078d0ff49bf9acb0980885d9
     m_Address: SPRITE_CLOWN_TALKING
     m_ReadOnly: 0
@@ -540,6 +560,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 915de444d5ef7b748aefcf5bc6a77d07
+    m_Address: SOUND_SILVANA_OP_0_3_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 91663f28bdeea1c4c893f92f9e57ac1a
     m_Address: ANIMATOR_SILVANA_EXTRAPERLO
     m_ReadOnly: 0
@@ -645,6 +670,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b58a28cb014189247b9755b6645cdef4
+    m_Address: SOUND_SILVANA_OP_1_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b68d4cbca315fad438da1423efc10a1a
     m_Address: BACKGROUND_CITY1_SOUTH_STREET_1
     m_ReadOnly: 0
@@ -675,6 +705,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0ec8241aadf3804a9d750ac577ee8b1
+    m_Address: SOUND_SILVANA_OP_0_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c20d547f5cc07494d844e9068d1a83d2
     m_Address: SPRITE_FIK_ANGRY_GESTURE_1
     m_ReadOnly: 0
@@ -695,6 +730,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c58944a135ee6dd42b5a73d11282294e
+    m_Address: SPRITE_SILVANA_TALKING_SEATED_UPSET
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c888b1d337cef3a42af9232c1cba7711
     m_Address: SOUND_ARTURO_EXTRAPERLO_OP_2_7_SPANISH
     m_ReadOnly: 0
@@ -707,6 +747,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cb30b3246a0517140ac755d8745b9407
     m_Address: SOUND_CARDS1_TAUNT_ARTURO_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb4c60efeada95f4aa3d123456e482df
+    m_Address: SOUND_SILVANA_OP_1_1_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -790,8 +835,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e1338a81bea85f847929b19ec6445af4
+    m_Address: ANIMATION_SILVANA_CLOSING_BOOK
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e1f38e94e9889134a919842e7e4f3487
     m_Address: SPRITE_EXTRAPERLO_TABLE1_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e28298dc2f4a9974db8c9c4c7cec7982
+    m_Address: SOUND_SILVANA_OP_0_0_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

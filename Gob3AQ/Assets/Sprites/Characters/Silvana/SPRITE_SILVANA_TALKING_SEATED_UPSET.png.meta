@@ -1,0 +1,639 @@
+fileFormatVersion: 2
+guid: c58944a135ee6dd42b5a73d11282294e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2483662788093982190
+    second: SPRITE_SILVANA_TALKING_SEATED_UPSET_0
+  - first:
+      213: 1984745150040807077
+    second: SPRITE_SILVANA_TALKING_SEATED_UPSET_1
+  - first:
+      213: -451608377577986764
+    second: SPRITE_SILVANA_TALKING_SEATED_UPSET_2
+  - first:
+      213: 4534555791265055434
+    second: SPRITE_SILVANA_TALKING_SEATED_UPSET_3
+  - first:
+      213: 8757340972051531431
+    second: SPRITE_SILVANA_TALKING_SEATED_UPSET_4
+  - first:
+      213: 3856381335558270306
+    second: SPRITE_SILVANA_TALKING_SEATED_UPSET_5
+  - first:
+      213: 6342994272823605080
+    second: SPRITE_SILVANA_TALKING_SEATED_UPSET_6
+  - first:
+      213: 5030951338066520662
+    second: SPRITE_SILVANA_TALKING_SEATED_UPSET_7
+  - first:
+      213: 1122337899291968048
+    second: SPRITE_SILVANA_TALKING_SEATED_UPSET_8
+  - first:
+      213: -384954920398557414
+    second: SPRITE_SILVANA_TALKING_SEATED_UPSET_9
+  - first:
+      213: -4422230368381575440
+    second: SPRITE_SILVANA_TALKING_SEATED_UPSET_10
+  - first:
+      213: 9158543772252413458
+    second: SPRITE_SILVANA_TALKING_SEATED_UPSET_11
+  - first:
+      213: -7070763286836707423
+    second: SPRITE_SILVANA_TALKING_SEATED_UPSET_12
+  - first:
+      213: -5660757558324680064
+    second: SPRITE_SILVANA_TALKING_SEATED_UPSET_13
+  - first:
+      213: 7964988970677110523
+    second: SPRITE_SILVANA_TALKING_SEATED_UPSET_14
+  - first:
+      213: -3964813721184664847
+    second: SPRITE_SILVANA_TALKING_SEATED_UPSET_15
+  - first:
+      213: -7021354396708532718
+    second: SPRITE_SILVANA_TALKING_SEATED_UPSET_16
+  - first:
+      213: 8982011445321922459
+    second: SPRITE_SILVANA_TALKING_SEATED_UPSET_17
+  - first:
+      213: 6819353873386922388
+    second: SPRITE_SILVANA_TALKING_SEATED_UPSET_18
+  - first:
+      213: -3825967286676202494
+    second: SPRITE_SILVANA_TALKING_SEATED_UPSET_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_TALKING_SEATED_UPSET_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21a4dcd6ad1488dd0800000000000000
+      internalID: -2483662788093982190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_TALKING_SEATED_UPSET_1
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a69cd5c23b3b8b10800000000000000
+      internalID: 1984745150040807077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_TALKING_SEATED_UPSET_2
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 435afd4c2909bb9f0800000000000000
+      internalID: -451608377577986764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_TALKING_SEATED_UPSET_3
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac24b80977afdee30800000000000000
+      internalID: 4534555791265055434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_TALKING_SEATED_UPSET_4
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a60b183733588970800000000000000
+      internalID: 8757340972051531431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_TALKING_SEATED_UPSET_5
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26da568846e948530800000000000000
+      internalID: 3856381335558270306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_TALKING_SEATED_UPSET_6
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 857fcfb3fa7d60850800000000000000
+      internalID: 6342994272823605080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_TALKING_SEATED_UPSET_7
+      rect:
+        serializedVersion: 2
+        x: 1288
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65a2bbb369781d540800000000000000
+      internalID: 5030951338066520662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_TALKING_SEATED_UPSET_8
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 032814d7f58539f00800000000000000
+      internalID: 1122337899291968048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_TALKING_SEATED_UPSET_9
+      rect:
+        serializedVersion: 2
+        x: 1656
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1fea1b1a8d58aaf0800000000000000
+      internalID: -384954920398557414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_TALKING_SEATED_UPSET_10
+      rect:
+        serializedVersion: 2
+        x: 1840
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fedba1f8e411a2c0800000000000000
+      internalID: -4422230368381575440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_TALKING_SEATED_UPSET_11
+      rect:
+        serializedVersion: 2
+        x: 2024
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21e98fc690fa91f70800000000000000
+      internalID: 9158543772252413458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_TALKING_SEATED_UPSET_12
+      rect:
+        serializedVersion: 2
+        x: 2208
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1af793dc04a9fdd90800000000000000
+      internalID: -7070763286836707423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_TALKING_SEATED_UPSET_13
+      rect:
+        serializedVersion: 2
+        x: 2392
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08a23702ef2f071b0800000000000000
+      internalID: -5660757558324680064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_TALKING_SEATED_UPSET_14
+      rect:
+        serializedVersion: 2
+        x: 2576
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf60d1db443598e60800000000000000
+      internalID: 7964988970677110523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_TALKING_SEATED_UPSET_15
+      rect:
+        serializedVersion: 2
+        x: 2760
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f281345de62af8c0800000000000000
+      internalID: -3964813721184664847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_TALKING_SEATED_UPSET_16
+      rect:
+        serializedVersion: 2
+        x: 2944
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21e8f0e70632f8e90800000000000000
+      internalID: -7021354396708532718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_TALKING_SEATED_UPSET_17
+      rect:
+        serializedVersion: 2
+        x: 3128
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b97f7ee12d386ac70800000000000000
+      internalID: 8982011445321922459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_TALKING_SEATED_UPSET_18
+      rect:
+        serializedVersion: 2
+        x: 3312
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49169e4a73633ae50800000000000000
+      internalID: 6819353873386922388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_TALKING_SEATED_UPSET_19
+      rect:
+        serializedVersion: 2
+        x: 3496
+        y: 0
+        width: 184
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20c566b060f67eac0800000000000000
+      internalID: -3825967286676202494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c7c78f655bac8964daa1aabf343e64f1
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":20.0,"y":1.0},"gridSpriteSize":{"x":184.0,"y":320.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.10000000149011612},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_SILVANA_TALKING_SEATED_UPSET_0: -2483662788093982190
+      SPRITE_SILVANA_TALKING_SEATED_UPSET_1: 1984745150040807077
+      SPRITE_SILVANA_TALKING_SEATED_UPSET_10: -4422230368381575440
+      SPRITE_SILVANA_TALKING_SEATED_UPSET_11: 9158543772252413458
+      SPRITE_SILVANA_TALKING_SEATED_UPSET_12: -7070763286836707423
+      SPRITE_SILVANA_TALKING_SEATED_UPSET_13: -5660757558324680064
+      SPRITE_SILVANA_TALKING_SEATED_UPSET_14: 7964988970677110523
+      SPRITE_SILVANA_TALKING_SEATED_UPSET_15: -3964813721184664847
+      SPRITE_SILVANA_TALKING_SEATED_UPSET_16: -7021354396708532718
+      SPRITE_SILVANA_TALKING_SEATED_UPSET_17: 8982011445321922459
+      SPRITE_SILVANA_TALKING_SEATED_UPSET_18: 6819353873386922388
+      SPRITE_SILVANA_TALKING_SEATED_UPSET_19: -3825967286676202494
+      SPRITE_SILVANA_TALKING_SEATED_UPSET_2: -451608377577986764
+      SPRITE_SILVANA_TALKING_SEATED_UPSET_3: 4534555791265055434
+      SPRITE_SILVANA_TALKING_SEATED_UPSET_4: 8757340972051531431
+      SPRITE_SILVANA_TALKING_SEATED_UPSET_5: 3856381335558270306
+      SPRITE_SILVANA_TALKING_SEATED_UPSET_6: 6342994272823605080
+      SPRITE_SILVANA_TALKING_SEATED_UPSET_7: 5030951338066520662
+      SPRITE_SILVANA_TALKING_SEATED_UPSET_8: 1122337899291968048
+      SPRITE_SILVANA_TALKING_SEATED_UPSET_9: -384954920398557414
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -55,6 +55,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51805113d75e62a4dac84dd16f9ae04b
+    m_Address: ANIMATION_GENERIC_STEADY_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 53cd6cf4f129526499e7827f376d4ec7
     m_Address: SOUND_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL_SPANISH
     m_ReadOnly: 0
@@ -62,6 +67,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 547cdf5fd2ca96c4daf892076adaba75
     m_Address: SPRITE_PICKABLE_CARDS
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 554c879259faeee4995baba920ffe09d
+    m_Address: ANIMATION_GENERIC_TALK_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -107,6 +117,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 92d845b6379f4fd45bb81c5c91f0fb6f
     m_Address: SCENE_BASE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a85e551b6fd672e4aa74e4e9d8f68510
+    m_Address: ANIMATION_GENERIC_TR_SYS_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

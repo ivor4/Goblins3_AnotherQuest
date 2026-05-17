@@ -320,7 +320,7 @@ namespace Gob3AQ.GameElement
 
                         if ((newval == Game_Status.GAME_STATUS_PLAY_MEMENTO) || (newval == Game_Status.GAME_STATUS_PLAY_ITEM_MENU) || (newval == Game_Status.GAME_STATUS_PLAY_DECISION))
                         {
-                            if (myAnimator != null)
+                            if (myAnimator)
                             {
                                 myAnimator.enabled = false;
                             }

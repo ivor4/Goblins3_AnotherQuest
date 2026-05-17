@@ -175,7 +175,7 @@ namespace Gob3AQ.GameElement.Item
             loaded = true;
 
             /* Set to default sprite if no animator */
-            if (myAnimator.runtimeAnimatorController == null)
+            if (!myAnimator.runtimeAnimatorController)
             {
                 SetSprite(itemInfo.defaultSprite);
             }

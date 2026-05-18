@@ -455,6 +455,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6cfcbbebc4e12bf47b749540296b0f4a
+    m_Address: SOUND_CLOWN_OP3_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6db9edf812de9b842bf91a9b18410068
     m_Address: SPRITE_EXTRAPERLO_TABLE2_MASK
     m_ReadOnly: 0
@@ -592,6 +597,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 99d8b0b7725cd164b98a749c0a514bf4
     m_Address: SPRITE_ATLAS_ARTURO1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9a562b025b9ca5c4fa02e52d85c848d0
+    m_Address: SOUND_CLOWN_OP3_2_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -770,6 +780,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc7a43b28c1101b4284c1bf76899c3a2
+    m_Address: SOUND_CLOWN_OP3_3_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cedd512e6c2f60445beb94288e7b69d4
     m_Address: ANIMATION_SILVANA_PASSING_PAGE
     m_ReadOnly: 0
@@ -902,6 +917,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eb54156b08b70714a97bc856fb8161bd
     m_Address: SOUND_GERMAN_1_OP_0_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ec4d4ca7b386dda409fff8f3767bb809
+    m_Address: SOUND_CLOWN_OP3_0_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

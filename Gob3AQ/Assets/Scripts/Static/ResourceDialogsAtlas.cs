@@ -226,7 +226,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
 
             new( /* DIALOG_CLOWN_EXTRAPERLO */
             new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_CLOWN},
-            new DialogOption[4]{DialogOption.DIALOG_CLOWN_EXTRAPERLO_OPTION_0, DialogOption.DIALOG_CLOWN_EXTRAPERLO_OPTION_1, DialogOption.DIALOG_CLOWN_EXTRAPERLO_OPTION_2, DialogOption.DIALOG_FIK_1_OPTION_3}
+            new DialogOption[5]{DialogOption.DIALOG_CLOWN_EXTRAPERLO_OPTION_0, DialogOption.DIALOG_CLOWN_EXTRAPERLO_OPTION_1, DialogOption.DIALOG_CLOWN_EXTRAPERLO_OPTION_2, DialogOption.DIALOG_CLOWN_EXTRAPERLO_OPTION_3, DialogOption.DIALOG_FIK_1_OPTION_3}
             ),
 
             new( /* DIALOG_CLOWN_EXTRAPERLO_INTRO */
@@ -640,6 +640,13 @@ namespace Gob3AQ.ResourceDialogsAtlas
             DialogType.DIALOG_CLOWN_EXTRAPERLO,false,
             new DialogPhrase[8]{DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_0, DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_2, DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_4, DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_5, DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_6, DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_7, DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_8, DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_9}
             ),
+            new( /* DIALOG_CLOWN_EXTRAPERLO_OPTION_3 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_EXTRAPERLO_SILVANA_REFUSED_MAINCHAR, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_NONE},
+            DialogType.DIALOG_CLOWN_EXTRAPERLO,false,
+            new DialogPhrase[4]{DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_4_0, DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_4_1, DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_4_2, DialogPhrase.PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_4_3}
+            ),
             new( /* DIALOG_CLOWN_EXTRAPERLO_OPTION_INTRO */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
@@ -650,14 +657,14 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new( /* DIALOG_SILVANA_EXTRAPERLO_OPTION_0 */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_ANIMATE_SILVANA_OPENING_BOOK},
+            new GameAction[2]{GameAction.ACTION_ANIMATE_SILVANA_OPENING_BOOK, GameAction.ACTION_EVENT_SILVANA_REFUSED_MAINCHAR},
             DialogType.DIALOG_NONE,false,
             new DialogPhrase[4]{DialogPhrase.PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_0_1, DialogPhrase.PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_0_2, DialogPhrase.PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_0_3}
             ),
             new( /* DIALOG_SILVANA_EXTRAPERLO_OPTION_1 */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE},
+            new GameAction[1]{GameAction.ACTION_EVENT_SILVANA_REFUSED_MAINCHAR},
             DialogType.DIALOG_SILVANA_EXTRAPERLO,false,
             new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_1_0, DialogPhrase.PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_1_1}
             ),
@@ -899,6 +906,10 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(1,GameSound.SOUND_PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_7, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_7 */ 
             new(0,GameSound.SOUND_PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_8, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_8 */ 
             new(1,GameSound.SOUND_PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_9, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_9 */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_4_0, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_4_0 */ 
+            new(1,GameSound.SOUND_PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_4_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_4_1 */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_4_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_4_2 */ 
+            new(1,GameSound.SOUND_PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_4_3, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_4_3 */ 
             new(1,GameSound.SOUND_PHRASE_DIALOG_CLOWN_EXTRAPERLO_INTRO, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_CLOWN_EXTRAPERLO_INTRO */ 
             new(0,GameSound.SOUND_PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_0_0, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_0_0 */ 
             new(1,GameSound.SOUND_PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_0_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_0_1 */ 

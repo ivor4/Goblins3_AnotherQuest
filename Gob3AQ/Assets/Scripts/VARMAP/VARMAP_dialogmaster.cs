@@ -131,7 +131,7 @@ public static START_ANIMATION_DELEGATE START_ANIMATION;
         /// <summary> 
 /// Makes an item start an animation 
 /// <para> Owner: ItemMaster </para> 
-/// <para> Accessors: DialogMaster </para> 
+/// <para> Accessors: DialogMaster, GameEventMaster </para> 
 /// <para> Method: <see cref="ItemMasterClass.PerformAnimationService"/> </para> 
 /// </summary>
 public static ITEM_PERFORM_ANIMATION_DELEGATE ITEM_PERFORM_ANIMATION;

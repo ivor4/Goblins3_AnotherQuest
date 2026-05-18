@@ -109,7 +109,6 @@ namespace Gob3AQ.DialogMaster
                             else
                             {
                                 ++milestoneIndex;
-                                ended = false;
                                 state = AnimationState.WAITING_TRIGGER;
                             }
                         }
@@ -477,7 +476,7 @@ namespace Gob3AQ.DialogMaster
         {
             for (int i = 0; i < dialog_input_numTalkers; ++i)
             {
-                VARMAP_DialogMaster.ITEM_PERFORM_ANIMATION(dialog_input_talkers[i], AnimationTrigger.ANIMATION_TRIGGER_STEADY, null);
+                VARMAP_DialogMaster.ITEM_PERFORM_ANIMATION(dialog_input_talkers[i], AnimationTrigger.ANIMATION_TRIGGER_AUTO_STEADY, null);
             }
 
             dialog_input_numTalkers = 0;
@@ -610,13 +609,13 @@ namespace Gob3AQ.DialogMaster
 
             for(int i = animation_activeAnimations.Count - 1; i >= 0; --i)
             {
-                AnimationRuntime animation = animation_activeAnimations[i];
-                bool ended = animation.Execute(actualTimestamp);
+                AnimationRuntime activeAnimation = animation_activeAnimations[i];
+                bool ended = activeAnimation.Execute(actualTimestamp);
 
                 if (ended)
                 {
                     animation_activeAnimations.RemoveAt(i);
-                    animation_freeAnimations.Enqueue(animation);
+                    animation_freeAnimations.Enqueue(activeAnimation);
                 }
 
                 someAnimationEnded |= ended;

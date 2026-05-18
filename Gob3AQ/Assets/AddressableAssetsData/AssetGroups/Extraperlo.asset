@@ -475,6 +475,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7512fc89f54e44242bfc8cb8ee57a2db
+    m_Address: ANIMATION_SILVANA_OPENING_BOOK
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 785850153a68df44f8a532974bea456a
     m_Address: ANIMATOR_FIRE
     m_ReadOnly: 0
@@ -517,6 +522,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 85162f0640cf0b643945ef5ac2fe8a41
     m_Address: SPRITE_CLOWN_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86d09f79e1a23b143b5d47eac6fa0247
+    m_Address: SPRITE_SILVANA_SEATED_LISTENING
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -742,6 +752,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c94e104ce2014b544898f8b28520177d
     m_Address: SOUND_FIK_1_OP_1_3_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9570f318988d9944b1b7b739093aaba
+    m_Address: ANIMATION_SILVANA_SEATED_LISTENING
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

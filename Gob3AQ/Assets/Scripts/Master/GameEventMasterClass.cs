@@ -208,7 +208,7 @@ namespace Gob3AQ.GameEventMaster
 
         public static void NotifyEndedActionService(NotifyAction notify)
         {
-            if(_singleton != null)
+            if(_singleton)
             {
                 _singleton._actionEndedFlag |= notify;
             }
@@ -216,19 +216,17 @@ namespace Gob3AQ.GameEventMaster
 
         public static void ExecuteExitRoomCondsService()
         {
-            if(_singleton != null)
-            {
-                Room room = VARMAP_GameEventMaster.GET_ACTUAL_ROOM();
-                if (room != Room.ROOM_NONE)
-                {
-                    ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(room);
+            if (!_singleton) return;
+            
+            Room room = VARMAP_GameEventMaster.GET_ACTUAL_ROOM();
+            if (room == Room.ROOM_NONE) return;
+            
+            ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(room);
 
-                    foreach (UnchainConditions unchainConditions in roomInfo.exitConditions)
-                    {
-                        ref readonly UnchainInfo unchainInfo = ref ItemsInteractionsClass.GetUnchainInfo(unchainConditions);
-                        _singleton.TryUnchainAction(in unchainInfo);
-                    }
-                }
+            foreach (UnchainConditions unchainConditions in roomInfo.exitConditions)
+            {
+                ref readonly UnchainInfo unchainInfo = ref ItemsInteractionsClass.GetUnchainInfo(unchainConditions);
+                _singleton.TryUnchainAction(in unchainInfo);
             }
         }
 
@@ -268,7 +266,7 @@ namespace Gob3AQ.GameEventMaster
 
         private void Awake()
         {
-            if (_singleton != null)
+            if (_singleton)
             {
                 Destroy(this);
                 return;
@@ -295,12 +293,11 @@ namespace Gob3AQ.GameEventMaster
 
         private void Start()
         {
-            if (_singleton != null)
-            {
-                VARMAP_GameEventMaster.REG_GAMESTATUS(_GameStatusChanged);
-                Room room = VARMAP_GameEventMaster.GET_ACTUAL_ROOM();
-                StartCoroutine(Initial_Loading_Task_Coroutine());
-            }
+            if (!_singleton) return;
+            
+            VARMAP_GameEventMaster.REG_GAMESTATUS(_GameStatusChanged);
+            Room room = VARMAP_GameEventMaster.GET_ACTUAL_ROOM();
+            StartCoroutine(Initial_Loading_Task_Coroutine());
         }
 
         /* This module is executed just after GameMaster (which will not interfere by services or variable with this module) */
@@ -616,7 +613,7 @@ namespace Gob3AQ.GameEventMaster
             while ((_pendingActions.Count > 0) && (!stop))
             {
                 ActionOrder actionOrder = _pendingActions[0];
-                bool endedAction = false;
+                bool endedAction;
                 processingActions = true;
 
                 if (!actionOrder.performedAndWaiting)
@@ -774,9 +771,13 @@ namespace Gob3AQ.GameEventMaster
                         VARMAP_GameEventMaster.START_ANIMATION(info.targetAnimation, false);
                         break;
                     case ActionType.ACTION_TYPE_START_CARD_GAME:
-                        mustWait = false;
                         VARMAP_GameEventMaster.START_CARD_GAME(info.targetCardGame);
                         VARMAP_GameEventMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_CARDS, out error);
+                        break;
+                    case ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION:
+                        mustWait = info.waitForEnd;
+                        _actionExpectedFlag |= mustWait ? NotifyAction.NOTIFY_ANIMATION : NotifyAction.NOTIFY_NONE;
+                        VARMAP_GameEventMaster.ITEM_PERFORM_ANIMATION(info.targetItem, info.animTrigger, mustWait ? EndOfItemAnimationCallback : null);
                         break;
                     default:
                         VARMAP_GameEventMaster.ACTION_TO_ITEM(in info);
@@ -813,6 +814,11 @@ namespace Gob3AQ.GameEventMaster
             {
                 _bckgActionsTimestamp = elapsedTime;
             }
+        }
+        
+        private void EndOfItemAnimationCallback()
+        {
+            _actionEndedFlag |= NotifyAction.NOTIFY_ANIMATION;
         }
 
         private bool IsMomentValid(MomentType momentType)

@@ -236,7 +236,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
 
             new( /* DIALOG_SILVANA_EXTRAPERLO */
             new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_SILVANA_EXTRAPERLO},
-            new DialogOption[2]{DialogOption.DIALOG_SILVANA_EXTRAPERLO_OPTION_0, DialogOption.DIALOG_SILVANA_EXTRAPERLO_OPTION_1}
+            new DialogOption[3]{DialogOption.DIALOG_SILVANA_EXTRAPERLO_OPTION_0, DialogOption.DIALOG_SILVANA_EXTRAPERLO_OPTION_1, DialogOption.DIALOG_SILVANA_EXTRAPERLO_OPTION_2}
             ),
 
             new( /* DIALOG_SILVANA_EXTRAPERLO_INTRO */
@@ -650,8 +650,8 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new( /* DIALOG_SILVANA_EXTRAPERLO_OPTION_0 */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE},
-            DialogType.DIALOG_SILVANA_EXTRAPERLO,false,
+            new GameAction[1]{GameAction.ACTION_ANIMATE_SILVANA_OPENING_BOOK},
+            DialogType.DIALOG_NONE,false,
             new DialogPhrase[4]{DialogPhrase.PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_0_1, DialogPhrase.PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_0_2, DialogPhrase.PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_0_3}
             ),
             new( /* DIALOG_SILVANA_EXTRAPERLO_OPTION_1 */
@@ -660,6 +660,13 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_SILVANA_EXTRAPERLO,false,
             new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_1_0, DialogPhrase.PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_1_1}
+            ),
+            new( /* DIALOG_SILVANA_EXTRAPERLO_OPTION_2 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_NONE},
+            DialogType.DIALOG_NONE,false,
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_2_0}
             ),
             new( /* DIALOG_SILVANA_EXTRAPERLO_OPTION_INTRO */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
@@ -893,14 +900,15 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,GameSound.SOUND_PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_8, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_8 */ 
             new(1,GameSound.SOUND_PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_9, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_CLOWN_EXTRAPERLO_OPTION_3_9 */ 
             new(1,GameSound.SOUND_PHRASE_DIALOG_CLOWN_EXTRAPERLO_INTRO, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_CLOWN_EXTRAPERLO_INTRO */ 
-            new(0,GameSound.SOUND_PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_0_0, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_0_0 */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_0_0, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_0_0 */ 
             new(1,GameSound.SOUND_PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_0_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_0_1 */ 
-            new(0,GameSound.SOUND_PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_0_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_0_2 */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_0_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_0_2 */ 
             new(1,GameSound.SOUND_PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_0_3, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_0_3 */ 
-            new(0,GameSound.SOUND_PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_1_0, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_1_0 */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_1_0, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_1_0 */ 
             new(1,GameSound.SOUND_PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_1_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_1_1 */ 
+            new(0,GameSound.SOUND_FIK_1_OP_3_0, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_TRANSITION_ONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_2_0 */ 
             new(1,GameSound.SOUND_PHRASE_DIALOG_SILVANA_EXTRAPERLO_INTRO_0, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_SILVANA_EXTRAPERLO_INTRO_0 */ 
-            new(0,GameSound.SOUND_PHRASE_DIALOG_SILVANA_EXTRAPERLO_INTRO_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_STEADY,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_SILVANA_EXTRAPERLO_INTRO_1 */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_SILVANA_EXTRAPERLO_INTRO_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_SILVANA_EXTRAPERLO_INTRO_1 */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK,AnimationTrigger.ANIMATION_TRIGGER_NONE,AnimationTrigger.ANIMATION_TRIGGER_NONE}), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

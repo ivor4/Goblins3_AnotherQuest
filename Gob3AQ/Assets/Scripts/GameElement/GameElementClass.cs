@@ -47,6 +47,7 @@ namespace Gob3AQ.GameElement
         protected Action animationEndCallback;
         protected bool animationStartedNewState;
         protected AnimationTrigger actualAnimationTrigger;
+        protected AnimationTrigger autoSteadyTrigger;
         protected bool animationJustStarted;
         protected bool registered;
         protected bool loaded;
@@ -88,16 +89,17 @@ namespace Gob3AQ.GameElement
             gameElementFamily = itemInfo.family;
 
             actualAnimationTrigger = AnimationTrigger.ANIMATION_TRIGGER_STEADY;
+            autoSteadyTrigger = AnimationTrigger.ANIMATION_TRIGGER_STEADY;
             animationJustStarted = false;
 
-            /* Register item as Level element (to be clicked and able to iteract) */
+            /* Register item as Level element (to be clicked and able to interact) */
             VARMAP_ItemMaster.ITEM_REGISTER(true, this);
 
             registered = true;
 
             VARMAP_ItemMaster.REG_GAMESTATUS(ChangedGameStatus);
 
-            /* Children actions (Clickable, Hoverable) will be executed afterwards */
+            /* Children actions (Clickable, Hoverable) will be executed afterward */
         }
 
 
@@ -113,7 +115,21 @@ namespace Gob3AQ.GameElement
                 animationStartedNewState = false;
                 animationEndCallback = callback;
                 actualAnimationTrigger = trigger;
-                myAnimator.SetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_HASH[trigger]);
+
+                switch (trigger)
+                {
+                    case AnimationTrigger.ANIMATION_TRIGGER_TRANSITION_ONE:
+                        autoSteadyTrigger = AnimationTrigger.ANIMATION_TRIGGER_STEADY;
+                        break;
+                    case AnimationTrigger.ANIMATION_TRIGGER_TRANSITION_TWO:
+                        autoSteadyTrigger = AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO;
+                        break;
+                    case AnimationTrigger.ANIMATION_TRIGGER_AUTO_STEADY:
+                        actualAnimationTrigger = autoSteadyTrigger;
+                        break;
+                }
+                
+                myAnimator.SetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_HASH[actualAnimationTrigger]);
             }
         }
 

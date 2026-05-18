@@ -21,7 +21,7 @@ namespace Gob3AQ.ItemMaster
 
         public static void PerformAnimationService(GameItem item, AnimationTrigger trigger, Action callback)
         {
-            if (_singleton != null)
+            if (_singleton)
             {
                 if(_singleton._levelItems.TryGetValue(item, out GameElementClass instance))
                 {
@@ -33,68 +33,59 @@ namespace Gob3AQ.ItemMaster
 
         public static void ActionToItemService(in ActionInfo actionInfo)
         {
-            if (_singleton != null)
+            if (!_singleton) return;
+            
+            GameElementClass instance;
+
+            switch (actionInfo.type)
             {
-                GameElementClass instance;
+                case ActionType.ACTION_TYPE_EARN_ITEM:
+                    EarnLosePickableItem(actionInfo.targetCharacter, actionInfo.targetItem, true);
+                    break;
+                case ActionType.ACTION_TYPE_LOSE_ITEM:
+                    EarnLosePickableItem(CharacterType.CHARACTER_NONE, actionInfo.targetItem, false);
+                    break;
+                case ActionType.ACTION_TYPE_SET_SPRITE:
+                    if (_singleton._levelItems.TryGetValue(actionInfo.targetItem, out instance))
+                    {
+                        instance.SetSprite(actionInfo.targetSprite);
+                    }
+                    break;
+                case ActionType.ACTION_TYPE_SPAWN:
+                    if (_singleton._levelItems.TryGetValue(actionInfo.targetItem, out instance))
+                    {
+                        instance.SetUnspawned(false);
+                        instance.SetMotion(true);
+                        instance.SetActive(true);
+                        instance.SetClickable(true);
+                        instance.SetVisible(true);
+                    }
+                    break;
 
-                switch (actionInfo.type)
-                {
-                    case ActionType.ACTION_TYPE_EARN_ITEM:
-                        EarnLosePickableItem(actionInfo.targetCharacter, actionInfo.targetItem, true);
-                        break;
-                    case ActionType.ACTION_TYPE_LOSE_ITEM:
-                        EarnLosePickableItem(CharacterType.CHARACTER_NONE, actionInfo.targetItem, false);
-                        break;
-                    case ActionType.ACTION_TYPE_SET_SPRITE:
-                        if (_singleton._levelItems.TryGetValue(actionInfo.targetItem, out instance))
-                        {
-                            instance.SetSprite(actionInfo.targetSprite);
-                        }
-                        break;
-                    case ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION:
-                        if (_singleton._levelItems.TryGetValue(actionInfo.targetItem, out instance))
-                        {
-                            instance.PerformAnimation(actionInfo.animTrigger, null);
-                        }
-                        break;
-                    case ActionType.ACTION_TYPE_SPAWN:
-                        if (_singleton._levelItems.TryGetValue(actionInfo.targetItem, out instance))
-                        {
-                            instance.SetUnspawned(false);
-                            instance.SetMotion(true);
-                            instance.SetActive(true);
-                            instance.SetClickable(true);
-                            instance.SetVisible(true);
-                        }
-                        break;
+                case ActionType.ACTION_TYPE_DESPAWN:
+                    if (_singleton._levelItems.TryGetValue(actionInfo.targetItem, out instance))
+                    {
+                        instance.SetUnspawned(true);
+                        instance.SetMotion(false);
+                        instance.SetActive(false);
+                        instance.SetClickable(false);
+                        instance.SetVisible(false);
+                    }
+                    break;
 
-                    case ActionType.ACTION_TYPE_DESPAWN:
-                        if (_singleton._levelItems.TryGetValue(actionInfo.targetItem, out instance))
-                        {
-                            instance.SetUnspawned(true);
-                            instance.SetMotion(false);
-                            instance.SetActive(false);
-                            instance.SetClickable(false);
-                            instance.SetVisible(false);
-                        }
-                        break;
-
-                    case ActionType.ACTION_TYPE_DESTROY:
-                        if (_singleton._levelItems.TryGetValue(actionInfo.targetItem, out instance))
-                        {
-                            instance.VirtualDestroy();
-                        }
-                        break;
-                    case ActionType.ACTION_TYPE_UNCLICKABLE:
-                        if (_singleton._levelItems.TryGetValue(actionInfo.targetItem, out instance))
-                        {
-                            instance.SetUnclickable(true);
-                        }
-                        break;
-
-                    default:
-                        break;
-                }
+                case ActionType.ACTION_TYPE_DESTROY:
+                    if (_singleton._levelItems.TryGetValue(actionInfo.targetItem, out instance))
+                    {
+                        instance.VirtualDestroy();
+                    }
+                    break;
+                case ActionType.ACTION_TYPE_UNCLICKABLE:
+                    if (_singleton._levelItems.TryGetValue(actionInfo.targetItem, out instance))
+                    {
+                        instance.SetUnclickable(true);
+                    }
+                    break;
+                
             }
         }
 
@@ -112,7 +103,7 @@ namespace Gob3AQ.ItemMaster
         {
             worldBounds = default;
 
-            if (_singleton != null)
+            if (_singleton)
             {
                 if (_singleton._levelItems.TryGetValue(item, out GameElementClass instance))
                 {
@@ -124,7 +115,7 @@ namespace Gob3AQ.ItemMaster
 
         public static void AddOneItemToLoad()
         {
-            if (_singleton != null)
+            if (_singleton)
             {
                 _singleton.itemsToLoad++;
             }
@@ -132,7 +123,7 @@ namespace Gob3AQ.ItemMaster
 
         public static void AddOneItemLoaded()
         {
-            if (_singleton != null)
+            if (_singleton)
             {
                 _singleton.itemsLoaded++;
             }
@@ -266,6 +257,8 @@ namespace Gob3AQ.ItemMaster
 
             VARMAP_ItemMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_ItemMaster);
         }
+        
+        
 
 
 

@@ -66,6 +66,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             PLAY_SOUND = _PLAY_SOUND;
             STOP_SOUND = _STOP_SOUND;
             START_ANIMATION = _START_ANIMATION;
+            ITEM_PERFORM_ANIMATION = _ITEM_PERFORM_ANIMATION;
             PERFORM_ACTION = _PERFORM_ACTION;
             IS_DIALOG_ACTIVE = _IS_DIALOG_ACTIVE;
             NOTIFY_ENDED_ACTION = _NOTIFY_ENDED_ACTION;
@@ -217,6 +218,13 @@ public static STOP_SOUND_DELEGATE STOP_SOUND;
 /// <para> Method: <see cref="DialogMasterClass.StartAnimationService"/> </para> 
 /// </summary>
 public static START_ANIMATION_DELEGATE START_ANIMATION;
+        /// <summary> 
+/// Makes an item start an animation 
+/// <para> Owner: ItemMaster </para> 
+/// <para> Accessors: DialogMaster, GameEventMaster </para> 
+/// <para> Method: <see cref="ItemMasterClass.PerformAnimationService"/> </para> 
+/// </summary>
+public static ITEM_PERFORM_ANIMATION_DELEGATE ITEM_PERFORM_ANIMATION;
         /// <summary> 
 /// Performs a named action 
 /// <para> Owner: GameEventMaster </para> 

@@ -85,7 +85,7 @@ namespace Gob3AQ.GameElement.Item
 
                 if (startingTrigger != AnimationTrigger.ANIMATION_TRIGGER_NONE)
                 {
-                    PerformAnimation(startingTrigger, null);
+                    PerformAnimation(startingTrigger, null, null);
                 }
             }
 
@@ -141,7 +141,7 @@ namespace Gob3AQ.GameElement.Item
                     
                 rt.lastTimestampMs = actualTimestamp;
                 
-                PerformAnimation(rt.progAnim.destTrigger, null);
+                PerformAnimation(rt.progAnim.destTrigger, null, null);
             }
 
             animationJustStarted = false;

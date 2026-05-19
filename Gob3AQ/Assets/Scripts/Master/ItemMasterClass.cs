@@ -19,14 +19,13 @@ namespace Gob3AQ.ItemMaster
         private int itemsToLoad;
         private int itemsLoaded;
 
-        public static void PerformAnimationService(GameItem item, AnimationTrigger trigger, Action callback)
+        public static void PerformAnimationService(GameItem item, AnimationTrigger trigger, Action startCallback, Action endCallback)
         {
-            if (_singleton)
+            if (!_singleton) return;
+            
+            if(_singleton._levelItems.TryGetValue(item, out GameElementClass instance))
             {
-                if(_singleton._levelItems.TryGetValue(item, out GameElementClass instance))
-                {
-                    instance.PerformAnimation(trigger, callback);
-                }
+                instance.PerformAnimation(trigger, startCallback, endCallback);
             }
         }
 

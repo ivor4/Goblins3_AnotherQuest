@@ -44,6 +44,7 @@ namespace Gob3AQ.GameElement
         protected Rigidbody2D myRigidbody;
         protected Animator myAnimator;
         protected GenericAnimBehavior myAnimatorBehavior;
+        protected Action animationStartCallback;
         protected Action animationEndCallback;
         protected bool animationStartedNewState;
         protected AnimationTrigger actualAnimationTrigger;
@@ -108,29 +109,29 @@ namespace Gob3AQ.GameElement
             VirtualDestroy();
         }
 
-        public void PerformAnimation(AnimationTrigger trigger, Action callback)
+        public void PerformAnimation(AnimationTrigger trigger, Action startCallback, Action endCallback)
         {
-            if ((myAnimator.runtimeAnimatorController)&&(trigger != AnimationTrigger.ANIMATION_TRIGGER_NONE))
-            {
-                animationStartedNewState = false;
-                animationEndCallback = callback;
-                actualAnimationTrigger = trigger;
+            if ((!myAnimator.runtimeAnimatorController) || (trigger == AnimationTrigger.ANIMATION_TRIGGER_NONE)) return;
+            
+            animationStartedNewState = false;
+            animationStartCallback = startCallback;
+            animationEndCallback = endCallback;
+            actualAnimationTrigger = trigger;
 
-                switch (trigger)
-                {
-                    case AnimationTrigger.ANIMATION_TRIGGER_TRANSITION_ONE:
-                        autoSteadyTrigger = AnimationTrigger.ANIMATION_TRIGGER_STEADY;
-                        break;
-                    case AnimationTrigger.ANIMATION_TRIGGER_TRANSITION_TWO:
-                        autoSteadyTrigger = AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO;
-                        break;
-                    case AnimationTrigger.ANIMATION_TRIGGER_AUTO_STEADY:
-                        actualAnimationTrigger = autoSteadyTrigger;
-                        break;
-                }
-                
-                myAnimator.SetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_HASH[actualAnimationTrigger]);
+            switch (trigger)
+            {
+                case AnimationTrigger.ANIMATION_TRIGGER_TRANSITION_ONE:
+                    autoSteadyTrigger = AnimationTrigger.ANIMATION_TRIGGER_STEADY;
+                    break;
+                case AnimationTrigger.ANIMATION_TRIGGER_TRANSITION_TWO:
+                    autoSteadyTrigger = AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO;
+                    break;
+                case AnimationTrigger.ANIMATION_TRIGGER_AUTO_STEADY:
+                    actualAnimationTrigger = autoSteadyTrigger;
+                    break;
             }
+                
+            myAnimator.SetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_HASH[actualAnimationTrigger]);
         }
 
         public void SetUnspawned(bool unspawned)

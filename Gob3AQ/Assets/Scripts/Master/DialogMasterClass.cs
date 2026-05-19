@@ -13,7 +13,7 @@ using UnityEngine;
 
 namespace Gob3AQ.DialogMaster
 {
-    [System.Serializable]
+    [Serializable]
     public class DialogMasterClass : MonoBehaviour
     {
         private enum DialogTaskType
@@ -47,10 +47,10 @@ namespace Gob3AQ.DialogMaster
                 Configure(false, GameAnimation.ANIMATION_NONE, 0);
             }
 
-            public void Configure(bool isMainMode, GameAnimation animation, ulong startTimestamp)
+            public void Configure(bool isMainModeInput, GameAnimation animationInput, ulong startTimestamp)
             {
-                this.isMainMode = isMainMode;
-                this.animation = animation;
+                isMainMode = isMainModeInput;
+                animation = animationInput;
                 prevMilestoneTimestamp = startTimestamp;
                 milestoneIndex = 0;
                 state = AnimationState.WAITING_TRIGGER;
@@ -113,7 +113,7 @@ namespace Gob3AQ.DialogMaster
                             }
                         }
                         break;
-
+                    
                     default:
                         ended = true;
                     break;
@@ -208,14 +208,12 @@ namespace Gob3AQ.DialogMaster
 
         public static void StartAnimationService(GameAnimation animation, bool mainMode)
         {
-            if (_singleton)
-            {
-                if (_singleton.animation_freeAnimations.TryDequeue(out AnimationRuntime animationRuntime))
-                {
-                    animationRuntime.Configure(mainMode, animation, VARMAP_DialogMaster.GET_ELAPSED_TIME_MS());
-                    _singleton.animation_activeAnimations.Add(animationRuntime);
-                }
-            }
+            if (!_singleton) return;
+
+            if (!_singleton.animation_freeAnimations.TryDequeue(out AnimationRuntime animationRuntime)) return;
+            
+            animationRuntime.Configure(mainMode, animation, VARMAP_DialogMaster.GET_ELAPSED_TIME_MS());
+            _singleton.animation_activeAnimations.Add(animationRuntime);
         }
 
         public static void DialogueSelectOptionService(DialogOption option, DialogPhrase phrase)
@@ -303,9 +301,9 @@ namespace Gob3AQ.DialogMaster
                 ReadOnlySpan<DialogOption> dialogOptions = dialogConfig.Options;
 
                 /* Iterate through dialog available options */
-                for (int i = 0; i < dialogOptions.Length; i++)
+                foreach (var dialogOption in dialogOptions)
                 {
-                    ref readonly DialogOptionConfig dialogOptionConfig = ref ResourceDialogsAtlasClass.GetDialogOptionConfig(dialogOptions[i]);
+                    ref readonly DialogOptionConfig dialogOptionConfig = ref ResourceDialogsAtlasClass.GetDialogOptionConfig(dialogOption);
 
                     VARMAP_DialogMaster.IS_EVENT_COMBI_OCCURRED(dialogOptionConfig.ConditionEvents, out bool valid);
 
@@ -316,7 +314,7 @@ namespace Gob3AQ.DialogMaster
 
                         if (dialogOptionConfig.randomized)
                         {
-                            int randomIndex = GetRandomizedOption(dialogOptions[i], in dialogOptionConfig);
+                            int randomIndex = GetRandomizedOption(dialogOption, in dialogOptionConfig);
                             headPhrase = dialogPhrases[randomIndex];
                             uniqueNumPhrases = 1;
                         }
@@ -327,10 +325,10 @@ namespace Gob3AQ.DialogMaster
                         }
 
                         uniquePhrase = headPhrase;
-                        uniqueOption = dialogOptions[i];
+                        uniqueOption = dialogOption;
 
                         ResourceDialogsClass.GetPhraseContent(headPhrase, out PhraseContent optionPhraseContent);
-                        _uicanvas_cls.ActivateDialogOption(selectableOptions, true, dialogOptions[i], headPhrase, optionPhraseContent.message);
+                        _uicanvas_cls.ActivateDialogOption(selectableOptions, true, dialogOption, headPhrase, optionPhraseContent.message);
 
                         ++selectableOptions;
                     }
@@ -374,8 +372,7 @@ namespace Gob3AQ.DialogMaster
             /* Zoom service (if not background) */
             if((!background) && dialogStart && (dialog_input_numTalkers > 0))
             {
-                Bounds zoomBounds;
-                VARMAP_DialogMaster.GET_ITEM_SPRITE_BOUNDARIES(dialog_input_talkers[0], out zoomBounds);
+                VARMAP_DialogMaster.GET_ITEM_SPRITE_BOUNDARIES(dialog_input_talkers[0], out var zoomBounds);
 
 
                 for (int i = 1; i < dialog_input_numTalkers; ++i)
@@ -446,14 +443,8 @@ namespace Gob3AQ.DialogMaster
                 }
             }
 
-            if (dialog_background)
-            {
-                _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_BACKGROUND, sender, msg);
-            }
-            else
-            {
-                _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_PHRASE, sender, msg);
-            }
+            _uicanvas_cls.SetDialogMode(
+                dialog_background ? DialogMode.DIALOG_MODE_BACKGROUND : DialogMode.DIALOG_MODE_PHRASE, sender, msg);
 
             dialog_actualTaskType = DialogTaskType.DIALOG_STATE_SAYING;
         }

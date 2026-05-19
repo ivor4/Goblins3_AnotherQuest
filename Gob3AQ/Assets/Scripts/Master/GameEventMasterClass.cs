@@ -777,7 +777,7 @@ namespace Gob3AQ.GameEventMaster
                     case ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION:
                         mustWait = info.waitForEnd;
                         _actionExpectedFlag |= mustWait ? NotifyAction.NOTIFY_ANIMATION : NotifyAction.NOTIFY_NONE;
-                        VARMAP_GameEventMaster.ITEM_PERFORM_ANIMATION(info.targetItem, info.animTrigger, mustWait ? EndOfItemAnimationCallback : null);
+                        VARMAP_GameEventMaster.ITEM_PERFORM_ANIMATION(info.targetItem, info.animTrigger, null, mustWait ? EndOfItemAnimationCallback : null);
                         break;
                     default:
                         VARMAP_GameEventMaster.ACTION_TO_ITEM(in info);

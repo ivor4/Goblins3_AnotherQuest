@@ -7,6 +7,7 @@ using Gob3AQ.VARMAP.ItemMaster;
 using Gob3AQ.VARMAP.Types;
 using System.Collections;
 using System.Collections.Generic;
+using Gob3AQ.GameElement.Animation;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -77,11 +78,6 @@ namespace Gob3AQ.GameElement.Item
                         actualTimestamp - (ulong)Random.Range(0, (int)programmedAnimations[i].everyMs));
                 }
                 
-                myAnimatorBehavior = myAnimator.GetBehaviour<GenericAnimBehavior>();
-                if (myAnimatorBehavior)
-                {
-                    myAnimatorBehavior.SetOnStartEndCallback(OnAnimationStart, OnAnimationEnd);
-                }
 
                 if (startingTrigger != AnimationTrigger.ANIMATION_TRIGGER_NONE)
                 {
@@ -124,7 +120,7 @@ namespace Gob3AQ.GameElement.Item
 
         protected void Update()
         {
-            if ((!myAnimator.runtimeAnimatorController) || (programmedAnimationsRt.Length <= 0)) return;
+            if ((!myAnimator.runtimeAnimatorController) || (programmedAnimationsRt.Length <= 0) || (queuedTrigger != AnimationTrigger.ANIMATION_TRIGGER_NONE)) return;
             
             ulong actualTimestamp = VARMAP_ItemMaster.GET_ELAPSED_TIME_MS();
             for (int i = 0; i < programmedAnimationsRt.Length; i++)
@@ -143,8 +139,6 @@ namespace Gob3AQ.GameElement.Item
                 
                 PerformAnimation(rt.progAnim.destTrigger, null, null);
             }
-
-            animationJustStarted = false;
         }
 
 

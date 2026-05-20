@@ -14,6 +14,13 @@ namespace Gob3AQ.ResourceAnimationsAtlas
                 { Animator.StringToHash("SpecialCycleAction1"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE },
 
             };
+
+        public static bool IsTriggerSteady(AnimationTrigger trigger)
+        {
+            return trigger == AnimationTrigger.ANIMATION_TRIGGER_STEADY || 
+                   trigger == AnimationTrigger.ANIMATION_TRIGGER_AUTO_STEADY || 
+                   trigger == AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO;
+        }
             
         public static readonly IReadOnlyDictionary<AnimationTrigger, int> ANIM_TRIGGER_TO_HASH = new Dictionary<AnimationTrigger, int>()
         {

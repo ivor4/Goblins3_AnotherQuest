@@ -20,6 +20,7 @@ namespace Gob3AQ.DialogMaster
         {
             DIALOG_STATE_NONE,
             DIALOG_STATE_STARTING,
+            DIALOG_STATE_WAIT_ANIMATION_START,
             DIALOG_STATE_SAYING,
             DIALOG_STATE_DEAD_TIME,
             DIALOG_STATE_LAUNCH_NEXT_DIALOG
@@ -94,7 +95,7 @@ namespace Gob3AQ.DialogMaster
                             foreach (AnimationActionConfig actionconfig in milestoneConfig.Actions)
                             {
                                 VARMAP_DialogMaster.PERFORM_ACTION(actionconfig.TriggeredActions, null);
-                                VARMAP_DialogMaster.ITEM_PERFORM_ANIMATION(actionconfig.dstItem, actionconfig.trigger, AnimationEndCallback);
+                                VARMAP_DialogMaster.ITEM_PERFORM_ANIMATION(actionconfig.dstItem, actionconfig.trigger, null, AnimationEndCallback);
                                 if(actionconfig.sound != GameSound.SOUND_NONE)
                                 {
                                     VARMAP_DialogMaster.PLAY_SOUND(actionconfig.sound, null, false);
@@ -144,6 +145,8 @@ namespace Gob3AQ.DialogMaster
 
         private int dialog_currentPhraseIndex;
         private int dialog_totalPhrases;
+        private DialogPhrase dialog_phrasePendingAfterAnimation;
+        private bool dialog_waitAnimationCompleted;
         private DialogOption dialog_optionPhrases;
         private bool dialog_optionPending;
         private bool dialog_background;
@@ -173,25 +176,24 @@ namespace Gob3AQ.DialogMaster
         /// <param name="backgroundDialog">If true, the dialogue plays without blocking user interaction.</param>
         public static void ShowDialogueService(DialogType dialog, DialogPhrase phrase, GameItem forcedSingleTalker, bool backgroundDialog)
         {
-            if (_singleton)
-            {
-                if ((_singleton.dialog_actualTaskType == DialogTaskType.DIALOG_STATE_NONE) || _singleton.dialog_input_backgroundDialog)
-                {
-                    /* Stop previous background dialog */
-                    if(_singleton.dialog_actualTaskType != DialogTaskType.DIALOG_STATE_NONE)
-                    {
-                        VARMAP_DialogMaster.STOP_SOUND(_singleton.dialog_actualPhraseSoundStop);
-                        _singleton.dialog_actualPhraseSoundStop = GameSound.SOUND_NONE;
-                    }
+            if (!_singleton) return;
 
-                    /* Copy default talkers to array */
-                    _singleton.dialog_input_type = dialog;
-                    _singleton.dialog_input_phrase = phrase;
-                    _singleton.dialog_input_forcedSingleTalker = forcedSingleTalker;
-                    _singleton.dialog_input_backgroundDialog = backgroundDialog;
-                    _singleton.dialog_actualTaskType = DialogTaskType.DIALOG_STATE_STARTING;
-                }
+            if ((_singleton.dialog_actualTaskType != DialogTaskType.DIALOG_STATE_NONE) &&
+                !_singleton.dialog_input_backgroundDialog) return;
+            
+            /* Stop previous background dialog */
+            if(_singleton.dialog_actualTaskType != DialogTaskType.DIALOG_STATE_NONE)
+            {
+                VARMAP_DialogMaster.STOP_SOUND(_singleton.dialog_actualPhraseSoundStop);
+                _singleton.dialog_actualPhraseSoundStop = GameSound.SOUND_NONE;
             }
+
+            /* Copy default talkers to array */
+            _singleton.dialog_input_type = dialog;
+            _singleton.dialog_input_phrase = phrase;
+            _singleton.dialog_input_forcedSingleTalker = forcedSingleTalker;
+            _singleton.dialog_input_backgroundDialog = backgroundDialog;
+            _singleton.dialog_actualTaskType = DialogTaskType.DIALOG_STATE_STARTING;
         }
 
         public static void IsDialogActiveService(out bool active)
@@ -239,13 +241,18 @@ namespace Gob3AQ.DialogMaster
             int length = dialogOptionConfig.randomized ? 1 : dialogPhrases.Length;
 
             _singleton.PreloadDialogueData(option, length, false);
-            _singleton.StartPhrase(phrase);
+            _singleton.PreparePhrase(phrase);
         }
 
 
         private void DialogSoundEnded()
         {
             dialog_actualPhraseSoundStop = GameSound.SOUND_NONE;
+        }
+
+        private void AnimationStarted()
+        {
+            dialog_waitAnimationCompleted = true;
         }
 
         private void ShowDialogueExec(DialogType dialog, DialogPhrase phrase, GameItem forcedSingleTalker,bool background, bool dialogStart)
@@ -398,7 +405,7 @@ namespace Gob3AQ.DialogMaster
                 dialog_optionPending = false;
 
                 PreloadDialogueData(uniqueOption, uniqueNumPhrases, background);
-                StartPhrase(uniquePhrase);
+                PreparePhrase(uniquePhrase);
             }
             else
             {
@@ -413,6 +420,41 @@ namespace Gob3AQ.DialogMaster
             dialog_totalPhrases = totalPhrases;
             dialog_currentPhraseIndex = 0;
             dialog_background = background;
+        }
+
+        private void PreparePhrase(DialogPhrase phrase)
+        {
+            ResourceDialogsClass.GetPhraseContent(phrase, out PhraseContent content);
+            dialog_phrasePendingAfterAnimation = phrase;
+            
+            Action startAnimationCallback = null;
+            bool startCallbackGiven = false;
+
+            for(int i=0; i < content.config.AnimationTrigger.Length;++i)
+            {
+                AnimationTrigger trigger = content.config.AnimationTrigger[i];
+                if (trigger == AnimationTrigger.ANIMATION_TRIGGER_NONE) continue;
+                
+                if ((startAnimationCallback == null) && (!startCallbackGiven) && 
+                    (!dialog_background) && !ResourceAnimationsAtlasClass.IsTriggerSteady(trigger))
+                {
+                    startAnimationCallback = AnimationStarted;
+                    startCallbackGiven = true;
+                }
+                else if (startCallbackGiven)
+                {
+                    startAnimationCallback = null;
+                }
+                    
+                VARMAP_DialogMaster.ITEM_PERFORM_ANIMATION(dialog_input_talkers[i],
+                    trigger, startAnimationCallback, null);
+            }
+
+            dialog_waitAnimationCompleted = !startCallbackGiven;
+
+            _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_NONE, string.Empty, string.Empty);
+
+            dialog_actualTaskType = DialogTaskType.DIALOG_STATE_WAIT_ANIMATION_START;
         }
 
         private void StartPhrase(DialogPhrase phrase)
@@ -434,15 +476,7 @@ namespace Gob3AQ.DialogMaster
             {
                 dialog_actualPhraseSoundStop = GameSound.SOUND_NONE;
             }
-
-            for(int i=0; i < content.config.AnimationTrigger.Length;++i)
-            {
-                if (content.config.AnimationTrigger[i] != AnimationTrigger.ANIMATION_TRIGGER_NONE)
-                {
-                    VARMAP_DialogMaster.ITEM_PERFORM_ANIMATION(dialog_input_talkers[i], content.config.AnimationTrigger[i], null);
-                }
-            }
-
+            
             _uicanvas_cls.SetDialogMode(
                 dialog_background ? DialogMode.DIALOG_MODE_BACKGROUND : DialogMode.DIALOG_MODE_PHRASE, sender, msg);
 
@@ -467,7 +501,7 @@ namespace Gob3AQ.DialogMaster
         {
             for (int i = 0; i < dialog_input_numTalkers; ++i)
             {
-                VARMAP_DialogMaster.ITEM_PERFORM_ANIMATION(dialog_input_talkers[i], AnimationTrigger.ANIMATION_TRIGGER_AUTO_STEADY, null);
+                VARMAP_DialogMaster.ITEM_PERFORM_ANIMATION(dialog_input_talkers[i], AnimationTrigger.ANIMATION_TRIGGER_AUTO_STEADY, null, null);
             }
 
             dialog_input_numTalkers = 0;
@@ -495,7 +529,7 @@ namespace Gob3AQ.DialogMaster
             if (dialog_totalPhrases > dialog_currentPhraseIndex)
             {
                 /* More phrases to say, wait for user interaction */
-                StartPhrase(dialogConfig.Phrases[dialog_currentPhraseIndex]);
+                PreparePhrase(dialogConfig.Phrases[dialog_currentPhraseIndex]);
             }
             else
             {
@@ -524,8 +558,6 @@ namespace Gob3AQ.DialogMaster
 
         private int GetRandomizedOption(DialogOption option, in DialogOptionConfig dialogOptionConfig)
         {
-            int optionIndex;
-
             if (!dialog_randomized_left_indexes.TryGetValue(option, out List<byte> leftIndexes))
             {
                 List<byte> newList = new(dialogOptionConfig.Phrases.Length);
@@ -551,7 +583,7 @@ namespace Gob3AQ.DialogMaster
                 }
             }
             int lastIndex = leftIndexes.Count - 1;
-            optionIndex = leftIndexes[lastIndex];
+            int optionIndex = leftIndexes[lastIndex];
             leftIndexes.RemoveAt(lastIndex);
 
             return optionIndex;
@@ -624,6 +656,12 @@ namespace Gob3AQ.DialogMaster
                     dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
                     ShowDialogueExec(dialog_input_type, dialog_input_phrase, dialog_input_forcedSingleTalker, dialog_input_backgroundDialog, true);
                     break;
+                case DialogTaskType.DIALOG_STATE_WAIT_ANIMATION_START:
+                    if (!dialog_waitAnimationCompleted) break;
+                    
+                    dialog_waitAnimationCompleted = false;
+                    StartPhrase(dialog_phrasePendingAfterAnimation);
+                    break;
 
                 case DialogTaskType.DIALOG_STATE_SAYING:
                     dialog_actualTaskType = DialogTaskType.DIALOG_STATE_DEAD_TIME;
@@ -688,11 +726,10 @@ namespace Gob3AQ.DialogMaster
                         break;
 
                     case Game_Status.GAME_STATUS_LOADING:
+                        _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_NONE, string.Empty, string.Empty);
                         VARMAP_DialogMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_DialogMaster);
                         break;
-
-                    default:
-                        break;
+                    
                 }
             }
         }

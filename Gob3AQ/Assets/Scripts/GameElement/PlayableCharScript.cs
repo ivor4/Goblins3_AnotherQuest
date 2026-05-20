@@ -16,10 +16,8 @@ namespace Gob3AQ.GameElement.PlayableChar
     public enum PhysicalState
     {
         PHYSICAL_STATE_STANDING = 0x0,
-        PHYSICAL_STATE_TALKING = 0x1,
-        PHYSICAL_STATE_ACTING = 0x2,
-        PHYSICAL_STATE_WALKING = 0x4,
-        PHYSICAL_STATE_LOCKED = 0x8,
+        PHYSICAL_STATE_WALKING = 0x1,
+        PHYSICAL_STATE_LOCKED = 0x2,
     }
 
     
@@ -39,7 +37,6 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         /* Status */
         private PhysicalState physicalstate;
-        private float actTimeout;
 
         private WaypointProgrammedPath actualProgrammedPath;
 
@@ -94,8 +91,7 @@ namespace Gob3AQ.GameElement.PlayableChar
                     Walk_StartNextSegment();
                 }
                 physicalstate = PhysicalState.PHYSICAL_STATE_WALKING;
-
-                SetActive_Internal(true);
+                
                 requestAccepted = true;
             }
             else
@@ -121,8 +117,6 @@ namespace Gob3AQ.GameElement.PlayableChar
             myCollider = topParent.GetComponent<Collider2D>();
             myRigidbody = topParent.GetComponent<Rigidbody2D>();
             myAnimator = topParent.GetComponent<Animator>();
-            myAnimatorBehavior = myAnimator.GetBehaviour<GenericAnimBehavior>();
-            myAnimatorBehavior.SetOnStartEndCallback(OnAnimationStart, OnAnimationEnd);
 
             SetVisible_Internal(false);
         }
@@ -132,7 +126,6 @@ namespace Gob3AQ.GameElement.PlayableChar
             base.Start();
 
             physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
-            actTimeout = 0f;
             SetAvailable(true);
 
             PlayerMasterClass.SetPlayerLoadPresent(CharType);
@@ -219,33 +212,21 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         private void Execute_Play()
         {
-            bool continueLoop = true;
-
             Game_Status gstatus = VARMAP_PlayerMaster.GET_GAMESTATUS();
             if (gstatus == Game_Status.GAME_STATUS_PLAY)
             {
                 switch (physicalstate)
                 {
                     case PhysicalState.PHYSICAL_STATE_WALKING:
-                        continueLoop = Execute_Walk();
-                        break;
-                    case PhysicalState.PHYSICAL_STATE_ACTING:
-                        continueLoop = Execute_Act();
-                        break;
-                    default:
-                        continueLoop = false;
+                        Execute_Walk();
                         break;
                 }
             }
-            else
-            {
-                continueLoop = true;
-            }
 
             UpdateSortingOrder();
-            SetActive_Internal(continueLoop);
             SetAvailable((physicalstate == PhysicalState.PHYSICAL_STATE_STANDING) || (physicalstate == PhysicalState.PHYSICAL_STATE_WALKING));
         }
+        
 
         private bool Execute_Walk()
         {
@@ -294,25 +275,6 @@ namespace Gob3AQ.GameElement.PlayableChar
                     Walk_StartNextSegment();
                     continueOp = true;
                 }
-            }
-            else
-            {
-                continueOp = true;
-            }
-
-            return continueOp;
-        }
-
-        private bool Execute_Act()
-        {
-            bool continueOp;
-            actTimeout -= Time.deltaTime;
-
-            if(actTimeout <= 0f)
-            {
-                actTimeout = 0f;
-                physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
-                continueOp = false;
             }
             else
             {

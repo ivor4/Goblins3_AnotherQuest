@@ -120,6 +120,10 @@ namespace Gob3AQ.GameElement.Item
 
         protected void Update()
         {
+            ignoreAnimationEventEnter = false;
+            ignoreAnimationEventUpdate = false;
+            ignoreAnimationEventEnd = false;
+            
             if ((!myAnimator.runtimeAnimatorController) || (programmedAnimationsRt.Length <= 0) || (queuedTrigger != AnimationTrigger.ANIMATION_TRIGGER_NONE)) return;
             
             ulong actualTimestamp = VARMAP_ItemMaster.GET_ELAPSED_TIME_MS();

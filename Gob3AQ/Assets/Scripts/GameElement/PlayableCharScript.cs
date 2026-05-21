@@ -139,6 +139,10 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         private void Update()
         {
+            ignoreAnimationEventEnter = false;
+            ignoreAnimationEventUpdate = false;
+            ignoreAnimationEventEnd = false;
+            
             /* Script will only be enabled in play mode */
             Execute_Play();
         }

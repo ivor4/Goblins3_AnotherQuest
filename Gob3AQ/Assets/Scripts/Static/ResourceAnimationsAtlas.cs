@@ -11,7 +11,20 @@ namespace Gob3AQ.ResourceAnimationsAtlas
             new Dictionary<int, AnimationTrigger>()
             {
                 { Animator.StringToHash("Steady"), AnimationTrigger.ANIMATION_TRIGGER_STEADY }, 
+                { Animator.StringToHash("Steady2"), AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO }, 
                 { Animator.StringToHash("SpecialCycleAction1"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE },
+                { Animator.StringToHash("SpecialCycleAction2"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_TWO },
+                { Animator.StringToHash("SpecialCycleAction3"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_THREE },
+                { Animator.StringToHash("SpecialCycleAction4"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_FOUR },
+                { Animator.StringToHash("Talking"), AnimationTrigger.ANIMATION_TRIGGER_TALK },
+                { Animator.StringToHash("SpecialAction1"), AnimationTrigger.ANIMATION_TRIGGER_ONE },
+                { Animator.StringToHash("SpecialAction2"), AnimationTrigger.ANIMATION_TRIGGER_TWO },
+                { Animator.StringToHash("SpecialAction3"), AnimationTrigger.ANIMATION_TRIGGER_THREE },
+                { Animator.StringToHash("SpecialAction4"), AnimationTrigger.ANIMATION_TRIGGER_FOUR },
+                { Animator.StringToHash("SpecialAction5"), AnimationTrigger.ANIMATION_TRIGGER_FIVE },
+                { Animator.StringToHash("SpecialAction6"), AnimationTrigger.ANIMATION_TRIGGER_SIX },
+                { Animator.StringToHash("SpecialAction7"), AnimationTrigger.ANIMATION_TRIGGER_SEVEN },
+                { Animator.StringToHash("SpecialAction8"), AnimationTrigger.ANIMATION_TRIGGER_EIGHT },
 
             };
 

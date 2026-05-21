@@ -56,6 +56,9 @@ namespace Gob3AQ.GameElement
         protected AnimationTrigger actualAnimationTrigger;
         protected AnimationTrigger autoSteadyTrigger;
         protected AnimationTrigger queuedTrigger;
+        protected bool ignoreAnimationEventEnter;
+        protected bool ignoreAnimationEventUpdate;
+        protected bool ignoreAnimationEventEnd;
         protected float prevAnimationNormalizedTime;
         protected bool registered;
         protected bool loaded;
@@ -120,6 +123,19 @@ namespace Gob3AQ.GameElement
         public void PerformAnimation(AnimationTrigger trigger, Action startCallback, Action endCallback)
         {
             if ((!myAnimator.runtimeAnimatorController) || (trigger == AnimationTrigger.ANIMATION_TRIGGER_NONE)) return;
+
+            if ((queuedTrigger != AnimationTrigger.ANIMATION_TRIGGER_NONE) && ((animationStartCallback != null) || (animationEndCallback != null)))
+            {
+                Debug.LogError($"Trying to queue an animation when animator has already one enqueued ({queuedTrigger}) and new {trigger}");
+            }
+            else if ((animationStartCallback != null) || (animationEndCallback != null))
+            {
+                Debug.LogError($"Calling animationEndCallback before it has ended {actualAnimationTrigger}");
+            }
+
+            /* Emergency call to avoid stuck actions - However, this shall never happen ;-) */
+            animationStartCallback?.Invoke();
+            animationEndCallback?.Invoke();
             
             animationStartedNewState = false;
             animationStartCallback = startCallback;
@@ -138,18 +154,10 @@ namespace Gob3AQ.GameElement
                     usedTrigger = autoSteadyTrigger;
                     break;
             }
+            
+            queuedTrigger = usedTrigger;
 
-            if(ResourceAnimationsAtlasClass.IsTriggerSteady(usedTrigger) && false)
-            {
-                myAnimator.SetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_HASH[usedTrigger]);
-                queuedTrigger = AnimationTrigger.ANIMATION_TRIGGER_NONE;
-            }
-            else
-            {
-                queuedTrigger = usedTrigger;
-            }
-
-            Debug.Log($"Queued trigger {queuedTrigger} in {name} at game state {VARMAP_ItemMaster.GET_GAMESTATUS()}");
+            Debug.Log($"Queued trigger {queuedTrigger} in {transform.parent.gameObject.name} at game state {VARMAP_ItemMaster.GET_GAMESTATUS()}");
         }
 
         public void SetUnspawned(bool unspawned)
@@ -159,10 +167,9 @@ namespace Gob3AQ.GameElement
 
         public void SetSprite(GameSprite newSprite)
         {
-            if (loaded)
-            {
-                mySpriteRenderer.sprite = ResourceSpritesClass.GetSprite(newSprite);
-            }
+            if (!loaded) return;
+            
+            mySpriteRenderer.sprite = ResourceSpritesClass.GetSprite(newSprite);
         }
 
 
@@ -304,20 +311,20 @@ namespace Gob3AQ.GameElement
 
         public virtual void OnAnimationStart(AnimatorStateInfo stateInfo)
         {
+            if (ignoreAnimationEventEnter) return;
+            ignoreAnimationEventEnter = true;
+            
             actualAnimationTrigger = ResourceAnimationsAtlasClass.STATE_HASH_TO_TRIGGER.GetValueOrDefault(stateInfo.shortNameHash, AnimationTrigger.ANIMATION_TRIGGER_NONE);
             prevAnimationNormalizedTime = 0f;
             
-            Debug.Log($"Started animation with official trigger {actualAnimationTrigger} for {transform.parent.gameObject.name}");
+            Debug.Log($"Started animation with official trigger {actualAnimationTrigger} for {transform.parent.gameObject.name} ID {this.GetInstanceID()} {this.GetHashCode()}");
             
             /* Start animation also triggers queued animation */
             if (queuedTrigger != AnimationTrigger.ANIMATION_TRIGGER_NONE)
             {
-                Debug.Log($"Triggered animation {queuedTrigger} on Start");
-                myAnimator.SetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_HASH[queuedTrigger]);
-                queuedTrigger = AnimationTrigger.ANIMATION_TRIGGER_NONE;
-                
+                ExecuteQueuedTrigger();
             }
-            
+
             animationStartCallback?.Invoke();
             animationStartCallback = null;
             
@@ -326,22 +333,26 @@ namespace Gob3AQ.GameElement
 
         public virtual void OnAnimationUpdate(AnimatorStateInfo stateInfo)
         {
+            if (ignoreAnimationEventUpdate) return;
+            ignoreAnimationEventUpdate = true;
+            
             float normTime = stateInfo.normalizedTime % 1f;
-            if (queuedTrigger != AnimationTrigger.ANIMATION_TRIGGER_NONE)
-            {
-                if (normTime < prevAnimationNormalizedTime)
-                {
-                    Debug.Log($"Triggered animation {queuedTrigger} on Update");
-                    myAnimator.SetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_HASH[queuedTrigger]);
-                    queuedTrigger = AnimationTrigger.ANIMATION_TRIGGER_NONE;
-                }
-            }
 
-            prevAnimationNormalizedTime = normTime;
+            if ((normTime < prevAnimationNormalizedTime) && (queuedTrigger != AnimationTrigger.ANIMATION_TRIGGER_NONE))
+            {
+                ExecuteQueuedTrigger();
+            }
+            else
+            {
+                prevAnimationNormalizedTime = normTime;
+            }
         }
 
         public virtual void OnAnimationEnd(AnimatorStateInfo stateInfo)
         {
+            if (ignoreAnimationEventEnd) return;
+            ignoreAnimationEventEnd = true;
+            
             if (animationStartedNewState)
             {
                 animationStartedNewState = false;
@@ -359,45 +370,55 @@ namespace Gob3AQ.GameElement
             myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_HASH[AnimationTrigger.ANIMATION_TRIGGER_WALK_SIDE]);
         }
 
+        private void ExecuteQueuedTrigger()
+        {
+            Debug.Log($"Triggered animation {queuedTrigger} for {transform.parent.gameObject.name}");
+            myAnimator.SetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_HASH[queuedTrigger]);
+            
+            actualAnimationTrigger = queuedTrigger;
+            prevAnimationNormalizedTime = 0f;
+            
+            queuedTrigger = AnimationTrigger.ANIMATION_TRIGGER_NONE;
+                
+            animationStartCallback?.Invoke();
+            animationStartCallback = null;
+        }
+
         private void ChangedGameStatus(ChangedEventType eventType, in Game_Status oldval, in Game_Status newval)
         {
             _ = eventType;
 
-            if (oldval != newval)
+            if (oldval == newval) return;
+            
+            switch (newval)
             {
-                switch (newval)
-                {
-                    case Game_Status.GAME_STATUS_PLAY:
-                        SetActive(!isUnspawned);
-                        SetClickable(!isUnspawned && !isUnclickable);
-                        SetMotion(!isUnspawned);
-                        if (myAnimator)
-                        {
-                            myAnimator.enabled = true;
-                        }
-                        break;
-                }
+                case Game_Status.GAME_STATUS_PLAY:
+                    SetActive(!isUnspawned);
+                    SetClickable(!isUnspawned && !isUnclickable);
+                    SetMotion(!isUnspawned);
+                    if (myAnimator)
+                    {
+                        myAnimator.enabled = true;
+                    }
+                    break;
+            }
 
-                switch (oldval)
-                {
-                    case Game_Status.GAME_STATUS_PLAY:
-                        if ((newval != Game_Status.GAME_STATUS_PLAY_DIALOG) || !myAnimator)
-                        {
-                            SetActive(false);
-                        }
+            switch (oldval)
+            {
+                case Game_Status.GAME_STATUS_PLAY:
+                    if ((newval != Game_Status.GAME_STATUS_PLAY_DIALOG) || !myAnimator)
+                    {
+                        SetActive(false);
+                    }
 
-                        SetClickable(false);
-                        SetMotion(false);
+                    SetClickable(false);
+                    SetMotion(false);
 
-                        if ((newval == Game_Status.GAME_STATUS_PLAY_MEMENTO) || (newval == Game_Status.GAME_STATUS_PLAY_ITEM_MENU) || (newval == Game_Status.GAME_STATUS_PLAY_DECISION))
-                        {
-                            if (myAnimator)
-                            {
-                                myAnimator.enabled = false;
-                            }
-                        }
-                        break;
-                }
+                    if (((newval == Game_Status.GAME_STATUS_PLAY_MEMENTO) || (newval == Game_Status.GAME_STATUS_PLAY_ITEM_MENU) || (newval == Game_Status.GAME_STATUS_PLAY_DECISION)) && myAnimator)
+                    {
+                        myAnimator.enabled = false;
+                    }
+                    break;
             }
         }
 

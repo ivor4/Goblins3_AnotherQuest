@@ -268,8 +268,7 @@ namespace Gob3AQ.GameElement.PlayableChar
                     myRigidbody.linearVelocity = Vector2.zero;
                     SetSize(waypoints_infos[actualWaypoint].CharacterSizeFactor);
 
-                    ResetWalkTriggers();
-                    myAnimator.SetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_HASH[AnimationTrigger.ANIMATION_TRIGGER_STEADY]);
+                    ActivateTrigger(AnimationTrigger.ANIMATION_TRIGGER_STEADY);
                     mySpriteRenderer.flipX = waypoints_infos[actualWaypoint].FlipXForAction;
 
                     continueOp = StartBufferedInteraction();
@@ -350,8 +349,7 @@ namespace Gob3AQ.GameElement.PlayableChar
             }
 
 
-            ResetWalkTriggers();
-            myAnimator.SetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_HASH[walkdirTrigger]);
+            ActivateTrigger(walkdirTrigger);
 
             /* Remove after debugging */
             speed_reduction_factor = 1f;

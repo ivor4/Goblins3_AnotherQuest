@@ -27,6 +27,8 @@ namespace Gob3AQ.ResourceAnimationsAtlas
                 { Animator.StringToHash("SpecialAction8"), AnimationTrigger.ANIMATION_TRIGGER_EIGHT },
 
             };
+        public static readonly int TRANSITION_TRIGGER_HASH = Animator.StringToHash("TransitionTrigger");
+        public static readonly int ANIMATION_INDEX_HASH = Animator.StringToHash("AnimationIndex");
 
         public static bool IsTriggerSteady(AnimationTrigger trigger)
         {
@@ -35,38 +37,7 @@ namespace Gob3AQ.ResourceAnimationsAtlas
                    trigger == AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO;
         }
             
-        public static readonly IReadOnlyDictionary<AnimationTrigger, int> ANIM_TRIGGER_TO_HASH = new Dictionary<AnimationTrigger, int>()
-        {
-            { AnimationTrigger.ANIMATION_TRIGGER_ONE, Animator.StringToHash("Tr_1") },
-            { AnimationTrigger.ANIMATION_TRIGGER_TWO, Animator.StringToHash("Tr_2") },
-            { AnimationTrigger.ANIMATION_TRIGGER_THREE, Animator.StringToHash("Tr_3") },
-            { AnimationTrigger.ANIMATION_TRIGGER_FOUR, Animator.StringToHash("Tr_4") },
-            { AnimationTrigger.ANIMATION_TRIGGER_FIVE, Animator.StringToHash("Tr_5") },
-            { AnimationTrigger.ANIMATION_TRIGGER_SIX, Animator.StringToHash("Tr_6") },
-            { AnimationTrigger.ANIMATION_TRIGGER_SEVEN, Animator.StringToHash("Tr_7") },
-            { AnimationTrigger.ANIMATION_TRIGGER_EIGHT, Animator.StringToHash("Tr_8") },
-
-            { AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE, Animator.StringToHash("Tr_Cycle1") },
-            { AnimationTrigger.ANIMATION_TRIGGER_CYCLE_TWO, Animator.StringToHash("Tr_Cycle2") },
-            { AnimationTrigger.ANIMATION_TRIGGER_CYCLE_THREE, Animator.StringToHash("Tr_Cycle3") },
-            { AnimationTrigger.ANIMATION_TRIGGER_CYCLE_FOUR, Animator.StringToHash("Tr_Cycle4") },
-
-            { AnimationTrigger.ANIMATION_TRIGGER_STEADY, Animator.StringToHash("Tr_Steady") },
-
-            { AnimationTrigger.ANIMATION_TRIGGER_TALK, Animator.StringToHash("Tr_Talk") },
-            
-            { AnimationTrigger.ANIMATION_TRIGGER_TRANSITION_ONE, Animator.StringToHash("Tr_Trans1") },
-            { AnimationTrigger.ANIMATION_TRIGGER_TRANSITION_TWO, Animator.StringToHash("Tr_Trans2") },
-            
-            { AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO, Animator.StringToHash("Tr_Steady2") },
-            { AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO, Animator.StringToHash("Tr_Talk2") },
-
-            { AnimationTrigger.ANIMATION_TRIGGER_WALK_FRONT, Animator.StringToHash("Tr_WalkFront") },
-            { AnimationTrigger.ANIMATION_TRIGGER_WALK_BACK, Animator.StringToHash("Tr_WalkBack") },
-            { AnimationTrigger.ANIMATION_TRIGGER_WALK_CORNERFRONT, Animator.StringToHash("Tr_WalkCornerFront") },
-            { AnimationTrigger.ANIMATION_TRIGGER_WALK_CORNERBACK, Animator.StringToHash("Tr_WalkCornerBack") },
-            { AnimationTrigger.ANIMATION_TRIGGER_WALK_SIDE, Animator.StringToHash("Tr_WalkSide") },
-        };
+        
 
         public static ref readonly AnimationConfig GetAnimationConfig(GameAnimation animation)
         {
@@ -81,7 +52,7 @@ namespace Gob3AQ.ResourceAnimationsAtlas
             }
         }
 
-        private static readonly GameAction[] noAction = new GameAction[0];
+        private static readonly GameAction[] noAction = Array.Empty<GameAction>();
 
 
         private static readonly AnimationConfig[] _AnimationConfig = new AnimationConfig[(int)GameAnimation.ANIMATION_TOTAL]

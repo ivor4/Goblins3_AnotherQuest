@@ -52,7 +52,7 @@ namespace Gob3AQ.GameElement
         protected Animator myAnimator;
         protected Action animationStartCallback;
         protected Action animationEndCallback;
-        protected bool animationStartedNewState;
+        protected int animationStartedNewState;
         protected AnimationTrigger actualAnimationTrigger;
         protected AnimationTrigger autoSteadyTrigger;
         protected AnimationTrigger queuedTrigger;
@@ -137,7 +137,7 @@ namespace Gob3AQ.GameElement
             animationStartCallback?.Invoke();
             animationEndCallback?.Invoke();
             
-            animationStartedNewState = false;
+            animationStartedNewState = 0;
             animationStartCallback = startCallback;
             animationEndCallback = endCallback;
             AnimationTrigger usedTrigger = trigger;
@@ -156,8 +156,6 @@ namespace Gob3AQ.GameElement
             }
             
             queuedTrigger = usedTrigger;
-
-            Debug.Log($"Queued trigger {queuedTrigger} in {transform.parent.gameObject.name} at game state {VARMAP_ItemMaster.GET_GAMESTATUS()}");
         }
 
         public void SetUnspawned(bool unspawned)
@@ -316,8 +314,11 @@ namespace Gob3AQ.GameElement
             
             actualAnimationTrigger = ResourceAnimationsAtlasClass.STATE_HASH_TO_TRIGGER.GetValueOrDefault(stateInfo.shortNameHash, AnimationTrigger.ANIMATION_TRIGGER_NONE);
             prevAnimationNormalizedTime = 0f;
-            
-            Debug.Log($"Started animation with official trigger {actualAnimationTrigger} for {transform.parent.gameObject.name} ID {this.GetInstanceID()} {this.GetHashCode()}");
+
+            if (animationStartedNewState == 1)
+            {
+                animationStartedNewState = 2;
+            }
             
             /* Start animation also triggers queued animation */
             if (queuedTrigger != AnimationTrigger.ANIMATION_TRIGGER_NONE)
@@ -327,8 +328,6 @@ namespace Gob3AQ.GameElement
 
             animationStartCallback?.Invoke();
             animationStartCallback = null;
-            
-            animationStartedNewState = true;
         }
 
         public virtual void OnAnimationUpdate(AnimatorStateInfo stateInfo)
@@ -353,28 +352,27 @@ namespace Gob3AQ.GameElement
             if (ignoreAnimationEventEnd) return;
             ignoreAnimationEventEnd = true;
             
-            if (animationStartedNewState)
+            if (animationStartedNewState == 2)
             {
-                animationStartedNewState = false;
+                animationStartedNewState = 0;
                 animationEndCallback?.Invoke();
                 animationEndCallback = null;
             }
         }
 
-        protected void ResetWalkTriggers()
+        protected void ActivateTrigger(AnimationTrigger trigger)
         {
-            myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_HASH[AnimationTrigger.ANIMATION_TRIGGER_WALK_FRONT]);
-            myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_HASH[AnimationTrigger.ANIMATION_TRIGGER_WALK_BACK]);
-            myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_HASH[AnimationTrigger.ANIMATION_TRIGGER_WALK_CORNERFRONT]);
-            myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_HASH[AnimationTrigger.ANIMATION_TRIGGER_WALK_CORNERBACK]);
-            myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_HASH[AnimationTrigger.ANIMATION_TRIGGER_WALK_SIDE]);
+            myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.TRANSITION_TRIGGER_HASH);
+            myAnimator.SetInteger(ResourceAnimationsAtlasClass.ANIMATION_INDEX_HASH, (int)trigger);
+            myAnimator.SetTrigger(ResourceAnimationsAtlasClass.TRANSITION_TRIGGER_HASH);
+            
+            animationStartedNewState = 1;
         }
 
         private void ExecuteQueuedTrigger()
         {
-            Debug.Log($"Triggered animation {queuedTrigger} for {transform.parent.gameObject.name}");
-            myAnimator.SetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_HASH[queuedTrigger]);
-            
+            ActivateTrigger(queuedTrigger);
+
             actualAnimationTrigger = queuedTrigger;
             prevAnimationNormalizedTime = 0f;
             

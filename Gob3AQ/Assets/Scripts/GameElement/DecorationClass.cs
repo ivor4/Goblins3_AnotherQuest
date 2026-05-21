@@ -46,7 +46,9 @@ namespace Gob3AQ.GameElement.Decoration
             {
                 if (startingTrigger != AnimationTrigger.ANIMATION_TRIGGER_NONE)
                 {
-                    myAnimator.SetTrigger(ResourceAnimationsAtlasClass.ANIM_TRIGGER_TO_HASH[startingTrigger]);
+                    myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.TRANSITION_TRIGGER_HASH);
+                    myAnimator.SetInteger(ResourceAnimationsAtlasClass.ANIMATION_INDEX_HASH, (int)startingTrigger);
+                    myAnimator.SetTrigger(ResourceAnimationsAtlasClass.TRANSITION_TRIGGER_HASH);
                 }
             }
             else

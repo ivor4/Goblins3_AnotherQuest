@@ -268,7 +268,7 @@ namespace Gob3AQ.GameElement.PlayableChar
                     myRigidbody.linearVelocity = Vector2.zero;
                     SetSize(waypoints_infos[actualWaypoint].CharacterSizeFactor);
 
-                    ActivateTrigger(AnimationTrigger.ANIMATION_TRIGGER_STEADY);
+                    ActivateTrigger(AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE);
                     mySpriteRenderer.flipX = waypoints_infos[actualWaypoint].FlipXForAction;
 
                     continueOp = StartBufferedInteraction();

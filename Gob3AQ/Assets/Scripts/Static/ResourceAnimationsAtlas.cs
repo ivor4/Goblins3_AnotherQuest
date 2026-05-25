@@ -10,31 +10,32 @@ namespace Gob3AQ.ResourceAnimationsAtlas
         public static readonly IReadOnlyDictionary<int, AnimationTrigger> STATE_HASH_TO_TRIGGER =
             new Dictionary<int, AnimationTrigger>()
             {
-                { Animator.StringToHash("Steady"), AnimationTrigger.ANIMATION_TRIGGER_STEADY }, 
+                { Animator.StringToHash("Steady1"), AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE }, 
                 { Animator.StringToHash("Steady2"), AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO }, 
-                { Animator.StringToHash("SpecialCycleAction1"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE },
-                { Animator.StringToHash("SpecialCycleAction2"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_TWO },
-                { Animator.StringToHash("SpecialCycleAction3"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_THREE },
-                { Animator.StringToHash("SpecialCycleAction4"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_FOUR },
-                { Animator.StringToHash("Talking"), AnimationTrigger.ANIMATION_TRIGGER_TALK },
-                { Animator.StringToHash("SpecialAction1"), AnimationTrigger.ANIMATION_TRIGGER_ONE },
-                { Animator.StringToHash("SpecialAction2"), AnimationTrigger.ANIMATION_TRIGGER_TWO },
-                { Animator.StringToHash("SpecialAction3"), AnimationTrigger.ANIMATION_TRIGGER_THREE },
-                { Animator.StringToHash("SpecialAction4"), AnimationTrigger.ANIMATION_TRIGGER_FOUR },
-                { Animator.StringToHash("SpecialAction5"), AnimationTrigger.ANIMATION_TRIGGER_FIVE },
-                { Animator.StringToHash("SpecialAction6"), AnimationTrigger.ANIMATION_TRIGGER_SIX },
-                { Animator.StringToHash("SpecialAction7"), AnimationTrigger.ANIMATION_TRIGGER_SEVEN },
-                { Animator.StringToHash("SpecialAction8"), AnimationTrigger.ANIMATION_TRIGGER_EIGHT },
-
+                { Animator.StringToHash("Group_Cycle1"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE },
+                { Animator.StringToHash("Group_Cycle2"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_TWO },
+                { Animator.StringToHash("Group_Cycle3"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_THREE },
+                { Animator.StringToHash("Group_Cycle4"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_FOUR },
+                { Animator.StringToHash("Group_Talk"), AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE },
+                { Animator.StringToHash("Action1"), AnimationTrigger.ANIMATION_TRIGGER_ONE },
+                { Animator.StringToHash("Action2"), AnimationTrigger.ANIMATION_TRIGGER_TWO },
+                { Animator.StringToHash("Action3"), AnimationTrigger.ANIMATION_TRIGGER_THREE },
+                { Animator.StringToHash("Action4"), AnimationTrigger.ANIMATION_TRIGGER_FOUR },
+                { Animator.StringToHash("Action5"), AnimationTrigger.ANIMATION_TRIGGER_FIVE },
+                { Animator.StringToHash("Action6"), AnimationTrigger.ANIMATION_TRIGGER_SIX },
+                { Animator.StringToHash("Action7"), AnimationTrigger.ANIMATION_TRIGGER_SEVEN },
+                { Animator.StringToHash("Action8"), AnimationTrigger.ANIMATION_TRIGGER_EIGHT },
             };
         public static readonly int TRANSITION_TRIGGER_HASH = Animator.StringToHash("TransitionTrigger");
+        public static readonly int TRANSITION_TRIGGER_EXT_HASH = Animator.StringToHash("TransitionTriggerOutside");
         public static readonly int ANIMATION_INDEX_HASH = Animator.StringToHash("AnimationIndex");
+        public static readonly int STEADY_INDEX_HASH = Animator.StringToHash("SteadyIndex");
 
         public static bool IsTriggerSteady(AnimationTrigger trigger)
         {
-            return trigger == AnimationTrigger.ANIMATION_TRIGGER_STEADY || 
-                   trigger == AnimationTrigger.ANIMATION_TRIGGER_AUTO_STEADY || 
-                   trigger == AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO;
+            return trigger
+                is >= AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE 
+                and <= AnimationTrigger.ANIMATION_TRIGGER_STEADY_FOUR; 
         }
             
         

@@ -69,19 +69,13 @@ namespace Gob3AQ.GameElement.Item
             myRigidbody = topParent.GetComponent<Rigidbody2D>();
             myAnimator = topParent.GetComponent<Animator>();
 
-            if (myAnimator)
+            if (myAnimator.runtimeAnimatorController)
             {
                 ulong actualTimestamp = VARMAP_ItemMaster.GET_ELAPSED_TIME_MS();
                 programmedAnimationsRt = new ItemProgrammedAnimationRuntime[programmedAnimations.Count];
                 for (int i = 0; i < programmedAnimations.Count; i++) { 
                     programmedAnimationsRt[i] = new ItemProgrammedAnimationRuntime(programmedAnimations[i],
                         actualTimestamp - (ulong)Random.Range(0, (int)programmedAnimations[i].everyMs));
-                }
-                
-
-                if (startingTrigger != AnimationTrigger.ANIMATION_TRIGGER_NONE)
-                {
-                    PerformAnimation(startingTrigger, null, null);
                 }
             }
 
@@ -124,7 +118,7 @@ namespace Gob3AQ.GameElement.Item
             ignoreAnimationEventUpdate = false;
             ignoreAnimationEventEnd = false;
             
-            if ((!myAnimator.runtimeAnimatorController) || (programmedAnimationsRt.Length <= 0) || (queuedTrigger != AnimationTrigger.ANIMATION_TRIGGER_NONE)) return;
+            if ((!myAnimator.runtimeAnimatorController) || (programmedAnimationsRt.Length <= 0) || (queuedTrigger != AnimationTrigger.ANIMATION_TRIGGER_ZERO)) return;
             
             ulong actualTimestamp = VARMAP_ItemMaster.GET_ELAPSED_TIME_MS();
             for (int i = 0; i < programmedAnimationsRt.Length; i++)
@@ -178,6 +172,14 @@ namespace Gob3AQ.GameElement.Item
             if (!myAnimator.runtimeAnimatorController)
             {
                 SetSprite(itemInfo.defaultSprite);
+            }
+            else
+            {
+                if (startingTrigger != AnimationTrigger.ANIMATION_TRIGGER_ZERO)
+                {
+                    PerformAnimation(startingTrigger, null, null);
+                    ExecuteQueuedTrigger();
+                }
             }
 
             SetVisible_Internal(true);

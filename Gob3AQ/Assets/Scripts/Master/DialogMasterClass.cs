@@ -433,7 +433,7 @@ namespace Gob3AQ.DialogMaster
             for(int i=0; i < content.config.AnimationTrigger.Length;++i)
             {
                 AnimationTrigger trigger = content.config.AnimationTrigger[i];
-                if (trigger == AnimationTrigger.ANIMATION_TRIGGER_NONE) continue;
+                if (trigger == AnimationTrigger.ANIMATION_TRIGGER_ZERO) continue;
                 
                 if ((startAnimationCallback == null) && (!startCallbackGiven) && 
                     (!dialog_background) && !ResourceAnimationsAtlasClass.IsTriggerSteady(trigger))

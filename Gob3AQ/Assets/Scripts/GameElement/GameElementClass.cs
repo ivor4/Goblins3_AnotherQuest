@@ -99,9 +99,9 @@ namespace Gob3AQ.GameElement
 
             gameElementFamily = itemInfo.family;
 
-            actualAnimationTrigger = AnimationTrigger.ANIMATION_TRIGGER_STEADY;
-            autoSteadyTrigger = AnimationTrigger.ANIMATION_TRIGGER_STEADY;
-            queuedTrigger = AnimationTrigger.ANIMATION_TRIGGER_NONE;
+            actualAnimationTrigger = AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE;
+            autoSteadyTrigger = AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE;
+            queuedTrigger = AnimationTrigger.ANIMATION_TRIGGER_ZERO;
             prevAnimationNormalizedTime = 0f;
 
             /* Register item as Level element (to be clicked and able to interact) */
@@ -122,9 +122,9 @@ namespace Gob3AQ.GameElement
 
         public void PerformAnimation(AnimationTrigger trigger, Action startCallback, Action endCallback)
         {
-            if ((!myAnimator.runtimeAnimatorController) || (trigger == AnimationTrigger.ANIMATION_TRIGGER_NONE)) return;
+            if ((!myAnimator.runtimeAnimatorController) || (trigger == AnimationTrigger.ANIMATION_TRIGGER_ZERO)) return;
 
-            if ((queuedTrigger != AnimationTrigger.ANIMATION_TRIGGER_NONE) && ((animationStartCallback != null) || (animationEndCallback != null)))
+            if ((queuedTrigger != AnimationTrigger.ANIMATION_TRIGGER_ZERO) && ((animationStartCallback != null) || (animationEndCallback != null)))
             {
                 Debug.LogError($"Trying to queue an animation when animator has already one enqueued ({queuedTrigger}) and new {trigger}");
             }
@@ -142,19 +142,16 @@ namespace Gob3AQ.GameElement
             animationEndCallback = endCallback;
             AnimationTrigger usedTrigger = trigger;
 
-            switch (trigger)
+            if (ResourceAnimationsAtlasClass.IsTriggerSteady(trigger))
             {
-                case AnimationTrigger.ANIMATION_TRIGGER_TRANSITION_ONE:
-                    autoSteadyTrigger = AnimationTrigger.ANIMATION_TRIGGER_STEADY;
-                    break;
-                case AnimationTrigger.ANIMATION_TRIGGER_TRANSITION_TWO:
-                    autoSteadyTrigger = AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO;
-                    break;
-                case AnimationTrigger.ANIMATION_TRIGGER_AUTO_STEADY:
-                    usedTrigger = autoSteadyTrigger;
-                    break;
+                autoSteadyTrigger = usedTrigger;
+                myAnimator.SetInteger(ResourceAnimationsAtlasClass.STEADY_INDEX_HASH, (int)trigger);
             }
-            
+            else if ((trigger == AnimationTrigger.ANIMATION_TRIGGER_AUTO_STEADY))
+            {
+                usedTrigger = autoSteadyTrigger;
+            }
+
             queuedTrigger = usedTrigger;
         }
 
@@ -311,8 +308,10 @@ namespace Gob3AQ.GameElement
         {
             if (ignoreAnimationEventEnter) return;
             ignoreAnimationEventEnter = true;
+            Debug.Log($"Prev actual animation trigger on {myAnimator.name} : {actualAnimationTrigger}");
+            actualAnimationTrigger = ResourceAnimationsAtlasClass.STATE_HASH_TO_TRIGGER.GetValueOrDefault(stateInfo.tagHash, AnimationTrigger.ANIMATION_TRIGGER_ZERO);
+            Debug.Log($"Post actual animation trigger on {myAnimator.name} : {actualAnimationTrigger}");
             
-            actualAnimationTrigger = ResourceAnimationsAtlasClass.STATE_HASH_TO_TRIGGER.GetValueOrDefault(stateInfo.shortNameHash, AnimationTrigger.ANIMATION_TRIGGER_NONE);
             prevAnimationNormalizedTime = 0f;
 
             if (animationStartedNewState == 1)
@@ -321,7 +320,7 @@ namespace Gob3AQ.GameElement
             }
             
             /* Start animation also triggers queued animation */
-            if (queuedTrigger != AnimationTrigger.ANIMATION_TRIGGER_NONE)
+            if (queuedTrigger != AnimationTrigger.ANIMATION_TRIGGER_ZERO)
             {
                 ExecuteQueuedTrigger();
             }
@@ -337,8 +336,9 @@ namespace Gob3AQ.GameElement
             
             float normTime = stateInfo.normalizedTime % 1f;
 
-            if ((normTime < prevAnimationNormalizedTime) && (queuedTrigger != AnimationTrigger.ANIMATION_TRIGGER_NONE))
+            if ((normTime < prevAnimationNormalizedTime) && (queuedTrigger != AnimationTrigger.ANIMATION_TRIGGER_ZERO))
             {
+                Debug.Log("On Animation Restart on Update " + transform.parent.name);
                 ExecuteQueuedTrigger();
             }
             else
@@ -363,20 +363,22 @@ namespace Gob3AQ.GameElement
         protected void ActivateTrigger(AnimationTrigger trigger)
         {
             myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.TRANSITION_TRIGGER_HASH);
+            myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.TRANSITION_TRIGGER_EXT_HASH);
             myAnimator.SetInteger(ResourceAnimationsAtlasClass.ANIMATION_INDEX_HASH, (int)trigger);
             myAnimator.SetTrigger(ResourceAnimationsAtlasClass.TRANSITION_TRIGGER_HASH);
+            myAnimator.SetTrigger(ResourceAnimationsAtlasClass.TRANSITION_TRIGGER_EXT_HASH);
             
             animationStartedNewState = 1;
         }
 
-        private void ExecuteQueuedTrigger()
+        protected void ExecuteQueuedTrigger()
         {
             ActivateTrigger(queuedTrigger);
 
             actualAnimationTrigger = queuedTrigger;
             prevAnimationNormalizedTime = 0f;
             
-            queuedTrigger = AnimationTrigger.ANIMATION_TRIGGER_NONE;
+            queuedTrigger = AnimationTrigger.ANIMATION_TRIGGER_ZERO;
                 
             animationStartCallback?.Invoke();
             animationStartCallback = null;

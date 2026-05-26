@@ -657,7 +657,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new( /* DIALOG_SILVANA_EXTRAPERLO_OPTION_0 */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[2]{GameAction.ACTION_EVENT_SILVANA_REFUSED_MAINCHAR, GameAction.ACTION_ANIMATE_SILVANA_OPENING_BOOK},
+            new GameAction[3]{GameAction.ACTION_EVENT_SILVANA_REFUSED_MAINCHAR, GameAction.ACTION_ANIMATE_SILVANA_OPENING_BOOK_1, GameAction.ACTION_ANIMATE_SILVANA_OPENING_BOOK_2},
             DialogType.DIALOG_NONE,false,
             new DialogPhrase[4]{DialogPhrase.PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_0_1, DialogPhrase.PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_0_2, DialogPhrase.PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_0_3}
             ),
@@ -671,7 +671,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new( /* DIALOG_SILVANA_EXTRAPERLO_OPTION_2 */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_ANIMATE_SILVANA_OPENING_BOOK},
+            new GameAction[2]{GameAction.ACTION_ANIMATE_SILVANA_OPENING_BOOK_1, GameAction.ACTION_ANIMATE_SILVANA_OPENING_BOOK_2},
             DialogType.DIALOG_NONE,false,
             new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_2_0}
             ),

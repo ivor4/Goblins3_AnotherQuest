@@ -25,6 +25,7 @@ namespace Gob3AQ.ResourceAnimationsAtlas
                 { Animator.StringToHash("Action6"), AnimationTrigger.ANIMATION_TRIGGER_SIX },
                 { Animator.StringToHash("Action7"), AnimationTrigger.ANIMATION_TRIGGER_SEVEN },
                 { Animator.StringToHash("Action8"), AnimationTrigger.ANIMATION_TRIGGER_EIGHT },
+                { Animator.StringToHash("CentralHub"), AnimationTrigger.ANIMATION_TRIGGER_ZERO }
             };
         public static readonly int TRANSITION_TRIGGER_HASH = Animator.StringToHash("TransitionTrigger");
         public static readonly int TRANSITION_TRIGGER_EXT_HASH = Animator.StringToHash("TransitionTriggerOutside");

@@ -139,10 +139,6 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         private void Update()
         {
-            ignoreAnimationEventEnter = false;
-            ignoreAnimationEventUpdate = false;
-            ignoreAnimationEventEnd = false;
-            
             /* Script will only be enabled in play mode */
             Execute_Play();
         }
@@ -268,7 +264,8 @@ namespace Gob3AQ.GameElement.PlayableChar
                     myRigidbody.linearVelocity = Vector2.zero;
                     SetSize(waypoints_infos[actualWaypoint].CharacterSizeFactor);
 
-                    ActivateTrigger(AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE);
+                    PerformAnimation(AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE, null, null);
+                    ExecuteQueuedTrigger();
                     mySpriteRenderer.flipX = waypoints_infos[actualWaypoint].FlipXForAction;
 
                     continueOp = StartBufferedInteraction();

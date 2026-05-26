@@ -685,7 +685,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new( /* COND_TALK_ITEM_NPC_SILVANA_EXTRAPERLO */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,
-            new GameAction[2]{GameAction.ACTION_ANIMATE_SILVANA_CLOSING_BOOK, GameAction.ACTION_TALK_DIALOG_SILVANA_EXTRAPERLO}), 
+            new GameAction[3]{GameAction.ACTION_ANIMATE_SILVANA_CLOSING_BOOK_1, GameAction.ACTION_ANIMATE_SILVANA_CLOSING_BOOK_2, GameAction.ACTION_TALK_DIALOG_SILVANA_EXTRAPERLO}), 
 
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
@@ -1968,7 +1968,13 @@ false),
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_CLOWN_EXTRAPERLO_INTRO,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
 
-            new( /* ACTION_ANIMATE_SILVANA_CLOSING_BOOK */
+            new( /* ACTION_ANIMATE_SILVANA_CLOSING_BOOK_1 */
+            false,ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION,GameItem.ITEM_NPC_SILVANA_EXTRAPERLO,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_ANIMATE_SILVANA_CLOSING_BOOK_2 */
             true,ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION,GameItem.ITEM_NPC_SILVANA_EXTRAPERLO,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
@@ -1980,7 +1986,13 @@ false),
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SILVANA_EXTRAPERLO_INTRO,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
 
-            new( /* ACTION_ANIMATE_SILVANA_OPENING_BOOK */
+            new( /* ACTION_ANIMATE_SILVANA_OPENING_BOOK_1 */
+            false,ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION,GameItem.ITEM_NPC_SILVANA_EXTRAPERLO,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_ANIMATE_SILVANA_OPENING_BOOK_2 */
             false,ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION,GameItem.ITEM_NPC_SILVANA_EXTRAPERLO,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 

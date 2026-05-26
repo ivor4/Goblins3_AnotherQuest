@@ -52,13 +52,10 @@ namespace Gob3AQ.GameElement
         protected Animator myAnimator;
         protected Action animationStartCallback;
         protected Action animationEndCallback;
-        protected int animationStartedNewState;
+        protected int pendingCentralHubCrossings;
         protected AnimationTrigger actualAnimationTrigger;
         protected AnimationTrigger autoSteadyTrigger;
         protected AnimationTrigger queuedTrigger;
-        protected bool ignoreAnimationEventEnter;
-        protected bool ignoreAnimationEventUpdate;
-        protected bool ignoreAnimationEventEnd;
         protected float prevAnimationNormalizedTime;
         protected bool registered;
         protected bool loaded;
@@ -137,9 +134,6 @@ namespace Gob3AQ.GameElement
             animationStartCallback?.Invoke();
             animationEndCallback?.Invoke();
             
-            animationStartedNewState = 0;
-            animationStartCallback = startCallback;
-            animationEndCallback = endCallback;
             AnimationTrigger usedTrigger = trigger;
 
             if (ResourceAnimationsAtlasClass.IsTriggerSteady(trigger))
@@ -153,6 +147,11 @@ namespace Gob3AQ.GameElement
             }
 
             queuedTrigger = usedTrigger;
+            pendingCentralHubCrossings = 0;
+            animationStartCallback = startCallback;
+            animationEndCallback = endCallback;
+            
+            Debug.Log($"Performing animation {usedTrigger} with start callback {startCallback} and end callback {animationEndCallback} over {myAnimator.name}");
         }
 
         public void SetUnspawned(bool unspawned)
@@ -306,17 +305,19 @@ namespace Gob3AQ.GameElement
 
         public virtual void OnAnimationStart(AnimatorStateInfo stateInfo)
         {
-            if (ignoreAnimationEventEnter) return;
-            ignoreAnimationEventEnter = true;
-            Debug.Log($"Prev actual animation trigger on {myAnimator.name} : {actualAnimationTrigger}");
+            AnimationTrigger prevAnimationTrigger = actualAnimationTrigger;
+            
             actualAnimationTrigger = ResourceAnimationsAtlasClass.STATE_HASH_TO_TRIGGER.GetValueOrDefault(stateInfo.tagHash, AnimationTrigger.ANIMATION_TRIGGER_ZERO);
-            Debug.Log($"Post actual animation trigger on {myAnimator.name} : {actualAnimationTrigger}");
             
             prevAnimationNormalizedTime = 0f;
 
-            if (animationStartedNewState == 1)
+            if ((prevAnimationTrigger == AnimationTrigger.ANIMATION_TRIGGER_ZERO) && (pendingCentralHubCrossings == 2))
             {
-                animationStartedNewState = 2;
+                Debug.Log($"Animation start with queued trigger {queuedTrigger} of animation {actualAnimationTrigger} by {myAnimator.name} and callback {animationStartCallback}");
+                animationStartCallback?.Invoke();
+                animationStartCallback = null;
+                
+                --pendingCentralHubCrossings;
             }
             
             /* Start animation also triggers queued animation */
@@ -324,22 +325,27 @@ namespace Gob3AQ.GameElement
             {
                 ExecuteQueuedTrigger();
             }
-
-            animationStartCallback?.Invoke();
-            animationStartCallback = null;
         }
 
         public virtual void OnAnimationUpdate(AnimatorStateInfo stateInfo)
         {
-            if (ignoreAnimationEventUpdate) return;
-            ignoreAnimationEventUpdate = true;
-            
             float normTime = stateInfo.normalizedTime % 1f;
 
-            if ((normTime < prevAnimationNormalizedTime) && (queuedTrigger != AnimationTrigger.ANIMATION_TRIGGER_ZERO))
+            if ((normTime < prevAnimationNormalizedTime))
             {
-                Debug.Log("On Animation Restart on Update " + transform.parent.name);
-                ExecuteQueuedTrigger();
+                if (pendingCentralHubCrossings == 1)
+                {
+                    Debug.Log($"Animation end {actualAnimationTrigger} by {myAnimator.name}");
+                    animationEndCallback?.Invoke();
+                    animationEndCallback = null;
+                
+                    --pendingCentralHubCrossings;
+                }
+                
+                if (queuedTrigger != AnimationTrigger.ANIMATION_TRIGGER_ZERO)
+                {
+                    ExecuteQueuedTrigger();
+                }
             }
             else
             {
@@ -349,39 +355,34 @@ namespace Gob3AQ.GameElement
 
         public virtual void OnAnimationEnd(AnimatorStateInfo stateInfo)
         {
-            if (ignoreAnimationEventEnd) return;
-            ignoreAnimationEventEnd = true;
-            
-            if (animationStartedNewState == 2)
+            if ((actualAnimationTrigger != AnimationTrigger.ANIMATION_TRIGGER_ZERO) && (pendingCentralHubCrossings == 1))
             {
-                animationStartedNewState = 0;
+                Debug.Log($"Animation end {actualAnimationTrigger} by {myAnimator.name}");
+                
                 animationEndCallback?.Invoke();
                 animationEndCallback = null;
+                
+                --pendingCentralHubCrossings;
             }
         }
 
         protected void ActivateTrigger(AnimationTrigger trigger)
         {
+            Debug.Log($"Going to trigger {trigger} by {myAnimator.name}");
             myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.TRANSITION_TRIGGER_HASH);
             myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.TRANSITION_TRIGGER_EXT_HASH);
             myAnimator.SetInteger(ResourceAnimationsAtlasClass.ANIMATION_INDEX_HASH, (int)trigger);
             myAnimator.SetTrigger(ResourceAnimationsAtlasClass.TRANSITION_TRIGGER_HASH);
             myAnimator.SetTrigger(ResourceAnimationsAtlasClass.TRANSITION_TRIGGER_EXT_HASH);
-            
-            animationStartedNewState = 1;
         }
 
         protected void ExecuteQueuedTrigger()
         {
             ActivateTrigger(queuedTrigger);
-
-            actualAnimationTrigger = queuedTrigger;
-            prevAnimationNormalizedTime = 0f;
             
             queuedTrigger = AnimationTrigger.ANIMATION_TRIGGER_ZERO;
-                
-            animationStartCallback?.Invoke();
-            animationStartCallback = null;
+
+            pendingCentralHubCrossings = 2;
         }
 
         private void ChangedGameStatus(ChangedEventType eventType, in Game_Status oldval, in Game_Status newval)

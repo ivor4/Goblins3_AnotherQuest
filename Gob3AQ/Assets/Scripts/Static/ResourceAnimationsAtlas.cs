@@ -25,7 +25,11 @@ namespace Gob3AQ.ResourceAnimationsAtlas
                 { Animator.StringToHash("Action6"), AnimationTrigger.ANIMATION_TRIGGER_SIX },
                 { Animator.StringToHash("Action7"), AnimationTrigger.ANIMATION_TRIGGER_SEVEN },
                 { Animator.StringToHash("Action8"), AnimationTrigger.ANIMATION_TRIGGER_EIGHT },
-                { Animator.StringToHash("CentralHub"), AnimationTrigger.ANIMATION_TRIGGER_ZERO }
+                { Animator.StringToHash("Group_WalkBack"), AnimationTrigger.ANIMATION_TRIGGER_WALK_BACK },
+                { Animator.StringToHash("Group_WalkFront"), AnimationTrigger.ANIMATION_TRIGGER_WALK_FRONT },
+                { Animator.StringToHash("Group_WalkCornerBack"), AnimationTrigger.ANIMATION_TRIGGER_WALK_CORNERBACK },
+                { Animator.StringToHash("Group_WalkCornerFront"), AnimationTrigger.ANIMATION_TRIGGER_WALK_CORNERFRONT },
+                { Animator.StringToHash("Group_WalkSide"), AnimationTrigger.ANIMATION_TRIGGER_WALK_SIDE }
             };
         public static readonly int TRANSITION_TRIGGER_HASH = Animator.StringToHash("TransitionTrigger");
         public static readonly int TRANSITION_TRIGGER_EXT_HASH = Animator.StringToHash("TransitionTriggerOutside");
@@ -37,6 +41,25 @@ namespace Gob3AQ.ResourceAnimationsAtlas
             return trigger
                 is >= AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE 
                 and <= AnimationTrigger.ANIMATION_TRIGGER_STEADY_FOUR; 
+        }
+
+        public static bool IsTriggerCycled(AnimationTrigger trigger)
+        {
+            return trigger is 
+                (
+                >= AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE
+                and <= AnimationTrigger.ANIMATION_TRIGGER_CYCLE_FOUR
+                )
+                or
+                (
+                >= AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE
+                and <= AnimationTrigger.ANIMATION_TRIGGER_TALK_FOUR
+                )
+                or
+                (
+                >= AnimationTrigger.ANIMATION_TRIGGER_WALK_BACK
+                and <= AnimationTrigger.ANIMATION_TRIGGER_WALK_SIDE
+                );
         }
             
         

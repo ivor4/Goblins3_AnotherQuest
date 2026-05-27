@@ -172,42 +172,31 @@ namespace Gob3AQ.GameElement.PlayableChar
 
         private bool Execute_Loading_Action()
         {
-            bool loadOk;
+            VARMAP_PlayerMaster.IS_MODULE_LOADED(GameModules.MODULE_LevelMaster, out bool loadOk);
 
-            VARMAP_PlayerMaster.IS_MODULE_LOADED(GameModules.MODULE_LevelMaster, out loadOk);
-
-            if (loadOk)
-            {
-                int wpStartIndex = VARMAP_PlayerMaster.GET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)charType);
+            if (!loadOk) return false;
+            
+            int wpStartIndex = VARMAP_PlayerMaster.GET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)charType);
 
 
-                if (wpStartIndex == -1)
-                {
-                    actualWaypoint = 0;
-                    
-                }
-                else
-                {
-                    actualWaypoint = wpStartIndex;
-                }
+            actualWaypoint = wpStartIndex == -1 ? 0 : wpStartIndex;
 
-                _parentTransform.position = waypoints_infos[actualWaypoint].Position;
+            _parentTransform.position = waypoints_infos[actualWaypoint].Position;
 
-                PresetProgrammedPathStruct(actualWaypoint);
-                SetSize(waypoints_infos[actualWaypoint].CharacterSizeFactor);
+            PresetProgrammedPathStruct(actualWaypoint);
+            SetSize(waypoints_infos[actualWaypoint].CharacterSizeFactor);
 
-                VARMAP_PlayerMaster.PLAYER_WAYPOINT_UPDATE(charType, actualWaypoint);
+            VARMAP_PlayerMaster.PLAYER_WAYPOINT_UPDATE(charType, actualWaypoint);
 
-                mySpriteRenderer.flipX = waypoints_infos[actualWaypoint].FlipXForAction;
+            mySpriteRenderer.flipX = waypoints_infos[actualWaypoint].FlipXForAction;
 
-                SetVisible_Internal(true);
-                PlayerMasterClass.SetPlayerLoaded(CharType);
+            SetVisible_Internal(true);
+            PlayerMasterClass.SetPlayerLoaded(CharType);
 
-                UpdateSortingOrder();
-            }
+            UpdateSortingOrder();
 
 
-            return loadOk;
+            return true;
         }
 
         private void Execute_Play()
@@ -228,9 +217,8 @@ namespace Gob3AQ.GameElement.PlayableChar
         }
         
 
-        private bool Execute_Walk()
+        private void Execute_Walk()
         {
-            bool continueOp;
             Vector3 target_pos = waypoints_infos[actualProgrammedPath.target_index].Position;
             Vector3 orig_pos = waypoints_infos[actualWaypoint].Position;
             Vector2 deltaPos = _parentTransform.position - orig_pos;
@@ -268,20 +256,13 @@ namespace Gob3AQ.GameElement.PlayableChar
                     ExecuteQueuedTrigger();
                     mySpriteRenderer.flipX = waypoints_infos[actualWaypoint].FlipXForAction;
 
-                    continueOp = StartBufferedInteraction();
+                    StartBufferedInteraction();
                 }
                 else
                 {
                     Walk_StartNextSegment();
-                    continueOp = true;
                 }
             }
-            else
-            {
-                continueOp = true;
-            }
-
-            return continueOp;
         }
 
 
@@ -320,33 +301,19 @@ namespace Gob3AQ.GameElement.PlayableChar
             }
             else if(absDeltaX >= 0.173f)
             {
-                if (delta.y >= 0f)
-                {
-                    walkdirTrigger = AnimationTrigger.ANIMATION_TRIGGER_WALK_CORNERBACK;
-                }
-                else
-                {
-                    walkdirTrigger = AnimationTrigger.ANIMATION_TRIGGER_WALK_CORNERFRONT;
-                }
+                walkdirTrigger = delta.y >= 0f ? AnimationTrigger.ANIMATION_TRIGGER_WALK_CORNERBACK : AnimationTrigger.ANIMATION_TRIGGER_WALK_CORNERFRONT;
 
                 mySpriteRenderer.flipX = delta.x > 0;
             }
             else
             {
-                if (delta.y >= 0f)
-                {
-                    walkdirTrigger = AnimationTrigger.ANIMATION_TRIGGER_WALK_BACK;
-                }
-                else
-                {
-                    walkdirTrigger = AnimationTrigger.ANIMATION_TRIGGER_WALK_FRONT;
-                }
+                walkdirTrigger = delta.y >= 0f ? AnimationTrigger.ANIMATION_TRIGGER_WALK_BACK : AnimationTrigger.ANIMATION_TRIGGER_WALK_FRONT;
 
                 mySpriteRenderer.flipX = false;
             }
 
-
-            ActivateTrigger(walkdirTrigger);
+            PerformAnimation(walkdirTrigger, null, null);
+            ExecuteQueuedTrigger();
 
             /* Remove after debugging */
             speed_reduction_factor = 1f;
@@ -354,13 +321,9 @@ namespace Gob3AQ.GameElement.PlayableChar
             myRigidbody.linearVelocity = GameFixedConfig.CHARACTER_NORMAL_SPEED * speed_reduction_factor * delta;
         }
 
-        private bool StartBufferedInteraction()
+        private void StartBufferedInteraction()
         {
-            bool continueOp = false;
-
             VARMAP_PlayerMaster.PLAYER_REACHED_WAYPOINT(charType);
-
-            return continueOp;
         }
 
         private void SetSize(float size)

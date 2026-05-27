@@ -25,8 +25,68 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 04ff09b7f1448b34ca0a354dc7b72272
+    m_Address: ANIMATION_GENERIC_CYCLE4_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 05fe7af81b85d72479a54f5d880146af
+    m_Address: ANIMATION_GENERIC_STEADY2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0918755f45729dc4b8ff11aa427fced2
+    m_Address: ANIMATION_GENERIC_WALKINGSIDE_EXEC2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0927956e5347c1e448036ffeca798dcc
     m_Address: SPRITE_ATLAS_UI_0
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d06a50c9d2f9a64d9f2de863cbc5453
+    m_Address: ANIMATION_GENERIC_TALK1_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d7eae30dfd3f554ea0fedbd65a10fdd
+    m_Address: ANIMATION_GENERIC_CYCLE3_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1381b49dc69512d4fb544f0a9c02a71d
+    m_Address: ANIMATION_GENERIC_WALKINGBACK_EXEC2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1473dd84f824d184bb26616c2e461c49
+    m_Address: ANIMATION_GENERIC_CYCLE1_ENTRY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ab30f54b5ab23a4398ef082090f846e
+    m_Address: ANIMATION_GENERIC_WALKINGCORNERFRONT_EXEC2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d59016cc083d91469631edaf9bf01b8
+    m_Address: ANIMATION_GENERIC_WALKINGCORNERBACK_EXEC2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2360d360a61a4e94c9a7cc0f6eb08cfb
+    m_Address: ANIMATION_GENERIC_WALKINGFRONT_ENTRY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 244155a4ebf69b643bf47640bd7d1cba
+    m_Address: ANIMATION_GENERIC_CYCLE2_ENTRY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 25c11296fd19d314b9f4341d874f34ee
+    m_Address: ANIMATION_GENERIC_WALKINGSIDE_ENTRY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -35,8 +95,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 30bf4ccfcd20d32468d9d2ff0e75414a
+    m_Address: ANIMATION_GENERIC_CYCLE2_EXEC
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 36b9f2d54e3be5040825ee63ad96f275
     m_Address: SPRITE_PICKABLE_EXTRAPERLO
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3844379f626403c4387c7feaf989d98b
+    m_Address: ANIMATION_GENERIC_WALKINGFRONT_EXEC
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a514282af0373b4ea2d573ab65ebee2
+    m_Address: ANIMATION_GENERIC_WALKINGBACK_ENTRY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -50,13 +125,33 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 57c47ebb82e9a8540a94322a911272fb
+    m_Address: ANIMATION_GENERIC_TALK1_ENTRY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 57dfcde8303e8a142b3bddfde29b2c35
     m_Address: SPRITE_INVENTORY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5be509b3785d9724999b5e22c81c2da5
+    m_Address: ANIMATION_GENERIC_WALKINGCORNERFRONT_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d12b30a0f6549e419ab1b965de9a1d2
+    m_Address: ANIMATION_GENERIC_CYCLE2_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 65e313ed732dd95429b91949e02f8ef3
     m_Address: ANIMATOR_GENERIC
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66ddf8fad8e72d24c9ba63aba9390b71
+    m_Address: ANIMATION_GENERIC_CYCLE3_ENTRY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -80,8 +175,73 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6ea9c4c55a5be4e4382f19256b9ad177
+    m_Address: ANIMATION_GENERIC_ACTION3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d4a9390f43eb604d8678dc039dfaf12
+    m_Address: ANIMATION_GENERIC_TALK1_EXEC2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8746bdee810ede74b8a1383e37301450
+    m_Address: ANIMATION_GENERIC_WALKINGSIDE_EXEC
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 887a02d55de807c4787ec7cb7f0dcee9
+    m_Address: ANIMATION_GENERIC_STEADY1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 91deb8e26aa10724eac57107d7df6a58
+    m_Address: ANIMATION_GENERIC_TALK1_EXEC
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 921b68d7c2d9dfe4dab7f10b00c0e26c
+    m_Address: ANIMATION_GENERIC_WALKINGCORNERBACK_EXEC
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 92d845b6379f4fd45bb81c5c91f0fb6f
     m_Address: SCENE_BASE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 949a936ad24ebc347a95fbfd7a8a68d8
+    m_Address: ANIMATION_GENERIC_WALKINGSIDE_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94f8547ad390d1347ab4c70f4acca1c7
+    m_Address: ANIMATION_GENERIC_ACTION4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 983fba91bfab9a9408a934b137c5fc1c
+    m_Address: ANIMATION_GENERIC_CYCLE3_EXEC
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ecbce3f3171a6d49a313f7e563f1a99
+    m_Address: ANIMATION_GENERIC_ACTION1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2cd7ddb59358e44cb67531803e25fc3
+    m_Address: ANIMATION_GENERIC_CYCLE1_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a77d9eee897345e43b815765789a63e3
+    m_Address: ANIMATION_GENERIC_WALKINGBACK_EXEC
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a8524890b78ce90498a33d5593e8f619
+    m_Address: ANIMATION_GENERIC_WALKINGFRONT_EXEC2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -95,13 +255,33 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4b0b46e09459f5439d432e80a1ef9b4
+    m_Address: ANIMATION_GENERIC_WALKINGCORNERFRONT_EXEC
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b98775155cc4d5b408d254644c4c02c7
     m_Address: SPRITE_ACTION_OBSERVE
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9e04a9749682d04198b02608fddcc46
+    m_Address: ANIMATION_GENERIC_WALKINGCORNERBACK_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd6bb67ddaed17448b56e894192c00e3
+    m_Address: ANIMATION_GENERIC_WALKINGCORNERFRONT_ENTRY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bf35420c0a29c7146bdcdb7484b4a1a8
     m_Address: SPRITE_PICKABLE_SHOELACE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf3751d063be54d44a0fe6ae3164c7df
+    m_Address: ANIMATION_GENERIC_WALKINGFRONT_EXIT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -115,8 +295,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d527990c73ddeb04d9d5375f5e384df4
+    m_Address: ANIMATION_GENERIC_CYCLE4_ENTRY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db0c13d0e01119d4785bc99de932c6da
+    m_Address: ANIMATION_GENERIC_CYCLE1_EXEC
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: db7e2e3be67785f4988c50ac8575206d
     m_Address: SPRITE_ACTION_TAKE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dcd84a3c322f35342a0ac2069a0e0388
+    m_Address: ANIMATION_GENERIC_WALKINGBACK_EXIT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -125,8 +320,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e69d905d2a137cd49bd1e8a23d8c1b38
+    m_Address: ANIMATION_GENERIC_WALKINGCORNERBACK_ENTRY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e8e58a9b1ffb1eb4a9520b60e8f80442
+    m_Address: ANIMATION_GENERIC_ACTION2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f02bacca7d2fad34e81f0e4c98bf89a2
     m_Address: SPRITE_INTERNAL_CIRCLE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0e32f992cc7d7d4aaf6a0456f219648
+    m_Address: ANIMATION_GENERIC_CYCLE4_EXEC
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

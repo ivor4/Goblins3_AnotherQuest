@@ -52,7 +52,8 @@ namespace Gob3AQ.GameElement
         protected Animator myAnimator;
         protected Action animationStartCallback;
         protected Action animationEndCallback;
-        protected int pendingCentralHubCrossings;
+        protected int pendingStateCrossings;
+        protected bool pendingZeroStateCross;
         protected AnimationTrigger actualAnimationTrigger;
         protected AnimationTrigger autoSteadyTrigger;
         protected AnimationTrigger queuedTrigger;
@@ -147,7 +148,8 @@ namespace Gob3AQ.GameElement
             }
 
             queuedTrigger = usedTrigger;
-            pendingCentralHubCrossings = 0;
+            pendingStateCrossings = 0;
+            pendingZeroStateCross = false;
             animationStartCallback = startCallback;
             animationEndCallback = endCallback;
             
@@ -311,13 +313,31 @@ namespace Gob3AQ.GameElement
             
             prevAnimationNormalizedTime = 0f;
 
-            if ((prevAnimationTrigger == AnimationTrigger.ANIMATION_TRIGGER_ZERO) && (pendingCentralHubCrossings == 2))
+            bool decremented;
+
+            if ((prevAnimationTrigger == AnimationTrigger.ANIMATION_TRIGGER_ZERO) && pendingZeroStateCross)
             {
                 Debug.Log($"Animation start with queued trigger {queuedTrigger} of animation {actualAnimationTrigger} by {myAnimator.name} and callback {animationStartCallback}");
+
+                pendingZeroStateCross = false;
+                --pendingStateCrossings;
+
+                decremented = true;
+            }
+            else if ((pendingStateCrossings > 1) && !pendingZeroStateCross)
+            {
+                --pendingStateCrossings;
+                decremented = true;
+            }
+            else
+            {
+                decremented = false;
+            }
+
+            if (decremented && (pendingStateCrossings == 1))
+            {
                 animationStartCallback?.Invoke();
                 animationStartCallback = null;
-                
-                --pendingCentralHubCrossings;
             }
             
             /* Start animation also triggers queued animation */
@@ -333,13 +353,13 @@ namespace Gob3AQ.GameElement
 
             if ((normTime < prevAnimationNormalizedTime))
             {
-                if (pendingCentralHubCrossings == 1)
+                if (pendingStateCrossings == 1)
                 {
                     Debug.Log($"Animation end {actualAnimationTrigger} by {myAnimator.name}");
                     animationEndCallback?.Invoke();
                     animationEndCallback = null;
                 
-                    --pendingCentralHubCrossings;
+                    --pendingStateCrossings;
                 }
                 
                 if (queuedTrigger != AnimationTrigger.ANIMATION_TRIGGER_ZERO)
@@ -355,18 +375,18 @@ namespace Gob3AQ.GameElement
 
         public virtual void OnAnimationEnd(AnimatorStateInfo stateInfo)
         {
-            if ((actualAnimationTrigger != AnimationTrigger.ANIMATION_TRIGGER_ZERO) && (pendingCentralHubCrossings == 1))
+            if ((actualAnimationTrigger != AnimationTrigger.ANIMATION_TRIGGER_ZERO) && (pendingStateCrossings == 1))
             {
                 Debug.Log($"Animation end {actualAnimationTrigger} by {myAnimator.name}");
                 
                 animationEndCallback?.Invoke();
                 animationEndCallback = null;
                 
-                --pendingCentralHubCrossings;
+                --pendingStateCrossings;
             }
         }
 
-        protected void ActivateTrigger(AnimationTrigger trigger)
+        private void ActivateTrigger(AnimationTrigger trigger)
         {
             Debug.Log($"Going to trigger {trigger} by {myAnimator.name}");
             myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.TRANSITION_TRIGGER_HASH);
@@ -379,10 +399,13 @@ namespace Gob3AQ.GameElement
         protected void ExecuteQueuedTrigger()
         {
             ActivateTrigger(queuedTrigger);
+
+            bool isCycled = ResourceAnimationsAtlasClass.IsTriggerCycled(queuedTrigger);
             
             queuedTrigger = AnimationTrigger.ANIMATION_TRIGGER_ZERO;
 
-            pendingCentralHubCrossings = 2;
+            pendingStateCrossings = isCycled ? 3 : 2;
+            pendingZeroStateCross = true;
         }
 
         private void ChangedGameStatus(ChangedEventType eventType, in Game_Status oldval, in Game_Status newval)

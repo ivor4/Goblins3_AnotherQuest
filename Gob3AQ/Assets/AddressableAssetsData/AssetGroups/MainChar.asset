@@ -40,6 +40,21 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 501d66932d262084a82f423418848919
+    m_Address: ANIMATION_MAINCHAR_WALKING_FRONT_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 530fc4b3013d8124fa6cf0d645f10be2
+    m_Address: ANIMATION_MAINCHAR_WALKING_BACK_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 54b7713a2894dc14c8cdebbd349bf6d4
+    m_Address: ANIMATOR_MAINCHAR
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 558071ab4c384b245bf10f3cf342c063
     m_Address: SPRITE_MAINCHAR_ROTATING_BACK
     m_ReadOnly: 0
@@ -105,6 +120,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 95c006ba48dcfb048b38d7fb8ff5c94b
+    m_Address: ANIMATION_MAINCHAR_WALKING_FRONT_ENTRY_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a25bbe9e59d21f14b93cd5f855b63f8a
     m_Address: ANIMATION_MAINCHAR_WALKING_FRONT
     m_ReadOnly: 0
@@ -120,11 +140,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ad857e3cbe8f858478025b69b4aab6b6
-    m_Address: PlayerAnimator
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b7d079a09262b434193cd6e9666240f9
     m_Address: SPRITE_MAINCHAR_INVENT
     m_ReadOnly: 0
@@ -132,6 +147,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bf52a6e07bf1643419a67c5cdde5903f
     m_Address: SOUND_MAINCHAR_NONSENSE_OBSERVE_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bfb03ba3dae93064b94b2c113eb8dcc6
+    m_Address: ANIMATION_MAINCHAR_WALKING_BACK_ENTRY_EXIT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

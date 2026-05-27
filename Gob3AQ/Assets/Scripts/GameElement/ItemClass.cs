@@ -114,7 +114,7 @@ namespace Gob3AQ.GameElement.Item
 
         protected void Update()
         {
-            if ((!myAnimator.runtimeAnimatorController) || (programmedAnimationsRt.Length <= 0) || (queuedTrigger != AnimationTrigger.ANIMATION_TRIGGER_ZERO) || (pendingCentralHubCrossings != 0)) return;
+            if ((!myAnimator.runtimeAnimatorController) || (programmedAnimationsRt.Length <= 0) || (queuedTrigger != AnimationTrigger.ANIMATION_TRIGGER_ZERO) || (pendingStateCrossings != 0)) return;
             
             ulong actualTimestamp = VARMAP_ItemMaster.GET_ELAPSED_TIME_MS();
             for (int i = 0; i < programmedAnimationsRt.Length; i++)

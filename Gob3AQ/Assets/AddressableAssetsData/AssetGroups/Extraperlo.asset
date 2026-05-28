@@ -70,6 +70,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e2bb0592f4ce8f44a9422afc784529c
+    m_Address: ANIMATION_FIK_TALKING_ENTRY_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 10188c29829d8784195e29993432bb82
     m_Address: SOUND_AMBIENCE_INSIDE_PUB
     m_ReadOnly: 0
@@ -197,6 +202,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 346dc621e1a5ee54490696f4afaaccbc
     m_Address: SOUND_FIK_1_OP_1_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34b394cd4e58ead4085df94e9e21759b
+    m_Address: ANIMATION_ARTURO_TALKING_EXIT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -625,6 +635,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e82c6ba18671bc4290b24fd55278cf2
+    m_Address: ANIMATION_FIK_TALKING_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9fea666bc88a0e94cb179166ab075c70
     m_Address: ANIMATION_CLOWN_STEADY
     m_ReadOnly: 0
@@ -850,6 +865,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de336d1a37207364583add290922b051
+    m_Address: ANIMATION_ARTURO_TALKING_ENTRY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: de8bec6bb43296a41a092e73c463e774
     m_Address: BACKGROUND_CITY1_SOUTH_STREET_1_NIGHT
     m_ReadOnly: 0
@@ -952,6 +972,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f434a8761788c2248aa007dc54c3de5f
     m_Address: SOUND_FIK_1_OP_2_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f57d89cc7c410b4449e7caaff7006c0b
+    m_Address: ANIMATION_ARTURO_TALKING_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

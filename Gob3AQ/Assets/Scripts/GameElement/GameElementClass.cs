@@ -146,7 +146,7 @@ namespace Gob3AQ.GameElement
             {
                 usedTrigger = autoSteadyTrigger;
             }
-
+             
             queuedTrigger = usedTrigger;
             pendingStateCrossings = 0;
             pendingZeroStateCross = false;
@@ -154,6 +154,11 @@ namespace Gob3AQ.GameElement
             animationEndCallback = endCallback;
             
             Debug.Log($"Performing animation {usedTrigger} with start callback {startCallback} and end callback {animationEndCallback} over {myAnimator.name}");
+            
+            if (ResourceAnimationsAtlasClass.IsTriggerWalking(actualAnimationTrigger))
+            {
+                ActivateTrigger(queuedTrigger);
+            }
         }
 
         public void SetUnspawned(bool unspawned)

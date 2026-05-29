@@ -42,6 +42,13 @@ namespace Gob3AQ.ResourceAnimationsAtlas
                 is >= AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE 
                 and <= AnimationTrigger.ANIMATION_TRIGGER_STEADY_FOUR; 
         }
+        
+        public static bool IsTriggerWalking(AnimationTrigger trigger)
+        {
+            return trigger is 
+                >= AnimationTrigger.ANIMATION_TRIGGER_WALK_BACK
+                and <= AnimationTrigger.ANIMATION_TRIGGER_WALK_SIDE;
+        }
 
         public static bool IsTriggerCycled(AnimationTrigger trigger)
         {

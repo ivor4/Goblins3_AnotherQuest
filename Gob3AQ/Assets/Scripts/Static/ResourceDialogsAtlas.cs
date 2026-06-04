@@ -235,12 +235,12 @@ namespace Gob3AQ.ResourceDialogsAtlas
             ),
 
             new( /* DIALOG_SILVANA_EXTRAPERLO */
-            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_SILVANA_EXTRAPERLO},
+            new GameItem[3]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_SILVANA_EXTRAPERLO, GameItem.ITEM_NPC_CLOWN},
             new DialogOption[3]{DialogOption.DIALOG_SILVANA_EXTRAPERLO_OPTION_0, DialogOption.DIALOG_SILVANA_EXTRAPERLO_OPTION_1, DialogOption.DIALOG_SILVANA_EXTRAPERLO_OPTION_2}
             ),
 
             new( /* DIALOG_SILVANA_EXTRAPERLO_INTRO */
-            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_SILVANA_EXTRAPERLO},
+            new GameItem[3]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_SILVANA_EXTRAPERLO, GameItem.ITEM_NPC_CLOWN},
             new DialogOption[1]{DialogOption.DIALOG_SILVANA_EXTRAPERLO_OPTION_INTRO}
             ),
 

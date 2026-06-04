@@ -9,5 +9,9 @@ AnimatorOverrideController:
   m_Name: TableExtraperlo1Animator
   m_Controller: {fileID: 9100000, guid: 65e313ed732dd95429b91949e02f8ef3, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 887a02d55de807c4787ec7cb7f0dcee9, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 1473dd84f824d184bb26616c2e461c49, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 0859207962e34e349856fe78f3704d60, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: db0c13d0e01119d4785bc99de932c6da, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 4647e94e783a34d4aacab9c1c060c7cf, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a11a479360ffd3643a6520f536038622, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 83a3b4ffe0720b74c80800aebfd27e8f, type: 2}

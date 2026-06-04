@@ -715,7 +715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2757196565734091061, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: startingTrigger
-      value: -1
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 2757196565734091061, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: startingWaypoint
@@ -730,8 +730,12 @@ PrefabInstance:
       value: 4000
       objectReference: {fileID: 0}
     - target: {fileID: 2757196565734091061, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: programmedAnimations.Array.data[0].destTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757196565734091061, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: programmedAnimations.Array.data[0].conditionActualTrigger
-      value: 12
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 3638331546681014208, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: m_Name
@@ -2465,7 +2469,7 @@ PrefabInstance:
       objectReference: {fileID: 22100000, guid: 629b491b2fb19bf4b9c4e6d73d256962, type: 2}
     - target: {fileID: 910235633404127178, guid: 0a8c3e6d84ff874438ebfdadc10315bd, type: 3}
       propertyPath: startingTrigger
-      value: 17
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1962028593408209329, guid: 0a8c3e6d84ff874438ebfdadc10315bd, type: 3}
       propertyPath: m_Name
@@ -2473,11 +2477,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2450409716137044911, guid: 0a8c3e6d84ff874438ebfdadc10315bd, type: 3}
       propertyPath: m_Size.x
-      value: 3.2
+      value: 19.2
       objectReference: {fileID: 0}
     - target: {fileID: 2450409716137044911, guid: 0a8c3e6d84ff874438ebfdadc10315bd, type: 3}
       propertyPath: m_Size.y
-      value: 3.2
+      value: 10.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2450409716137044911, guid: 0a8c3e6d84ff874438ebfdadc10315bd, type: 3}
+      propertyPath: m_Sprite
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2450409716137044911, guid: 0a8c3e6d84ff874438ebfdadc10315bd, type: 3}
       propertyPath: m_SortingLayer
@@ -2787,11 +2795,19 @@ PrefabInstance:
       objectReference: {fileID: 22100000, guid: d99b0464cc9e0ec46a07b836c032fc0d, type: 2}
     - target: {fileID: 910235633404127178, guid: 0a8c3e6d84ff874438ebfdadc10315bd, type: 3}
       propertyPath: startingTrigger
-      value: 17
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1962028593408209329, guid: 0a8c3e6d84ff874438ebfdadc10315bd, type: 3}
       propertyPath: m_Name
       value: Table1DecoPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 2450409716137044911, guid: 0a8c3e6d84ff874438ebfdadc10315bd, type: 3}
+      propertyPath: m_Size.x
+      value: 3.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2450409716137044911, guid: 0a8c3e6d84ff874438ebfdadc10315bd, type: 3}
+      propertyPath: m_Size.y
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 2450409716137044911, guid: 0a8c3e6d84ff874438ebfdadc10315bd, type: 3}
       propertyPath: m_SortingLayer

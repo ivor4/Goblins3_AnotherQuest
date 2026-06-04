@@ -60,6 +60,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0859207962e34e349856fe78f3704d60
+    m_Address: ANIMATION_EXTRAPERLO_TABLE1_STEADY_ENTRY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0927f92e6d099754f8076701e4f0cc3f
     m_Address: SOUND_WAITER_USE_NEW_INVITATION_1_SPANISH
     m_ReadOnly: 0
@@ -115,6 +120,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 20194567b6f889b4a83b3d6a13a7e1ab
+    m_Address: ANIMATION_EXTRAPERLO_TABLE2_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 211a70dc0755a94488d2d0079220d055
     m_Address: SOUND_CLOWN_OP1_1_SPANISH
     m_ReadOnly: 0
@@ -127,6 +137,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 22c2d3bc9847f1d4281603222153ac74
     m_Address: SPRITE_ATLAS_EXTRAPERLO1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24a94d3b456455a4dba6f38830859a7b
+    m_Address: ANIMATION_WAITER_TALKING
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -147,6 +162,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2b0dde61fe9932f409128bda80989792
     m_Address: SOUND_SILVANA_INTRO1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b51e30bae0955e4da77659fc9a9fea0
+    m_Address: ANIMATION_CLOWN_TALKING_ENTRY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -272,6 +292,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 44cc6c45cf2c36d46bc8ea6af4294206
     m_Address: SPRITE_EXTRAPERLO_TABLE1_MASK
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4572dd95f0a3dfa479f9100c09fdc70d
+    m_Address: ANIMATION_WAITER_TALKING_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -455,6 +480,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6ad87fbc084b8a24695234eec66710a2
+    m_Address: ANIMATION_WAITER_TALKING_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6b523d4b6acfbdc4f98c2b915988a6e3
     m_Address: SPRITE_GERMAN_WAITING_TALKING
     m_ReadOnly: 0
@@ -510,6 +540,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a5eeb6c42c3d7542b12f724be307e9c
+    m_Address: ANIMATION_EXTRAPERLO_TABLE2_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7ca07d034070090499d7ed9c6d954799
     m_Address: SPRITE_ATLAS_CITY4_1
     m_ReadOnly: 0
@@ -517,6 +552,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7d7a1eaf33cf76742b9586555d2a9647
     m_Address: SOUND_CLOWN_OP2_5_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 83a3b4ffe0720b74c80800aebfd27e8f
+    m_Address: ANIMATION_EXTRAPERLO_TABLE1_STEADY_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -632,6 +672,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9c03bb20f6dcf044db08f2769a550d5b
     m_Address: ANIMATION_CLOWN_SMOKING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9cf8b535d65b75f42ab55f0804bc557b
+    m_Address: ANIMATION_CLOWN_TALKING_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -776,7 +821,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c29215cd6f931d54397ab8f7f213fc60
-    m_Address: ANIMATION_WAITER_TALKING
+    m_Address: ANIMATION_WAITER_TALKING_ENTRY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -841,7 +886,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d4c178f1cddc332498e806bc121de36f
-    m_Address: ANIMATION_EXTRAPERLO_TABLE2_STEADY
+    m_Address: ANIMATION_EXTRAPERLO_TABLE2_ENTRY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -857,6 +902,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d7cc7bd2ae33f9843a726f26e6e07015
     m_Address: SOUND_FIK_2_OP_1_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8bb9718a8321f94687384a03977edee
+    m_Address: ANIMATION_CLOWN_TALKING_EXIT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -972,6 +1022,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ee4de0511f793954b9da180e4269f80e
     m_Address: SOUND_GERMAN_INTRO
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee67ec3afe28e314f85d5bd55d884d7b
+    m_Address: ANIMATION_CLOWN_TALKING_1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -322,6 +322,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_NIGHT, 
             new GameAction[3]{GameAction.ACTION_SPAWN_EXTRAPERLO_WALL, GameAction.ACTION_DESPAWN_EXTRAPERLO_DOOR, GameAction.ACTION_SPAWN_EXTRAPERLO_DOOR_REAL}), 
 
+            new( /* UNCHAIN_SET_SPRITE_WATER_FLOWING_DAY */
+            false,false,false,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_MORNING, 
+            new GameAction[1]{GameAction.ACTION_ANIMATE_WATER_FLOWING_DAY}), 
+
             new( /* UNCHAIN_SET_SPRITE_WATER_FLOWING_NIGHT */
             false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
@@ -1878,11 +1884,17 @@ false),
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
 
+            new( /* ACTION_ANIMATE_WATER_FLOWING_DAY */
+            false,ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION,GameItem.ITEM_HIVE1_WATER_FLOWING,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
+
             new( /* ACTION_ANIMATE_WATER_FLOWING_NIGHT */
             false,ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION,GameItem.ITEM_HIVE1_WATER_FLOWING,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_CYCLE_TWO,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_TALK_GERMAN */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

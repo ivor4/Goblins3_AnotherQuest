@@ -146,19 +146,31 @@ namespace Gob3AQ.GameElement
             {
                 usedTrigger = autoSteadyTrigger;
             }
-             
-            queuedTrigger = usedTrigger;
-            pendingStateCrossings = 0;
-            pendingZeroStateCross = false;
-            animationStartCallback = startCallback;
-            animationEndCallback = endCallback;
+
+            /* If animation is yet present, for example Talking -> Talking */
+            if (actualAnimationTrigger == usedTrigger)
+            {
+                queuedTrigger = AnimationTrigger.ANIMATION_TRIGGER_ZERO;
+                startCallback?.Invoke();
+                animationStartCallback = null;
+                animationEndCallback = endCallback;
+                pendingStateCrossings = 1;
+            }
+            else
+            {
+                queuedTrigger = usedTrigger;
+                pendingStateCrossings = 0;
+                pendingZeroStateCross = false;
+                animationStartCallback = startCallback;
+                animationEndCallback = endCallback;
+
+                if (ResourceAnimationsAtlasClass.IsTriggerWalking(actualAnimationTrigger))
+                {
+                    ActivateTrigger(queuedTrigger);
+                }
+            }
             
             Debug.Log($"Performing animation {usedTrigger} with start callback {startCallback} and end callback {animationEndCallback} over {myAnimator.name}");
-            
-            if (ResourceAnimationsAtlasClass.IsTriggerWalking(actualAnimationTrigger))
-            {
-                ActivateTrigger(queuedTrigger);
-            }
         }
 
         public void SetUnspawned(bool unspawned)
@@ -382,7 +394,7 @@ namespace Gob3AQ.GameElement
         {
             if ((actualAnimationTrigger != AnimationTrigger.ANIMATION_TRIGGER_ZERO) && (pendingStateCrossings == 1))
             {
-                Debug.Log($"Animation end {actualAnimationTrigger} by {myAnimator.name}");
+                Debug.Log($"Animation end {actualAnimationTrigger} by {myAnimator.name} and callback {animationEndCallback}");
                 
                 animationEndCallback?.Invoke();
                 animationEndCallback = null;

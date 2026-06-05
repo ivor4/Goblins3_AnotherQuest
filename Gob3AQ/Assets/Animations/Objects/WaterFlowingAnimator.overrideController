@@ -9,7 +9,7 @@ AnimatorOverrideController:
   m_Name: WaterFlowingAnimator
   m_Controller: {fileID: 9100000, guid: 65e313ed732dd95429b91949e02f8ef3, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 6306ba7acd6778444a6b50dafc4e9f74, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 887a02d55de807c4787ec7cb7f0dcee9, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 5e64325608f8a364ebd5c9e498f7b7ff, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: 725f8514b7b856245839b6802de4858e, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 05fe7af81b85d72479a54f5d880146af, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: fe2e2d70e7c7a404684ddbe0d93e40c2, type: 2}

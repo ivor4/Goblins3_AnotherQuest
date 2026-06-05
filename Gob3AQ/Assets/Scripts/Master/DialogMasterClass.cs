@@ -429,8 +429,9 @@ namespace Gob3AQ.DialogMaster
             
             Action startAnimationCallback = null;
             bool startCallbackGiven = false;
+            dialog_waitAnimationCompleted = true;
 
-            for(int i=0; i < content.config.AnimationTrigger.Length;++i)
+            for (int i=0; i < content.config.AnimationTrigger.Length;++i)
             {
                 AnimationTrigger trigger = content.config.AnimationTrigger[i];
                 if (trigger == AnimationTrigger.ANIMATION_TRIGGER_ZERO) continue;
@@ -440,6 +441,7 @@ namespace Gob3AQ.DialogMaster
                 {
                     startAnimationCallback = AnimationStarted;
                     startCallbackGiven = true;
+                    dialog_waitAnimationCompleted = false;
                 }
                 else if (startCallbackGiven)
                 {
@@ -449,8 +451,6 @@ namespace Gob3AQ.DialogMaster
                 VARMAP_DialogMaster.ITEM_PERFORM_ANIMATION(dialog_input_talkers[i],
                     trigger, startAnimationCallback, null);
             }
-
-            dialog_waitAnimationCompleted = !startCallbackGiven;
 
             _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_NONE, string.Empty, string.Empty);
 

@@ -680,6 +680,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e0f025090434a6479e6fbaa6d5f5d19
+    m_Address: SPRITE_CLOWN_LAUGHING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9e82c6ba18671bc4290b24fd55278cf2
     m_Address: ANIMATION_FIK_TALKING_2
     m_ReadOnly: 0
@@ -830,6 +835,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4b9f116fa3f588439a8db5ac79bd13b
+    m_Address: ANIMATION_CLOWN_LAUGHING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c58944a135ee6dd42b5a73d11282294e
     m_Address: SPRITE_SILVANA_TALKING_SEATED_UPSET
     m_ReadOnly: 0
@@ -882,6 +892,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cfa6f3a9dfc336341a88af21b313d3bf
     m_Address: SOUND_FIK_NOT_CROSS_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d483416985c961b4f837bd982401fd03
+    m_Address: SOUND_CLOWN_LAUGHING
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

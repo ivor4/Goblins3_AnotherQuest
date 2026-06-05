@@ -1,0 +1,690 @@
+fileFormatVersion: 2
+guid: 9e0f025090434a6479e6fbaa6d5f5d19
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 58268461940703646
+    second: SPRITE_CLOWN_LAUGHING_0
+  - first:
+      213: 1013193889822918735
+    second: SPRITE_CLOWN_LAUGHING_1
+  - first:
+      213: -9068026441857281745
+    second: SPRITE_CLOWN_LAUGHING_2
+  - first:
+      213: -5812006972768151675
+    second: SPRITE_CLOWN_LAUGHING_3
+  - first:
+      213: 2701938983381615049
+    second: SPRITE_CLOWN_LAUGHING_4
+  - first:
+      213: -158997506527019644
+    second: SPRITE_CLOWN_LAUGHING_5
+  - first:
+      213: -8059585761151091929
+    second: SPRITE_CLOWN_LAUGHING_6
+  - first:
+      213: 219251055684828555
+    second: SPRITE_CLOWN_LAUGHING_7
+  - first:
+      213: 1922632807237617351
+    second: SPRITE_CLOWN_LAUGHING_8
+  - first:
+      213: 5744728749908515015
+    second: SPRITE_CLOWN_LAUGHING_9
+  - first:
+      213: 5669257807091272214
+    second: SPRITE_CLOWN_LAUGHING_10
+  - first:
+      213: -1442860656556608100
+    second: SPRITE_CLOWN_LAUGHING_11
+  - first:
+      213: -6947255527798747756
+    second: SPRITE_CLOWN_LAUGHING_12
+  - first:
+      213: 8118916789051975069
+    second: SPRITE_CLOWN_LAUGHING_13
+  - first:
+      213: 3406277539840269161
+    second: SPRITE_CLOWN_LAUGHING_14
+  - first:
+      213: 7953658535445300136
+    second: SPRITE_CLOWN_LAUGHING_15
+  - first:
+      213: -2864801617937311266
+    second: SPRITE_CLOWN_LAUGHING_16
+  - first:
+      213: -7221811701221202370
+    second: SPRITE_CLOWN_LAUGHING_17
+  - first:
+      213: 7516139269148662505
+    second: SPRITE_CLOWN_LAUGHING_18
+  - first:
+      213: 654712594460360572
+    second: SPRITE_CLOWN_LAUGHING_19
+  - first:
+      213: 2447710290456431678
+    second: SPRITE_CLOWN_LAUGHING_20
+  - first:
+      213: -5916217815049124351
+    second: SPRITE_CLOWN_LAUGHING_21
+  - first:
+      213: 3927188333912144427
+    second: SPRITE_CLOWN_LAUGHING_22
+  - first:
+      213: -4914677284592339568
+    second: SPRITE_CLOWN_LAUGHING_23
+  - first:
+      213: 4020035240290893419
+    second: SPRITE_CLOWN_LAUGHING_24
+  - first:
+      213: -2842953302005517726
+    second: SPRITE_CLOWN_LAUGHING_25
+  - first:
+      213: 5001036878046685790
+    second: SPRITE_CLOWN_LAUGHING_26
+  - first:
+      213: -1078276758894940062
+    second: SPRITE_CLOWN_LAUGHING_27
+  - first:
+      213: 4720459506242904329
+    second: SPRITE_CLOWN_LAUGHING_28
+  - first:
+      213: 799794299871489649
+    second: SPRITE_CLOWN_LAUGHING_29
+  - first:
+      213: -5622475189654617365
+    second: SPRITE_CLOWN_LAUGHING_30
+  - first:
+      213: 3539698553118160108
+    second: SPRITE_CLOWN_LAUGHING_31
+  - first:
+      213: 8986876826458112935
+    second: SPRITE_CLOWN_LAUGHING_32
+  - first:
+      213: 5177436112773305139
+    second: SPRITE_CLOWN_LAUGHING_33
+  - first:
+      213: 236785583567190294
+    second: SPRITE_CLOWN_LAUGHING_34
+  - first:
+      213: 5941337296364579221
+    second: SPRITE_CLOWN_LAUGHING_35
+  - first:
+      213: -3503987127902035292
+    second: SPRITE_CLOWN_LAUGHING_36
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_LAUGHING_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.115625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e91859f7bd20fc000800000000000000
+      internalID: 58268461940703646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_LAUGHING_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.115625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f48cd7389769f0e00800000000000000
+      internalID: 1013193889822918735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_LAUGHING_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.115625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f215f3fdef5e72280800000000000000
+      internalID: -9068026441857281745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_LAUGHING_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.115625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5879f0c937a975fa0800000000000000
+      internalID: -5812006972768151675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_LAUGHING_4
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.115625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c1cd3d90373f7520800000000000000
+      internalID: 2701938983381615049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_LAUGHING_5
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.115625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48db8473c902bcdf0800000000000000
+      internalID: -158997506527019644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_LAUGHING_6
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.115625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72bfac5a379962090800000000000000
+      internalID: -8059585761151091929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_LAUGHING_7
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.115625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8d39ba6cafea0300800000000000000
+      internalID: 219251055684828555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_LAUGHING_8
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.115625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c609e40a509eaa10800000000000000
+      internalID: 1922632807237617351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_LAUGHING_9
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.115625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c855457c5069bf40800000000000000
+      internalID: 5744728749908515015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_LAUGHING_10
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.115625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61a09c340ff3dae40800000000000000
+      internalID: 5669257807091272214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_LAUGHING_11
+      rect:
+        serializedVersion: 2
+        x: 3520
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.115625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c957e81a0ede9fbe0800000000000000
+      internalID: -1442860656556608100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_LAUGHING_12
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.115625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49dcfa5d7e3669f90800000000000000
+      internalID: -6947255527798747756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_LAUGHING_13
+      rect:
+        serializedVersion: 2
+        x: 4160
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.115625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d95e564cdcf2ca070800000000000000
+      internalID: 8118916789051975069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_LAUGHING_14
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.115625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96b12901067854f20800000000000000
+      internalID: 3406277539840269161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_LAUGHING_15
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.115625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a388f53c42116e60800000000000000
+      internalID: 7953658535445300136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_LAUGHING_16
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.115625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed9d1ea5b1e2e38d0800000000000000
+      internalID: -2864801617937311266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_LAUGHING_17
+      rect:
+        serializedVersion: 2
+        x: 5440
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.115625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3663f14588f6cb90800000000000000
+      internalID: -7221811701221202370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_LAUGHING_18
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.115625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ea58f3d7d0be4860800000000000000
+      internalID: 7516139269148662505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_CLOWN_LAUGHING_19
+      rect:
+        serializedVersion: 2
+        x: 6080
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.115625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7fb8c6c2a1061900800000000000000
+      internalID: 654712594460360572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 50cc1ae5dd67e2e46b187470b5bc9bac
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":20.0,"y":1.0},"gridSpriteSize":{"x":320.0,"y":320.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.11562500149011612},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_CLOWN_LAUGHING_0: 58268461940703646
+      SPRITE_CLOWN_LAUGHING_1: 1013193889822918735
+      SPRITE_CLOWN_LAUGHING_10: 5669257807091272214
+      SPRITE_CLOWN_LAUGHING_11: -1442860656556608100
+      SPRITE_CLOWN_LAUGHING_12: -6947255527798747756
+      SPRITE_CLOWN_LAUGHING_13: 8118916789051975069
+      SPRITE_CLOWN_LAUGHING_14: 3406277539840269161
+      SPRITE_CLOWN_LAUGHING_15: 7953658535445300136
+      SPRITE_CLOWN_LAUGHING_16: -2864801617937311266
+      SPRITE_CLOWN_LAUGHING_17: -7221811701221202370
+      SPRITE_CLOWN_LAUGHING_18: 7516139269148662505
+      SPRITE_CLOWN_LAUGHING_19: 654712594460360572
+      SPRITE_CLOWN_LAUGHING_2: -9068026441857281745
+      SPRITE_CLOWN_LAUGHING_3: -5812006972768151675
+      SPRITE_CLOWN_LAUGHING_4: 2701938983381615049
+      SPRITE_CLOWN_LAUGHING_5: -158997506527019644
+      SPRITE_CLOWN_LAUGHING_6: -8059585761151091929
+      SPRITE_CLOWN_LAUGHING_7: 219251055684828555
+      SPRITE_CLOWN_LAUGHING_8: 1922632807237617351
+      SPRITE_CLOWN_LAUGHING_9: 5744728749908515015
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

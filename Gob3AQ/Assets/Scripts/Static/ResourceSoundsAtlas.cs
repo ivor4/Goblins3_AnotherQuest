@@ -150,6 +150,7 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_SILVANA_OP_1_1_SPANISH"), /* SOUND_PHRASE_DIALOG_SILVANA_EXTRAPERLO_OPTION_1_1 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_SILVANA_INTRO1_SPANISH"), /* SOUND_PHRASE_DIALOG_SILVANA_EXTRAPERLO_INTRO_0 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_SILVANA_INTRO2_SPANISH"), /* SOUND_PHRASE_DIALOG_SILVANA_EXTRAPERLO_INTRO_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_CLOWN_LAUGHING"), /* SOUND_CLOWN_LAUGHING */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

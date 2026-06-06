@@ -169,8 +169,6 @@ namespace Gob3AQ.GameElement
                     ActivateTrigger(queuedTrigger);
                 }
             }
-            
-            Debug.Log($"Performing animation {usedTrigger} with start callback {startCallback} and end callback {animationEndCallback} over {myAnimator.name}");
         }
 
         public void SetUnspawned(bool unspawned)
@@ -334,8 +332,6 @@ namespace Gob3AQ.GameElement
 
             if ((prevAnimationTrigger == AnimationTrigger.ANIMATION_TRIGGER_ZERO) && pendingZeroStateCross)
             {
-                Debug.Log($"Animation start with queued trigger {queuedTrigger} of animation {actualAnimationTrigger} by {myAnimator.name} and callback {animationStartCallback}");
-
                 pendingZeroStateCross = false;
                 --pendingStateCrossings;
 
@@ -372,7 +368,6 @@ namespace Gob3AQ.GameElement
             {
                 if (pendingStateCrossings == 1)
                 {
-                    Debug.Log($"Animation end {actualAnimationTrigger} by {myAnimator.name}");
                     animationEndCallback?.Invoke();
                     animationEndCallback = null;
                 
@@ -393,9 +388,7 @@ namespace Gob3AQ.GameElement
         public virtual void OnAnimationEnd(AnimatorStateInfo stateInfo)
         {
             if ((actualAnimationTrigger != AnimationTrigger.ANIMATION_TRIGGER_ZERO) && (pendingStateCrossings == 1))
-            {
-                Debug.Log($"Animation end {actualAnimationTrigger} by {myAnimator.name} and callback {animationEndCallback}");
-                
+            {                
                 animationEndCallback?.Invoke();
                 animationEndCallback = null;
                 
@@ -405,7 +398,6 @@ namespace Gob3AQ.GameElement
 
         private void ActivateTrigger(AnimationTrigger trigger)
         {
-            Debug.Log($"Going to trigger {trigger} by {myAnimator.name}");
             myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.TRANSITION_TRIGGER_HASH);
             myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.TRANSITION_TRIGGER_EXT_HASH);
             myAnimator.SetInteger(ResourceAnimationsAtlasClass.ANIMATION_INDEX_HASH, (int)trigger);

@@ -56,6 +56,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_UNKNOWN_GIRLS, 
         NAME_CLOWN, 
         NAME_SILVANA, 
+        NAME_CORNER, 
         NAME_NPC_LAST, 
         
 NAME_TOTAL

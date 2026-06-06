@@ -141,6 +141,13 @@ namespace Gob3AQ.GameMenu
                             {
                                 VARMAP_GameMenu.SET_PICKABLE_ITEM_CHOSEN(item);
                             }
+                            /* Detail element to manipulate with Take */
+                            else
+                            {
+                                CharacterType playerSelected = VARMAP_GameMenu.GET_PLAYER_SELECTED();
+                                InteractionUsage usage = InteractionUsage.CreateTakeItem(playerSelected, item, -1);
+                                VARMAP_GameMenu.USE_ITEM(in usage, out _);
+                            }
                         }
                         break;
 

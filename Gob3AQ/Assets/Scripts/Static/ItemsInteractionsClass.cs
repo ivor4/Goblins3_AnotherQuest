@@ -693,6 +693,16 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,
             new GameAction[3]{GameAction.ACTION_ANIMATE_SILVANA_CLOSING_BOOK_1, GameAction.ACTION_ANIMATE_SILVANA_CLOSING_BOOK_2, GameAction.ACTION_TALK_DIALOG_SILVANA_EXTRAPERLO}), 
 
+            new( /* COND_OBSERVE_INVITATION_CORNER */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
+            new GameAction[1]{GameAction.ACTION_DIALOG_OBSERVE_INVITATION_CORNER}), 
+
+            new( /* COND_TAKE_INVITATION_CORNER */
+            new GameEventCombi[2]{new(GameEvent.EVENT_EXTRAPERLO_SHOWN_OLD_INVITATION, false), new(GameEvent.EVENT_EXTRAPERLO_INV_FOLDED_CORNERS, true)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
+            new GameAction[4]{GameAction.ACTION_LOSE_INVALID_EXTRAPERLO_INVITATION, GameAction.ACTION_EARN_EXTRAPERLO_INVITATION_FOLDED, GameAction.ACTION_EVENT_FOLDED_INVITATION, GameAction.ACTION_DIALOG_MANIPULATE_INVITATION_CORNER}), 
+
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,
@@ -957,6 +967,16 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_SILVANA_STEADY_READING,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_TALK_ITEM_NPC_SILVANA_EXTRAPERLO})),
 
+            new ( /* ITEM_EXTRAPERLO_INVITATION_FOLDED */
+            NameType.NAME_INVITATION,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PICKABLE_EXTRAPERLO_FOLDED}),
+            GameSprite.SPRITE_PICKABLE_EXTRAPERLO_FOLDED,true,GameSprite.SPRITE_PICKABLE_EXTRAPERLO_FOLDED,GamePickableItem.ITEM_PICK_EXTRAPERLO_INVITATION_FOLDED,DetailType.DETAIL_NONE,
+            new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
+
+            new ( /* ITEM_EXTRAPERLO_INVITATION_CORNER */
+            NameType.NAME_CORNER,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
+            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
+            new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_INVITATION_CORNER, ActionConditions.COND_TAKE_INVITATION_CORNER})),
+
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST}),
             GameSprite.SPRITE_LAST,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
@@ -973,6 +993,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameItem.ITEM_CITY1_UMBRELLA,	/* ITEM_PICK_CITY1_UMBRELLA */
             GameItem.ITEM_HIVE1_SHOELACE,	/* ITEM_PICK_HIVE1_SHOELACE */
             GameItem.ITEM_EXTRAPERLO_INVITATION,	/* ITEM_PICK_EXTRAPERLO_INVITATION */
+            GameItem.ITEM_EXTRAPERLO_INVITATION_FOLDED,	/* ITEM_PICK_EXTRAPERLO_INVITATION_FOLDED */
             /* > ATG 4 END < */
         };
 
@@ -984,6 +1005,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_PICKABLE_UMBRELLA,	/* ITEM_PICK_CITY1_UMBRELLA */
             GameSprite.SPRITE_SHOELACE_PICKABLE,	/* ITEM_PICK_HIVE1_SHOELACE */
             GameSprite.SPRITE_PICKABLE_EXTRAPERLO,	/* ITEM_PICK_EXTRAPERLO_INVITATION */
+            GameSprite.SPRITE_PICKABLE_EXTRAPERLO_FOLDED,	/* ITEM_PICK_EXTRAPERLO_INVITATION_FOLDED */
             /* > ATG 5 END < */
         };
 
@@ -2015,6 +2037,36 @@ false),
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_EXTRAPERLO_SILVANA_REFUSED_MAINCHAR, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_LOSE_INVALID_EXTRAPERLO_INVITATION */
+            false,ActionType.ACTION_TYPE_LOSE_ITEM,GameItem.ITEM_EXTRAPERLO_INVITATION,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_EARN_EXTRAPERLO_INVITATION_FOLDED */
+            false,ActionType.ACTION_TYPE_EARN_ITEM,GameItem.ITEM_EXTRAPERLO_INVITATION_FOLDED,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_EVENT_FOLDED_INVITATION */
+            false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_EXTRAPERLO_INV_FOLDED_CORNERS, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOG_OBSERVE_INVITATION_CORNER */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_INVITATION_CORNER,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOG_MANIPULATE_INVITATION_CORNER */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_MANIPULATE_INVITATION_CORNER,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

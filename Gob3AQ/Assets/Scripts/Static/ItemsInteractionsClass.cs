@@ -703,6 +703,16 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
             new GameAction[4]{GameAction.ACTION_LOSE_INVALID_EXTRAPERLO_INVITATION, GameAction.ACTION_EARN_EXTRAPERLO_INVITATION_FOLDED, GameAction.ACTION_EVENT_FOLDED_INVITATION, GameAction.ACTION_DIALOG_MANIPULATE_INVITATION_CORNER}), 
 
+            new( /* COND_USE_NEW_INVITATION_W_WAITER */
+            new GameEventCombi[1]{new(GameEvent.EVENT_EXTRAPERLO_SHOWN_NEW_INVITATION, true)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_EXTRAPERLO_INVITATION_FOLDED,ItemInteractionType.INTERACTION_USE,
+            new GameAction[3]{GameAction.ACTION_DIALOGUE_WAITER_USE_NEW_INVITATION, GameAction.ACTION_EVENT_SHOWN_NEW_INVITATION, GameAction.ACTION_LOSE_NEW_EXTRAPERLO_INVITATION}), 
+
+            new( /* COND_TALK_WAITER_W_INVITATION */
+            new GameEventCombi[1]{new(GameEvent.EVENT_EXTRAPERLO_SHOWN_NEW_INVITATION, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,
+            new GameAction[1]{GameAction.ACTION_TALK_DIALOG_WAITER_W_INVITATION}), 
+
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,
@@ -945,7 +955,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_NPC_WAITER */
             NameType.NAME_WAITER,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_WAITER_STEADY}),
             GameSprite.SPRITE_WAITER_STEADY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
-            new(new HashSet<ActionConditions>(2){ActionConditions.COND_TALK_WAITER_NO_INVITATION, ActionConditions.COND_USE_OLD_INVITATION_W_WAITER})),
+            new(new HashSet<ActionConditions>(4){ActionConditions.COND_TALK_WAITER_NO_INVITATION, ActionConditions.COND_USE_OLD_INVITATION_W_WAITER, ActionConditions.COND_USE_NEW_INVITATION_W_WAITER, ActionConditions.COND_TALK_WAITER_W_INVITATION})),
 
             new ( /* ITEM_NPC_UNKNOWN_WOMEN */
             NameType.NAME_UNKNOWN_GIRLS,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_UNKNOWN_WOMEN_STEADY}),
@@ -2067,6 +2077,24 @@ false),
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_MANIPULATE_INVITATION_CORNER,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_LOSE_NEW_EXTRAPERLO_INVITATION */
+            false,ActionType.ACTION_TYPE_LOSE_ITEM,GameItem.ITEM_EXTRAPERLO_INVITATION_FOLDED,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_WAITER_USE_NEW_INVITATION */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_WAITER_USE_NEW_INVITATION,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_TALK_DIALOG_WAITER_W_INVITATION */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_WAITER_W_INVITATION_INTRO,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

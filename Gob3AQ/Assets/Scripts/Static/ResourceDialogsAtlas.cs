@@ -206,7 +206,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
 
             new( /* DIALOG_WAITER_USE_NEW_INVITATION */
             new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_WAITER},
-            new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE}
+            new DialogOption[1]{DialogOption.DIALOG_WAITER_OPTION_USE_NEW_INVITATION}
             ),
 
             new( /* DIALOG_UNKNOWN_GIRLS_1 */
@@ -242,6 +242,16 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new( /* DIALOG_SILVANA_EXTRAPERLO_INTRO */
             new GameItem[3]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_SILVANA_EXTRAPERLO, GameItem.ITEM_NPC_CLOWN},
             new DialogOption[1]{DialogOption.DIALOG_SILVANA_EXTRAPERLO_OPTION_INTRO}
+            ),
+
+            new( /* DIALOG_WAITER_W_INVITATION */
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_WAITER},
+            new DialogOption[3]{DialogOption.DIALOG_WAITER_W_INVITATION_OPTION_0, DialogOption.DIALOG_WAITER_W_INVITATION_OPTION_1, DialogOption.DIALOG_WAITER_W_INVITATION_OPTION_2}
+            ),
+
+            new( /* DIALOG_WAITER_W_INVITATION_INTRO */
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_WAITER},
+            new DialogOption[1]{DialogOption.DIALOG_WAITER_W_INVITATION_OPTION_INTRO}
             ),
 
             new( /* DIALOG_LAST */
@@ -580,9 +590,9 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new( /* DIALOG_WAITER_OPTION_USE_NEW_INVITATION */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_EVENT_SHOWN_NEW_INVITATION},
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_NONE,false,
-            new DialogPhrase[1]{DialogPhrase.PHRASE_NONE}
+            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_WAITER_USE_NEW_INV_0, DialogPhrase.PHRASE_DIALOG_WAITER_USE_NEW_INV_1}
             ),
             new( /* DIALOG_UNKNOWN_GIRLS_OPTION_INTRO_1 */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
@@ -681,6 +691,34 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_SILVANA_EXTRAPERLO,false,
             new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_SILVANA_EXTRAPERLO_INTRO_0, DialogPhrase.PHRASE_DIALOG_SILVANA_EXTRAPERLO_INTRO_1}
+            ),
+            new( /* DIALOG_WAITER_W_INVITATION_OPTION_0 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_NONE},
+            DialogType.DIALOG_WAITER_W_INVITATION,false,
+            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_WAITER_W_INVITATION_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_WAITER_W_INVITATION_OPTION_0_1}
+            ),
+            new( /* DIALOG_WAITER_W_INVITATION_OPTION_1 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_NONE},
+            DialogType.DIALOG_WAITER_W_INVITATION,false,
+            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_WAITER_W_INVITATION_OPTION_1_0, DialogPhrase.PHRASE_DIALOG_WAITER_W_INVITATION_OPTION_1_1}
+            ),
+            new( /* DIALOG_WAITER_W_INVITATION_OPTION_2 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_NONE},
+            DialogType.DIALOG_NONE,false,
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_WAITER_W_INVITATION_OPTION_2_0}
+            ),
+            new( /* DIALOG_WAITER_W_INVITATION_OPTION_INTRO */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_NONE},
+            DialogType.DIALOG_WAITER_W_INVITATION,false,
+            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_WAITER_W_INVITATION_INTRO_0, DialogPhrase.PHRASE_DIALOG_WAITER_W_INVITATION_INTRO_1}
             ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
@@ -923,6 +961,15 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,GameSound.SOUND_PHRASE_DIALOG_SILVANA_EXTRAPERLO_INTRO_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_SILVANA_EXTRAPERLO_INTRO_1 */ 
             new(0,GameSound.SOUND_OBSERVE_INVITATION_CORNER, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_INVITATION_CORNER */ 
             new(0,GameSound.SOUND_MANIPULATE_INVITATION_CORNER, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MANIPULATE_INVITATION_CORNER */ 
+            new(0,GameSound.SOUND_WAITER_USE_NEW_INVITATION_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_WAITER_USE_NEW_INV_0 */ 
+            new(1,GameSound.SOUND_WAITER_USE_NEW_INVITATION_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_WAITER_USE_NEW_INV_1 */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_WAITER_W_INVITATION_OPTION_0_0, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_WAITER_W_INVITATION_OPTION_0_0 */ 
+            new(1,GameSound.SOUND_PHRASE_DIALOG_WAITER_W_INVITATION_OPTION_0_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_WAITER_W_INVITATION_OPTION_0_1 */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_WAITER_W_INVITATION_OPTION_1_0, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_WAITER_W_INVITATION_OPTION_1_0 */ 
+            new(1,GameSound.SOUND_PHRASE_DIALOG_WAITER_W_INVITATION_OPTION_1_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_WAITER_W_INVITATION_OPTION_1_1 */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_WAITER_W_INVITATION_OPTION_2_0, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_WAITER_W_INVITATION_OPTION_2_0 */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_WAITER_W_INVITATION_INTRO_0, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_WAITER_W_INVITATION_INTRO_0 */ 
+            new(1,GameSound.SOUND_PHRASE_DIALOG_WAITER_W_INVITATION_INTRO_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_WAITER_W_INVITATION_INTRO_1 */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

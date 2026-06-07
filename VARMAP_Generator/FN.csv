@@ -5,7 +5,7 @@ NewRoom,Background,BackgroundNight,Music,Output,,,,,,,
 CITY1_EXTRAPERLO1,BACKGROUND_CITY1_EXTRAPERLO,BACKGROUND_CITY1_EXTRAPERLO,MUSIC_EXTRAPERLO,,,,,,,,
 ,,,,,,,,,,,
 NewDialog,IntroPhrase,Talkers,AddAction,AddSounds,ItemDest,Option1,Option2,Option3,Option4,Option5,Option6
-DIALOG_SILVANA_EXTRAPERLO,"(1)¿Os podéis cortar un poco de mirarme tý y el payaso ese?, (0)¡Ya sabes que el fin justifica los medios!","ITEM_PLAYER_MAIN, ITEM_NPC_SILVANA_EXTRAPERLO",True,True,ITEM_NPC_SILVANA_EXTRAPERLO,"(0)¿Qué haces en un sitio como este leyendo un libro?, (1)¿En serio vas a entrarme con esa mmm... basura de pregunta?, (0)Te lo preguntaba en serio, (1)Lamentaaable...","(0)¿Tú conoces la fábrica de harina de las afueras?, (1)Mira. No vayas por ahí. Los problemas que tengas con mi padre, ¡Los hablas con mi padre!. Y como sigas me voy de aquí",,,,
+DIALOG_WAITER_W_INVITATION,"(0)Bueno Bueno Bueno Bueno!! Cuales son los manjares que le ofrece el Club Extraperlo a un invitado cansado y sediento?, (1)¿Qué vas a tomar esta noche?","ITEM_PLAYER_MAIN, ITEM_NPC_SILVANA_EXTRAPERLO",True,True,ITEM_NPC_WAITER,"(0)Tomaré una pinta bien fresquita, (1)¡Marchando una cerveza del tiempo","(0)Tomaré unas olivas del pacífico, (1)Ojo con este plato. Solo te lo puedo servir una vez. Nos quedan poquitas ya. Que las disfrutes!",,,,
 ,,,,,,,,,,,
 NewMementoParent,MementoIconSprite,MementoParentPhrase,Mementos,MementoPhrases,,,,,,,
 MEMENTO_PARENT_POOR_MAN_WC,SPRITE_MEMENTO_POOR_MAN_WC,A poor man in WC,"MEMENTO_POOR_MAN_WC_1, MEMENTO_POOR_MAN_WC_2, MEMENTO_POOR_MAN_WC_3","A poor man can't leave WC because there is no water, It seems to be a valve in back alley but is closed, When water came back. This man gave me an invitation to a Pub where I could meet someone for a job",,,,,,,

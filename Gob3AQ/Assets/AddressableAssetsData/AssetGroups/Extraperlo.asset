@@ -780,6 +780,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b00e90a3e028fa046a231db2d9666b78
+    m_Address: SPRITE_EXTRAPERLO_OLIVE_BOWL
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b1920bf7bb312a249b68e89b42fc1580
     m_Address: ANIMATION_UNKNOWN_WOMEN_TALKING
     m_ReadOnly: 0
@@ -1127,6 +1132,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f61aec6060e0d0544a273d047ffe18db
     m_Address: SOUND_CLOWN_OP0_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f770ec4d6a9b7c849b0f6c2e10692389
+    m_Address: SOUND_DISH_PLACED
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

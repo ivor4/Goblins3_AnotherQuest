@@ -770,13 +770,18 @@ namespace Gob3AQ.GameEventMaster
                         _actionExpectedFlag = NotifyAction.NOTIFY_ANIMATION;
                         VARMAP_GameEventMaster.START_ANIMATION(info.targetAnimation, false);
                         break;
+                    case ActionType.ACTION_TYPE_PLAY_SOUND:
+                        mustWait = info.waitForEnd;
+                        _actionExpectedFlag = NotifyAction.NOTIFY_SOUND;
+                        VARMAP_GameEventMaster.PLAY_SOUND(info.targetSound, mustWait ? EndOfSoundPlayCallback : null, false);
+                        break;
                     case ActionType.ACTION_TYPE_START_CARD_GAME:
                         VARMAP_GameEventMaster.START_CARD_GAME(info.targetCardGame);
                         VARMAP_GameEventMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_CARDS, out error);
                         break;
                     case ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION:
                         mustWait = info.waitForEnd;
-                        _actionExpectedFlag |= mustWait ? NotifyAction.NOTIFY_ANIMATION : NotifyAction.NOTIFY_NONE;
+                        _actionExpectedFlag = NotifyAction.NOTIFY_ANIMATION;
                         VARMAP_GameEventMaster.ITEM_PERFORM_ANIMATION(info.targetItem, info.animTrigger, null, mustWait ? EndOfItemAnimationCallback : null);
                         break;
                     default:
@@ -819,6 +824,11 @@ namespace Gob3AQ.GameEventMaster
         private void EndOfItemAnimationCallback()
         {
             _actionEndedFlag |= NotifyAction.NOTIFY_ANIMATION;
+        }
+
+        private void EndOfSoundPlayCallback()
+        {
+            _actionEndedFlag |= NotifyAction.NOTIFY_SOUND;
         }
 
         private bool IsMomentValid(MomentType momentType)

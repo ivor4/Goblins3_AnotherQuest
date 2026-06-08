@@ -57,6 +57,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_CLOWN, 
         NAME_SILVANA, 
         NAME_CORNER, 
+        NAME_OLIVE_BOWL, 
         NAME_NPC_LAST, 
         
 NAME_TOTAL

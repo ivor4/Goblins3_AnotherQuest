@@ -696,14 +696,14 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
             new GameAction[1]{GameAction.ACTION_NONE},
-            DialogType.DIALOG_WAITER_W_INVITATION,false,
+            DialogType.DIALOG_NONE,false,
             new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_WAITER_W_INVITATION_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_WAITER_W_INVITATION_OPTION_0_1}
             ),
             new( /* DIALOG_WAITER_W_INVITATION_OPTION_1 */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            new GameEventCombi[1]{new(GameEvent.EVENT_WAITER_EXTRAPERLO_GAVE_OLIVES, true)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE},
-            DialogType.DIALOG_WAITER_W_INVITATION,false,
+            new GameAction[3]{GameAction.ACTION_ANIMATE_WAITER_SERVE_OLIVES, GameAction.ACTION_PLAY_SOUND_DISH, GameAction.ACTION_EVENT_OLIVES_PLACED},
+            DialogType.DIALOG_NONE,false,
             new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_WAITER_W_INVITATION_OPTION_1_0, DialogPhrase.PHRASE_DIALOG_WAITER_W_INVITATION_OPTION_1_1}
             ),
             new( /* DIALOG_WAITER_W_INVITATION_OPTION_2 */
@@ -970,6 +970,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,GameSound.SOUND_PHRASE_DIALOG_WAITER_W_INVITATION_OPTION_2_0, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_WAITER_W_INVITATION_OPTION_2_0 */ 
             new(0,GameSound.SOUND_PHRASE_DIALOG_WAITER_W_INVITATION_INTRO_0, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_WAITER_W_INVITATION_INTRO_0 */ 
             new(1,GameSound.SOUND_PHRASE_DIALOG_WAITER_W_INVITATION_INTRO_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_WAITER_W_INVITATION_INTRO_1 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE}), /* PHRASE_OBSERVE_ITEM_OBJECT_OLIVE_BOWL */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

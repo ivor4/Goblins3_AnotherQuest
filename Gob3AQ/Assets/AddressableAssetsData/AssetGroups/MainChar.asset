@@ -50,6 +50,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 487a5dfb950939f409a7af2b66970e78
+    m_Address: ANIMATION_MAINCHAR_PICKING_SIDE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 501d66932d262084a82f423418848919
     m_Address: ANIMATION_MAINCHAR_WALKING_FRONT_2
     m_ReadOnly: 0
@@ -142,6 +147,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 95c006ba48dcfb048b38d7fb8ff5c94b
     m_Address: ANIMATION_MAINCHAR_WALKING_FRONT_ENTRY_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 96aa34e30fa1f9e4a8d07c1d47862803
+    m_Address: SPRITE_MAINCHAR_PICKING_SIDE
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

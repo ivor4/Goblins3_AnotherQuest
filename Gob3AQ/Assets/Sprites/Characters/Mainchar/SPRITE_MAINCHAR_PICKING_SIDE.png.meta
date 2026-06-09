@@ -1,0 +1,483 @@
+fileFormatVersion: 2
+guid: 96aa34e30fa1f9e4a8d07c1d47862803
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7650613885034935101
+    second: SPRITE_MAINCHAR_PICKING_SIDE_0
+  - first:
+      213: -4290217170422449959
+    second: SPRITE_MAINCHAR_PICKING_SIDE_1
+  - first:
+      213: -2691157662513065626
+    second: SPRITE_MAINCHAR_PICKING_SIDE_2
+  - first:
+      213: -6623517248873125307
+    second: SPRITE_MAINCHAR_PICKING_SIDE_3
+  - first:
+      213: -4269945899375863976
+    second: SPRITE_MAINCHAR_PICKING_SIDE_4
+  - first:
+      213: 631185366885002602
+    second: SPRITE_MAINCHAR_PICKING_SIDE_5
+  - first:
+      213: -4069701693940400040
+    second: SPRITE_MAINCHAR_PICKING_SIDE_6
+  - first:
+      213: -8385298368587837602
+    second: SPRITE_MAINCHAR_PICKING_SIDE_7
+  - first:
+      213: 2252980178779383507
+    second: SPRITE_MAINCHAR_PICKING_SIDE_8
+  - first:
+      213: 9152363983396064035
+    second: SPRITE_MAINCHAR_PICKING_SIDE_9
+  - first:
+      213: -832178390554649002
+    second: SPRITE_MAINCHAR_PICKING_SIDE_10
+  - first:
+      213: -5547901241712031569
+    second: SPRITE_MAINCHAR_PICKING_SIDE_11
+  - first:
+      213: 4216526322306878134
+    second: SPRITE_MAINCHAR_PICKING_SIDE_12
+  - first:
+      213: -297816668780953114
+    second: SPRITE_MAINCHAR_PICKING_SIDE_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 111
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_PICKING_SIDE_0
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 0
+        width: 240
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d33bd233bc07c2a60800000000000000
+      internalID: 7650613885034935101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_PICKING_SIDE_1
+      rect:
+        serializedVersion: 2
+        x: 837
+        y: 0
+        width: 240
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d830bbc6361674c0800000000000000
+      internalID: -4290217170422449959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_PICKING_SIDE_2
+      rect:
+        serializedVersion: 2
+        x: 1447
+        y: 0
+        width: 273
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66196534d5617aad0800000000000000
+      internalID: -2691157662513065626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_PICKING_SIDE_3
+      rect:
+        serializedVersion: 2
+        x: 2070
+        y: 0
+        width: 296
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54aae31b72a8414a0800000000000000
+      internalID: -6623517248873125307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_PICKING_SIDE_4
+      rect:
+        serializedVersion: 2
+        x: 2696
+        y: 0
+        width: 309
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 857d091e3da1eb4c0800000000000000
+      internalID: -4269945899375863976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_PICKING_SIDE_5
+      rect:
+        serializedVersion: 2
+        x: 3293
+        y: 0
+        width: 358
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6dea9c3fbb62c800800000000000000
+      internalID: 631185366885002602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_PICKING_SIDE_6
+      rect:
+        serializedVersion: 2
+        x: 3899
+        y: 0
+        width: 393
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85080ee1fd38587c0800000000000000
+      internalID: -4069701693940400040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_PICKING_SIDE_7
+      rect:
+        serializedVersion: 2
+        x: 4532
+        y: 0
+        width: 400
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5fc8ac9f8f61ab80800000000000000
+      internalID: -8385298368587837602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_PICKING_SIDE_8
+      rect:
+        serializedVersion: 2
+        x: 5216
+        y: 0
+        width: 350
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d6242a2981344f10800000000000000
+      internalID: 2252980178779383507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_PICKING_SIDE_9
+      rect:
+        serializedVersion: 2
+        x: 5900
+        y: 0
+        width: 306
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32bc6653d8ab30f70800000000000000
+      internalID: 9152363983396064035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_PICKING_SIDE_10
+      rect:
+        serializedVersion: 2
+        x: 6591
+        y: 0
+        width: 253
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65edb31b9228374f0800000000000000
+      internalID: -832178390554649002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_PICKING_SIDE_11
+      rect:
+        serializedVersion: 2
+        x: 7242
+        y: 0
+        width: 246
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa84ec6f635e103b0800000000000000
+      internalID: -5547901241712031569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_PICKING_SIDE_12
+      rect:
+        serializedVersion: 2
+        x: 7881
+        y: 0
+        width: 246
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ba8f2b995c148a30800000000000000
+      internalID: 4216526322306878134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_PICKING_SIDE_13
+      rect:
+        serializedVersion: 2
+        x: 8513
+        y: 0
+        width: 251
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e10f115151fddbf0800000000000000
+      internalID: -297816668780953114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d85e42db62f214545933fb9f6b43ff48
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":14.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.02500000037252903},"pivotPixels":{"x":0.0,"y":32.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_MAINCHAR_PICKING_SIDE_0: 7650613885034935101
+      SPRITE_MAINCHAR_PICKING_SIDE_1: -4290217170422449959
+      SPRITE_MAINCHAR_PICKING_SIDE_10: -832178390554649002
+      SPRITE_MAINCHAR_PICKING_SIDE_11: -5547901241712031569
+      SPRITE_MAINCHAR_PICKING_SIDE_12: 4216526322306878134
+      SPRITE_MAINCHAR_PICKING_SIDE_13: -297816668780953114
+      SPRITE_MAINCHAR_PICKING_SIDE_2: -2691157662513065626
+      SPRITE_MAINCHAR_PICKING_SIDE_3: -6623517248873125307
+      SPRITE_MAINCHAR_PICKING_SIDE_4: -4269945899375863976
+      SPRITE_MAINCHAR_PICKING_SIDE_5: 631185366885002602
+      SPRITE_MAINCHAR_PICKING_SIDE_6: -4069701693940400040
+      SPRITE_MAINCHAR_PICKING_SIDE_7: -8385298368587837602
+      SPRITE_MAINCHAR_PICKING_SIDE_8: 2252980178779383507
+      SPRITE_MAINCHAR_PICKING_SIDE_9: 9152363983396064035
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

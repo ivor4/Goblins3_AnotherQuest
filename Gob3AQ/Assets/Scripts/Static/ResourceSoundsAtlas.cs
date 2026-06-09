@@ -163,6 +163,7 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_WAITER_INTRO_2_0_SPANISH"), /* SOUND_PHRASE_DIALOG_WAITER_W_INVITATION_INTRO_0 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_WAITER_INTRO_2_1_SPANISH"), /* SOUND_PHRASE_DIALOG_WAITER_W_INVITATION_INTRO_1 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_DISH_PLACED"), /* SOUND_DISH_PLACED */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_OBSERVE_OLIVE_BOWL_SPANISH"), /* SOUND_OBSERVE_OLIVE_BOWL */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

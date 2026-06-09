@@ -128,5 +128,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorationClass
   sprite: 0
-  myAnimator: {fileID: 0}
-  startingTrigger: -1
+  startingTrigger: 0

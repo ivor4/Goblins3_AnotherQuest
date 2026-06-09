@@ -68,6 +68,7 @@ namespace Gob3AQ.GameElement.Item
             myCollider = topParent.GetComponent<Collider2D>();
             myRigidbody = topParent.GetComponent<Rigidbody2D>();
             myAnimator = topParent.GetComponent<Animator>();
+            spriteMask = topParent.GetComponent<SpriteMask>();
 
             if (myAnimator.runtimeAnimatorController)
             {

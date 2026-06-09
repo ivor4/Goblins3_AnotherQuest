@@ -50,6 +50,7 @@ namespace Gob3AQ.GameElement
         protected SpriteRenderer mySpriteRenderer;
         protected Rigidbody2D myRigidbody;
         protected Animator myAnimator;
+        protected SpriteMask spriteMask;
         protected Action animationStartCallback;
         protected Action animationEndCallback;
         protected int pendingStateCrossings;
@@ -181,6 +182,11 @@ namespace Gob3AQ.GameElement
             if (!loaded) return;
             
             mySpriteRenderer.sprite = ResourceSpritesClass.GetSprite(newSprite);
+
+            if(spriteMask)
+            {
+                spriteMask.sprite = mySpriteRenderer.sprite;
+            }
         }
 
 
@@ -233,6 +239,12 @@ namespace Gob3AQ.GameElement
         {
             bool enable = isVisible_int & isVisible_ext;
             mySpriteRenderer.enabled = enable;
+
+            if(spriteMask)
+            {
+                spriteMask.enabled = enable;
+            }
+
             _Hover_Refresh();
         }
 

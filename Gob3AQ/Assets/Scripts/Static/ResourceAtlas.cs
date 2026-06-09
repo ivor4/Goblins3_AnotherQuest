@@ -352,7 +352,7 @@ namespace Gob3AQ.ResourceAtlas
             new( /* CITY1_EXTRAPERLO1 */
             new GameSprite[1]{GameSprite.BACKGROUND_CITY1_EXTRAPERLO},
             new GameSound[1]{GameSound.MUSIC_EXTRAPERLO},
-            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(3){GameSprite.BACKGROUND_CITY1_EXTRAPERLO, GameSprite.SPRITE_EXTRAPERLO_BAR_FOREGROUND, GameSprite.SPRITE_EXTRAPERLO_COUPLE_TALKING}), 
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_CITY1_EXTRAPERLO, GameSprite.SPRITE_EXTRAPERLO_COUPLE_TALKING}), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(5){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_NPC_WAITER, GameItem.ITEM_GENERIC_DOOR2, GameItem.ITEM_NPC_UNKNOWN_WOMEN, GameItem.ITEM_OBJECT_OLIVE_BOWL}), 
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE}), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(2){GameSound.MUSIC_EXTRAPERLO, GameSound.SOUND_AMBIENCE_INSIDE_PUB}), 

@@ -1,49 +1,67 @@
 fileFormatVersion: 2
-guid: 96aa34e30fa1f9e4a8d07c1d47862803
+guid: a3cad893590018b458b14e5c756140be
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7650613885034935101
-    second: SPRITE_MAINCHAR_PICKING_SIDE_0
+      213: 5995096435498930857
+    second: SPRITE_MAINCHAR_EATING_CHEWING_0
   - first:
-      213: -4290217170422449959
-    second: SPRITE_MAINCHAR_PICKING_SIDE_1
+      213: -5345949004489115560
+    second: SPRITE_MAINCHAR_EATING_CHEWING_1
   - first:
-      213: -2691157662513065626
-    second: SPRITE_MAINCHAR_PICKING_SIDE_2
+      213: 3989641457911665460
+    second: SPRITE_MAINCHAR_EATING_CHEWING_2
   - first:
-      213: -6623517248873125307
-    second: SPRITE_MAINCHAR_PICKING_SIDE_3
+      213: -2350011269221440363
+    second: SPRITE_MAINCHAR_EATING_CHEWING_3
   - first:
-      213: -4269945899375863976
-    second: SPRITE_MAINCHAR_PICKING_SIDE_4
+      213: 858465253867682255
+    second: SPRITE_MAINCHAR_EATING_CHEWING_4
   - first:
-      213: 631185366885002602
-    second: SPRITE_MAINCHAR_PICKING_SIDE_5
+      213: 1031726778466655822
+    second: SPRITE_MAINCHAR_EATING_CHEWING_5
   - first:
-      213: -4069701693940400040
-    second: SPRITE_MAINCHAR_PICKING_SIDE_6
+      213: -7470356377089473230
+    second: SPRITE_MAINCHAR_EATING_CHEWING_6
   - first:
-      213: -8385298368587837602
-    second: SPRITE_MAINCHAR_PICKING_SIDE_7
+      213: -2614146715497245567
+    second: SPRITE_MAINCHAR_EATING_CHEWING_7
   - first:
-      213: 2252980178779383507
-    second: SPRITE_MAINCHAR_PICKING_SIDE_8
+      213: -3097465994521032366
+    second: SPRITE_MAINCHAR_EATING_CHEWING_8
   - first:
-      213: 9152363983396064035
-    second: SPRITE_MAINCHAR_PICKING_SIDE_9
+      213: -6677978248578214001
+    second: SPRITE_MAINCHAR_EATING_CHEWING_9
   - first:
-      213: -832178390554649002
-    second: SPRITE_MAINCHAR_PICKING_SIDE_10
+      213: -2567365140477532854
+    second: SPRITE_MAINCHAR_EATING_CHEWING_10
   - first:
-      213: -5547901241712031569
-    second: SPRITE_MAINCHAR_PICKING_SIDE_11
+      213: -1358895040848704680
+    second: SPRITE_MAINCHAR_EATING_CHEWING_11
   - first:
-      213: 4216526322306878134
-    second: SPRITE_MAINCHAR_PICKING_SIDE_12
+      213: -6733675051949285155
+    second: SPRITE_MAINCHAR_EATING_CHEWING_12
   - first:
-      213: -297816668780953114
-    second: SPRITE_MAINCHAR_PICKING_SIDE_13
+      213: -2806048904503185579
+    second: SPRITE_MAINCHAR_EATING_CHEWING_13
+  - first:
+      213: 6566760506222550522
+    second: SPRITE_MAINCHAR_EATING_CHEWING_14
+  - first:
+      213: -4085218424814169375
+    second: SPRITE_MAINCHAR_EATING_CHEWING_15
+  - first:
+      213: 7144573138009046347
+    second: SPRITE_MAINCHAR_EATING_CHEWING_16
+  - first:
+      213: -4053997281057495050
+    second: SPRITE_MAINCHAR_EATING_CHEWING_17
+  - first:
+      213: -6441292477960148248
+    second: SPRITE_MAINCHAR_EATING_CHEWING_18
+  - first:
+      213: 5799280122066242048
+    second: SPRITE_MAINCHAR_EATING_CHEWING_19
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,7 +157,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_PICKING_SIDE_0
+      name: SPRITE_MAINCHAR_EATING_CHEWING_0
       rect:
         serializedVersion: 2
         x: 0
@@ -154,14 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d33bd233bc07c2a60800000000000000
-      internalID: 7650613885034935101
+      spriteID: 9a2df18d17cd23350800000000000000
+      internalID: 5995096435498930857
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_PICKING_SIDE_1
+      name: SPRITE_MAINCHAR_EATING_CHEWING_1
       rect:
         serializedVersion: 2
         x: 640
@@ -176,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9d830bbc6361674c0800000000000000
-      internalID: -4290217170422449959
+      spriteID: 858b21854bf5fc5b0800000000000000
+      internalID: -5345949004489115560
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_PICKING_SIDE_2
+      name: SPRITE_MAINCHAR_EATING_CHEWING_2
       rect:
         serializedVersion: 2
         x: 1280
@@ -198,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 66196534d5617aad0800000000000000
-      internalID: -2691157662513065626
+      spriteID: 4331ff794cd0e5730800000000000000
+      internalID: 3989641457911665460
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_PICKING_SIDE_3
+      name: SPRITE_MAINCHAR_EATING_CHEWING_3
       rect:
         serializedVersion: 2
         x: 1920
@@ -220,14 +238,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 54aae31b72a8414a0800000000000000
-      internalID: -6623517248873125307
+      spriteID: 59424e79335136fd0800000000000000
+      internalID: -2350011269221440363
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_PICKING_SIDE_4
+      name: SPRITE_MAINCHAR_EATING_CHEWING_4
       rect:
         serializedVersion: 2
         x: 2560
@@ -242,14 +260,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 857d091e3da1eb4c0800000000000000
-      internalID: -4269945899375863976
+      spriteID: fc97ccc9991e9eb00800000000000000
+      internalID: 858465253867682255
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_PICKING_SIDE_5
+      name: SPRITE_MAINCHAR_EATING_CHEWING_5
       rect:
         serializedVersion: 2
         x: 3200
@@ -264,14 +282,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a6dea9c3fbb62c800800000000000000
-      internalID: 631185366885002602
+      spriteID: e4e53c7e90e615e00800000000000000
+      internalID: 1031726778466655822
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_PICKING_SIDE_6
+      name: SPRITE_MAINCHAR_EATING_CHEWING_6
       rect:
         serializedVersion: 2
         x: 3840
@@ -286,14 +304,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 85080ee1fd38587c0800000000000000
-      internalID: -4069701693940400040
+      spriteID: 23502066476f35890800000000000000
+      internalID: -7470356377089473230
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_PICKING_SIDE_7
+      name: SPRITE_MAINCHAR_EATING_CHEWING_7
       rect:
         serializedVersion: 2
         x: 4480
@@ -308,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e5fc8ac9f8f61ab80800000000000000
-      internalID: -8385298368587837602
+      spriteID: 1845800a96fa8bbd0800000000000000
+      internalID: -2614146715497245567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_PICKING_SIDE_8
+      name: SPRITE_MAINCHAR_EATING_CHEWING_8
       rect:
         serializedVersion: 2
         x: 5120
@@ -330,14 +348,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3d6242a2981344f10800000000000000
-      internalID: 2252980178779383507
+      spriteID: 259c8bcc6179305d0800000000000000
+      internalID: -3097465994521032366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_PICKING_SIDE_9
+      name: SPRITE_MAINCHAR_EATING_CHEWING_9
       rect:
         serializedVersion: 2
         x: 5760
@@ -352,14 +370,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 32bc6653d8ab30f70800000000000000
-      internalID: 9152363983396064035
+      spriteID: f87d5b31a2e0353a0800000000000000
+      internalID: -6677978248578214001
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_PICKING_SIDE_10
+      name: SPRITE_MAINCHAR_EATING_CHEWING_10
       rect:
         serializedVersion: 2
         x: 6400
@@ -374,14 +392,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 65edb31b9228374f0800000000000000
-      internalID: -832178390554649002
+      spriteID: a45ad19d103ee5cd0800000000000000
+      internalID: -2567365140477532854
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_PICKING_SIDE_11
+      name: SPRITE_MAINCHAR_EATING_CHEWING_11
       rect:
         serializedVersion: 2
         x: 7040
@@ -396,14 +414,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fa84ec6f635e103b0800000000000000
-      internalID: -5547901241712031569
+      spriteID: 85b4c2bf82c342de0800000000000000
+      internalID: -1358895040848704680
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_PICKING_SIDE_12
+      name: SPRITE_MAINCHAR_EATING_CHEWING_12
       rect:
         serializedVersion: 2
         x: 7680
@@ -418,14 +436,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6ba8f2b995c148a30800000000000000
-      internalID: 4216526322306878134
+      spriteID: dd027af773e2d82a0800000000000000
+      internalID: -6733675051949285155
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_PICKING_SIDE_13
+      name: SPRITE_MAINCHAR_EATING_CHEWING_13
       rect:
         serializedVersion: 2
         x: 8320
@@ -440,8 +458,140 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6e10f115151fddbf0800000000000000
-      internalID: -297816668780953114
+      spriteID: 55fa6b07369ee09d0800000000000000
+      internalID: -2806048904503185579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_EATING_CHEWING_14
+      rect:
+        serializedVersion: 2
+        x: 8960
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afd957263e1d12b50800000000000000
+      internalID: 6566760506222550522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_EATING_CHEWING_15
+      rect:
+        serializedVersion: 2
+        x: 9600
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e2121fac736e47c0800000000000000
+      internalID: -4085218424814169375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_EATING_CHEWING_16
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4db3da5a6f962360800000000000000
+      internalID: 7144573138009046347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_EATING_CHEWING_17
+      rect:
+        serializedVersion: 2
+        x: 10880
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f72b2ea3fe4db7c0800000000000000
+      internalID: -4053997281057495050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_EATING_CHEWING_18
+      rect:
+        serializedVersion: 2
+        x: 11520
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ea2ac46e9eeb96a0800000000000000
+      internalID: -6441292477960148248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_EATING_CHEWING_19
+      rect:
+        serializedVersion: 2
+        x: 12160
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00a0ebc8b8e2b7050800000000000000
+      internalID: 5799280122066242048
       vertices: []
       indices: 
       edges: []
@@ -450,7 +600,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d85e42db62f214545933fb9f6b43ff48
+    spriteID: 1cc7d62eff2a38149bc5d5573eee75ea
     internalID: 0
     vertices: []
     indices: 
@@ -460,22 +610,28 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":14.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.02500000037252903},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":20.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.02500000037252903},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      SPRITE_MAINCHAR_PICKING_SIDE_0: 7650613885034935101
-      SPRITE_MAINCHAR_PICKING_SIDE_1: -4290217170422449959
-      SPRITE_MAINCHAR_PICKING_SIDE_10: -832178390554649002
-      SPRITE_MAINCHAR_PICKING_SIDE_11: -5547901241712031569
-      SPRITE_MAINCHAR_PICKING_SIDE_12: 4216526322306878134
-      SPRITE_MAINCHAR_PICKING_SIDE_13: -297816668780953114
-      SPRITE_MAINCHAR_PICKING_SIDE_2: -2691157662513065626
-      SPRITE_MAINCHAR_PICKING_SIDE_3: -6623517248873125307
-      SPRITE_MAINCHAR_PICKING_SIDE_4: -4269945899375863976
-      SPRITE_MAINCHAR_PICKING_SIDE_5: 631185366885002602
-      SPRITE_MAINCHAR_PICKING_SIDE_6: -4069701693940400040
-      SPRITE_MAINCHAR_PICKING_SIDE_7: -8385298368587837602
-      SPRITE_MAINCHAR_PICKING_SIDE_8: 2252980178779383507
-      SPRITE_MAINCHAR_PICKING_SIDE_9: 9152363983396064035
+      SPRITE_MAINCHAR_EATING_CHEWING_0: 5995096435498930857
+      SPRITE_MAINCHAR_EATING_CHEWING_1: -5345949004489115560
+      SPRITE_MAINCHAR_EATING_CHEWING_10: -2567365140477532854
+      SPRITE_MAINCHAR_EATING_CHEWING_11: -1358895040848704680
+      SPRITE_MAINCHAR_EATING_CHEWING_12: -6733675051949285155
+      SPRITE_MAINCHAR_EATING_CHEWING_13: -2806048904503185579
+      SPRITE_MAINCHAR_EATING_CHEWING_14: 6566760506222550522
+      SPRITE_MAINCHAR_EATING_CHEWING_15: -4085218424814169375
+      SPRITE_MAINCHAR_EATING_CHEWING_16: 7144573138009046347
+      SPRITE_MAINCHAR_EATING_CHEWING_17: -4053997281057495050
+      SPRITE_MAINCHAR_EATING_CHEWING_18: -6441292477960148248
+      SPRITE_MAINCHAR_EATING_CHEWING_19: 5799280122066242048
+      SPRITE_MAINCHAR_EATING_CHEWING_2: 3989641457911665460
+      SPRITE_MAINCHAR_EATING_CHEWING_3: -2350011269221440363
+      SPRITE_MAINCHAR_EATING_CHEWING_4: 858465253867682255
+      SPRITE_MAINCHAR_EATING_CHEWING_5: 1031726778466655822
+      SPRITE_MAINCHAR_EATING_CHEWING_6: -7470356377089473230
+      SPRITE_MAINCHAR_EATING_CHEWING_7: -2614146715497245567
+      SPRITE_MAINCHAR_EATING_CHEWING_8: -3097465994521032366
+      SPRITE_MAINCHAR_EATING_CHEWING_9: -6677978248578214001
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

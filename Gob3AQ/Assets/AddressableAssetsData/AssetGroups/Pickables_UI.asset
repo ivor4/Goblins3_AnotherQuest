@@ -150,6 +150,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5ff887a4219de6c44a5d0ac01e30a7d9
+    m_Address: ANIMATION_GENERIC_TALK2_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 65e313ed732dd95429b91949e02f8ef3
     m_Address: ANIMATOR_GENERIC
     m_ReadOnly: 0
@@ -227,6 +232,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 983fba91bfab9a9408a934b137c5fc1c
     m_Address: ANIMATION_GENERIC_CYCLE3_EXEC
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d4683565c2be974eb0454f7bda45952
+    m_Address: ANIMATION_GENERIC_TALK2_EXEC
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -345,6 +355,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f03fb472a6025bf4b887639cdb9a7bd6
+    m_Address: ANIMATION_GENERIC_TALK2_EXEC2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f0e32f992cc7d7d4aaf6a0456f219648
     m_Address: ANIMATION_GENERIC_CYCLE4_EXEC
     m_ReadOnly: 0
@@ -352,6 +367,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f1f0d33d70d3e8f4c9f3b8298f4042a3
     m_Address: SPRITE_CURSOR_DOOR
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ffdcf3e9ea449bf4ea8babb95f558b9a
+    m_Address: ANIMATION_GENERIC_TALK2_ENTRY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

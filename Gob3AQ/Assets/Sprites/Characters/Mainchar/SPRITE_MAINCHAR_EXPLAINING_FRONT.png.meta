@@ -1,79 +1,67 @@
 fileFormatVersion: 2
-guid: 84eb1d4adf38e3c4cabacd851b23ee30
+guid: 2fe0d6c302ab2ae45ad20e4c78e8c310
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2498710526435597870
-    second: SPRITE_MAINCHAR_TALKING_0
+      213: -4709228961904242043
+    second: SPRITE_MAINCHAR_EXPLAINING_FRONT_0
   - first:
-      213: 9201165519627011982
-    second: SPRITE_MAINCHAR_TALKING_1
+      213: -6058082524154615220
+    second: SPRITE_MAINCHAR_EXPLAINING_FRONT_1
   - first:
-      213: 8541111225226930557
-    second: SPRITE_MAINCHAR_TALKING_2
+      213: -4017756106442846030
+    second: SPRITE_MAINCHAR_EXPLAINING_FRONT_2
   - first:
-      213: 1207361224656782775
-    second: SPRITE_MAINCHAR_TALKING_3
+      213: 8345794533454878436
+    second: SPRITE_MAINCHAR_EXPLAINING_FRONT_3
   - first:
-      213: 2357297957859282534
-    second: SPRITE_MAINCHAR_TALKING_4
+      213: -175163239186761216
+    second: SPRITE_MAINCHAR_EXPLAINING_FRONT_4
   - first:
-      213: 7541273241201005422
-    second: SPRITE_MAINCHAR_TALKING_5
+      213: -8980638377535982278
+    second: SPRITE_MAINCHAR_EXPLAINING_FRONT_5
   - first:
-      213: 2113102645150599572
-    second: SPRITE_MAINCHAR_TALKING_6
+      213: -127245628675269300
+    second: SPRITE_MAINCHAR_EXPLAINING_FRONT_6
   - first:
-      213: -8692966288436686164
-    second: SPRITE_MAINCHAR_TALKING_7
+      213: -5028873439634774384
+    second: SPRITE_MAINCHAR_EXPLAINING_FRONT_7
   - first:
-      213: 6959074961819444182
-    second: SPRITE_MAINCHAR_TALKING_8
+      213: -4900675708903651692
+    second: SPRITE_MAINCHAR_EXPLAINING_FRONT_8
   - first:
-      213: 3310626489563289306
-    second: SPRITE_MAINCHAR_TALKING_9
+      213: 347174193345464445
+    second: SPRITE_MAINCHAR_EXPLAINING_FRONT_9
   - first:
-      213: -8835936729285343429
-    second: SPRITE_MAINCHAR_TALKING_10
+      213: -1099707609599605033
+    second: SPRITE_MAINCHAR_EXPLAINING_FRONT_10
   - first:
-      213: 6112954982591265127
-    second: SPRITE_MAINCHAR_TALKING_11
+      213: -6828207981829154249
+    second: SPRITE_MAINCHAR_EXPLAINING_FRONT_11
   - first:
-      213: -8858057825953226459
-    second: SPRITE_MAINCHAR_TALKING_12
+      213: 5700605188163981360
+    second: SPRITE_MAINCHAR_EXPLAINING_FRONT_12
   - first:
-      213: 8595963990238145568
-    second: SPRITE_MAINCHAR_TALKING_13
+      213: 4186863492886466211
+    second: SPRITE_MAINCHAR_EXPLAINING_FRONT_13
   - first:
-      213: 3382364796100892613
-    second: SPRITE_MAINCHAR_TALKING_14
+      213: -8603398803014752289
+    second: SPRITE_MAINCHAR_EXPLAINING_FRONT_14
   - first:
-      213: 452942007981430829
-    second: SPRITE_MAINCHAR_TALKING_15
+      213: 1226647037537881001
+    second: SPRITE_MAINCHAR_EXPLAINING_FRONT_15
   - first:
-      213: 6366251190486699575
-    second: SPRITE_MAINCHAR_TALKING_16
+      213: -4332872823886992136
+    second: SPRITE_MAINCHAR_EXPLAINING_FRONT_16
   - first:
-      213: -5672206747303108973
-    second: SPRITE_MAINCHAR_TALKING_17
+      213: 6975438985781081693
+    second: SPRITE_MAINCHAR_EXPLAINING_FRONT_17
   - first:
-      213: 6554522986223575552
-    second: SPRITE_MAINCHAR_TALKING_18
+      213: 4359660279223152816
+    second: SPRITE_MAINCHAR_EXPLAINING_FRONT_18
   - first:
-      213: 3142890197646624692
-    second: SPRITE_MAINCHAR_TALKING_19
-  - first:
-      213: 7077018687554640348
-    second: SPRITE_MAINCHAR_TALKING_20
-  - first:
-      213: 3808050349118337177
-    second: SPRITE_MAINCHAR_TALKING_21
-  - first:
-      213: 796365060212661669
-    second: SPRITE_MAINCHAR_TALKING_22
-  - first:
-      213: -6821674321372746830
-    second: SPRITE_MAINCHAR_TALKING_23
+      213: 1103945491590611226
+    second: SPRITE_MAINCHAR_EXPLAINING_FRONT_19
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -144,7 +132,7 @@ TextureImporter:
     maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -169,7 +157,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_0
+      name: SPRITE_MAINCHAR_EXPLAINING_FRONT_0
       rect:
         serializedVersion: 2
         x: 0
@@ -177,21 +165,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e2e19bc2cf33da220800000000000000
-      internalID: 2498710526435597870
+      spriteID: 58257bfa53575aeb0800000000000000
+      internalID: -4709228961904242043
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_1
+      name: SPRITE_MAINCHAR_EXPLAINING_FRONT_1
       rect:
         serializedVersion: 2
         x: 640
@@ -199,21 +187,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e87c0fc4a4b11bf70800000000000000
-      internalID: 9201165519627011982
+      spriteID: c4a23c79a0e5deba0800000000000000
+      internalID: -6058082524154615220
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_2
+      name: SPRITE_MAINCHAR_EXPLAINING_FRONT_2
       rect:
         serializedVersion: 2
         x: 1280
@@ -221,21 +209,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d79a0c6186f188670800000000000000
-      internalID: 8541111225226930557
+      spriteID: 2b05151bb101e38c0800000000000000
+      internalID: -4017756106442846030
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_3
+      name: SPRITE_MAINCHAR_EXPLAINING_FRONT_3
       rect:
         serializedVersion: 2
         x: 1920
@@ -243,21 +231,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7b58f3f03a861c010800000000000000
-      internalID: 1207361224656782775
+      spriteID: 4e699f609e732d370800000000000000
+      internalID: 8345794533454878436
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_4
+      name: SPRITE_MAINCHAR_EXPLAINING_FRONT_4
       rect:
         serializedVersion: 2
         x: 2560
@@ -265,21 +253,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 66ec4ffc00ec6b020800000000000000
-      internalID: 2357297957859282534
+      spriteID: 00af09646f1b19df0800000000000000
+      internalID: -175163239186761216
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_5
+      name: SPRITE_MAINCHAR_EXPLAINING_FRONT_5
       rect:
         serializedVersion: 2
         x: 3200
@@ -287,21 +275,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e63d1f7be0cf7a860800000000000000
-      internalID: 7541273241201005422
+      spriteID: a353ab22afc5e5380800000000000000
+      internalID: -8980638377535982278
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_6
+      name: SPRITE_MAINCHAR_EXPLAINING_FRONT_6
       rect:
         serializedVersion: 2
         x: 3840
@@ -309,21 +297,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 499c32af8af335d10800000000000000
-      internalID: 2113102645150599572
+      spriteID: c4dd69f56ceeb3ef0800000000000000
+      internalID: -127245628675269300
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_7
+      name: SPRITE_MAINCHAR_EXPLAINING_FRONT_7
       rect:
         serializedVersion: 2
         x: 4480
@@ -331,21 +319,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ca2194dc7316c5780800000000000000
-      internalID: -8692966288436686164
+      spriteID: 0962c22304ad53ab0800000000000000
+      internalID: -5028873439634774384
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_8
+      name: SPRITE_MAINCHAR_EXPLAINING_FRONT_8
       rect:
         serializedVersion: 2
         x: 5120
@@ -353,21 +341,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6d320989ec9939060800000000000000
-      internalID: 6959074961819444182
+      spriteID: 496896b586d4dfbb0800000000000000
+      internalID: -4900675708903651692
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_9
+      name: SPRITE_MAINCHAR_EXPLAINING_FRONT_9
       rect:
         serializedVersion: 2
         x: 5760
@@ -375,21 +363,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ad61b667045b1fd20800000000000000
-      internalID: 3310626489563289306
+      spriteID: d780a85e61961d400800000000000000
+      internalID: 347174193345464445
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_10
+      name: SPRITE_MAINCHAR_EXPLAINING_FRONT_10
       rect:
         serializedVersion: 2
         x: 6400
@@ -397,21 +385,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b37ce190c52706580800000000000000
-      internalID: -8835936729285343429
+      spriteID: 7d6850d61cd0db0f0800000000000000
+      internalID: -1099707609599605033
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_11
+      name: SPRITE_MAINCHAR_EXPLAINING_FRONT_11
       rect:
         serializedVersion: 2
         x: 7040
@@ -419,21 +407,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7697e493b2495d450800000000000000
-      internalID: 6112954982591265127
+      spriteID: 73a169694055d31a0800000000000000
+      internalID: -6828207981829154249
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_12
+      name: SPRITE_MAINCHAR_EXPLAINING_FRONT_12
       rect:
         serializedVersion: 2
         x: 7680
@@ -441,21 +429,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 521603cd65bd11580800000000000000
-      internalID: -8858057825953226459
+      spriteID: 030534d273e9c1f40800000000000000
+      internalID: 5700605188163981360
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_13
+      name: SPRITE_MAINCHAR_EXPLAINING_FRONT_13
       rect:
         serializedVersion: 2
         x: 8320
@@ -463,21 +451,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 02ca13ca4bffa4770800000000000000
-      internalID: 8595963990238145568
+      spriteID: 3ae8c80f92aba1a30800000000000000
+      internalID: 4186863492886466211
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_14
+      name: SPRITE_MAINCHAR_EXPLAINING_FRONT_14
       rect:
         serializedVersion: 2
         x: 8960
@@ -485,21 +473,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5c7516c8cd290fe20800000000000000
-      internalID: 3382364796100892613
+      spriteID: fd7e8451f569a9880800000000000000
+      internalID: -8603398803014752289
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_15
+      name: SPRITE_MAINCHAR_EXPLAINING_FRONT_15
       rect:
         serializedVersion: 2
         x: 9600
@@ -507,21 +495,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d28d5914b5c294600800000000000000
-      internalID: 452942007981430829
+      spriteID: 9ab0b394bfce50110800000000000000
+      internalID: 1226647037537881001
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_16
+      name: SPRITE_MAINCHAR_EXPLAINING_FRONT_16
       rect:
         serializedVersion: 2
         x: 10240
@@ -529,21 +517,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 73e0ed75ab7795850800000000000000
-      internalID: 6366251190486699575
+      spriteID: 8fca54b8f1b8ed3c0800000000000000
+      internalID: -4332872823886992136
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_17
+      name: SPRITE_MAINCHAR_EXPLAINING_FRONT_17
       rect:
         serializedVersion: 2
         x: 10880
@@ -551,21 +539,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 39e9c6614064841b0800000000000000
-      internalID: -5672206747303108973
+      spriteID: d5674e3dcccbdc060800000000000000
+      internalID: 6975438985781081693
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_18
+      name: SPRITE_MAINCHAR_EXPLAINING_FRONT_18
       rect:
         serializedVersion: 2
         x: 11520
@@ -573,21 +561,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0022df9bde756fa50800000000000000
-      internalID: 6554522986223575552
+      spriteID: 0b0f97cecef908c30800000000000000
+      internalID: 4359660279223152816
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_19
+      name: SPRITE_MAINCHAR_EXPLAINING_FRONT_19
       rect:
         serializedVersion: 2
         x: 12160
@@ -595,15 +583,15 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4b7c8c6abf9cd9b20800000000000000
-      internalID: 3142890197646624692
+      spriteID: a1107ad5390025f00800000000000000
+      internalID: 1103945491590611226
       vertices: []
       indices: 
       edges: []
@@ -612,7 +600,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 46b35a62ba7d596429508999a5c69070
+    spriteID: 8729b4f97ee2f9244b5b5053d5afa4e9
     internalID: 0
     vertices: []
     indices: 
@@ -622,28 +610,28 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":20.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.47968751192092898,"y":0.02500000037252903},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":20.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.484375,"y":0.02500000037252903},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      SPRITE_MAINCHAR_TALKING_0: 2498710526435597870
-      SPRITE_MAINCHAR_TALKING_1: 9201165519627011982
-      SPRITE_MAINCHAR_TALKING_10: -8835936729285343429
-      SPRITE_MAINCHAR_TALKING_11: 6112954982591265127
-      SPRITE_MAINCHAR_TALKING_12: -8858057825953226459
-      SPRITE_MAINCHAR_TALKING_13: 8595963990238145568
-      SPRITE_MAINCHAR_TALKING_14: 3382364796100892613
-      SPRITE_MAINCHAR_TALKING_15: 452942007981430829
-      SPRITE_MAINCHAR_TALKING_16: 6366251190486699575
-      SPRITE_MAINCHAR_TALKING_17: -5672206747303108973
-      SPRITE_MAINCHAR_TALKING_18: 6554522986223575552
-      SPRITE_MAINCHAR_TALKING_19: 3142890197646624692
-      SPRITE_MAINCHAR_TALKING_2: 8541111225226930557
-      SPRITE_MAINCHAR_TALKING_3: 1207361224656782775
-      SPRITE_MAINCHAR_TALKING_4: 2357297957859282534
-      SPRITE_MAINCHAR_TALKING_5: 7541273241201005422
-      SPRITE_MAINCHAR_TALKING_6: 2113102645150599572
-      SPRITE_MAINCHAR_TALKING_7: -8692966288436686164
-      SPRITE_MAINCHAR_TALKING_8: 6959074961819444182
-      SPRITE_MAINCHAR_TALKING_9: 3310626489563289306
+      SPRITE_MAINCHAR_EXPLAINING_FRONT_0: -4709228961904242043
+      SPRITE_MAINCHAR_EXPLAINING_FRONT_1: -6058082524154615220
+      SPRITE_MAINCHAR_EXPLAINING_FRONT_10: -1099707609599605033
+      SPRITE_MAINCHAR_EXPLAINING_FRONT_11: -6828207981829154249
+      SPRITE_MAINCHAR_EXPLAINING_FRONT_12: 5700605188163981360
+      SPRITE_MAINCHAR_EXPLAINING_FRONT_13: 4186863492886466211
+      SPRITE_MAINCHAR_EXPLAINING_FRONT_14: -8603398803014752289
+      SPRITE_MAINCHAR_EXPLAINING_FRONT_15: 1226647037537881001
+      SPRITE_MAINCHAR_EXPLAINING_FRONT_16: -4332872823886992136
+      SPRITE_MAINCHAR_EXPLAINING_FRONT_17: 6975438985781081693
+      SPRITE_MAINCHAR_EXPLAINING_FRONT_18: 4359660279223152816
+      SPRITE_MAINCHAR_EXPLAINING_FRONT_19: 1103945491590611226
+      SPRITE_MAINCHAR_EXPLAINING_FRONT_2: -4017756106442846030
+      SPRITE_MAINCHAR_EXPLAINING_FRONT_3: 8345794533454878436
+      SPRITE_MAINCHAR_EXPLAINING_FRONT_4: -175163239186761216
+      SPRITE_MAINCHAR_EXPLAINING_FRONT_5: -8980638377535982278
+      SPRITE_MAINCHAR_EXPLAINING_FRONT_6: -127245628675269300
+      SPRITE_MAINCHAR_EXPLAINING_FRONT_7: -5028873439634774384
+      SPRITE_MAINCHAR_EXPLAINING_FRONT_8: -4900675708903651692
+      SPRITE_MAINCHAR_EXPLAINING_FRONT_9: 347174193345464445
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

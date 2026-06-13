@@ -1,79 +1,67 @@
 fileFormatVersion: 2
-guid: 84eb1d4adf38e3c4cabacd851b23ee30
+guid: 8fc53c9e36c51884b89266917e5e6629
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2498710526435597870
-    second: SPRITE_MAINCHAR_TALKING_0
+      213: -8627076030396262397
+    second: SPRITE_MAINCHAR_LISTENING_2_0
   - first:
-      213: 9201165519627011982
-    second: SPRITE_MAINCHAR_TALKING_1
+      213: 5784169390530826357
+    second: SPRITE_MAINCHAR_LISTENING_2_1
   - first:
-      213: 8541111225226930557
-    second: SPRITE_MAINCHAR_TALKING_2
+      213: -4910790858020685710
+    second: SPRITE_MAINCHAR_LISTENING_2_2
   - first:
-      213: 1207361224656782775
-    second: SPRITE_MAINCHAR_TALKING_3
+      213: -5186553867226158253
+    second: SPRITE_MAINCHAR_LISTENING_2_3
   - first:
-      213: 2357297957859282534
-    second: SPRITE_MAINCHAR_TALKING_4
+      213: -2247870844801309339
+    second: SPRITE_MAINCHAR_LISTENING_2_4
   - first:
-      213: 7541273241201005422
-    second: SPRITE_MAINCHAR_TALKING_5
+      213: 5889701154965025456
+    second: SPRITE_MAINCHAR_LISTENING_2_5
   - first:
-      213: 2113102645150599572
-    second: SPRITE_MAINCHAR_TALKING_6
+      213: -5041057890380791370
+    second: SPRITE_MAINCHAR_LISTENING_2_6
   - first:
-      213: -8692966288436686164
-    second: SPRITE_MAINCHAR_TALKING_7
+      213: 2194537507097700110
+    second: SPRITE_MAINCHAR_LISTENING_2_7
   - first:
-      213: 6959074961819444182
-    second: SPRITE_MAINCHAR_TALKING_8
+      213: 9109121518151636154
+    second: SPRITE_MAINCHAR_LISTENING_2_8
   - first:
-      213: 3310626489563289306
-    second: SPRITE_MAINCHAR_TALKING_9
+      213: 5885296833435489577
+    second: SPRITE_MAINCHAR_LISTENING_2_9
   - first:
-      213: -8835936729285343429
-    second: SPRITE_MAINCHAR_TALKING_10
+      213: -8598724160997394840
+    second: SPRITE_MAINCHAR_LISTENING_2_10
   - first:
-      213: 6112954982591265127
-    second: SPRITE_MAINCHAR_TALKING_11
+      213: 3089806426313978773
+    second: SPRITE_MAINCHAR_LISTENING_2_11
   - first:
-      213: -8858057825953226459
-    second: SPRITE_MAINCHAR_TALKING_12
+      213: 4352743592678518133
+    second: SPRITE_MAINCHAR_LISTENING_2_12
   - first:
-      213: 8595963990238145568
-    second: SPRITE_MAINCHAR_TALKING_13
+      213: -3584319705563746789
+    second: SPRITE_MAINCHAR_LISTENING_2_13
   - first:
-      213: 3382364796100892613
-    second: SPRITE_MAINCHAR_TALKING_14
+      213: 3692118892589763430
+    second: SPRITE_MAINCHAR_LISTENING_2_14
   - first:
-      213: 452942007981430829
-    second: SPRITE_MAINCHAR_TALKING_15
+      213: 7275392516982722964
+    second: SPRITE_MAINCHAR_LISTENING_2_15
   - first:
-      213: 6366251190486699575
-    second: SPRITE_MAINCHAR_TALKING_16
+      213: 4152185637701544060
+    second: SPRITE_MAINCHAR_LISTENING_2_16
   - first:
-      213: -5672206747303108973
-    second: SPRITE_MAINCHAR_TALKING_17
+      213: -8636223618711628474
+    second: SPRITE_MAINCHAR_LISTENING_2_17
   - first:
-      213: 6554522986223575552
-    second: SPRITE_MAINCHAR_TALKING_18
+      213: 7353790545400427594
+    second: SPRITE_MAINCHAR_LISTENING_2_18
   - first:
-      213: 3142890197646624692
-    second: SPRITE_MAINCHAR_TALKING_19
-  - first:
-      213: 7077018687554640348
-    second: SPRITE_MAINCHAR_TALKING_20
-  - first:
-      213: 3808050349118337177
-    second: SPRITE_MAINCHAR_TALKING_21
-  - first:
-      213: 796365060212661669
-    second: SPRITE_MAINCHAR_TALKING_22
-  - first:
-      213: -6821674321372746830
-    second: SPRITE_MAINCHAR_TALKING_23
+      213: 84150948004366149
+    second: SPRITE_MAINCHAR_LISTENING_2_19
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -144,7 +132,7 @@ TextureImporter:
     maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -169,7 +157,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_0
+      name: SPRITE_MAINCHAR_LISTENING_2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -177,21 +165,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e2e19bc2cf33da220800000000000000
-      internalID: 2498710526435597870
+      spriteID: 30891fdfe08764880800000000000000
+      internalID: -8627076030396262397
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_1
+      name: SPRITE_MAINCHAR_LISTENING_2_1
       rect:
         serializedVersion: 2
         x: 640
@@ -199,21 +187,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e87c0fc4a4b11bf70800000000000000
-      internalID: 9201165519627011982
+      spriteID: 57017433a6f754050800000000000000
+      internalID: 5784169390530826357
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_2
+      name: SPRITE_MAINCHAR_LISTENING_2_2
       rect:
         serializedVersion: 2
         x: 1280
@@ -221,21 +209,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d79a0c6186f188670800000000000000
-      internalID: 8541111225226930557
+      spriteID: 278f07dabbd59dbb0800000000000000
+      internalID: -4910790858020685710
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_3
+      name: SPRITE_MAINCHAR_LISTENING_2_3
       rect:
         serializedVersion: 2
         x: 1920
@@ -243,21 +231,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7b58f3f03a861c010800000000000000
-      internalID: 1207361224656782775
+      spriteID: 35b6e8fbcb8a508b0800000000000000
+      internalID: -5186553867226158253
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_4
+      name: SPRITE_MAINCHAR_LISTENING_2_4
       rect:
         serializedVersion: 2
         x: 2560
@@ -265,21 +253,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 66ec4ffc00ec6b020800000000000000
-      internalID: 2357297957859282534
+      spriteID: 56529aa5065fdc0e0800000000000000
+      internalID: -2247870844801309339
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_5
+      name: SPRITE_MAINCHAR_LISTENING_2_5
       rect:
         serializedVersion: 2
         x: 3200
@@ -287,21 +275,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e63d1f7be0cf7a860800000000000000
-      internalID: 7541273241201005422
+      spriteID: 0b2f5e6defb6cb150800000000000000
+      internalID: 5889701154965025456
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_6
+      name: SPRITE_MAINCHAR_LISTENING_2_6
       rect:
         serializedVersion: 2
         x: 3840
@@ -309,21 +297,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 499c32af8af335d10800000000000000
-      internalID: 2113102645150599572
+      spriteID: 6b14cafae809a0ab0800000000000000
+      internalID: -5041057890380791370
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_7
+      name: SPRITE_MAINCHAR_LISTENING_2_7
       rect:
         serializedVersion: 2
         x: 4480
@@ -331,21 +319,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ca2194dc7316c5780800000000000000
-      internalID: -8692966288436686164
+      spriteID: e0764dc4c30947e10800000000000000
+      internalID: 2194537507097700110
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_8
+      name: SPRITE_MAINCHAR_LISTENING_2_8
       rect:
         serializedVersion: 2
         x: 5120
@@ -353,21 +341,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6d320989ec9939060800000000000000
-      internalID: 6959074961819444182
+      spriteID: ab49b4132c91a6e70800000000000000
+      internalID: 9109121518151636154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_9
+      name: SPRITE_MAINCHAR_LISTENING_2_9
       rect:
         serializedVersion: 2
         x: 5760
@@ -375,21 +363,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ad61b667045b1fd20800000000000000
-      internalID: 3310626489563289306
+      spriteID: 92557a2d946cca150800000000000000
+      internalID: 5885296833435489577
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_10
+      name: SPRITE_MAINCHAR_LISTENING_2_10
       rect:
         serializedVersion: 2
         x: 6400
@@ -397,21 +385,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b37ce190c52706580800000000000000
-      internalID: -8835936729285343429
+      spriteID: 8667e2efee13ba880800000000000000
+      internalID: -8598724160997394840
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_11
+      name: SPRITE_MAINCHAR_LISTENING_2_11
       rect:
         serializedVersion: 2
         x: 7040
@@ -419,21 +407,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7697e493b2495d450800000000000000
-      internalID: 6112954982591265127
+      spriteID: 593f921039231ea20800000000000000
+      internalID: 3089806426313978773
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_12
+      name: SPRITE_MAINCHAR_LISTENING_2_12
       rect:
         serializedVersion: 2
         x: 7680
@@ -441,21 +429,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 521603cd65bd11580800000000000000
-      internalID: -8858057825953226459
+      spriteID: 57de5f75c3d086c30800000000000000
+      internalID: 4352743592678518133
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_13
+      name: SPRITE_MAINCHAR_LISTENING_2_13
       rect:
         serializedVersion: 2
         x: 8320
@@ -463,21 +451,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 02ca13ca4bffa4770800000000000000
-      internalID: 8595963990238145568
+      spriteID: b1ea074e730f14ec0800000000000000
+      internalID: -3584319705563746789
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_14
+      name: SPRITE_MAINCHAR_LISTENING_2_14
       rect:
         serializedVersion: 2
         x: 8960
@@ -485,21 +473,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5c7516c8cd290fe20800000000000000
-      internalID: 3382364796100892613
+      spriteID: 66b4255329a0d3330800000000000000
+      internalID: 3692118892589763430
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_15
+      name: SPRITE_MAINCHAR_LISTENING_2_15
       rect:
         serializedVersion: 2
         x: 9600
@@ -507,21 +495,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d28d5914b5c294600800000000000000
-      internalID: 452942007981430829
+      spriteID: 4915a4092f267f460800000000000000
+      internalID: 7275392516982722964
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_16
+      name: SPRITE_MAINCHAR_LISTENING_2_16
       rect:
         serializedVersion: 2
         x: 10240
@@ -529,21 +517,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 73e0ed75ab7795850800000000000000
-      internalID: 6366251190486699575
+      spriteID: c78eda896d68f9930800000000000000
+      internalID: 4152185637701544060
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_17
+      name: SPRITE_MAINCHAR_LISTENING_2_17
       rect:
         serializedVersion: 2
         x: 10880
@@ -551,21 +539,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 39e9c6614064841b0800000000000000
-      internalID: -5672206747303108973
+      spriteID: 645dadd1068f52880800000000000000
+      internalID: -8636223618711628474
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_18
+      name: SPRITE_MAINCHAR_LISTENING_2_18
       rect:
         serializedVersion: 2
         x: 11520
@@ -573,21 +561,21 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0022df9bde756fa50800000000000000
-      internalID: 6554522986223575552
+      spriteID: a44f73bf989ed0660800000000000000
+      internalID: 7353790545400427594
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_TALKING_19
+      name: SPRITE_MAINCHAR_LISTENING_2_19
       rect:
         serializedVersion: 2
         x: 12160
@@ -595,15 +583,15 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.4796875, y: 0.025}
+      pivot: {x: 0.484375, y: 0.025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4b7c8c6abf9cd9b20800000000000000
-      internalID: 3142890197646624692
+      spriteID: 547005367d6fa2100800000000000000
+      internalID: 84150948004366149
       vertices: []
       indices: 
       edges: []
@@ -612,7 +600,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 46b35a62ba7d596429508999a5c69070
+    spriteID: c5a08b14ede93a2408e804f131265879
     internalID: 0
     vertices: []
     indices: 
@@ -622,28 +610,28 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":20.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.47968751192092898,"y":0.02500000037252903},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":20.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.484375,"y":0.02500000037252903},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      SPRITE_MAINCHAR_TALKING_0: 2498710526435597870
-      SPRITE_MAINCHAR_TALKING_1: 9201165519627011982
-      SPRITE_MAINCHAR_TALKING_10: -8835936729285343429
-      SPRITE_MAINCHAR_TALKING_11: 6112954982591265127
-      SPRITE_MAINCHAR_TALKING_12: -8858057825953226459
-      SPRITE_MAINCHAR_TALKING_13: 8595963990238145568
-      SPRITE_MAINCHAR_TALKING_14: 3382364796100892613
-      SPRITE_MAINCHAR_TALKING_15: 452942007981430829
-      SPRITE_MAINCHAR_TALKING_16: 6366251190486699575
-      SPRITE_MAINCHAR_TALKING_17: -5672206747303108973
-      SPRITE_MAINCHAR_TALKING_18: 6554522986223575552
-      SPRITE_MAINCHAR_TALKING_19: 3142890197646624692
-      SPRITE_MAINCHAR_TALKING_2: 8541111225226930557
-      SPRITE_MAINCHAR_TALKING_3: 1207361224656782775
-      SPRITE_MAINCHAR_TALKING_4: 2357297957859282534
-      SPRITE_MAINCHAR_TALKING_5: 7541273241201005422
-      SPRITE_MAINCHAR_TALKING_6: 2113102645150599572
-      SPRITE_MAINCHAR_TALKING_7: -8692966288436686164
-      SPRITE_MAINCHAR_TALKING_8: 6959074961819444182
-      SPRITE_MAINCHAR_TALKING_9: 3310626489563289306
+      SPRITE_MAINCHAR_LISTENING_2_0: -8627076030396262397
+      SPRITE_MAINCHAR_LISTENING_2_1: 5784169390530826357
+      SPRITE_MAINCHAR_LISTENING_2_10: -8598724160997394840
+      SPRITE_MAINCHAR_LISTENING_2_11: 3089806426313978773
+      SPRITE_MAINCHAR_LISTENING_2_12: 4352743592678518133
+      SPRITE_MAINCHAR_LISTENING_2_13: -3584319705563746789
+      SPRITE_MAINCHAR_LISTENING_2_14: 3692118892589763430
+      SPRITE_MAINCHAR_LISTENING_2_15: 7275392516982722964
+      SPRITE_MAINCHAR_LISTENING_2_16: 4152185637701544060
+      SPRITE_MAINCHAR_LISTENING_2_17: -8636223618711628474
+      SPRITE_MAINCHAR_LISTENING_2_18: 7353790545400427594
+      SPRITE_MAINCHAR_LISTENING_2_19: 84150948004366149
+      SPRITE_MAINCHAR_LISTENING_2_2: -4910790858020685710
+      SPRITE_MAINCHAR_LISTENING_2_3: -5186553867226158253
+      SPRITE_MAINCHAR_LISTENING_2_4: -2247870844801309339
+      SPRITE_MAINCHAR_LISTENING_2_5: 5889701154965025456
+      SPRITE_MAINCHAR_LISTENING_2_6: -5041057890380791370
+      SPRITE_MAINCHAR_LISTENING_2_7: 2194537507097700110
+      SPRITE_MAINCHAR_LISTENING_2_8: 9109121518151636154
+      SPRITE_MAINCHAR_LISTENING_2_9: 5885296833435489577
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

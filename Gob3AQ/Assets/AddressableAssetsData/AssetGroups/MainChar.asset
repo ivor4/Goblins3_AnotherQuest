@@ -40,6 +40,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2fe0d6c302ab2ae45ad20e4c78e8c310
+    m_Address: SPRITE_MAINCHAR_EXPLAINING_FRONT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 41076632418c9a540969705ecbb4f26a
     m_Address: SPRITE_MAINCHAR_ROTATING_LEFT
     m_ReadOnly: 0
@@ -47,6 +52,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 433b02b9024b31645816b5c9fdc89fb4
     m_Address: ANIMATION_MAINCHAR_WALKING_CORNER_FRONT_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44245283b352c4643b6e8b002b5a3bf7
+    m_Address: SPRITE_MAINCHAR_LOOKS_FRONT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -145,6 +155,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8fc53c9e36c51884b89266917e5e6629
+    m_Address: SPRITE_MAINCHAR_LISTENING_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 93afe169e9221744e94bb5efdedc83e3
+    m_Address: ANIMATION_MAINCHAR_TALKING2_SEMI_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 95c006ba48dcfb048b38d7fb8ff5c94b
     m_Address: ANIMATION_MAINCHAR_WALKING_FRONT_ENTRY_EXIT
     m_ReadOnly: 0
@@ -162,6 +182,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b9ef94dc253a2242ae39f5fd25f41bd
     m_Address: ANIMATION_MAINCHAR_WALKING_CORNER_BACK_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ba51ca4e66db0c4ca77959161d73c36
+    m_Address: ANIMATION_MAINCHAR_TALKING2_STARTING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0be924a691b58e42a6d68ce2aecccc3
+    m_Address: SPRITE_MAINCHAR_LISTENING_1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -187,6 +217,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b7d079a09262b434193cd6e9666240f9
     m_Address: SPRITE_MAINCHAR_INVENT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bdc64c7d9f4442542965d92513085569
+    m_Address: ANIMATION_MAINCHAR_TALKING2_ENDING
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -222,6 +257,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dfc4ebe6ffd010c49867fd8070781a01
     m_Address: SPRITE_MAINCHAR_WALKING_LEFT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e1ad25df3e1f3f34e8ee0fcde75e3615
+    m_Address: ANIMATION_MAINCHAR_TALKING2_SEMI_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

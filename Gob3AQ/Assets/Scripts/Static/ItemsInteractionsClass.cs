@@ -743,12 +743,22 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new( /* COND_TAKE_BEER_FIRST_ROUND */
             new GameEventCombi[2]{new(GameEvent.EVENT_BEER_JAR_READY, false), new(GameEvent.EVENT_BEER_FIRST_ROUND, true)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            new GameAction[4]{GameAction.ACTION_DESPAWN_ITEM_OBJECT_BEER_FULL, GameAction.ACTION_EVENT_REMOVE_BEER_PLACED, GameAction.ACTION_ANIMATE_MAINCHAR_DRINK_BEER, GameAction.ACTION_EVENT_DRINK_FIRST_BEER_ROUND}), 
+            new GameAction[5]{GameAction.ACTION_DESPAWN_ITEM_OBJECT_BEER_FULL, GameAction.ACTION_EVENT_REMOVE_BEER_PLACED, GameAction.ACTION_ANIMATE_MAINCHAR_DRINK_BEER, GameAction.ACTION_EVENT_DRINK_FIRST_BEER_ROUND, GameAction.ACTION_EVENT_DRUNK_STATE}), 
 
             new( /* COND_TAKE_BEER_SECOND_ROUND */
             new GameEventCombi[2]{new(GameEvent.EVENT_BEER_JAR_READY, false), new(GameEvent.EVENT_BEER_SECOND_ROUND, true)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
             new GameAction[5]{GameAction.ACTION_DIALOGUE_SIMPLE_SECOND_BEER_COMMENT, GameAction.ACTION_DESPAWN_ITEM_OBJECT_BEER_FULL, GameAction.ACTION_EVENT_REMOVE_BEER_PLACED, GameAction.ACTION_ANIMATE_MAINCHAR_DRINK_BEER, GameAction.ACTION_EVENT_DRINK_SECOND_BEER_ROUND}), 
+
+            new( /* COND_TAKE_BEER_THIRD_ROUND */
+            new GameEventCombi[2]{new(GameEvent.EVENT_BEER_JAR_READY, false), new(GameEvent.EVENT_BEER_THIRD_ROUND, true)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
+            new GameAction[5]{GameAction.ACTION_DESPAWN_ITEM_OBJECT_BEER_FULL, GameAction.ACTION_EVENT_REMOVE_BEER_PLACED, GameAction.ACTION_ANIMATE_MAINCHAR_DRINK_BEER, GameAction.ACTION_EVENT_DRINK_THIRD_BEER_ROUND, GameAction.ACTION_DIALOGUE_SIMPLE_AFTER_THIRD_BEER_COMMENT}), 
+
+            new( /* COND_TALK_CLOWN_DRUNK */
+            new GameEventCombi[2]{new(GameEvent.EVENT_DRUNK_STATE, false), new(GameEvent.EVENT_BEER_THIRD_ROUND, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_CLOWN_DRUNK}), 
 
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
@@ -1007,7 +1017,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_NPC_CLOWN */
             NameType.NAME_CLOWN,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_CLOWN_STEADY}),
             GameSprite.SPRITE_CLOWN_STEADY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
-            new(new HashSet<ActionConditions>(1){ActionConditions.COND_TALK_ITEM_NPC_CLOWN})),
+            new(new HashSet<ActionConditions>(2){ActionConditions.COND_TALK_CLOWN_DRUNK, ActionConditions.COND_TALK_ITEM_NPC_CLOWN})),
 
             new ( /* ITEM_NPC_SILVANA_EXTRAPERLO */
             NameType.NAME_SILVANA,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_SILVANA_STEADY_READING}),
@@ -1032,7 +1042,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_OBJECT_BEER_FULL */
             NameType.NAME_BEER_FULL,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BEER_FULL}),
             GameSprite.SPRITE_BEER_FULL,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
-            new(new HashSet<ActionConditions>(3){ActionConditions.COND_OBSERVE_ITEM_OBJECT_BEER_FULL, ActionConditions.COND_TAKE_BEER_FIRST_ROUND, ActionConditions.COND_TAKE_BEER_SECOND_ROUND})),
+            new(new HashSet<ActionConditions>(4){ActionConditions.COND_OBSERVE_ITEM_OBJECT_BEER_FULL, ActionConditions.COND_TAKE_BEER_FIRST_ROUND, ActionConditions.COND_TAKE_BEER_SECOND_ROUND, ActionConditions.COND_TAKE_BEER_THIRD_ROUND})),
 
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST}),
@@ -2227,6 +2237,12 @@ false),
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_THREE,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,CardGameID.CARD_GAME_NONE), 
 
+            new( /* ACTION_EVENT_DRUNK_STATE */
+            false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_DRUNK_STATE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,CardGameID.CARD_GAME_NONE), 
+
             new( /* ACTION_EVENT_DRINK_FIRST_BEER_ROUND */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
@@ -2244,6 +2260,24 @@ false),
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_COMMENT_SECOND_BEER,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_EVENT_DRINK_THIRD_BEER_ROUND */
+            true,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_BEER_THIRD_ROUND, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_SIMPLE_AFTER_THIRD_BEER_COMMENT */
+            true,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_COMMENT_AFTER_THIRD_BEER,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_CLOWN_DRUNK */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_CLOWN_DRUNK,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

@@ -254,6 +254,11 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new DialogOption[1]{DialogOption.DIALOG_WAITER_W_INVITATION_OPTION_INTRO}
             ),
 
+            new( /* DIALOG_CLOWN_DRUNK */
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_CLOWN},
+            new DialogOption[1]{DialogOption.DIALOG_CLOWN_DRUNK_OPTION_0}
+            ),
+
             new( /* DIALOG_LAST */
             new GameItem[1]{GameItem.ITEM_NONE},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE}
@@ -720,6 +725,13 @@ namespace Gob3AQ.ResourceDialogsAtlas
             DialogType.DIALOG_WAITER_W_INVITATION,false,
             new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_WAITER_W_INVITATION_INTRO_0, DialogPhrase.PHRASE_DIALOG_WAITER_W_INVITATION_INTRO_1}
             ),
+            new( /* DIALOG_CLOWN_DRUNK_OPTION_0 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_NONE},
+            DialogType.DIALOG_NONE,false,
+            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_CLOWN_DRUNK_INTRO_1, DialogPhrase.PHRASE_DIALOG_CLOWN_DRUNK_INTRO_2}
+            ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
@@ -973,6 +985,9 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,GameSound.SOUND_OBSERVE_OLIVE_BOWL, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_ITEM_OBJECT_OLIVE_BOWL */ 
             new(0,GameSound.SOUND_OBSERVE_BEER, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_ITEM_OBJECT_BEER_FULL */ 
             new(0,GameSound.SOUND_MAINCHAR_SECOND_BEER_COMMENT, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_COMMENT_SECOND_BEER */ 
+            new(0,GameSound.SOUND_MAINCHAR_AFTER_THIRD_BEER_COMMENT, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_COMMENT_AFTER_THIRD_BEER */ 
+            new(0,GameSound.SOUND_CLOWN_INTRO_DRUNK, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_CLOWN_DRUNK_INTRO_1 */ 
+            new(1,GameSound.SOUND_CLOWN_INTRO_DRUNK_PART_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_CLOWN_DRUNK_INTRO_2 */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

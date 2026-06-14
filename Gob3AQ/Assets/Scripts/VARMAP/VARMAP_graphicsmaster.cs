@@ -42,6 +42,7 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
+            IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
             ZOOM_SUBSCRIPTION = _ZOOM_SUBSCRIPTION;
             TAKE_LOADING_SNAPSHOT = _TAKE_LOADING_SNAPSHOT;
             ACTIVATE_FORCED_ZOOM_MODE = _ACTIVATE_FORCED_ZOOM_MODE;
@@ -98,6 +99,13 @@ public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
 /// <para> Method: <see cref="LevelMasterClass.GetPlayerListService"/> </para> 
 /// </summary>
 public static GET_PLAYER_LIST_DELEGATE GET_PLAYER_LIST;
+        /// <summary> 
+/// Checks if a combination of events is totally complied (event absence can also be requested) 
+/// <para> Owner: GameEventMaster </para> 
+/// <para> Accessors: LevelMaster, GraphicsMaster, GameMenu, DialogMaster, ItemMaster </para> 
+/// <para> Method: <see cref="GameEventMasterClass.IsEventCombiOccurredService"/> </para> 
+/// </summary>
+public static IS_EVENT_COMBI_OCCURRED_DELEGATE IS_EVENT_COMBI_OCCURRED;
         /// <summary> 
 /// Subscribe to zoom changes 
 /// <para> Owner: GraphicsMaster </para> 

@@ -736,6 +736,8 @@ namespace Gob3AQ.GameEventMaster
                 switch (actionTypeOverride)
                 {
                     case ActionType.ACTION_TYPE_EVENT:
+                        mustWait = info.waitForEnd;
+                        _actionExpectedFlag = NotifyAction.NOTIFY_NONE;
                         CommitEventService(info.TargetEvents);
                         break;
                     case ActionType.ACTION_TYPE_MEMENTO:

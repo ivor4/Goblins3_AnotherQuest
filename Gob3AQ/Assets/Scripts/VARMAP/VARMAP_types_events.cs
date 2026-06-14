@@ -51,6 +51,7 @@ namespace Gob3AQ.VARMAP.Types
         EVENT_BEER_FIRST_ROUND, 
         EVENT_BEER_SECOND_ROUND, 
         EVENT_BEER_THIRD_ROUND, 
+        EVENT_DRUNK_STATE, 
         EVENT_LAST, 
         
 EVENT_TOTAL

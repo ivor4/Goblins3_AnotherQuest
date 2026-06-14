@@ -585,6 +585,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e34ece13dd3a554ba382f5510b6ae99
+    m_Address: SOUND_CLOWN_INTRO_DRUNK_PART_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 83a3b4ffe0720b74c80800aebfd27e8f
     m_Address: ANIMATION_EXTRAPERLO_TABLE1_STEADY_2
     m_ReadOnly: 0
@@ -632,6 +637,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8873a57055ebbd04c93fe67b5908e407
     m_Address: SPRITE_FOREGROUND_EXTRAPERLO_WALL
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a7dab1ecd0d1d642a68e2f82bfb70a0
+    m_Address: SOUND_CLOWN_INTRO_DRUNK_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -2,6 +2,7 @@ using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameElement.PlayableChar;
 using Gob3AQ.GameMenu.UICanvas;
+using Gob3AQ.Libs.Arith;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceSprites;
 using Gob3AQ.VARMAP.GraphicsMaster;
@@ -43,6 +44,7 @@ namespace Gob3AQ.GraphicsMaster
         private Bounds _mouseScreenZoneLimit;
 
         private Camera mainCamera;
+        private CameraEffectsClass cameraEffects;
         private Transform mainCameraTransform;
         private GameObject background;
         private SpriteRenderer background_spr;
@@ -69,6 +71,7 @@ namespace Gob3AQ.GraphicsMaster
         private ulong mouseWheelZoomStartTime;
         private float mouseWheelZoomStartOrthoSize;
 
+        private bool prevDrunk;
 
 
 
@@ -155,6 +158,7 @@ namespace Gob3AQ.GraphicsMaster
         {
             mainCamera = Camera.main;
             mainCameraTransform = mainCamera.transform;
+            cameraEffects = mainCamera.GetComponent<CameraEffectsClass>();
 
             uicanvas_cls = UICanvas.GetComponent<UICanvasClass>();
 
@@ -241,6 +245,7 @@ namespace Gob3AQ.GraphicsMaster
                     break;
                 case Game_Status.GAME_STATUS_PLAY:
                     FollowMouseWithCamera(in mouse, in keys, actualTimestamp);
+                    UpdateCameraEffects();
                     break;
                 default:
                     break;
@@ -471,6 +476,45 @@ namespace Gob3AQ.GraphicsMaster
             VARMAP_GraphicsMaster.SET_CAMERA_DISPOSITION(in cameradisp);
         }
 
+        private void UpdateCameraEffects()
+        {
+            Span<GameEventCombi> eventCombi = RentedSpan<GameEventCombi>.GetSpanOfSize(1);
+            eventCombi[0] = new GameEventCombi(GameEvent.EVENT_DRUNK_STATE, false);
+
+            VARMAP_GraphicsMaster.IS_EVENT_COMBI_OCCURRED(eventCombi, out bool drunk);
+
+            if (drunk || prevDrunk)
+            {
+                if (drunk)
+                {
+                    eventCombi[0] = new GameEventCombi(GameEvent.EVENT_BEER_THIRD_ROUND, false);
+                    VARMAP_GraphicsMaster.IS_EVENT_COMBI_OCCURRED(eventCombi, out bool drunk3);
+                    eventCombi[0] = new GameEventCombi(GameEvent.EVENT_BEER_SECOND_ROUND, false);
+                    VARMAP_GraphicsMaster.IS_EVENT_COMBI_OCCURRED(eventCombi, out bool drunk2);
+
+                    if(drunk3)
+                    {
+                        cameraEffects.ActivateDrunkEffect(3);
+                    }
+                    else if(drunk2)
+                    {
+                        cameraEffects.ActivateDrunkEffect(2);
+                    }
+                    else
+                    {
+                        cameraEffects.ActivateDrunkEffect(1);
+                    }
+                }
+                else
+                {
+                    cameraEffects.DeactivateEffects();
+                }
+            }
+
+
+            prevDrunk = drunk;
+        }
+
         private void UpdateCursorBaseSprite()
         {
             GameSprite cursorSprite;
@@ -617,6 +661,7 @@ namespace Gob3AQ.GraphicsMaster
                 switch (newval)
                 {
                     case Game_Status.GAME_STATUS_CHANGING_ROOM:
+                        cameraEffects.DeactivateEffects();
                         _mouseDraggingCamera = false;
                         isPickableSelected = false;
                         isDoorHovered = false;

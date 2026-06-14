@@ -257,7 +257,7 @@ protected static GET_NEAREST_WP_DELEGATE _GET_NEAREST_WP;
         /// <summary> 
 /// Checks if a combination of events is totally complied (event absence can also be requested) 
 /// <para> Owner: GameEventMaster </para> 
-/// <para> Accessors: LevelMaster, GameMenu, DialogMaster, ItemMaster </para> 
+/// <para> Accessors: LevelMaster, GraphicsMaster, GameMenu, DialogMaster, ItemMaster </para> 
 /// <para> Method: <see cref="GameEventMasterClass.IsEventCombiOccurredService"/> </para> 
 /// </summary>
 protected static IS_EVENT_COMBI_OCCURRED_DELEGATE _IS_EVENT_COMBI_OCCURRED;

@@ -1,5 +1,5 @@
 ﻿NewItem,NewName,NewSprite,Pickable,Spawn,Picker_Character,ObservationPhrase,TakePhrase,Room,Output,Unnamed: 10,Unnamed: 11
-ITEM_OBJECT_OLIVE_BOWL,NAME_OLIVE_BOWL,SPRITE_EXTRAPERLO_OLIVE_BOWL,False,True,CHARACTER_NONE,Un buen cuenco lleno de olivas,,CITY1_EXTRAPERLO1,,,
+ITEM_OBJECT_BEER_FULL,NAME_BEER_FULL,SPRITE_BEER_FULL,False,True,CHARACTER_NONE,Una buena fresquita rica,,CITY1_EXTRAPERLO1,,,
 ,,,,,,,,,,,
 NewRoom,Background,BackgroundNight,Music,Output,,,,,,,
 CITY1_EXTRAPERLO1,BACKGROUND_CITY1_EXTRAPERLO,BACKGROUND_CITY1_EXTRAPERLO,MUSIC_EXTRAPERLO,,,,,,,,

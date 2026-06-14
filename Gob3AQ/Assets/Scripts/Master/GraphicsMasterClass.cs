@@ -106,6 +106,13 @@ namespace Gob3AQ.GraphicsMaster
 
                     regionOfInterest.extents *= 1.25f;
 
+                    Vector2 src = _singleton.mainCamera.ScreenToWorldPoint(new(0, 0, 0));
+                    Vector2 dst = _singleton.mainCamera.ScreenToWorldPoint(new(1, 1, 0));
+                    var screenToWorldFactor = dst - src;
+
+                    /* Add toolbar as a distance to save for zoom */
+                    regionOfInterest.max = regionOfInterest.max + new Vector3(0,screenToWorldFactor.y * Screen.safeArea.height * GameFixedConfig.MENU_TOP_SCREEN_HEIGHT_PERCENT);
+
                     Vector3 cameraNewPosition = regionOfInterest.center;
                     cameraNewPosition.z = _singleton.mainCameraTransform.position.z;
 

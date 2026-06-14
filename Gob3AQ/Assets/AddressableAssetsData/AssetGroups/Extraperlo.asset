@@ -195,6 +195,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e0b7ea75b17dea42bd11ca2fd8d9ddd
+    m_Address: SPRITE_BEER_FULL
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2f72f864738bda444a80870be2979150
     m_Address: ANIMATION_UNKNOWN_WOMEN_STEADY
     m_ReadOnly: 0
@@ -547,6 +552,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 785850153a68df44f8a532974bea456a
     m_Address: ANIMATOR_FIRE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 789b6f2acf8e4b043b714797d62be778
+    m_Address: SOUND_MAINCHAR_SECOND_BEER_COMMENT_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -1055,6 +1065,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e5aa44955e763924eb062f925ff397d7
+    m_Address: SOUND_OBSERVE_BEER_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e5bfa4717bd308743a14a0e75e18d144
     m_Address: SOUND_ARTURO_EXTRAPERLO_OP_1_1_SPANISH
     m_ReadOnly: 0
@@ -1152,6 +1167,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fc98ba19b99c4d2458a1035461e2746f
     m_Address: SOUND_FIK_1_OP_0_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd616ddc40d6a5340bf088b4ed5b623a
+    m_Address: SOUND_MAINCHAR_AFTER_THIRD_BEER_COMMENT_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

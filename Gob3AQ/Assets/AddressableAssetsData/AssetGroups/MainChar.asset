@@ -60,6 +60,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44a86a88307114a449ae583cebadfbc5
+    m_Address: ANIMATION_MAINCHAR_LISTENING_SEMI1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 487a5dfb950939f409a7af2b66970e78
     m_Address: ANIMATION_MAINCHAR_PICKING_SIDE
     m_ReadOnly: 0
@@ -87,6 +92,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5663f4c9d34c87c4882493557b678bde
     m_Address: ANIMATION_MAINCHAR_WALKING_CORNER_FRONT_ENTRY_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5711504ad2584964ea60ca64335843f2
+    m_Address: ANIMATION_MAINCHAR_LISTENING_ENTRY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -205,6 +215,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a4aa62bf955e97f42a1906fbb1d1655b
+    m_Address: SPRITE_MAINCHAR_STEADY_ANIM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a57515639902d4c4faf4d160d9377dbd
     m_Address: SPRITE_ATLAS_MAINCHAR_1
     m_ReadOnly: 0
@@ -242,6 +257,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c1e8a6de4b0b6c1429ca9c7185d77142
     m_Address: ANIMATION_MAINCHAR_WALKING_SIDE_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d69bd2cd1c97f204cb7e56cc028e8815
+    m_Address: ANIMATION_MAINCHAR_LISTENING_EXIT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -287,6 +307,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f1fd45df98ff15542bd3a2a6e4e9f51f
     m_Address: ANIMATION_MAINCHAR_EATING_CHEWING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4d014b1daad0db458c62f8fc6a6b5af
+    m_Address: ANIMATION_MAINCHAR_LISTENING_SEMI2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

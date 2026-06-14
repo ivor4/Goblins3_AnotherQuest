@@ -165,7 +165,7 @@ namespace Gob3AQ.GameElement
                 animationStartCallback = startCallback;
                 animationEndCallback = endCallback;
 
-                if (ResourceAnimationsAtlasClass.IsTriggerWalking(actualAnimationTrigger))
+                if (ResourceAnimationsAtlasClass.IsTriggerWalking(actualAnimationTrigger) || ResourceAnimationsAtlasClass.IsTriggerSteady(actualAnimationTrigger))
                 {
                     ActivateTrigger(queuedTrigger);
                 }

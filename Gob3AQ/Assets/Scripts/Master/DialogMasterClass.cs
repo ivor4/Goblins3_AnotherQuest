@@ -431,25 +431,28 @@ namespace Gob3AQ.DialogMaster
             bool startCallbackGiven = false;
             dialog_waitAnimationCompleted = true;
 
-            for (int i=0; i < content.config.AnimationTrigger.Length;++i)
+            if (!dialog_background)
             {
-                AnimationTrigger trigger = content.config.AnimationTrigger[i];
-                if (trigger == AnimationTrigger.ANIMATION_TRIGGER_ZERO) continue;
-                
-                if ((startAnimationCallback == null) && (!startCallbackGiven) && 
-                    (!dialog_background) && !ResourceAnimationsAtlasClass.IsTriggerSteady(trigger))
+                for (int i = 0; i < content.config.AnimationTrigger.Length; ++i)
                 {
-                    startAnimationCallback = AnimationStarted;
-                    startCallbackGiven = true;
-                    dialog_waitAnimationCompleted = false;
+                    AnimationTrigger trigger = content.config.AnimationTrigger[i];
+                    if (trigger == AnimationTrigger.ANIMATION_TRIGGER_ZERO) continue;
+
+                    if ((startAnimationCallback == null) && (!startCallbackGiven) &&
+                       (content.config.talkerIndex == i))
+                    {
+                        startAnimationCallback = AnimationStarted;
+                        startCallbackGiven = true;
+                        dialog_waitAnimationCompleted = false;
+                    }
+                    else if (startCallbackGiven)
+                    {
+                        startAnimationCallback = null;
+                    }
+
+                    VARMAP_DialogMaster.ITEM_PERFORM_ANIMATION(dialog_input_talkers[i],
+                        trigger, startAnimationCallback, null);
                 }
-                else if (startCallbackGiven)
-                {
-                    startAnimationCallback = null;
-                }
-                    
-                VARMAP_DialogMaster.ITEM_PERFORM_ANIMATION(dialog_input_talkers[i],
-                    trigger, startAnimationCallback, null);
             }
 
             _uicanvas_cls.SetDialogMode(DialogMode.DIALOG_MODE_NONE, string.Empty, string.Empty);
@@ -499,9 +502,12 @@ namespace Gob3AQ.DialogMaster
 
         private void Stop_DialogTalkersAnimation()
         {
-            for (int i = 0; i < dialog_input_numTalkers; ++i)
+            if (!dialog_background)
             {
-                VARMAP_DialogMaster.ITEM_PERFORM_ANIMATION(dialog_input_talkers[i], AnimationTrigger.ANIMATION_TRIGGER_AUTO_STEADY, null, null);
+                for (int i = 0; i < dialog_input_numTalkers; ++i)
+                {
+                    VARMAP_DialogMaster.ITEM_PERFORM_ANIMATION(dialog_input_talkers[i], AnimationTrigger.ANIMATION_TRIGGER_AUTO_STEADY, null, null);
+                }
             }
 
             dialog_input_numTalkers = 0;

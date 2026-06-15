@@ -125,6 +125,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 546c7d45917a59a4ba7221c136ffc55d
+    m_Address: SPRITE_PICKABLE_OLIVE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 547cdf5fd2ca96c4daf892076adaba75
     m_Address: SPRITE_PICKABLE_CARDS
     m_ReadOnly: 0

@@ -259,6 +259,16 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new DialogOption[1]{DialogOption.DIALOG_CLOWN_DRUNK_OPTION_0}
             ),
 
+            new( /* DIALOG_ARTURO_DRUNK_INTRO */
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_ARTURO_EXTRAPERLO},
+            new DialogOption[1]{DialogOption.DIALOG_ARTURO_DRUNK_INTRO}
+            ),
+
+            new( /* DIALOG_ARTURO_DRUNK */
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_ARTURO_EXTRAPERLO},
+            new DialogOption[2]{DialogOption.DIALOG_ARTURO_DRUNK_OPTION_0, DialogOption.DIALOG_ARTURO_DRUNK_OPTION_1}
+            ),
+
             new( /* DIALOG_LAST */
             new GameItem[1]{GameItem.ITEM_NONE},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE}
@@ -732,6 +742,27 @@ namespace Gob3AQ.ResourceDialogsAtlas
             DialogType.DIALOG_NONE,false,
             new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_CLOWN_DRUNK_INTRO_1, DialogPhrase.PHRASE_DIALOG_CLOWN_DRUNK_INTRO_2}
             ),
+            new( /* DIALOG_ARTURO_DRUNK_INTRO */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_NONE},
+            DialogType.DIALOG_ARTURO_DRUNK,false,
+            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_ARTURO_DRUNK_INTRO_1, DialogPhrase.PHRASE_DIALOG_ARTURO_DRUNK_INTRO_2}
+            ),
+            new( /* DIALOG_ARTURO_DRUNK_OPTION_0 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_START_DRUNK_TEST_CARD_GAME},
+            DialogType.DIALOG_NONE,false,
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_ARTURO_DRUNK_OPTION_0_0}
+            ),
+            new( /* DIALOG_ARTURO_DRUNK_OPTION_1 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_NONE},
+            DialogType.DIALOG_NONE,false,
+            new DialogPhrase[1]{DialogPhrase.PHRASE_MAINCHAR_GOOD_NIGHT_DRUNK}
+            ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
@@ -988,6 +1019,17 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,GameSound.SOUND_MAINCHAR_AFTER_THIRD_BEER_COMMENT, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_COMMENT_AFTER_THIRD_BEER */ 
             new(0,GameSound.SOUND_CLOWN_INTRO_DRUNK, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_CLOWN_DRUNK_INTRO_1 */ 
             new(1,GameSound.SOUND_CLOWN_INTRO_DRUNK_PART_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_CLOWN_DRUNK_INTRO_2 */ 
+            new(0,GameSound.SOUND_ARTURO_EXTRAPERLO_DRUNK_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_ARTURO_DRUNK_INTRO_1 */ 
+            new(1,GameSound.SOUND_ARTURO_EXTRAPERLO_DRUNK_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_ARTURO_DRUNK_INTRO_2 */ 
+            new(0,GameSound.SOUND_ARTURO_EXTRAPERLO_DRUNK_OPTION_0_0, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_ARTURO_DRUNK_OPTION_0_0 */ 
+            new(0,GameSound.SOUND_MAINCHAR_GOOD_NIGHT_DRUNK, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_AUTO_STEADY,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MAINCHAR_GOOD_NIGHT_DRUNK */ 
+            new(0,GameSound.SOUND_CARDS2_MAINCHAR_TAUNT1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_CARDS2_MAINCHAR_TAUNT_1 */ 
+            new(0,GameSound.SOUND_CARDS2_MAINCHAR_TAUNT2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_CARDS2_MAINCHAR_TAUNT_2 */ 
+            new(0,GameSound.SOUND_CARDS2_MAINCHAR_TAUNT3, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_CARDS2_MAINCHAR_TAUNT_3 */ 
+            new(0,GameSound.SOUND_CARDS2_MAINCHAR_TAUNT4, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_CARDS2_MAINCHAR_TAUNT_4 */ 
+            new(0,GameSound.SOUND_CARDS2_MAINCHAR_TAUNT5, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_CARDS2_MAINCHAR_TAUNT_5 */ 
+            new(0,GameSound.SOUND_OBSERVE_ITEM_OLIVE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE}), /* PHRASE_OBSERVE_ITEM_PICKABLE_OLIVE */ 
+            new(0,GameSound.SOUND_MAINCHAR_DONT_WANT_MORE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MAINCHAR_DONT_WANT_MORE */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

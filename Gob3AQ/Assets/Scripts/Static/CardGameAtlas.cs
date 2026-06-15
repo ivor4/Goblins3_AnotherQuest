@@ -39,7 +39,19 @@ namespace Gob3AQ.CardGameAtlas
                     { CardGameEvent.GAME_EVENT_WIN_GAME, new TauntInfo(DialogPhrase.PHRASE_CARDS1_MAINCHAR_TAUNT_WIN, GameItem.ITEM_PLAYER_MAIN) },
                 },
                 0, -1,GameAction.ACTION_EVENT_WIN_CARDS_ARTURO, GameAction.ACTION_NONE, Array.Empty<CardType>(), CardType.CARD_NONE
-            )
+            ),
+            /* CARD_GAME_TEST_DRUNK */
+            new (
+                new Dictionary<CardGameEvent, TauntInfo>()
+                {
+                    { CardGameEvent.GAME_EVENT_LOSE_LOW_START_TURN, new TauntInfo(DialogPhrase.PHRASE_CARDS2_MAINCHAR_TAUNT_1, GameItem.ITEM_PLAYER_MAIN)},
+                    { CardGameEvent.GAME_EVENT_LOSE_BIG_COMBO, new TauntInfo(DialogPhrase.PHRASE_CARDS2_MAINCHAR_TAUNT_2, GameItem.ITEM_PLAYER_MAIN)},
+                    { CardGameEvent.GAME_EVENT_LOSE_NOTHING, new TauntInfo(DialogPhrase.PHRASE_CARDS2_MAINCHAR_TAUNT_3, GameItem.ITEM_PLAYER_MAIN)},
+                    { CardGameEvent.GAME_EVENT_WIN_GAME, new TauntInfo(DialogPhrase.PHRASE_CARDS2_MAINCHAR_TAUNT_4, GameItem.ITEM_PLAYER_MAIN)},
+                    { CardGameEvent.GAME_EVENT_LOSE_GAME, new TauntInfo(DialogPhrase.PHRASE_CARDS2_MAINCHAR_TAUNT_5, GameItem.ITEM_PLAYER_MAIN) },
+                },
+                2, -1,GameAction.ACTION_NONE, GameAction.ACTION_NONE, Array.Empty<CardType>(), CardType.CARD_NONE
+            ),
         };
     }
 }

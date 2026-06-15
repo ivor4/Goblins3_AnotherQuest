@@ -733,7 +733,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new( /* COND_TAKE_OLIVE_FROM_BOWL */
             new GameEventCombi[1]{new(GameEvent.EVENT_TOOK_OLIVE_FROM_BOWL, true)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            new GameAction[2]{GameAction.ACTION_ANIMATE_MAINCHAR_TAKE_OLIVE, GameAction.ACTION_ANIMATE_MAINCHAR_EAT_CHEW}), 
+            new GameAction[3]{GameAction.ACTION_ANIMATE_MAINCHAR_TAKE_OLIVE, GameAction.ACTION_EVENT_TOOK_OLIVE_FROM_BOWL, GameAction.ACTION_OBTAIN_ITEM_PICKABLE_OLIVE}), 
+
+            new( /* COND_TAKE_OLIVE_FROM_BOWL_ALREADY */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_DONT_WANT_MORE}), 
 
             new( /* COND_OBSERVE_ITEM_OBJECT_BEER_FULL */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
@@ -759,6 +764,16 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameEventCombi[2]{new(GameEvent.EVENT_DRUNK_STATE, false), new(GameEvent.EVENT_BEER_THIRD_ROUND, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,
             new GameAction[1]{GameAction.ACTION_DIALOGUE_CLOWN_DRUNK}), 
+
+            new( /* COND_TALK_ARTURO_DRUNK */
+            new GameEventCombi[2]{new(GameEvent.EVENT_DRUNK_STATE, false), new(GameEvent.EVENT_BEER_THIRD_ROUND, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_ARTURO_DRUNK}), 
+
+            new( /* COND_OBSERVE_ITEM_PICKABLE_OLIVE */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_ITEM_PICKABLE_OLIVE}), 
 
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
@@ -1012,7 +1027,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_NPC_ARTURO_EXTRAPERLO */
             NameType.NAME_ARTURO,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ARTURO_STEADY}),
             GameSprite.SPRITE_ARTURO_STEADY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
-            new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_NPC_ARTURO_EXTRAPERLO, ActionConditions.COND_TALK_ITEM_NPC_ARTURO_EXTRAPERLO})),
+            new(new HashSet<ActionConditions>(3){ActionConditions.COND_OBSERVE_ITEM_NPC_ARTURO_EXTRAPERLO, ActionConditions.COND_TALK_ARTURO_DRUNK, ActionConditions.COND_TALK_ITEM_NPC_ARTURO_EXTRAPERLO})),
 
             new ( /* ITEM_NPC_CLOWN */
             NameType.NAME_CLOWN,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_CLOWN_STEADY}),
@@ -1037,12 +1052,17 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_OBJECT_OLIVE_BOWL */
             NameType.NAME_OLIVE_BOWL,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_EXTRAPERLO_OLIVE_BOWL}),
             GameSprite.SPRITE_EXTRAPERLO_OLIVE_BOWL,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
-            new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_OBJECT_OLIVE_BOWL, ActionConditions.COND_TAKE_OLIVE_FROM_BOWL})),
+            new(new HashSet<ActionConditions>(3){ActionConditions.COND_OBSERVE_ITEM_OBJECT_OLIVE_BOWL, ActionConditions.COND_TAKE_OLIVE_FROM_BOWL, ActionConditions.COND_TAKE_OLIVE_FROM_BOWL_ALREADY})),
 
             new ( /* ITEM_OBJECT_BEER_FULL */
             NameType.NAME_BEER_FULL,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BEER_FULL}),
             GameSprite.SPRITE_BEER_FULL,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
             new(new HashSet<ActionConditions>(4){ActionConditions.COND_OBSERVE_ITEM_OBJECT_BEER_FULL, ActionConditions.COND_TAKE_BEER_FIRST_ROUND, ActionConditions.COND_TAKE_BEER_SECOND_ROUND, ActionConditions.COND_TAKE_BEER_THIRD_ROUND})),
+
+            new ( /* ITEM_PICKABLE_OLIVE */
+            NameType.NAME_OLIVE,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PICKABLE_OLIVE}),
+            GameSprite.SPRITE_PICKABLE_OLIVE,true,GameSprite.SPRITE_PICKABLE_OLIVE,GamePickableItem.ITEM_PICK_PICKABLE_OLIVE,DetailType.DETAIL_NONE,
+            new(new HashSet<ActionConditions>(1){ActionConditions.COND_OBSERVE_ITEM_PICKABLE_OLIVE})),
 
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST}),
@@ -1061,6 +1081,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameItem.ITEM_HIVE1_SHOELACE,	/* ITEM_PICK_HIVE1_SHOELACE */
             GameItem.ITEM_EXTRAPERLO_INVITATION,	/* ITEM_PICK_EXTRAPERLO_INVITATION */
             GameItem.ITEM_EXTRAPERLO_INVITATION_FOLDED,	/* ITEM_PICK_EXTRAPERLO_INVITATION_FOLDED */
+            GameItem.ITEM_PICKABLE_OLIVE,	/* ITEM_PICK_PICKABLE_OLIVE */
             /* > ATG 4 END < */
         };
 
@@ -1073,6 +1094,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_SHOELACE_PICKABLE,	/* ITEM_PICK_HIVE1_SHOELACE */
             GameSprite.SPRITE_PICKABLE_EXTRAPERLO,	/* ITEM_PICK_EXTRAPERLO_INVITATION */
             GameSprite.SPRITE_PICKABLE_EXTRAPERLO_FOLDED,	/* ITEM_PICK_EXTRAPERLO_INVITATION_FOLDED */
+            GameSprite.SPRITE_PICKABLE_OLIVE,	/* ITEM_PICK_PICKABLE_OLIVE */
             /* > ATG 5 END < */
         };
 
@@ -2278,6 +2300,42 @@ false),
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_CLOWN_DRUNK,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_ARTURO_DRUNK */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_ARTURO_DRUNK_INTRO,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_START_DRUNK_TEST_CARD_GAME */
+            false,ActionType.ACTION_TYPE_START_CARD_GAME,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,CardGameID.CARD_GAME_TEST_DRUNK), 
+
+            new( /* ACTION_DIALOGUE_OBSERVE_ITEM_PICKABLE_OLIVE */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_PICKABLE_OLIVE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_OBTAIN_ITEM_PICKABLE_OLIVE */
+            false,ActionType.ACTION_TYPE_EARN_ITEM,GameItem.ITEM_PICKABLE_OLIVE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_EVENT_TOOK_OLIVE_FROM_BOWL */
+            false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_TOOK_OLIVE_FROM_BOWL, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_DONT_WANT_MORE */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_MAINCHAR_DONT_WANT_MORE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

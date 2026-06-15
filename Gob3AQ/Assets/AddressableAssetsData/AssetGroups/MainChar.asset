@@ -170,6 +170,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8432c713367f3744ea6973c65d6dddcb
+    m_Address: SOUND_MAINCHAR_DONT_WANT_MORE_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 84eb1d4adf38e3c4cabacd851b23ee30
     m_Address: SPRITE_MAINCHAR_TALKING
     m_ReadOnly: 0

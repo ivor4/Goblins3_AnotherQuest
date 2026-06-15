@@ -27,13 +27,24 @@ Shader "Custom/DrunkShader"
             {
                 // Crear distorsión ondulatoria
                 float2 uv = i.uv;
-                uv.x += sin(uv.y * _Frequency + _Time.y * _Speed) * _DistortionStrength;
-                uv.y += cos(uv.x * _Frequency + _Time.y * _Speed) * _DistortionStrength;
 
-                fixed4 col = tex2D(_MainTex, uv);
+                if(i.uv.y > 0.9166f)
+                {
+                    fixed4 col = tex2D(_MainTex, uv);
+                    return col;
+                }
+                else
+                {
+                    uv.x += sin(uv.y * _Frequency + _Time.y * _Speed) * _DistortionStrength;
+                    uv.y += cos(uv.x * _Frequency + _Time.y * _Speed) * _DistortionStrength;
+
+                    uv.y = min(uv.y, 0.9166f);
+
+                    fixed4 col = tex2D(_MainTex, uv);
                 
-                // Aplicar el color de "fade" (mezcla)
-                return lerp(col, _ColorTint, _ColorTint.a);
+                    // Aplicar el color de "fade" (mezcla)
+                    return lerp(col, _ColorTint, _ColorTint.a);
+                }
             }
             ENDCG
         }

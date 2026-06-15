@@ -59,6 +59,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_CORNER, 
         NAME_OLIVE_BOWL, 
         NAME_BEER_FULL, 
+        NAME_OLIVE, 
         NAME_NPC_LAST, 
         
 NAME_TOTAL

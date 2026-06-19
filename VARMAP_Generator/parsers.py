@@ -383,7 +383,7 @@ def process_action_conds(ctx: CodeGenContext):
             events = parse_events(cols[8])
             ctx.items_interact.insert_line(10, f"new GameEventCombi[{len(cols[8].split('|'))}]{{{events}}}, \n")
             
-            ctx.items_interact.insert_line(10, f"{PREFIXES['decision']}{cols[9]},{PREFIXES['moment']}{cols[10]},{PREFIXES['dialog']}{cols[11]},{PREFIXES['phrase']}{cols[12]},{PREFIXES['anim_trigger']}{cols[13]},{PREFIXES['animation']}{cols[14]},{PREFIXES['sound']}{cols[15]},{PREFIXES['cardgame']}{cols[16]}), \n\n")
+            ctx.items_interact.insert_line(10, f"{PREFIXES['decision']}{cols[9]},{PREFIXES['moment']}{cols[10]},{PREFIXES['dialog']}{cols[11]},{PREFIXES['phrase']}{cols[12]},{PREFIXES['anim_trigger']}{cols[13]},{PREFIXES['animation']}{cols[14]},{PREFIXES['sound']}{cols[15]},{PREFIXES['room']}{cols[16]},{PREFIXES['cardgame']}{cols[17]}), \n\n")
 
     ctx.items_types.insert_line(5, '\nACTION_TOTAL\n')
 
@@ -501,15 +501,20 @@ def process_events(ctx: CodeGenContext):
         
         if 'NONE' not in cols[1]:
             if zone == 2:
-                ctx.items_interact.insert_line(6, f"/* {cols[1]} */\nnew(\n{PREFIXES['name']}{cols[2]},{PREFIXES['sprite']}{cols[3]},\n")
+                ctx.items_interact.insert_line(6, f"/* {cols[1]} */\n")
+                ctx.items_interact.insert_line(6, f"new(\n")
+                ctx.items_interact.insert_line(6, f"{PREFIXES['name']}{cols[2]},{PREFIXES['sprite']}{cols[3]},\n")
                 mementos = build_array_str(cols[4].split('|'), PREFIXES['memento'])
-                ctx.items_interact.insert_line(6, f"new Memento[{len(cols[4].split('|'))}]{{{mementos}}}\n),\n\n")
+                ctx.items_interact.insert_line(6, f"new Memento[{len(cols[4].split('|'))}]{{{mementos}}}\n")
+                ctx.items_interact.insert_line(6, f"),\n\n")
             elif zone == 3:
-                ctx.items_interact.insert_line(7, f"/* {cols[1]} */\nnew({PREFIXES['memento_parent']}{cols[2]},{PREFIXES['phrase']}{cols[3]},\n")
+                ctx.items_interact.insert_line(7, f"/* {cols[1]} */\n")
+                ctx.items_interact.insert_line(7, f"new({PREFIXES['memento_parent']}{cols[2]},{PREFIXES['phrase']}{cols[3]},\n")
                 combis = build_array_str(cols[4].split('|'), PREFIXES['memento_combi'])
-                ctx.items_interact.insert_line(7, f"new(new HashSet<MementoCombi>({len(cols[4].split('|'))}){{{combis}}}),\n{cols[5].lower()}),\n")
+                ctx.items_interact.insert_line(7, f"new(new HashSet<MementoCombi>({len(cols[4].split('|'))}){{{combis}}}),{cols[5].lower()}),\n")
             elif zone == 4:
-                ctx.items_interact.insert_line(8, f"/* {cols[1]} */\nnew(\n{PREFIXES['event']}{cols[2]}\n),\n")
+                ctx.items_interact.insert_line(8, f"/* {cols[1]} */\n")
+                ctx.items_interact.insert_line(8, f"new(\n{PREFIXES['event']}{cols[2]}\n),\n")
                 
     ctx.event_types.insert_line(4, '\nMEMENTO_COMBI_TOTAL\n')
 

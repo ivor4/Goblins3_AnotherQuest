@@ -51,6 +51,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             GET_BUSY_STATE = _GET_BUSY_STATE;
             GET_SHADOW_BUSY_STATE = _GET_SHADOW_BUSY_STATE;
             SET_BUSY_STATE = _SET_BUSY_STATE;
+            LOAD_ROOM = _LOAD_ROOM;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
@@ -113,6 +114,13 @@ namespace Gob3AQ.VARMAP.GameEventMaster
 
         /* SERVICES */
         /* > ATG 3 START */
+        /// <summary> 
+/// Loads a room (for example when crossing a door) 
+/// <para> Owner: GameMaster </para> 
+/// <para> Accessors: LevelMaster, GameEventMaster </para> 
+/// <para> Method: <see cref="GameMasterClass.LoadRoomService"/> </para> 
+/// </summary>
+public static LOAD_ROOM_DELEGATE LOAD_ROOM;
         /// <summary> 
 /// This service is called when whole room has been loaded 
 /// <para> Owner: GameMaster </para> 

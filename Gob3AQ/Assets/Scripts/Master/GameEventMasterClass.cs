@@ -777,6 +777,9 @@ namespace Gob3AQ.GameEventMaster
                         _actionExpectedFlag = NotifyAction.NOTIFY_SOUND;
                         VARMAP_GameEventMaster.PLAY_SOUND(info.targetSound, mustWait ? EndOfSoundPlayCallback : null, false);
                         break;
+                    case ActionType.ACTION_TYPE_SCENE_CHANGE:
+                        VARMAP_GameEventMaster.LOAD_ROOM(info.targetRoom, out _);
+                        break;
                     case ActionType.ACTION_TYPE_START_CARD_GAME:
                         VARMAP_GameEventMaster.START_CARD_GAME(info.targetCardGame);
                         VARMAP_GameEventMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_CARDS, out error);

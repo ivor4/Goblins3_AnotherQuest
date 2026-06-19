@@ -173,7 +173,7 @@ protected static LOAD_GAME_DELEGATE _LOAD_GAME;
         /// <summary> 
 /// Loads a room (for example when crossing a door) 
 /// <para> Owner: GameMaster </para> 
-/// <para> Accessors: LevelMaster </para> 
+/// <para> Accessors: LevelMaster, GameEventMaster </para> 
 /// <para> Method: <see cref="GameMasterClass.LoadRoomService"/> </para> 
 /// </summary>
 protected static LOAD_ROOM_DELEGATE _LOAD_ROOM;

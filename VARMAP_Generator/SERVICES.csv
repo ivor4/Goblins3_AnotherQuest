@@ -2,7 +2,7 @@
 0,START_GAME,START_GAME_DELEGATE,GameMasterClass.StartGameService,Starts game from main menu,,W,-,-,-,-,X,-,-,-,-,-
 1,SAVE_GAME,SAVE_GAME_DELEGATE,GameMasterClass.SaveGameService,Saves game at any moment,,W,-,X,-,-,X,-,-,-,-,-
 2,LOAD_GAME,LOAD_GAME_DELEGATE,GameMasterClass.LoadGameService,Loads game from any moment,,W,-,-,-,-,X,-,-,-,-,-
-3,LOAD_ROOM,LOAD_ROOM_DELEGATE,GameMasterClass.LoadRoomService,Loads a room (for example when crossing a door),,W,-,X,-,-,-,-,-,-,-,-
+3,LOAD_ROOM,LOAD_ROOM_DELEGATE,GameMasterClass.LoadRoomService,Loads a room (for example when crossing a door),,W,-,X,-,-,-,-,-,-,-,X
 4,EXIT_GAME,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Exits games to OS,,W,-,-,-,-,X,-,-,-,-,-
 5,MODULE_LOADING_COMPLETED,LOADING_COMPLETED_DELEGATE,GameMasterClass.LoadingCompletedService,This service is called when whole room has been loaded,,W,X,X,X,X,X,X,X,X,X,X
 6,IS_MODULE_LOADED,IS_MODULE_LOADED_DELEGATE,GameMasterClass.IsModuleLoadedService,This service returns a bool which tells if given module has been loaded in Room Loading Process,,W,X,X,X,X,X,X,X,X,X,X

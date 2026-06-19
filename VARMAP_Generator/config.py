@@ -69,5 +69,6 @@ PREFIXES = {
     'animation': 'GameAnimation.',
     'detail': 'DetailType.',
     'unchain_cond': 'UnchainConditions.',
-    'cardgame': 'CardGameID.'
+    'cardgame': 'CardGameID.',
+    'room': 'Room.'
 }

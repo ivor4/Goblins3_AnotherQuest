@@ -269,6 +269,16 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new DialogOption[2]{DialogOption.DIALOG_ARTURO_DRUNK_OPTION_0, DialogOption.DIALOG_ARTURO_DRUNK_OPTION_1}
             ),
 
+            new( /* DIALOG_SILVANA_DRUNK */
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_SILVANA_EXTRAPERLO},
+            new DialogOption[2]{DialogOption.DIALOG_SILVANA_DRUNK_OPTION_0, DialogOption.DIALOG_SILVANA_DRUNK_OPTION_1}
+            ),
+
+            new( /* DIALOG_SILVANA_OLIVE */
+            new GameItem[3]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_SILVANA_EXTRAPERLO, GameItem.ITEM_NPC_CLOWN},
+            new DialogOption[1]{DialogOption.DIALOG_SILVANA_OLIVE_OPTION_0}
+            ),
+
             new( /* DIALOG_LAST */
             new GameItem[1]{GameItem.ITEM_NONE},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE}
@@ -763,6 +773,27 @@ namespace Gob3AQ.ResourceDialogsAtlas
             DialogType.DIALOG_NONE,false,
             new DialogPhrase[1]{DialogPhrase.PHRASE_MAINCHAR_GOOD_NIGHT_DRUNK}
             ),
+            new( /* DIALOG_SILVANA_DRUNK_OPTION_0 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_NONE},
+            DialogType.DIALOG_SILVANA_DRUNK,false,
+            new DialogPhrase[5]{DialogPhrase.PHRASE_DIALOG_SILVANA_DRUNK_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_SILVANA_DRUNK_OPTION_0_1, DialogPhrase.PHRASE_DIALOG_SILVANA_DRUNK_OPTION_0_2, DialogPhrase.PHRASE_DIALOG_SILVANA_DRUNK_OPTION_0_3, DialogPhrase.PHRASE_DIALOG_SILVANA_DRUNK_OPTION_0_4}
+            ),
+            new( /* DIALOG_SILVANA_DRUNK_OPTION_1 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[2]{GameAction.ACTION_ANIMATE_SILVANA_OPENING_BOOK_1, GameAction.ACTION_ANIMATE_SILVANA_OPENING_BOOK_2},
+            DialogType.DIALOG_NONE,false,
+            new DialogPhrase[1]{DialogPhrase.PHRASE_MAINCHAR_GOOD_NIGHT_DRUNK}
+            ),
+            new( /* DIALOG_SILVANA_OLIVE_OPTION_0 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[3]{GameAction.ACTION_EVENT_OLIVE_OFFERED, GameAction.ACTION_ANIMATE_SILVANA_OPENING_BOOK_1, GameAction.ACTION_ANIMATE_SILVANA_OPENING_BOOK_2},
+            DialogType.DIALOG_NONE,false,
+            new DialogPhrase[4]{DialogPhrase.PHRASE_DIALOG_SILVANA_OLIVE_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_SILVANA_OLIVE_OPTION_0_1, DialogPhrase.PHRASE_DIALOG_SILVANA_OLIVE_OPTION_0_2, DialogPhrase.PHRASE_DIALOG_SILVANA_OLIVE_OPTION_0_3}
+            ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
@@ -1028,8 +1059,17 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,GameSound.SOUND_CARDS2_MAINCHAR_TAUNT3, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_CARDS2_MAINCHAR_TAUNT_3 */ 
             new(0,GameSound.SOUND_CARDS2_MAINCHAR_TAUNT4, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_CARDS2_MAINCHAR_TAUNT_4 */ 
             new(0,GameSound.SOUND_CARDS2_MAINCHAR_TAUNT5, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_CARDS2_MAINCHAR_TAUNT_5 */ 
-            new(0,GameSound.SOUND_OBSERVE_ITEM_OLIVE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE}), /* PHRASE_OBSERVE_ITEM_PICKABLE_OLIVE */ 
+            new(0,GameSound.SOUND_OBSERVE_ITEM_OLIVE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_ITEM_PICKABLE_OLIVE */ 
             new(0,GameSound.SOUND_MAINCHAR_DONT_WANT_MORE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MAINCHAR_DONT_WANT_MORE */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_SILVANA_DRUNK_OPTION_0_0, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_SILVANA_DRUNK_OPTION_0_0 */ 
+            new(1,GameSound.SOUND_PHRASE_DIALOG_SILVANA_DRUNK_OPTION_0_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_SILVANA_DRUNK_OPTION_0_1 */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_SILVANA_DRUNK_OPTION_0_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_SILVANA_DRUNK_OPTION_0_2 */ 
+            new(1,GameSound.SOUND_PHRASE_DIALOG_SILVANA_DRUNK_OPTION_0_3, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_SILVANA_DRUNK_OPTION_0_3 */ 
+            new(1,GameSound.SOUND_PHRASE_DIALOG_SILVANA_DRUNK_OPTION_0_4, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_SILVANA_DRUNK_OPTION_0_4 */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_SILVANA_OLIVE_OPTION_0_0, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE}), /* PHRASE_DIALOG_SILVANA_OLIVE_OPTION_0_0 */ 
+            new(2,GameSound.SOUND_PHRASE_DIALOG_SILVANA_OLIVE_OPTION_0_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE}), /* PHRASE_DIALOG_SILVANA_OLIVE_OPTION_0_1 */ 
+            new(1,GameSound.SOUND_PHRASE_DIALOG_SILVANA_OLIVE_OPTION_0_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE}), /* PHRASE_DIALOG_SILVANA_OLIVE_OPTION_0_2 */ 
+            new(1,GameSound.SOUND_PHRASE_DIALOG_SILVANA_OLIVE_OPTION_0_3, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE}), /* PHRASE_DIALOG_SILVANA_OLIVE_OPTION_0_3 */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

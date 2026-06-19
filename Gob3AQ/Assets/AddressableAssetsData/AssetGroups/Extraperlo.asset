@@ -170,6 +170,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 297a764df34316a4cb8e7b646b698934
+    m_Address: SOUND_SILVANA_DRUNK_OP0_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2a1b8ec41610e714a9ab2b771fc77c72
     m_Address: SOUND_CARDS2_MAINCHAR_TAUNT_3_SPANISH
     m_ReadOnly: 0
@@ -282,6 +287,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3c071a350b83828419ad5dbd3f978114
     m_Address: SOUND_WAITER_USE_INVITATION_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3d0f923f6c92bdf4dadbf8d1eccc80e6
+    m_Address: SOUND_SILVANA_DRUNK_OP0_2_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -410,6 +420,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52818f38c7ca9b54f9c2a17a474e9ca1
+    m_Address: SOUND_SILVANA_OLIVE_0_3_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 52ab70f4696594d4d86731758aa835f8
     m_Address: SPRITE_ATLAS_FIK_1
     m_ReadOnly: 0
@@ -482,6 +497,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5e342c15078d0ff49bf9acb0980885d9
     m_Address: SPRITE_CLOWN_TALKING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5f77921569a1c6d49a4c452aba1f0d4f
+    m_Address: SOUND_SILVANA_DRUNK_OP0_3_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -790,6 +810,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a374179d68dbeb84c938b2da717c4c20
+    m_Address: SOUND_SILVANA_OLIVE_0_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a37a5e345e47ee64b9522aae3283ddef
     m_Address: SPRITE_NPC_FIK_TALKING_1
     m_ReadOnly: 0
@@ -825,6 +850,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ad7c34911e8ea4e4ea9c478f22e704c7
+    m_Address: SOUND_SILVANA_DRUNK_OP0_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ae46dd7e06c2d82428d0b74b8888fad7
     m_Address: SPRITE_UNKNOWN_WOMEN_STEADY
     m_ReadOnly: 0
@@ -842,6 +872,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b2180d9f6bd62b347a1de97220e13cb2
     m_Address: SOUND_CARDS1_TAUNT_ARTURO_6_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b2297ede44641e04bbfd961517665b27
+    m_Address: SOUND_SILVANA_OLIVE_0_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b34d8aa312366334dad70dca52bb97d9
+    m_Address: SOUND_SILVANA_OLIVE_0_0_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -1022,6 +1062,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d7cc7bd2ae33f9843a726f26e6e07015
     m_Address: SOUND_FIK_2_OP_1_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d87db7cd180323e4b81308a52af7f88b
+    m_Address: SOUND_SILVANA_DRUNK_OP0_4_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

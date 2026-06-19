@@ -701,7 +701,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameAction[1]{GameAction.ACTION_TALK_DIALOG_CLOWN_EXTRAPERLO}), 
 
             new( /* COND_TALK_ITEM_NPC_SILVANA_EXTRAPERLO */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            new GameEventCombi[2]{new(GameEvent.EVENT_DRUNK_STATE, true), new(GameEvent.EVENT_OLIVE_OFFERED, true)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,
             new GameAction[3]{GameAction.ACTION_ANIMATE_SILVANA_CLOSING_BOOK_1, GameAction.ACTION_ANIMATE_SILVANA_CLOSING_BOOK_2, GameAction.ACTION_TALK_DIALOG_SILVANA_EXTRAPERLO}), 
 
@@ -774,6 +774,16 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
             new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_ITEM_PICKABLE_OLIVE}), 
+
+            new( /* COND_TALK_SILVANA_DRUNK */
+            new GameEventCombi[2]{new(GameEvent.EVENT_DRUNK_STATE, false), new(GameEvent.EVENT_OLIVE_OFFERED, true)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,
+            new GameAction[3]{GameAction.ACTION_ANIMATE_SILVANA_CLOSING_BOOK_1, GameAction.ACTION_ANIMATE_SILVANA_CLOSING_BOOK_2, GameAction.ACTION_TALK_DIALOG_SILVANA_DRUNK}), 
+
+            new( /* COND_TALK_SILVANA_OLIVE */
+            new GameEventCombi[2]{new(GameEvent.EVENT_DRUNK_STATE, false), new(GameEvent.EVENT_OLIVE_OFFERED, true)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_PICKABLE_OLIVE,ItemInteractionType.INTERACTION_USE,
+            new GameAction[3]{GameAction.ACTION_ANIMATE_SILVANA_CLOSING_BOOK_1, GameAction.ACTION_ANIMATE_SILVANA_CLOSING_BOOK_2, GameAction.ACTION_TALK_DIALOG_SILVANA_OLIVE}), 
 
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
@@ -1037,7 +1047,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_NPC_SILVANA_EXTRAPERLO */
             NameType.NAME_SILVANA,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_SILVANA_STEADY_READING}),
             GameSprite.SPRITE_SILVANA_STEADY_READING,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
-            new(new HashSet<ActionConditions>(1){ActionConditions.COND_TALK_ITEM_NPC_SILVANA_EXTRAPERLO})),
+            new(new HashSet<ActionConditions>(3){ActionConditions.COND_TALK_SILVANA_DRUNK, ActionConditions.COND_TALK_ITEM_NPC_SILVANA_EXTRAPERLO, ActionConditions.COND_TALK_SILVANA_OLIVE})),
 
             new ( /* ITEM_EXTRAPERLO_INVITATION_FOLDED */
             NameType.NAME_INVITATION,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PICKABLE_EXTRAPERLO_FOLDED}),
@@ -2336,6 +2346,24 @@ false),
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_MAINCHAR_DONT_WANT_MORE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_TALK_DIALOG_SILVANA_DRUNK */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SILVANA_DRUNK,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_TALK_DIALOG_SILVANA_OLIVE */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SILVANA_OLIVE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_EVENT_OLIVE_OFFERED */
+            false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_OLIVE_OFFERED, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

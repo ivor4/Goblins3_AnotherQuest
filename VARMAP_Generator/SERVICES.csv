@@ -2,7 +2,7 @@
 0,START_GAME,START_GAME_DELEGATE,GameMasterClass.StartGameService,Starts game from main menu,,W,-,-,-,-,X,-,-,-,-,-
 1,SAVE_GAME,SAVE_GAME_DELEGATE,GameMasterClass.SaveGameService,Saves game at any moment,,W,-,X,-,-,X,-,-,-,-,-
 2,LOAD_GAME,LOAD_GAME_DELEGATE,GameMasterClass.LoadGameService,Loads game from any moment,,W,-,-,-,-,X,-,-,-,-,-
-3,LOAD_ROOM,LOAD_ROOM_DELEGATE,GameMasterClass.LoadRoomService,Loads a room (for example when crossing a door),,W,-,X,-,-,-,-,-,-,-,X
+3,LOAD_ROOM,LOAD_ROOM_DELEGATE,GameMasterClass.LoadRoomService,Loads a room (for example when crossing a door),,W,-,X,-,-,-,-,-,-,-,-
 4,EXIT_GAME,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Exits games to OS,,W,-,-,-,-,X,-,-,-,-,-
 5,MODULE_LOADING_COMPLETED,LOADING_COMPLETED_DELEGATE,GameMasterClass.LoadingCompletedService,This service is called when whole room has been loaded,,W,X,X,X,X,X,X,X,X,X,X
 6,IS_MODULE_LOADED,IS_MODULE_LOADED_DELEGATE,GameMasterClass.IsModuleLoadedService,This service returns a bool which tells if given module has been loaded in Room Loading Process,,W,X,X,X,X,X,X,X,X,X,X
@@ -48,4 +48,5 @@
 46,GET_ITEM_SPRITE_BOUNDARIES,GET_ITEM_SPRITE_BOUNDARIES_DELEGATE,ItemMasterClass.GetItemBoundariesService,Gets world boundaries of given item,,-,-,-,-,-,-,X,-,W,-,-
 47,START_CARD_GAME,START_CARD_GAME_DELEGATE,CardMasterClass.StartCardGameService,Tells Card Master to prepare a game with given parameters,,-,-,-,-,-,-,-,-,-,W,X
 48,GIVE_UP_CARD_GAME,GIVE_UP_CARD_GAME_DELEGATE,CardMasterClass.GiveUpCardGameService,Tells Card Master to give up match,,-,-,-,-,-,X,-,-,-,W,-
-49,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-,-,-,-
+49,LOAD_ROOM_AS_ACTION,LOAD_ROOM_AS_ACTION_DELEGATE,LevelMasterClass.LoadRoomAsActionService,Tells LevelMaster to set waypoints and Load a Room. This emulates crossing door. This is used in cinematics or auto driven events,,-,-,W,-,-,-,-,-,-,-,X
+50,LAST_SERVICE,EXIT_GAME_DELEGATE,GameMasterClass.ExitGameService,Last service,,W,-,-,-,-,-,-,-,-,-,-

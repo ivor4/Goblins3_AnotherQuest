@@ -189,6 +189,11 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_SILVANA_OLIVE_0_1_SPANISH"), /* SOUND_PHRASE_DIALOG_SILVANA_OLIVE_OPTION_0_1 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_SILVANA_OLIVE_0_2_SPANISH"), /* SOUND_PHRASE_DIALOG_SILVANA_OLIVE_OPTION_0_2 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_SILVANA_OLIVE_0_3_SPANISH"), /* SOUND_PHRASE_DIALOG_SILVANA_OLIVE_OPTION_0_3 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_WAITER_1_OP_3_0_SPANISH"), /* SOUND_WAITER_1_OP_3_0 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_WAITER_1_OP_3_1_SPANISH"), /* SOUND_WAITER_1_OP_3_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_WAITER_1_OP_3_2_SPANISH"), /* SOUND_WAITER_1_OP_3_2 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_WAITER_1_OP_3_3_SPANISH"), /* SOUND_WAITER_1_OP_3_3 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_WAITER_1_OP_3_4_SPANISH"), /* SOUND_WAITER_1_OP_3_4 */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

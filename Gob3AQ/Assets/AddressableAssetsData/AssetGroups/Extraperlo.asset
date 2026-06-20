@@ -100,6 +100,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 132625e1e680f2049a3da98f904729f9
+    m_Address: ANIMATION_WAITER_WALKING_ENTRY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1533e49c71977034db3cb4382271782a
     m_Address: ANIMATION_SILVANA_SEATED_TALKING
     m_ReadOnly: 0
@@ -107,6 +112,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 158a779f324e8c04491a1416298df7c9
     m_Address: SCENE_CITY1_SOUTH_STREET_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 15d4a96816f5856408d1d96242fda54a
+    m_Address: ANIMATION_WAITER_WALKING_EXIT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -215,6 +225,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f89717cc8d63934e8b5ffab285ee1d2
+    m_Address: SPRITE_ATLAS_EXTRAPERLO_GARDEN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2fa97d27645e0104e86a98650fd67844
     m_Address: SOUND_FIK_2_OP_0_0_SPANISH
     m_ReadOnly: 0
@@ -232,6 +247,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 327148bc8ebe6e14d95e21d4812d7c35
     m_Address: BACKGROUND_CITY1_EXTRAPERLO
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 32d559c206dfaf24993d3e596ad51196
+    m_Address: SOUND_WAITER_1_OP_3_4_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -277,6 +297,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3a07966fe9f5dce4397552073fac3fc7
     m_Address: SPRITE_UNKNOWN_WOMEN_GOSSIP
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a482b9355d3a3d4194330720c458f43
+    m_Address: ANIMATION_WAITER_WALKING_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -410,6 +435,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5163b9d560f709048940c2d5979ee61b
+    m_Address: ANIMATION_WAITER_WALKING_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 51f1bb1c6cba3c14db7cfb30100f4751
     m_Address: ANIMATOR_ARTURO
     m_ReadOnly: 0
@@ -525,6 +555,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 65e5eec1eeb7d9642bcb4f303a93231b
+    m_Address: SPRITE_WAITER_WALKING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6797f73f46c34c5418d0beec2d1db9df
+    m_Address: SOUND_WAITER_1_OP_3_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 68085ed6f2f37a14ab8bf4e9976931e9
     m_Address: ANIMATION_WAITER_STEADY
     m_ReadOnly: 0
@@ -582,6 +622,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6fdfe6199a806b149ae4aa97a5fbd724
     m_Address: SOUND_ARTURO_EXTRAPERLO_DRUNK_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 70919ca71b8a9a648bfc6a83caea6356
+    m_Address: SOUND_WAITER_1_OP_3_3_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -865,6 +910,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b0d6f37a820808f4db701cda5055d231
+    m_Address: SOUND_WAITER_1_OP_3_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b1920bf7bb312a249b68e89b42fc1580
     m_Address: ANIMATION_UNKNOWN_WOMEN_TALKING
     m_ReadOnly: 0
@@ -900,8 +950,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b54f3daf0f8330044b20b7059cf5da50
+    m_Address: BACKGROUND_CITY1_EXTRAPERLO_GARDEN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b58a28cb014189247b9755b6645cdef4
     m_Address: SOUND_SILVANA_OP_1_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b5ec198e4a1b1ed46b977123e9c66f1f
+    m_Address: SCENE_EXTRAPERLO3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -952,6 +1012,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c0ec8241aadf3804a9d750ac577ee8b1
     m_Address: SOUND_SILVANA_OP_0_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c130ad4d5362194458b20cde5457295a
+    m_Address: SOUND_WAITER_1_OP_3_2_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

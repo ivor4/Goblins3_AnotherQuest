@@ -51,7 +51,6 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             GET_BUSY_STATE = _GET_BUSY_STATE;
             GET_SHADOW_BUSY_STATE = _GET_SHADOW_BUSY_STATE;
             SET_BUSY_STATE = _SET_BUSY_STATE;
-            LOAD_ROOM = _LOAD_ROOM;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
@@ -73,6 +72,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             NOTIFY_ENDED_ACTION = _NOTIFY_ENDED_ACTION;
             EXECUTE_EXIT_ROOM_CONDS = _EXECUTE_EXIT_ROOM_CONDS;
             START_CARD_GAME = _START_CARD_GAME;
+            LOAD_ROOM_AS_ACTION = _LOAD_ROOM_AS_ACTION;
             /* > ATG 1 END */
         }
 
@@ -114,13 +114,6 @@ namespace Gob3AQ.VARMAP.GameEventMaster
 
         /* SERVICES */
         /* > ATG 3 START */
-        /// <summary> 
-/// Loads a room (for example when crossing a door) 
-/// <para> Owner: GameMaster </para> 
-/// <para> Accessors: LevelMaster, GameEventMaster </para> 
-/// <para> Method: <see cref="GameMasterClass.LoadRoomService"/> </para> 
-/// </summary>
-public static LOAD_ROOM_DELEGATE LOAD_ROOM;
         /// <summary> 
 /// This service is called when whole room has been loaded 
 /// <para> Owner: GameMaster </para> 
@@ -268,6 +261,13 @@ public static EXECUTE_EXIT_ROOM_CONDS_DELEGATE EXECUTE_EXIT_ROOM_CONDS;
 /// <para> Method: <see cref="CardMasterClass.StartCardGameService"/> </para> 
 /// </summary>
 public static START_CARD_GAME_DELEGATE START_CARD_GAME;
+        /// <summary> 
+/// Tells LevelMaster to set waypoints and Load a Room. This emulates crossing door. This is used in cinematics or auto driven events 
+/// <para> Owner: LevelMaster </para> 
+/// <para> Accessors: GameEventMaster </para> 
+/// <para> Method: <see cref="LevelMasterClass.LoadRoomAsActionService"/> </para> 
+/// </summary>
+public static LOAD_ROOM_AS_ACTION_DELEGATE LOAD_ROOM_AS_ACTION;
         /* > ATG 3 END */
     }
 }

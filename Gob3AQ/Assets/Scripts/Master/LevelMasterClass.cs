@@ -208,15 +208,30 @@ namespace Gob3AQ.LevelMaster
 
         public static void PlayerReachedWaypointService(CharacterType character)
         {
+            if (!_singleton) return;
+
             _singleton._PendingCharInteractions[(int)character].ended =
                 _singleton._PendingCharInteractions[(int)character].pending;
         }
 
         
+        public static void LoadRoomAsActionService(Room room, int waypointIndex)
+        {
+            if (!_singleton) return;
 
-        
+            VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)CharacterType.CHARACTER_MAIN, waypointIndex);
+            VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)CharacterType.CHARACTER_PARROT, waypointIndex);
+            VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)CharacterType.CHARACTER_SNAKE, waypointIndex);
+            VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
+            VARMAP_LevelMaster.SET_PLAYER_SELECTED(CharacterType.CHARACTER_NONE);
 
-        
+            _singleton.crossingDoor = true;
+
+            VARMAP_LevelMaster.LOAD_ROOM(room, out _);
+        }
+
+
+
 
 
         #endregion

@@ -75,7 +75,7 @@ namespace Gob3AQ.FixedConfig
         public const int MAX_SCENE_DOORS = 4;
         public const string ROOM_MAINMENU = "Boot";
         public const string ROOM_BASE = "SCENE_BASE";
-        private static readonly string[] _ROOM_TO_SCENE_NAME =
+        private static readonly string[] _ROOM_TO_SCENE_NAME = new string[(int)Room.ROOMS_TOTAL]
         {
             "SCENE_HIVE1_ROOM_1",
             "SCENE_HIVE1_CORRIDOR_1",
@@ -90,6 +90,8 @@ namespace Gob3AQ.FixedConfig
             "SCENE_CITY1_SOUTH_STREET_2",
             "SCENE_EXTRAPERLO",
             "SCENE_EXTRAPERLO2",
+            "SCENE_EXTRAPERLO3",
+            ""
         };
         
     }

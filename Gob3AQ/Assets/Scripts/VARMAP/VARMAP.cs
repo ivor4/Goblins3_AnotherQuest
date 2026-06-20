@@ -173,7 +173,7 @@ protected static LOAD_GAME_DELEGATE _LOAD_GAME;
         /// <summary> 
 /// Loads a room (for example when crossing a door) 
 /// <para> Owner: GameMaster </para> 
-/// <para> Accessors: LevelMaster, GameEventMaster </para> 
+/// <para> Accessors: LevelMaster </para> 
 /// <para> Method: <see cref="GameMasterClass.LoadRoomService"/> </para> 
 /// </summary>
 protected static LOAD_ROOM_DELEGATE _LOAD_ROOM;
@@ -492,6 +492,13 @@ protected static START_CARD_GAME_DELEGATE _START_CARD_GAME;
 /// <para> Method: <see cref="CardMasterClass.GiveUpCardGameService"/> </para> 
 /// </summary>
 protected static GIVE_UP_CARD_GAME_DELEGATE _GIVE_UP_CARD_GAME;
+        /// <summary> 
+/// Tells LevelMaster to set waypoints and Load a Room. This emulates crossing door. This is used in cinematics or auto driven events 
+/// <para> Owner: LevelMaster </para> 
+/// <para> Accessors: GameEventMaster </para> 
+/// <para> Method: <see cref="LevelMasterClass.LoadRoomAsActionService"/> </para> 
+/// </summary>
+protected static LOAD_ROOM_AS_ACTION_DELEGATE _LOAD_ROOM_AS_ACTION;
         /// <summary> 
 /// Last service 
 /// <para> Owner: GameMaster </para> 

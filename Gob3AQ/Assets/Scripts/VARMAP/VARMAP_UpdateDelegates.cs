@@ -201,6 +201,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _GET_ITEM_SPRITE_BOUNDARIES = ItemMasterClass.GetItemBoundariesService;
             _START_CARD_GAME = CardMasterClass.StartCardGameService;
             _GIVE_UP_CARD_GAME = CardMasterClass.GiveUpCardGameService;
+            _LOAD_ROOM_AS_ACTION = LevelMasterClass.LoadRoomAsActionService;
             _LAST_SERVICE = GameMasterClass.ExitGameService;
             /* > ATG 2 END */
         }

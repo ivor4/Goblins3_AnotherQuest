@@ -71,6 +71,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
             STOP_SOUND = _STOP_SOUND;
             PERFORM_ACTION = _PERFORM_ACTION;
+            LOAD_ROOM_AS_ACTION = _LOAD_ROOM_AS_ACTION;
             /* > ATG 1 END */
         }
 
@@ -124,7 +125,7 @@ public static SAVE_GAME_DELEGATE SAVE_GAME;
         /// <summary> 
 /// Loads a room (for example when crossing a door) 
 /// <para> Owner: GameMaster </para> 
-/// <para> Accessors: LevelMaster, GameEventMaster </para> 
+/// <para> Accessors: LevelMaster </para> 
 /// <para> Method: <see cref="GameMasterClass.LoadRoomService"/> </para> 
 /// </summary>
 public static LOAD_ROOM_DELEGATE LOAD_ROOM;
@@ -268,6 +269,13 @@ public static STOP_SOUND_DELEGATE STOP_SOUND;
 /// <para> Method: <see cref="GameEventMasterClass.PerformActionService"/> </para> 
 /// </summary>
 public static PERFORM_ACTION_DELEGATE PERFORM_ACTION;
+        /// <summary> 
+/// Tells LevelMaster to set waypoints and Load a Room. This emulates crossing door. This is used in cinematics or auto driven events 
+/// <para> Owner: LevelMaster </para> 
+/// <para> Accessors: GameEventMaster </para> 
+/// <para> Method: <see cref="LevelMasterClass.LoadRoomAsActionService"/> </para> 
+/// </summary>
+public static LOAD_ROOM_AS_ACTION_DELEGATE LOAD_ROOM_AS_ACTION;
         /* > ATG 3 END */
     }
 }

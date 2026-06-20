@@ -1,6 +1,8 @@
 using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameElement;
+using Gob3AQ.GameElement.PlayableChar;
+using Gob3AQ.Libs.Arith;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.VARMAP.ItemMaster;
 using Gob3AQ.VARMAP.Types;
@@ -8,7 +10,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Gob3AQ.Libs.Arith;
 
 namespace Gob3AQ.ItemMaster
 {
@@ -18,6 +19,25 @@ namespace Gob3AQ.ItemMaster
         private IReadOnlyDictionary<GameItem, GameElementClass> _levelItems;
         private int itemsToLoad;
         private int itemsLoaded;
+
+        public static void InteractItemService(GameItem item, int destWp_index, out bool accepted)
+        {
+            if (_singleton)
+            {
+                if (_singleton._levelItems.TryGetValue(item, out GameElementClass instance))
+                {
+                    accepted = instance.ActionRequest(destWp_index);
+                }
+                else
+                {
+                    accepted = false;
+                }
+            }
+            else
+            {
+                accepted = false;
+            }
+        }
 
         public static void PerformAnimationService(GameItem item, AnimationTrigger trigger, Action startCallback, Action endCallback)
         {

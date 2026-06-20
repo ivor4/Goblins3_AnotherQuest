@@ -172,9 +172,9 @@ namespace Gob3AQ.VARMAP.Initialization
             _COMMIT_MEMENTO_NOTIF = GameMenuClass.CommitMementoNotifService;
             _IS_MEMENTO_UNLOCKED = GameEventMasterClass.IsMementoUnlockedService;
             _MEMENTO_PARENT_WATCHED = GameEventMasterClass.MementoParentWatchedService;
-            _INTERACT_PLAYER = PlayerMasterClass.InteractPlayerService;
+            _INTERACT_ITEM = ItemMasterClass.InteractItemService;
             _ACTION_TO_ITEM = ItemMasterClass.ActionToItemService;
-            _PLAYER_REACHED_WAYPOINT = LevelMasterClass.PlayerReachedWaypointService;
+            _ITEM_REACHED_WAYPOINT = LevelMasterClass.ItemReachedWaypointService;
             _USE_ITEM = ItemMasterClass.UseItemService;
             _PEEK_ITEM = ItemMasterClass.PeekItemService;
             _CANCEL_PICKABLE_ITEM = GameMenuClass.CancelPickableItemService;

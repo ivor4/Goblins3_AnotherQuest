@@ -1,10 +1,13 @@
 using Gob3AQ.Brain.ItemsInteraction;
+using Gob3AQ.FixedConfig;
 using Gob3AQ.GameElement.Clickable;
 using Gob3AQ.ResourceAnimationsAtlas;
 using Gob3AQ.ResourceSprites;
 using Gob3AQ.VARMAP.ItemMaster;
 using Gob3AQ.VARMAP.Types;
+using Gob3AQ.VARMAP.Types.Cards;
 using Gob3AQ.Waypoint;
+using Gob3AQ.Waypoint.Network;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,8 +24,24 @@ namespace Gob3AQ.GameElement
     [System.Serializable]
     public class GameElementClass : MonoBehaviour, IGameObjectHoverable, IAnimatorListener
     {
-        
-        
+        private struct WaypointProgrammedPath
+        {
+            public int target_index;
+            public int final_index;
+            public float wp_distance;
+            public float wp_distance3D;
+            public float initial_size;
+            public float delta_size;
+        }
+
+        protected enum PhysicalState
+        {
+            PHYSICAL_STATE_STANDING = 0x0,
+            PHYSICAL_STATE_WALKING = 0x1,
+            PHYSICAL_STATE_LOCKED = 0x2,
+        }
+
+
         [SerializeField]
         protected GameItem itemID;
 
@@ -41,11 +60,13 @@ namespace Gob3AQ.GameElement
 
         public bool IsAvailable => isAvailable;
 
+        protected IReadOnlyList<WaypointInfo> waypoints_infos;
 
         protected GameItemFamily gameElementFamily;
         protected int actualWaypoint;
         protected LevelElemInfo hoverInfo;
         protected GameObject topParent;
+        protected Transform topParentTransform;
         protected Collider2D myCollider;
         protected SpriteRenderer mySpriteRenderer;
         protected Rigidbody2D myRigidbody;
@@ -70,6 +91,9 @@ namespace Gob3AQ.GameElement
         private bool isClickable_ext;
         private bool isMotion_int;
         private bool isMotion_ext;
+
+        protected PhysicalState physicalstate;
+        private WaypointProgrammedPath actualProgrammedPath;
 
         private bool isUnspawned;
         private bool isUnclickable;
@@ -109,8 +133,23 @@ namespace Gob3AQ.GameElement
             registered = true;
 
             VARMAP_ItemMaster.REG_GAMESTATUS(ChangedGameStatus);
+            VARMAP_ItemMaster.GET_WP_LIST(out waypoints_infos);
 
             /* Children actions (Clickable, Hoverable) will be executed afterward */
+        }
+
+        protected virtual void Update()
+        {
+            Game_Status gstatus = VARMAP_ItemMaster.GET_GAMESTATUS();
+            if (gstatus == Game_Status.GAME_STATUS_PLAY)
+            {
+                switch (physicalstate)
+                {
+                    case PhysicalState.PHYSICAL_STATE_WALKING:
+                        Execute_Walk();
+                        break;
+                }
+            }
         }
 
 
@@ -170,6 +209,32 @@ namespace Gob3AQ.GameElement
                     ActivateTrigger(queuedTrigger);
                 }
             }
+        }
+
+        public bool ActionRequest(int destWp_index)
+        {
+            bool requestAccepted;
+
+            /* Interact only if not talking or doing an action */
+            if (IsAvailable)
+            {
+                actualProgrammedPath.final_index = destWp_index;
+
+                /* If already walking, complete its actual segment. If stopped, start with first inteded segment of new path from actual waypoint */
+                if ((physicalstate != PhysicalState.PHYSICAL_STATE_WALKING) && (actualWaypoint != destWp_index))
+                {
+                    Walk_StartNextSegment();
+                }
+                physicalstate = PhysicalState.PHYSICAL_STATE_WALKING;
+
+                requestAccepted = true;
+            }
+            else
+            {
+                requestAccepted = false;
+            }
+
+            return requestAccepted;
         }
 
         public void SetUnspawned(bool unspawned)
@@ -427,6 +492,135 @@ namespace Gob3AQ.GameElement
 
             pendingStateCrossings = isCycled ? 3 : 2;
             pendingZeroStateCross = true;
+        }
+
+        private void Execute_Walk()
+        {
+            Vector3 target_pos = waypoints_infos[actualProgrammedPath.target_index].Position;
+            Vector3 orig_pos = waypoints_infos[actualWaypoint].Position;
+            Vector2 deltaPos = topParentTransform.position - orig_pos;
+            float crossed_distance = deltaPos.magnitude;
+            float distance_clamped = Mathf.Min(crossed_distance, actualProgrammedPath.wp_distance);
+            float interp_size;
+
+            if (actualProgrammedPath.wp_distance == 0f)
+            {
+                interp_size = actualProgrammedPath.initial_size;
+            }
+            else
+            {
+                interp_size = actualProgrammedPath.initial_size + (actualProgrammedPath.delta_size * (distance_clamped / actualProgrammedPath.wp_distance));
+            }
+
+            SetSize(interp_size);
+
+            if (crossed_distance >= actualProgrammedPath.wp_distance)
+            {
+                /* Store WP Index */
+                ReachedWaypointFunction(actualProgrammedPath.target_index);
+
+                /* If last segment or action triggered or next waypoint or really unreachable */
+                if ((actualProgrammedPath.target_index == actualProgrammedPath.final_index))
+                {
+                    actualWaypoint = actualProgrammedPath.target_index;
+                    PresetProgrammedPathStruct(actualWaypoint);
+                    topParentTransform.position = target_pos;
+                    physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
+                    myRigidbody.linearVelocity = Vector2.zero;
+                    SetSize(waypoints_infos[actualWaypoint].CharacterSizeFactor);
+
+                    PerformAnimation(AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE, null, null);
+                    ExecuteQueuedTrigger();
+                    mySpriteRenderer.flipX = waypoints_infos[actualWaypoint].FlipXForAction;
+
+                    StartBufferedInteraction();
+                }
+                else
+                {
+                    Walk_StartNextSegment();
+                }
+            }
+        }
+
+        protected virtual void ReachedWaypointFunction(int wp_index)
+        {
+            /* Fill in children */
+        }
+
+        private void Walk_StartNextSegment()
+        {
+            Vector2 delta;
+            float speed_reduction_factor = 1f;
+
+
+            actualWaypoint = actualProgrammedPath.target_index;
+            topParentTransform.position = waypoints_infos[actualWaypoint].Position;
+            actualProgrammedPath.target_index = waypoints_infos[actualWaypoint].Solution.TravelTo[actualProgrammedPath.final_index];
+
+            actualProgrammedPath.wp_distance = ((Vector2)waypoints_infos[actualProgrammedPath.target_index].Position - (Vector2)waypoints_infos[actualWaypoint].Position).magnitude;
+            actualProgrammedPath.wp_distance3D = (waypoints_infos[actualProgrammedPath.target_index].Position - waypoints_infos[actualWaypoint].Position).magnitude;
+            actualProgrammedPath.initial_size = waypoints_infos[actualWaypoint].CharacterSizeFactor;
+            actualProgrammedPath.delta_size = waypoints_infos[actualProgrammedPath.target_index].CharacterSizeFactor - waypoints_infos[actualWaypoint].CharacterSizeFactor;
+            SetSize(waypoints_infos[actualWaypoint].CharacterSizeFactor);
+
+            delta = ((Vector2)waypoints_infos[actualProgrammedPath.target_index].Position - (Vector2)waypoints_infos[actualWaypoint].Position).normalized;
+
+            if (actualProgrammedPath.wp_distance3D != 0f)
+            {
+                speed_reduction_factor = actualProgrammedPath.wp_distance / actualProgrammedPath.wp_distance3D;
+            }
+
+            float absDeltaX = Mathf.Abs(delta.x);
+            float absDeltaY = Mathf.Abs(delta.y);
+            AnimationTrigger walkdirTrigger;
+
+            if (absDeltaX >= 0.985f)
+            {
+                walkdirTrigger = AnimationTrigger.ANIMATION_TRIGGER_WALK_SIDE;
+
+                mySpriteRenderer.flipX = delta.x > 0;
+            }
+            else if (absDeltaX >= 0.173f)
+            {
+                walkdirTrigger = delta.y >= 0f ? AnimationTrigger.ANIMATION_TRIGGER_WALK_CORNERBACK : AnimationTrigger.ANIMATION_TRIGGER_WALK_CORNERFRONT;
+
+                mySpriteRenderer.flipX = delta.x > 0;
+            }
+            else
+            {
+                walkdirTrigger = delta.y >= 0f ? AnimationTrigger.ANIMATION_TRIGGER_WALK_BACK : AnimationTrigger.ANIMATION_TRIGGER_WALK_FRONT;
+
+                mySpriteRenderer.flipX = false;
+            }
+
+            PerformAnimation(walkdirTrigger, null, null);
+            ExecuteQueuedTrigger();
+
+            /* Remove after debugging */
+            speed_reduction_factor = 1f;
+
+            myRigidbody.linearVelocity = GameFixedConfig.CHARACTER_NORMAL_SPEED * speed_reduction_factor * delta;
+        }
+
+        protected void PresetProgrammedPathStruct(int waypoint_index)
+        {
+            actualProgrammedPath.target_index = waypoint_index;
+            actualProgrammedPath.final_index = waypoint_index;
+            actualProgrammedPath.wp_distance = 0f;
+            actualProgrammedPath.wp_distance3D = 0f;
+            actualProgrammedPath.initial_size = waypoints_infos[waypoint_index].CharacterSizeFactor;
+            actualProgrammedPath.delta_size = 0f;
+        }
+
+        private void StartBufferedInteraction()
+        {
+            VARMAP_ItemMaster.ITEM_REACHED_WAYPOINT(itemID);
+        }
+
+        protected void SetSize(float size)
+        {
+            Vector3 scale = size * Vector3.one;
+            topParentTransform.localScale = scale;
         }
 
         private void ChangedGameStatus(ChangedEventType eventType, in Game_Status oldval, in Game_Status newval)

@@ -33,11 +33,8 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             ITEM_REGISTER = _ITEM_REGISTER;
             MONO_REGISTER = _MONO_REGISTER;
             PLAYER_WAYPOINT_UPDATE = _PLAYER_WAYPOINT_UPDATE;
-            GET_WP_LIST = _GET_WP_LIST;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
             GET_NEAREST_WP = _GET_NEAREST_WP;
-            INTERACT_PLAYER = _INTERACT_PLAYER;
-            PLAYER_REACHED_WAYPOINT = _PLAYER_REACHED_WAYPOINT;
             LOCK_PLAYER = _LOCK_PLAYER;
             /* > ATG 1 END */
         }
@@ -95,13 +92,6 @@ public static MONO_REGISTER_DELEGATE MONO_REGISTER;
 /// </summary>
 public static PLAYER_WAYPOINT_UPDATE_DELEGATE PLAYER_WAYPOINT_UPDATE;
         /// <summary> 
-/// Gets list of waypoints and solutions 
-/// <para> Owner: LevelMaster </para> 
-/// <para> Accessors: PlayerMaster </para> 
-/// <para> Method: <see cref="LevelMasterClass.GetWaypointListService"/> </para> 
-/// </summary>
-public static GET_WP_LIST_DELEGATE GET_WP_LIST;
-        /// <summary> 
 /// Gets a list of actual players 
 /// <para> Owner: LevelMaster </para> 
 /// <para> Accessors: GraphicsMaster, PlayerMaster </para> 
@@ -115,20 +105,6 @@ public static GET_PLAYER_LIST_DELEGATE GET_PLAYER_LIST;
 /// <para> Method: <see cref="LevelMasterClass.GetNearestWPService"/> </para> 
 /// </summary>
 public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
-        /// <summary> 
-/// Makes player interact with usage data 
-/// <para> Owner: PlayerMaster </para> 
-/// <para> Accessors: LevelMaster </para> 
-/// <para> Method: <see cref="PlayerMasterClass.InteractPlayerService"/> </para> 
-/// </summary>
-public static INTERACT_PLAYER_DELEGATE INTERACT_PLAYER;
-        /// <summary> 
-/// Tells LevelMaster that player reached Waypoint to start action in case 
-/// <para> Owner: LevelMaster </para> 
-/// <para> Accessors: PlayerMaster </para> 
-/// <para> Method: <see cref="LevelMasterClass.PlayerReachedWaypointService"/> </para> 
-/// </summary>
-public static PLAYER_REACHED_WAYPOINT_DELEGATE PLAYER_REACHED_WAYPOINT;
         /// <summary> 
 /// Locks player so it cannot act until an action over it has been done (or removes lock) 
 /// <para> Owner: PlayerMaster </para> 

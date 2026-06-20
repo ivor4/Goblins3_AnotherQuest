@@ -63,6 +63,7 @@ namespace Gob3AQ.GameElement.Item
             base.Awake();
 
             topParent = transform.parent.gameObject;
+            topParentTransform = topParent.transform;
 
             mySpriteRenderer = topParent.GetComponent<SpriteRenderer>();
             myCollider = topParent.GetComponent<Collider2D>();
@@ -113,26 +114,18 @@ namespace Gob3AQ.GameElement.Item
             _ = StartCoroutine(Execute_Loading());
         }
 
-        protected void Update()
+        protected override void Update()
         {
-            if ((!myAnimator.runtimeAnimatorController) || (programmedAnimationsRt.Length <= 0) || (queuedTrigger != AnimationTrigger.ANIMATION_TRIGGER_ZERO) || (pendingStateCrossings != 0)) return;
-            
-            ulong actualTimestamp = VARMAP_ItemMaster.GET_ELAPSED_TIME_MS();
-            for (int i = 0; i < programmedAnimationsRt.Length; i++)
-            {
-                ref ItemProgrammedAnimationRuntime rt = ref programmedAnimationsRt[i];
+            base.Update();
 
-                if (rt.progAnim.conditionActualTrigger != actualAnimationTrigger)
-                {
-                    rt.lastTimestampMs = actualTimestamp;
-                    continue;
-                }
-                    
-                if ((actualTimestamp - rt.lastTimestampMs) < rt.progAnim.everyMs) continue;
-                    
-                rt.lastTimestampMs = actualTimestamp;
-                
-                PerformAnimation(rt.progAnim.destTrigger, null, null);
+            Game_Status gstatus = VARMAP_ItemMaster.GET_GAMESTATUS();
+
+            switch (gstatus)
+            {
+                case Game_Status.GAME_STATUS_PLAY:
+                    AutomaticAnimationRefresh();
+                    UpdateSortingOrder();
+                break;
             }
         }
 
@@ -207,6 +200,29 @@ namespace Gob3AQ.GameElement.Item
             if (needsZoom)
             {
                 VARMAP_ItemMaster.ZOOM_SUBSCRIPTION(false, _OnZoomChanged);
+            }
+        }
+
+        private void AutomaticAnimationRefresh()
+        {
+            if ((!myAnimator.runtimeAnimatorController) || (programmedAnimationsRt.Length <= 0) || (queuedTrigger != AnimationTrigger.ANIMATION_TRIGGER_ZERO) || (pendingStateCrossings != 0)) return;
+
+            ulong actualTimestamp = VARMAP_ItemMaster.GET_ELAPSED_TIME_MS();
+            for (int i = 0; i < programmedAnimationsRt.Length; i++)
+            {
+                ref ItemProgrammedAnimationRuntime rt = ref programmedAnimationsRt[i];
+
+                if (rt.progAnim.conditionActualTrigger != actualAnimationTrigger)
+                {
+                    rt.lastTimestampMs = actualTimestamp;
+                    continue;
+                }
+
+                if ((actualTimestamp - rt.lastTimestampMs) < rt.progAnim.everyMs) continue;
+
+                rt.lastTimestampMs = actualTimestamp;
+
+                PerformAnimation(rt.progAnim.destTrigger, null, null);
             }
         }
 

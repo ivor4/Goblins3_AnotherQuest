@@ -62,8 +62,8 @@ namespace Gob3AQ.VARMAP.LevelMaster
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
             GET_NEAREST_WP = _GET_NEAREST_WP;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
-            INTERACT_PLAYER = _INTERACT_PLAYER;
-            PLAYER_REACHED_WAYPOINT = _PLAYER_REACHED_WAYPOINT;
+            INTERACT_ITEM = _INTERACT_ITEM;
+            ITEM_REACHED_WAYPOINT = _ITEM_REACHED_WAYPOINT;
             USE_ITEM = _USE_ITEM;
             PEEK_ITEM = _PEEK_ITEM;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
@@ -71,6 +71,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
             STOP_SOUND = _STOP_SOUND;
             PERFORM_ACTION = _PERFORM_ACTION;
+            NOTIFY_ENDED_ACTION = _NOTIFY_ENDED_ACTION;
             LOAD_ROOM_AS_ACTION = _LOAD_ROOM_AS_ACTION;
             /* > ATG 1 END */
         }
@@ -181,7 +182,7 @@ public static PLAYER_WAYPOINT_UPDATE_DELEGATE PLAYER_WAYPOINT_UPDATE;
         /// <summary> 
 /// Gets list of waypoints and solutions 
 /// <para> Owner: LevelMaster </para> 
-/// <para> Accessors: PlayerMaster </para> 
+/// <para> Accessors: ItemMaster </para> 
 /// <para> Method: <see cref="LevelMasterClass.GetWaypointListService"/> </para> 
 /// </summary>
 public static GET_WP_LIST_DELEGATE GET_WP_LIST;
@@ -208,18 +209,18 @@ public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
 public static IS_EVENT_COMBI_OCCURRED_DELEGATE IS_EVENT_COMBI_OCCURRED;
         /// <summary> 
 /// Makes player interact with usage data 
-/// <para> Owner: PlayerMaster </para> 
+/// <para> Owner: ItemMaster </para> 
 /// <para> Accessors: LevelMaster </para> 
-/// <para> Method: <see cref="PlayerMasterClass.InteractPlayerService"/> </para> 
+/// <para> Method: <see cref="ItemMasterClass.InteractItemService"/> </para> 
 /// </summary>
-public static INTERACT_PLAYER_DELEGATE INTERACT_PLAYER;
+public static INTERACT_ITEM_DELEGATE INTERACT_ITEM;
         /// <summary> 
 /// Tells LevelMaster that player reached Waypoint to start action in case 
 /// <para> Owner: LevelMaster </para> 
-/// <para> Accessors: PlayerMaster </para> 
-/// <para> Method: <see cref="LevelMasterClass.PlayerReachedWaypointService"/> </para> 
+/// <para> Accessors: ItemMaster </para> 
+/// <para> Method: <see cref="LevelMasterClass.ItemReachedWaypointService"/> </para> 
 /// </summary>
-public static PLAYER_REACHED_WAYPOINT_DELEGATE PLAYER_REACHED_WAYPOINT;
+public static ITEM_REACHED_WAYPOINT_DELEGATE ITEM_REACHED_WAYPOINT;
         /// <summary> 
 /// Uses an item with something 
 /// <para> Owner: ItemMaster </para> 
@@ -269,6 +270,13 @@ public static STOP_SOUND_DELEGATE STOP_SOUND;
 /// <para> Method: <see cref="GameEventMasterClass.PerformActionService"/> </para> 
 /// </summary>
 public static PERFORM_ACTION_DELEGATE PERFORM_ACTION;
+        /// <summary> 
+/// Notifies Event manager a Dialog / Animation action has been performed 
+/// <para> Owner: GameEventMaster </para> 
+/// <para> Accessors: LevelMaster, DialogMaster </para> 
+/// <para> Method: <see cref="GameEventMasterClass.NotifyEndedActionService"/> </para> 
+/// </summary>
+public static NOTIFY_ENDED_ACTION_DELEGATE NOTIFY_ENDED_ACTION;
         /// <summary> 
 /// Tells LevelMaster to set waypoints and Load a Room. This emulates crossing door. This is used in cinematics or auto driven events 
 /// <para> Owner: LevelMaster </para> 

@@ -46,9 +46,9 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void GET_NEAREST_WP_DELEGATE(Vector2 position, float maxRadius, out int candidate_index, out Vector2 candidate_pos);
     public delegate void COMMIT_EVENT_DELEGATE(ReadOnlySpan<GameEventCombi> combi);
     public delegate void COMMIT_MEMENTO_NOTIF_DELEGATE(Memento memento);
-    public delegate void INTERACT_PLAYER_DELEGATE(CharacterType character,int destWp_index, out bool accepted);
+    public delegate void INTERACT_ITEM_DELEGATE(GameItem item,int destWp_index, out bool accepted);
     public delegate void ACTION_TO_ITEM_DELEGATE(in ActionInfo actionInfo);
-    public delegate void PLAYER_REACHED_WAYPOINT_DELEGATE(CharacterType character);
+    public delegate void ITEM_REACHED_WAYPOINT_DELEGATE(GameItem item);
     public delegate void IS_EVENT_COMBI_OCCURRED_DELEGATE(ReadOnlySpan<GameEventCombi> combi, out bool occurred);
     public delegate void IS_MEMENTO_UNLOCKED_DELEGATE(Memento memento, out bool occurred, out bool unwatched);
     public delegate void MEMENTO_PARENT_WATCHED_DELEGATE(MementoParent mementoParent);

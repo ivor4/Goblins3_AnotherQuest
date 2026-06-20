@@ -15,13 +15,6 @@ namespace Gob3AQ.PlayerMaster
         private static byte playersToLoad;
 
 
-
-        public static void InteractPlayerService(CharacterType character, int destWp_index, out bool accepted)
-        {
-            PlayableCharScript instance = GetPlayerInstance(character);
-            accepted = instance.ActionRequest(destWp_index);
-        }
-
         public static void LockPlayerService(CharacterType character, bool lockPlayer)
         {
             PlayableCharScript instance = GetPlayerInstance(character);

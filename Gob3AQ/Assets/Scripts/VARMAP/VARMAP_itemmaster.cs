@@ -38,9 +38,12 @@ namespace Gob3AQ.VARMAP.ItemMaster
             ITEM_REGISTER = _ITEM_REGISTER;
             DOOR_REGISTER = _DOOR_REGISTER;
             OBTAIN_SCENARIO_ITEMS = _OBTAIN_SCENARIO_ITEMS;
+            GET_WP_LIST = _GET_WP_LIST;
             GET_NEAREST_WP = _GET_NEAREST_WP;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
+            INTERACT_ITEM = _INTERACT_ITEM;
             ACTION_TO_ITEM = _ACTION_TO_ITEM;
+            ITEM_REACHED_WAYPOINT = _ITEM_REACHED_WAYPOINT;
             USE_ITEM = _USE_ITEM;
             PEEK_ITEM = _PEEK_ITEM;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
@@ -110,6 +113,13 @@ public static DOOR_REGISTER_DELEGATE DOOR_REGISTER;
 /// </summary>
 public static OBTAIN_SCENARIO_ITEMS_DELEGATE OBTAIN_SCENARIO_ITEMS;
         /// <summary> 
+/// Gets list of waypoints and solutions 
+/// <para> Owner: LevelMaster </para> 
+/// <para> Accessors: ItemMaster </para> 
+/// <para> Method: <see cref="LevelMasterClass.GetWaypointListService"/> </para> 
+/// </summary>
+public static GET_WP_LIST_DELEGATE GET_WP_LIST;
+        /// <summary> 
 /// Gets nearest WP from a given coordinates of level 
 /// <para> Owner: LevelMaster </para> 
 /// <para> Accessors: PlayerMaster, ItemMaster </para> 
@@ -124,12 +134,26 @@ public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
 /// </summary>
 public static IS_EVENT_COMBI_OCCURRED_DELEGATE IS_EVENT_COMBI_OCCURRED;
         /// <summary> 
+/// Makes player interact with usage data 
+/// <para> Owner: ItemMaster </para> 
+/// <para> Accessors: LevelMaster </para> 
+/// <para> Method: <see cref="ItemMasterClass.InteractItemService"/> </para> 
+/// </summary>
+public static INTERACT_ITEM_DELEGATE INTERACT_ITEM;
+        /// <summary> 
 /// Applies an unchain event to an item such as spawn or setsprite 
 /// <para> Owner: ItemMaster </para> 
 /// <para> Accessors: GameEventMaster </para> 
 /// <para> Method: <see cref="ItemMasterClass.ActionToItemService"/> </para> 
 /// </summary>
 public static ACTION_TO_ITEM_DELEGATE ACTION_TO_ITEM;
+        /// <summary> 
+/// Tells LevelMaster that player reached Waypoint to start action in case 
+/// <para> Owner: LevelMaster </para> 
+/// <para> Accessors: ItemMaster </para> 
+/// <para> Method: <see cref="LevelMasterClass.ItemReachedWaypointService"/> </para> 
+/// </summary>
+public static ITEM_REACHED_WAYPOINT_DELEGATE ITEM_REACHED_WAYPOINT;
         /// <summary> 
 /// Uses an item with something 
 /// <para> Owner: ItemMaster </para> 

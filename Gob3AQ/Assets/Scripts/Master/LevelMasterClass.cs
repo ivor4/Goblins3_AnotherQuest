@@ -3,6 +3,7 @@ using Gob3AQ.FixedConfig;
 using Gob3AQ.GameElement;
 using Gob3AQ.GameElement.Clickable;
 using Gob3AQ.GameElement.PlayableChar;
+using Gob3AQ.Libs.Arith;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.VARMAP.LevelMaster;
 using Gob3AQ.VARMAP.Types;
@@ -10,13 +11,22 @@ using Gob3AQ.Waypoint.Network;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Gob3AQ.Libs.Arith;
 using UnityEngine;
 
 namespace Gob3AQ.LevelMaster
 {
     public class LevelMasterClass : MonoBehaviour
     {
+        private static readonly IReadOnlyDictionary<GameItem, CharacterType> ITEM_TO_CHAR_DICT = new Dictionary<GameItem, CharacterType>()
+        {
+            { GameItem.ITEM_PLAYER_MAIN, CharacterType.CHARACTER_MAIN }
+        };
+
+        private static readonly IReadOnlyDictionary<CharacterType, GameItem> CHAR_TO_ITEM_DICT = new Dictionary<CharacterType, GameItem>()
+        {
+            { CharacterType.CHARACTER_MAIN, GameItem.ITEM_PLAYER_MAIN }
+        };
+
         private Rect _playMouseArea;
         private int _LayerOnlyPlayers;
         private int _LayerPlayersAndItemsNPC;
@@ -206,12 +216,17 @@ namespace Gob3AQ.LevelMaster
             VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)character, waypointIndex);
         }
 
-        public static void PlayerReachedWaypointService(CharacterType character)
+        public static void ItemReachedWaypointService(GameItem item)
         {
             if (!_singleton) return;
 
-            _singleton._PendingCharInteractions[(int)character].ended =
-                _singleton._PendingCharInteractions[(int)character].pending;
+            VARMAP_LevelMaster.NOTIFY_ENDED_ACTION(NotifyAction.NOTIFY_MOVEMENT);
+
+            if (ITEM_TO_CHAR_DICT.TryGetValue(item, out CharacterType character))
+            {
+                _singleton._PendingCharInteractions[(int)character].ended =
+                    _singleton._PendingCharInteractions[(int)character].pending;
+            }
         }
 
         
@@ -563,14 +578,9 @@ namespace Gob3AQ.LevelMaster
                     else
                     {
                         /* Item to Character "Dict" */
-                        for(int i=0; i < (int)CharacterType.CHARACTER_TOTAL; ++i)
+                        if(ITEM_TO_CHAR_DICT.TryGetValue(hovered.item, out CharacterType selectedChar))
                         {
-                            PlayableCharScript instance = _Player_List[i];
-                            if ((instance) && (instance.ItemID == hovered.item))
-                            {
-                                VARMAP_LevelMaster.SET_PLAYER_SELECTED(instance.CharType);
-                                break;
-                            }
+                            VARMAP_LevelMaster.SET_PLAYER_SELECTED(selectedChar);
                         }
                         
                         VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
@@ -628,7 +638,7 @@ namespace Gob3AQ.LevelMaster
                         hovered.item, furthestWaypointIndex);
                 }
 
-                VARMAP_LevelMaster.INTERACT_PLAYER(playerSelected, furthestWaypointIndex, out accepted);
+                VARMAP_LevelMaster.INTERACT_ITEM(CHAR_TO_ITEM_DICT[playerSelected], furthestWaypointIndex, out accepted);
             }
 
             return accepted;
@@ -642,7 +652,7 @@ namespace Gob3AQ.LevelMaster
             {
                 usage = InteractionUsage.CreateCrossDoor(playerSelected, hovered.item, hovered.waypoint);
 
-                VARMAP_LevelMaster.INTERACT_PLAYER(playerSelected, hovered.waypoint, out accepted);
+                VARMAP_LevelMaster.INTERACT_ITEM(CHAR_TO_ITEM_DICT[playerSelected], hovered.waypoint, out accepted);
                 VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
             }
 
@@ -658,7 +668,7 @@ namespace Gob3AQ.LevelMaster
                 int furthestWaypoint = CheckFurthestReachableWaypoint(selectedCharacter, candidate_index);
                 InteractionUsage usage = InteractionUsage.CreatePlayerMove(selectedCharacter, furthestWaypoint);
 
-                VARMAP_LevelMaster.INTERACT_PLAYER(selectedCharacter, furthestWaypoint, out bool accepted);
+                VARMAP_LevelMaster.INTERACT_ITEM(CHAR_TO_ITEM_DICT[selectedCharacter], furthestWaypoint, out bool accepted);
                 if (accepted)
                 {
                     _PendingCharInteractions[(int)selectedCharacter] = new PendingCharacterInteraction(in usage, false);
@@ -779,7 +789,7 @@ namespace Gob3AQ.LevelMaster
                         {
                             InteractionUsage usage = InteractionUsage.CreatePlayerMove((CharacterType)i, walkInfo.waypointTo);
 
-                            VARMAP_LevelMaster.INTERACT_PLAYER(_Player_List[i].CharType, walkInfo.waypointTo, out bool accepted);
+                            VARMAP_LevelMaster.INTERACT_ITEM(CHAR_TO_ITEM_DICT[_Player_List[i].CharType], walkInfo.waypointTo, out bool accepted);
                             if (accepted)
                             {
                                 _PendingCharInteractions[i] = new PendingCharacterInteraction(in usage, false);

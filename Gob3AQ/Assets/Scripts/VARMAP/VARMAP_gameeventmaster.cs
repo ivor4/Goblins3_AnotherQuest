@@ -243,7 +243,7 @@ public static IS_DIALOG_ACTIVE_DELEGATE IS_DIALOG_ACTIVE;
         /// <summary> 
 /// Notifies Event manager a Dialog / Animation action has been performed 
 /// <para> Owner: GameEventMaster </para> 
-/// <para> Accessors: DialogMaster </para> 
+/// <para> Accessors: LevelMaster, DialogMaster </para> 
 /// <para> Method: <see cref="GameEventMasterClass.NotifyEndedActionService"/> </para> 
 /// </summary>
 public static NOTIFY_ENDED_ACTION_DELEGATE NOTIFY_ENDED_ACTION;

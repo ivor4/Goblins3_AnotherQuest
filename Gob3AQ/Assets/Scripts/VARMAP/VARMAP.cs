@@ -236,7 +236,7 @@ protected static PLAYER_WAYPOINT_UPDATE_DELEGATE _PLAYER_WAYPOINT_UPDATE;
         /// <summary> 
 /// Gets list of waypoints and solutions 
 /// <para> Owner: LevelMaster </para> 
-/// <para> Accessors: PlayerMaster </para> 
+/// <para> Accessors: ItemMaster </para> 
 /// <para> Method: <see cref="LevelMasterClass.GetWaypointListService"/> </para> 
 /// </summary>
 protected static GET_WP_LIST_DELEGATE _GET_WP_LIST;
@@ -291,11 +291,11 @@ protected static IS_MEMENTO_UNLOCKED_DELEGATE _IS_MEMENTO_UNLOCKED;
 protected static MEMENTO_PARENT_WATCHED_DELEGATE _MEMENTO_PARENT_WATCHED;
         /// <summary> 
 /// Makes player interact with usage data 
-/// <para> Owner: PlayerMaster </para> 
+/// <para> Owner: ItemMaster </para> 
 /// <para> Accessors: LevelMaster </para> 
-/// <para> Method: <see cref="PlayerMasterClass.InteractPlayerService"/> </para> 
+/// <para> Method: <see cref="ItemMasterClass.InteractItemService"/> </para> 
 /// </summary>
-protected static INTERACT_PLAYER_DELEGATE _INTERACT_PLAYER;
+protected static INTERACT_ITEM_DELEGATE _INTERACT_ITEM;
         /// <summary> 
 /// Applies an unchain event to an item such as spawn or setsprite 
 /// <para> Owner: ItemMaster </para> 
@@ -306,10 +306,10 @@ protected static ACTION_TO_ITEM_DELEGATE _ACTION_TO_ITEM;
         /// <summary> 
 /// Tells LevelMaster that player reached Waypoint to start action in case 
 /// <para> Owner: LevelMaster </para> 
-/// <para> Accessors: PlayerMaster </para> 
-/// <para> Method: <see cref="LevelMasterClass.PlayerReachedWaypointService"/> </para> 
+/// <para> Accessors: ItemMaster </para> 
+/// <para> Method: <see cref="LevelMasterClass.ItemReachedWaypointService"/> </para> 
 /// </summary>
-protected static PLAYER_REACHED_WAYPOINT_DELEGATE _PLAYER_REACHED_WAYPOINT;
+protected static ITEM_REACHED_WAYPOINT_DELEGATE _ITEM_REACHED_WAYPOINT;
         /// <summary> 
 /// Uses an item with something 
 /// <para> Owner: ItemMaster </para> 
@@ -446,7 +446,7 @@ protected static IS_DIALOG_ACTIVE_DELEGATE _IS_DIALOG_ACTIVE;
         /// <summary> 
 /// Notifies Event manager a Dialog / Animation action has been performed 
 /// <para> Owner: GameEventMaster </para> 
-/// <para> Accessors: DialogMaster </para> 
+/// <para> Accessors: LevelMaster, DialogMaster </para> 
 /// <para> Method: <see cref="GameEventMasterClass.NotifyEndedActionService"/> </para> 
 /// </summary>
 protected static NOTIFY_ENDED_ACTION_DELEGATE _NOTIFY_ENDED_ACTION;

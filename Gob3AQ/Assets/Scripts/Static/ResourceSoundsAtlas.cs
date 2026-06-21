@@ -195,6 +195,10 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_WAITER_1_OP_3_3_SPANISH"), /* SOUND_WAITER_1_OP_3_3 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_WAITER_1_OP_3_4_SPANISH"), /* SOUND_WAITER_1_OP_3_4 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_MAINCHAR_NEED_ORINE_SPANISH"), /* SOUND_MAINCHAR_NEED_ORINE */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_OBSERVE_INNOCENT_PLANT_SPANISH"), /* SOUND_OBSERVE_INNOCENT_PLANT */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_OBSERVE_BLADDER_SPANISH"), /* SOUND_OBSERVE_BLADDER */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_MAINCHAR_ABOUT_PEE_PLANT_SPANISH"), /* SOUND_MAINCHAR_ABOUT_PEE_PLANT */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_PEE"), /* SOUND_PEE */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

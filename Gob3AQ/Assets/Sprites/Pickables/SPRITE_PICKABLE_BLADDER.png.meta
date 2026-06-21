@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 546c7d45917a59a4ba7221c136ffc55d
+guid: 7486a7d1b7423a2489b88f4f8b7fe57a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6615588937917867372
-    second: SPRITE_PICKABLE_OLIVE_0
+      213: 1537272278405182240
+    second: SPRITE_PICKABLE_BLADDER_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SPRITE_PICKABLE_OLIVE_0
+      name: SPRITE_PICKABLE_BLADDER_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2
-        width: 86
-        height: 124
+        x: 10
+        y: 0
+        width: 103
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 49ad66f69e4b034a0800000000000000
-      internalID: -6615588937917867372
+      spriteID: 023756d0efc755510800000000000000
+      internalID: 1537272278405182240
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SPRITE_PICKABLE_OLIVE_0: -6615588937917867372
+      SPRITE_PICKABLE_BLADDER_0: 1537272278405182240
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

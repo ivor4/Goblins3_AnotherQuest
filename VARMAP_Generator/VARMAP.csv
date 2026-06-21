@@ -2,10 +2,10 @@
 0,GAME_OPTIONS,GameOptionsStruct,0,0,GameOptionsStruct_Default,Y,,-,R,R,R,-,W,-,-,-,-,-
 1,ELAPSED_TIME_MS,ulong,2,0,0UL,Y,,W,R,R,R,-,R,R,-,R,R,R
 2,ACTUAL_ROOM,Room,2,0,Room.ROOM_NONE,Y,,W,-,R,R,R,R E,-,-,-,-,R
-3,EVENTS_OCCURRED,MultiBitFieldStruct,2,1,default,Y,,-,-,-,-,-,-,-,-,-,-,W
+3,EVENTS_OCCURRED,MultiBitFieldStruct,2,8,default,Y,,-,-,-,-,-,-,-,-,-,-,W
 4,UNLOCKED_MEMENTO,MultiBitFieldStruct,2,1,default,Y,,-,-,-,-,-,-,-,-,-,-,W
 5,UNWATCHED_PARENT_MEMENTO,MultiBitFieldStruct,0,1,default,Y,,-,-,R,-,-,-,-,-,-,-,W
-6,PICKABLE_ITEM_OWNER,CharacterType,2,7,CharacterType.CHARACTER_NONE,Y,,-,-,R,-,-,R E,-,-,W,-,-
+6,PICKABLE_ITEM_OWNER,CharacterType,2,128,CharacterType.CHARACTER_NONE,Y,,-,-,R,-,-,R E,-,-,W,-,-
 7,PLAYER_ACTUAL_WAYPOINT,int,2,3,-1,Y,,-,-,W,-,-,-,-,R,-,-,-
 8,CAMERA_DISPOSITION,CameraDispositionStruct,0,0,CameraDispositionStruct_Default,Y,,-,-,-,W,-,-,-,-,-,-,-
 9,DAY_MOMENT,MomentType,0,0,MomentType.MOMENT_MORNING,Y,,W,-,R,R,R,R,R,-,R,-,R

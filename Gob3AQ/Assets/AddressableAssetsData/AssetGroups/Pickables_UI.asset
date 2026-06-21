@@ -45,6 +45,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 09dac3770112ded40bc9964f5efcc6b0
+    m_Address: ANIMATION_GENERIC_CYCLE2_EXEC2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0d06a50c9d2f9a64d9f2de863cbc5453
     m_Address: ANIMATION_GENERIC_TALK1_EXIT
     m_ReadOnly: 0
@@ -192,6 +197,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6ea9c4c55a5be4e4382f19256b9ad177
     m_Address: ANIMATION_GENERIC_ACTION3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7486a7d1b7423a2489b88f4f8b7fe57a
+    m_Address: SPRITE_PICKABLE_BLADDER
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

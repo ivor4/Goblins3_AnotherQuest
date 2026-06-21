@@ -350,7 +350,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             true,false,false,new(GameEvent.EVENT_NEED_ORINE_SAID, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NEED_ORINE_SAID, true)}, 
             MomentType.MOMENT_ANY, 
-            new GameAction[2]{GameAction.ACTION_EVENT_NEED_ORINE_SAID, GameAction.ACTION_DIALOGUE_SIMPLE_MAINCHAR_NEED_ORINE}), 
+            new GameAction[3]{GameAction.ACTION_EVENT_NEED_ORINE_SAID, GameAction.ACTION_OBTAIN_FULL_BLADDER, GameAction.ACTION_DIALOGUE_SIMPLE_MAINCHAR_NEED_ORINE}), 
 
             new( /* UNCHAIN_LAST */
             false,false,false,new(GameEvent.EVENT_NONE, false), 
@@ -791,6 +791,21 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_PICKABLE_OLIVE,ItemInteractionType.INTERACTION_USE,
             new GameAction[3]{GameAction.ACTION_ANIMATE_SILVANA_CLOSING_BOOK_1, GameAction.ACTION_ANIMATE_SILVANA_CLOSING_BOOK_2, GameAction.ACTION_TALK_DIALOG_SILVANA_OLIVE}), 
 
+            new( /* COND_OBSERVE_ITEM_INNOCENT_PLANT */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_ITEM_INNOCENT_PLANT}), 
+
+            new( /* COND_OBSERVE_BLADDER */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_BLADDER}), 
+
+            new( /* COND_USE_BLADDER_WITH_PLANT */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_PICKABLE_BLADDER,ItemInteractionType.INTERACTION_USE,
+            new GameAction[3]{GameAction.ACTION_DIALOGUE_ABOUT_PEE_PLANT, GameAction.ACTION_PLAY_SOUND_PEE, GameAction.ACTION_ANIMATE_MAINCHAR_PEEING}), 
+
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,
@@ -1080,6 +1095,16 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_PICKABLE_OLIVE,true,GameSprite.SPRITE_PICKABLE_OLIVE,GamePickableItem.ITEM_PICK_PICKABLE_OLIVE,DetailType.DETAIL_NONE,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OBSERVE_ITEM_PICKABLE_OLIVE})),
 
+            new ( /* ITEM_INNOCENT_PLANT */
+            NameType.NAME_INNOCENT_PLANT,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
+            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
+            new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_INNOCENT_PLANT, ActionConditions.COND_USE_BLADDER_WITH_PLANT})),
+
+            new ( /* ITEM_PICKABLE_BLADDER */
+            NameType.NAME_FULL_BLADDER,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PICKABLE_BLADDER}),
+            GameSprite.SPRITE_PICKABLE_BLADDER,true,GameSprite.SPRITE_PICKABLE_BLADDER,GamePickableItem.ITEM_PICK_PICKABLE_BLADDER,DetailType.DETAIL_NONE,
+            new(new HashSet<ActionConditions>(1){ActionConditions.COND_OBSERVE_BLADDER})),
+
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST}),
             GameSprite.SPRITE_LAST,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
@@ -1098,6 +1123,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameItem.ITEM_EXTRAPERLO_INVITATION,	/* ITEM_PICK_EXTRAPERLO_INVITATION */
             GameItem.ITEM_EXTRAPERLO_INVITATION_FOLDED,	/* ITEM_PICK_EXTRAPERLO_INVITATION_FOLDED */
             GameItem.ITEM_PICKABLE_OLIVE,	/* ITEM_PICK_PICKABLE_OLIVE */
+            GameItem.ITEM_PICKABLE_BLADDER,	/* ITEM_PICK_PICKABLE_BLADDER */
             /* > ATG 4 END < */
         };
 
@@ -1111,6 +1137,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_PICKABLE_EXTRAPERLO,	/* ITEM_PICK_EXTRAPERLO_INVITATION */
             GameSprite.SPRITE_PICKABLE_EXTRAPERLO_FOLDED,	/* ITEM_PICK_EXTRAPERLO_INVITATION_FOLDED */
             GameSprite.SPRITE_PICKABLE_OLIVE,	/* ITEM_PICK_PICKABLE_OLIVE */
+            GameSprite.SPRITE_PICKABLE_BLADDER,	/* ITEM_PICK_PICKABLE_BLADDER */
             /* > ATG 5 END < */
         };
 
@@ -2392,7 +2419,43 @@ namespace Gob3AQ.Brain.ItemsInteraction
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NEED_ORINE_SAID, false)}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"CARD_GAME_NONE",CardGameID.CARD_GAME_NONE), 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_OBSERVE_ITEM_INNOCENT_PLANT */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_INNOCENT_PLANT,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_OBSERVE_BLADDER */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_BLADDER,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_OBTAIN_FULL_BLADDER */
+            false,ActionType.ACTION_TYPE_EARN_ITEM,GameItem.ITEM_PICKABLE_BLADDER,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_ABOUT_PEE_PLANT */
+            true,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_ABOUT_PEE_PLANT,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_ANIMATE_MAINCHAR_PEEING */
+            true,ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION,GameItem.ITEM_PLAYER_MAIN,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_CYCLE_TWO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_PLAY_SOUND_PEE */
+            false,ActionType.ACTION_TYPE_PLAY_SOUND,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_PEE,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

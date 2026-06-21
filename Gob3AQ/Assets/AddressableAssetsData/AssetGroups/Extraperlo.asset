@@ -160,6 +160,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2388ece083ca61648932d4ab3df328cf
+    m_Address: SPRITE_MAINCHAR_PEEING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 24a94d3b456455a4dba6f38830859a7b
     m_Address: ANIMATION_WAITER_TALKING
     m_ReadOnly: 0
@@ -325,6 +330,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ef6cfe5fa95e444ab5682c41ec4a819
+    m_Address: SOUND_PEE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3f9979558bb285644a521c41c2ef5eb7
     m_Address: SPRITE_ATLAS_CITY3_1
     m_ReadOnly: 0
@@ -355,6 +365,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4541d901b3c76694c945e71359973795
+    m_Address: SOUND_OBSERVE_BLADDER_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4572dd95f0a3dfa479f9100c09fdc70d
     m_Address: ANIMATION_WAITER_TALKING_2
     m_ReadOnly: 0
@@ -382,6 +397,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 46528fa20a241db4782d73c4c9178075
     m_Address: SOUND_FIK_1_OP_1_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 480a97d800995fb47b4b179f64cd04f4
+    m_Address: SOUND_OBSERVE_INNOCENT_PLANT_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -512,6 +532,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5cf8486e925f06440a11bd83b2518bfe
     m_Address: SPRITE_SILVANA_STEADY_READING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d4acebfc26963d46a6b321162255b05
+    m_Address: SOUND_MAINCHAR_NEED_ORINE_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -1252,6 +1277,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eb54156b08b70714a97bc856fb8161bd
     m_Address: SOUND_GERMAN_1_OP_0_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ec18b6be004d27a458ba84eba251b51a
+    m_Address: SOUND_MAINCHAR_ABOUT_PEE_PLANT_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

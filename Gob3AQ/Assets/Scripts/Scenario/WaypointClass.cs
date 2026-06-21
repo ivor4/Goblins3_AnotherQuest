@@ -36,6 +36,9 @@ namespace Gob3AQ.Waypoint
         [SerializeField]
         private bool flipXForAction;
 
+        [SerializeField]
+        private string wpTag;
+
         public float CharacterSizeFactor => characterSizeFactor;
         public int ID_in_Network => id_in_network;
         public IReadOnlyList<WaypointClass> ConnectedWaypoints => connectedWaypoints;
@@ -43,6 +46,7 @@ namespace Gob3AQ.Waypoint
         public GameEventCombi_prv NeededEvent => neededEvent;
         public GameAction ActionWhenCross => actionWhenCross;
         public bool FlipXForAction => flipXForAction;
+        public string WpTag => wpTag;
 
         private void Start()
         {

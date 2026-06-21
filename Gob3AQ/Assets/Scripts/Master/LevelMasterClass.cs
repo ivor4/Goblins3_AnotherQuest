@@ -695,7 +695,7 @@ namespace Gob3AQ.LevelMaster
                 {
                     /* Check if it is available and is still in original position */
                     bool validTransaction = IsItemAvailable(usage.itemDest);
-                    validTransaction &= _ItemDictionary[usage.itemDest].Waypoint == usage.destWaypoint_index;
+                    validTransaction &= _ItemDictionary[usage.itemDest].ExposedWaypoint == usage.destWaypoint_index;
 
 
                     if (validTransaction)
@@ -750,7 +750,15 @@ namespace Gob3AQ.LevelMaster
                 
                 /* Point to next Waypoint */
                 iteratedWaypoint = _WP_Info_List[iteratedWaypoint].Solution.TravelTo[waypointDst];
-                furthestIndex = iteratedWaypoint;
+
+                if (iteratedWaypoint != -1)
+                {
+                    furthestIndex = iteratedWaypoint;
+                }
+                else
+                {
+                    break;
+                }
             }
 
             return furthestIndex;

@@ -115,7 +115,7 @@ public static OBTAIN_SCENARIO_ITEMS_DELEGATE OBTAIN_SCENARIO_ITEMS;
         /// <summary> 
 /// Gets list of waypoints and solutions 
 /// <para> Owner: LevelMaster </para> 
-/// <para> Accessors: ItemMaster </para> 
+/// <para> Accessors: ItemMaster, GameEventMaster </para> 
 /// <para> Method: <see cref="LevelMasterClass.GetWaypointListService"/> </para> 
 /// </summary>
 public static GET_WP_LIST_DELEGATE GET_WP_LIST;
@@ -136,7 +136,7 @@ public static IS_EVENT_COMBI_OCCURRED_DELEGATE IS_EVENT_COMBI_OCCURRED;
         /// <summary> 
 /// Makes player interact with usage data 
 /// <para> Owner: ItemMaster </para> 
-/// <para> Accessors: LevelMaster </para> 
+/// <para> Accessors: LevelMaster, GameEventMaster </para> 
 /// <para> Method: <see cref="ItemMasterClass.InteractItemService"/> </para> 
 /// </summary>
 public static INTERACT_ITEM_DELEGATE INTERACT_ITEM;

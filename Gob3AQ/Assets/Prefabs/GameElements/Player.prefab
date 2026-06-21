@@ -227,5 +227,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Gob3AQ.GameElement.PlayableChar.PlayableCharScript
   itemID: 0
   startingWaypoint: {fileID: 0}
+  startingExposedWaypoint: {fileID: 0}
   hoverPriority: 0
   charType: 0

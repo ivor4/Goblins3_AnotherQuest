@@ -44,9 +44,10 @@ namespace Gob3AQ.Waypoint.Network
         public readonly GameEventCombi_prv NeededEvent;
         public readonly GameAction ActionWhenCross;
         public readonly bool FlipXForAction;
+        public readonly string Tag;
 
         public WaypointInfo(Vector3 position, WaypointReachability reachability, WaypointSolution solution,
-            float characterSizeFactor, GameEventCombi_prv neededEvent, GameAction actionWhenCross, bool flipXForAction)
+            float characterSizeFactor, GameEventCombi_prv neededEvent, GameAction actionWhenCross, bool flipXForAction, string tag)
         {
             Position = position;
             Reachability = reachability;
@@ -55,6 +56,7 @@ namespace Gob3AQ.Waypoint.Network
             NeededEvent = neededEvent;
             ActionWhenCross = actionWhenCross;
             FlipXForAction = flipXForAction;
+            Tag = tag;
         }
     }
 
@@ -82,7 +84,7 @@ namespace Gob3AQ.Waypoint.Network
             for (int i = 0; i < children.Count; ++i)
             {
                 WaypointInfo info = new(children[i].transform.position, children[i].Reachability,
-                    solutions[i], children[i].CharacterSizeFactor, children[i].NeededEvent, children[i].ActionWhenCross, children[i].FlipXForAction);
+                    solutions[i], children[i].CharacterSizeFactor, children[i].NeededEvent, children[i].ActionWhenCross, children[i].FlipXForAction, children[i].WpTag);
                 waypoints_info.Add(info);
             }
 
@@ -143,16 +145,24 @@ namespace Gob3AQ.Waypoint.Network
                 for (int j = 0; j < children.Count; ++j)
                 {
                     List<WaypointClass> path_to = result_pathTo[i, j];
-                    int n_elems = path_to.Count;
 
-                    /* Retrieve list to traverse to given elem */
-                    if (i == j)
+                    if ((path_to != null) && (path_to.Count > 0))
                     {
-                        travelTo.Add(path_to[n_elems-1].ID_in_Network);
+                        int n_elems = path_to.Count;
+
+                        /* Retrieve list to traverse to given elem */
+                        if (i == j)
+                        {
+                            travelTo.Add(path_to[n_elems - 1].ID_in_Network);
+                        }
+                        else
+                        {
+                            travelTo.Add(path_to[n_elems - 2].ID_in_Network);
+                        }
                     }
                     else
                     {
-                        travelTo.Add(path_to[n_elems-2].ID_in_Network);
+                        travelTo.Add(-1);
                     }
                 }
 

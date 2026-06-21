@@ -115,6 +115,7 @@ namespace Gob3AQ.GameElement.PlayableChar
         protected override void ReachedWaypointFunction(int wp_index)
         {
             VARMAP_PlayerMaster.PLAYER_WAYPOINT_UPDATE(charType, wp_index);
+            exposedWaypoint = wp_index;
         }
 
         private IEnumerator Execute_Loading_Coroutine()
@@ -138,6 +139,7 @@ namespace Gob3AQ.GameElement.PlayableChar
 
 
             actualWaypoint = wpStartIndex == -1 ? 0 : wpStartIndex;
+            exposedWaypoint = actualWaypoint;
 
             topParentTransform.position = waypoints_infos[actualWaypoint].Position;
 

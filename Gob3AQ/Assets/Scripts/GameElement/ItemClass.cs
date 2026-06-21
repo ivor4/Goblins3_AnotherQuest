@@ -145,14 +145,30 @@ namespace Gob3AQ.GameElement.Item
 
         protected virtual void Loading_Task()
         {
-            if (!startingWaypoint)
+            VARMAP_ItemMaster.GET_NEAREST_WP(transform.position, float.MaxValue, out int nearestWaypointIndex, out _);
+
+            if (startingWaypoint && startingExposedWaypoint)
             {
-                VARMAP_ItemMaster.GET_NEAREST_WP(transform.position, float.MaxValue, out actualWaypoint, out _);
+                actualWaypoint = startingWaypoint.ID_in_Network;
+                exposedWaypoint = startingExposedWaypoint.ID_in_Network;
+            }
+            else if (!startingWaypoint && !startingExposedWaypoint)
+            {
+                actualWaypoint = nearestWaypointIndex;
+                exposedWaypoint = actualWaypoint;
+            }
+            else if (startingWaypoint)
+            {
+                actualWaypoint = startingWaypoint.ID_in_Network;
+                exposedWaypoint = actualWaypoint;
             }
             else
             {
-                actualWaypoint = startingWaypoint.ID_in_Network;
+                exposedWaypoint = startingExposedWaypoint.ID_in_Network;
+                actualWaypoint = exposedWaypoint;
             }
+
+            PresetProgrammedPathStruct(actualWaypoint);
 
             ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(itemID);
 

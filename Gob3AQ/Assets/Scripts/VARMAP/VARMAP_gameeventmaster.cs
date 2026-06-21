@@ -53,11 +53,13 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             SET_BUSY_STATE = _SET_BUSY_STATE;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
+            GET_WP_LIST = _GET_WP_LIST;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
             COMMIT_MEMENTO_NOTIF = _COMMIT_MEMENTO_NOTIF;
             IS_MEMENTO_UNLOCKED = _IS_MEMENTO_UNLOCKED;
             MEMENTO_PARENT_WATCHED = _MEMENTO_PARENT_WATCHED;
+            INTERACT_ITEM = _INTERACT_ITEM;
             ACTION_TO_ITEM = _ACTION_TO_ITEM;
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
             SHOW_DIALOGUE = _SHOW_DIALOGUE;
@@ -129,6 +131,13 @@ public static LOADING_COMPLETED_DELEGATE MODULE_LOADING_COMPLETED;
 /// </summary>
 public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
         /// <summary> 
+/// Gets list of waypoints and solutions 
+/// <para> Owner: LevelMaster </para> 
+/// <para> Accessors: ItemMaster, GameEventMaster </para> 
+/// <para> Method: <see cref="LevelMasterClass.GetWaypointListService"/> </para> 
+/// </summary>
+public static GET_WP_LIST_DELEGATE GET_WP_LIST;
+        /// <summary> 
 /// Checks if a combination of events is totally complied (event absence can also be requested) 
 /// <para> Owner: GameEventMaster </para> 
 /// <para> Accessors: LevelMaster, GraphicsMaster, GameMenu, DialogMaster, ItemMaster </para> 
@@ -163,6 +172,13 @@ public static IS_MEMENTO_UNLOCKED_DELEGATE IS_MEMENTO_UNLOCKED;
 /// <para> Method: <see cref="GameEventMasterClass.MementoParentWatchedService"/> </para> 
 /// </summary>
 public static MEMENTO_PARENT_WATCHED_DELEGATE MEMENTO_PARENT_WATCHED;
+        /// <summary> 
+/// Makes player interact with usage data 
+/// <para> Owner: ItemMaster </para> 
+/// <para> Accessors: LevelMaster, GameEventMaster </para> 
+/// <para> Method: <see cref="ItemMasterClass.InteractItemService"/> </para> 
+/// </summary>
+public static INTERACT_ITEM_DELEGATE INTERACT_ITEM;
         /// <summary> 
 /// Applies an unchain event to an item such as spawn or setsprite 
 /// <para> Owner: ItemMaster </para> 

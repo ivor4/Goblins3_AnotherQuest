@@ -46,7 +46,12 @@ namespace Gob3AQ.GameElement
         protected GameItem itemID;
 
         [SerializeField]
+        [Tooltip("Real waypoint (for movements")]
         protected WaypointClass startingWaypoint;
+
+        [SerializeField]
+        [Tooltip("Used Waypoint for character positioning when interacting with this element")]
+        protected WaypointClass startingExposedWaypoint;
 
         [SerializeField]
         protected int hoverPriority;
@@ -57,6 +62,7 @@ namespace Gob3AQ.GameElement
         public Collider2D My2DCollider => myCollider;
         public Bounds Bounds => mySpriteRenderer.bounds;
         public int Waypoint => actualWaypoint;
+        public int ExposedWaypoint => exposedWaypoint;
 
         public bool IsAvailable => isAvailable;
 
@@ -64,6 +70,7 @@ namespace Gob3AQ.GameElement
 
         protected GameItemFamily gameElementFamily;
         protected int actualWaypoint;
+        protected int exposedWaypoint; /* For character positioning when interacting */
         protected LevelElemInfo hoverInfo;
         protected GameObject topParent;
         protected Transform topParentTransform;
@@ -111,7 +118,7 @@ namespace Gob3AQ.GameElement
             isUnspawned = false;
             isUnclickable = false;
 
-            hoverInfo = new(itemID, gameElementFamily, actualWaypoint, hoverPriority, false);
+            hoverInfo = new(itemID, gameElementFamily, exposedWaypoint, hoverPriority, false);
         }
 
         protected virtual void Start()
@@ -218,21 +225,35 @@ namespace Gob3AQ.GameElement
             /* Interact only if not talking or doing an action */
             if (IsAvailable)
             {
-                actualProgrammedPath.final_index = destWp_index;
+                int target_index = waypoints_infos[actualWaypoint].Solution.TravelTo[destWp_index];
 
-                /* If already walking, complete its actual segment. If stopped, start with first inteded segment of new path from actual waypoint */
-                if ((physicalstate != PhysicalState.PHYSICAL_STATE_WALKING) && (actualWaypoint != destWp_index))
+
+                if (target_index != -1)
                 {
-                    Walk_StartNextSegment();
-                }
-                physicalstate = PhysicalState.PHYSICAL_STATE_WALKING;
+                    actualProgrammedPath.final_index = destWp_index;
 
-                requestAccepted = true;
+                    /* If already walking, complete its actual segment. If stopped, start with first inteded segment of new path from actual waypoint */
+                    if ((physicalstate != PhysicalState.PHYSICAL_STATE_WALKING) && (actualWaypoint != destWp_index))
+                    {
+                        Walk_StartNextSegment();
+                    }
+                    physicalstate = PhysicalState.PHYSICAL_STATE_WALKING;
+
+                    requestAccepted = true;
+                }
+                else
+                {
+                    requestAccepted = false;
+                }
+
+                
             }
             else
             {
                 requestAccepted = false;
             }
+
+            
 
             return requestAccepted;
         }
@@ -369,7 +390,7 @@ namespace Gob3AQ.GameElement
             var compound = isAvailable;
             compound &= isClickable_ext & isClickable_int;
 
-            hoverInfo = new(itemID, gameElementFamily, actualWaypoint, hoverPriority, compound);           
+            hoverInfo = new(itemID, gameElementFamily, exposedWaypoint, hoverPriority, compound);           
         }
 
         protected virtual void UpdateSortingOrder()

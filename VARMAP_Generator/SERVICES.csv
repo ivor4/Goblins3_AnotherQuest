@@ -11,7 +11,7 @@
 9,DOOR_REGISTER,DOOR_REGISTER_DELEGATE,LevelMasterClass.DoorRegisterService,Registers a door in level,,-,-,W,-,-,-,-,-,X,-,-
 10,OBTAIN_SCENARIO_ITEMS,OBTAIN_SCENARIO_ITEMS_DELEGATE,LevelMasterClass.ObtainScenarioItemsService,Obtains dictionary of placed elements in actual Scene,,-,-,W,-,-,-,-,-,X,-,-
 11,PLAYER_WAYPOINT_UPDATE,PLAYER_WAYPOINT_UPDATE_DELEGATE,LevelMasterClass.PlayerWaypointUpdateService,Updates actual player waypoint when crossing or stopping on it,,-,-,W,-,-,-,-,X,-,-,-
-12,GET_WP_LIST,GET_WP_LIST_DELEGATE,LevelMasterClass.GetWaypointListService,Gets list of waypoints and solutions,,-,-,W,-,-,-,-,-,X,-,-
+12,GET_WP_LIST,GET_WP_LIST_DELEGATE,LevelMasterClass.GetWaypointListService,Gets list of waypoints and solutions,,-,-,W,-,-,-,-,-,X,-,X
 13,GET_PLAYER_LIST,GET_PLAYER_LIST_DELEGATE,LevelMasterClass.GetPlayerListService,Gets a list of actual players,,-,-,W,X,-,-,-,X,-,-,-
 14,GET_NEAREST_WP,GET_NEAREST_WP_DELEGATE,LevelMasterClass.GetNearestWPService,Gets nearest WP from a given coordinates of level,,-,-,W,-,-,-,-,X,X,-,-
 15,IS_EVENT_COMBI_OCCURRED,IS_EVENT_COMBI_OCCURRED_DELEGATE,GameEventMasterClass.IsEventCombiOccurredService,Checks if a combination of events is totally complied (event absence can also be requested),,-,-,X,X,-,X,X,-,X,-,W
@@ -19,7 +19,7 @@
 17,COMMIT_MEMENTO_NOTIF,COMMIT_MEMENTO_NOTIF_DELEGATE,GameMenuClass.CommitMementoNotifService,Tells Memento Manager (Menu) a new memento has been unlocked,,-,-,-,-,-,W,-,-,-,-,X
 18,IS_MEMENTO_UNLOCKED,IS_MEMENTO_UNLOCKED_DELEGATE,GameEventMasterClass.IsMementoUnlockedService,Tells if a memento is unlocked,,-,-,-,-,-,X,-,-,-,-,W
 19,MEMENTO_PARENT_WATCHED,MEMENTO_PARENT_WATCHED_DELEGATE,GameEventMasterClass.MementoParentWatchedService,If a Memento has been analyzed,,-,-,-,-,-,X,-,-,-,-,W
-20,INTERACT_ITEM,INTERACT_ITEM_DELEGATE,ItemMasterClass.InteractItemService,Makes player interact with usage data,,-,-,X,-,-,-,-,-,W,-,-
+20,INTERACT_ITEM,INTERACT_ITEM_DELEGATE,ItemMasterClass.InteractItemService,Makes player interact with usage data,,-,-,X,-,-,-,-,-,W,-,X
 21,ACTION_TO_ITEM,ACTION_TO_ITEM_DELEGATE,ItemMasterClass.ActionToItemService,Applies an unchain event to an item such as spawn or setsprite,,-,-,-,-,-,-,-,-,W,-,X
 22,ITEM_REACHED_WAYPOINT,ITEM_REACHED_WAYPOINT_DELEGATE,LevelMasterClass.ItemReachedWaypointService,Tells LevelMaster that player reached Waypoint to start action in case,,-,-,W,-,-,-,-,-,X,-,-
 23,USE_ITEM,USE_ITEM_DELEGATE,ItemMasterClass.UseItemService,Uses an item with something,,-,-,X,-,-,X,-,-,W,-,-

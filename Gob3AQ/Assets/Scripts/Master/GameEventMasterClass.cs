@@ -9,6 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Gob3AQ.Libs.Arith;
 using UnityEngine;
+using Gob3AQ.Waypoint.Network;
 
 namespace Gob3AQ.GameEventMaster
 {
@@ -66,6 +67,7 @@ namespace Gob3AQ.GameEventMaster
         private List<ActionOrder> _pendingActions;
         private NotifyAction _actionEndedFlag;
         private NotifyAction _actionExpectedFlag;
+        private IReadOnlyList<WaypointInfo> _WP_Info;
 
 
         public static void IsMementoUnlockedService(Memento memento, out bool occurred, out bool unwatched)
@@ -482,6 +484,8 @@ namespace Gob3AQ.GameEventMaster
                 yield return ResourceAtlasClass.WaitForNextFrame;
             }
 
+            VARMAP_GameEventMaster.GET_WP_LIST(out _WP_Info);
+
             VARMAP_GameEventMaster.MODULE_LOADING_COMPLETED(GameModules.MODULE_GameEventMaster);
         }
 
@@ -788,6 +792,32 @@ namespace Gob3AQ.GameEventMaster
                         mustWait = info.waitForEnd;
                         _actionExpectedFlag = NotifyAction.NOTIFY_ANIMATION;
                         VARMAP_GameEventMaster.ITEM_PERFORM_ANIMATION(info.targetItem, info.animTrigger, null, mustWait ? EndOfItemAnimationCallback : null);
+                        break;
+                    case ActionType.ACTION_TYPE_MOVE_TO_WAYPOINT:
+                        int wpIndex = -1;
+                        for(int i=0; i < _WP_Info.Count; ++i)
+                        {
+                            WaypointInfo wpInfo = _WP_Info[i];
+                            if(wpInfo.Tag == info.targetWaypointTag)
+                            {
+                                wpIndex = i;
+                                break;
+                            }
+                        }
+
+                        if (wpIndex != -1)
+                        {
+                            VARMAP_GameEventMaster.INTERACT_ITEM(info.targetItem, wpIndex, out bool moveOk);
+                            mustWait = info.waitForEnd & moveOk;
+                            if(mustWait)
+                            {
+                                _actionExpectedFlag = NotifyAction.NOTIFY_MOVEMENT;
+                            }
+                        }
+                        else
+                        {
+                            Debug.LogError($"Waypoint with tag {info.targetWaypointTag} not found in actual Scenario");
+                        }
                         break;
                     default:
                         VARMAP_GameEventMaster.ACTION_TO_ITEM(in info);

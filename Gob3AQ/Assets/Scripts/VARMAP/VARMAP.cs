@@ -236,7 +236,7 @@ protected static PLAYER_WAYPOINT_UPDATE_DELEGATE _PLAYER_WAYPOINT_UPDATE;
         /// <summary> 
 /// Gets list of waypoints and solutions 
 /// <para> Owner: LevelMaster </para> 
-/// <para> Accessors: ItemMaster </para> 
+/// <para> Accessors: ItemMaster, GameEventMaster </para> 
 /// <para> Method: <see cref="LevelMasterClass.GetWaypointListService"/> </para> 
 /// </summary>
 protected static GET_WP_LIST_DELEGATE _GET_WP_LIST;
@@ -292,7 +292,7 @@ protected static MEMENTO_PARENT_WATCHED_DELEGATE _MEMENTO_PARENT_WATCHED;
         /// <summary> 
 /// Makes player interact with usage data 
 /// <para> Owner: ItemMaster </para> 
-/// <para> Accessors: LevelMaster </para> 
+/// <para> Accessors: LevelMaster, GameEventMaster </para> 
 /// <para> Method: <see cref="ItemMasterClass.InteractItemService"/> </para> 
 /// </summary>
 protected static INTERACT_ITEM_DELEGATE _INTERACT_ITEM;

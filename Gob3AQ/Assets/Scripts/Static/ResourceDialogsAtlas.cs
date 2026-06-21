@@ -797,7 +797,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new( /* DIALOG_WAITER_TERRACE */
             new GameEventCombi[1]{new(GameEvent.EVENT_OLIVE_OFFERED, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[2]{GameAction.ACTION_EVENT_DRUNK_STATE_REMOVE, GameAction.ACTION_SCENE_EXTRAPERLO_TERRACE},
+            new GameAction[3]{GameAction.ACTION_EVENT_DRUNK_STATE_REMOVE, GameAction.ACTION_MOVE_WAYPOINT_WAITER_TERRACE, GameAction.ACTION_SCENE_EXTRAPERLO_TERRACE},
             DialogType.DIALOG_NONE,false,
             new DialogPhrase[5]{DialogPhrase.PHRASE_DIALOG_WAITER_TERRACE_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_WAITER_TERRACE_OPTION_0_1, DialogPhrase.PHRASE_DIALOG_WAITER_TERRACE_OPTION_0_2, DialogPhrase.PHRASE_DIALOG_WAITER_TERRACE_OPTION_0_3, DialogPhrase.PHRASE_DIALOG_WAITER_TERRACE_OPTION_0_4}
             ),

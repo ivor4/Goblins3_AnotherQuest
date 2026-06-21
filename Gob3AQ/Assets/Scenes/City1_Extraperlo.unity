@@ -324,7 +324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1199191521139679277, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
       propertyPath: characterSizeFactor
-      value: 1.61
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1199191521139679277, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
       propertyPath: connectedWaypoints.Array.size
@@ -2239,6 +2239,10 @@ PrefabInstance:
       value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 2757196565734091061, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: reverseFlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757196565734091061, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: startingTrigger
       value: 17
       objectReference: {fileID: 0}
@@ -2553,7 +2557,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1199191521139679277, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
       propertyPath: characterSizeFactor
-      value: 1.81
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 1199191521139679277, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
       propertyPath: connectedWaypoints.Array.size

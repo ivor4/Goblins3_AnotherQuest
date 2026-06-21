@@ -25,6 +25,7 @@ namespace Gob3AQ.GameElement.Item.Door
             base.Awake();
 
             topParent = transform.parent.gameObject;
+            topParentTransform = topParent.transform;
 
             mySpriteRenderer = topParent.GetComponent<SpriteRenderer>();
             myCollider = topParent.GetComponent<Collider2D>();

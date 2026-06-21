@@ -56,6 +56,9 @@ namespace Gob3AQ.GameElement
         [SerializeField]
         protected int hoverPriority;
 
+        [SerializeField]
+        private bool reverseFlipX;
+
 
         public GameItem ItemID => itemID;
 
@@ -101,6 +104,7 @@ namespace Gob3AQ.GameElement
 
         protected PhysicalState physicalstate;
         private WaypointProgrammedPath actualProgrammedPath;
+        private float baseSize;
 
         private bool isUnspawned;
         private bool isUnclickable;
@@ -138,6 +142,7 @@ namespace Gob3AQ.GameElement
             VARMAP_ItemMaster.ITEM_REGISTER(true, this);
 
             registered = true;
+            baseSize = topParentTransform.localScale.x;
 
             VARMAP_ItemMaster.REG_GAMESTATUS(ChangedGameStatus);
             VARMAP_ItemMaster.GET_WP_LIST(out waypoints_infos);
@@ -552,7 +557,7 @@ namespace Gob3AQ.GameElement
 
                     PerformAnimation(AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE, null, null);
                     ExecuteQueuedTrigger();
-                    mySpriteRenderer.flipX = waypoints_infos[actualWaypoint].FlipXForAction;
+                    mySpriteRenderer.flipX = waypoints_infos[actualWaypoint].FlipXForAction ^ reverseFlipX;
 
                     StartBufferedInteraction();
                 }
@@ -599,19 +604,19 @@ namespace Gob3AQ.GameElement
             {
                 walkdirTrigger = AnimationTrigger.ANIMATION_TRIGGER_WALK_SIDE;
 
-                mySpriteRenderer.flipX = delta.x > 0;
+                mySpriteRenderer.flipX = (delta.x > 0) ^ reverseFlipX;
             }
             else if (absDeltaX >= 0.173f)
             {
                 walkdirTrigger = delta.y >= 0f ? AnimationTrigger.ANIMATION_TRIGGER_WALK_CORNERBACK : AnimationTrigger.ANIMATION_TRIGGER_WALK_CORNERFRONT;
 
-                mySpriteRenderer.flipX = delta.x > 0;
+                mySpriteRenderer.flipX = (delta.x > 0) ^ reverseFlipX;
             }
             else
             {
                 walkdirTrigger = delta.y >= 0f ? AnimationTrigger.ANIMATION_TRIGGER_WALK_BACK : AnimationTrigger.ANIMATION_TRIGGER_WALK_FRONT;
 
-                mySpriteRenderer.flipX = false;
+                mySpriteRenderer.flipX = reverseFlipX;
             }
 
             PerformAnimation(walkdirTrigger, null, null);
@@ -640,7 +645,7 @@ namespace Gob3AQ.GameElement
 
         protected void SetSize(float size)
         {
-            Vector3 scale = size * Vector3.one;
+            Vector3 scale = size * baseSize * Vector3.one;
             topParentTransform.localScale = scale;
         }
 

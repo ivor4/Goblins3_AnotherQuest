@@ -229,4 +229,5 @@ MonoBehaviour:
   startingWaypoint: {fileID: 0}
   startingExposedWaypoint: {fileID: 0}
   hoverPriority: 0
+  reverseFlipX: 0
   charType: 0

@@ -1,13 +1,13 @@
-using System;
 using Gob3AQ.Brain.ItemsInteraction;
+using Gob3AQ.GameElement.Animation;
 using Gob3AQ.ItemMaster;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceSprites;
 using Gob3AQ.VARMAP.ItemMaster;
 using Gob3AQ.VARMAP.Types;
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using Gob3AQ.GameElement.Animation;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

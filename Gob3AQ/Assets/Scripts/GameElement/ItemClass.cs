@@ -124,6 +124,7 @@ namespace Gob3AQ.GameElement.Item
             {
                 case Game_Status.GAME_STATUS_PLAY:
                     AutomaticAnimationRefresh();
+                    SetAvailable(physicalstate == PhysicalState.PHYSICAL_STATE_STANDING);
                     UpdateSortingOrder();
                 break;
             }

@@ -177,6 +177,7 @@ namespace Gob3AQ.VARMAP.Types
         SOUND_WAITER_1_OP_3_2, 
         SOUND_WAITER_1_OP_3_3, 
         SOUND_WAITER_1_OP_3_4, 
+        SOUND_MAINCHAR_NEED_ORINE, 
         SOUND_LAST, 
         
 SOUND_TOTAL

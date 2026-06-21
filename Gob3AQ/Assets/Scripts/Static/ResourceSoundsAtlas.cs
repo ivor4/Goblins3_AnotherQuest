@@ -194,6 +194,7 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_WAITER_1_OP_3_2_SPANISH"), /* SOUND_WAITER_1_OP_3_2 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_WAITER_1_OP_3_3_SPANISH"), /* SOUND_WAITER_1_OP_3_3 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_WAITER_1_OP_3_4_SPANISH"), /* SOUND_WAITER_1_OP_3_4 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_MAINCHAR_NEED_ORINE_SPANISH"), /* SOUND_MAINCHAR_NEED_ORINE */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

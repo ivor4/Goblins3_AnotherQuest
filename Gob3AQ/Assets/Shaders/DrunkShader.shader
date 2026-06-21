@@ -38,7 +38,10 @@ Shader "Custom/DrunkShader"
                     uv.x += sin(uv.y * _Frequency + _Time.y * _Speed) * _DistortionStrength;
                     uv.y += cos(uv.x * _Frequency + _Time.y * _Speed) * _DistortionStrength;
 
-                    uv.y = min(uv.y, 0.9166f);
+                    if(uv.x < 0.0f || uv.x > 1.0f || uv.y < 0.0f || uv.y > 0.9166f)
+                    {
+                        return fixed4(0.0f, 0.0f, 0.0f, 1.0f);
+                    }
 
                     fixed4 col = tex2D(_MainTex, uv);
                 

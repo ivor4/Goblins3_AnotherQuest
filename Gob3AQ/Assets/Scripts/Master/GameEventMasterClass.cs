@@ -436,13 +436,6 @@ namespace Gob3AQ.GameEventMaster
                 VARMAP_GameEventMaster.IS_MODULE_LOADED(GameModules.MODULE_ItemMaster, out completed);
             }
 
-            /* Scene entry unchainers */
-            RoomInfo roomInfo = ResourceAtlasClass.GetRoomInfo(room);
-
-            foreach (UnchainConditions unchainConditions in roomInfo.entryConditions)
-            {
-                TryUnchainAction(in ItemsInteractionsClass.GetUnchainInfo(unchainConditions));
-            }
 
 
             HashSet<UnchainConditions> _itemRelatedUnchainersToRemove = new(GameFixedConfig.MAX_PENDING_UNCHAINERS);
@@ -891,6 +884,19 @@ namespace Gob3AQ.GameEventMaster
                 {
                     case Game_Status.GAME_STATUS_LOADING:
                         StartCoroutine(Scene_Loading_Task_Coroutine(VARMAP_GameEventMaster.GET_ACTUAL_ROOM()));
+                        break;
+
+                    case Game_Status.GAME_STATUS_PLAY:
+                        if(oldval == Game_Status.GAME_STATUS_LOADING)
+                        {
+                            /* Scene entry unchainers */
+                            RoomInfo roomInfo = ResourceAtlasClass.GetRoomInfo(VARMAP_GameEventMaster.GET_ACTUAL_ROOM());
+
+                            foreach (UnchainConditions unchainConditions in roomInfo.entryConditions)
+                            {
+                                TryUnchainAction(in ItemsInteractionsClass.GetUnchainInfo(unchainConditions));
+                            }
+                        }
                         break;
 
                     default:

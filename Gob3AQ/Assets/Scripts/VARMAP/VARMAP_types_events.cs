@@ -53,6 +53,7 @@ namespace Gob3AQ.VARMAP.Types
         EVENT_BEER_THIRD_ROUND, 
         EVENT_DRUNK_STATE, 
         EVENT_OLIVE_OFFERED, 
+        EVENT_NEED_ORINE_SAID, 
         EVENT_LAST, 
         
 EVENT_TOTAL

@@ -585,6 +585,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 664bef4b058f4194eb73e58e8d19536d
+    m_Address: SPRITE_SILVANA_CLOSING_BOOK
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6797f73f46c34c5418d0beec2d1db9df
     m_Address: SOUND_WAITER_1_OP_3_0_SPANISH
     m_ReadOnly: 0
@@ -842,6 +847,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b6c26ea76699ab44aecbf82c616c938
     m_Address: SOUND_WAITER_1_OP_1_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ba77ab8d59cfff409962b88fa50d775
+    m_Address: ANIMATION_SILVANA_SHOCKED_ANGRY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -1315,6 +1325,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f2ca71ce83e0ca9469553e27db8d0689
+    m_Address: ANIMATOR_SILVANA_GARDEN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f3d0a7c5156c0fe438bdfc158036212e
     m_Address: ANIMATION_ARTURO_STEADY
     m_ReadOnly: 0
@@ -1367,6 +1382,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fd616ddc40d6a5340bf088b4ed5b623a
     m_Address: SOUND_MAINCHAR_AFTER_THIRD_BEER_COMMENT_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd9c54f98ccef1844894fc5579e95a4e
+    m_Address: ANIMATION_SILVANA_STANDING_STEADY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

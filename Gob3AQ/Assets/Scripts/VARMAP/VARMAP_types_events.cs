@@ -54,6 +54,7 @@ namespace Gob3AQ.VARMAP.Types
         EVENT_DRUNK_STATE, 
         EVENT_OLIVE_OFFERED, 
         EVENT_NEED_ORINE_SAID, 
+        EVENT_USED_ORINE_FLOWER, 
         EVENT_LAST, 
         
 EVENT_TOTAL

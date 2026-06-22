@@ -1,5 +1,5 @@
 ﻿NewItem,NewName,NewSprite,Pickable,Spawn,Picker_Character,ObservationPhrase,TakePhrase,Room,Output,Unnamed: 10,Unnamed: 11
-ITEM_INNOCENT_PLANT,NAME_INNOCENT_PLANT,SPRITE_BLANK,False,False,CHARACTER_NONE,Una planta que está creciendo. En el momento más bonito de su vida. Un momento clave en el que hidratación. Sol. Y terreno. Decidirán si va hacia adelante o perece,,CITY1_EXTRAPERLO3,,,
+ITEM_INNOCENT_PLANT,NAME_INNOCENT_PLANT,SPRITE_BLANK,False,True,CHARACTER_NONE,Una planta que está creciendo. En el momento más bonito de su vida. Un momento clave en el que hidratación. Sol. Y terreno. Decidirán si va hacia adelante o perece,,CITY1_EXTRAPERLO3,,,
 ,,,,,,,,,,,
 NewRoom,Background,BackgroundNight,Music,Output,,,,,,,
 CITY1_EXTRAPERLO1,BACKGROUND_CITY1_EXTRAPERLO,BACKGROUND_CITY1_EXTRAPERLO,MUSIC_EXTRAPERLO,,,,,,,,

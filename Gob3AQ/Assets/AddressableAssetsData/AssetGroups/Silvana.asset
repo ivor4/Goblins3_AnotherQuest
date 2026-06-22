@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Silvana
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Silvana
+  m_GUID: 4b506d4b43076e14f863276ed9ad9f9d
+  m_SerializeEntries:
+  - m_GUID: 7d9435cc9cb2ded41b8f3d4bc78cbd35
+    m_Address: SPRITE_ATLAS_SILVANA_0
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d209b94b4f97d5148a551a24738e74d1
+    m_Address: SPRITE_SILVANA_SHOCKED_ANGRY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e921d798ab20c60458f9864d7c094cc9
+    m_Address: SPRITE_SILVANA_STEADY_STANDING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c63f0f3646ca67f4abe7e9d9a952af85, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 94e6a540b8b459b48b17f0afefed8429, type: 2}
+    - {fileID: 11400000, guid: 39674732b128e9b4db2a009eba7dee34, type: 2}

@@ -6,6 +6,7 @@ using Gob3AQ.LevelMaster;
 using Gob3AQ.PlayerMaster;
 using Gob3AQ.ItemMaster;
 using Gob3AQ.GameEventMaster;
+using Gob3AQ.GraphicsMaster;
 using Gob3AQ.GameMenu;
 using Gob3AQ.DialogMaster;
 using Gob3AQ.CardMaster;
@@ -73,6 +74,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             IS_DIALOG_ACTIVE = _IS_DIALOG_ACTIVE;
             NOTIFY_ENDED_ACTION = _NOTIFY_ENDED_ACTION;
             EXECUTE_EXIT_ROOM_CONDS = _EXECUTE_EXIT_ROOM_CONDS;
+            ACTIVATE_FORCED_ZOOM_MODE = _ACTIVATE_FORCED_ZOOM_MODE;
             START_CARD_GAME = _START_CARD_GAME;
             LOAD_ROOM_AS_ACTION = _LOAD_ROOM_AS_ACTION;
             /* > ATG 1 END */
@@ -259,7 +261,7 @@ public static IS_DIALOG_ACTIVE_DELEGATE IS_DIALOG_ACTIVE;
         /// <summary> 
 /// Notifies Event manager a Dialog / Animation action has been performed 
 /// <para> Owner: GameEventMaster </para> 
-/// <para> Accessors: LevelMaster, DialogMaster </para> 
+/// <para> Accessors: LevelMaster, GraphicsMaster, DialogMaster </para> 
 /// <para> Method: <see cref="GameEventMasterClass.NotifyEndedActionService"/> </para> 
 /// </summary>
 public static NOTIFY_ENDED_ACTION_DELEGATE NOTIFY_ENDED_ACTION;
@@ -270,6 +272,13 @@ public static NOTIFY_ENDED_ACTION_DELEGATE NOTIFY_ENDED_ACTION;
 /// <para> Method: <see cref="GameEventMasterClass.ExecuteExitRoomCondsService"/> </para> 
 /// </summary>
 public static EXECUTE_EXIT_ROOM_CONDS_DELEGATE EXECUTE_EXIT_ROOM_CONDS;
+        /// <summary> 
+/// Service for GraphicsMaste to make zoom into a region of interest 
+/// <para> Owner: GraphicsMaster </para> 
+/// <para> Accessors: DialogMaster, GameEventMaster </para> 
+/// <para> Method: <see cref="GraphicsMasterClass.ActivateForcedZoomMode"/> </para> 
+/// </summary>
+public static ACTIVATE_FORCED_ZOOM_MODE_DELEGATE ACTIVATE_FORCED_ZOOM_MODE;
         /// <summary> 
 /// Tells Card Master to prepare a game with given parameters 
 /// <para> Owner: CardMaster </para> 

@@ -171,6 +171,12 @@ namespace Gob3AQ.GameElement.Item
 
             PresetProgrammedPathStruct(actualWaypoint);
 
+            /* Items will only react to Waypoint size if both kind of waypoints are defined */
+            if(startingExposedWaypoint && startingWaypoint)
+            {
+                SetSize(waypoints_infos[actualWaypoint].CharacterSizeFactor);
+            }
+
             ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(itemID);
 
             loaded = true;

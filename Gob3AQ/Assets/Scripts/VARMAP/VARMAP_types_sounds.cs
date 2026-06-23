@@ -182,6 +182,7 @@ namespace Gob3AQ.VARMAP.Types
         SOUND_OBSERVE_BLADDER, 
         SOUND_MAINCHAR_ABOUT_PEE_PLANT, 
         SOUND_PEE, 
+        SOUND_SILVANA_OBSERVED_PEE, 
         SOUND_LAST, 
         
 SOUND_TOTAL

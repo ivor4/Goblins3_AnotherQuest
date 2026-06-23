@@ -199,6 +199,7 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_OBSERVE_BLADDER_SPANISH"), /* SOUND_OBSERVE_BLADDER */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_MAINCHAR_ABOUT_PEE_PLANT_SPANISH"), /* SOUND_MAINCHAR_ABOUT_PEE_PLANT */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_PEE"), /* SOUND_PEE */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_SILVANA_OBSERVED_PEE_SPANISH"), /* SOUND_SILVANA_OBSERVED_PEE */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

@@ -60,6 +60,7 @@ namespace Gob3AQ.GraphicsMaster
 
         private CameraDispositionStruct preForcedZoomDisposition;
         private ForcedZoomState forcedZoomState;
+        private bool forcedZoomReversible;
         private Vector3 forcedZoomFinalPosition;
         private float forcedZoomFinalOrthoSize;
         private Vector3 forcedZoomDeltaPosition;
@@ -98,7 +99,7 @@ namespace Gob3AQ.GraphicsMaster
             }
         }
 
-        public static void ActivateForcedZoomMode(bool activate, Bounds regionOfInterest)
+        public static void ActivateForcedZoomMode(bool activate, bool reversible, Bounds regionOfInterest)
         {
             if (_singleton != null)
             {
@@ -106,6 +107,7 @@ namespace Gob3AQ.GraphicsMaster
                 {
                     _singleton.preForcedZoomDisposition = VARMAP_GraphicsMaster.GET_CAMERA_DISPOSITION();
                     _singleton.forcedZoomState = ForcedZoomState.ACTIVATING;
+                    _singleton.forcedZoomReversible = reversible;
 
                     regionOfInterest.extents *= 1.25f;
 
@@ -221,7 +223,9 @@ namespace Gob3AQ.GraphicsMaster
                     {
                         cameraPosition = forcedZoomFinalPosition;
                         orthoSize = forcedZoomFinalOrthoSize;
-                        forcedZoomState = (forcedZoomState == ForcedZoomState.ACTIVATING) ? ForcedZoomState.ACTIVE : ForcedZoomState.NONE;
+                        forcedZoomState = (forcedZoomState == ForcedZoomState.ACTIVATING && forcedZoomReversible) ? ForcedZoomState.ACTIVE : ForcedZoomState.NONE;
+
+                        VARMAP_GraphicsMaster.NOTIFY_ENDED_ACTION(NotifyAction.NOTIFY_ZOOM);
                     }
 
                     cameraPosition.z = mainCameraTransform.position.z;

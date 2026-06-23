@@ -446,7 +446,7 @@ protected static IS_DIALOG_ACTIVE_DELEGATE _IS_DIALOG_ACTIVE;
         /// <summary> 
 /// Notifies Event manager a Dialog / Animation action has been performed 
 /// <para> Owner: GameEventMaster </para> 
-/// <para> Accessors: LevelMaster, DialogMaster </para> 
+/// <para> Accessors: LevelMaster, GraphicsMaster, DialogMaster </para> 
 /// <para> Method: <see cref="GameEventMasterClass.NotifyEndedActionService"/> </para> 
 /// </summary>
 protected static NOTIFY_ENDED_ACTION_DELEGATE _NOTIFY_ENDED_ACTION;
@@ -467,7 +467,7 @@ protected static EXECUTE_EXIT_ROOM_CONDS_DELEGATE _EXECUTE_EXIT_ROOM_CONDS;
         /// <summary> 
 /// Service for GraphicsMaste to make zoom into a region of interest 
 /// <para> Owner: GraphicsMaster </para> 
-/// <para> Accessors: DialogMaster </para> 
+/// <para> Accessors: DialogMaster, GameEventMaster </para> 
 /// <para> Method: <see cref="GraphicsMasterClass.ActivateForcedZoomMode"/> </para> 
 /// </summary>
 protected static ACTIVATE_FORCED_ZOOM_MODE_DELEGATE _ACTIVATE_FORCED_ZOOM_MODE;

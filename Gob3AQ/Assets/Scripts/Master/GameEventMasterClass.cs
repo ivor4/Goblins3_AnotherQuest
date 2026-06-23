@@ -69,6 +69,12 @@ namespace Gob3AQ.GameEventMaster
         private NotifyAction _actionExpectedFlag;
         private IReadOnlyList<WaypointInfo> _WP_Info;
 
+        private static readonly IReadOnlyDictionary<string, Action> CUSTOM_FN_DICT = new Dictionary<string, Action>()
+        {
+            
+        };
+
+
 
         public static void IsMementoUnlockedService(Memento memento, out bool occurred, out bool unwatched)
         {
@@ -810,6 +816,32 @@ namespace Gob3AQ.GameEventMaster
                         else
                         {
                             Debug.LogError($"Waypoint with tag {info.targetWaypointTag} not found in actual Scenario");
+                        }
+                        break;
+                    case ActionType.ACTION_TYPE_EXEC_CUSTOM_FN:
+                        if(CUSTOM_FN_DICT.TryGetValue(info.targetWaypointTag, out Action fn))
+                        {
+                            mustWait = info.waitForEnd;
+                            fn?.Invoke();
+                        }
+                        else
+                        {
+                            Debug.LogError($"Error calling custom function {info.targetWaypointTag}");
+                        }
+                        break;
+                    case ActionType.ACTION_TYPE_SET_ZOOM_REGION:
+                        GameObject foundZoomObject = GameObject.Find(info.targetWaypointTag);
+                        if (foundZoomObject)
+                        {
+                            mustWait = info.waitForEnd;
+                            _actionExpectedFlag = NotifyAction.NOTIFY_ZOOM;
+                            Bounds bounds = foundZoomObject.GetComponent<BoxCollider2D>().bounds;
+                            Debug.Log($"Bounds {bounds}");
+                            VARMAP_GameEventMaster.ACTIVATE_FORCED_ZOOM_MODE(true, false, bounds);
+                        }
+                        else
+                        {
+                            Debug.LogError($"Zoom object {info.targetWaypointTag} not found");
                         }
                         break;
                     default:

@@ -246,7 +246,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
 
             new( /* DIALOG_WAITER_W_INVITATION */
             new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_WAITER},
-            new DialogOption[4]{DialogOption.DIALOG_WAITER_W_INVITATION_OPTION_0, DialogOption.DIALOG_WAITER_W_INVITATION_OPTION_1, DialogOption.DIALOG_WAITER_TERRACE, DialogOption.DIALOG_WAITER_W_INVITATION_OPTION_2}
+            new DialogOption[4]{DialogOption.DIALOG_WAITER_W_INVITATION_OPTION_0, DialogOption.DIALOG_WAITER_W_INVITATION_OPTION_1, DialogOption.DIALOG_WAITER_OPTION_TERRACE, DialogOption.DIALOG_WAITER_W_INVITATION_OPTION_2}
             ),
 
             new( /* DIALOG_WAITER_W_INVITATION_INTRO */
@@ -277,6 +277,16 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new( /* DIALOG_SILVANA_OLIVE */
             new GameItem[3]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_SILVANA_EXTRAPERLO, GameItem.ITEM_NPC_CLOWN},
             new DialogOption[1]{DialogOption.DIALOG_SILVANA_OLIVE_OPTION_0}
+            ),
+
+            new( /* DIALOG_MAINCHAR_PEE */
+            new GameItem[1]{GameItem.ITEM_PLAYER_MAIN},
+            new DialogOption[1]{DialogOption.DIALOG_MAINCHAR_PEE_OPTION_0}
+            ),
+
+            new( /* DIALOG_SILVANA_OBSERVE_PEE */
+            new GameItem[1]{GameItem.ITEM_NPC_SILVANA_EXTRAPERLO_GARD},
+            new DialogOption[1]{DialogOption.DIALOG_SILVANA_OBSERVED_PEE_OPTION_0}
             ),
 
             new( /* DIALOG_LAST */
@@ -794,12 +804,26 @@ namespace Gob3AQ.ResourceDialogsAtlas
             DialogType.DIALOG_NONE,false,
             new DialogPhrase[4]{DialogPhrase.PHRASE_DIALOG_SILVANA_OLIVE_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_SILVANA_OLIVE_OPTION_0_1, DialogPhrase.PHRASE_DIALOG_SILVANA_OLIVE_OPTION_0_2, DialogPhrase.PHRASE_DIALOG_SILVANA_OLIVE_OPTION_0_3}
             ),
-            new( /* DIALOG_WAITER_TERRACE */
+            new( /* DIALOG_WAITER_OPTION_TERRACE */
             new GameEventCombi[1]{new(GameEvent.EVENT_OLIVE_OFFERED, false)},
             MomentType.MOMENT_ANY,
             new GameAction[3]{GameAction.ACTION_MOVE_WAYPOINT_WAITER_TERRACE, GameAction.ACTION_EVENT_DRUNK_STATE_REMOVE, GameAction.ACTION_SCENE_EXTRAPERLO_TERRACE},
             DialogType.DIALOG_NONE,false,
             new DialogPhrase[5]{DialogPhrase.PHRASE_DIALOG_WAITER_TERRACE_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_WAITER_TERRACE_OPTION_0_1, DialogPhrase.PHRASE_DIALOG_WAITER_TERRACE_OPTION_0_2, DialogPhrase.PHRASE_DIALOG_WAITER_TERRACE_OPTION_0_3, DialogPhrase.PHRASE_DIALOG_WAITER_TERRACE_OPTION_0_4}
+            ),
+            new( /* DIALOG_MAINCHAR_PEE_OPTION_0 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[4]{GameAction.ACTION_MOVE_AFTER_PEE, GameAction.ACTION_ZOOM_SILVANA_SHOCKED_ZONE, GameAction.ACTION_ANIMATE_SILVANA_SHOCKED_ANGRY, GameAction.ACTION_DIALOGUE_SILVANA_OBSERVE_PEE},
+            DialogType.DIALOG_NONE,false,
+            new DialogPhrase[2]{DialogPhrase.PHRASE_ABOUT_PEE_PLANT, DialogPhrase.PHRASE_BLANK_PEE_SOUND}
+            ),
+            new( /* DIALOG_SILVANA_OBSERVED_PEE_OPTION_0 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_ZOOM_GARDEN_OUT},
+            DialogType.DIALOG_NONE,false,
+            new DialogPhrase[1]{DialogPhrase.PHRASE_SILVANA_OBSERVED_PEE}
             ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
@@ -1086,6 +1110,8 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,GameSound.SOUND_OBSERVE_INNOCENT_PLANT, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_ITEM_INNOCENT_PLANT */ 
             new(0,GameSound.SOUND_OBSERVE_BLADDER, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_BLADDER */ 
             new(0,GameSound.SOUND_MAINCHAR_ABOUT_PEE_PLANT, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_ABOUT_PEE_PLANT */ 
+            new(0,GameSound.SOUND_PEE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_BLANK_PEE_SOUND */ 
+            new(0,GameSound.SOUND_SILVANA_OBSERVED_PEE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_SILVANA_OBSERVED_PEE */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

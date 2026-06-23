@@ -44,6 +44,7 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
             ZOOM_SUBSCRIPTION = _ZOOM_SUBSCRIPTION;
+            NOTIFY_ENDED_ACTION = _NOTIFY_ENDED_ACTION;
             TAKE_LOADING_SNAPSHOT = _TAKE_LOADING_SNAPSHOT;
             ACTIVATE_FORCED_ZOOM_MODE = _ACTIVATE_FORCED_ZOOM_MODE;
             /* > ATG 1 END */
@@ -114,6 +115,13 @@ public static IS_EVENT_COMBI_OCCURRED_DELEGATE IS_EVENT_COMBI_OCCURRED;
 /// </summary>
 public static ZOOM_SUBSCRIPTION_DELEGATE ZOOM_SUBSCRIPTION;
         /// <summary> 
+/// Notifies Event manager a Dialog / Animation action has been performed 
+/// <para> Owner: GameEventMaster </para> 
+/// <para> Accessors: LevelMaster, GraphicsMaster, DialogMaster </para> 
+/// <para> Method: <see cref="GameEventMasterClass.NotifyEndedActionService"/> </para> 
+/// </summary>
+public static NOTIFY_ENDED_ACTION_DELEGATE NOTIFY_ENDED_ACTION;
+        /// <summary> 
 /// Takes snapshot to be used in fading while loading next scene 
 /// <para> Owner: GraphicsMaster </para> 
 /// <para> Accessors: GameMaster </para> 
@@ -123,7 +131,7 @@ public static TAKE_LOADING_SNAPSHOT_DELEGATE TAKE_LOADING_SNAPSHOT;
         /// <summary> 
 /// Service for GraphicsMaste to make zoom into a region of interest 
 /// <para> Owner: GraphicsMaster </para> 
-/// <para> Accessors: DialogMaster </para> 
+/// <para> Accessors: DialogMaster, GameEventMaster </para> 
 /// <para> Method: <see cref="GraphicsMasterClass.ActivateForcedZoomMode"/> </para> 
 /// </summary>
 public static ACTIVATE_FORCED_ZOOM_MODE_DELEGATE ACTIVATE_FORCED_ZOOM_MODE;

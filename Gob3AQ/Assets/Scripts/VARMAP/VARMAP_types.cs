@@ -96,7 +96,8 @@ namespace Gob3AQ.VARMAP.Types
         NOTIFY_DIALOG = 0x1,
         NOTIFY_ANIMATION = 0x2,
         NOTIFY_SOUND = 0x4,
-        NOTIFY_MOVEMENT = 0x8
+        NOTIFY_MOVEMENT = 0x8,
+        NOTIFY_ZOOM = 0x10,
     }
 
     public readonly struct InitialWalkInfo

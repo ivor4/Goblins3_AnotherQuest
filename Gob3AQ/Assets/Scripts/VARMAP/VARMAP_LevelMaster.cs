@@ -273,7 +273,7 @@ public static PERFORM_ACTION_DELEGATE PERFORM_ACTION;
         /// <summary> 
 /// Notifies Event manager a Dialog / Animation action has been performed 
 /// <para> Owner: GameEventMaster </para> 
-/// <para> Accessors: LevelMaster, DialogMaster </para> 
+/// <para> Accessors: LevelMaster, GraphicsMaster, DialogMaster </para> 
 /// <para> Method: <see cref="GameEventMasterClass.NotifyEndedActionService"/> </para> 
 /// </summary>
 public static NOTIFY_ENDED_ACTION_DELEGATE NOTIFY_ENDED_ACTION;

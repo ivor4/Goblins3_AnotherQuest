@@ -306,8 +306,8 @@ namespace Gob3AQ.GameMenu.UICanvas
                     break;
                 case DialogMode.DIALOG_MODE_PHRASE:
                     UICanvas_dialogObj_background.enabled = false;
-                    UICanvas_dialogObj_sender.gameObject.SetActive(true);
-                    UICanvas_dialogObj_msg.gameObject.SetActive(true);
+                    UICanvas_dialogObj_sender.gameObject.SetActive(msg.Length > 0);
+                    UICanvas_dialogObj_msg.gameObject.SetActive(msg.Length > 0);
                     UICanvas_dialogOptions.SetActive(false);
 
                     UICanvas_dialogObj_sender.text = sender;
@@ -316,8 +316,8 @@ namespace Gob3AQ.GameMenu.UICanvas
 
                 case DialogMode.DIALOG_MODE_BACKGROUND:
                     UICanvas_dialogObj_background.enabled = false;
-                    UICanvas_dialogObj_sender.gameObject.SetActive(true);
-                    UICanvas_dialogObj_msg.gameObject.SetActive(true);
+                    UICanvas_dialogObj_sender.gameObject.SetActive(msg.Length > 0);
+                    UICanvas_dialogObj_msg.gameObject.SetActive(msg.Length > 0);
                     UICanvas_dialogOptions.SetActive(false);
 
                     UICanvas_dialogObj_sender.text = sender;

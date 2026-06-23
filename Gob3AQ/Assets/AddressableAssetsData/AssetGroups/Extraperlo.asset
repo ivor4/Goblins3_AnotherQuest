@@ -340,6 +340,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 414895b3d950e7c4689e956b7d3f5c3b
+    m_Address: SOUND_SILVANA_OBSERVED_PEE_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 42834659ca22cb544932acceffc6e490
     m_Address: SOUND_CLOWN_OP2_2_SPANISH
     m_ReadOnly: 0

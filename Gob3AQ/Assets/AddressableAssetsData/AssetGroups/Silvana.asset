@@ -15,8 +15,33 @@ MonoBehaviour:
   m_GroupName: Silvana
   m_GUID: 4b506d4b43076e14f863276ed9ad9f9d
   m_SerializeEntries:
+  - m_GUID: 2fb104059cb135b468ae7e41af88bc8f
+    m_Address: ANIMATION_SILVANA_STANDING_TALKING_ANGRY_EXEC2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7d9435cc9cb2ded41b8f3d4bc78cbd35
     m_Address: SPRITE_ATLAS_SILVANA_0
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b170d2a42e119348b21b831e01d1082
+    m_Address: ANIMATION_SILVANA_STANDING_TALKING_ANGRY_ENTRY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b29593419fe02ca4f80cd59279a1dc20
+    m_Address: SPRITE_SILVANA_STEADY_TALKING_ANGRY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b43d4910947318a45a2ebd91136bf92e
+    m_Address: ANIMATION_SILVANA_STANDING_TALKING_ANGRY_EXEC1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d145b4426aa838d43a4aa5a1b025d06e
+    m_Address: ANIMATION_SILVANA_STANDING_TALKING_ANGRY_EXIT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

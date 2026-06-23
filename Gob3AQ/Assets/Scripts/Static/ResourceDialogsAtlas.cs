@@ -821,7 +821,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new( /* DIALOG_SILVANA_OBSERVED_PEE_OPTION_0 */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_ZOOM_GARDEN_OUT},
+            new GameAction[2]{GameAction.ACTION_ZOOM_GARDEN_OUT, GameAction.ACTION_MOVE_SILVANA_GARDEN_TALK_APROACH},
             DialogType.DIALOG_NONE,false,
             new DialogPhrase[1]{DialogPhrase.PHRASE_SILVANA_OBSERVED_PEE}
             ),

@@ -20,8 +20,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 699fd39cacb195946a0506efe17bc3ba
+    m_Address: ANIMATION_SILVANA_STANDING_WALKING_CORNER_FRONT_EXEC1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7cbdc167b17f40a498da71550abb345a
+    m_Address: ANIMATION_SILVANA_STANDING_WALKING_CORNER_FRONT_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7d9435cc9cb2ded41b8f3d4bc78cbd35
     m_Address: SPRITE_ATLAS_SILVANA_0
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 984d29ffa21b7204e83855e1ce9fb3e6
+    m_Address: ANIMATION_SILVANA_STANDING_WALKING_CORNER_FRONT_ENTRY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -37,6 +52,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b43d4910947318a45a2ebd91136bf92e
     m_Address: ANIMATION_SILVANA_STANDING_TALKING_ANGRY_EXEC1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b5d3932b5eefe1445b03ec04f356a77d
+    m_Address: ANIMATION_SILVANA_STANDING_WALKING_CORNER_FRONT_EXEC2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d019733dfc376c6408fc28d6600a2435
+    m_Address: SPRITE_SILVANA_WALKING_CORNER_FRONT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -1,0 +1,639 @@
+fileFormatVersion: 2
+guid: d019733dfc376c6408fc28d6600a2435
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2700747863015098266
+    second: SPRITE_SILVANA_WALKING_CORNER_FRONT_0
+  - first:
+      213: -3884427114688735122
+    second: SPRITE_SILVANA_WALKING_CORNER_FRONT_1
+  - first:
+      213: -3911482006458127964
+    second: SPRITE_SILVANA_WALKING_CORNER_FRONT_2
+  - first:
+      213: 1365639391307071444
+    second: SPRITE_SILVANA_WALKING_CORNER_FRONT_3
+  - first:
+      213: -6672646484453969950
+    second: SPRITE_SILVANA_WALKING_CORNER_FRONT_4
+  - first:
+      213: 1308334200094891246
+    second: SPRITE_SILVANA_WALKING_CORNER_FRONT_5
+  - first:
+      213: 2378683113298537113
+    second: SPRITE_SILVANA_WALKING_CORNER_FRONT_6
+  - first:
+      213: 1389729630263593239
+    second: SPRITE_SILVANA_WALKING_CORNER_FRONT_7
+  - first:
+      213: 1470944187595429018
+    second: SPRITE_SILVANA_WALKING_CORNER_FRONT_8
+  - first:
+      213: -8874062200334970702
+    second: SPRITE_SILVANA_WALKING_CORNER_FRONT_9
+  - first:
+      213: 614160680765708308
+    second: SPRITE_SILVANA_WALKING_CORNER_FRONT_10
+  - first:
+      213: -6799934958027471275
+    second: SPRITE_SILVANA_WALKING_CORNER_FRONT_11
+  - first:
+      213: -76512654515828794
+    second: SPRITE_SILVANA_WALKING_CORNER_FRONT_12
+  - first:
+      213: -7745372237534872063
+    second: SPRITE_SILVANA_WALKING_CORNER_FRONT_13
+  - first:
+      213: 7022457142388886384
+    second: SPRITE_SILVANA_WALKING_CORNER_FRONT_14
+  - first:
+      213: -8478192170283194312
+    second: SPRITE_SILVANA_WALKING_CORNER_FRONT_15
+  - first:
+      213: -5846929313657342327
+    second: SPRITE_SILVANA_WALKING_CORNER_FRONT_16
+  - first:
+      213: 7678056770383133075
+    second: SPRITE_SILVANA_WALKING_CORNER_FRONT_17
+  - first:
+      213: 8788485720111936258
+    second: SPRITE_SILVANA_WALKING_CORNER_FRONT_18
+  - first:
+      213: 2456957548249038714
+    second: SPRITE_SILVANA_WALKING_CORNER_FRONT_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_WALKING_CORNER_FRONT_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 668f615b024058ad0800000000000000
+      internalID: -2700747863015098266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_WALKING_CORNER_FRONT_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e681519ae1eb71ac0800000000000000
+      internalID: -3884427114688735122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_WALKING_CORNER_FRONT_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a92bbbc6df97b9c0800000000000000
+      internalID: -3911482006458127964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_WALKING_CORNER_FRONT_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4df732a7ac9b3f210800000000000000
+      internalID: 1365639391307071444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_WALKING_CORNER_FRONT_4
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2efac56206ff563a0800000000000000
+      internalID: -6672646484453969950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_WALKING_CORNER_FRONT_5
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eec962ce503282210800000000000000
+      internalID: 1308334200094891246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_WALKING_CORNER_FRONT_6
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99a216150b7c20120800000000000000
+      internalID: 2378683113298537113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_WALKING_CORNER_FRONT_7
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71942b15cbf494310800000000000000
+      internalID: 1389729630263593239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_WALKING_CORNER_FRONT_8
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a941d0af1f7d96410800000000000000
+      internalID: 1470944187595429018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_WALKING_CORNER_FRONT_9
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b01052127ff8d480800000000000000
+      internalID: -8874062200334970702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_WALKING_CORNER_FRONT_10
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4185d0c92efe58800800000000000000
+      internalID: 614160680765708308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_WALKING_CORNER_FRONT_11
+      rect:
+        serializedVersion: 2
+        x: 7040
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 556030bee27c1a1a0800000000000000
+      internalID: -6799934958027471275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_WALKING_CORNER_FRONT_12
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c703c6652c20fef0800000000000000
+      internalID: -76512654515828794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_WALKING_CORNER_FRONT_13
+      rect:
+        serializedVersion: 2
+        x: 8320
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10ebf889cf8e28490800000000000000
+      internalID: -7745372237534872063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_WALKING_CORNER_FRONT_14
+      rect:
+        serializedVersion: 2
+        x: 8960
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07b8e7e7097c47160800000000000000
+      internalID: 7022457142388886384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_WALKING_CORNER_FRONT_15
+      rect:
+        serializedVersion: 2
+        x: 9600
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 838a5c8f329675a80800000000000000
+      internalID: -8478192170283194312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_WALKING_CORNER_FRONT_16
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 986b2a084c88bdea0800000000000000
+      internalID: -5846929313657342327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_WALKING_CORNER_FRONT_17
+      rect:
+        serializedVersion: 2
+        x: 10880
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39938fbd3ffed8a60800000000000000
+      internalID: 7678056770383133075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_WALKING_CORNER_FRONT_18
+      rect:
+        serializedVersion: 2
+        x: 11520
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2037dd4f239f6f970800000000000000
+      internalID: 8788485720111936258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_WALKING_CORNER_FRONT_19
+      rect:
+        serializedVersion: 2
+        x: 12160
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7f39936fddd81220800000000000000
+      internalID: 2456957548249038714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ac9836bbc3026294f9e4ecf7432f29e4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":20.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_SILVANA_WALKING_CORNER_FRONT_0: -2700747863015098266
+      SPRITE_SILVANA_WALKING_CORNER_FRONT_1: -3884427114688735122
+      SPRITE_SILVANA_WALKING_CORNER_FRONT_10: 614160680765708308
+      SPRITE_SILVANA_WALKING_CORNER_FRONT_11: -6799934958027471275
+      SPRITE_SILVANA_WALKING_CORNER_FRONT_12: -76512654515828794
+      SPRITE_SILVANA_WALKING_CORNER_FRONT_13: -7745372237534872063
+      SPRITE_SILVANA_WALKING_CORNER_FRONT_14: 7022457142388886384
+      SPRITE_SILVANA_WALKING_CORNER_FRONT_15: -8478192170283194312
+      SPRITE_SILVANA_WALKING_CORNER_FRONT_16: -5846929313657342327
+      SPRITE_SILVANA_WALKING_CORNER_FRONT_17: 7678056770383133075
+      SPRITE_SILVANA_WALKING_CORNER_FRONT_18: 8788485720111936258
+      SPRITE_SILVANA_WALKING_CORNER_FRONT_19: 2456957548249038714
+      SPRITE_SILVANA_WALKING_CORNER_FRONT_2: -3911482006458127964
+      SPRITE_SILVANA_WALKING_CORNER_FRONT_3: 1365639391307071444
+      SPRITE_SILVANA_WALKING_CORNER_FRONT_4: -6672646484453969950
+      SPRITE_SILVANA_WALKING_CORNER_FRONT_5: 1308334200094891246
+      SPRITE_SILVANA_WALKING_CORNER_FRONT_6: 2378683113298537113
+      SPRITE_SILVANA_WALKING_CORNER_FRONT_7: 1389729630263593239
+      SPRITE_SILVANA_WALKING_CORNER_FRONT_8: 1470944187595429018
+      SPRITE_SILVANA_WALKING_CORNER_FRONT_9: -8874062200334970702
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -781,7 +781,7 @@ namespace Gob3AQ.GameEventMaster
                         VARMAP_GameEventMaster.PLAY_SOUND(info.targetSound, mustWait ? EndOfSoundPlayCallback : null, false);
                         break;
                     case ActionType.ACTION_TYPE_SCENE_CHANGE:
-                        VARMAP_GameEventMaster.LOAD_ROOM_AS_ACTION(info.targetRoom, -1);
+                        VARMAP_GameEventMaster.LOAD_ROOM_AS_ACTION(info.targetRoom, info.targetWaypointTag.Length == 0 ? -1 : int.Parse(info.targetWaypointTag));
                         break;
                     case ActionType.ACTION_TYPE_START_CARD_GAME:
                         VARMAP_GameEventMaster.START_CARD_GAME(info.targetCardGame);

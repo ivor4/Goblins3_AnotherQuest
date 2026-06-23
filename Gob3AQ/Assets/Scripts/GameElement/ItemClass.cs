@@ -175,6 +175,7 @@ namespace Gob3AQ.GameElement.Item
             if(startingExposedWaypoint && startingWaypoint)
             {
                 SetSize(waypoints_infos[actualWaypoint].CharacterSizeFactor);
+                mySpriteRenderer.flipX = waypoints_infos[actualWaypoint].FlipXForAction ^ reverseFlipX;
             }
 
             ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(itemID);

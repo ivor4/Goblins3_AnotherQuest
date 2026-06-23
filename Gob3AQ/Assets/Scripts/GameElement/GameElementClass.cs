@@ -57,7 +57,7 @@ namespace Gob3AQ.GameElement
         protected int hoverPriority;
 
         [SerializeField]
-        private bool reverseFlipX;
+        protected bool reverseFlipX;
 
 
         public GameItem ItemID => itemID;

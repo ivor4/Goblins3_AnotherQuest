@@ -110,7 +110,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -129,10 +129,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -160,12 +160,12 @@ TextureImporter:
       name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_0
       rect:
         serializedVersion: 2
-        x: 241
-        y: 12
-        width: 182
-        height: 610
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -182,12 +182,12 @@ TextureImporter:
       name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_1
       rect:
         serializedVersion: 2
-        x: 878
-        y: 11
-        width: 185
-        height: 611
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 640
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -204,12 +204,12 @@ TextureImporter:
       name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_2
       rect:
         serializedVersion: 2
-        x: 1507
-        y: 12
-        width: 197
-        height: 610
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1280
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -226,12 +226,12 @@ TextureImporter:
       name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_3
       rect:
         serializedVersion: 2
-        x: 2139
-        y: 12
-        width: 209
-        height: 612
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1920
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -248,12 +248,12 @@ TextureImporter:
       name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_4
       rect:
         serializedVersion: 2
-        x: 2780
-        y: 11
-        width: 217
-        height: 611
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2560
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -270,12 +270,12 @@ TextureImporter:
       name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_5
       rect:
         serializedVersion: 2
-        x: 3431
-        y: 11
-        width: 220
-        height: 612
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3200
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -292,12 +292,12 @@ TextureImporter:
       name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_6
       rect:
         serializedVersion: 2
-        x: 4034
-        y: 12
-        width: 294
-        height: 611
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3840
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -314,12 +314,12 @@ TextureImporter:
       name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_7
       rect:
         serializedVersion: 2
-        x: 4661
-        y: 12
-        width: 318
-        height: 611
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4480
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -336,12 +336,12 @@ TextureImporter:
       name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_8
       rect:
         serializedVersion: 2
-        x: 5299
-        y: 12
-        width: 324
-        height: 611
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 5120
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -358,12 +358,12 @@ TextureImporter:
       name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_9
       rect:
         serializedVersion: 2
-        x: 5941
-        y: 12
-        width: 320
-        height: 611
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 5760
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -380,12 +380,12 @@ TextureImporter:
       name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_10
       rect:
         serializedVersion: 2
-        x: 6596
-        y: 12
-        width: 299
-        height: 611
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 6400
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -402,12 +402,12 @@ TextureImporter:
       name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_11
       rect:
         serializedVersion: 2
-        x: 7279
-        y: 12
-        width: 230
-        height: 611
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 7040
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -424,12 +424,12 @@ TextureImporter:
       name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_12
       rect:
         serializedVersion: 2
-        x: 7914
-        y: 12
-        width: 190
-        height: 611
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 7680
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -446,12 +446,12 @@ TextureImporter:
       name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_13
       rect:
         serializedVersion: 2
-        x: 8558
-        y: 12
-        width: 186
-        height: 610
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 8320
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -468,12 +468,12 @@ TextureImporter:
       name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_14
       rect:
         serializedVersion: 2
-        x: 9202
-        y: 11
-        width: 181
-        height: 611
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 8960
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -490,12 +490,12 @@ TextureImporter:
       name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_15
       rect:
         serializedVersion: 2
-        x: 9842
-        y: 11
-        width: 181
-        height: 612
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 9600
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -512,12 +512,12 @@ TextureImporter:
       name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_16
       rect:
         serializedVersion: 2
-        x: 10482
-        y: 12
-        width: 181
-        height: 611
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 10240
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -534,12 +534,12 @@ TextureImporter:
       name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_17
       rect:
         serializedVersion: 2
-        x: 11122
-        y: 12
-        width: 181
-        height: 611
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 10880
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -556,12 +556,12 @@ TextureImporter:
       name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_18
       rect:
         serializedVersion: 2
-        x: 11762
-        y: 12
-        width: 181
-        height: 611
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 11520
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -578,12 +578,12 @@ TextureImporter:
       name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_19
       rect:
         serializedVersion: 2
-        x: 12402
-        y: 12
-        width: 182
-        height: 610
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 12160
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -600,7 +600,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 7dc8720f8fdf3e043bb594f3cceb6c7e
     internalID: 0
     vertices: []
     indices: 
@@ -608,7 +608,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":20.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       SPRITE_SILVANA_SEATED_GARDEN_TALKING_0: -7033296619251895665
       SPRITE_SILVANA_SEATED_GARDEN_TALKING_1: -8548188619697518781

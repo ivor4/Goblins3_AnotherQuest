@@ -25,6 +25,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 10d72ed0450b75b438d6704f6456cd19
+    m_Address: ANIMATION_SILVANA_GARDEN_SEATED_TALKING_EXEC2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 10dba4c9a5571964fa475cdab1f4dd27
     m_Address: ANIMATION_SILVANA_GARDEN_SEATED_LISTENING_ENTRY
     m_ReadOnly: 0
@@ -42,6 +47,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 563682a5133dff24d94145f98ba7d32c
     m_Address: SPRITE_SILVANA_SEATED_GARDEN_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 662b8da0c61109642818a9bf81146b8d
+    m_Address: ANIMATION_SILVANA_GARDEN_SEATED_TALKING_EXIT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -122,6 +132,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b8ebe50869bc2994483944bb536db270
     m_Address: SPRITE_SILVANA_STANDING_LISTENING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3178f895fc5d8b43b046dec15ccc301
+    m_Address: ANIMATION_SILVANA_GARDEN_SEATED_TALKING_EXEC1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce1a2cb44f2aecc439003cf2baff6157
+    m_Address: ANIMATION_SILVANA_GARDEN_SEATED_TALKING_ENTRY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

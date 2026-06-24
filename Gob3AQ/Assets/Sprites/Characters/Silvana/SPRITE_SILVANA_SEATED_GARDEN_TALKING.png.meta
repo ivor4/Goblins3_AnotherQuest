@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: e3099a38801da6c4ba13abea8a7a8e18
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7033296619251895665
+    second: SPRITE_SILVANA_SEATED_GARDEN_TALKING_0
+  - first:
+      213: -8548188619697518781
+    second: SPRITE_SILVANA_SEATED_GARDEN_TALKING_1
+  - first:
+      213: 2438172755976095534
+    second: SPRITE_SILVANA_SEATED_GARDEN_TALKING_2
+  - first:
+      213: 2547348456398661233
+    second: SPRITE_SILVANA_SEATED_GARDEN_TALKING_3
+  - first:
+      213: 4961581721016203733
+    second: SPRITE_SILVANA_SEATED_GARDEN_TALKING_4
+  - first:
+      213: -6405996345244555558
+    second: SPRITE_SILVANA_SEATED_GARDEN_TALKING_5
+  - first:
+      213: -4987004893229950820
+    second: SPRITE_SILVANA_SEATED_GARDEN_TALKING_6
+  - first:
+      213: 2387495027662654704
+    second: SPRITE_SILVANA_SEATED_GARDEN_TALKING_7
+  - first:
+      213: 8827292805386775857
+    second: SPRITE_SILVANA_SEATED_GARDEN_TALKING_8
+  - first:
+      213: -6990733289403495204
+    second: SPRITE_SILVANA_SEATED_GARDEN_TALKING_9
+  - first:
+      213: 5035801539946149315
+    second: SPRITE_SILVANA_SEATED_GARDEN_TALKING_10
+  - first:
+      213: -3655613739566183486
+    second: SPRITE_SILVANA_SEATED_GARDEN_TALKING_11
+  - first:
+      213: 8894532840170030917
+    second: SPRITE_SILVANA_SEATED_GARDEN_TALKING_12
+  - first:
+      213: -379727752329778957
+    second: SPRITE_SILVANA_SEATED_GARDEN_TALKING_13
+  - first:
+      213: 3243255464859294585
+    second: SPRITE_SILVANA_SEATED_GARDEN_TALKING_14
+  - first:
+      213: -1333128753377624997
+    second: SPRITE_SILVANA_SEATED_GARDEN_TALKING_15
+  - first:
+      213: -8641448766694555190
+    second: SPRITE_SILVANA_SEATED_GARDEN_TALKING_16
+  - first:
+      213: -3156468908123729911
+    second: SPRITE_SILVANA_SEATED_GARDEN_TALKING_17
+  - first:
+      213: -77688128072840167
+    second: SPRITE_SILVANA_SEATED_GARDEN_TALKING_18
+  - first:
+      213: -5570862797099094690
+    second: SPRITE_SILVANA_SEATED_GARDEN_TALKING_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_0
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 12
+        width: 182
+        height: 610
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f82f8812df5b46e90800000000000000
+      internalID: -7033296619251895665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_1
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 11
+        width: 185
+        height: 611
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34784e99dbbbe5980800000000000000
+      internalID: -8548188619697518781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_2
+      rect:
+        serializedVersion: 2
+        x: 1507
+        y: 12
+        width: 197
+        height: 610
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e278dfc143126d120800000000000000
+      internalID: 2438172755976095534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_3
+      rect:
+        serializedVersion: 2
+        x: 2139
+        y: 12
+        width: 209
+        height: 612
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17628c6bceff95320800000000000000
+      internalID: 2547348456398661233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_4
+      rect:
+        serializedVersion: 2
+        x: 2780
+        y: 11
+        width: 217
+        height: 611
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d9fd35a9441bd440800000000000000
+      internalID: 4961581721016203733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_5
+      rect:
+        serializedVersion: 2
+        x: 3431
+        y: 11
+        width: 220
+        height: 612
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad66f31b3445917a0800000000000000
+      internalID: -6405996345244555558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_6
+      rect:
+        serializedVersion: 2
+        x: 4034
+        y: 12
+        width: 294
+        height: 611
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c98d4edc8799acab0800000000000000
+      internalID: -4987004893229950820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_7
+      rect:
+        serializedVersion: 2
+        x: 4661
+        y: 12
+        width: 318
+        height: 611
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fc08d20416122120800000000000000
+      internalID: 2387495027662654704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_8
+      rect:
+        serializedVersion: 2
+        x: 5299
+        y: 12
+        width: 324
+        height: 611
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13da0799908d08a70800000000000000
+      internalID: 8827292805386775857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_9
+      rect:
+        serializedVersion: 2
+        x: 5941
+        y: 12
+        width: 320
+        height: 611
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdc4b9d9c1debfe90800000000000000
+      internalID: -6990733289403495204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_10
+      rect:
+        serializedVersion: 2
+        x: 6596
+        y: 12
+        width: 299
+        height: 611
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c5fadbd1d2c2e540800000000000000
+      internalID: 5035801539946149315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_11
+      rect:
+        serializedVersion: 2
+        x: 7279
+        y: 12
+        width: 230
+        height: 611
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cbce111ca6a44dc0800000000000000
+      internalID: -3655613739566183486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_12
+      rect:
+        serializedVersion: 2
+        x: 7914
+        y: 12
+        width: 190
+        height: 611
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 547816d2e7abf6b70800000000000000
+      internalID: 8894532840170030917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_13
+      rect:
+        serializedVersion: 2
+        x: 8558
+        y: 12
+        width: 186
+        height: 610
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f8a6030f9feabaf0800000000000000
+      internalID: -379727752329778957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_14
+      rect:
+        serializedVersion: 2
+        x: 9202
+        y: 11
+        width: 181
+        height: 611
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97b58ca69ab520d20800000000000000
+      internalID: 3243255464859294585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_15
+      rect:
+        serializedVersion: 2
+        x: 9842
+        y: 11
+        width: 181
+        height: 612
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5c31174676cf7de0800000000000000
+      internalID: -1333128753377624997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_16
+      rect:
+        serializedVersion: 2
+        x: 10482
+        y: 12
+        width: 181
+        height: 611
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac10f6c8128631880800000000000000
+      internalID: -8641448766694555190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_17
+      rect:
+        serializedVersion: 2
+        x: 11122
+        y: 12
+        width: 181
+        height: 611
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90058b27048f134d0800000000000000
+      internalID: -3156468908123729911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_18
+      rect:
+        serializedVersion: 2
+        x: 11762
+        y: 12
+        width: 181
+        height: 611
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91c04f22f0ffbeef0800000000000000
+      internalID: -77688128072840167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_TALKING_19
+      rect:
+        serializedVersion: 2
+        x: 12402
+        y: 12
+        width: 182
+        height: 610
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5d287e3dc150b2b0800000000000000
+      internalID: -5570862797099094690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SPRITE_SILVANA_SEATED_GARDEN_TALKING_0: -7033296619251895665
+      SPRITE_SILVANA_SEATED_GARDEN_TALKING_1: -8548188619697518781
+      SPRITE_SILVANA_SEATED_GARDEN_TALKING_10: 5035801539946149315
+      SPRITE_SILVANA_SEATED_GARDEN_TALKING_11: -3655613739566183486
+      SPRITE_SILVANA_SEATED_GARDEN_TALKING_12: 8894532840170030917
+      SPRITE_SILVANA_SEATED_GARDEN_TALKING_13: -379727752329778957
+      SPRITE_SILVANA_SEATED_GARDEN_TALKING_14: 3243255464859294585
+      SPRITE_SILVANA_SEATED_GARDEN_TALKING_15: -1333128753377624997
+      SPRITE_SILVANA_SEATED_GARDEN_TALKING_16: -8641448766694555190
+      SPRITE_SILVANA_SEATED_GARDEN_TALKING_17: -3156468908123729911
+      SPRITE_SILVANA_SEATED_GARDEN_TALKING_18: -77688128072840167
+      SPRITE_SILVANA_SEATED_GARDEN_TALKING_19: -5570862797099094690
+      SPRITE_SILVANA_SEATED_GARDEN_TALKING_2: 2438172755976095534
+      SPRITE_SILVANA_SEATED_GARDEN_TALKING_3: 2547348456398661233
+      SPRITE_SILVANA_SEATED_GARDEN_TALKING_4: 4961581721016203733
+      SPRITE_SILVANA_SEATED_GARDEN_TALKING_5: -6405996345244555558
+      SPRITE_SILVANA_SEATED_GARDEN_TALKING_6: -4987004893229950820
+      SPRITE_SILVANA_SEATED_GARDEN_TALKING_7: 2387495027662654704
+      SPRITE_SILVANA_SEATED_GARDEN_TALKING_8: 8827292805386775857
+      SPRITE_SILVANA_SEATED_GARDEN_TALKING_9: -6990733289403495204
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

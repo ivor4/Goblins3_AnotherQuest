@@ -54,6 +54,7 @@ namespace Gob3AQ.GraphicsMaster
         private ulong loadingFadeStartTime;
         private bool loadingFadeOutDone;
         private int load_step;
+        private bool loadingFadeLong;
 
         private bool isPickableSelected;
         private bool isDoorHovered;
@@ -565,7 +566,7 @@ namespace Gob3AQ.GraphicsMaster
 
         private void UpdateLoadingFadeProgress(ulong timestamp)
         {
-            float progress = Mathf.Clamp01((timestamp - loadingFadeStartTime) / 250f);
+            float progress = Mathf.Clamp01((timestamp - loadingFadeStartTime) / ((loadingFadeLong && loadingFadingIn)  ? GameFixedConfig.FADE_BLACK_TIMEOUT_LONG_MS : GameFixedConfig.FADE_BLACK_TIMEOUT_MS));
             float revProgress = 1.0f - progress;
 
             Color tintColor;
@@ -582,10 +583,7 @@ namespace Gob3AQ.GraphicsMaster
 
             if (progress >= 1f)
             {
-                if (!loadingFadeOutDone)
-                {
-                    loadingFadeOutDone = true;
-                }
+                loadingFadeOutDone = true;
 
                 if (load_step == 2)
                 {
@@ -601,6 +599,7 @@ namespace Gob3AQ.GraphicsMaster
 
         private void StartLoadingFade()
         {
+            loadingFadeLong = GameFixedConfig.IS_ROOM_FADE_OUT_LONG.GetValueOrDefault(VARMAP_GraphicsMaster.GET_ACTUAL_ROOM(), false);
             loadingFadeStartTime = VARMAP_GraphicsMaster.GET_ELAPSED_TIME_MS();
             loadingFadingIn = false;
             load_step = 0;

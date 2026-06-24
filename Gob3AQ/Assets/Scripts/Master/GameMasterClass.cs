@@ -17,6 +17,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 using UnityEngine.U2D;
+using System.Collections.Generic;
 
 namespace Gob3AQ.GameMaster
 {
@@ -24,6 +25,8 @@ namespace Gob3AQ.GameMaster
     public class GameMasterClass : MonoBehaviour
     {
         private const uint ALL_MODULES_LOADED_MASK = (1 << (int)GameModules.MODULE_TOTAL) - 1;
+
+        private static readonly IReadOnlyList<PrefabEnum> DEFAULT_CHARACTER_PREFAB = new List<PrefabEnum> { PrefabEnum.PREFAB_MAINCHARACTER };
 
         private static GameMasterClass _singleton;
         private static Game_Status prevPauseStatus;
@@ -495,7 +498,7 @@ namespace Gob3AQ.GameMaster
 
             SceneManager.SetActiveScene(nextRoom.Result.Scene);
 
-            PlaceCharactersOnLoad();
+            PlaceCharactersOnLoad(room);
 
             /* EXTRA: Wait for ResourceSpritesClass to confirm all atlas have been loaded */
 
@@ -577,10 +580,15 @@ namespace Gob3AQ.GameMaster
             }
         }
 
-        private static void PlaceCharactersOnLoad()
+        private static void PlaceCharactersOnLoad(Room room)
         {
-            GameObject maincharPrefab = ResourceAtlasClass.GetPrefab(PrefabEnum.PREFAB_MAINCHARACTER);
-            _ = Instantiate(maincharPrefab);
+            IReadOnlyList<PrefabEnum> charsList = GameFixedConfig.CHARACTERS_TO_LOAD_PER_SCENE.GetValueOrDefault(room, DEFAULT_CHARACTER_PREFAB);
+
+            foreach (PrefabEnum charElem in charsList)
+            {
+                GameObject maincharPrefab = ResourceAtlasClass.GetPrefab(charElem);
+                _ = Instantiate(maincharPrefab);
+            }
         }
     }
 }

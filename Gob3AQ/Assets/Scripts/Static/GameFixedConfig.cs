@@ -12,6 +12,8 @@ namespace Gob3AQ.FixedConfig
         public static ReadOnlySpan<byte> GAME_VERSION => _GAME_VERSION;
         public static ReadOnlySpan<byte> LOAD_SAVE_FILE_FORMAT_VERSION => _LOAD_SAVE_FILE_FORMAT_VERSION;
         public static ReadOnlySpan<string> ROOM_TO_SCENE_NAME => _ROOM_TO_SCENE_NAME;
+        public static IReadOnlyDictionary<Room, bool> IS_ROOM_FADE_OUT_LONG => _IS_ROOM_FADE_OUT_LONG;
+        public static IReadOnlyDictionary<Room, IReadOnlyList<PrefabEnum>> CHARACTERS_TO_LOAD_PER_SCENE => _CHARACTERS_TO_LOAD_PER_SCENE;
 
         /* Config */
         public const int CARD_GAME_MAX_PLAYERS = 2;
@@ -44,6 +46,8 @@ namespace Gob3AQ.FixedConfig
         public const float GAME_ZONE_CURSOR_MOVE_CAMERA_1MFACTOR = 1.0f - GAME_ZONE_CURSOR_MOVE_CAMERA_FACTOR;
         public const float GAME_ZONE_CURSOR_PERCENT_MAX_SPEED = 0.25f;
         public const float GAME_ZONE_CURSOR_PERCENT_MAX_SPEED_DIV = 1f/GAME_ZONE_CURSOR_PERCENT_MAX_SPEED;
+        public const float FADE_BLACK_TIMEOUT_MS = 250f;
+        public const float FADE_BLACK_TIMEOUT_LONG_MS = 2500f;
 
 
         /* Performance */
@@ -94,6 +98,16 @@ namespace Gob3AQ.FixedConfig
             "SCENE_EXTRAPERLO3_2",
             ""
         };
-        
+
+        private static readonly Dictionary<Room, bool> _IS_ROOM_FADE_OUT_LONG = new Dictionary<Room, bool>()
+        {
+            {Room.CITY1_EXTRAPERLO3_2, true}
+        };
+
+        private static readonly Dictionary<Room, IReadOnlyList<PrefabEnum>> _CHARACTERS_TO_LOAD_PER_SCENE = new Dictionary<Room, IReadOnlyList<PrefabEnum>>()
+        {
+            {Room.CITY1_EXTRAPERLO3_2, new List<PrefabEnum>(){ PrefabEnum.PREFAB_MAINCHARACTER_SEATED }}
+        };
+
     }
 }

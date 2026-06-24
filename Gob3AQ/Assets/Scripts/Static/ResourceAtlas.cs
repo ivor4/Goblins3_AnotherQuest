@@ -85,7 +85,8 @@ namespace Gob3AQ.ResourceAtlas
             HashSet<PrefabEnum> editableHash = new(GameFixedConfig.MAX_CACHED_PREFABS)
             {
                 PrefabEnum.PREFAB_MEMENTO_ITEM,
-                PrefabEnum.PREFAB_MAINCHARACTER
+                PrefabEnum.PREFAB_MAINCHARACTER,
+                PrefabEnum.PREFAB_MAINCHARACTER_SEATED
             };
 
             _fixedPrefabsToLoad = new(editableHash);
@@ -194,6 +195,7 @@ namespace Gob3AQ.ResourceAtlas
             "PREFAB_MEMENTO",
             "PREFAB_MAINCHARACTER",
             "PREFAB_DETAIL_EXTRAPERLO",
+            "PREFAB_MAINCHARACTER_SEATED",
         };
 
         private static readonly InitialWalkInfo[][] _RoomInitialWaypointWalk = new InitialWalkInfo[(int)Room.ROOMS_TOTAL][]

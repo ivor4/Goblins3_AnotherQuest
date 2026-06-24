@@ -1,0 +1,639 @@
+fileFormatVersion: 2
+guid: ab3d37fe904c35b49803dfa24957dc75
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9160585794309562973
+    second: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_0
+  - first:
+      213: 5852489662315550112
+    second: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_1
+  - first:
+      213: -826366255087245531
+    second: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_2
+  - first:
+      213: 1466555510121534180
+    second: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_3
+  - first:
+      213: -7109790742989010692
+    second: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_4
+  - first:
+      213: -8653587460011086976
+    second: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_5
+  - first:
+      213: -8529983914504421439
+    second: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_6
+  - first:
+      213: -7158006254952107144
+    second: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_7
+  - first:
+      213: -5413516947597377077
+    second: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_8
+  - first:
+      213: 80304651863400223
+    second: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_9
+  - first:
+      213: -8458668245399172789
+    second: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_10
+  - first:
+      213: 6260758636238264147
+    second: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_11
+  - first:
+      213: 3666570987246518889
+    second: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_12
+  - first:
+      213: -313324448927810461
+    second: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_13
+  - first:
+      213: 8406906043889339175
+    second: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_14
+  - first:
+      213: 2606649191864113709
+    second: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_15
+  - first:
+      213: 6912251856839247131
+    second: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_16
+  - first:
+      213: -5947317552864246332
+    second: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_17
+  - first:
+      213: -2699125384636517166
+    second: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_18
+  - first:
+      213: -1828199286727917711
+    second: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d52af4cbe30f02f70800000000000000
+      internalID: 9160585794309562973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a5d6fd0758383150800000000000000
+      internalID: 5852489662315550112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 527a72fe4482884f0800000000000000
+      internalID: -826366255087245531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e29f2067704a5410800000000000000
+      internalID: 1466555510121534180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_4
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf887c01df2f45d90800000000000000
+      internalID: -7109790742989010692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_5
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08ba345cd0848e780800000000000000
+      internalID: -8653587460011086976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_6
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cffa24d2d86f9980800000000000000
+      internalID: -8529983914504421439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_7
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8733e816c37a9ac90800000000000000
+      internalID: -7158006254952107144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_8
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc1c6e8a4035fd4b0800000000000000
+      internalID: -5413516947597377077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_9
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1f1128c7ac4d1100800000000000000
+      internalID: 80304651863400223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_10
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b490b18fb06cc9a80800000000000000
+      internalID: -8458668245399172789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_11
+      rect:
+        serializedVersion: 2
+        x: 7040
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 357d0790fcea2e650800000000000000
+      internalID: 6260758636238264147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_12
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9620596f2e642e230800000000000000
+      internalID: 3666570987246518889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_13
+      rect:
+        serializedVersion: 2
+        x: 8320
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36c7632e219d6abf0800000000000000
+      internalID: -313324448927810461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_14
+      rect:
+        serializedVersion: 2
+        x: 8960
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72bcb1651845ba470800000000000000
+      internalID: 8406906043889339175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_15
+      rect:
+        serializedVersion: 2
+        x: 9600
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2a9e1f11adac2420800000000000000
+      internalID: 2606649191864113709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_16
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1500fce0704def50800000000000000
+      internalID: 6912251856839247131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_17
+      rect:
+        serializedVersion: 2
+        x: 10880
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c5c4172232e67da0800000000000000
+      internalID: -5947317552864246332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_18
+      rect:
+        serializedVersion: 2
+        x: 11520
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d4308463c7ca8ad0800000000000000
+      internalID: -2699125384636517166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SILVANA_SEATED_GARDEN_LISTENING_19
+      rect:
+        serializedVersion: 2
+        x: 12160
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17fb5f75f6ee0a6e0800000000000000
+      internalID: -1828199286727917711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: a23a22af665642f4b9f9833a63b17a24
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":20.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_SILVANA_SEATED_GARDEN_LISTENING_0: 9160585794309562973
+      SPRITE_SILVANA_SEATED_GARDEN_LISTENING_1: 5852489662315550112
+      SPRITE_SILVANA_SEATED_GARDEN_LISTENING_10: -8458668245399172789
+      SPRITE_SILVANA_SEATED_GARDEN_LISTENING_11: 6260758636238264147
+      SPRITE_SILVANA_SEATED_GARDEN_LISTENING_12: 3666570987246518889
+      SPRITE_SILVANA_SEATED_GARDEN_LISTENING_13: -313324448927810461
+      SPRITE_SILVANA_SEATED_GARDEN_LISTENING_14: 8406906043889339175
+      SPRITE_SILVANA_SEATED_GARDEN_LISTENING_15: 2606649191864113709
+      SPRITE_SILVANA_SEATED_GARDEN_LISTENING_16: 6912251856839247131
+      SPRITE_SILVANA_SEATED_GARDEN_LISTENING_17: -5947317552864246332
+      SPRITE_SILVANA_SEATED_GARDEN_LISTENING_18: -2699125384636517166
+      SPRITE_SILVANA_SEATED_GARDEN_LISTENING_19: -1828199286727917711
+      SPRITE_SILVANA_SEATED_GARDEN_LISTENING_2: -826366255087245531
+      SPRITE_SILVANA_SEATED_GARDEN_LISTENING_3: 1466555510121534180
+      SPRITE_SILVANA_SEATED_GARDEN_LISTENING_4: -7109790742989010692
+      SPRITE_SILVANA_SEATED_GARDEN_LISTENING_5: -8653587460011086976
+      SPRITE_SILVANA_SEATED_GARDEN_LISTENING_6: -8529983914504421439
+      SPRITE_SILVANA_SEATED_GARDEN_LISTENING_7: -7158006254952107144
+      SPRITE_SILVANA_SEATED_GARDEN_LISTENING_8: -5413516947597377077
+      SPRITE_SILVANA_SEATED_GARDEN_LISTENING_9: 80304651863400223
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

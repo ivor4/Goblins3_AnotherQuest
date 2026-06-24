@@ -212,6 +212,7 @@ namespace Gob3AQ.ResourceAtlas
             new InitialWalkInfo[]{new(0,0) }, /* CITY1_EXTRAPERLO1 */
             new InitialWalkInfo[]{new(1,3) }, /* CITY1_EXTRAPERLO2 */
             new InitialWalkInfo[]{new(0,0) }, /* CITY1_EXTRAPERLO3 */
+            new InitialWalkInfo[]{new(0,0) }, /* CITY1_EXTRAPERLO3_2 */
             new InitialWalkInfo[]{new(0,0) }, /* ROOM_LAST */
         };
 
@@ -383,6 +384,18 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.SOUND_AMBIENCE_CITY_NIGHT}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAINER_DIALOG_MAINCHAR_NEED_ORINE}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
+            ),
+
+            new( /* CITY1_EXTRAPERLO3_2 */
+            new GameSprite[1]{GameSprite.BACKGROUND_EXTRAPERLO_GARDEN},
+            new GameSound[1]{GameSound.SOUND_AMBIENCE_CITY_NIGHT},
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_EXTRAPERLO_GARDEN}), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(2){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_NPC_SILVANA_EXTRAPERLO_GARD_SEAT}), 
+            new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE}), 
+            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.SOUND_AMBIENCE_CITY_NIGHT}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
             ),
 

@@ -289,6 +289,11 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new DialogOption[1]{DialogOption.DIALOG_SILVANA_OBSERVED_PEE_OPTION_0}
             ),
 
+            new( /* DIALOG_SILVANA_GARDEN_1 */
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_SILVANA_EXTRAPERLO_GARD},
+            new DialogOption[1]{DialogOption.DIALOG_SILVANA_GARDEN_1_OPTION_0}
+            ),
+
             new( /* DIALOG_LAST */
             new GameItem[1]{GameItem.ITEM_NONE},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE}
@@ -821,9 +826,16 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new( /* DIALOG_SILVANA_OBSERVED_PEE_OPTION_0 */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[2]{GameAction.ACTION_ZOOM_GARDEN_OUT, GameAction.ACTION_MOVE_SILVANA_GARDEN_TALK_APROACH},
+            new GameAction[3]{GameAction.ACTION_ZOOM_GARDEN_OUT, GameAction.ACTION_MOVE_SILVANA_GARDEN_TALK_APROACH, GameAction.ACTION_TALK_DIALOG_SILVANA_GARDEN_1},
             DialogType.DIALOG_NONE,false,
             new DialogPhrase[1]{DialogPhrase.PHRASE_SILVANA_OBSERVED_PEE}
+            ),
+            new( /* DIALOG_SILVANA_GARDEN_1_OPTION_0 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_SCENE_EXTRAPERLO_TERRACE_2},
+            DialogType.DIALOG_NONE,false,
+            new DialogPhrase[5]{DialogPhrase.PHRASE_DIALOG_SILVANA_GARDEN_1_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_SILVANA_GARDEN_1_OPTION_0_1, DialogPhrase.PHRASE_DIALOG_SILVANA_GARDEN_1_OPTION_0_2, DialogPhrase.PHRASE_DIALOG_SILVANA_GARDEN_1_OPTION_0_3, DialogPhrase.PHRASE_DIALOG_SILVANA_GARDEN_1_OPTION_0_4}
             ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
@@ -1112,6 +1124,11 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,GameSound.SOUND_MAINCHAR_ABOUT_PEE_PLANT, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_ABOUT_PEE_PLANT */ 
             new(0,GameSound.SOUND_PEE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_BLANK_PEE_SOUND */ 
             new(0,GameSound.SOUND_SILVANA_OBSERVED_PEE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_SILVANA_OBSERVED_PEE */ 
+            new(1,GameSound.SOUND_SILVANA_GARDEN_CONV1_0_0, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_SILVANA_GARDEN_1_OPTION_0_0 */ 
+            new(0,GameSound.SOUND_SILVANA_GARDEN_CONV1_0_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_SILVANA_GARDEN_1_OPTION_0_1 */ 
+            new(1,GameSound.SOUND_SILVANA_GARDEN_CONV1_0_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_SILVANA_GARDEN_1_OPTION_0_2 */ 
+            new(0,GameSound.SOUND_SILVANA_GARDEN_CONV1_0_3, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_SILVANA_GARDEN_1_OPTION_0_3 */ 
+            new(1,GameSound.SOUND_SILVANA_GARDEN_CONV1_0_4, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_SILVANA_GARDEN_1_OPTION_0_4 */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

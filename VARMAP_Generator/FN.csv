@@ -5,7 +5,7 @@ NewRoom,Background,BackgroundNight,Music,Output,,,,,,,
 CITY1_EXTRAPERLO1,BACKGROUND_CITY1_EXTRAPERLO,BACKGROUND_CITY1_EXTRAPERLO,MUSIC_EXTRAPERLO,,,,,,,,
 ,,,,,,,,,,,
 NewDialog,IntroPhrase,Talkers,AddAction,AddSounds,ItemDest,Option1,Option2,Option3,Option4,Option5,Option6
-DIALOG_SILVANA_DRUNK,,"ITEM_PLAYER_MAIN, ITEM_NPC_SILVANA_EXTRAPERLO, ITEM_NPC_CLOWN",True,True,ITEM_NPC_SILVANA_EXTRAPERLO,"(0)Te traigo la aceituna de la conquista! Un manjar de los dioses, (2)Cielo santo! Está usando artes prohibidas. Subestimé al muchacho, (1)¿Has traído una sola oliva para invitarme a cenar? Tío Cutre. Anda que.., (1)Mira. Ve a hablar con el camarero y pídele la terraza. Que aquí hay mucho jaleo",,,,,
+DIALOG_SILVANA_GARDEN_1,,"ITEM_PLAYER_MAIN, ITEM_NPC_SILVANA_EXTRAPERLO_GARD",True,True,ITEM_NPC_SILVANA_EXTRAPERLO_GARD,"(1)No sabía que una persona podía tener tanto dentro, (0)¿Qué hubieras hecho tú?, (1)Desde luego no la cerdada que has hecho tú. Como empiece a oler me voy de aquí, (0)Vaya... ya lo siento, (1)Vente a la mesa y me cuentas más. Pareces un personaje divertido",,,,,
 ,,,,,,,,,,,
 NewMementoParent,MementoIconSprite,MementoParentPhrase,Mementos,MementoPhrases,,,,,,,
 MEMENTO_PARENT_POOR_MAN_WC,SPRITE_MEMENTO_POOR_MAN_WC,A poor man in WC,"MEMENTO_POOR_MAN_WC_1, MEMENTO_POOR_MAN_WC_2, MEMENTO_POOR_MAN_WC_3","A poor man can't leave WC because there is no water, It seems to be a valve in back alley but is closed, When water came back. This man gave me an invitation to a Pub where I could meet someone for a job",,,,,,,

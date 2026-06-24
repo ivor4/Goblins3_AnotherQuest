@@ -91,6 +91,7 @@ namespace Gob3AQ.FixedConfig
             "SCENE_EXTRAPERLO",
             "SCENE_EXTRAPERLO2",
             "SCENE_EXTRAPERLO3",
+            "SCENE_EXTRAPERLO3_2",
             ""
         };
         

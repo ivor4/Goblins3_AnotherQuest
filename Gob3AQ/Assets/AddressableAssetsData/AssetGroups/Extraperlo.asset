@@ -75,11 +75,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0df444347f938c243972bc26226da11c
-    m_Address: FOREGROUND_CITY1_EXTRAPERLO_GARDEN
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0e2bb0592f4ce8f44a9422afc784529c
     m_Address: ANIMATION_FIK_TALKING_ENTRY_EXIT
     m_ReadOnly: 0
@@ -335,18 +330,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3ef6cfe5fa95e444ab5682c41ec4a819
-    m_Address: SOUND_PEE
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3f9979558bb285644a521c41c2ef5eb7
     m_Address: SPRITE_ATLAS_CITY3_1
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 414895b3d950e7c4689e956b7d3f5c3b
-    m_Address: SOUND_SILVANA_OBSERVED_PEE_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -372,11 +357,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 44cc6c45cf2c36d46bc8ea6af4294206
     m_Address: SPRITE_EXTRAPERLO_TABLE1_MASK
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4541d901b3c76694c945e71359973795
-    m_Address: SOUND_OBSERVE_BLADDER_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -542,11 +522,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5cf8486e925f06440a11bd83b2518bfe
     m_Address: SPRITE_SILVANA_STEADY_READING
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5d4acebfc26963d46a6b321162255b05
-    m_Address: SOUND_MAINCHAR_NEED_ORINE_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -860,11 +835,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9ba77ab8d59cfff409962b88fa50d775
-    m_Address: ANIMATION_SILVANA_SHOCKED_ANGRY
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9bb6744a33276f249afc0429ebdb60f8
     m_Address: SCENE_EXTRAPERLO
     m_ReadOnly: 0
@@ -995,18 +965,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b54f3daf0f8330044b20b7059cf5da50
-    m_Address: BACKGROUND_CITY1_EXTRAPERLO_GARDEN
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b58a28cb014189247b9755b6645cdef4
     m_Address: SOUND_SILVANA_OP_1_0_SPANISH
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b5ec198e4a1b1ed46b977123e9c66f1f
-    m_Address: SCENE_EXTRAPERLO3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -1300,11 +1260,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ec18b6be004d27a458ba84eba251b51a
-    m_Address: SOUND_MAINCHAR_ABOUT_PEE_PLANT_SPANISH
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ec4d4ca7b386dda409fff8f3767bb809
     m_Address: SOUND_CLOWN_OP3_0_SPANISH
     m_ReadOnly: 0
@@ -1332,11 +1287,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f253c8c93976abe4e813c60d6de9cd85
     m_Address: ANIMATION_WAITER_SHORT_ANSWER
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f2ca71ce83e0ca9469553e27db8d0689
-    m_Address: ANIMATOR_SILVANA_GARDEN
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -1392,11 +1342,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fd616ddc40d6a5340bf088b4ed5b623a
     m_Address: SOUND_MAINCHAR_AFTER_THIRD_BEER_COMMENT_SPANISH
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fd9c54f98ccef1844894fc5579e95a4e
-    m_Address: ANIMATION_SILVANA_STANDING_STEADY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

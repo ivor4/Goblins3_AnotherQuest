@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Extraperlo_Garden
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Extraperlo_Garden
+  m_GUID: 4dd1e490b78d5034a9ccb6be29756c74
+  m_SerializeEntries:
+  - m_GUID: 0df444347f938c243972bc26226da11c
+    m_Address: FOREGROUND_CITY1_EXTRAPERLO_GARDEN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ef6cfe5fa95e444ab5682c41ec4a819
+    m_Address: SOUND_PEE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 414895b3d950e7c4689e956b7d3f5c3b
+    m_Address: SOUND_SILVANA_OBSERVED_PEE_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4541d901b3c76694c945e71359973795
+    m_Address: SOUND_OBSERVE_BLADDER_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d4acebfc26963d46a6b321162255b05
+    m_Address: SOUND_MAINCHAR_NEED_ORINE_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 987a232a1f6b24540be69e7e933ba80d
+    m_Address: SOUND_SILVANA_GARDEN_CONV1_0_3_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ee00096be462db4bbced3c6fa9657c4
+    m_Address: SOUND_SILVANA_GARDEN_CONV1_0_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a352a072e3b31ca4c99f1f1d12f67db4
+    m_Address: SOUND_SILVANA_GARDEN_CONV1_0_4_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b54f3daf0f8330044b20b7059cf5da50
+    m_Address: BACKGROUND_CITY1_EXTRAPERLO_GARDEN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b5ec198e4a1b1ed46b977123e9c66f1f
+    m_Address: SCENE_EXTRAPERLO3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c87d50444379065448c37c9b516d38e5
+    m_Address: SOUND_SILVANA_GARDEN_CONV1_0_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e663d8b195bcf104ebe681e2155c4e5d
+    m_Address: SOUND_SILVANA_GARDEN_CONV1_0_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ec18b6be004d27a458ba84eba251b51a
+    m_Address: SOUND_MAINCHAR_ABOUT_PEE_PLANT_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ecb15cce51635b441ba5dda39117e615
+    m_Address: SCENE_EXTRAPERLO3_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c63f0f3646ca67f4abe7e9d9a952af85, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: a989a7033863fe84fa2c35bab7e9a5ed, type: 2}
+    - {fileID: 11400000, guid: b25f4b87cfe4c244285fd92a489c938f, type: 2}

@@ -255,6 +255,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2067a49bee4f364798ca0c729769052
+    m_Address: ANIMATION_MAINCHAR_SEATED_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a25bbe9e59d21f14b93cd5f855b63f8a
     m_Address: ANIMATION_MAINCHAR_WALKING_FRONT
     m_ReadOnly: 0

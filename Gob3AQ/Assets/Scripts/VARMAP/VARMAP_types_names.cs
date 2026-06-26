@@ -62,6 +62,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_OLIVE, 
         NAME_INNOCENT_PLANT, 
         NAME_FULL_BLADDER, 
+        NAME_CLIENT, 
         NAME_NPC_LAST, 
         
 NAME_TOTAL

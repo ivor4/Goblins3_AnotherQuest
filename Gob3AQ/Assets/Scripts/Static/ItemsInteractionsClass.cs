@@ -358,6 +358,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_ANY, 
             new GameAction[1]{GameAction.ACTION_SPAWN_SILVANA_GARDEN}), 
 
+            new( /* UNCHAINER_DIALOG_SILVANA_MAINCHAR_GARDEN_LONG */
+            true,false,false,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY, 
+            new GameAction[1]{GameAction.ACTION_TALK_DIALOG_SILVANA_GARDEN_2}), 
+
             new( /* UNCHAIN_LAST */
             false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
@@ -812,6 +818,16 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_PICKABLE_BLADDER,ItemInteractionType.INTERACTION_USE,
             new GameAction[4]{GameAction.ACTION_LOSE_FULL_BLADDER, GameAction.ACTION_ZOOM_PEE_ZONE, GameAction.ACTION_EVENT_USED_ORINE_FLOWER, GameAction.ACTION_DIALOGUE_ABOUT_PEE_PLANT}), 
 
+            new( /* COND_TALK_ITEM_NPC_SILVANA_EXTRAPERLO_GARD_SEAT */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,
+            new GameAction[1]{GameAction.ACTION_TALK_DIALOG_SILVANA_GARDEN_2}), 
+
+            new( /* COND_TALK_ITEM_PAMFRY */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,
+            new GameAction[1]{GameAction.ACTION_TALK_DIALOG_PAMFRY_1}), 
+
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,
@@ -1119,6 +1135,16 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_NPC_SILVANA_EXTRAPERLO_GARD_SEAT */
             NameType.NAME_SILVANA,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_SILVANA_SEATED_GARDEN_STEADY}),
             GameSprite.SPRITE_SILVANA_SEATED_GARDEN_STEADY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
+            new(new HashSet<ActionConditions>(2){ActionConditions.COND_OK, ActionConditions.COND_TALK_ITEM_NPC_SILVANA_EXTRAPERLO_GARD_SEAT})),
+
+            new ( /* ITEM_PAMFRY */
+            NameType.NAME_CLIENT,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PAMFRY_SHOUTING}),
+            GameSprite.SPRITE_PAMFRY_SHOUTING,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
+            new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
+
+            new ( /* ITEM_FIK_EXTRAPERLO_GARDEN */
+            NameType.NAME_FIK,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_FIK_STANDING}),
+            GameSprite.SPRITE_FIK_STANDING,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_LAST */
@@ -2532,6 +2558,18 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.CITY1_EXTRAPERLO3_2,"0",CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_TALK_DIALOG_SILVANA_GARDEN_2 */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SILVANA_GARDEN_2_INTRO,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_TALK_DIALOG_PAMFRY_1 */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_PAMFRY_1,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

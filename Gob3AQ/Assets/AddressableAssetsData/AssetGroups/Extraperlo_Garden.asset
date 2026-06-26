@@ -15,8 +15,88 @@ MonoBehaviour:
   m_GroupName: Extraperlo_Garden
   m_GUID: 4dd1e490b78d5034a9ccb6be29756c74
   m_SerializeEntries:
+  - m_GUID: 00380f1ef8ab7be4e99ec5cb157a8582
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_2_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 063852e06e40b164596d7b457894bf97
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_1_4_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0bbeb14b5fea00c45a41bca7353e653e
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_0_5_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c27f7ab910d1664d9541f069d9730e7
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_4_4_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d9e65efe45cd5e4ab4087f4b83f49b0
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_4_6_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0df444347f938c243972bc26226da11c
     m_Address: FOREGROUND_CITY1_EXTRAPERLO_GARDEN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1535e3dd32f3b9b4d91b2c3aea1d48c0
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_0_16_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 15e1c8a51f721894fadb62de5369b3a2
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_0_14_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c92bb07214931141abf638edfee6c06
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_1_8_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1e7ca0dada442e249b28c986d1223037
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_1_10_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 25fd448e9f9aa5041974fe1c12bd4ec4
+    m_Address: SOUND_PAMFRY_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2833a80412119bb4fa1eeef223264a12
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_2_3_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b670de26e9cb0b4a9b78360bd8ba5c3
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_1_7_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b8d586a522f2934384d33ed77490317
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_0_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2c5efceb93cbb5742a05fd059255448a
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_INTRO_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 364e722b4fae7904e922d6a2638d1fe4
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_0_9_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 370e1ed9a5ff2734eac153f70b667d24
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_2_9_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -25,8 +105,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3fa236d47ae7f2045aa955cabc67110e
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_3_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 414895b3d950e7c4689e956b7d3f5c3b
     m_Address: SOUND_SILVANA_OBSERVED_PEE_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41d0877bbf6c1b74cb2c7b983a6e7f01
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_1_3_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -35,8 +125,113 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 459366263f2849b40a4d5787b8561817
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_3_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e9814c315a4ff74e96b5e40ed5f7050
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_0_11_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 56415d8b84d08fe43b7599c287d8b3b6
+    m_Address: SPRITE_PAMFRY_DOWN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 57fa324a412c6bc47ae5396fc4cd8b78
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_2_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5c334bcb2728472419ead08b82fb9d50
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_1_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5d4acebfc26963d46a6b321162255b05
     m_Address: SOUND_MAINCHAR_NEED_ORINE_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 603be8494e7b8b0439caa068d2b9718e
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_1_9_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 64b0f67848debd446b5d4de8d5000a30
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_0_7_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 651cf5640646f07409156ef558835f53
+    m_Address: SPRITE_PAMFRY_RUNNING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 65a828c7a20561f4eb496229c5539518
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_0_17_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 69f9a635d2f786e4a99394fef2f6e811
+    m_Address: SPRITE_ATLAS_PAMFRY1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 76624c5627a368e4486b2a9ed2fcec7f
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_1_6_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 774d53a2a0835434f97a3fd06618310a
+    m_Address: SOUND_PAMFRY_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c8600cf7b0391544afe6231ff298e91
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_0_10_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8465ba022bdf325469fe9be2e36c6bc3
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_1_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8554a5466383a1c4bb6b1701b3f87075
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_1_5_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 85e15e1ce5d205144bfb6586ee3a888a
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_4_3_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e0932bef2b135e4dab9a961e2d2aad5
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_2_7_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 90c2c4a082b4b9e4aa39277023b0de86
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_0_15_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9366fa7bcf890034dab23d06ffe91abc
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_INTRO_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 941747c4bcdb4804489db37a2554192f
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_2_10_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9646a53cc723c1e459b064914e7d3234
+    m_Address: SPRITE_PAMFRY_CLIMBING
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -45,13 +240,53 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 988e8665f22466c40b993614db747afb
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_1_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9910fda7b08805249ad018649df29549
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_0_8_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 994b2d8a341e75344bb13f3adead6e44
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_4_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e2c9a954ba0c7343a495ec6569d8dcb
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_0_12_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9ee00096be462db4bbced3c6fa9657c4
     m_Address: SOUND_SILVANA_GARDEN_CONV1_0_1_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9fa2fb3ee92045843834cebedb3afcfa
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_4_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a352a072e3b31ca4c99f1f1d12f67db4
     m_Address: SOUND_SILVANA_GARDEN_CONV1_0_4_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a59514db8a19e3c4fab58fc53d694830
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_2_11_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a8c390f1aa8ed9d45a32a4a06b261dd0
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_2_4_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b3350c35111a4de4993a590ad8675c4e
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_0_13_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -65,13 +300,83 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b6e5a936fdfe7a44eb25160e14d5c4fb
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_0_3_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8463669cbb84454fb88b32e287e55a9
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_INTRO_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb9cbc9b2dabd0a4397b903e7ee12484
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_2_6_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bba540cff08fe3a4ca7f95d3daef4e46
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_0_6_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bec75d0526ae4af4d8421032c17ed2d9
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_2_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c16c2d8ea0007af498a50f9fda99a081
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_1_11_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c6e067b8ca469fe43adc07a0fdb69ce2
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_0_4_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c813b46077d669747a445f0b54646228
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_2_5_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c87d50444379065448c37c9b516d38e5
     m_Address: SOUND_SILVANA_GARDEN_CONV1_0_2_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca1924221a5202241a0c8d0ed139a898
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_2_8_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d242071e55f9d204281dc165f272f1e7
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_0_18_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d692ab0084707744ba1dfaf62f128503
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_4_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d805be31a3a9d7f42ab82b43fdee979a
     m_Address: SPRITE_EXTRAPERLO_GARDEN_TABLE_MASK
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d9135a791a7b2e84fa6097d641f425a6
+    m_Address: SOUND_PAMFRY_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de68d20e8c8175d4bbb18c7c8ca465e7
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_4_5_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e03e56a8e32fd2349bd7c51865087f2a
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_0_1_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -87,6 +392,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ecb15cce51635b441ba5dda39117e615
     m_Address: SCENE_EXTRAPERLO3_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee68ca57a2019a44085786069a6b4265
+    m_Address: SOUND_SILVANA_GARDEN_CONV2_0_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc71a936de8d7bc44aba5413dbe46c72
+    m_Address: SPRITE_PAMFRY_SHOUTING
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

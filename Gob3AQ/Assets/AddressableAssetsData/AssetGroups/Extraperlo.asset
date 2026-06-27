@@ -290,11 +290,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 367daa2054267ec42a289e553747bd31
-    m_Address: SPRITE_ATLAS_GERMAN_1
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 392a4aed512c2bd41a5a70e076bdcad0
     m_Address: SOUND_GERMAN_1_OP_0_1_SPANISH
     m_ReadOnly: 0
@@ -337,11 +332,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 42834659ca22cb544932acceffc6e490
     m_Address: SOUND_CLOWN_OP2_2_SPANISH
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 439ccf558d5eb534397250dbc6ed40dc
-    m_Address: SPRITE_GERMAN_WAITING
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -412,11 +402,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 49e505f76186d444fb311fbb24290bda
     m_Address: ANIMATION_UNKNOWN_WOMEN_DISGUSTING
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4a26e9addc6ced44397b9a389d72224b
-    m_Address: ANIMATION_GERMAN_STEADY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -607,11 +592,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6ad87fbc084b8a24695234eec66710a2
     m_Address: ANIMATION_WAITER_TALKING_EXIT
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6b523d4b6acfbdc4f98c2b915988a6e3
-    m_Address: SPRITE_GERMAN_WAITING_TALKING
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -982,11 +962,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b98a87c4ea6893746ac43c665624ae0a
     m_Address: SPRITE_WAITER_CLEANING_JAR
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ba9b9f729d93b4447834e410ebe3c205
-    m_Address: ANIMATION_GERMAN_TALKING
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

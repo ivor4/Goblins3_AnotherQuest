@@ -35,6 +35,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c9d02e38a1055241878829f8c1b76d8
+    m_Address: ANIMATION_PAMFRY_RUNNING_EXEC1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0d9e65efe45cd5e4ab4087f4b83f49b0
     m_Address: SOUND_SILVANA_GARDEN_CONV2_4_6_SPANISH
     m_ReadOnly: 0
@@ -52,6 +57,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 15e1c8a51f721894fadb62de5369b3a2
     m_Address: SOUND_SILVANA_GARDEN_CONV2_0_14_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1764476d43e0a7c489e9fb1841df86bf
+    m_Address: ANIMATION_PAMFRY_RUNNING_EXIT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -95,8 +105,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 367daa2054267ec42a289e553747bd31
+    m_Address: SPRITE_ATLAS_GERMAN_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 370e1ed9a5ff2734eac153f70b667d24
     m_Address: SOUND_SILVANA_GARDEN_CONV2_2_9_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e9e1647253c5e84fbfa802b80073c38
+    m_Address: ANIMATION_PAMFRY_CLIMBING
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -120,6 +140,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 439ccf558d5eb534397250dbc6ed40dc
+    m_Address: SPRITE_GERMAN_WAITING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4541d901b3c76694c945e71359973795
     m_Address: SOUND_OBSERVE_BLADDER_SPANISH
     m_ReadOnly: 0
@@ -127,6 +152,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 459366263f2849b40a4d5787b8561817
     m_Address: SOUND_SILVANA_GARDEN_CONV2_3_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 485af73b17245c04993057dab5e73828
+    m_Address: ANIMATION_PAMFRY_SHOUTING_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a26e9addc6ced44397b9a389d72224b
+    m_Address: ANIMATION_GERMAN_STEADY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -180,6 +215,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6abf778f4a6fc7f42ad30f4aba3ec56a
+    m_Address: ANIMATION_PAMFRY_DOWN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b523d4b6acfbdc4f98c2b915988a6e3
+    m_Address: SPRITE_GERMAN_WAITING_TALKING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 76624c5627a368e4486b2a9ed2fcec7f
     m_Address: SOUND_SILVANA_GARDEN_CONV2_1_6_SPANISH
     m_ReadOnly: 0
@@ -187,6 +232,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 774d53a2a0835434f97a3fd06618310a
     m_Address: SOUND_PAMFRY_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c854a00d5de5054abeefb54d95f9f98
+    m_Address: ANIMATOR_PAMFRY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -280,8 +330,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a6ca6ee8423a63b44bc5e98a75186a61
+    m_Address: ANIMATION_PAMFRY_RUNNING_EXEC2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a8c390f1aa8ed9d45a32a4a06b261dd0
     m_Address: SOUND_SILVANA_GARDEN_CONV2_2_4_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab322c6e0d27b8a4bb771f8fa23d8eb0
+    m_Address: ANIMATION_PAMFRY_STEADY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -310,6 +370,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba9b9f729d93b4447834e410ebe3c205
+    m_Address: ANIMATION_GERMAN_TALKING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bb9cbc9b2dabd0a4397b903e7ee12484
     m_Address: SOUND_SILVANA_GARDEN_CONV2_2_6_SPANISH
     m_ReadOnly: 0
@@ -327,6 +392,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c16c2d8ea0007af498a50f9fda99a081
     m_Address: SOUND_SILVANA_GARDEN_CONV2_1_11_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c175a67f7edb8b542ad412131cc0c2f7
+    m_Address: ANIMATION_PAMFRY_SHOUTING_EXEC2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -380,8 +450,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e20fb786284c5844795cfc2ce08d53e6
+    m_Address: ANIMATION_PAMFRY_SHOUTING_EXEC1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e663d8b195bcf104ebe681e2155c4e5d
     m_Address: SOUND_SILVANA_GARDEN_CONV1_0_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e8bc2b4a10546de4395d696db77a9ca2
+    m_Address: ANIMATION_PAMFRY_RUNNING_ENTRY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -402,6 +482,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fc71a936de8d7bc44aba5413dbe46c72
     m_Address: SPRITE_PAMFRY_SHOUTING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fdf0588940e4e994eabbc578214be29c
+    m_Address: ANIMATION_PAMFRY_SHOUTING_ENTRY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

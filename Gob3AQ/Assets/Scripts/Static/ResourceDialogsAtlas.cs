@@ -883,7 +883,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new( /* DIALOG_SILVANA_GARDEN_2_OPTION_4 */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE},
+            new GameAction[3]{GameAction.ACTION_MOVE_PAMFRY_APPEAR, GameAction.ACTION_TALK_DIALOG_PAMFRY_1, GameAction.ACTION_MOVE_PAMFRY_RUN},
             DialogType.DIALOG_NONE,false,
             new DialogPhrase[7]{DialogPhrase.PHRASE_DIALOG_SILVANA_GARDEN_2_OPTION_4_0, DialogPhrase.PHRASE_DIALOG_SILVANA_GARDEN_2_OPTION_4_1, DialogPhrase.PHRASE_DIALOG_SILVANA_GARDEN_2_OPTION_4_2, DialogPhrase.PHRASE_DIALOG_SILVANA_GARDEN_2_OPTION_4_3, DialogPhrase.PHRASE_DIALOG_SILVANA_GARDEN_2_OPTION_4_4, DialogPhrase.PHRASE_DIALOG_SILVANA_GARDEN_2_OPTION_4_5, DialogPhrase.PHRASE_DIALOG_SILVANA_GARDEN_2_OPTION_4_6}
             ),
@@ -899,7 +899,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             MomentType.MOMENT_ANY,
             new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_NONE,false,
-            new DialogPhrase[3]{DialogPhrase.PHRASE_DIALOG_PAMFRY_1_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_PAMFRY_1_OPTION_0_1, DialogPhrase.PHRASE_DIALOG_PAMFRY_1_OPTION_0_2}
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_PAMFRY_1_OPTION_0_0}
             ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
@@ -1247,7 +1247,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(1,GameSound.SOUND_PHRASE_DIALOG_SILVANA_GARDEN_2_OPTION_4_3, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_SILVANA_GARDEN_2_OPTION_4_3 */ 
             new(0,GameSound.SOUND_PHRASE_DIALOG_SILVANA_GARDEN_2_OPTION_4_4, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_SILVANA_GARDEN_2_OPTION_4_4 */ 
             new(1,GameSound.SOUND_PHRASE_DIALOG_SILVANA_GARDEN_2_OPTION_4_5, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_SILVANA_GARDEN_2_OPTION_4_5 */ 
-            new(0,GameSound.SOUND_PHRASE_DIALOG_SILVANA_GARDEN_2_OPTION_4_6, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_SILVANA_GARDEN_2_OPTION_4_6 */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_SILVANA_GARDEN_2_OPTION_4_6, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_SILVANA_GARDEN_2_OPTION_4_6 */ 
             new(0,GameSound.SOUND_PHRASE_DIALOG_PAMFRY_1_OPTION_0_0, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_PAMFRY_1_OPTION_0_0 */ 
             new(1,GameSound.SOUND_PHRASE_DIALOG_PAMFRY_1_OPTION_0_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_PAMFRY_1_OPTION_0_1 */ 
             new(2,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_PAMFRY_1_OPTION_0_2 */ 

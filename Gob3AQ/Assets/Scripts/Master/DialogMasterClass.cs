@@ -663,11 +663,16 @@ namespace Gob3AQ.DialogMaster
                     ShowDialogueExec(dialog_input_type, dialog_input_phrase, dialog_input_forcedSingleTalker, dialog_input_backgroundDialog, true);
                     break;
                 case DialogTaskType.DIALOG_STATE_WAIT_ANIMATION_START:
-                    if (!dialog_waitAnimationCompleted) break;
-                    
-                    dialog_waitAnimationCompleted = false;
-                    StartPhrase(dialog_phrasePendingAfterAnimation);
-                    break;
+                    {
+                        if (!dialog_waitAnimationCompleted)
+                        {
+                            break;
+                        }
+
+                        dialog_waitAnimationCompleted = false;
+                        StartPhrase(dialog_phrasePendingAfterAnimation);
+                        break;
+                    }
 
                 case DialogTaskType.DIALOG_STATE_SAYING:
                     dialog_actualTaskType = DialogTaskType.DIALOG_STATE_DEAD_TIME;
@@ -675,16 +680,24 @@ namespace Gob3AQ.DialogMaster
                     break;
 
                 case DialogTaskType.DIALOG_STATE_DEAD_TIME:
-                    ref readonly KeyStruct ks = ref VARMAP_DialogMaster.GET_PRESSED_KEYS();
-                    if ((((actualTimestamp - dialog_timestamp) >= 2000) && (dialog_actualPhraseSoundStop == GameSound.SOUND_NONE)) ||
-                        (((actualTimestamp - dialog_timestamp) >= 14000) && (dialog_actualPhraseSoundStop != GameSound.SOUND_NONE)) ||
-                        ks.isKeyCyclePressed(KeyFunctions.KEYFUNC_SKIPDIALOG)
-                        )
                     {
-                        dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
-                        EndPhrase_Action();
+                        ref readonly KeyStruct ks = ref VARMAP_DialogMaster.GET_PRESSED_KEYS();
+
+                        if (ks.isKeyCyclePressed(KeyFunctions.KEYFUNC_SKIPDIALOG))
+                        {
+                            dialog_currentPhraseIndex = dialog_totalPhrases - 1;
+                            dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
+                            EndPhrase_Action();
+                        }
+                        else if ((((actualTimestamp - dialog_timestamp) >= 2000) && (dialog_actualPhraseSoundStop == GameSound.SOUND_NONE)) ||
+                            (((actualTimestamp - dialog_timestamp) >= 14000) && (dialog_actualPhraseSoundStop != GameSound.SOUND_NONE))
+                            )
+                        {
+                            dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
+                            EndPhrase_Action();
+                        }
+                        break;
                     }
-                    break;
 
                 case DialogTaskType.DIALOG_STATE_LAUNCH_NEXT_DIALOG:
                     /* If previous dialog unchained some action which make new dialog options visible. Wait for Event manager to process everything */

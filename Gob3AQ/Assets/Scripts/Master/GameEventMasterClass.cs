@@ -788,10 +788,13 @@ namespace Gob3AQ.GameEventMaster
                         VARMAP_GameEventMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_CARDS, out error);
                         break;
                     case ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION:
-                        mustWait = info.waitForEnd;
-                        _actionExpectedFlag = NotifyAction.NOTIFY_ANIMATION;
-                        VARMAP_GameEventMaster.ITEM_PERFORM_ANIMATION(info.targetItem, info.animTrigger, null, mustWait ? EndOfItemAnimationCallback : null);
-                        break;
+                        {
+                            bool storeOnly = info.targetWaypointTag == "storeOnly";
+                            mustWait = info.waitForEnd && !storeOnly;
+                            _actionExpectedFlag = NotifyAction.NOTIFY_ANIMATION;
+                            VARMAP_GameEventMaster.ITEM_PERFORM_ANIMATION(info.targetItem, info.animTrigger, null, mustWait ? EndOfItemAnimationCallback : null, storeOnly);
+                            break;
+                        }
                     case ActionType.ACTION_TYPE_MOVE_TO_WAYPOINT:
                         int wpIndex = -1;
                         for(int i=0; i < _WP_Info.Count; ++i)
@@ -843,6 +846,20 @@ namespace Gob3AQ.GameEventMaster
                             Debug.LogError($"Zoom object {info.targetWaypointTag} not found");
                         }
                         break;
+                    case ActionType.ACTION_TYPE_SET_TO_ANIMATION_MODE:
+                        {
+                            VARMAP_GameEventMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_ANIMATION, out error);
+                            mustWait = info.waitForEnd & !error;
+                            _actionExpectedFlag = NotifyAction.NOTIFY_NONE;
+                            break;
+                        }
+                    case ActionType.ACTION_TYPE_REMOVE_ANIMATION_MODE:
+                        {
+                            VARMAP_GameEventMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out error);
+                            mustWait = info.waitForEnd & !error;
+                            _actionExpectedFlag = NotifyAction.NOTIFY_NONE;
+                            break;
+                        }
                     default:
                         VARMAP_GameEventMaster.ACTION_TO_ITEM(in info);
                         break;

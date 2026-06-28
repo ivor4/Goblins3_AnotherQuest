@@ -95,7 +95,7 @@ namespace Gob3AQ.DialogMaster
                             foreach (AnimationActionConfig actionconfig in milestoneConfig.Actions)
                             {
                                 VARMAP_DialogMaster.PERFORM_ACTION(actionconfig.TriggeredActions, null);
-                                VARMAP_DialogMaster.ITEM_PERFORM_ANIMATION(actionconfig.dstItem, actionconfig.trigger, null, AnimationEndCallback);
+                                VARMAP_DialogMaster.ITEM_PERFORM_ANIMATION(actionconfig.dstItem, actionconfig.trigger, null, AnimationEndCallback, false);
                                 if(actionconfig.sound != GameSound.SOUND_NONE)
                                 {
                                     VARMAP_DialogMaster.PLAY_SOUND(actionconfig.sound, null, false);
@@ -451,7 +451,7 @@ namespace Gob3AQ.DialogMaster
                     }
 
                     VARMAP_DialogMaster.ITEM_PERFORM_ANIMATION(dialog_input_talkers[i],
-                        trigger, startAnimationCallback, null);
+                        trigger, startAnimationCallback, null, false);
                 }
             }
 
@@ -506,7 +506,7 @@ namespace Gob3AQ.DialogMaster
             {
                 for (int i = 0; i < dialog_input_numTalkers; ++i)
                 {
-                    VARMAP_DialogMaster.ITEM_PERFORM_ANIMATION(dialog_input_talkers[i], AnimationTrigger.ANIMATION_TRIGGER_AUTO_STEADY, null, null);
+                    VARMAP_DialogMaster.ITEM_PERFORM_ANIMATION(dialog_input_talkers[i], AnimationTrigger.ANIMATION_TRIGGER_AUTO_STEADY, null, null, false);
                 }
             }
 

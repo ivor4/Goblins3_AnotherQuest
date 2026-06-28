@@ -123,6 +123,7 @@ namespace Gob3AQ.GameElement.Item
             switch (gstatus)
             {
                 case Game_Status.GAME_STATUS_PLAY:
+                case Game_Status.GAME_STATUS_PLAY_ANIMATION:
                     AutomaticAnimationRefresh();
                     SetAvailable(physicalstate == PhysicalState.PHYSICAL_STATE_STANDING);
                     UpdateSortingOrder();
@@ -191,7 +192,7 @@ namespace Gob3AQ.GameElement.Item
             {
                 if (startingTrigger != AnimationTrigger.ANIMATION_TRIGGER_ZERO)
                 {
-                    PerformAnimation(startingTrigger, null, null);
+                    PerformAnimation(startingTrigger, null, null, false);
                     ExecuteQueuedTrigger();
                 }
             }
@@ -246,7 +247,7 @@ namespace Gob3AQ.GameElement.Item
 
                 rt.lastTimestampMs = actualTimestamp;
 
-                PerformAnimation(rt.progAnim.destTrigger, null, null);
+                PerformAnimation(rt.progAnim.destTrigger, null, null, false);
             }
         }
 

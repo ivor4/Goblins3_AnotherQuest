@@ -62,6 +62,7 @@ namespace Gob3AQ.VARMAP.Types
         GAME_STATUS_STOPPED,
         GAME_STATUS_PLAY,
         GAME_STATUS_PLAY_DIALOG,
+        GAME_STATUS_PLAY_ANIMATION,
         GAME_STATUS_PLAY_DECISION,
         GAME_STATUS_PLAY_MEMENTO,
         GAME_STATUS_PLAY_ITEM_MENU,
@@ -99,6 +100,7 @@ namespace Gob3AQ.VARMAP.Types
         NOTIFY_SOUND = 0x4,
         NOTIFY_MOVEMENT = 0x8,
         NOTIFY_ZOOM = 0x10,
+        NOTIFY_CHANGEMODE = 0x20
     }
 
     public readonly struct InitialWalkInfo

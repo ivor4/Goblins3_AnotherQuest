@@ -1,0 +1,535 @@
+fileFormatVersion: 2
+guid: df4f0e61981230e4bac2c962dc9c6f56
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8695562822935078317
+    second: SPRITE_GERMAN_SHOUTING_0
+  - first:
+      213: -1010518238796487758
+    second: SPRITE_GERMAN_SHOUTING_1
+  - first:
+      213: 4537643911657633901
+    second: SPRITE_GERMAN_SHOUTING_2
+  - first:
+      213: 7403646907729666243
+    second: SPRITE_GERMAN_SHOUTING_3
+  - first:
+      213: 3555240430547269441
+    second: SPRITE_GERMAN_SHOUTING_4
+  - first:
+      213: -8924265850933870154
+    second: SPRITE_GERMAN_SHOUTING_5
+  - first:
+      213: -5045153896611186355
+    second: SPRITE_GERMAN_SHOUTING_6
+  - first:
+      213: 7928530753848067263
+    second: SPRITE_GERMAN_SHOUTING_7
+  - first:
+      213: -8088060923559844571
+    second: SPRITE_GERMAN_SHOUTING_8
+  - first:
+      213: 2968405790674718162
+    second: SPRITE_GERMAN_SHOUTING_9
+  - first:
+      213: -5701935911946138325
+    second: SPRITE_GERMAN_SHOUTING_10
+  - first:
+      213: 5907296210685671648
+    second: SPRITE_GERMAN_SHOUTING_11
+  - first:
+      213: -3660325092649174633
+    second: SPRITE_GERMAN_SHOUTING_12
+  - first:
+      213: 2240976126900407516
+    second: SPRITE_GERMAN_SHOUTING_13
+  - first:
+      213: 5914904431949618968
+    second: SPRITE_GERMAN_SHOUTING_14
+  - first:
+      213: 4726754526128096352
+    second: SPRITE_GERMAN_SHOUTING_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_GERMAN_SHOUTING_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35a9cd00fa7235780800000000000000
+      internalID: -8695562822935078317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_GERMAN_SHOUTING_1
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b36b79040be9f1f0800000000000000
+      internalID: -1010518238796487758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_GERMAN_SHOUTING_2
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d68319f9813f8fe30800000000000000
+      internalID: 4537643911657633901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_GERMAN_SHOUTING_3
+      rect:
+        serializedVersion: 2
+        x: 1272
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c065a9e2a90fb660800000000000000
+      internalID: 7403646907729666243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_GERMAN_SHOUTING_4
+      rect:
+        serializedVersion: 2
+        x: 1696
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14770e9c550c65130800000000000000
+      internalID: 3555240430547269441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_GERMAN_SHOUTING_5
+      rect:
+        serializedVersion: 2
+        x: 2120
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b100f9cd73a62480800000000000000
+      internalID: -8924265850933870154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_GERMAN_SHOUTING_6
+      rect:
+        serializedVersion: 2
+        x: 2544
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d49ff4be2430cf9b0800000000000000
+      internalID: -5045153896611186355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_GERMAN_SHOUTING_7
+      rect:
+        serializedVersion: 2
+        x: 2968
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb4cfd5a6bcc70e60800000000000000
+      internalID: 7928530753848067263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_GERMAN_SHOUTING_8
+      rect:
+        serializedVersion: 2
+        x: 3392
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5256f71417f61cf80800000000000000
+      internalID: -8088060923559844571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_GERMAN_SHOUTING_9
+      rect:
+        serializedVersion: 2
+        x: 3816
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dd016ed655e13920800000000000000
+      internalID: 2968405790674718162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_GERMAN_SHOUTING_10
+      rect:
+        serializedVersion: 2
+        x: 4240
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2d486c8f77aed0b0800000000000000
+      internalID: -5701935911946138325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_GERMAN_SHOUTING_11
+      rect:
+        serializedVersion: 2
+        x: 4664
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e83eecfa9eeaf150800000000000000
+      internalID: 5907296210685671648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_GERMAN_SHOUTING_12
+      rect:
+        serializedVersion: 2
+        x: 5088
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7997232b8b9e33dc0800000000000000
+      internalID: -3660325092649174633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_GERMAN_SHOUTING_13
+      rect:
+        serializedVersion: 2
+        x: 5512
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdc870a0aeb891f10800000000000000
+      internalID: 2240976126900407516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_GERMAN_SHOUTING_14
+      rect:
+        serializedVersion: 2
+        x: 5936
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81f9dba0e36f51250800000000000000
+      internalID: 5914904431949618968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_GERMAN_SHOUTING_15
+      rect:
+        serializedVersion: 2
+        x: 6360
+        y: 0
+        width: 424
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 064c556b23ec89140800000000000000
+      internalID: 4726754526128096352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c6856e889376ec84b98fdfb38bb86581
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":16.0,"y":1.0},"gridSpriteSize":{"x":424.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_GERMAN_SHOUTING_0: -8695562822935078317
+      SPRITE_GERMAN_SHOUTING_1: -1010518238796487758
+      SPRITE_GERMAN_SHOUTING_10: -5701935911946138325
+      SPRITE_GERMAN_SHOUTING_11: 5907296210685671648
+      SPRITE_GERMAN_SHOUTING_12: -3660325092649174633
+      SPRITE_GERMAN_SHOUTING_13: 2240976126900407516
+      SPRITE_GERMAN_SHOUTING_14: 5914904431949618968
+      SPRITE_GERMAN_SHOUTING_15: 4726754526128096352
+      SPRITE_GERMAN_SHOUTING_2: 4537643911657633901
+      SPRITE_GERMAN_SHOUTING_3: 7403646907729666243
+      SPRITE_GERMAN_SHOUTING_4: 3555240430547269441
+      SPRITE_GERMAN_SHOUTING_5: -8924265850933870154
+      SPRITE_GERMAN_SHOUTING_6: -5045153896611186355
+      SPRITE_GERMAN_SHOUTING_7: 7928530753848067263
+      SPRITE_GERMAN_SHOUTING_8: -8088060923559844571
+      SPRITE_GERMAN_SHOUTING_9: 2968405790674718162
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

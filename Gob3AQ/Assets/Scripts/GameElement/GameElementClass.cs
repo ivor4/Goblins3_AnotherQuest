@@ -84,6 +84,7 @@ namespace Gob3AQ.GameElement
         protected SpriteMask spriteMask;
         protected Action animationStartCallback;
         protected Action animationEndCallback;
+        protected int? storedPendingSteadyTrigger;
         protected int pendingStateCrossings;
         protected bool pendingZeroStateCross;
         protected AnimationTrigger actualAnimationTrigger;
@@ -153,7 +154,7 @@ namespace Gob3AQ.GameElement
         protected virtual void Update()
         {
             Game_Status gstatus = VARMAP_ItemMaster.GET_GAMESTATUS();
-            if (gstatus == Game_Status.GAME_STATUS_PLAY)
+            if (gstatus is Game_Status.GAME_STATUS_PLAY or Game_Status.GAME_STATUS_PLAY_ANIMATION)
             {
                 switch (physicalstate)
                 {
@@ -170,9 +171,20 @@ namespace Gob3AQ.GameElement
             VirtualDestroy();
         }
 
-        public void PerformAnimation(AnimationTrigger trigger, Action startCallback, Action endCallback)
+        public void PerformAnimation(AnimationTrigger trigger, Action startCallback, Action endCallback, bool storeSteadyOnly)
         {
             if ((!myAnimator.runtimeAnimatorController) || (trigger == AnimationTrigger.ANIMATION_TRIGGER_ZERO)) return;
+
+            if(storeSteadyOnly)
+            {
+                if (ResourceAnimationsAtlasClass.IsTriggerSteady(trigger))
+                {
+                    autoSteadyTrigger = trigger;
+                    storedPendingSteadyTrigger = (int)trigger;
+                }
+                return;
+            }
+
 
             if ((queuedTrigger != AnimationTrigger.ANIMATION_TRIGGER_ZERO) && ((animationStartCallback != null) || (animationEndCallback != null)))
             {
@@ -501,6 +513,12 @@ namespace Gob3AQ.GameElement
 
         private void ActivateTrigger(AnimationTrigger trigger)
         {
+            if (storedPendingSteadyTrigger != null)
+            {
+                myAnimator.SetInteger(ResourceAnimationsAtlasClass.STEADY_INDEX_HASH, storedPendingSteadyTrigger.Value);
+                storedPendingSteadyTrigger = null;
+            }
+
             myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.TRANSITION_TRIGGER_HASH);
             myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.TRANSITION_TRIGGER_EXT_HASH);
             myAnimator.SetInteger(ResourceAnimationsAtlasClass.ANIMATION_INDEX_HASH, (int)trigger);
@@ -555,7 +573,7 @@ namespace Gob3AQ.GameElement
                     myRigidbody.linearVelocity = Vector2.zero;
                     SetSize(waypoints_infos[actualWaypoint].CharacterSizeFactor);
 
-                    PerformAnimation(AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE, null, null);
+                    PerformAnimation(AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE, null, null, false);
                     ExecuteQueuedTrigger();
                     mySpriteRenderer.flipX = waypoints_infos[actualWaypoint].FlipXForAction ^ reverseFlipX;
 
@@ -619,7 +637,7 @@ namespace Gob3AQ.GameElement
                 mySpriteRenderer.flipX = reverseFlipX;
             }
 
-            PerformAnimation(walkdirTrigger, null, null);
+            PerformAnimation(walkdirTrigger, null, null, false);
             ExecuteQueuedTrigger();
 
             /* Remove after debugging */
@@ -671,13 +689,13 @@ namespace Gob3AQ.GameElement
             switch (oldval)
             {
                 case Game_Status.GAME_STATUS_PLAY:
-                    if ((newval != Game_Status.GAME_STATUS_PLAY_DIALOG) || !myAnimator)
+                    if (((newval != Game_Status.GAME_STATUS_PLAY_DIALOG) && (newval != Game_Status.GAME_STATUS_PLAY_ANIMATION)) || !myAnimator)
                     {
                         SetActive(false);
                     }
 
                     SetClickable(false);
-                    SetMotion(false);
+                    SetMotion(newval == Game_Status.GAME_STATUS_PLAY_ANIMATION);
 
                     if (((newval == Game_Status.GAME_STATUS_PLAY_MEMENTO) || (newval == Game_Status.GAME_STATUS_PLAY_ITEM_MENU) || (newval == Game_Status.GAME_STATUS_PLAY_DECISION)) && myAnimator)
                     {

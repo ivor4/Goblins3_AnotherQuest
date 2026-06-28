@@ -90,6 +90,7 @@ namespace Gob3AQ.GameElement.PlayableChar
             switch(gstatus)
             {
                 case Game_Status.GAME_STATUS_PLAY:
+                case Game_Status.GAME_STATUS_PLAY_ANIMATION:
                     Execute_Play();
                     break;
             }
@@ -153,7 +154,7 @@ namespace Gob3AQ.GameElement.PlayableChar
             SetVisible_Internal(true);
             PlayerMasterClass.SetPlayerLoaded(CharType);
 
-            PerformAnimation(AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE, null, null);
+            PerformAnimation(AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE, null, null, false);
             ExecuteQueuedTrigger();
 
             UpdateSortingOrder();

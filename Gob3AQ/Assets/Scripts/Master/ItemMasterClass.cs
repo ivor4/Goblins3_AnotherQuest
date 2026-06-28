@@ -39,13 +39,13 @@ namespace Gob3AQ.ItemMaster
             }
         }
 
-        public static void PerformAnimationService(GameItem item, AnimationTrigger trigger, Action startCallback, Action endCallback)
+        public static void PerformAnimationService(GameItem item, AnimationTrigger trigger, Action startCallback, Action endCallback, bool storeSteadyOnly)
         {
             if (!_singleton) return;
             
             if(_singleton._levelItems.TryGetValue(item, out GameElementClass instance))
             {
-                instance.PerformAnimation(trigger, startCallback, endCallback);
+                instance.PerformAnimation(trigger, startCallback, endCallback, storeSteadyOnly);
             }
         }
 

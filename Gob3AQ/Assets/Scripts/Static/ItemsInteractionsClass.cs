@@ -2076,10 +2076,10 @@ namespace Gob3AQ.Brain.ItemsInteraction
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_TALK_GERMAN */
-            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_GERMAN_1_INTRO,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_SPWAN_GERMAN_1 */
             false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_NPC_GERMAN,GameSprite.SPRITE_NONE,
@@ -2591,7 +2591,13 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_TWO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
 
-            new( /* ACTION_ANIMATE_PAMFRY_DIE */
+            new( /* ACTION_ANIMATE_PAMFRY_DIE_1 */
+            false,ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION,GameItem.ITEM_PAMFRY,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"storeOnly",CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_ANIMATE_PAMFRY_DIE_2 */
             true,ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION,GameItem.ITEM_PAMFRY,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
@@ -2608,6 +2614,54 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"ZOOM_PAMFRY_END",CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_SET_GAME_ANIMATION_MODE */
+            true,ActionType.ACTION_TYPE_SET_TO_ANIMATION_MODE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_REMOVE_GAME_ANIMATION_MODE */
+            true,ActionType.ACTION_TYPE_REMOVE_ANIMATION_MODE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_MOVE_FIK_TO_SHOT */
+            false,ActionType.ACTION_TYPE_MOVE_TO_WAYPOINT,GameItem.ITEM_FIK_EXTRAPERLO_GARDEN,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"PamfryRun1",CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_ZOOM_FIK_SHOOTING */
+            true,ActionType.ACTION_TYPE_SET_ZOOM_REGION,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"ZOOM_FIK_SHOOTING",CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_FIK_SHOOTING */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_FIK_SHOOTING,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_GERMAN_SHOUTING_GARDEN */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_GERMAN_SHOUTING_GARDEN,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_SILVANA_ASKING_BILL */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SILVANA_ASKING_BILL,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_ZOOM_ALL_END_GARDEN_SCENE */
+            true,ActionType.ACTION_TYPE_SET_ZOOM_REGION,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"ZOOM_ALL",CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

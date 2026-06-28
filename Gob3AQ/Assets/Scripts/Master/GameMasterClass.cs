@@ -257,7 +257,7 @@ namespace Gob3AQ.GameMaster
 
         public static void SaveGameService()
         {
-            saveGamePending |= (!stoppingGamePending) && (loadScenePending == Room.ROOM_NONE);
+            saveGamePending |= (!stoppingGamePending) && (loadScenePending == Room.ROOM_NONE) && (VARMAP_GameMaster.GET_SHADOW_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY);
         }
 
         public static void LoadGameService()
@@ -327,7 +327,7 @@ namespace Gob3AQ.GameMaster
             switch (newmode)
             {
                 case Game_Status.GAME_STATUS_PLAY_DIALOG:
-                    valid = (oldmode == Game_Status.GAME_STATUS_PLAY) || (oldmode == Game_Status.GAME_STATUS_PLAY_MEMENTO);
+                    valid = (oldmode == Game_Status.GAME_STATUS_PLAY) || (oldmode == Game_Status.GAME_STATUS_PLAY_MEMENTO) || (oldmode == Game_Status.GAME_STATUS_PLAY_ANIMATION);
                     break;
                 case Game_Status.GAME_STATUS_PLAY_DECISION:
                     valid = (oldmode == Game_Status.GAME_STATUS_PLAY) || (oldmode == Game_Status.GAME_STATUS_PLAY_MEMENTO);
@@ -345,9 +345,13 @@ namespace Gob3AQ.GameMaster
                         (oldmode == Game_Status.GAME_STATUS_STOPPED) ||
                         (oldmode == Game_Status.GAME_STATUS_PLAY_ITEM_MENU) ||
                         (oldmode == Game_Status.GAME_STATUS_PAUSE) ||
-                        (oldmode == Game_Status.GAME_STATUS_PLAY_CARDS);
+                        (oldmode == Game_Status.GAME_STATUS_PLAY_CARDS) ||
+                        (oldmode == Game_Status.GAME_STATUS_PLAY_ANIMATION);
                     break;
                 case Game_Status.GAME_STATUS_PLAY_CARDS:
+                    valid = (oldmode == Game_Status.GAME_STATUS_PLAY) || (oldmode == Game_Status.GAME_STATUS_PLAY_DIALOG);
+                    break;
+                case Game_Status.GAME_STATUS_PLAY_ANIMATION:
                     valid = (oldmode == Game_Status.GAME_STATUS_PLAY) || (oldmode == Game_Status.GAME_STATUS_PLAY_DIALOG);
                     break;
                 default:

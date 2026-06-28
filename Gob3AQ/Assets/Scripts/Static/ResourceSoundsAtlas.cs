@@ -262,6 +262,7 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_SILVANA_GARDEN_CONV2_4_6_SPANISH"), /* SOUND_PHRASE_DIALOG_SILVANA_GARDEN_2_OPTION_4_6 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_PAMFRY_0_SPANISH"), /* SOUND_PHRASE_DIALOG_PAMFRY_1_OPTION_0_0 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_PHRASE_DIALOG_PAMFRY_1_OPTION_0_1_SPANISH"), /* SOUND_PHRASE_DIALOG_PAMFRY_1_OPTION_0_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_GUNSHOT"), /* SOUND_GUNSHOT */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

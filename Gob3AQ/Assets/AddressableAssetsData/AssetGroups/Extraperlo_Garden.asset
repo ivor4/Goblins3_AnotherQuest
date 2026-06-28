@@ -75,6 +75,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 250bc07c235f95f42841e2efaa5e376e
+    m_Address: ANIMATION_FIK_SHOOTING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 25fd448e9f9aa5041974fe1c12bd4ec4
     m_Address: SOUND_PAMFRY_0_SPANISH
     m_ReadOnly: 0
@@ -270,6 +275,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 923a254439b3d674cb1e1d9c4a4e46c3
+    m_Address: SOUND_GUNSHOT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9366fa7bcf890034dab23d06ffe91abc
     m_Address: SOUND_SILVANA_GARDEN_CONV2_INTRO_2_SPANISH
     m_ReadOnly: 0
@@ -367,6 +377,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b8463669cbb84454fb88b32e287e55a9
     m_Address: SOUND_SILVANA_GARDEN_CONV2_INTRO_0_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9a22b3099e346a44bfc69fa8da2d027
+    m_Address: SPRITE_NPC_FIK_SHOOTING
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

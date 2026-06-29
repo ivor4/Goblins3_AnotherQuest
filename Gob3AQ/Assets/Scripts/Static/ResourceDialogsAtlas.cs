@@ -314,6 +314,11 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new DialogOption[1]{DialogOption.DIALOG_SILVANA_ASKING_BILL_OPTION_0}
             ),
 
+            new( /* DIALOG_MAINCHAR_RECAP_EXTRAPERLO */
+            new GameItem[1]{GameItem.ITEM_PLAYER_MAIN},
+            new DialogOption[1]{DialogOption.DIALOG_MAINCHAR_RECAP_EXTRAPERLO_OPTION_0}
+            ),
+
             new( /* DIALOG_LAST */
             new GameItem[1]{GameItem.ITEM_NONE},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE}
@@ -895,9 +900,16 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new( /* DIALOG_SILVANA_ASKING_BILL_OPTION_0 */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_ZOOM_ALL_END_GARDEN_SCENE},
+            new GameAction[6]{GameAction.ACTION_ZOOM_ALL_END_GARDEN_SCENE, GameAction.ACTION_OBTAIN_HIVE1_CARDS, GameAction.ACTION_EVENT_CARDS_PICKABLE_TAKEN, GameAction.ACTION_EVENT_PENDING_RECAP_EXTRAPERLO_GARDEN, GameAction.ACTION_EVENT_PENDING_DREAM_1, GameAction.ACTION_SCENE_BACK_TO_HIVE1_ROOM},
             DialogType.DIALOG_NONE,false,
             new DialogPhrase[1]{DialogPhrase.PHRASE_SILVANA_ASKING_BILL}
+            ),
+            new( /* DIALOG_MAINCHAR_RECAP_EXTRAPERLO_OPTION_0 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_NONE},
+            DialogType.DIALOG_NONE,false,
+            new DialogPhrase[2]{DialogPhrase.PHRASE_MAINCHAR_RECAP_EXTRAPERLO_1, DialogPhrase.PHRASE_MAINCHAR_RECAP_EXTRAPERLO_2}
             ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
@@ -1243,6 +1255,8 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,GameSound.SOUND_PHRASE_DIALOG_PAMFRY_1_OPTION_0_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_PAMFRY_1_OPTION_0_2 */ 
             new(0,GameSound.SOUND_GUNSHOT, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_SHOOT_SOUND */ 
             new(0,GameSound.SOUND_PHRASE_SILVANA_ASKING_BILL, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_SILVANA_ASKING_BILL */ 
+            new(0,GameSound.SOUND_PHRASE_RECAP_EXTRAPERLO_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MAINCHAR_RECAP_EXTRAPERLO_1 */ 
+            new(0,GameSound.SOUND_PHRASE_RECAP_EXTRAPERLO_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MAINCHAR_RECAP_EXTRAPERLO_2 */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

@@ -225,11 +225,11 @@ namespace Gob3AQ.ResourceAtlas
             new GameSprite[1]{GameSprite.BACKGROUND_HIVE1_ROOM1},
             new GameSound[1]{GameSound.MUSIC_INN},
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_HIVE1_ROOM1, GameSprite.SPRITE_ITEM_DECO_BED_LAYER}), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(8){GameItem.ITEM_CARDS_PICKABLE, GameItem.ITEM_HIVE1_CHEST, GameItem.ITEM_HIVE1_WARDROBE, GameItem.ITEM_HIVE1_WARDROBE_OPENED, GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_HIVE1_PERFUME, GameItem.ITEM_SOAP_PICKABLE, GameItem.ITEM_HIVE1_BED}), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(7){GameItem.ITEM_HIVE1_CHEST, GameItem.ITEM_HIVE1_WARDROBE, GameItem.ITEM_HIVE1_WARDROBE_OPENED, GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_HIVE1_PERFUME, GameItem.ITEM_SOAP_PICKABLE, GameItem.ITEM_HIVE1_BED}), 
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE}), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_INN}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
-            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_RECAP_EXTRAPERLO_GARDEN_IN_ROOM}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
             ),
 

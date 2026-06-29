@@ -40,6 +40,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 280d0d2f85bf91140893df6083533edc
+    m_Address: SOUND_MAINCHAR_RECAP_EXTRAPERLO_GARDEN_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 28c646fae8308ad488a1a03e5db58752
     m_Address: SPRITE_ATLAS_HIVE1_4
     m_ReadOnly: 0
@@ -62,6 +67,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3c000c0e67b4fc64387e5f5a93e73505
     m_Address: SPRITE_ATLAS_HIVE1_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e50a5c5055ad714991ce0742d04fe42
+    m_Address: SOUND_MAINCHAR_RECAP_EXTRAPERLO_GARDEN_1_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

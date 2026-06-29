@@ -265,6 +265,8 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_PAMFRY_2_SPANISH"), /* SOUND_PHRASE_DIALOG_PAMFRY_1_OPTION_0_2 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_GUNSHOT"), /* SOUND_GUNSHOT */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_SILVANA_ASKING_BILL_SPANISH"), /* SOUND_PHRASE_SILVANA_ASKING_BILL */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_MAINCHAR_RECAP_EXTRAPERLO_GARDEN_1_SPANISH"), /* SOUND_PHRASE_RECAP_EXTRAPERLO_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_MAINCHAR_RECAP_EXTRAPERLO_GARDEN_2_SPANISH"), /* SOUND_PHRASE_RECAP_EXTRAPERLO_2 */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

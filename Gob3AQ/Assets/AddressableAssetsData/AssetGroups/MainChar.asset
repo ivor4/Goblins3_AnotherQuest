@@ -65,6 +65,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36c7bf447ca9ac64099469e1c6cb3404
+    m_Address: SPRITE_MAINCHAR_STEADY_RESTING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3e435fa0fdeacc944b3447eeef255ab9
     m_Address: ANIMATION_MAINCHAR_DRINKING_BEER
     m_ReadOnly: 0
@@ -102,6 +107,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4a281519e63f6eb4aabaf2557fcfb2e4
     m_Address: ANIMATION_MAINCHAR_SEATED_TALKING_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4ae09a2bed5e9df4fba71fe3528404bb
+    m_Address: ANIMATION_MAINCHAR_SITTING_BED_ENTRY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -295,6 +305,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b36f90612a970c34498c5e8827b45374
+    m_Address: SPRITE_MAINCHAR_SITTING_BED
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b7d079a09262b434193cd6e9666240f9
     m_Address: SPRITE_MAINCHAR_INVENT
     m_ReadOnly: 0
@@ -322,6 +337,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c1e8a6de4b0b6c1429ca9c7185d77142
     m_Address: ANIMATION_MAINCHAR_WALKING_SIDE_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c5007c58d7912cd4599fc7f9612950c7
+    m_Address: ANIMATION_MAINCHAR_SITTING_BED_EXEC2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c736b60c98bfd84478020cb984c4b112
+    m_Address: ANIMATION_MAINCHAR_SITTING_BED_EXEC1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -377,6 +402,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: efd424ec04805a345a82ed176bca6893
     m_Address: PREFAB_MAINCHARACTER_SEATED
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f13d963de851d974385fc1f9cb6f8762
+    m_Address: ANIMATION_MAINCHAR_SITTING_BED_EXIT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

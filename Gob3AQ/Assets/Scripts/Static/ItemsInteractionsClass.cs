@@ -812,6 +812,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,
             new GameAction[1]{GameAction.ACTION_TALK_DIALOG_SILVANA_GARDEN_2}), 
 
+            new( /* COND_USE_BED_PENDING_DREAM_1 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_PENDING_DREAM_1, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
+            new GameAction[2]{GameAction.ACTION_ANIMATE_MAINCHAR_SIT_BED, GameAction.ACTION_ZOOM_LAMP_BED}), 
+
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,
@@ -899,7 +904,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_HIVE1_BED */
             NameType.NAME_ITEM_BED,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
             GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
-            new(new HashSet<ActionConditions>(1){ActionConditions.COND_USE_HIVE1_BED})),
+            new(new HashSet<ActionConditions>(2){ActionConditions.COND_USE_BED_PENDING_DREAM_1, ActionConditions.COND_USE_HIVE1_BED})),
 
             new ( /* ITEM_STREET1_STH_DOOR */
             NameType.NAME_SOUTH_NEIGHBORHOOD,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
@@ -2661,7 +2666,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             false,ActionType.ACTION_TYPE_SCENE_CHANGE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.HIVE1_ROOM_1,"0",CardGameID.CARD_GAME_NONE), 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.HIVE1_ROOM_1,"1",CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_EVENT_PENDING_RECAP_EXTRAPERLO_GARDEN */
             true,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
@@ -2686,6 +2691,18 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_PENDING_DREAM_1, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_ANIMATE_MAINCHAR_SIT_BED */
+            true,ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION,GameItem.ITEM_PLAYER_MAIN,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_CYCLE_THREE,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_ZOOM_LAMP_BED */
+            true,ActionType.ACTION_TYPE_SET_ZOOM_REGION,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"ZOOM_LAMP",CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

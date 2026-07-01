@@ -86,7 +86,8 @@ namespace Gob3AQ.ResourceAtlas
             {
                 PrefabEnum.PREFAB_MEMENTO_ITEM,
                 PrefabEnum.PREFAB_MAINCHARACTER,
-                PrefabEnum.PREFAB_MAINCHARACTER_SEATED
+                PrefabEnum.PREFAB_MAINCHARACTER_SEATED,
+                PrefabEnum.PREFAB_MAINCHARACTER_DREAM
             };
 
             _fixedPrefabsToLoad = new(editableHash);
@@ -196,6 +197,7 @@ namespace Gob3AQ.ResourceAtlas
             "PREFAB_MAINCHARACTER",
             "PREFAB_DETAIL_EXTRAPERLO",
             "PREFAB_MAINCHARACTER_SEATED",
+            "PREFAB_MAINCHARACTER_DREAM"
         };
 
         private static readonly InitialWalkInfo[][] _RoomInitialWaypointWalk = new InitialWalkInfo[(int)Room.ROOMS_TOTAL][]
@@ -215,6 +217,7 @@ namespace Gob3AQ.ResourceAtlas
             new InitialWalkInfo[]{new(1,3) }, /* CITY1_EXTRAPERLO2 */
             new InitialWalkInfo[]{new(0,0) }, /* CITY1_EXTRAPERLO3 */
             new InitialWalkInfo[]{new(0,0) }, /* CITY1_EXTRAPERLO3_2 */
+            new InitialWalkInfo[]{new(0,0) }, /* DREAM_1 */
             new InitialWalkInfo[]{new(0,0) }, /* ROOM_LAST */
         };
 
@@ -398,6 +401,18 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.SOUND_AMBIENCE_CITY_NIGHT}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAINER_DIALOG_SILVANA_MAINCHAR_GARDEN_LONG}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
+            ),
+
+            new( /* DREAM_1 */
+            new GameSprite[1]{GameSprite.BACKGROUND_DREAM_1},
+            new GameSound[1]{GameSound.MUSIC_DREAM_1},
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_DREAM_1}), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(2){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_DREAM_RADIO}), 
+            new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE}), 
+            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_DREAM_1}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_ENTRY_DIALOG_DREAM_1}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
             ),
 

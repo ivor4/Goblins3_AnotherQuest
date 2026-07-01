@@ -1,5 +1,6 @@
 using Gob3AQ.VARMAP.Types;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Gob3AQ.ResourceDialogsAtlas
@@ -45,11 +46,24 @@ namespace Gob3AQ.ResourceDialogsAtlas
             }
         }
 
+        public static bool IsItemCharacter(GameItem item, out CharacterType character)
+        {
+            if(ITEM_TO_CHAR_DICT.TryGetValue(item, out character))
+            {
+                return true;
+            }
+            else
+            {
+                character = CharacterType.CHARACTER_NONE;
+                return false;
+            }
+        }
+
         public static GameItem GetItemForCharacter(CharacterType character)
         {
-            if((uint)character < (uint)CharacterType.CHARACTER_TOTAL)
+            if(CHAR_TO_ITEM_DICT.TryGetValue(character, out GameItem item))
             {
-                return _CharacterToItemDict[(int)character];
+                return item;
             }
             else
             {
@@ -58,12 +72,32 @@ namespace Gob3AQ.ResourceDialogsAtlas
             }
         }
 
-        private static readonly GameItem[] _CharacterToItemDict = new GameItem[(int)CharacterType.CHARACTER_TOTAL]
+        public static CharacterType GetCharacterForItem(GameItem item)
         {
-            GameItem.ITEM_PLAYER_MAIN,
-            GameItem.ITEM_NONE,
-            GameItem.ITEM_NONE
+            if (ITEM_TO_CHAR_DICT.TryGetValue(item, out CharacterType character))
+            {
+                return character;
+            }
+            else
+            {
+                Debug.LogError($"[ResourceDialogsAtlas] GetCharacterForItem: Invalid item {item}");
+                return CharacterType.CHARACTER_NONE;
+            }
+        }
+
+
+        private static readonly IReadOnlyDictionary<GameItem, CharacterType> ITEM_TO_CHAR_DICT = new Dictionary<GameItem, CharacterType>()
+        {
+            { GameItem.ITEM_PLAYER_MAIN, CharacterType.CHARACTER_MAIN },
+            { GameItem.ITEM_MAINCHAR_DREAM, CharacterType.CHARACTER_MAIN_DREAM }
         };
+
+        private static readonly IReadOnlyDictionary<CharacterType, GameItem> CHAR_TO_ITEM_DICT = new Dictionary<CharacterType, GameItem>()
+        {
+            { CharacterType.CHARACTER_MAIN, GameItem.ITEM_PLAYER_MAIN },
+            { CharacterType.CHARACTER_MAIN_DREAM, GameItem.ITEM_MAINCHAR_DREAM }
+        };
+
 
 
         private static readonly DialogConfig[] _DialogConfig = new DialogConfig[(int)DialogType.DIALOG_TOTAL]
@@ -1257,6 +1291,8 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,GameSound.SOUND_PHRASE_SILVANA_ASKING_BILL, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_SILVANA_ASKING_BILL */ 
             new(0,GameSound.SOUND_PHRASE_RECAP_EXTRAPERLO_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MAINCHAR_RECAP_EXTRAPERLO_1 */ 
             new(0,GameSound.SOUND_PHRASE_RECAP_EXTRAPERLO_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MAINCHAR_RECAP_EXTRAPERLO_2 */ 
+            new(0,GameSound.SOUND_OBSERVE_DREAM_RADIO, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_ITEM_DREAM_RADIO */ 
+            new(0,GameSound.SOUND_MAINCHAR_ENTRY_DIALOG_DREAM_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MAINCHAR_ENTRY_DIALOG_DREAM_1 */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

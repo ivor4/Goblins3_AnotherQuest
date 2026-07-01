@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Dream1
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Dream1
+  m_GUID: 3e5c3982bfedbfd4aba0fa456b21276a
+  m_SerializeEntries:
+  - m_GUID: 148ff616c223b934982d5e7f0c21ccbf
+    m_Address: SOUND_MAINCHAR_ENTRY_DIALOG_DREAM_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 533b0c5081ebefb4ea7418fe70aabf3c
+    m_Address: SOUND_RADIO_PRE_WAR_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 77de8007d4ba8bc40af16ec54eedcbc3
+    m_Address: MUSIC_DREAM_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c411fed3c3e5604981422da936ba10b
+    m_Address: SPRITE_ATLAS_DREAM1_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c51014d55bdb99a49835c96a7db9b886
+    m_Address: SOUND_OBSERVE_DREAM_RADIO_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce72438aa8f086c4b9497ded032f7442
+    m_Address: BACKGROUND_DREAM_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f526faca21b99c74ebf897c89ebe0239
+    m_Address: SCENE_DREAM_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c63f0f3646ca67f4abe7e9d9a952af85, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 147585649246660418a5bba13c0ed844, type: 2}
+    - {fileID: 11400000, guid: 883dfc6e1456c53419395f8ab63eedc5, type: 2}

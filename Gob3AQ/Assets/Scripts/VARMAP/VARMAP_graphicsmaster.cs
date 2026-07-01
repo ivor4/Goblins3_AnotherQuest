@@ -30,6 +30,7 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             GET_PRESSED_KEYS = _GET_PRESSED_KEYS;
             GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
+            GET_PLAYER_SELECTED = _GET_PLAYER_SELECTED;
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
             REG_PICKABLE_ITEM_CHOSEN = _REG_PICKABLE_ITEM_CHOSEN;
             UNREG_PICKABLE_ITEM_CHOSEN = _UNREG_PICKABLE_ITEM_CHOSEN;
@@ -66,6 +67,7 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
         public static GetVARMAPValueDelegate<KeyStruct> GET_PRESSED_KEYS;
         public static GetVARMAPValueDelegate<MousePropertiesStruct> GET_MOUSE_PROPERTIES;
+        public static GetVARMAPValueDelegate<CharacterType> GET_PLAYER_SELECTED;
         public static GetVARMAPValueDelegate<GameItem> GET_PICKABLE_ITEM_CHOSEN;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> REG_PICKABLE_ITEM_CHOSEN;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> UNREG_PICKABLE_ITEM_CHOSEN;

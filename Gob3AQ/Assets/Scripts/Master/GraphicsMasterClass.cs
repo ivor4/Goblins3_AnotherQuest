@@ -322,7 +322,7 @@ namespace Gob3AQ.GraphicsMaster
                         {
                             mainCamera.orthographicSize = Mathf.Min(5.0f, _maxCameraOrthographicSize);
                             VARMAP_GraphicsMaster.GET_PLAYER_LIST(out ReadOnlySpan<PlayableCharScript> playerList);
-                            cameraPosition = playerList[0].transform.position;
+                            cameraPosition = playerList[(int)VARMAP_GraphicsMaster.GET_PLAYER_SELECTED()].transform.position;
                         }
 
                         UpdateCameraBounds();

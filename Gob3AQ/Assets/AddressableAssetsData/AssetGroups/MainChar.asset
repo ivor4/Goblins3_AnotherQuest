@@ -355,6 +355,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf272bb7dfc1e58459f42dba7154d254
+    m_Address: PREFAB_MAINCHARACTER_DREAM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d69bd2cd1c97f204cb7e56cc028e8815
     m_Address: ANIMATION_MAINCHAR_LISTENING_EXIT
     m_ReadOnly: 0

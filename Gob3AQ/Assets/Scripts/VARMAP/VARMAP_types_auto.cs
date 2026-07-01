@@ -10,7 +10,7 @@ namespace Gob3AQ.VARMAP.Types
         /* > ATG 1 START < */
         CHARACTER_NONE = -1, 
         CHARACTER_MAIN, 
-        CHARACTER_PARROT, 
+        CHARACTER_MAIN_DREAM, 
         CHARACTER_SNAKE, 
         
         CHARACTER_TOTAL

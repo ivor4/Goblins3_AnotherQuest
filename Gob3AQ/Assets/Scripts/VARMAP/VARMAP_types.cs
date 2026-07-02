@@ -69,7 +69,8 @@ namespace Gob3AQ.VARMAP.Types
         GAME_STATUS_PLAY_CARDS,
         GAME_STATUS_PAUSE,
         GAME_STATUS_CHANGING_ROOM,
-        GAME_STATUS_LOADING
+        GAME_STATUS_LOADING,
+        GAME_STATUS_CHAPTER_SHOW
     }
 
     public enum PrefabEnum

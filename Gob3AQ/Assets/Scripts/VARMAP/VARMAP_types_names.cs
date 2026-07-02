@@ -64,6 +64,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_FULL_BLADDER, 
         NAME_CLIENT, 
         NAME_RADIO, 
+        NAME_DENIAL, 
         NAME_NPC_LAST, 
         
 NAME_TOTAL

@@ -780,6 +780,10 @@ namespace Gob3AQ.GameEventMaster
                         _actionExpectedFlag = NotifyAction.NOTIFY_SOUND;
                         VARMAP_GameEventMaster.PLAY_SOUND(info.targetSound, mustWait ? EndOfSoundPlayCallback : null, false);
                         break;
+                    case ActionType.ACTION_TYPE_STOP_SOUND:
+                        mustWait = info.waitForEnd;
+                        VARMAP_GameEventMaster.STOP_SOUND(info.targetSound);
+                        break;
                     case ActionType.ACTION_TYPE_SCENE_CHANGE:
                         VARMAP_GameEventMaster.LOAD_ROOM_AS_ACTION(info.targetRoom, info.targetWaypointTag.Length == 0 ? -1 : int.Parse(info.targetWaypointTag));
                         break;
@@ -935,6 +939,7 @@ namespace Gob3AQ.GameEventMaster
                         break;
 
                     case Game_Status.GAME_STATUS_PLAY:
+                    case Game_Status.GAME_STATUS_CHAPTER_SHOW:
                         if(oldval == Game_Status.GAME_STATUS_LOADING)
                         {
                             /* Scene entry unchainers */

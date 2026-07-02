@@ -31,6 +31,7 @@ namespace Gob3AQ.GameMenu.UICanvas
         DISPLAY_MODE_MEMENTO,
         DISPLAY_MODE_DETAIL,
         DISPLAY_MODE_CARDS,
+        DISPLAY_MODE_CHAPTER,
         DISPLAY_MODE_LOADING
     }
 
@@ -66,6 +67,7 @@ namespace Gob3AQ.GameMenu.UICanvas
         private GameObject UICanvas_itemMenuObj;
         private GameObject UICanvas_detailObj;
         private GameObject UICanvas_cardObj;
+        private GameObject UICanvas_chapterObj;
 
         private Image UICanvas_dialogObj_background;
         private TMP_Text UICanvas_dialogObj_sender;
@@ -74,8 +76,12 @@ namespace Gob3AQ.GameMenu.UICanvas
         private DialogOptionButtonClass[] UICanvas_dialogOptionButtons;
         private PickableItemDisplayClass[] UICanvas_inventoryButtons;
 
+        private TMP_Text UICanvas_chapterObj_chapterNo;
+        private TMP_Text UICanvas_chapterObj_chapterName;
+
         private Image UICanvas_loadingObj_image;
         private Sprite UICanvas_loadingObj_image_initial;
+
 
         private GameObject UICanvas_decisionOptions;
         private DecisionOptionButtonClass[] UICanvas_decisionOptionButtons;
@@ -145,6 +151,10 @@ namespace Gob3AQ.GameMenu.UICanvas
             UICanvas_itemMenuObj = transform.Find("ItemMenuObj").gameObject;
             UICanvas_detailObj = transform.Find("DetailObj").gameObject;
             UICanvas_cardObj = transform.Find("CardObj").gameObject;
+            UICanvas_chapterObj = transform.Find("ChapterObj").gameObject;
+
+            UICanvas_chapterObj_chapterNo = UICanvas_chapterObj.transform.Find("ChapterText").GetComponent<TMP_Text>();
+            UICanvas_chapterObj_chapterName = UICanvas_chapterObj.transform.Find("ChapterTitleText").GetComponent<TMP_Text>();
 
             UICanvas_loadingObj_image = UICanvas_loadingObj.GetComponent<Image>();
             UICanvas_loadingObj_image_initial = UICanvas_loadingObj_image.sprite;
@@ -221,6 +231,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_itemMenuObj.SetActive(true);
                     UICanvas_detailObj.SetActive(false);
                     UICanvas_cardObj.SetActive(false);
+                    UICanvas_chapterObj.SetActive(false);
                     tool_giveUpButtonMono.SetActive(false);
 
                     break;
@@ -231,6 +242,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_itemMenuObj.SetActive(false);
                     UICanvas_detailObj.SetActive(false);
                     UICanvas_cardObj.SetActive(false);
+                    UICanvas_chapterObj.SetActive(false);
                     tool_giveUpButtonMono.SetActive(false);
                     break;
 
@@ -240,6 +252,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_itemMenuObj.SetActive(false);
                     UICanvas_detailObj.SetActive(false);
                     UICanvas_cardObj.SetActive(false);
+                    UICanvas_chapterObj.SetActive(false);
                     tool_giveUpButtonMono.SetActive(false);
                     break;
 
@@ -249,6 +262,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_itemMenuObj.SetActive(false);
                     UICanvas_detailObj.SetActive(false);
                     UICanvas_cardObj.SetActive(false);
+                    UICanvas_chapterObj.SetActive(false);
                     tool_giveUpButtonMono.SetActive(false);
                     break;
 
@@ -258,6 +272,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_itemMenuObj.SetActive(false);
                     UICanvas_detailObj.SetActive(true);
                     UICanvas_cardObj.SetActive(false);
+                    UICanvas_chapterObj.SetActive(false);
                     tool_giveUpButtonMono.SetActive(false);
                     break;
 
@@ -268,6 +283,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_itemMenuObj.SetActive(false);
                     UICanvas_detailObj.SetActive(false);
                     UICanvas_cardObj.SetActive(false);
+                    UICanvas_chapterObj.SetActive(false);
                     tool_giveUpButtonMono.SetActive(false);
                     break;
 
@@ -278,7 +294,18 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_itemMenuObj.SetActive(false);
                     UICanvas_detailObj.SetActive(false);
                     UICanvas_cardObj.SetActive(true);
+                    UICanvas_chapterObj.SetActive(false);
                     tool_giveUpButtonMono.SetActive(true);
+                    break;
+
+                case DisplayMode.DISPLAY_MODE_CHAPTER:
+                    UICanvas_decisionObj.SetActive(false);
+                    UICanvas_mementoObj.SetActive(false);
+                    UICanvas_itemMenuObj.SetActive(false);
+                    UICanvas_detailObj.SetActive(false);
+                    UICanvas_cardObj.SetActive(false);
+                    UICanvas_chapterObj.SetActive(true);
+                    tool_giveUpButtonMono.SetActive(false);
                     break;
 
                 default:
@@ -287,6 +314,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     UICanvas_itemMenuObj.SetActive(false);
                     UICanvas_detailObj.SetActive(false);
                     UICanvas_cardObj.SetActive(false);
+                    UICanvas_chapterObj.SetActive(false);
                     tool_giveUpButtonMono.SetActive(false);
                     break;
             }
@@ -465,6 +493,12 @@ namespace Gob3AQ.GameMenu.UICanvas
         public void HideLoadingObj()
         {
             UICanvas_loadingObj.SetActive(false);
+        }
+
+        public void SetChapterNoAndTitle(string chapterNo, string chapterTitle)
+        {
+            UICanvas_chapterObj_chapterNo.text = chapterNo;
+            UICanvas_chapterObj_chapterName.text = chapterTitle;
         }
 
         public void ActivateDialogOption(int index, bool activate, DialogOption option, DialogPhrase phrase, string text)

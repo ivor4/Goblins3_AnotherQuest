@@ -164,7 +164,14 @@ namespace Gob3AQ.GameMaster
                 case Game_Status.GAME_STATUS_LOADING:
                     if (moduleLoadingDone == ALL_MODULES_LOADED_MASK)
                     {
-                        _SetGameStatus(Game_Status.GAME_STATUS_PLAY);
+                        if (VARMAP_GameMaster.GET_SHADOW_ACTUAL_ROOM() == Room.CHAPTER_SHOW)
+                        {
+                            _SetGameStatus(Game_Status.GAME_STATUS_CHAPTER_SHOW);
+                        }
+                        else
+                        {
+                            _SetGameStatus(Game_Status.GAME_STATUS_PLAY);
+                        }
                     }
                     break;
                 default:
@@ -346,13 +353,17 @@ namespace Gob3AQ.GameMaster
                         (oldmode == Game_Status.GAME_STATUS_PLAY_ITEM_MENU) ||
                         (oldmode == Game_Status.GAME_STATUS_PAUSE) ||
                         (oldmode == Game_Status.GAME_STATUS_PLAY_CARDS) ||
-                        (oldmode == Game_Status.GAME_STATUS_PLAY_ANIMATION);
+                        (oldmode == Game_Status.GAME_STATUS_PLAY_ANIMATION) ||
+                        (oldmode == Game_Status.GAME_STATUS_CHAPTER_SHOW);
                     break;
                 case Game_Status.GAME_STATUS_PLAY_CARDS:
                     valid = (oldmode == Game_Status.GAME_STATUS_PLAY) || (oldmode == Game_Status.GAME_STATUS_PLAY_DIALOG);
                     break;
                 case Game_Status.GAME_STATUS_PLAY_ANIMATION:
                     valid = (oldmode == Game_Status.GAME_STATUS_PLAY) || (oldmode == Game_Status.GAME_STATUS_PLAY_DIALOG);
+                    break;
+                case Game_Status.GAME_STATUS_CHAPTER_SHOW:
+                    valid = (oldmode == Game_Status.GAME_STATUS_LOADING);
                     break;
                 default:
                     valid = false;

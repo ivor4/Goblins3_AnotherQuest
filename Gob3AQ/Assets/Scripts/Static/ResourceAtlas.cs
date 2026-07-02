@@ -218,6 +218,7 @@ namespace Gob3AQ.ResourceAtlas
             new InitialWalkInfo[]{new(0,0) }, /* CITY1_EXTRAPERLO3 */
             new InitialWalkInfo[]{new(0,0) }, /* CITY1_EXTRAPERLO3_2 */
             new InitialWalkInfo[]{new(0,0) }, /* DREAM_1 */
+            new InitialWalkInfo[]{new(0,0) }, /* CHAPTER_SHOW */
             new InitialWalkInfo[]{new(0,0) }, /* ROOM_LAST */
         };
 
@@ -413,6 +414,18 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_DREAM_1}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_ENTRY_DIALOG_DREAM_1}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
+            ),
+
+            new( /* CHAPTER_SHOW */
+            new GameSprite[1]{GameSprite.SPRITE_BLANK},
+            new GameSound[1]{GameSound.SOUND_NONE},
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(1){GameItem.ITEM_GENERIC_DOOR1}), 
+            new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE}), 
+            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.SOUND_NONE}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_PLAY_SOUND_CHAPTER_IN}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
             ),
 

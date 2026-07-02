@@ -7,6 +7,7 @@ using Gob3AQ.PlayerMaster;
 using Gob3AQ.ItemMaster;
 using Gob3AQ.GameEventMaster;
 using Gob3AQ.GraphicsMaster;
+using Gob3AQ.SoundMaster;
 using Gob3AQ.GameMenu;
 using Gob3AQ.DialogMaster;
 using Gob3AQ.CardMaster;

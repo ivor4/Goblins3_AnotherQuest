@@ -135,7 +135,8 @@ namespace Gob3AQ.SoundMaster
             {
                 PooledAudioSource audio = _singleton.usedSources[i];
                 if (audio.Sound != sound) continue;
-                
+
+                audio.Callback?.Invoke();
                 audio.Stop();
                 _singleton.usedSources.RemoveAt(i);
                 _singleton.availableSources.Enqueue(audio);

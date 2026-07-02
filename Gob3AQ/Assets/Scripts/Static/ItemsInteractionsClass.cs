@@ -364,6 +364,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_ANY, 
             new GameAction[2]{GameAction.ACTION_EVENT_REMOVE_PENDING_DREAM_1, GameAction.ACTION_DIALOGUE_MAINCHAR_ENTRY_DREAM_1}), 
 
+            new( /* UNCHAIN_PLAY_SOUND_CHAPTER_IN */
+            true,false,false,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY, 
+            new GameAction[1]{GameAction.ACTION_PLAY_SOUND_CHAPTER_IN}), 
+
             new( /* UNCHAIN_LAST */
             false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
@@ -828,10 +834,15 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN_DREAM,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
             new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_ITEM_DREAM_RADIO}), 
 
-            new( /* COND_TAKE_DREAM_RADIO */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            new( /* COND_TAKE_DREAM_RADIO_ON */
+            new GameEventCombi[1]{new(GameEvent.EVENT_EPHIMERAL_ON, true)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN_DREAM,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            new GameAction[1]{GameAction.ACTION_SOUND_RADIO_DREAM_1}), 
+            new GameAction[2]{GameAction.ACTION_EVENT_EPHIMERAL_ON, GameAction.ACTION_SOUND_RADIO_DREAM_1}), 
+
+            new( /* COND_TAKE_DREAM_RADIO_OFF */
+            new GameEventCombi[1]{new(GameEvent.EVENT_EPHIMERAL_ON, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN_DREAM,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
+            new GameAction[2]{GameAction.ACTION_EVENT_EPHIMERAL_OFF, GameAction.ACTION_SOUND_STOP_RADIO_DREAM_1}), 
 
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
@@ -1160,7 +1171,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_DREAM_RADIO */
             NameType.NAME_RADIO,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
             GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
-            new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_DREAM_RADIO, ActionConditions.COND_TAKE_DREAM_RADIO})),
+            new(new HashSet<ActionConditions>(3){ActionConditions.COND_OBSERVE_ITEM_DREAM_RADIO, ActionConditions.COND_TAKE_DREAM_RADIO_ON, ActionConditions.COND_TAKE_DREAM_RADIO_OFF})),
 
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST}),
@@ -2734,7 +2745,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             false,ActionType.ACTION_TYPE_SCENE_CHANGE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.DREAM_1,"0",CardGameID.CARD_GAME_NONE), 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.CHAPTER_SHOW,"0",CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_DIALOGUE_OBSERVE_ITEM_DREAM_RADIO */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
@@ -2759,6 +2770,30 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_RADIO_PRE_WAR_1,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_SOUND_STOP_RADIO_DREAM_1 */
+            false,ActionType.ACTION_TYPE_STOP_SOUND,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_RADIO_PRE_WAR_1,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_EVENT_EPHIMERAL_ON */
+            true,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_EPHIMERAL_ON, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_EVENT_EPHIMERAL_OFF */
+            true,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_EPHIMERAL_ON, true)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_PLAY_SOUND_CHAPTER_IN */
+            false,ActionType.ACTION_TYPE_PLAY_SOUND,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_CHAPTER_IN,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

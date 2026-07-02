@@ -5,6 +5,7 @@ using Gob3AQ.GameMenu.UICanvas;
 using Gob3AQ.Libs.Arith;
 using Gob3AQ.ResourceDecisionsAtlas;
 using Gob3AQ.ResourceDialogs;
+using Gob3AQ.ResourceDialogsAtlas;
 using Gob3AQ.VARMAP.GameMenu;
 using Gob3AQ.VARMAP.Types;
 using System;
@@ -621,6 +622,20 @@ namespace Gob3AQ.GameMenu
                     case Game_Status.GAME_STATUS_PLAY_CARDS:
                         _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_CARDS);
                         break;
+                    case Game_Status.GAME_STATUS_CHAPTER_SHOW:
+                        {
+                            Span<GameEventCombi> oneEvent = RentedSpan<GameEventCombi>.GetSpanOfSize(1);
+                            oneEvent[0] = new(GameEvent.EVENT_PENDING_DREAM_1, false);
+                            VARMAP_GameMenu.IS_EVENT_COMBI_OCCURRED(oneEvent, out bool occurred);
+
+                            if (occurred)
+                            {
+                                _uicanvas_cls.SetChapterNoAndTitle("I", ResourceDialogsClass.GetName(NameType.NAME_DENIAL));
+                            }
+
+                            _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_CHAPTER);
+                            break;
+                        }
                     default:
                         break;
                 }

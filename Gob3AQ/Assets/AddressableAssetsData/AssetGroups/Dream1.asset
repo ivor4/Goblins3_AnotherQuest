@@ -45,6 +45,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f2a5fdf860aa0ce44b2a5fdefcb82b1b
+    m_Address: SPRITE_FOREGROUND_CORRIDOR_COLUMN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f526faca21b99c74ebf897c89ebe0239
     m_Address: SCENE_DREAM_1
     m_ReadOnly: 0

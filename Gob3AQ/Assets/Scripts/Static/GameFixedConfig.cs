@@ -97,13 +97,14 @@ namespace Gob3AQ.FixedConfig
             "SCENE_EXTRAPERLO3",
             "SCENE_EXTRAPERLO3_2",
             "SCENE_DREAM_1",
+            "SCENE_CHAPTER_SHOW",
             ""
         };
 
         private static readonly Dictionary<Room, bool> _IS_ROOM_FADE_OUT_LONG = new Dictionary<Room, bool>()
         {
             {Room.CITY1_EXTRAPERLO3_2, true},
-            {Room.DREAM_1, true},
+            {Room.CHAPTER_SHOW, true},
         };
 
         private static readonly Dictionary<Room, IReadOnlyList<PrefabEnum>> _CHARACTERS_TO_LOAD_PER_SCENE = new Dictionary<Room, IReadOnlyList<PrefabEnum>>()

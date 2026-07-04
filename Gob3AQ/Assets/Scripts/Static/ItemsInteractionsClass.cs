@@ -827,7 +827,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new( /* COND_USE_BED_PENDING_DREAM_1 */
             new GameEventCombi[1]{new(GameEvent.EVENT_PENDING_DREAM_1, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            new GameAction[4]{GameAction.ACTION_SET_GAME_ANIMATION_MODE, GameAction.ACTION_ANIMATE_MAINCHAR_SIT_BED, GameAction.ACTION_ZOOM_LAMP_BED, GameAction.ACTION_SCENE_DREAM_1}), 
+            new GameAction[4]{GameAction.ACTION_SET_GAME_ANIMATION_MODE, GameAction.ACTION_ANIMATE_MAINCHAR_SIT_BED, GameAction.ACTION_ZOOM_LAMP_BED, GameAction.ACTION_SCENE_CHAPTER_SHOW_1}), 
 
             new( /* COND_OBSERVE_ITEM_DREAM_RADIO */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
@@ -2741,11 +2741,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"ZOOM_LAMP",CardGameID.CARD_GAME_NONE), 
 
-            new( /* ACTION_SCENE_DREAM_1 */
+            new( /* ACTION_SCENE_CHAPTER_SHOW_1 */
             false,ActionType.ACTION_TYPE_SCENE_CHANGE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.CHAPTER_SHOW,"0",CardGameID.CARD_GAME_NONE), 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_MORNING,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.CHAPTER_SHOW,"1",CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_DIALOGUE_OBSERVE_ITEM_DREAM_RADIO */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

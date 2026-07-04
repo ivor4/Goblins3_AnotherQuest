@@ -1,4 +1,5 @@
 using Gob3AQ.Brain.ItemsInteraction;
+using Gob3AQ.Brain.LevelOptions;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameElement.PlayableChar;
 using Gob3AQ.GameMenu.UICanvas;
@@ -599,7 +600,7 @@ namespace Gob3AQ.GraphicsMaster
 
         private void StartLoadingFade()
         {
-            loadingFadeLong = GameFixedConfig.IS_ROOM_FADE_OUT_LONG.GetValueOrDefault(VARMAP_GraphicsMaster.GET_ACTUAL_ROOM(), false);
+            loadingFadeLong = LevelOptionsClass.IS_ROOM_FADE_OUT_LONG.GetValueOrDefault(VARMAP_GraphicsMaster.GET_ACTUAL_ROOM(), false);
             loadingFadeStartTime = VARMAP_GraphicsMaster.GET_ELAPSED_TIME_MS();
             loadingFadingIn = false;
             load_step = 0;

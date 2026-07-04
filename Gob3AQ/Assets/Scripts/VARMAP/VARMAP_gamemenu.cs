@@ -51,6 +51,7 @@ namespace Gob3AQ.VARMAP.GameMenu
             GET_SHADOW_USER_INPUT_INTERACTION = _GET_SHADOW_USER_INPUT_INTERACTION;
             SET_USER_INPUT_INTERACTION = _SET_USER_INPUT_INTERACTION;
             GET_BUSY_STATE = _GET_BUSY_STATE;
+            GET_CHAPTER_SHOW_NR = _GET_CHAPTER_SHOW_NR;
             START_GAME = _START_GAME;
             SAVE_GAME = _SAVE_GAME;
             LOAD_GAME = _LOAD_GAME;
@@ -107,6 +108,7 @@ namespace Gob3AQ.VARMAP.GameMenu
         public static GetVARMAPValueDelegate<UserInputInteraction> GET_SHADOW_USER_INPUT_INTERACTION;
         public static SetVARMAPValueDelegate<UserInputInteraction> SET_USER_INPUT_INTERACTION;
         public static GetVARMAPValueDelegate<BusyState> GET_BUSY_STATE;
+        public static GetVARMAPValueDelegate<int> GET_CHAPTER_SHOW_NR;
         /* > ATG 2 END */
 
         /* SERVICES */

@@ -785,7 +785,20 @@ namespace Gob3AQ.GameEventMaster
                         VARMAP_GameEventMaster.STOP_SOUND(info.targetSound);
                         break;
                     case ActionType.ACTION_TYPE_SCENE_CHANGE:
-                        VARMAP_GameEventMaster.LOAD_ROOM_AS_ACTION(info.targetRoom, info.targetWaypointTag.Length == 0 ? -1 : int.Parse(info.targetWaypointTag));
+                        if(info.targetMomentOfDay != MomentType.MOMENT_ANY)
+                        {
+                            VARMAP_GameEventMaster.CHANGE_DAY_MOMENT(info.targetMomentOfDay);
+                        }
+
+                        if (info.targetRoom == Room.CHAPTER_SHOW)
+                        {
+                            VARMAP_GameEventMaster.SET_CHAPTER_SHOW_NR(int.Parse(info.targetWaypointTag));
+                            VARMAP_GameEventMaster.LOAD_ROOM_AS_ACTION(info.targetRoom, -1);
+                        }
+                        else
+                        {
+                            VARMAP_GameEventMaster.LOAD_ROOM_AS_ACTION(info.targetRoom, info.targetWaypointTag.Length == 0 ? -1 : int.Parse(info.targetWaypointTag));
+                        }
                         break;
                     case ActionType.ACTION_TYPE_START_CARD_GAME:
                         VARMAP_GameEventMaster.START_CARD_GAME(info.targetCardGame);

@@ -1,4 +1,6 @@
+using Gob3AQ.Brain.LevelOptions;
 using Gob3AQ.FixedConfig;
+using Gob3AQ.Libs.Arith;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceDialogs;
 using Gob3AQ.ResourceSounds;
@@ -10,14 +12,13 @@ using Gob3AQ.VARMAP.Types;
 using Gob3AQ.VARMAP.Variable;
 using System;
 using System.Collections;
-using Gob3AQ.Libs.Arith;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 using UnityEngine.U2D;
-using System.Collections.Generic;
 
 namespace Gob3AQ.GameMaster
 {
@@ -505,7 +506,7 @@ namespace Gob3AQ.GameMaster
             
 
             /* Now load desired room and its resources */
-            string resourceName = GameFixedConfig.ROOM_TO_SCENE_NAME[(int)room];
+            string resourceName = LevelOptionsClass.ROOM_TO_SCENE_NAME[(int)room];
 
             /* Prepare, but not go into next room yet */
             nextRoom = Addressables.LoadSceneAsync(resourceName, LoadSceneMode.Additive, true);
@@ -597,7 +598,7 @@ namespace Gob3AQ.GameMaster
 
         private static void PlaceCharactersOnLoad(Room room)
         {
-            IReadOnlyList<PrefabEnum> charsList = GameFixedConfig.CHARACTERS_TO_LOAD_PER_SCENE.GetValueOrDefault(room, DEFAULT_CHARACTER_PREFAB);
+            IReadOnlyList<PrefabEnum> charsList = LevelOptionsClass.CHARACTERS_TO_LOAD_PER_SCENE.GetValueOrDefault(room, DEFAULT_CHARACTER_PREFAB);
 
             foreach (PrefabEnum charElem in charsList)
             {

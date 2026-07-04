@@ -36,7 +36,7 @@
 34,LOAD_ADDITIONAL_PREFAB,LOAD_ADDITIONAL_PREFAB_DELEGATE,GameMasterClass.LoadAdditionalPrefabService,Loads/Unloads a set of names and Phrases,,W,-,-,-,-,X,-,-,-,-,-
 35,LOAD_ADDITIONAL_SOUND,LOAD_ADDITIONAL_SOUND_DELEGATE,GameMasterClass.LoadAdditionalSoundService,Loads/Unloads a set of names and Phrases,,W,-,-,-,X,-,-,-,-,-,-
 36,PLAY_SOUND,PLAY_SOUND_DELEGATE,SoundMasterClass.PlaySoundService,Plays a sound and (optionally) callback is called,,-,-,-,-,W,-,X,-,-,X,X
-37,STOP_SOUND,STOP_SOUND_DELEGATE,SoundMasterClass.StopSoundService,Stops first match of sound with given ID which is being played,,-,-,X,-,W,-,X,-,-,-,X
+37,STOP_SOUND,STOP_SOUND_DELEGATE,SoundMasterClass.StopSoundService,Stops first match of sound with given ID which is being played,,-,-,-,-,W,-,X,-,-,-,X
 38,START_ANIMATION,START_ANIMATION_DELEGATE,DialogMasterClass.StartAnimationService,Starts an animation in background or main mode,,-,-,-,-,-,-,W,-,X,-,X
 39,ITEM_PERFORM_ANIMATION,ITEM_PERFORM_ANIMATION_DELEGATE,ItemMasterClass.PerformAnimationService,Makes an item start an animation,,-,-,-,-,-,-,X,-,W,-,X
 40,PERFORM_ACTION,PERFORM_ACTION_DELEGATE,GameEventMasterClass.PerformActionService,Performs a named action,,-,-,X,-,-,X,X,-,X,X,W

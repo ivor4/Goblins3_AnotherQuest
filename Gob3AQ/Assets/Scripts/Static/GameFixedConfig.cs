@@ -11,9 +11,7 @@ namespace Gob3AQ.FixedConfig
         /* Read only fields */
         public static ReadOnlySpan<byte> GAME_VERSION => _GAME_VERSION;
         public static ReadOnlySpan<byte> LOAD_SAVE_FILE_FORMAT_VERSION => _LOAD_SAVE_FILE_FORMAT_VERSION;
-        public static ReadOnlySpan<string> ROOM_TO_SCENE_NAME => _ROOM_TO_SCENE_NAME;
-        public static IReadOnlyDictionary<Room, bool> IS_ROOM_FADE_OUT_LONG => _IS_ROOM_FADE_OUT_LONG;
-        public static IReadOnlyDictionary<Room, IReadOnlyList<PrefabEnum>> CHARACTERS_TO_LOAD_PER_SCENE => _CHARACTERS_TO_LOAD_PER_SCENE;
+        
 
         /* Config */
         public const int CARD_GAME_MAX_PLAYERS = 2;
@@ -79,39 +77,9 @@ namespace Gob3AQ.FixedConfig
         public const int MAX_SCENE_DOORS = 4;
         public const string ROOM_MAINMENU = "Boot";
         public const string ROOM_BASE = "SCENE_BASE";
-        private static readonly string[] _ROOM_TO_SCENE_NAME = new string[(int)Room.ROOMS_TOTAL]
-        {
-            "SCENE_HIVE1_ROOM_1",
-            "SCENE_HIVE1_CORRIDOR_1",
-            "SCENE_HIVE1_HALL_1",
-            "SCENE_HIVE1_WC_1",
-            "SCENE_CITY1_STREET_1",
-            "SCENE_CITY1_STREET_2",
-            "SCENE_PHARMACY1",
-            "SCENE_MANYO1",
-            "SCENE_HIVE1_BACKALLEY",
-            "SCENE_CITY1_SOUTH_STREET_1",
-            "SCENE_CITY1_SOUTH_STREET_2",
-            "SCENE_EXTRAPERLO",
-            "SCENE_EXTRAPERLO2",
-            "SCENE_EXTRAPERLO3",
-            "SCENE_EXTRAPERLO3_2",
-            "SCENE_DREAM_1",
-            "SCENE_CHAPTER_SHOW",
-            ""
-        };
+        
 
-        private static readonly Dictionary<Room, bool> _IS_ROOM_FADE_OUT_LONG = new Dictionary<Room, bool>()
-        {
-            {Room.CITY1_EXTRAPERLO3_2, true},
-            {Room.CHAPTER_SHOW, true},
-        };
-
-        private static readonly Dictionary<Room, IReadOnlyList<PrefabEnum>> _CHARACTERS_TO_LOAD_PER_SCENE = new Dictionary<Room, IReadOnlyList<PrefabEnum>>()
-        {
-            {Room.CITY1_EXTRAPERLO3_2, new List<PrefabEnum>(){ PrefabEnum.PREFAB_MAINCHARACTER_SEATED }},
-            {Room.DREAM_1, new List<PrefabEnum>(){ PrefabEnum.PREFAB_MAINCHARACTER_DREAM }},
-        };
+        
 
     }
 }

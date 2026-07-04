@@ -1,4 +1,5 @@
 ﻿using Gob3AQ.Brain.ItemsInteraction;
+using Gob3AQ.Brain.LevelOptions;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameMenu.DetailActiveElem;
 using Gob3AQ.GameMenu.UICanvas;
@@ -623,19 +624,10 @@ namespace Gob3AQ.GameMenu
                         _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_CARDS);
                         break;
                     case Game_Status.GAME_STATUS_CHAPTER_SHOW:
-                        {
-                            Span<GameEventCombi> oneEvent = RentedSpan<GameEventCombi>.GetSpanOfSize(1);
-                            oneEvent[0] = new(GameEvent.EVENT_PENDING_DREAM_1, false);
-                            VARMAP_GameMenu.IS_EVENT_COMBI_OCCURRED(oneEvent, out bool occurred);
-
-                            if (occurred)
-                            {
-                                _uicanvas_cls.SetChapterNoAndTitle("I", ResourceDialogsClass.GetName(NameType.NAME_DENIAL));
-                            }
-
-                            _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_CHAPTER);
-                            break;
-                        }
+                        var chapter_title = LevelOptionsClass.CHAPTER_TO_TITLE.GetValueOrDefault(VARMAP_GameMenu.GET_CHAPTER_SHOW_NR(), new Tuple<string, NameType>("UNK", NameType.NAME_CHAR_MAIN));
+                        _uicanvas_cls.SetChapterNoAndTitle(chapter_title.Item1, ResourceDialogsClass.GetName(chapter_title.Item2));
+                        _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_CHAPTER);
+                        break;
                     default:
                         break;
                 }

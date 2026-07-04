@@ -49,6 +49,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
             SET_ITEM_HOVER = _SET_ITEM_HOVER;
             GET_USER_INPUT_INTERACTION = _GET_USER_INPUT_INTERACTION;
             GET_BUSY_STATE = _GET_BUSY_STATE;
+            GET_CHAPTER_SHOW_NR = _GET_CHAPTER_SHOW_NR;
             SAVE_GAME = _SAVE_GAME;
             LOAD_ROOM = _LOAD_ROOM;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
@@ -69,7 +70,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             LOCK_PLAYER = _LOCK_PLAYER;
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
-            STOP_SOUND = _STOP_SOUND;
             PERFORM_ACTION = _PERFORM_ACTION;
             NOTIFY_ENDED_ACTION = _NOTIFY_ENDED_ACTION;
             LOAD_ROOM_AS_ACTION = _LOAD_ROOM_AS_ACTION;
@@ -112,6 +112,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static SetVARMAPValueDelegate<GameItem> SET_ITEM_HOVER;
         public static GetVARMAPValueDelegate<UserInputInteraction> GET_USER_INPUT_INTERACTION;
         public static GetVARMAPValueDelegate<BusyState> GET_BUSY_STATE;
+        public static GetVARMAPValueDelegate<int> GET_CHAPTER_SHOW_NR;
         /* > ATG 2 END */
 
         /* SERVICES */
@@ -256,13 +257,6 @@ public static LOCK_PLAYER_DELEGATE LOCK_PLAYER;
 /// <para> Method: <see cref="GameMasterClass.ChangeGameModeService"/> </para> 
 /// </summary>
 public static CHANGE_GAME_MODE_DELEGATE CHANGE_GAME_MODE;
-        /// <summary> 
-/// Stops first match of sound with given ID which is being played 
-/// <para> Owner: SoundMaster </para> 
-/// <para> Accessors: LevelMaster, DialogMaster, GameEventMaster </para> 
-/// <para> Method: <see cref="SoundMasterClass.StopSoundService"/> </para> 
-/// </summary>
-public static STOP_SOUND_DELEGATE STOP_SOUND;
         /// <summary> 
 /// Performs a named action 
 /// <para> Owner: GameEventMaster </para> 

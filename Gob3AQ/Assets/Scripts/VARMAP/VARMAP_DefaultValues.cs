@@ -34,6 +34,7 @@ namespace Gob3AQ.VARMAP.DefaultValues
             ((VARMAP_Variable_Interface<GameItem>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_HOVER]).SetValue(GameItem.ITEM_NONE);
             ((VARMAP_Variable_Interface<UserInputInteraction>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_USER_INPUT_INTERACTION]).SetValue(UserInputInteraction.INPUT_INTERACTION_TAKE);
             ((VARMAP_Variable_Interface<BusyState>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_BUSY_STATE]).SetValue(BusyState.GAME_NOT_BUSY);
+            ((VARMAP_Variable_Interface<int>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_CHAPTER_SHOW_NR]).SetValue(0);
             ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL]).SetValue(false);
             /* > ATG 1 END < */
         }

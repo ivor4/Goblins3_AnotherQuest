@@ -53,6 +53,9 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             GET_BUSY_STATE = _GET_BUSY_STATE;
             GET_SHADOW_BUSY_STATE = _GET_SHADOW_BUSY_STATE;
             SET_BUSY_STATE = _SET_BUSY_STATE;
+            GET_CHAPTER_SHOW_NR = _GET_CHAPTER_SHOW_NR;
+            GET_SHADOW_CHAPTER_SHOW_NR = _GET_SHADOW_CHAPTER_SHOW_NR;
+            SET_CHAPTER_SHOW_NR = _SET_CHAPTER_SHOW_NR;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             GET_WP_LIST = _GET_WP_LIST;
@@ -115,6 +118,9 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         public static GetVARMAPValueDelegate<BusyState> GET_BUSY_STATE;
         public static GetVARMAPValueDelegate<BusyState> GET_SHADOW_BUSY_STATE;
         public static SetVARMAPValueDelegate<BusyState> SET_BUSY_STATE;
+        public static GetVARMAPValueDelegate<int> GET_CHAPTER_SHOW_NR;
+        public static GetVARMAPValueDelegate<int> GET_SHADOW_CHAPTER_SHOW_NR;
+        public static SetVARMAPValueDelegate<int> SET_CHAPTER_SHOW_NR;
         /* > ATG 2 END */
 
         /* SERVICES */
@@ -227,7 +233,7 @@ public static PLAY_SOUND_DELEGATE PLAY_SOUND;
         /// <summary> 
 /// Stops first match of sound with given ID which is being played 
 /// <para> Owner: SoundMaster </para> 
-/// <para> Accessors: LevelMaster, DialogMaster, GameEventMaster </para> 
+/// <para> Accessors: DialogMaster, GameEventMaster </para> 
 /// <para> Method: <see cref="SoundMasterClass.StopSoundService"/> </para> 
 /// </summary>
 public static STOP_SOUND_DELEGATE STOP_SOUND;

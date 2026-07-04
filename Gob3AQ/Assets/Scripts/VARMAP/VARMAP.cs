@@ -140,6 +140,11 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPValueDelegate<BusyState> _SET_BUSY_STATE;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<BusyState> _REG_BUSY_STATE;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<BusyState> _UNREG_BUSY_STATE;
+        protected static GetVARMAPValueDelegate<int> _GET_CHAPTER_SHOW_NR;
+        protected static GetVARMAPValueDelegate<int> _GET_SHADOW_CHAPTER_SHOW_NR;
+        protected static SetVARMAPValueDelegate<int> _SET_CHAPTER_SHOW_NR;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<int> _REG_CHAPTER_SHOW_NR;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<int> _UNREG_CHAPTER_SHOW_NR;
         protected static GetVARMAPValueDelegate<bool> _GET_LAST_VARMAP_VAL;
         protected static GetVARMAPValueDelegate<bool> _GET_SHADOW_LAST_VARMAP_VAL;
         protected static SetVARMAPValueDelegate<bool> _SET_LAST_VARMAP_VAL;
@@ -411,7 +416,7 @@ protected static PLAY_SOUND_DELEGATE _PLAY_SOUND;
         /// <summary> 
 /// Stops first match of sound with given ID which is being played 
 /// <para> Owner: SoundMaster </para> 
-/// <para> Accessors: LevelMaster, DialogMaster, GameEventMaster </para> 
+/// <para> Accessors: DialogMaster, GameEventMaster </para> 
 /// <para> Method: <see cref="SoundMasterClass.StopSoundService"/> </para> 
 /// </summary>
 protected static STOP_SOUND_DELEGATE _STOP_SOUND;

@@ -1,4 +1,5 @@
 using Gob3AQ.Brain.ItemsInteraction;
+using Gob3AQ.Brain.LevelOptions;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameElement;
 using Gob3AQ.GameElement.Clickable;
@@ -41,6 +42,8 @@ namespace Gob3AQ.LevelMaster
         private Camera mainCamera;
         private bool somePlayerRegistered;
         private bool crossingDoor;
+        private ulong startSceneTimestamp;
+        private bool pendingChapterEndLoadScene;
 
 
         public struct PendingCharacterInteraction
@@ -322,6 +325,15 @@ namespace Gob3AQ.LevelMaster
             {
                 case Game_Status.GAME_STATUS_PLAY:
                     Update_Play(gstatus, in mouse, in keys);
+                    break;
+                case Game_Status.GAME_STATUS_CHAPTER_SHOW:
+                    ulong deltaTime = VARMAP_LevelMaster.GET_ELAPSED_TIME_MS() - startSceneTimestamp;
+                    if(deltaTime >= GameFixedConfig.FADE_BLACK_TIMEOUT_LONG_MS && pendingChapterEndLoadScene)
+                    {
+                        pendingChapterEndLoadScene = false;
+                        Tuple<Room, int> roomAndWaypoint = LevelOptionsClass.CHAPTER_TO_ROOM_AND_INIT_WP[VARMAP_LevelMaster.GET_CHAPTER_SHOW_NR()];
+                        VARMAP_LevelMaster.LOAD_ROOM_AS_ACTION(roomAndWaypoint.Item1, roomAndWaypoint.Item2);
+                    }
                     break;
                 case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
                 case Game_Status.GAME_STATUS_PLAY_MEMENTO:
@@ -879,6 +891,11 @@ namespace Gob3AQ.LevelMaster
                     {
                         PlayerEntryWalk();
                     }
+                    break;
+
+                case Game_Status.GAME_STATUS_CHAPTER_SHOW:
+                    startSceneTimestamp = VARMAP_LevelMaster.GET_ELAPSED_TIME_MS();
+                    pendingChapterEndLoadScene = true;
                     break;
 
                 default:

@@ -20,8 +20,33 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 247d4967341544c47a0258b36803fc4b
+    m_Address: BACKGROUND_DREAM_1_FRAMEWORK
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2624f740519ef72408cc55d50692c376
+    m_Address: SCENE_DREAM_1_FRAMEWORK
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c6ced1e79aa222438382fbc0c51736b
+    m_Address: SOUND_OBSERVE_CLASSROOM_PORTRAIT_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4ab6b1ff8c030b54abd73485b269353b
+    m_Address: SPRITE_MASK_DREAM_1_FRAMEWORK_DESK
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 533b0c5081ebefb4ea7418fe70aabf3c
     m_Address: SOUND_RADIO_PRE_WAR_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5caf4fb1640475b48890415ccc4181d3
+    m_Address: SPRITE_ATLAS_DREAM1_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -41,7 +66,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ce72438aa8f086c4b9497ded032f7442
-    m_Address: BACKGROUND_DREAM_1
+    m_Address: BACKGROUND_DREAM_1_CORRIDOR
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -51,7 +76,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f526faca21b99c74ebf897c89ebe0239
-    m_Address: SCENE_DREAM_1
+    m_Address: SCENE_DREAM_1_CORRIDOR
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

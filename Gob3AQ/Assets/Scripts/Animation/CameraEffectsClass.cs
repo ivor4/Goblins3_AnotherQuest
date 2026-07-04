@@ -10,11 +10,15 @@ public class CameraEffectsClass : MonoBehaviour
     private enum ActiveEffectType
     {
         ACTIVE_EFFECT_NONE,
-        ACTIVE_EFFECT_DRUNK
+        ACTIVE_EFFECT_DRUNK,
+        ACTIVE_EFFECT_DREAM
     }
 
     [SerializeField]
     private Material drunkMaterial;
+
+    [SerializeField]
+    private Material dreamMaterial;
 
     private ActiveEffectType activeEffectType;
     private int drunkForce;
@@ -23,6 +27,11 @@ public class CameraEffectsClass : MonoBehaviour
     {
         activeEffectType = ActiveEffectType.ACTIVE_EFFECT_DRUNK;
         drunkForce = force;
+    }
+
+    public void ActivateDreamEffect()
+    {
+        activeEffectType = ActiveEffectType.ACTIVE_EFFECT_DREAM;
     }
 
     public void DeactivateEffects()
@@ -45,6 +54,10 @@ public class CameraEffectsClass : MonoBehaviour
                 drunkMaterial.SetColor("_ColorTint", drunkTint);
 
                 Graphics.Blit(source, destination, drunkMaterial);
+                break;
+
+            case ActiveEffectType.ACTIVE_EFFECT_DREAM:
+                Graphics.Blit(source, destination, dreamMaterial);
                 break;
 
             default:

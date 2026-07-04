@@ -272,6 +272,7 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_MAINCHAR_ENTRY_DIALOG_DREAM_1_SPANISH"), /* SOUND_MAINCHAR_ENTRY_DIALOG_DREAM_1 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_RADIO_PRE_WAR_1"), /* SOUND_RADIO_PRE_WAR_1 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_CHAPTER_IN"), /* SOUND_CHAPTER_IN */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_OBSERVE_CLASSROOM_PORTRAIT_SPANISH"), /* SOUND_OBSERVE_CLASSROOM_PORTRAIT */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

@@ -21,8 +21,9 @@ namespace Gob3AQ.VARMAP.Types
         CITY1_EXTRAPERLO2, 
         CITY1_EXTRAPERLO3, 
         CITY1_EXTRAPERLO3_2, 
-        DREAM_1, 
         CHAPTER_SHOW, 
+        DREAM_1_CORRIDOR, 
+        DREAM_1_FRAMEWORK, 
         ROOM_LAST, 
         
 ROOMS_TOTAL 

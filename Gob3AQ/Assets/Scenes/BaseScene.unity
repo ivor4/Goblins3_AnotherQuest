@@ -542,6 +542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: GameCode::CameraEffectsClass
   drunkMaterial: {fileID: 2100000, guid: 76bc13e93659fdf4d9f15a97ad2fd242, type: 2}
+  dreamMaterial: {fileID: 2100000, guid: 79c0cc1434a29af489607d1705621870, type: 2}
 --- !u!1 &1184066847
 GameObject:
   m_ObjectHideFlags: 0

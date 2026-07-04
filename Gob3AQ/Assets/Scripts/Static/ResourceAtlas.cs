@@ -67,18 +67,7 @@ namespace Gob3AQ.ResourceAtlas
             }
         }
 
-        public static ReadOnlySpan<InitialWalkInfo> GetInitialWalkInfo(Room room)
-        {
-            if ((uint)room < (uint)Room.ROOMS_TOTAL)
-            {
-                return _RoomInitialWaypointWalk[(int)room];
-            }
-            else
-            {
-                Debug.LogError($"Trying to get InitialWalkInfo for invalid room {room}");
-                return _RoomInitialWaypointWalk[(int)Room.ROOM_LAST];
-            }
-        }
+        
 
         public static void Initialize()
         {
@@ -200,27 +189,7 @@ namespace Gob3AQ.ResourceAtlas
             "PREFAB_MAINCHARACTER_DREAM"
         };
 
-        private static readonly InitialWalkInfo[][] _RoomInitialWaypointWalk = new InitialWalkInfo[(int)Room.ROOMS_TOTAL][]
-        {
-            new InitialWalkInfo[]{new(0,0) }, /* HIVE1_ROOM_1 */
-            new InitialWalkInfo[]{new(0,0) }, /* HIVE1_CORRIDOR_1 */
-            new InitialWalkInfo[]{new(0,0) }, /* HIVE1_HALL_1 */
-            new InitialWalkInfo[]{new(0,0) }, /* HIVE1_WC_1 */
-            new InitialWalkInfo[]{new(1,5), new(7,8), new(9,6), new(0,4) }, /* CITY1_STREET_1 */
-            new InitialWalkInfo[]{new(0,0) }, /* CITY1_STREET_2 */
-            new InitialWalkInfo[]{new(0,0) }, /* PHARMACY_1 */
-            new InitialWalkInfo[]{new(0,0) }, /* MANYO_1 */
-            new InitialWalkInfo[]{new(2,4) }, /* HIVE1_BACKALLEY */
-            new InitialWalkInfo[]{new(6,0), new(3,5) }, /* CITY1_SOUTH_STREET_1 */
-            new InitialWalkInfo[]{new(3,5), new(8,1) }, /* CITY1_SOUTH_STREET_2 */
-            new InitialWalkInfo[]{new(0,0) }, /* CITY1_EXTRAPERLO1 */
-            new InitialWalkInfo[]{new(1,3) }, /* CITY1_EXTRAPERLO2 */
-            new InitialWalkInfo[]{new(0,0) }, /* CITY1_EXTRAPERLO3 */
-            new InitialWalkInfo[]{new(0,0) }, /* CITY1_EXTRAPERLO3_2 */
-            new InitialWalkInfo[]{new(0,0) }, /* DREAM_1 */
-            new InitialWalkInfo[]{new(0,0) }, /* CHAPTER_SHOW */
-            new InitialWalkInfo[]{new(0,0) }, /* ROOM_LAST */
-        };
+        
 
         private static readonly RoomInfo[] _RoomInfo = new RoomInfo[(int)Room.ROOMS_TOTAL]
         {
@@ -405,18 +374,6 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
             ),
 
-            new( /* DREAM_1 */
-            new GameSprite[1]{GameSprite.BACKGROUND_DREAM_1},
-            new GameSound[1]{GameSound.MUSIC_DREAM_1},
-            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_DREAM_1}), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(2){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_DREAM_RADIO}), 
-            new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE}), 
-            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_DREAM_1}), 
-            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
-            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_ENTRY_DIALOG_DREAM_1}), 
-            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
-            ),
-
             new( /* CHAPTER_SHOW */
             new GameSprite[1]{GameSprite.SPRITE_BLANK},
             new GameSound[1]{GameSound.SOUND_NONE},
@@ -426,6 +383,30 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.SOUND_NONE}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_PLAY_SOUND_CHAPTER_IN}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
+            ),
+
+            new( /* DREAM_1_CORRIDOR */
+            new GameSprite[1]{GameSprite.BACKGROUND_DREAM_1_CORRIDOR},
+            new GameSound[1]{GameSound.MUSIC_DREAM_1},
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_DREAM_1_CORRIDOR}), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(2){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_DREAM_RADIO}), 
+            new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE}), 
+            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_DREAM_1}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(2){UnchainConditions.UNCHAIN_ENTRY_DIALOG_DREAM_1, UnchainConditions.UNCHAIN_CLEAR_EPHIMERAL_ON}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_CLEAR_EPHIMERAL_ON}) 
+            ),
+
+            new( /* DREAM_1_FRAMEWORK */
+            new GameSprite[1]{GameSprite.BACKGROUND_DREAM_1_FRAMEWORK},
+            new GameSound[1]{GameSound.MUSIC_DREAM_1},
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_DREAM_1_FRAMEWORK}), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(2){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_CLASSROOM_PORTRAIT}), 
+            new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE}), 
+            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_DREAM_1}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
             ),
 

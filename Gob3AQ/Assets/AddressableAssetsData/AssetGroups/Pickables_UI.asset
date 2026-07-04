@@ -220,6 +220,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79c0cc1434a29af489607d1705621870
+    m_Address: MATERIAL_DREAM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7d4a9390f43eb604d8678dc039dfaf12
     m_Address: ANIMATION_GENERIC_TALK1_EXEC2
     m_ReadOnly: 0

@@ -74,7 +74,7 @@ namespace Gob3AQ.GraphicsMaster
         private ulong mouseWheelZoomStartTime;
         private float mouseWheelZoomStartOrthoSize;
 
-        private bool prevDrunk;
+        private bool prevEffect;
 
 
 
@@ -489,36 +489,41 @@ namespace Gob3AQ.GraphicsMaster
 
             VARMAP_GraphicsMaster.IS_EVENT_COMBI_OCCURRED(eventCombi, out bool drunk);
 
-            if (drunk || prevDrunk)
-            {
-                if (drunk)
-                {
-                    eventCombi[0] = new GameEventCombi(GameEvent.EVENT_BEER_THIRD_ROUND, false);
-                    VARMAP_GraphicsMaster.IS_EVENT_COMBI_OCCURRED(eventCombi, out bool drunk3);
-                    eventCombi[0] = new GameEventCombi(GameEvent.EVENT_BEER_SECOND_ROUND, false);
-                    VARMAP_GraphicsMaster.IS_EVENT_COMBI_OCCURRED(eventCombi, out bool drunk2);
 
-                    if(drunk3)
-                    {
-                        cameraEffects.ActivateDrunkEffect(3);
-                    }
-                    else if(drunk2)
-                    {
-                        cameraEffects.ActivateDrunkEffect(2);
-                    }
-                    else
-                    {
-                        cameraEffects.ActivateDrunkEffect(1);
-                    }
+
+            if (drunk)
+            {
+                eventCombi[0] = new GameEventCombi(GameEvent.EVENT_BEER_THIRD_ROUND, false);
+                VARMAP_GraphicsMaster.IS_EVENT_COMBI_OCCURRED(eventCombi, out bool drunk3);
+                eventCombi[0] = new GameEventCombi(GameEvent.EVENT_BEER_SECOND_ROUND, false);
+                VARMAP_GraphicsMaster.IS_EVENT_COMBI_OCCURRED(eventCombi, out bool drunk2);
+
+                if(drunk3)
+                {
+                    cameraEffects.ActivateDrunkEffect(3);
+                }
+                else if(drunk2)
+                {
+                    cameraEffects.ActivateDrunkEffect(2);
                 }
                 else
                 {
-                    cameraEffects.DeactivateEffects();
+                    cameraEffects.ActivateDrunkEffect(1);
                 }
+
+                prevEffect = true;
+
             }
-
-
-            prevDrunk = drunk;
+            else if(VARMAP_GraphicsMaster.GET_ACTUAL_ROOM() is >= Room.DREAM_1_CORRIDOR and <= Room.DREAM_1_FRAMEWORK)
+            {
+                cameraEffects.ActivateDreamEffect();
+                prevEffect = true;
+            }
+            else if(prevEffect)
+            {
+                prevEffect = false;
+                cameraEffects.DeactivateEffects();
+            }
         }
 
         private void UpdateCursorBaseSprite()
@@ -666,6 +671,7 @@ namespace Gob3AQ.GraphicsMaster
                 {
                     case Game_Status.GAME_STATUS_CHANGING_ROOM:
                         cameraEffects.DeactivateEffects();
+                        prevEffect = false;
                         _mouseDraggingCamera = false;
                         isPickableSelected = false;
                         isDoorHovered = false;

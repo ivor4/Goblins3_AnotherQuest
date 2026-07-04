@@ -794,7 +794,7 @@ namespace Gob3AQ.LevelMaster
                 {
                     if (!_Player_List[i]) continue;
                     
-                    ReadOnlySpan<InitialWalkInfo> walkInfos = ResourceAtlasClass.GetInitialWalkInfo(room);
+                    ReadOnlySpan<InitialWalkInfo> walkInfos = LevelOptionsClass.GetInitialWalkInfo(room);
 
                     foreach (InitialWalkInfo walkInfo in walkInfos)
                     {

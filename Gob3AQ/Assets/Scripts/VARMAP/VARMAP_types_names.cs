@@ -66,6 +66,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_RADIO, 
         NAME_DENIAL, 
         NAME_PORTRAIT, 
+        NAME_CLOCK, 
         NAME_NPC_LAST, 
         
 NAME_TOTAL

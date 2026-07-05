@@ -390,7 +390,7 @@ namespace Gob3AQ.ResourceAtlas
             new GameSprite[1]{GameSprite.BACKGROUND_DREAM_1_CORRIDOR},
             new GameSound[1]{GameSound.MUSIC_DREAM_1},
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_DREAM_1_CORRIDOR}), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(2){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_DREAM_RADIO}), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(3){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_DREAM_RADIO, GameItem.ITEM_DREAM_CLOCK}), 
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE}), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_DREAM_1}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
@@ -406,7 +406,7 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE}), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_DREAM_1}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
-            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_ENTRY_DIALOG_DREAM_1_FRAMEWORK}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
             ),
 

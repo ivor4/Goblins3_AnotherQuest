@@ -1294,6 +1294,8 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,GameSound.SOUND_OBSERVE_DREAM_RADIO, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_ITEM_DREAM_RADIO */ 
             new(0,GameSound.SOUND_MAINCHAR_ENTRY_DIALOG_DREAM_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MAINCHAR_ENTRY_DIALOG_DREAM_1 */ 
             new(0,GameSound.SOUND_OBSERVE_CLASSROOM_PORTRAIT, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_ITEM_CLASSROOM_PORTRAIT */ 
+            new(0,GameSound.SOUND_OBSERVE_CLOCK, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_ITEM_DREAM_CLOCK */ 
+            new(0,GameSound.SOUND_MAINCHAR_ENTRY_DIALOG_DREAM_1_FRAMEWORK, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MAINCHAR_ENTRY_DREAM_1_FRAMEWORK */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

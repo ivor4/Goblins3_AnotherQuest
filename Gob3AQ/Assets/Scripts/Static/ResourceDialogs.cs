@@ -74,7 +74,7 @@ namespace Gob3AQ.ResourceDialogs
             ref readonly string row = ref lines[(int)phrase];
             ReadOnlySpan<string> columns = row.Split(',');
 
-            _cachedPhrasesFinder[phrase] = new(phraseConfig, columns[(int)_language]);
+            _cachedPhrasesFinder[phrase] = new(phraseConfig, columns[(int)_language].Replace('%', ','));
         }
 
         private static IEnumerator PreloadRoomTextsCoroutine(string[] names, string[] phrases)

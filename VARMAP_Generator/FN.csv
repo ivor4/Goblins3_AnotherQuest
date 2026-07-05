@@ -1,5 +1,5 @@
 ﻿NewItem,NewName,NewSprite,Pickable,Spawn,Picker_Character,ObservationPhrase,TakePhrase,Room,Output,Unnamed: 10,Unnamed: 11
-ITEM_CLASSROOM_PORTRAIT,NAME_PORTRAIT,SPRITE_BLANK,False,False,CHARACTER_MAIN_DREAM,"La promoción de 1934. Un batiburrillo de niños.  Niñas y algún adulto de la comarca que quiso aprender a leer. Fueron muy buenos tiempos, así lo recuerdo.",,DREAM_1_FRAMEWORK,,,
+ITEM_DREAM_CLOCK,NAME_CLOCK,SPRITE_BLANK,False,False,CHARACTER_MAIN_DREAM,"El tiempo, detenido en un recuerdo para siempre. Dicen que cada vez que evocas un recuerdo, corres el riesgo de distorsionarlo cada vez más.",,DREAM_1_CORRIDOR,,,
 ,,,,,,,,,,,
 NewRoom,Background,BackgroundNight,Music,Output,,,,,,,
 CITY1_EXTRAPERLO1,BACKGROUND_CITY1_EXTRAPERLO,BACKGROUND_CITY1_EXTRAPERLO,MUSIC_EXTRAPERLO,,,,,,,,

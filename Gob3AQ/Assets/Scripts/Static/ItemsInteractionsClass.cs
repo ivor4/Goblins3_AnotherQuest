@@ -362,7 +362,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             true,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_PENDING_DREAM_1, false)}, 
             MomentType.MOMENT_ANY, 
-            new GameAction[2]{GameAction.ACTION_EVENT_REMOVE_PENDING_DREAM_1, GameAction.ACTION_DIALOGUE_MAINCHAR_ENTRY_DREAM_1}), 
+            new GameAction[3]{GameAction.ACTION_EVENT_REMOVE_PENDING_DREAM_1, GameAction.ACTION_DIALOGUE_MAINCHAR_ENTRY_DREAM_1, GameAction.ACTION_EVENT_PENDING_DESCRIBE_DREAM_FRAMEWORK}), 
 
             new( /* UNCHAIN_PLAY_SOUND_CHAPTER_IN */
             true,false,false,new(GameEvent.EVENT_NONE, false), 
@@ -375,6 +375,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             MomentType.MOMENT_ANY, 
             new GameAction[1]{GameAction.ACTION_EVENT_EPHIMERAL_OFF}), 
+
+            new( /* UNCHAIN_ENTRY_DIALOG_DREAM_1_FRAMEWORK */
+            true,false,false,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_PENDING_DESCRIBE_DREAM_FRAMEWORK, false)}, 
+            MomentType.MOMENT_ANY, 
+            new GameAction[2]{GameAction.ACTION_EVENT_REMOVE_DESCRIBE_DREAM_FRAMEWORK, GameAction.ACTION_DIALOGUE_MAINCHAR_ENTRY_DREAM_1_FRAMEWORK}), 
 
             new( /* UNCHAIN_LAST */
             false,false,false,new(GameEvent.EVENT_NONE, false), 
@@ -852,8 +858,13 @@ namespace Gob3AQ.Brain.ItemsInteraction
 
             new( /* COND_OBSERVE_ITEM_CLASSROOM_PORTRAIT */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
-            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN_DREAM,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN_DREAM,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,
             new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_ITEM_CLASSROOM_PORTRAIT}), 
+
+            new( /* COND_OBSERVE_ITEM_DREAM_CLOCK */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN_DREAM,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_ITEM_DREAM_CLOCK}), 
 
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
@@ -1188,6 +1199,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
             NameType.NAME_PORTRAIT,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
             GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OBSERVE_ITEM_CLASSROOM_PORTRAIT})),
+
+            new ( /* ITEM_DREAM_CLOCK */
+            NameType.NAME_CLOCK,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
+            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.DETAIL_NONE,
+            new(new HashSet<ActionConditions>(1){ActionConditions.COND_OBSERVE_ITEM_DREAM_CLOCK})),
 
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST}),
@@ -2816,6 +2832,30 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_CLASSROOM_PORTRAIT,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_OBSERVE_ITEM_DREAM_CLOCK */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_DREAM_CLOCK,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_EVENT_PENDING_DESCRIBE_DREAM_FRAMEWORK */
+            false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_PENDING_DESCRIBE_DREAM_FRAMEWORK, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_EVENT_REMOVE_DESCRIBE_DREAM_FRAMEWORK */
+            false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_PENDING_DESCRIBE_DREAM_FRAMEWORK, true)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_MAINCHAR_ENTRY_DREAM_1_FRAMEWORK */
+            true,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_MAINCHAR_ENTRY_DREAM_1_FRAMEWORK,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

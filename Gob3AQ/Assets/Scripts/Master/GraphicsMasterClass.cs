@@ -514,7 +514,7 @@ namespace Gob3AQ.GraphicsMaster
                 prevEffect = true;
 
             }
-            else if(VARMAP_GraphicsMaster.GET_ACTUAL_ROOM() is >= Room.DREAM_1_CORRIDOR and <= Room.DREAM_1_FRAMEWORK)
+            else if(VARMAP_GraphicsMaster.GET_ACTUAL_ROOM() is >= Room.DREAM_1_CORRIDOR and <= Room.DREAM_1_BEDROOM)
             {
                 cameraEffects.ActivateDreamEffect();
                 prevEffect = true;

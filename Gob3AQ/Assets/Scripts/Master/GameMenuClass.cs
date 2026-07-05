@@ -45,6 +45,8 @@ namespace Gob3AQ.GameMenu
         private HashSet<MementoCombi> memento_combi_union;
         private HashSet<MementoCombi> memento_combi_intersection;
 
+        private bool prevShowToolbarCommand;
+
         private DetailType detail_loaded;
 
         
@@ -443,7 +445,18 @@ namespace Gob3AQ.GameMenu
 
         private void Update()
         {
-            switch(decision_actualTaskType)
+            ref readonly MousePropertiesStruct mouseProps = ref VARMAP_GameMenu.GET_MOUSE_PROPERTIES();
+
+            bool showToolbarCommand = mouseProps.posPixels.y >= GameFixedConfig.GAME_ZONE_HEIGHT_PERCENT * Screen.safeArea.height;
+
+            if (showToolbarCommand != prevShowToolbarCommand)
+            {
+                _uicanvas_cls.Show_Hide_Toolbar(showToolbarCommand);
+            }
+
+            prevShowToolbarCommand = showToolbarCommand;
+
+            switch (decision_actualTaskType)
             {
                 case DecisionTaskType.DECISION_TASK_STARTING:
                     decision_actualTaskType = DecisionTaskType.DECISION_TASK_NONE;

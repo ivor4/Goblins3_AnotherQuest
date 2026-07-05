@@ -67,6 +67,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_DENIAL, 
         NAME_PORTRAIT, 
         NAME_CLOCK, 
+        NAME_SULTAN, 
         NAME_NPC_LAST, 
         
 NAME_TOTAL

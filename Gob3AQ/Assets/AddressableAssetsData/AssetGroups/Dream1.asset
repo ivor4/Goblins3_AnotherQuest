@@ -25,8 +25,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 25dd658bc153ac340917830d391833d2
+    m_Address: SCENE_DREAM_1_BEDROOM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2624f740519ef72408cc55d50692c376
     m_Address: SCENE_DREAM_1_FRAMEWORK
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 26ab7ce5bb53aa64d8c19e6cf864f8c1
+    m_Address: SPRITE_ATLAS_SULTAN_0
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -35,8 +45,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 380390d12149e2c45ba402d4f92a5e68
+    m_Address: SPRITE_ATLAS_DREAM1_3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3c6ced1e79aa222438382fbc0c51736b
     m_Address: SOUND_OBSERVE_CLASSROOM_PORTRAIT_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 495c77a36c1f0c04eb30ff9a692fed49
+    m_Address: BACKGROUND_DREAM_1_BEDROOM
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -70,6 +90,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3d27128f87e1c240ac13e5face31f1d
+    m_Address: SCENE_DREAM_1_KITCHEN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c51014d55bdb99a49835c96a7db9b886
     m_Address: SOUND_OBSERVE_DREAM_RADIO_SPANISH
     m_ReadOnly: 0
@@ -77,6 +102,26 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ce72438aa8f086c4b9497ded032f7442
     m_Address: BACKGROUND_DREAM_1_CORRIDOR
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d592436491ba11045b5c6986340d35ca
+    m_Address: BACKGROUND_DREAM_1_KITCHEN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d9ff75af126f327429db6ff08ac5dfa0
+    m_Address: SPRITE_SULTAN_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da4909e52d32b9142b8c78a70aa1600e
+    m_Address: SPRITE_ATLAS_DREAM1_4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f166c71a1a64e414cafc9d0819106199
+    m_Address: SPRITE_SULTAN_HAPPY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

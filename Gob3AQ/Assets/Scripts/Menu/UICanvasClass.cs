@@ -133,8 +133,6 @@ namespace Gob3AQ.GameMenu.UICanvas
 
         private StringBuilder stringBuilder;
 
-        private DisplayMode prevDisplayMode;
-
 
 
         private void Awake()
@@ -212,8 +210,11 @@ namespace Gob3AQ.GameMenu.UICanvas
             memento_selectedItem = MementoParent.MEMENTO_PARENT_NONE;
 
             stringBuilder = new(512);
+        }
 
-            prevDisplayMode = DisplayMode.DISPLAY_MODE_NONE;
+        public void Show_Hide_Toolbar(bool show)
+        {
+            UICanvas_uppertoolbarObj.SetActive(show);
         }
 
         public void SetDisplayMode(DisplayMode mode)
@@ -318,8 +319,6 @@ namespace Gob3AQ.GameMenu.UICanvas
                     tool_giveUpButtonMono.SetActive(false);
                     break;
             }
-
-            prevDisplayMode = mode;
         }
 
         public void SetDialogMode(DialogMode mode, string sender, string msg)

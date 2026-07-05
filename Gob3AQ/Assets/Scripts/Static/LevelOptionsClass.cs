@@ -17,15 +17,9 @@ namespace Gob3AQ.Brain.LevelOptions
 
         public static ReadOnlySpan<InitialWalkInfo> GetInitialWalkInfo(Room room)
         {
-            if ((uint)room < (uint)Room.ROOMS_TOTAL)
-            {
-                return _RoomInitialWaypointWalk[(int)room];
-            }
-            else
-            {
-                Debug.LogError($"Trying to get InitialWalkInfo for invalid room {room}");
-                return _RoomInitialWaypointWalk[(int)Room.ROOM_LAST];
-            }
+            InitialWalkInfo[] retVal = _RoomInitialWaypointWalk.GetValueOrDefault(room, _DefaultInitialWalkInfo);
+
+            return retVal;
         }
 
 
@@ -49,6 +43,8 @@ namespace Gob3AQ.Brain.LevelOptions
             "SCENE_CHAPTER_SHOW",
             "SCENE_DREAM_1_CORRIDOR",
             "SCENE_DREAM_1_FRAMEWORK",
+            "SCENE_DREAM_1_KITCHEN",
+            "SCENE_DREAM_1_BEDROOM",
             ""
         };
 
@@ -63,29 +59,22 @@ namespace Gob3AQ.Brain.LevelOptions
             {Room.CITY1_EXTRAPERLO3_2, new List<PrefabEnum>(){ PrefabEnum.PREFAB_MAINCHARACTER_SEATED }},
             {Room.DREAM_1_CORRIDOR, new List<PrefabEnum>(){ PrefabEnum.PREFAB_MAINCHARACTER_DREAM }},
             {Room.DREAM_1_FRAMEWORK, new List<PrefabEnum>(){ PrefabEnum.PREFAB_MAINCHARACTER_DREAM }},
+            {Room.DREAM_1_KITCHEN, new List<PrefabEnum>(){ PrefabEnum.PREFAB_MAINCHARACTER_DREAM }},
+            {Room.DREAM_1_BEDROOM, new List<PrefabEnum>(){ PrefabEnum.PREFAB_MAINCHARACTER_DREAM }},
         };
 
-        private static readonly InitialWalkInfo[][] _RoomInitialWaypointWalk = new InitialWalkInfo[(int)Room.ROOMS_TOTAL][]
+        private static readonly InitialWalkInfo[] _DefaultInitialWalkInfo = new InitialWalkInfo[1]
         {
-            new InitialWalkInfo[]{new(0,0) }, /* HIVE1_ROOM_1 */
-            new InitialWalkInfo[]{new(0,0) }, /* HIVE1_CORRIDOR_1 */
-            new InitialWalkInfo[]{new(0,0) }, /* HIVE1_HALL_1 */
-            new InitialWalkInfo[]{new(0,0) }, /* HIVE1_WC_1 */
-            new InitialWalkInfo[]{new(1,5), new(7,8), new(9,6), new(0,4) }, /* CITY1_STREET_1 */
-            new InitialWalkInfo[]{new(0,0) }, /* CITY1_STREET_2 */
-            new InitialWalkInfo[]{new(0,0) }, /* PHARMACY_1 */
-            new InitialWalkInfo[]{new(0,0) }, /* MANYO_1 */
-            new InitialWalkInfo[]{new(2,4) }, /* HIVE1_BACKALLEY */
-            new InitialWalkInfo[]{new(6,0), new(3,5) }, /* CITY1_SOUTH_STREET_1 */
-            new InitialWalkInfo[]{new(3,5), new(8,1) }, /* CITY1_SOUTH_STREET_2 */
-            new InitialWalkInfo[]{new(0,0) }, /* CITY1_EXTRAPERLO1 */
-            new InitialWalkInfo[]{new(1,3) }, /* CITY1_EXTRAPERLO2 */
-            new InitialWalkInfo[]{new(0,0) }, /* CITY1_EXTRAPERLO3 */
-            new InitialWalkInfo[]{new(0,0) }, /* CITY1_EXTRAPERLO3_2 */
-            new InitialWalkInfo[]{new(0,0) }, /* CHAPTER_SHOW */
-            new InitialWalkInfo[]{new(0,0) }, /* DREAM_1_CORRIDOR */
-            new InitialWalkInfo[]{new(0,0) }, /* DREAM_1_FRAMEWORK */
-            new InitialWalkInfo[]{new(0,0) }, /* ROOM_LAST */
+            new(0,0)
+        };
+
+        private static readonly Dictionary<Room, InitialWalkInfo[]> _RoomInitialWaypointWalk = new Dictionary<Room, InitialWalkInfo[]>
+        {
+            {Room.CITY1_STREET_1, new InitialWalkInfo[]{new(1,5), new(7,8), new(9,6), new(0,4) } }, /* CITY1_STREET_1 */
+            {Room.HIVE1_BACKALLEY, new InitialWalkInfo[]{new(2,4) } }, /* HIVE1_BACKALLEY */
+            {Room.CITY1_SOUTH_STREET_1, new InitialWalkInfo[]{new(6,0), new(3,5) } }, /* CITY1_SOUTH_STREET_1 */
+            {Room.CITY1_SOUTH_STREET_2, new InitialWalkInfo[]{new(3,5), new(8,1) } }, /* CITY1_SOUTH_STREET_2 */
+            {Room.CITY1_EXTRAPERLO2, new InitialWalkInfo[]{new(1,3) } }, /* CITY1_EXTRAPERLO2 */
         };
 
         private static readonly Dictionary<int, Tuple<string, NameType>> _CHAPTER_TO_TITLE = new Dictionary<int, Tuple<string, NameType>>()

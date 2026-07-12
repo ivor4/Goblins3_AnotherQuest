@@ -1,0 +1,645 @@
+fileFormatVersion: 2
+guid: d36432c5271717341b1f080f9d5dca10
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1138880243591855013
+    second: SPRITE_PILAR_KISSING_MAINCHAR_0
+  - first:
+      213: 8410307319528545085
+    second: SPRITE_PILAR_KISSING_MAINCHAR_1
+  - first:
+      213: -3004149064209365499
+    second: SPRITE_PILAR_KISSING_MAINCHAR_2
+  - first:
+      213: 3976460197994470362
+    second: SPRITE_PILAR_KISSING_MAINCHAR_3
+  - first:
+      213: -3854940430925480089
+    second: SPRITE_PILAR_KISSING_MAINCHAR_4
+  - first:
+      213: -7943437765459368864
+    second: SPRITE_PILAR_KISSING_MAINCHAR_5
+  - first:
+      213: -2848768199926349241
+    second: SPRITE_PILAR_KISSING_MAINCHAR_6
+  - first:
+      213: -6326866747903775256
+    second: SPRITE_PILAR_KISSING_MAINCHAR_7
+  - first:
+      213: 8949487748154920281
+    second: SPRITE_PILAR_KISSING_MAINCHAR_8
+  - first:
+      213: -4036244307923449247
+    second: SPRITE_PILAR_KISSING_MAINCHAR_9
+  - first:
+      213: 1150787806104784078
+    second: SPRITE_PILAR_KISSING_MAINCHAR_10
+  - first:
+      213: -5536407369842134975
+    second: SPRITE_PILAR_KISSING_MAINCHAR_11
+  - first:
+      213: -245217334143208206
+    second: SPRITE_PILAR_KISSING_MAINCHAR_12
+  - first:
+      213: -3444846636451917113
+    second: SPRITE_PILAR_KISSING_MAINCHAR_13
+  - first:
+      213: -714812008847575450
+    second: SPRITE_PILAR_KISSING_MAINCHAR_14
+  - first:
+      213: 6876594274982023002
+    second: SPRITE_PILAR_KISSING_MAINCHAR_15
+  - first:
+      213: -5854564312848253906
+    second: SPRITE_PILAR_KISSING_MAINCHAR_16
+  - first:
+      213: 5499047301170067027
+    second: SPRITE_PILAR_KISSING_MAINCHAR_17
+  - first:
+      213: -7193970613874106279
+    second: SPRITE_PILAR_KISSING_MAINCHAR_18
+  - first:
+      213: 2398013630041464097
+    second: SPRITE_PILAR_KISSING_MAINCHAR_19
+  - first:
+      213: 6266470082773522984
+    second: SPRITE_PILAR_KISSING_MAINCHAR_20
+  - first:
+      213: -6831518602351510022
+    second: SPRITE_PILAR_KISSING_MAINCHAR_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_PILAR_KISSING_MAINCHAR_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b544ff6d372e130f0800000000000000
+      internalID: -1138880243591855013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_KISSING_MAINCHAR_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3bdd5882f967b470800000000000000
+      internalID: 8410307319528545085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_KISSING_MAINCHAR_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5068a7fb75e1f46d0800000000000000
+      internalID: -3004149064209365499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_KISSING_MAINCHAR_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adb90fc5b793f2730800000000000000
+      internalID: 3976460197994470362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_KISSING_MAINCHAR_4
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76f35683a10808ac0800000000000000
+      internalID: -3854940430925480089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_KISSING_MAINCHAR_5
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0642f5e307d33c190800000000000000
+      internalID: -7943437765459368864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_KISSING_MAINCHAR_6
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74206f36a642778d0800000000000000
+      internalID: -2848768199926349241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_KISSING_MAINCHAR_7
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ede6f5c6347238a0800000000000000
+      internalID: -6326866747903775256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_KISSING_MAINCHAR_8
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95d0c76c0b7f23c70800000000000000
+      internalID: 8949487748154920281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_KISSING_MAINCHAR_9
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16ac787df216cf7c0800000000000000
+      internalID: -4036244307923449247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_KISSING_MAINCHAR_10
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecc0aba996b68ff00800000000000000
+      internalID: 1150787806104784078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_KISSING_MAINCHAR_11
+      rect:
+        serializedVersion: 2
+        x: 7040
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14074bc84daba23b0800000000000000
+      internalID: -5536407369842134975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_KISSING_MAINCHAR_12
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f430a14220d89cf0800000000000000
+      internalID: -245217334143208206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_KISSING_MAINCHAR_13
+      rect:
+        serializedVersion: 2
+        x: 8320
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c295985c327130d0800000000000000
+      internalID: -3444846636451917113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_KISSING_MAINCHAR_14
+      rect:
+        serializedVersion: 2
+        x: 8960
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 666f473e34a7416f0800000000000000
+      internalID: -714812008847575450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_KISSING_MAINCHAR_15
+      rect:
+        serializedVersion: 2
+        x: 9600
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5fc9c03f029e6f50800000000000000
+      internalID: 6876594274982023002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_KISSING_MAINCHAR_16
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2c300ab6c860cea0800000000000000
+      internalID: -5854564312848253906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_KISSING_MAINCHAR_17
+      rect:
+        serializedVersion: 2
+        x: 10880
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 356ff4d926a805c40800000000000000
+      internalID: 5499047301170067027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_KISSING_MAINCHAR_18
+      rect:
+        serializedVersion: 2
+        x: 11520
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9506f6b87d1e92c90800000000000000
+      internalID: -7193970613874106279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_KISSING_MAINCHAR_19
+      rect:
+        serializedVersion: 2
+        x: 12160
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12d9a29f0b4774120800000000000000
+      internalID: 2398013630041464097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1d7163352ebb08444a885894cd8d56a9
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":20.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_PILAR_KISSING_MAINCHAR_0: -1138880243591855013
+      SPRITE_PILAR_KISSING_MAINCHAR_1: 8410307319528545085
+      SPRITE_PILAR_KISSING_MAINCHAR_10: 1150787806104784078
+      SPRITE_PILAR_KISSING_MAINCHAR_11: -5536407369842134975
+      SPRITE_PILAR_KISSING_MAINCHAR_12: -245217334143208206
+      SPRITE_PILAR_KISSING_MAINCHAR_13: -3444846636451917113
+      SPRITE_PILAR_KISSING_MAINCHAR_14: -714812008847575450
+      SPRITE_PILAR_KISSING_MAINCHAR_15: 6876594274982023002
+      SPRITE_PILAR_KISSING_MAINCHAR_16: -5854564312848253906
+      SPRITE_PILAR_KISSING_MAINCHAR_17: 5499047301170067027
+      SPRITE_PILAR_KISSING_MAINCHAR_18: -7193970613874106279
+      SPRITE_PILAR_KISSING_MAINCHAR_19: 2398013630041464097
+      SPRITE_PILAR_KISSING_MAINCHAR_2: -3004149064209365499
+      SPRITE_PILAR_KISSING_MAINCHAR_3: 3976460197994470362
+      SPRITE_PILAR_KISSING_MAINCHAR_4: -3854940430925480089
+      SPRITE_PILAR_KISSING_MAINCHAR_5: -7943437765459368864
+      SPRITE_PILAR_KISSING_MAINCHAR_6: -2848768199926349241
+      SPRITE_PILAR_KISSING_MAINCHAR_7: -6326866747903775256
+      SPRITE_PILAR_KISSING_MAINCHAR_8: 8949487748154920281
+      SPRITE_PILAR_KISSING_MAINCHAR_9: -4036244307923449247
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

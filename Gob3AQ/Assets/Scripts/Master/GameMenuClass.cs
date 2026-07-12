@@ -424,7 +424,10 @@ namespace Gob3AQ.GameMenu
             _ = StartCoroutine(LoadCoroutine());
 
             _lastClickTimestamp = Time.time;
-            
+
+            prevShowToolbarCommand = true;
+
+
         }
 
         private IEnumerator LoadCoroutine()

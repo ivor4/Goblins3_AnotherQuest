@@ -15,8 +15,38 @@ MonoBehaviour:
   m_GroupName: Dream1
   m_GUID: 3e5c3982bfedbfd4aba0fa456b21276a
   m_SerializeEntries:
+  - m_GUID: 04b9ddb49bc7cb544b0cbfc9c81140df
+    m_Address: SOUND_DIALOG_SULTAN_1_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0651429d93d4391439a98ba1a1d53550
+    m_Address: SPRITE_PILAR_STEADY_ANIM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 07cf35b7567e40746852c435aee38152
+    m_Address: ANIMATION_PILAR_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 11b425162d4638c4096b0189693c2134
+    m_Address: SOUND_DIALOG_PILAR_INTRO_1_6_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1353b0ac90587594b887dd368bc05bf9
+    m_Address: ANIMATOR_PILAR
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 148ff616c223b934982d5e7f0c21ccbf
     m_Address: SOUND_MAINCHAR_ENTRY_DIALOG_DREAM_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d2ad4816b7ff3941a24d7a6336235df
+    m_Address: SOUND_DIALOG_PILAR_INTRO_1_3_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -45,8 +75,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 282d14cc4078224498ca9b6f051c69a7
+    m_Address: SOUND_DIALOG_PILAR_INTRO_1_5_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 380390d12149e2c45ba402d4f92a5e68
     m_Address: SPRITE_ATLAS_DREAM1_3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b7a2d1ab39e6f7459c22bb0e6a7bbdf
+    m_Address: SOUND_DIALOG_SULTAN_1_0_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -65,6 +105,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e9210fdb529e9d4dbbd43f1e06d8647
+    m_Address: SOUND_DIALOG_PILAR_INTRO_1_4_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 504b20569715e9c4a9fd01831f0ef957
     m_Address: SOUND_OBSERVE_CLOCK_SPANISH
     m_ReadOnly: 0
@@ -75,8 +120,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 536344fdb089ead4c9e8b19a5da251c8
+    m_Address: ANIMATION_SULTAN_LICKING_EXEC1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5caf4fb1640475b48890415ccc4181d3
     m_Address: SPRITE_ATLAS_DREAM1_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 62a3cb73e6a8c75458619f1658eb3e86
+    m_Address: SPRITE_SULTAN_MOVING_TAIL
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -87,6 +142,51 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7c411fed3c3e5604981422da936ba10b
     m_Address: SPRITE_ATLAS_DREAM1_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8dd4b798177060f44970585ddb143b49
+    m_Address: SPRITE_SULTAN_LICKING_LIMBS
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e389bd5fa656fb458315dede2747a72
+    m_Address: ANIMATOR_SULTAN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 972dd6b315c22e44b913e421806507e5
+    m_Address: ANIMATION_SULTAN_LICKING_EXEC2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a23a2180e1dfc524888147a799d014f4
+    m_Address: ANIMATION_SULTAN_LICKING_ENTRY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7664d3a3c0e26a428380daa6f5419b1
+    m_Address: ANIMATION_SULTAN_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac279944d1fc3e14b9328bf595049473
+    m_Address: SOUND_OBSERVE_SULTAN_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac88d79e58a5e5a459f8e0b4fb15b44c
+    m_Address: SPRITE_PILAR_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9562d22361daf84fb108521f2968e00
+    m_Address: SOUND_DIALOG_PILAR_INTRO_1_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bfa23e20021a36742816c5c1a6672126
+    m_Address: SPRITE_ATLAS_PILAR_0
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -105,6 +205,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d058d1d277503854e96d3a884e139e7b
+    m_Address: ANIMATION_SULTAN_LICKING_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d36432c5271717341b1f080f9d5dca10
+    m_Address: SPRITE_PILAR_KISSING_MAINCHAR
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d592436491ba11045b5c6986340d35ca
     m_Address: BACKGROUND_DREAM_1_KITCHEN
     m_ReadOnly: 0
@@ -120,6 +230,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ddccda9469e9fe7498f6017d39506460
+    m_Address: SOUND_OBSERVE_PILAR_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f166c71a1a64e414cafc9d0819106199
     m_Address: SPRITE_SULTAN_HAPPY
     m_ReadOnly: 0
@@ -132,6 +247,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f526faca21b99c74ebf897c89ebe0239
     m_Address: SCENE_DREAM_1_CORRIDOR
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd81672be14bca04b8054171678b11d1
+    m_Address: SOUND_DIALOG_PILAR_INTRO_1_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe8ffee088a838541bd005289e64e950
+    m_Address: ANIMATION_SULTAN_HAPPY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

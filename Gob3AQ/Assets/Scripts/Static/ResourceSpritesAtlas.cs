@@ -112,6 +112,7 @@ namespace Gob3AQ.ResourceSpritesAtlas
             new("BACKGROUND_DREAM_1_KITCHEN", "SPRITE_ATLAS_DREAM1_3"), /* BACKGROUND_DREAM_1_KITCHEN */ 
             new("BACKGROUND_DREAM_1_BEDROOM", "SPRITE_ATLAS_DREAM1_4"), /* BACKGROUND_DREAM_1_BEDROOM */ 
             new("SPRITE_SULTAN_STEADY", "SPRITE_ATLAS_SULTAN_0"), /* SPRITE_SULTAN_STEADY */ 
+            new("SPRITE_PILAR_STEADY", "SPRITE_ATLAS_PILAR_0"), /* SPRITE_PILAR_STEADY */ 
             new("SPRITE_LAST", ""), /* SPRITE_LAST */ 
             /* > ATG 1 END < */
         };

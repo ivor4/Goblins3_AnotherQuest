@@ -1,11 +1,11 @@
 ﻿NewItem,NewName,NewSprite,Pickable,Spawn,Picker_Character,ObservationPhrase,TakePhrase,Room,Output,Unnamed: 10,Unnamed: 11
-ITEM_NPC_SULTAN,NAME_SULTAN,SPRITE_BLANK,False,False,CHARACTER_MAIN_DREAM,Nuestro perro sultán. Cuantísimo lo he echado de menos,,DREAM_1_BEDROOM,,,
+ITEM_NPC_PILAR_DREAM_1,NAME_PILAR,SPRITE_PILAR_STEADY,False,False,CHARACTER_MAIN_DREAM,Pilar. Tan guapa como la recordaba,,DREAM_1_BEDROOM,,,
 ,,,,,,,,,,,
 NewRoom,Background,BackgroundNight,Music,Output,,,,,,,
 CITY1_EXTRAPERLO1,BACKGROUND_CITY1_EXTRAPERLO,BACKGROUND_CITY1_EXTRAPERLO,MUSIC_EXTRAPERLO,,,,,,,,
 ,,,,,,,,,,,
 NewDialog,IntroPhrase,Talkers,AddAction,AddSounds,ItemDest,Option1,Option2,Option3,Option4,Option5,Option6
-DIALOG_PAMFRY_1,,"ITEM_PAMFRY, ITEM_FIK_EXTRAPERLO_GARDEN",True,True,ITEM_PAMFRY,"(0)Vamonos de aquí sin pagar! El Panfri dice que el alcohol de aquí no coloca! Nos hacemos un simpa!, (1)¡¡Me cago en mis muertos!! ¡De aquí no se va nadie sin pagar!",,,,,
+DIALOG_PILAR_DREAM_1,,"ITEM_MAINCHAR_DREAM, ITEM_NPC_PILAR_DREAM_1",True,True,ITEM_NPC_PILAR_DREAM_1,"(1)Te he estado esperando tantísimo tiempo que no sé ni por dónde empezar% Constantino, (0)Fui un cobarde% lo siento. Y el orgullo después hizo el resto, (1)No... No te disculpes% yo creía que ir a combatir era algo honorable% y me morí de vergüenza por qué pensarían% y no quise verme involucrada, (0)Por eso tenías ya de pretendiente alternativo a Don Félix% ese tendero del partido que% por lo que sea% estaba exento de ir al frente% pero lo suyo era honorable, (1)Constantino% haz el favor% deja el sarcasmo% no tenemos mucho tiempo% y no estamos aquí ahora para discutir por una cosa que ya pasó% ahora estamos bien. Todo ha vuelto a su sitio, (0)Tienes razón% siento mucha calma volviendo aquí. Todo ahí fuera: buscarse la vida% la gente pasando hambre después de la guerra% ha sido todo un mal sueño",,,,,
 ,,,,,,,,,,,
 NewMementoParent,MementoIconSprite,MementoParentPhrase,Mementos,MementoPhrases,,,,,,,
 MEMENTO_PARENT_POOR_MAN_WC,SPRITE_MEMENTO_POOR_MAN_WC,A poor man in WC,"MEMENTO_POOR_MAN_WC_1, MEMENTO_POOR_MAN_WC_2, MEMENTO_POOR_MAN_WC_3","A poor man can't leave WC because there is no water, It seems to be a valve in back alley but is closed, When water came back. This man gave me an invitation to a Pub where I could meet someone for a job",,,,,,,

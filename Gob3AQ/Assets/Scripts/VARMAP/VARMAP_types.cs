@@ -580,6 +580,9 @@ namespace Gob3AQ.VARMAP.Types
         public readonly GameSound targetSound;
         public readonly Room targetRoom;
         public readonly string targetWaypointTag;
+        public readonly bool? boolOption1;
+        public readonly bool? boolOption2;
+        public readonly int intOption1;
         public readonly CardGameID targetCardGame;
 
         public ReadOnlySpan<GameEventCombi> TargetEvents => targetEvents;
@@ -589,17 +592,18 @@ namespace Gob3AQ.VARMAP.Types
             return new ActionInfo(false, ActionType.ACTION_TYPE_DESPAWN, targetItem, GameSprite.SPRITE_NONE,
                 CharacterType.CHARACTER_NONE, Memento.MEMENTO_NONE, new GameEventCombi[0], DecisionType.DECISION_NONE,
                 MomentType.MOMENT_ANY, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, AnimationTrigger.ANIMATION_TRIGGER_ZERO, GameAnimation.ANIMATION_NONE, GameSound.SOUND_NONE,
-                Room.ROOM_NONE, string.Empty, CardGameID.CARD_GAME_NONE);
+                Room.ROOM_NONE, string.Empty, null, null, 0, CardGameID.CARD_GAME_NONE);
         }
 
         public static readonly ActionInfo EMPTY = new(false, ActionType.ACTION_TYPE_NONE, GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE, Memento.MEMENTO_NONE, new GameEventCombi[0], DecisionType.DECISION_NONE,
             MomentType.MOMENT_ANY, DialogType.DIALOG_NONE, DialogPhrase.PHRASE_NONE, AnimationTrigger.ANIMATION_TRIGGER_ZERO, GameAnimation.ANIMATION_NONE, GameSound.SOUND_NONE,
-            Room.ROOM_NONE, string.Empty, CardGameID.CARD_GAME_NONE);
+            Room.ROOM_NONE, string.Empty, null, null, 0, CardGameID.CARD_GAME_NONE);
 
         public ActionInfo(bool waitForEnd, ActionType type, GameItem targetItem, GameSprite targetSprite, CharacterType targetCharacter, Memento targetMemento,
             GameEventCombi[] targetEvents, DecisionType targetDecision, MomentType targetMomentOfDay, DialogType targetDialog,
-            DialogPhrase targetPhrase, AnimationTrigger animTrigger, GameAnimation targetAnimation, GameSound targetSound, Room targetRoom, string targetWaypointTag, CardGameID targetCardGame)
+            DialogPhrase targetPhrase, AnimationTrigger animTrigger, GameAnimation targetAnimation, GameSound targetSound, Room targetRoom, string targetWaypointTag,
+            bool? boolOption1, bool? boolOption2, int intOption1, CardGameID targetCardGame)
         {
             this.waitForEnd = waitForEnd;
             this.type = type;
@@ -617,6 +621,9 @@ namespace Gob3AQ.VARMAP.Types
             this.targetSound = targetSound;
             this.targetRoom = targetRoom;
             this.targetWaypointTag = targetWaypointTag;
+            this.boolOption1 = boolOption1;
+            this.boolOption2 = boolOption2;
+            this.intOption1 = intOption1;
             this.targetCardGame = targetCardGame;
         }
     }

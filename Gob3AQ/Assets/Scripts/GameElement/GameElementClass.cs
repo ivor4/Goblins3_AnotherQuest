@@ -84,6 +84,7 @@ namespace Gob3AQ.GameElement
         protected SpriteMask spriteMask;
         protected Action animationStartCallback;
         protected Action animationEndCallback;
+        protected bool? storedPendingFlipX;
         protected int? storedPendingSteadyTrigger;
         protected int pendingStateCrossings;
         protected bool pendingZeroStateCross;
@@ -171,7 +172,7 @@ namespace Gob3AQ.GameElement
             VirtualDestroy();
         }
 
-        public void PerformAnimation(AnimationTrigger trigger, Action startCallback, Action endCallback, bool storeSteadyOnly)
+        public void PerformAnimation(AnimationTrigger trigger, Action startCallback, Action endCallback, bool storeSteadyOnly, bool? doFlipX, bool immediate)
         {
             if ((!myAnimator.runtimeAnimatorController) || (trigger == AnimationTrigger.ANIMATION_TRIGGER_ZERO)) return;
 
@@ -219,16 +220,22 @@ namespace Gob3AQ.GameElement
                 animationStartCallback = null;
                 animationEndCallback = endCallback;
                 pendingStateCrossings = 1;
+                if(doFlipX != null)
+                {
+                    mySpriteRenderer.flipX = doFlipX.Value;
+                }
             }
             else
             {
                 queuedTrigger = usedTrigger;
+                storedPendingFlipX = doFlipX;
                 pendingStateCrossings = 0;
                 pendingZeroStateCross = false;
                 animationStartCallback = startCallback;
                 animationEndCallback = endCallback;
 
-                if (ResourceAnimationsAtlasClass.IsTriggerWalking(actualAnimationTrigger) || ResourceAnimationsAtlasClass.IsTriggerSteady(actualAnimationTrigger))
+
+                if (immediate || ResourceAnimationsAtlasClass.IsTriggerWalking(actualAnimationTrigger) || ResourceAnimationsAtlasClass.IsTriggerSteady(actualAnimationTrigger))
                 {
                     ActivateTrigger(queuedTrigger);
                 }
@@ -279,6 +286,7 @@ namespace Gob3AQ.GameElement
         {
             isUnspawned = unspawned;
         }
+
 
         public void SetSprite(GameSprite newSprite)
         {
@@ -513,10 +521,16 @@ namespace Gob3AQ.GameElement
 
         private void ActivateTrigger(AnimationTrigger trigger)
         {
-            if (storedPendingSteadyTrigger != null)
+            if (storedPendingSteadyTrigger.HasValue)
             {
                 myAnimator.SetInteger(ResourceAnimationsAtlasClass.STEADY_INDEX_HASH, storedPendingSteadyTrigger.Value);
                 storedPendingSteadyTrigger = null;
+            }
+
+            if(storedPendingFlipX.HasValue)
+            {
+                mySpriteRenderer.flipX = storedPendingFlipX.Value;
+                storedPendingFlipX = null;
             }
 
             myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.TRANSITION_TRIGGER_HASH);
@@ -573,7 +587,7 @@ namespace Gob3AQ.GameElement
                     myRigidbody.linearVelocity = Vector2.zero;
                     SetSize(waypoints_infos[actualWaypoint].CharacterSizeFactor);
 
-                    PerformAnimation(AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE, null, null, false);
+                    PerformAnimation(AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE, null, null, false, null, true);
                     ExecuteQueuedTrigger();
                     mySpriteRenderer.flipX = waypoints_infos[actualWaypoint].FlipXForAction ^ reverseFlipX;
 
@@ -637,7 +651,7 @@ namespace Gob3AQ.GameElement
                 mySpriteRenderer.flipX = reverseFlipX;
             }
 
-            PerformAnimation(walkdirTrigger, null, null, false);
+            PerformAnimation(walkdirTrigger, null, null, false, null, true);
             ExecuteQueuedTrigger();
 
             /* Remove after debugging */

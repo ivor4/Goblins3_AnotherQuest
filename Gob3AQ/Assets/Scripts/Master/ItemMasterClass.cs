@@ -39,13 +39,13 @@ namespace Gob3AQ.ItemMaster
             }
         }
 
-        public static void PerformAnimationService(GameItem item, AnimationTrigger trigger, Action startCallback, Action endCallback, bool storeSteadyOnly)
+        public static void PerformAnimationService(GameItem item, AnimationTrigger trigger, Action startCallback, Action endCallback, bool storeSteadyOnly, bool? doFlipX, bool immediate)
         {
             if (!_singleton) return;
             
             if(_singleton._levelItems.TryGetValue(item, out GameElementClass instance))
             {
-                instance.PerformAnimation(trigger, startCallback, endCallback, storeSteadyOnly);
+                instance.PerformAnimation(trigger, startCallback, endCallback, storeSteadyOnly, doFlipX, immediate);
             }
         }
 
@@ -104,7 +104,22 @@ namespace Gob3AQ.ItemMaster
                         instance.SetUnclickable(true);
                     }
                     break;
-                
+
+                case ActionType.ACTION_TYPE_INVISIBLE:
+                    if (_singleton._levelItems.TryGetValue(actionInfo.targetItem, out instance))
+                    {
+                        instance.SetVisible(false);
+                    }
+                    break;
+
+                case ActionType.ACTION_TYPE_VISIBLE:
+                    if (_singleton._levelItems.TryGetValue(actionInfo.targetItem, out instance))
+                    {
+                        instance.SetVisible(true);
+                    }
+                    break;
+
+
             }
         }
 

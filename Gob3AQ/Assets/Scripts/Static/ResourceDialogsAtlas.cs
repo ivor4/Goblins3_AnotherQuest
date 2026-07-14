@@ -965,7 +965,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new( /* DIALOG_PILAR_DREAM_1_OPTION_0 */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE},
+            new GameAction[3]{GameAction.ACTION_SET_GAME_ANIMATION_MODE, GameAction.ACTION_MAINCHAR_DREAM_INVISIBLE, GameAction.ACTION_ANIMATE_PILAR_KISSING},
             DialogType.DIALOG_NONE,false,
             new DialogPhrase[6]{DialogPhrase.PHRASE_DIALOG_PILAR_DREAM_1_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_PILAR_DREAM_1_OPTION_0_1, DialogPhrase.PHRASE_DIALOG_PILAR_DREAM_1_OPTION_0_2, DialogPhrase.PHRASE_DIALOG_PILAR_DREAM_1_OPTION_0_3, DialogPhrase.PHRASE_DIALOG_PILAR_DREAM_1_OPTION_0_4, DialogPhrase.PHRASE_DIALOG_PILAR_DREAM_1_OPTION_0_5}
             ),
@@ -1322,7 +1322,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,GameSound.SOUND_MAINCHAR_ENTRY_DIALOG_DREAM_1_FRAMEWORK, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MAINCHAR_ENTRY_DREAM_1_FRAMEWORK */ 
             new(0,GameSound.SOUND_OBSERVE_SULTAN, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_ITEM_NPC_SULTAN */ 
             new(0,GameSound.SOUND_OBSERVE_PILAR, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_ITEM_NPC_PILAR_DREAM_1 */ 
-            new(0,GameSound.SOUND_PHRASE_DIALOG_SULTAN_1_0, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_SULTAN_1_0 */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_SULTAN_1_0, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_SULTAN_1_0 */ 
             new(1,GameSound.SOUND_PHRASE_DIALOG_SULTAN_1_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_SULTAN_1_1 */ 
             new(1,GameSound.SOUND_PHRASE_DIALOG_PILAR_DREAM_1_OPTION_0_0, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_PILAR_DREAM_1_OPTION_0_0 */ 
             new(0,GameSound.SOUND_PHRASE_DIALOG_PILAR_DREAM_1_OPTION_0_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_PILAR_DREAM_1_OPTION_0_1 */ 

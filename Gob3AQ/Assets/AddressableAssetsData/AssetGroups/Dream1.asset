@@ -30,6 +30,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f02dad77cb6ac44e80e623753c56fbe
+    m_Address: ANIMATION_PILAR_KISSING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0fdbf3d1819a62547bce24f53aec6bc5
+    m_Address: ANIMATION_PILAR_TALKING_ENTRY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 11b425162d4638c4096b0189693c2134
     m_Address: SOUND_DIALOG_PILAR_INTRO_1_6_SPANISH
     m_ReadOnly: 0
@@ -95,6 +105,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 485ecae0a90f37248a988c153fbfa6e4
+    m_Address: ANIMATION_PILAR_TALKING_EXEC1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 495c77a36c1f0c04eb30ff9a692fed49
     m_Address: BACKGROUND_DREAM_1_BEDROOM
     m_ReadOnly: 0
@@ -145,6 +160,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 83a1868107e6dd74a9e327e5c46a4dde
+    m_Address: ANIMATION_PILAR_TALKING_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8dd4b798177060f44970585ddb143b49
     m_Address: SPRITE_SULTAN_LICKING_LIMBS
     m_ReadOnly: 0
@@ -180,6 +200,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b619cd85dc7f0114b8b70b584bbd2e2c
+    m_Address: ANIMATION_PILAR_TALKING_EXEC2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b9562d22361daf84fb108521f2968e00
     m_Address: SOUND_DIALOG_PILAR_INTRO_1_1_SPANISH
     m_ReadOnly: 0
@@ -187,6 +212,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bfa23e20021a36742816c5c1a6672126
     m_Address: SPRITE_ATLAS_PILAR_0
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0a05c8b47bdec84ea853b109ca3f477
+    m_Address: SPRITE_PILAR_TALKING
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

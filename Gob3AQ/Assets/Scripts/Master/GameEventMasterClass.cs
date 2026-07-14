@@ -792,12 +792,12 @@ namespace Gob3AQ.GameEventMaster
 
                         if (info.targetRoom == Room.CHAPTER_SHOW)
                         {
-                            VARMAP_GameEventMaster.SET_CHAPTER_SHOW_NR(int.Parse(info.targetWaypointTag));
+                            VARMAP_GameEventMaster.SET_CHAPTER_SHOW_NR(info.intOption1);
                             VARMAP_GameEventMaster.LOAD_ROOM_AS_ACTION(info.targetRoom, -1);
                         }
                         else
                         {
-                            VARMAP_GameEventMaster.LOAD_ROOM_AS_ACTION(info.targetRoom, info.targetWaypointTag.Length == 0 ? -1 : int.Parse(info.targetWaypointTag));
+                            VARMAP_GameEventMaster.LOAD_ROOM_AS_ACTION(info.targetRoom, info.targetWaypointTag.Length == 0 ? -1 : info.intOption1);
                         }
                         break;
                     case ActionType.ACTION_TYPE_START_CARD_GAME:
@@ -809,7 +809,8 @@ namespace Gob3AQ.GameEventMaster
                             bool storeOnly = info.targetWaypointTag == "storeOnly";
                             mustWait = info.waitForEnd && !storeOnly;
                             _actionExpectedFlag = NotifyAction.NOTIFY_ANIMATION;
-                            VARMAP_GameEventMaster.ITEM_PERFORM_ANIMATION(info.targetItem, info.animTrigger, null, mustWait ? EndOfItemAnimationCallback : null, storeOnly);
+                            bool immediate = info.boolOption2.HasValue && info.boolOption2.Value;
+                            VARMAP_GameEventMaster.ITEM_PERFORM_ANIMATION(info.targetItem, info.animTrigger, null, mustWait ? EndOfItemAnimationCallback : null, storeOnly, info.boolOption1, immediate);
                             break;
                         }
                     case ActionType.ACTION_TYPE_MOVE_TO_WAYPOINT:

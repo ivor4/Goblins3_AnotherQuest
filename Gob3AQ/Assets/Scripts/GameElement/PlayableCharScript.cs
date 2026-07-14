@@ -154,7 +154,7 @@ namespace Gob3AQ.GameElement.PlayableChar
             SetVisible_Internal(true);
             PlayerMasterClass.SetPlayerLoaded(CharType);
 
-            PerformAnimation(AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE, null, null, false);
+            PerformAnimation(AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE, null, null, false, null, false);
             ExecuteQueuedTrigger();
 
             UpdateSortingOrder();

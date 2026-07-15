@@ -965,7 +965,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new( /* DIALOG_PILAR_DREAM_1_OPTION_0 */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[3]{GameAction.ACTION_SET_GAME_ANIMATION_MODE, GameAction.ACTION_MAINCHAR_DREAM_INVISIBLE, GameAction.ACTION_ANIMATE_PILAR_KISSING},
+            new GameAction[4]{GameAction.ACTION_SET_GAME_ANIMATION_MODE, GameAction.ACTION_ANIMATE_PILAR_STEADY, GameAction.ACTION_MAINCHAR_DREAM_INVISIBLE, GameAction.ACTION_ANIMATE_PILAR_KISSING},
             DialogType.DIALOG_NONE,false,
             new DialogPhrase[6]{DialogPhrase.PHRASE_DIALOG_PILAR_DREAM_1_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_PILAR_DREAM_1_OPTION_0_1, DialogPhrase.PHRASE_DIALOG_PILAR_DREAM_1_OPTION_0_2, DialogPhrase.PHRASE_DIALOG_PILAR_DREAM_1_OPTION_0_3, DialogPhrase.PHRASE_DIALOG_PILAR_DREAM_1_OPTION_0_4, DialogPhrase.PHRASE_DIALOG_PILAR_DREAM_1_OPTION_0_5}
             ),

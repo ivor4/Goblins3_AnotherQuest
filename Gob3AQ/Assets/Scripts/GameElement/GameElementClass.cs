@@ -472,6 +472,12 @@ namespace Gob3AQ.GameElement
 
             if (decremented && (pendingStateCrossings == 1))
             {
+                if (storedPendingFlipX.HasValue)
+                {
+                    mySpriteRenderer.flipX = storedPendingFlipX.Value;
+                    storedPendingFlipX = null;
+                }
+
                 animationStartCallback?.Invoke();
                 animationStartCallback = null;
             }
@@ -525,12 +531,6 @@ namespace Gob3AQ.GameElement
             {
                 myAnimator.SetInteger(ResourceAnimationsAtlasClass.STEADY_INDEX_HASH, storedPendingSteadyTrigger.Value);
                 storedPendingSteadyTrigger = null;
-            }
-
-            if(storedPendingFlipX.HasValue)
-            {
-                mySpriteRenderer.flipX = storedPendingFlipX.Value;
-                storedPendingFlipX = null;
             }
 
             myAnimator.ResetTrigger(ResourceAnimationsAtlasClass.TRANSITION_TRIGGER_HASH);

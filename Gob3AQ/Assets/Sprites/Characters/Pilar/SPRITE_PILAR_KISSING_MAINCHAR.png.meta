@@ -114,7 +114,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 89
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -171,7 +171,7 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.5, y: 0.05}
+      pivot: {x: 0.6640625, y: 0.0859375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -193,7 +193,7 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.5, y: 0.05}
+      pivot: {x: 0.6640625, y: 0.0859375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -215,7 +215,7 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.5, y: 0.05}
+      pivot: {x: 0.6640625, y: 0.0859375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -237,7 +237,7 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.5, y: 0.05}
+      pivot: {x: 0.6640625, y: 0.0859375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -259,7 +259,7 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.5, y: 0.05}
+      pivot: {x: 0.6640625, y: 0.0859375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -281,7 +281,7 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.5, y: 0.05}
+      pivot: {x: 0.6640625, y: 0.0859375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -303,7 +303,7 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.5, y: 0.05}
+      pivot: {x: 0.6640625, y: 0.0859375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -325,7 +325,7 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.5, y: 0.05}
+      pivot: {x: 0.6640625, y: 0.0859375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -347,7 +347,7 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.5, y: 0.05}
+      pivot: {x: 0.6640625, y: 0.0859375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -369,7 +369,7 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.5, y: 0.05}
+      pivot: {x: 0.6640625, y: 0.0859375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -391,7 +391,7 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.5, y: 0.05}
+      pivot: {x: 0.6640625, y: 0.0859375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -413,7 +413,7 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.5, y: 0.05}
+      pivot: {x: 0.6640625, y: 0.0859375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -435,7 +435,7 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.5, y: 0.05}
+      pivot: {x: 0.6640625, y: 0.0859375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -457,7 +457,7 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.5, y: 0.05}
+      pivot: {x: 0.6640625, y: 0.0859375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -479,7 +479,7 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.5, y: 0.05}
+      pivot: {x: 0.6640625, y: 0.0859375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -501,7 +501,7 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.5, y: 0.05}
+      pivot: {x: 0.6640625, y: 0.0859375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -523,7 +523,7 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.5, y: 0.05}
+      pivot: {x: 0.6640625, y: 0.0859375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -545,7 +545,7 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.5, y: 0.05}
+      pivot: {x: 0.6640625, y: 0.0859375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -567,7 +567,7 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.5, y: 0.05}
+      pivot: {x: 0.6640625, y: 0.0859375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -589,7 +589,7 @@ TextureImporter:
         width: 640
         height: 640
       alignment: 9
-      pivot: {x: 0.5, y: 0.05}
+      pivot: {x: 0.6640625, y: 0.0859375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -616,7 +616,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":20.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":20.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.6640625,"y":0.0859375},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       SPRITE_PILAR_KISSING_MAINCHAR_0: -1138880243591855013
       SPRITE_PILAR_KISSING_MAINCHAR_1: 8410307319528545085

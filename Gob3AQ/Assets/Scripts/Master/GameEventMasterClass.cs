@@ -34,6 +34,18 @@ namespace Gob3AQ.GameEventMaster
             }
         }
 
+        private struct DelayedActionOrder
+        {
+            public ActionOrder actionOrder;
+            public int remaining_ticks;
+
+            public DelayedActionOrder(ActionOrder actionOrder, int delay_ticks)
+            {
+                this.actionOrder = actionOrder;
+                remaining_ticks = delay_ticks;
+            }
+        }
+
         private static GameEventMasterClass _singleton;
 
         /// <summary>
@@ -65,6 +77,7 @@ namespace Gob3AQ.GameEventMaster
         /// </summary>
         private ulong _bckgActionsTimestamp;
         private List<ActionOrder> _pendingActions;
+        private List<DelayedActionOrder> _pendingDelayedActions; 
         private NotifyAction _actionEndedFlag;
         private NotifyAction _actionExpectedFlag;
         private IReadOnlyList<WaypointInfo> _WP_Info;
@@ -293,6 +306,7 @@ namespace Gob3AQ.GameEventMaster
 
                 _itemRelatedUnchainers = new(GameFixedConfig.MAX_PENDING_UNCHAINERS);
                 _pendingActions = new(GameFixedConfig.MAX_BUFFERED_EVENTS);
+                _pendingDelayedActions = new(GameFixedConfig.MAX_BUFFERED_EVENTS);
 
                 _actionEndedFlag = NotifyAction.NOTIFY_NONE;
                 _actionExpectedFlag = NotifyAction.NOTIFY_NONE;
@@ -611,24 +625,57 @@ namespace Gob3AQ.GameEventMaster
         private bool ProcessPendingActions()
         {
             bool stop = false;
-            bool processingActions = false;
+            bool processingActions = (_pendingDelayedActions.Count + _pendingActions.Count) != 0;
+
+            /* Delayed actions (Executed in parallel once launched). They were previously on _pendingActions list */
+            for(int i = _pendingDelayedActions.Count - 1; i >= 0; --i)
+            {
+                DelayedActionOrder delayedAction = _pendingDelayedActions[i];
+                --delayedAction.remaining_ticks;
+                if (delayedAction.remaining_ticks <= 0)
+                {
+                    /* Execute action and remove from list */
+                    /* Delayed actions cannot be await */
+                    _ = ExecuteAction(delayedAction.actionOrder.action, true);
+                    _pendingDelayedActions.RemoveAt(i);
+
+                    delayedAction.actionOrder.callback?.Invoke();
+                }
+                else
+                {
+                    _pendingDelayedActions[i] = delayedAction;   /* Rewrite, it's a structure */
+                }
+            }
+
 
             while ((_pendingActions.Count > 0) && (!stop))
             {
                 ActionOrder actionOrder = _pendingActions[0];
                 bool endedAction;
-                processingActions = true;
+
+                ref readonly ActionInfo actionInfo = ref ItemsInteractionsClass.GetActionInfo(actionOrder.action);
 
                 if (!actionOrder.performedAndWaiting)
                 {
                     _actionEndedFlag = NotifyAction.NOTIFY_NONE;
                     _actionExpectedFlag = NotifyAction.NOTIFY_NONE;
 
-                    stop = ExecuteAction(actionOrder.action);
-                    endedAction = !stop;
-
                     actionOrder.performedAndWaiting = true;
-                    _pendingActions[0] = actionOrder;
+
+                    /* Will be marked as ended as it will no longer belong pending actions queue and cannot be await */
+                    if (actionInfo.delayTicks != 0)
+                    {
+                        _pendingDelayedActions.Add(new DelayedActionOrder(actionOrder, actionInfo.delayTicks));
+                        stop = false;
+                        endedAction = true;
+                    }
+                    else
+                    {
+                        stop = ExecuteAction(actionOrder.action, false);
+                        endedAction = !stop;
+                    }
+                    
+                    _pendingActions[0] = actionOrder;   /* Rewrite, it's a structure */
                 }
                 else
                 {
@@ -639,11 +686,16 @@ namespace Gob3AQ.GameEventMaster
                 /* If action was not required to be waited or is an action which does not need wait */
                 if (endedAction)
                 {
-                    Debug.Log("Ended action: " + actionOrder.action);
+                    string status = actionInfo.delayTicks != 0 ? "Delayed" : "Ended";
+                    Debug.Log($"{status} action: {actionOrder.action}");
+
                     _pendingActions.RemoveAt(0);
 
                     /* If there is a callback, execute it and stop processing more actions until next cycle, to avoid multiple calls in same frame */
-                    actionOrder.callback?.Invoke();
+                    if (actionInfo.delayTicks == 0)
+                    {
+                        actionOrder.callback?.Invoke();
+                    }
                 }
             }
 
@@ -719,9 +771,10 @@ namespace Gob3AQ.GameEventMaster
             return occurred;
         }
 
-        private bool ExecuteAction(GameAction action)
+        private bool ExecuteAction(GameAction action, bool isDelayed)
         {
             bool mustWait = false;
+            NotifyAction notifyAction = NotifyAction.NOTIFY_NONE;
 
             if (action != GameAction.ACTION_NONE)
             {
@@ -740,7 +793,6 @@ namespace Gob3AQ.GameEventMaster
                 {
                     case ActionType.ACTION_TYPE_EVENT:
                         mustWait = info.waitForEnd;
-                        _actionExpectedFlag = NotifyAction.NOTIFY_NONE;
                         CommitEventService(info.TargetEvents);
                         break;
                     case ActionType.ACTION_TYPE_MEMENTO:
@@ -761,23 +813,23 @@ namespace Gob3AQ.GameEventMaster
                         if (!error)
                         {
                             mustWait = info.waitForEnd;
-                            _actionExpectedFlag = NotifyAction.NOTIFY_DIALOG;
+                            notifyAction = NotifyAction.NOTIFY_DIALOG;
                             VARMAP_GameEventMaster.SHOW_DIALOGUE(info.targetDialog, info.targetPhrase, GameItem.ITEM_NONE,false);
                         }
                         break;
                     case ActionType.ACTION_TYPE_START_DIALOGUE_BCKG:
                         mustWait = info.waitForEnd;
-                        _actionExpectedFlag = NotifyAction.NOTIFY_DIALOG;
+                        notifyAction = NotifyAction.NOTIFY_DIALOG;
                         VARMAP_GameEventMaster.SHOW_DIALOGUE(info.targetDialog, info.targetPhrase, GameItem.ITEM_NONE, true);
                         break;
                     case ActionType.ACTION_TYPE_START_ANIMATION:
                         mustWait = info.waitForEnd;
-                        _actionExpectedFlag = NotifyAction.NOTIFY_ANIMATION;
+                        notifyAction = NotifyAction.NOTIFY_ANIMATION;
                         VARMAP_GameEventMaster.START_ANIMATION(info.targetAnimation, false);
                         break;
                     case ActionType.ACTION_TYPE_PLAY_SOUND:
                         mustWait = info.waitForEnd;
-                        _actionExpectedFlag = NotifyAction.NOTIFY_SOUND;
+                        notifyAction = NotifyAction.NOTIFY_SOUND;
                         VARMAP_GameEventMaster.PLAY_SOUND(info.targetSound, mustWait ? EndOfSoundPlayCallback : null, false);
                         break;
                     case ActionType.ACTION_TYPE_STOP_SOUND:
@@ -808,7 +860,7 @@ namespace Gob3AQ.GameEventMaster
                         {
                             bool storeOnly = info.targetWaypointTag == "storeOnly";
                             mustWait = info.waitForEnd && !storeOnly;
-                            _actionExpectedFlag = NotifyAction.NOTIFY_ANIMATION;
+                            notifyAction = NotifyAction.NOTIFY_ANIMATION;
                             bool immediate = info.boolOption2.HasValue && info.boolOption2.Value;
                             VARMAP_GameEventMaster.ITEM_PERFORM_ANIMATION(info.targetItem, info.animTrigger, null, mustWait ? EndOfItemAnimationCallback : null, storeOnly, info.boolOption1, immediate);
                             break;
@@ -831,7 +883,7 @@ namespace Gob3AQ.GameEventMaster
                             mustWait = info.waitForEnd & moveOk;
                             if(mustWait)
                             {
-                                _actionExpectedFlag = NotifyAction.NOTIFY_MOVEMENT;
+                                notifyAction = NotifyAction.NOTIFY_MOVEMENT;
                             }
                         }
                         else
@@ -855,7 +907,7 @@ namespace Gob3AQ.GameEventMaster
                         if (foundZoomObject)
                         {
                             mustWait = info.waitForEnd;
-                            _actionExpectedFlag = NotifyAction.NOTIFY_ZOOM;
+                            notifyAction = NotifyAction.NOTIFY_ZOOM;
                             Bounds bounds = foundZoomObject.GetComponent<BoxCollider2D>().bounds;
                             VARMAP_GameEventMaster.ACTIVATE_FORCED_ZOOM_MODE(true, false, bounds);
                         }
@@ -868,20 +920,23 @@ namespace Gob3AQ.GameEventMaster
                         {
                             VARMAP_GameEventMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_ANIMATION, out error);
                             mustWait = info.waitForEnd & !error;
-                            _actionExpectedFlag = NotifyAction.NOTIFY_NONE;
                             break;
                         }
                     case ActionType.ACTION_TYPE_REMOVE_ANIMATION_MODE:
                         {
                             VARMAP_GameEventMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out error);
                             mustWait = info.waitForEnd & !error;
-                            _actionExpectedFlag = NotifyAction.NOTIFY_NONE;
                             break;
                         }
                     default:
                         VARMAP_GameEventMaster.ACTION_TO_ITEM(in info);
                         break;
                 }
+            }
+
+            if(!isDelayed)
+            {
+                _actionExpectedFlag = notifyAction;
             }
 
             return mustWait;

@@ -1,0 +1,587 @@
+fileFormatVersion: 2
+guid: 19a159de246528c469806ba9e1251ac1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3122605354650393902
+    second: SPRITE_PILAR_TALKING_BED_0
+  - first:
+      213: 2067449451014167099
+    second: SPRITE_PILAR_TALKING_BED_1
+  - first:
+      213: 489874017469875480
+    second: SPRITE_PILAR_TALKING_BED_2
+  - first:
+      213: 7115396143961571990
+    second: SPRITE_PILAR_TALKING_BED_3
+  - first:
+      213: 3340350650656811360
+    second: SPRITE_PILAR_TALKING_BED_4
+  - first:
+      213: -3256991022243301682
+    second: SPRITE_PILAR_TALKING_BED_5
+  - first:
+      213: -3542604421407831765
+    second: SPRITE_PILAR_TALKING_BED_6
+  - first:
+      213: 4619825789260626360
+    second: SPRITE_PILAR_TALKING_BED_7
+  - first:
+      213: -6472060293170945311
+    second: SPRITE_PILAR_TALKING_BED_8
+  - first:
+      213: -4827786936413139144
+    second: SPRITE_PILAR_TALKING_BED_9
+  - first:
+      213: 7184370967579605596
+    second: SPRITE_PILAR_TALKING_BED_10
+  - first:
+      213: 3041881203802329374
+    second: SPRITE_PILAR_TALKING_BED_11
+  - first:
+      213: -4586653423083042846
+    second: SPRITE_PILAR_TALKING_BED_12
+  - first:
+      213: 8610001128053662235
+    second: SPRITE_PILAR_TALKING_BED_13
+  - first:
+      213: 5123930224525953524
+    second: SPRITE_PILAR_TALKING_BED_14
+  - first:
+      213: -4549956467813049115
+    second: SPRITE_PILAR_TALKING_BED_15
+  - first:
+      213: -5559817153065424469
+    second: SPRITE_PILAR_TALKING_BED_16
+  - first:
+      213: -7324724181835796463
+    second: SPRITE_PILAR_TALKING_BED_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_PILAR_TALKING_BED_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.2828125, y: 0.484375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2d5ba99609b55b20800000000000000
+      internalID: 3122605354650393902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_TALKING_BED_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.2828125, y: 0.484375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3a96c6625e01bc10800000000000000
+      internalID: 2067449451014167099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_TALKING_BED_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.2828125, y: 0.484375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8154cfbc2d16cc600800000000000000
+      internalID: 489874017469875480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_TALKING_BED_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.2828125, y: 0.484375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 692830d0817feb260800000000000000
+      internalID: 7115396143961571990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_TALKING_BED_4
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.2828125, y: 0.484375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 069e4a5083f4b5e20800000000000000
+      internalID: 3340350650656811360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_TALKING_BED_5
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.2828125, y: 0.484375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec63d8aebe7dcc2d0800000000000000
+      internalID: -3256991022243301682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_TALKING_BED_6
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.2828125, y: 0.484375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b29024a5c0426dec0800000000000000
+      internalID: -3542604421407831765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_TALKING_BED_7
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.2828125, y: 0.484375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b97115141bec1040800000000000000
+      internalID: 4619825789260626360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_TALKING_BED_8
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.2828125, y: 0.484375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e2a2ac247f9e26a0800000000000000
+      internalID: -6472060293170945311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_TALKING_BED_9
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.2828125, y: 0.484375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83fc2db2c51400db0800000000000000
+      internalID: -4827786936413139144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_TALKING_BED_10
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.2828125, y: 0.484375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5a3631a45304b360800000000000000
+      internalID: 7184370967579605596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_TALKING_BED_11
+      rect:
+        serializedVersion: 2
+        x: 7040
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.2828125, y: 0.484375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e11539996dee63a20800000000000000
+      internalID: 3041881203802329374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_TALKING_BED_12
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.2828125, y: 0.484375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e74e49430fe850c0800000000000000
+      internalID: -4586653423083042846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_TALKING_BED_13
+      rect:
+        serializedVersion: 2
+        x: 8320
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.2828125, y: 0.484375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b12e951886edc7770800000000000000
+      internalID: 8610001128053662235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_TALKING_BED_14
+      rect:
+        serializedVersion: 2
+        x: 8960
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.2828125, y: 0.484375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f9c1c6346bdb1740800000000000000
+      internalID: 5123930224525953524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_TALKING_BED_15
+      rect:
+        serializedVersion: 2
+        x: 9600
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.2828125, y: 0.484375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ec138003be4bd0c0800000000000000
+      internalID: -4549956467813049115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_TALKING_BED_16
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.2828125, y: 0.484375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba96967a1cf87d2b0800000000000000
+      internalID: -5559817153065424469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PILAR_TALKING_BED_17
+      rect:
+        serializedVersion: 2
+        x: 10880
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.2828125, y: 0.484375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 110b6f72a2a595a90800000000000000
+      internalID: -7324724181835796463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 8e72b6f8f1fdcf74f854972428a589fd
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":18.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.2828125059604645,"y":0.484375},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_PILAR_TALKING_BED_0: 3122605354650393902
+      SPRITE_PILAR_TALKING_BED_1: 2067449451014167099
+      SPRITE_PILAR_TALKING_BED_10: 7184370967579605596
+      SPRITE_PILAR_TALKING_BED_11: 3041881203802329374
+      SPRITE_PILAR_TALKING_BED_12: -4586653423083042846
+      SPRITE_PILAR_TALKING_BED_13: 8610001128053662235
+      SPRITE_PILAR_TALKING_BED_14: 5123930224525953524
+      SPRITE_PILAR_TALKING_BED_15: -4549956467813049115
+      SPRITE_PILAR_TALKING_BED_16: -5559817153065424469
+      SPRITE_PILAR_TALKING_BED_17: -7324724181835796463
+      SPRITE_PILAR_TALKING_BED_2: 489874017469875480
+      SPRITE_PILAR_TALKING_BED_3: 7115396143961571990
+      SPRITE_PILAR_TALKING_BED_4: 3340350650656811360
+      SPRITE_PILAR_TALKING_BED_5: -3256991022243301682
+      SPRITE_PILAR_TALKING_BED_6: -3542604421407831765
+      SPRITE_PILAR_TALKING_BED_7: 4619825789260626360
+      SPRITE_PILAR_TALKING_BED_8: -6472060293170945311
+      SPRITE_PILAR_TALKING_BED_9: -4827786936413139144
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

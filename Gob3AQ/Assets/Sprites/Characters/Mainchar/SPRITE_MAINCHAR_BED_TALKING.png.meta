@@ -1,0 +1,587 @@
+fileFormatVersion: 2
+guid: b7f24f3e849171a49b98cc91a9dc86db
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1460963655870165192
+    second: SPRITE_MAINCHAR_STEADY_BED_TALKING_0
+  - first:
+      213: 4812115392697102940
+    second: SPRITE_MAINCHAR_STEADY_BED_TALKING_1
+  - first:
+      213: -8911925426631123684
+    second: SPRITE_MAINCHAR_STEADY_BED_TALKING_2
+  - first:
+      213: 3902159862412678973
+    second: SPRITE_MAINCHAR_STEADY_BED_TALKING_3
+  - first:
+      213: -2073873607761561509
+    second: SPRITE_MAINCHAR_STEADY_BED_TALKING_4
+  - first:
+      213: 8843094258646171385
+    second: SPRITE_MAINCHAR_STEADY_BED_TALKING_5
+  - first:
+      213: -8293823307842763509
+    second: SPRITE_MAINCHAR_STEADY_BED_TALKING_6
+  - first:
+      213: 4709538986716012234
+    second: SPRITE_MAINCHAR_STEADY_BED_TALKING_7
+  - first:
+      213: 5728848058651447511
+    second: SPRITE_MAINCHAR_STEADY_BED_TALKING_8
+  - first:
+      213: -5943596659432084583
+    second: SPRITE_MAINCHAR_STEADY_BED_TALKING_9
+  - first:
+      213: 5729393614604785764
+    second: SPRITE_MAINCHAR_STEADY_BED_TALKING_10
+  - first:
+      213: 8183738871012696896
+    second: SPRITE_MAINCHAR_STEADY_BED_TALKING_11
+  - first:
+      213: -1900075155598677727
+    second: SPRITE_MAINCHAR_STEADY_BED_TALKING_12
+  - first:
+      213: -1546422253730446376
+    second: SPRITE_MAINCHAR_STEADY_BED_TALKING_13
+  - first:
+      213: -6970570830637668359
+    second: SPRITE_MAINCHAR_STEADY_BED_TALKING_14
+  - first:
+      213: 8899238724275535652
+    second: SPRITE_MAINCHAR_STEADY_BED_TALKING_15
+  - first:
+      213: -4722611556168834478
+    second: SPRITE_MAINCHAR_STEADY_BED_TALKING_16
+  - first:
+      213: -6067076744092205219
+    second: SPRITE_MAINCHAR_STEADY_BED_TALKING_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_BED_TALKING_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.4984375, y: 0.5125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b46079c28b0c1742ac190e7ce2339f6
+      internalID: -1586691794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_BED_TALKING_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.4984375, y: 0.5125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fe1cebd462d95e488a5ddae6d262e2a
+      internalID: -1870241730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_BED_TALKING_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.4984375, y: 0.5125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d615936b4d1b08f4ea83c7c65c0e1eae
+      internalID: 1906886766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_BED_TALKING_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.4984375, y: 0.5125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88ae9a4d6f0ab7540acb8be069afb227
+      internalID: 1688308344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_BED_TALKING_4
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.4984375, y: 0.5125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63b7a7f8b4a73aa4a9692556c6d478fb
+      internalID: -166904957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_BED_TALKING_5
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.4984375, y: 0.5125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f61be1cd11a53e4cb113c6d9c6a69cd
+      internalID: 1054967052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_BED_TALKING_6
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.4984375, y: 0.5125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 965b9a75334889244a8ebc6f852c0554
+      internalID: -2113451814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_BED_TALKING_7
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.4984375, y: 0.5125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8471c7855edaf8d4bb24c8da6ca5a525
+      internalID: 1190272876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_BED_TALKING_8
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.4984375, y: 0.5125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d87d2712ce407194a8e02b6abf1fde1b
+      internalID: 776692852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_BED_TALKING_9
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.4984375, y: 0.5125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9101eda70ec872e4d8e1cd4df661f36d
+      internalID: -312227693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_BED_TALKING_10
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.4984375, y: 0.5125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ad19f413344b4a42972121c36d7cfb3
+      internalID: -641022654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_BED_TALKING_11
+      rect:
+        serializedVersion: 2
+        x: 7040
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.4984375, y: 0.5125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79c4e9d2ee596df4787e22fd4f913df8
+      internalID: -596159046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_BED_TALKING_12
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.4984375, y: 0.5125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb6f844fe72a6df4e9a1807b713d7e07
+      internalID: -167456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_BED_TALKING_13
+      rect:
+        serializedVersion: 2
+        x: 8320
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.4984375, y: 0.5125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f8cee6f7352b604dbd4b1a470ec2be9
+      internalID: -746926317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_BED_TALKING_14
+      rect:
+        serializedVersion: 2
+        x: 8960
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.4984375, y: 0.5125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79c52465e608feb469eb10757500c4f1
+      internalID: 299840892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_BED_TALKING_15
+      rect:
+        serializedVersion: 2
+        x: 9600
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.4984375, y: 0.5125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4173a0bb2db11414580465a7702bd36d
+      internalID: -1840052456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_BED_TALKING_16
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.4984375, y: 0.5125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cd249407a84f3248aa661885edc8c84
+      internalID: 1111101842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_BED_TALKING_17
+      rect:
+        serializedVersion: 2
+        x: 10880
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.4984375, y: 0.5125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 137dfa34b01704d4cbacfc5d209052d0
+      internalID: -1669406760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 85c2191f5fdf86141b538e89833335c9
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":18.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.4984374940395355,"y":0.512499988079071},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_MAINCHAR_BED_TALKING_0: -1586691794
+      SPRITE_MAINCHAR_BED_TALKING_1: -1870241730
+      SPRITE_MAINCHAR_BED_TALKING_10: -641022654
+      SPRITE_MAINCHAR_BED_TALKING_11: -596159046
+      SPRITE_MAINCHAR_BED_TALKING_12: -167456
+      SPRITE_MAINCHAR_BED_TALKING_13: -746926317
+      SPRITE_MAINCHAR_BED_TALKING_14: 299840892
+      SPRITE_MAINCHAR_BED_TALKING_15: -1840052456
+      SPRITE_MAINCHAR_BED_TALKING_16: 1111101842
+      SPRITE_MAINCHAR_BED_TALKING_17: -1669406760
+      SPRITE_MAINCHAR_BED_TALKING_2: 1906886766
+      SPRITE_MAINCHAR_BED_TALKING_3: 1688308344
+      SPRITE_MAINCHAR_BED_TALKING_4: -166904957
+      SPRITE_MAINCHAR_BED_TALKING_5: 1054967052
+      SPRITE_MAINCHAR_BED_TALKING_6: -2113451814
+      SPRITE_MAINCHAR_BED_TALKING_7: 1190272876
+      SPRITE_MAINCHAR_BED_TALKING_8: 776692852
+      SPRITE_MAINCHAR_BED_TALKING_9: -312227693
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

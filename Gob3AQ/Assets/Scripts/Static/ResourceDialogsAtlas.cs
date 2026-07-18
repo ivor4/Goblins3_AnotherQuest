@@ -363,6 +363,11 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new DialogOption[1]{DialogOption.DIALOG_PILAR_DREAM_1_OPTION_0}
             ),
 
+            new( /* DIALOG_PILAR_BED_DREAM_1 */
+            new GameItem[2]{GameItem.ITEM_MAINCHAR_DREAM, GameItem.ITEM_NPC_PILAR_DREAM_1},
+            new DialogOption[1]{DialogOption.DIALOG_PILAR_BED_DREAM_1_OPTION_0}
+            ),
+
             new( /* DIALOG_LAST */
             new GameItem[1]{GameItem.ITEM_NONE},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE}
@@ -965,9 +970,16 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new( /* DIALOG_PILAR_DREAM_1_OPTION_0 */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[4]{GameAction.ACTION_SET_GAME_ANIMATION_MODE, GameAction.ACTION_ANIMATE_PILAR_STEADY, GameAction.ACTION_MAINCHAR_DREAM_INVISIBLE, GameAction.ACTION_ANIMATE_PILAR_KISSING},
+            new GameAction[5]{GameAction.ACTION_SET_GAME_ANIMATION_MODE, GameAction.ACTION_ANIMATE_PILAR_STEADY, GameAction.ACTION_MAINCHAR_DREAM_INVISIBLE, GameAction.ACTION_ANIMATE_PILAR_KISSING, GameAction.ACTION_SCENE_DREAM1_BEDROOM_NIGHT},
             DialogType.DIALOG_NONE,false,
             new DialogPhrase[6]{DialogPhrase.PHRASE_DIALOG_PILAR_DREAM_1_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_PILAR_DREAM_1_OPTION_0_1, DialogPhrase.PHRASE_DIALOG_PILAR_DREAM_1_OPTION_0_2, DialogPhrase.PHRASE_DIALOG_PILAR_DREAM_1_OPTION_0_3, DialogPhrase.PHRASE_DIALOG_PILAR_DREAM_1_OPTION_0_4, DialogPhrase.PHRASE_DIALOG_PILAR_DREAM_1_OPTION_0_5}
+            ),
+            new( /* DIALOG_PILAR_BED_DREAM_1_OPTION_0 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_NONE},
+            DialogType.DIALOG_NONE,false,
+            new DialogPhrase[7]{DialogPhrase.PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_1, DialogPhrase.PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_2, DialogPhrase.PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_3, DialogPhrase.PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_4, DialogPhrase.PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_5, DialogPhrase.PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_6}
             ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
@@ -1330,6 +1342,13 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,GameSound.SOUND_PHRASE_DIALOG_PILAR_DREAM_1_OPTION_0_3, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_PILAR_DREAM_1_OPTION_0_3 */ 
             new(1,GameSound.SOUND_PHRASE_DIALOG_PILAR_DREAM_1_OPTION_0_4, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_PILAR_DREAM_1_OPTION_0_4 */ 
             new(0,GameSound.SOUND_PHRASE_DIALOG_PILAR_DREAM_1_OPTION_0_5, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_PILAR_DREAM_1_OPTION_0_5 */ 
+            new(1,GameSound.SOUND_PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_0, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_0 */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_1 */ 
+            new(1,GameSound.SOUND_PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_2 */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_3, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_3 */ 
+            new(1,GameSound.SOUND_PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_4, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_4 */ 
+            new(0,GameSound.SOUND_PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_5, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_5 */ 
+            new(1,GameSound.SOUND_PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_6, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_6 */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

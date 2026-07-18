@@ -45,6 +45,7 @@ namespace Gob3AQ.Brain.LevelOptions
             "SCENE_DREAM_1_FRAMEWORK",
             "SCENE_DREAM_1_KITCHEN",
             "SCENE_DREAM_1_BEDROOM",
+            "SCENE_DREAM_1_BEDROOM_NIGHT",
             ""
         };
 
@@ -52,6 +53,7 @@ namespace Gob3AQ.Brain.LevelOptions
         {
             {Room.CITY1_EXTRAPERLO3_2, true},
             {Room.CHAPTER_SHOW, true},
+            {Room.DREAM_1_BEDROOM_NIGHT, true},
         };
 
         private static readonly Dictionary<Room, IReadOnlyList<PrefabEnum>> _CHARACTERS_TO_LOAD_PER_SCENE = new Dictionary<Room, IReadOnlyList<PrefabEnum>>()
@@ -61,6 +63,7 @@ namespace Gob3AQ.Brain.LevelOptions
             {Room.DREAM_1_FRAMEWORK, new List<PrefabEnum>(){ PrefabEnum.PREFAB_MAINCHARACTER_DREAM }},
             {Room.DREAM_1_KITCHEN, new List<PrefabEnum>(){ PrefabEnum.PREFAB_MAINCHARACTER_DREAM }},
             {Room.DREAM_1_BEDROOM, new List<PrefabEnum>(){ PrefabEnum.PREFAB_MAINCHARACTER_DREAM }},
+            {Room.DREAM_1_BEDROOM_NIGHT, new List<PrefabEnum>(){ PrefabEnum.PREFAB_MAINCHARACTER_BED }},
         };
 
         private static readonly InitialWalkInfo[] _DefaultInitialWalkInfo = new InitialWalkInfo[1]

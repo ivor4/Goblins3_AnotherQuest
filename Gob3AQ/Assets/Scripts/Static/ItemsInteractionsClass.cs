@@ -382,6 +382,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_ANY, 
             new GameAction[2]{GameAction.ACTION_EVENT_REMOVE_DESCRIBE_DREAM_FRAMEWORK, GameAction.ACTION_DIALOGUE_MAINCHAR_ENTRY_DREAM_1_FRAMEWORK}), 
 
+            new( /* UNCHAIN_ENTRY_DIALOG_DREAM_1_BED_PILAR */
+            true,false,false,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY, 
+            new GameAction[1]{GameAction.ACTION_TALK_DIALOG_PILAR_BED_DREAM_1}), 
+
             new( /* UNCHAIN_LAST */
             false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
@@ -2930,10 +2936,22 @@ namespace Gob3AQ.Brain.ItemsInteraction
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_ANIMATE_PILAR_KISSING */
-            true,ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION,GameItem.ITEM_NPC_PILAR_DREAM_1,GameSprite.SPRITE_NONE,
+            false,ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION,GameItem.ITEM_NPC_PILAR_DREAM_1,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ONE,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",false,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_SCENE_DREAM1_BEDROOM_NIGHT */
+            false,ActionType.ACTION_TYPE_SCENE_CHANGE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_MORNING,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.DREAM_1_BEDROOM_NIGHT,"",null,null,0,550,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_TALK_DIALOG_PILAR_BED_DREAM_1 */
+            true,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_PILAR_BED_DREAM_1,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

@@ -76,7 +76,8 @@ namespace Gob3AQ.ResourceAtlas
                 PrefabEnum.PREFAB_MEMENTO_ITEM,
                 PrefabEnum.PREFAB_MAINCHARACTER,
                 PrefabEnum.PREFAB_MAINCHARACTER_SEATED,
-                PrefabEnum.PREFAB_MAINCHARACTER_DREAM
+                PrefabEnum.PREFAB_MAINCHARACTER_DREAM,
+                PrefabEnum.PREFAB_MAINCHARACTER_BED
             };
 
             _fixedPrefabsToLoad = new(editableHash);
@@ -186,7 +187,8 @@ namespace Gob3AQ.ResourceAtlas
             "PREFAB_MAINCHARACTER",
             "PREFAB_DETAIL_EXTRAPERLO",
             "PREFAB_MAINCHARACTER_SEATED",
-            "PREFAB_MAINCHARACTER_DREAM"
+            "PREFAB_MAINCHARACTER_DREAM",
+            "PREFAB_MAINCHARACTER_BED"
         };
 
         
@@ -431,6 +433,18 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_DREAM_1}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
+            ),
+
+            new( /* DREAM_1_BEDROOM_NIGHT */
+            new GameSprite[1]{GameSprite.BACKGROUND_DREAM_1_BEDROOM_NIGHT},
+            new GameSound[1]{GameSound.MUSIC_DREAM_1},
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_DREAM_1_BEDROOM_NIGHT, GameSprite.SPRITE_MAINCHAR_STEADY_BED}), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(1){GameItem.ITEM_GENERIC_DOOR1}), 
+            new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE}), 
+            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_DREAM_1}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_ENTRY_DIALOG_DREAM_1_BED_PILAR}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
             ),
 

@@ -448,6 +448,30 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
             ),
 
+            new( /* DREAM_1_CORRIDOR_NIGHT */
+            new GameSprite[1]{GameSprite.BACKGROUND_DREAM_1_CORRIDOR_NIGHT},
+            new GameSound[1]{GameSound.SOUND_NONE},
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_DREAM_1_CORRIDOR_NIGHT}), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(3){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_NPC_SULTAN, GameItem.ITEM_DOOR_DREAM_1_EXIT}), 
+            new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE}), 
+            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.SOUND_DREAM_FEMALE_CRY}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_SOUND_FEMALE_CRY}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
+            ),
+
+            new( /* DREAM_1_KITCHEN_NIGHT */
+            new GameSprite[1]{GameSprite.BACKGROUND_DREAM_1_KITCHEN_NIGHT},
+            new GameSound[1]{GameSound.SOUND_NONE},
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_DREAM_1_KITCHEN_NIGHT}), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(2){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_NPC_ALTER_EGO_1}), 
+            new ReadOnlyHashSet<NameType>(new HashSet<NameType>(1){NameType.NAME_NONE}), 
+            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.SOUND_DREAM_FEMALE_CRY}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_SOUND_FEMALE_CRY}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
+            ),
+
             new( /* ROOM_LAST */
             new GameSprite[1]{GameSprite.SPRITE_NONE},
             new GameSound[1]{GameSound.SOUND_NONE},

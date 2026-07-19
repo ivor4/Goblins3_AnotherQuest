@@ -45,6 +45,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c5583fd8b63a6e4997d3bb92b46224e
+    m_Address: SPRITE_ATLAS_DREAM1_6
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0f02dad77cb6ac44e80e623753c56fbe
     m_Address: ANIMATION_PILAR_KISSING
     m_ReadOnly: 0
@@ -67,6 +72,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 148ff616c223b934982d5e7f0c21ccbf
     m_Address: SOUND_MAINCHAR_ENTRY_DIALOG_DREAM_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 18d4f9a972af001449127683ee2464a8
+    m_Address: SPRITE_ATLAS_DREAM1_5
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -155,6 +165,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e94000d3db89954f8fe785480fa55b1
+    m_Address: SPRITE_ALTER_EGO_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 504b20569715e9c4a9fd01831f0ef957
     m_Address: SOUND_OBSERVE_CLOCK_SPANISH
     m_ReadOnly: 0
@@ -177,6 +192,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 56e008b9d1d4f0344b6fbdeed5bcb069
     m_Address: ANIMATION_MAINCHAR_TALKING_BED_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b23c49cae86a9a419afcb5dd3f503ee
+    m_Address: SPRITE_ATLAS_ALTER_EGO1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -220,8 +240,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 827987606b4dd0d41a6f817be2ad9d89
+    m_Address: SCENE_DREAM_1_CORRIDOR_NIGHT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 83a1868107e6dd74a9e327e5c46a4dde
     m_Address: ANIMATION_PILAR_TALKING_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 85b2d1a0fe081c14f9ce0956a86e8bce
+    m_Address: SPRITE_FOREGROUND_CORRIDOR_COLUMN_NIGHT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -275,6 +305,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0fa688128ee87a419b1bc90fdfb3e2f
+    m_Address: BACKGROUND_DREAM_1_KITCHEN_NIGHT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a23a2180e1dfc524888147a799d014f4
     m_Address: ANIMATION_SULTAN_LICKING_ENTRY
     m_ReadOnly: 0
@@ -287,6 +322,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ac279944d1fc3e14b9328bf595049473
     m_Address: SOUND_OBSERVE_SULTAN_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac48b595e9775324e9c370683df1a342
+    m_Address: SPRITE_ALTER_EGO_STEADY_ANIM
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -337,6 +377,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c3d27128f87e1c240ac13e5face31f1d
     m_Address: SCENE_DREAM_1_KITCHEN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4421aa46a3bbf546bd883fa83ef2fcb
+    m_Address: SCENE_DREAM_1_KITCHEN_NIGHT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -395,8 +440,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de34caedc1fa6f4468ac57fa0bb5449a
+    m_Address: SOUND_DREAM_FEMALE_CRY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e48c4e13438da4b43829beed3435677a
     m_Address: SOUND_DIALOG_PILAR_BED_INTRO_1_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e82c9cc383f585041a959cd55cb5da36
+    m_Address: BACKGROUND_DREAM_1_CORRIDOR_NIGHT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -442,6 +497,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fe8ffee088a838541bd005289e64e950
     m_Address: ANIMATION_SULTAN_HAPPY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fec52a6758fd2c74b813d748d947502f
+    m_Address: SOUND_SULTAN_DID_NOT_EAT_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

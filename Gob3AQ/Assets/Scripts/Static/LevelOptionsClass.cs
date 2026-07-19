@@ -46,6 +46,8 @@ namespace Gob3AQ.Brain.LevelOptions
             "SCENE_DREAM_1_KITCHEN",
             "SCENE_DREAM_1_BEDROOM",
             "SCENE_DREAM_1_BEDROOM_NIGHT",
+            "SCENE_DREAM_1_CORRIDOR_NIGHT",
+            "SCENE_DREAM_1_KITCHEN_NIGHT",
             ""
         };
 
@@ -64,6 +66,8 @@ namespace Gob3AQ.Brain.LevelOptions
             {Room.DREAM_1_KITCHEN, new List<PrefabEnum>(){ PrefabEnum.PREFAB_MAINCHARACTER_DREAM }},
             {Room.DREAM_1_BEDROOM, new List<PrefabEnum>(){ PrefabEnum.PREFAB_MAINCHARACTER_DREAM }},
             {Room.DREAM_1_BEDROOM_NIGHT, new List<PrefabEnum>(){ PrefabEnum.PREFAB_MAINCHARACTER_BED }},
+            {Room.DREAM_1_CORRIDOR_NIGHT, new List<PrefabEnum>(){ PrefabEnum.PREFAB_MAINCHARACTER_DREAM }},
+            {Room.DREAM_1_KITCHEN_NIGHT, new List<PrefabEnum>(){ PrefabEnum.PREFAB_MAINCHARACTER_DREAM }},
         };
 
         private static readonly InitialWalkInfo[] _DefaultInitialWalkInfo = new InitialWalkInfo[1]

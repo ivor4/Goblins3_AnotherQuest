@@ -977,7 +977,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new( /* DIALOG_PILAR_BED_DREAM_1_OPTION_0 */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[2]{GameAction.ACTION_SET_GAME_ANIMATION_MODE, GameAction.ACTION_ZOOM_WINDOW},
+            new GameAction[3]{GameAction.ACTION_SET_GAME_ANIMATION_MODE, GameAction.ACTION_ZOOM_WINDOW, GameAction.ACTION_SCENE_DREAM1_CORRIDOR_NIGHT},
             DialogType.DIALOG_NONE,false,
             new DialogPhrase[9]{DialogPhrase.PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_1, DialogPhrase.PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_2, DialogPhrase.PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_3, DialogPhrase.PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_3_2, DialogPhrase.PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_4, DialogPhrase.PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_4_2, DialogPhrase.PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_5, DialogPhrase.PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_6}
             ),
@@ -1351,6 +1351,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(1,GameSound.SOUND_PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_4_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_4_2 */ 
             new(0,GameSound.SOUND_PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_5, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_5 */ 
             new(1,GameSound.SOUND_PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_6, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_PILAR_BED_DREAM_1_OPTION_0_6 */ 
+            new(0,GameSound.SOUND_PHRASE_SULTAN_DID_NOT_EAT, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_SULTAN_DID_NOT_EAT */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 380390d12149e2c45ba402d4f92a5e68
+guid: 5b23c49cae86a9a419afcb5dd3f503ee
 SpriteAtlasImporter:
   externalObjects: {}
   textureSettings:
@@ -13,20 +13,7 @@ SpriteAtlasImporter:
     readable: 0
     crunchedCompression: 0
     sRGB: 1
-  platformSettings:
-  - serializedVersion: 4
-    buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
+  platformSettings: []
   packingSettings:
     serializedVersion: 2
     padding: 4

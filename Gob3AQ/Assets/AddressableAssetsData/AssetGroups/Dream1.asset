@@ -160,6 +160,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51ba3bd509eb9574f9a44cb3bae40fe2
+    m_Address: SOUND_DIALOG_PILAR_BED_INTRO_1_5_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 533b0c5081ebefb4ea7418fe70aabf3c
     m_Address: SOUND_RADIO_PRE_WAR_1
     m_ReadOnly: 0
@@ -422,6 +427,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f5eaf9cb633777746b3c50583aac57c4
     m_Address: ANIMATION_PILAR_BED_TALKING_EXEC2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fae3a171a81328b4c9d6af130ccacef6
+    m_Address: SOUND_DIALOG_PILAR_BED_INTRO_1_4_2_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

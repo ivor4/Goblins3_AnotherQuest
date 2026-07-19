@@ -136,12 +136,12 @@ TextureImporter:
       name: SPRITE_MAINCHAR_STEADY_BED_ANIM_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 640
-        height: 640
+        x: 139
+        y: 255
+        width: 332
+        height: 385
       alignment: 9
-      pivot: {x: 0.49687502, y: 0.5125}
+      pivot: {x: 0.5422868, y: 0.19026093}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -158,12 +158,12 @@ TextureImporter:
       name: SPRITE_MAINCHAR_STEADY_BED_ANIM_1
       rect:
         serializedVersion: 2
-        x: 640
-        y: 0
-        width: 640
-        height: 640
+        x: 785
+        y: 259
+        width: 327
+        height: 381
       alignment: 9
-      pivot: {x: 0.49687502, y: 0.51718754}
+      pivot: {x: 0.53071076, y: 0.18691929}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -180,12 +180,12 @@ TextureImporter:
       name: SPRITE_MAINCHAR_STEADY_BED_ANIM_2
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 0
-        width: 640
-        height: 640
+        x: 1422
+        y: 255
+        width: 327
+        height: 385
       alignment: 9
-      pivot: {x: 0.49687502, y: 0.51875}
+      pivot: {x: 0.5407405, y: 0.20057437}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -202,12 +202,12 @@ TextureImporter:
       name: SPRITE_MAINCHAR_STEADY_BED_ANIM_3
       rect:
         serializedVersion: 2
-        x: 1920
-        y: 0
-        width: 640
-        height: 640
+        x: 2059
+        y: 259
+        width: 323
+        height: 381
       alignment: 9
-      pivot: {x: 0.49687502, y: 0.5234375}
+      pivot: {x: 0.55599964, y: 0.19943862}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -224,12 +224,12 @@ TextureImporter:
       name: SPRITE_MAINCHAR_STEADY_BED_ANIM_4
       rect:
         serializedVersion: 2
-        x: 2560
-        y: 0
-        width: 640
-        height: 640
+        x: 2709
+        y: 255
+        width: 314
+        height: 385
       alignment: 9
-      pivot: {x: 0.49687502, y: 0.5265625}
+      pivot: {x: 0.54031897, y: 0.21386497}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -247,11 +247,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3200
-        y: 0
+        y: 264
         width: 640
-        height: 640
+        height: 376
       alignment: 9
-      pivot: {x: 0.4984375, y: 0.528125}
+      pivot: {x: 0.49809378, y: 0.19812207}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -269,11 +269,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3840
-        y: 0
+        y: 259
         width: 640
-        height: 640
+        height: 381
       alignment: 9
-      pivot: {x: 0.4984375, y: 0.528125}
+      pivot: {x: 0.49772033, y: 0.2077696}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -290,12 +290,12 @@ TextureImporter:
       name: SPRITE_MAINCHAR_STEADY_BED_ANIM_7
       rect:
         serializedVersion: 2
-        x: 4480
-        y: 0
-        width: 640
-        height: 640
+        x: 4607
+        y: 259
+        width: 350
+        height: 381
       alignment: 9
-      pivot: {x: 0.4984375, y: 0.52500004}
+      pivot: {x: 0.54792273, y: 0.20131509}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -312,12 +312,12 @@ TextureImporter:
       name: SPRITE_MAINCHAR_STEADY_BED_ANIM_8
       rect:
         serializedVersion: 2
-        x: 5120
-        y: 0
-        width: 640
-        height: 640
+        x: 5253
+        y: 255
+        width: 341
+        height: 385
       alignment: 9
-      pivot: {x: 0.4984375, y: 0.51875}
+      pivot: {x: 0.545708, y: 0.20029931}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -334,12 +334,12 @@ TextureImporter:
       name: SPRITE_MAINCHAR_STEADY_BED_ANIM_9
       rect:
         serializedVersion: 2
-        x: 5760
-        y: 0
-        width: 640
-        height: 640
+        x: 5895
+        y: 250
+        width: 336
+        height: 390
       alignment: 9
-      pivot: {x: 0.4984375, y: 0.5125}
+      pivot: {x: 0.5478181, y: 0.19981697}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -356,12 +356,12 @@ TextureImporter:
       name: SPRITE_MAINCHAR_STEADY_BED_ANIM_10
       rect:
         serializedVersion: 2
-        x: 6400
-        y: 0
-        width: 640
-        height: 640
+        x: 6532
+        y: 250
+        width: 350
+        height: 390
       alignment: 9
-      pivot: {x: 0.4984375, y: 0.5109375}
+      pivot: {x: 0.5326242, y: 0.19574843}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -378,12 +378,12 @@ TextureImporter:
       name: SPRITE_MAINCHAR_STEADY_BED_ANIM_11
       rect:
         serializedVersion: 2
-        x: 7040
-        y: 0
-        width: 640
-        height: 640
+        x: 7182
+        y: 255
+        width: 328
+        height: 385
       alignment: 9
-      pivot: {x: 0.4984375, y: 0.50937504}
+      pivot: {x: 0.53889877, y: 0.18661095}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []

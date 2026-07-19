@@ -1155,7 +1155,7 @@ GameObject:
   - component: {fileID: 1620545496}
   - component: {fileID: 1620545495}
   m_Layer: 0
-  m_Name: ZOOM_ALL
+  m_Name: ZOOM_WINDOW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1232,7 +1232,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 12.66, y: 7.37}
+  m_Size: {x: 3.8510551, y: 2.025067}
   m_EdgeRadius: 0
 --- !u!4 &1620545497
 Transform:
@@ -1243,7 +1243,7 @@ Transform:
   m_GameObject: {fileID: 1620545494}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: -1.08, z: 0}
+  m_LocalPosition: {x: 6.05, y: -0.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

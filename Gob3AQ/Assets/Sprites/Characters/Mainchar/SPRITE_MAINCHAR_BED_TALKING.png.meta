@@ -154,12 +154,12 @@ TextureImporter:
       name: SPRITE_MAINCHAR_BED_TALKING_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 640
-        height: 640
+        x: 156
+        y: 259
+        width: 296
+        height: 381
       alignment: 9
-      pivot: {x: 0.4984375, y: 0.5125}
+      pivot: {x: 0.54994303, y: 0.18245082}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -176,12 +176,12 @@ TextureImporter:
       name: SPRITE_MAINCHAR_BED_TALKING_1
       rect:
         serializedVersion: 2
-        x: 640
-        y: 0
-        width: 640
-        height: 640
+        x: 786
+        y: 257
+        width: 314
+        height: 383
       alignment: 9
-      pivot: {x: 0.4984375, y: 0.5125}
+      pivot: {x: 0.550714, y: 0.18512282}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -198,12 +198,12 @@ TextureImporter:
       name: SPRITE_MAINCHAR_BED_TALKING_2
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 0
-        width: 640
-        height: 640
+        x: 1427
+        y: 250
+        width: 314
+        height: 390
       alignment: 9
-      pivot: {x: 0.4984375, y: 0.5125}
+      pivot: {x: 0.5474084, y: 0.20083712}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -220,12 +220,12 @@ TextureImporter:
       name: SPRITE_MAINCHAR_BED_TALKING_3
       rect:
         serializedVersion: 2
-        x: 1920
-        y: 0
-        width: 640
-        height: 640
+        x: 2066
+        y: 244
+        width: 320
+        height: 396
       alignment: 9
-      pivot: {x: 0.4984375, y: 0.5125}
+      pivot: {x: 0.540168, y: 0.21244882}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -242,12 +242,12 @@ TextureImporter:
       name: SPRITE_MAINCHAR_BED_TALKING_4
       rect:
         serializedVersion: 2
-        x: 2560
-        y: 0
-        width: 640
-        height: 640
+        x: 2715
+        y: 248
+        width: 310
+        height: 392
       alignment: 9
-      pivot: {x: 0.4984375, y: 0.5125}
+      pivot: {x: 0.529289, y: 0.20517007}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -264,12 +264,12 @@ TextureImporter:
       name: SPRITE_MAINCHAR_BED_TALKING_5
       rect:
         serializedVersion: 2
-        x: 3200
-        y: 0
-        width: 640
-        height: 640
+        x: 3353
+        y: 253
+        width: 316
+        height: 387
       alignment: 9
-      pivot: {x: 0.4984375, y: 0.5125}
+      pivot: {x: 0.5248135, y: 0.19428326}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -286,12 +286,12 @@ TextureImporter:
       name: SPRITE_MAINCHAR_BED_TALKING_6
       rect:
         serializedVersion: 2
-        x: 3840
-        y: 0
-        width: 640
-        height: 640
+        x: 3992
+        y: 259
+        width: 314
+        height: 381
       alignment: 9
-      pivot: {x: 0.4984375, y: 0.5125}
+      pivot: {x: 0.53187823, y: 0.1825004}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -308,12 +308,12 @@ TextureImporter:
       name: SPRITE_MAINCHAR_BED_TALKING_7
       rect:
         serializedVersion: 2
-        x: 4480
-        y: 0
-        width: 640
-        height: 640
+        x: 4618
+        y: 257
+        width: 333
+        height: 383
       alignment: 9
-      pivot: {x: 0.4984375, y: 0.5125}
+      pivot: {x: 0.54250246, y: 0.18649842}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -330,12 +330,12 @@ TextureImporter:
       name: SPRITE_MAINCHAR_BED_TALKING_8
       rect:
         serializedVersion: 2
-        x: 5120
-        y: 0
-        width: 640
-        height: 640
+        x: 5269
+        y: 257
+        width: 316
+        height: 383
       alignment: 9
-      pivot: {x: 0.4984375, y: 0.5125}
+      pivot: {x: 0.5384645, y: 0.18605475}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -352,12 +352,12 @@ TextureImporter:
       name: SPRITE_MAINCHAR_BED_TALKING_9
       rect:
         serializedVersion: 2
-        x: 5760
-        y: 0
-        width: 640
-        height: 640
+        x: 5912
+        y: 259
+        width: 314
+        height: 381
       alignment: 9
-      pivot: {x: 0.4984375, y: 0.5125}
+      pivot: {x: 0.5325345, y: 0.18242511}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -374,12 +374,12 @@ TextureImporter:
       name: SPRITE_MAINCHAR_BED_TALKING_10
       rect:
         serializedVersion: 2
-        x: 6400
-        y: 0
-        width: 640
-        height: 640
+        x: 6555
+        y: 257
+        width: 308
+        height: 383
       alignment: 9
-      pivot: {x: 0.4984375, y: 0.5125}
+      pivot: {x: 0.5323613, y: 0.18580025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -396,12 +396,12 @@ TextureImporter:
       name: SPRITE_MAINCHAR_BED_TALKING_11
       rect:
         serializedVersion: 2
-        x: 7040
-        y: 0
-        width: 640
-        height: 640
+        x: 7200
+        y: 250
+        width: 305
+        height: 390
       alignment: 9
-      pivot: {x: 0.4984375, y: 0.5125}
+      pivot: {x: 0.5212619, y: 0.20114386}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -418,12 +418,12 @@ TextureImporter:
       name: SPRITE_MAINCHAR_BED_TALKING_12
       rect:
         serializedVersion: 2
-        x: 7680
-        y: 0
-        width: 640
-        height: 640
+        x: 7834
+        y: 244
+        width: 312
+        height: 396
       alignment: 9
-      pivot: {x: 0.4984375, y: 0.5125}
+      pivot: {x: 0.5283923, y: 0.21339609}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -440,12 +440,12 @@ TextureImporter:
       name: SPRITE_MAINCHAR_BED_TALKING_13
       rect:
         serializedVersion: 2
-        x: 8320
-        y: 0
-        width: 640
-        height: 640
+        x: 8477
+        y: 250
+        width: 308
+        height: 390
       alignment: 9
-      pivot: {x: 0.4984375, y: 0.5125}
+      pivot: {x: 0.5259645, y: 0.2008886}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -462,12 +462,12 @@ TextureImporter:
       name: SPRITE_MAINCHAR_BED_TALKING_14
       rect:
         serializedVersion: 2
-        x: 8960
-        y: 0
-        width: 640
-        height: 640
+        x: 9115
+        y: 255
+        width: 304
+        height: 385
       alignment: 9
-      pivot: {x: 0.4984375, y: 0.5125}
+      pivot: {x: 0.5389501, y: 0.19068778}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -484,12 +484,12 @@ TextureImporter:
       name: SPRITE_MAINCHAR_BED_TALKING_15
       rect:
         serializedVersion: 2
-        x: 9600
-        y: 0
-        width: 640
-        height: 640
+        x: 9754
+        y: 255
+        width: 302
+        height: 385
       alignment: 9
-      pivot: {x: 0.4984375, y: 0.5125}
+      pivot: {x: 0.5461345, y: 0.1906254}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -506,12 +506,12 @@ TextureImporter:
       name: SPRITE_MAINCHAR_BED_TALKING_16
       rect:
         serializedVersion: 2
-        x: 10240
-        y: 0
-        width: 640
-        height: 640
+        x: 10389
+        y: 259
+        width: 310
+        height: 381
       alignment: 9
-      pivot: {x: 0.4984375, y: 0.5125}
+      pivot: {x: 0.5476216, y: 0.18236272}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -528,12 +528,12 @@ TextureImporter:
       name: SPRITE_MAINCHAR_BED_TALKING_17
       rect:
         serializedVersion: 2
-        x: 10880
-        y: 0
-        width: 640
-        height: 640
+        x: 11031
+        y: 259
+        width: 306
+        height: 381
       alignment: 9
-      pivot: {x: 0.4984375, y: 0.5125}
+      pivot: {x: 0.54911214, y: 0.18133552}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []

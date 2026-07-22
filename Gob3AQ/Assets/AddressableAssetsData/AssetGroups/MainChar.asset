@@ -80,6 +80,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41c0a2445c215bd459ef7ecda241f433
+    m_Address: SPRITE_MAINCHAR_LISTENING_3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 433b02b9024b31645816b5c9fdc89fb4
     m_Address: ANIMATION_MAINCHAR_WALKING_CORNER_FRONT_2
     m_ReadOnly: 0
@@ -190,6 +195,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6a489b57501980d4abb4b689407553e4
+    m_Address: ANIMATION_MAINCHAR_TALKING3_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 71c6d2499ceacb347a9b0afb7889f193
     m_Address: SOUND_TAKE_UNKNOWN_WOMEN_SPANISH
     m_ReadOnly: 0
@@ -242,6 +252,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 96aa34e30fa1f9e4a8d07c1d47862803
     m_Address: SPRITE_MAINCHAR_PICKING_SIDE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 96f027f33958cba4a9884d10c41ff719
+    m_Address: ANIMATION_MAINCHAR_TALKING3_STARTING
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -300,6 +315,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: afc3a8e87a4f91e49b224b4c9a614889
+    m_Address: ANIMATION_MAINCHAR_TALKING3_EXEC1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b21c93ba469434f41b7d080dc07048e4
     m_Address: ANIMATION_MAINCHAR_SEATED_LISTENING_EXEC2
     m_ReadOnly: 0
@@ -352,6 +372,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cb09fcb2d7315eb479d80d8adaa77419
     m_Address: ANIMATION_MAINCHAR_SEATED_LISTENING_EXEC1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd563e0cbdf85af46aa3ec1ff3e33b8c
+    m_Address: ANIMATION_MAINCHAR_TALKING3_EXEC2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

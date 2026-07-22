@@ -195,6 +195,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58bc876462856cd4c96ca32d089c50a7
+    m_Address: ANIMATOR_ALTER_EGO_DREAM_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5b23c49cae86a9a419afcb5dd3f503ee
     m_Address: SPRITE_ATLAS_ALTER_EGO1
     m_ReadOnly: 0
@@ -407,6 +412,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d058d1d277503854e96d3a884e139e7b
     m_Address: ANIMATION_SULTAN_LICKING_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d362431b936b43144bed88f5893ae16a
+    m_Address: ANIMATION_ALTER_EGO_DREAM_1_STEADY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

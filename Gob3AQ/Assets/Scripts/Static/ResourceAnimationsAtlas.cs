@@ -18,6 +18,8 @@ namespace Gob3AQ.ResourceAnimationsAtlas
                 { Animator.StringToHash("Group_Cycle4"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_FOUR },
                 { Animator.StringToHash("Group_Talk"), AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE },
                 { Animator.StringToHash("Group_Talk2"), AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO },
+                { Animator.StringToHash("Group_Talk3"), AnimationTrigger.ANIMATION_TRIGGER_TALK_THREE },
+                { Animator.StringToHash("Group_Talk4"), AnimationTrigger.ANIMATION_TRIGGER_TALK_FOUR },
                 { Animator.StringToHash("Action1"), AnimationTrigger.ANIMATION_TRIGGER_ONE },
                 { Animator.StringToHash("Action2"), AnimationTrigger.ANIMATION_TRIGGER_TWO },
                 { Animator.StringToHash("Action3"), AnimationTrigger.ANIMATION_TRIGGER_THREE },

@@ -70,6 +70,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1422a343999f6ce4d878379e8845cde2
+    m_Address: SOUND_DIALOG_ALTER_EGO_DREAM_1_INTRO_1_3_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 148ff616c223b934982d5e7f0c21ccbf
     m_Address: SOUND_MAINCHAR_ENTRY_DIALOG_DREAM_1_SPANISH
     m_ReadOnly: 0
@@ -82,6 +87,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 19a159de246528c469806ba9e1251ac1
     m_Address: SPRITE_PILAR_TALKING_BED
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1bee4940b416a324a89c44e1ebf0f41c
+    m_Address: SOUND_DIALOG_ALTER_EGO_DREAM_1_INTRO_1_9_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -125,6 +135,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b61260575038554cbec6fdab381aa56
+    m_Address: SOUND_DIALOG_ALTER_EGO_DREAM_1_INTRO_1_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3b7a2d1ab39e6f7459c22bb0e6a7bbdf
     m_Address: SOUND_DIALOG_SULTAN_1_0_SPANISH
     m_ReadOnly: 0
@@ -135,8 +150,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ce6604d008f58747834d0654bff07ef
+    m_Address: SOUND_DIALOG_ALTER_EGO_DREAM_1_INTRO_1_6_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4048a7dba83842c458f8d16f8c696ba1
     m_Address: SOUND_DIALOG_PILAR_BED_INTRO_1_5_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41da03c22273cb8498dadccca8b88b4e
+    m_Address: SOUND_DIALOG_ALTER_EGO_DREAM_1_INTRO_1_4_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 47e0d58624ddf1945965697fbb03d079
+    m_Address: SOUND_DIALOG_ALTER_EGO_DREAM_1_INTRO_1_8_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -222,6 +252,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6b7174eab7c53904d8c37bf19c7062b4
     m_Address: ANIMATOR_PILAR_BED
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e13b4f23a492b842820a1a0fb7d7ba6
+    m_Address: SOUND_DIALOG_ALTER_EGO_DREAM_1_INTRO_1_11_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6eaef4663731e8449b94e8df06dea509
+    m_Address: SOUND_DIALOG_ALTER_EGO_DREAM_1_INTRO_1_7_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -405,6 +445,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cad09c64b6f9ebd4ea85c51da665f25b
+    m_Address: SOUND_DIALOG_ALTER_EGO_DREAM_1_INTRO_1_5_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ce72438aa8f086c4b9497ded032f7442
     m_Address: BACKGROUND_DREAM_1_CORRIDOR
     m_ReadOnly: 0
@@ -445,6 +490,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da79536a2e0c1de49ac7fb9d86a312ef
+    m_Address: SOUND_DIALOG_ALTER_EGO_DREAM_1_INTRO_1_10_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ddccda9469e9fe7498f6017d39506460
     m_Address: SOUND_OBSERVE_PILAR_SPANISH
     m_ReadOnly: 0
@@ -462,6 +512,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e82c9cc383f585041a959cd55cb5da36
     m_Address: BACKGROUND_DREAM_1_CORRIDOR_NIGHT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e98614d5f76432f43bc37c591ea7a396
+    m_Address: SOUND_DIALOG_ALTER_EGO_DREAM_1_INTRO_1_1_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -1,0 +1,639 @@
+fileFormatVersion: 2
+guid: 2f29fa45d4b017f4db1ed09ab9bbb4b2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5234135697596877126
+    second: SPRITE_MAINCHAR_TALKING_BACKWARDS_0
+  - first:
+      213: -1329258901827167877
+    second: SPRITE_MAINCHAR_TALKING_BACKWARDS_1
+  - first:
+      213: 2513080760381407871
+    second: SPRITE_MAINCHAR_TALKING_BACKWARDS_2
+  - first:
+      213: -4334430910705444683
+    second: SPRITE_MAINCHAR_TALKING_BACKWARDS_3
+  - first:
+      213: 2358323611024654390
+    second: SPRITE_MAINCHAR_TALKING_BACKWARDS_4
+  - first:
+      213: 7224319818102486006
+    second: SPRITE_MAINCHAR_TALKING_BACKWARDS_5
+  - first:
+      213: 1865877215824522620
+    second: SPRITE_MAINCHAR_TALKING_BACKWARDS_6
+  - first:
+      213: -4031698175066865732
+    second: SPRITE_MAINCHAR_TALKING_BACKWARDS_7
+  - first:
+      213: 4229317976063224907
+    second: SPRITE_MAINCHAR_TALKING_BACKWARDS_8
+  - first:
+      213: -7672708865450726706
+    second: SPRITE_MAINCHAR_TALKING_BACKWARDS_9
+  - first:
+      213: -4014192258397477414
+    second: SPRITE_MAINCHAR_TALKING_BACKWARDS_10
+  - first:
+      213: -8764737260319906746
+    second: SPRITE_MAINCHAR_TALKING_BACKWARDS_11
+  - first:
+      213: 7379393219211954804
+    second: SPRITE_MAINCHAR_TALKING_BACKWARDS_12
+  - first:
+      213: -8052070788205914161
+    second: SPRITE_MAINCHAR_TALKING_BACKWARDS_13
+  - first:
+      213: -6312031168683642355
+    second: SPRITE_MAINCHAR_TALKING_BACKWARDS_14
+  - first:
+      213: -3991276157994170421
+    second: SPRITE_MAINCHAR_TALKING_BACKWARDS_15
+  - first:
+      213: 8357095075625118532
+    second: SPRITE_MAINCHAR_TALKING_BACKWARDS_16
+  - first:
+      213: -4247581582619810695
+    second: SPRITE_MAINCHAR_TALKING_BACKWARDS_17
+  - first:
+      213: 7938781464065203801
+    second: SPRITE_MAINCHAR_TALKING_BACKWARDS_18
+  - first:
+      213: -8346377399915607551
+    second: SPRITE_MAINCHAR_TALKING_BACKWARDS_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_TALKING_BACKWARDS_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab6fb8e805d9c57b0800000000000000
+      internalID: -5234135697596877126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_TALKING_BACKWARDS_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b79d01e42168d8de0800000000000000
+      internalID: -1329258901827167877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_TALKING_BACKWARDS_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f72076ef2a140e220800000000000000
+      internalID: 2513080760381407871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_TALKING_BACKWARDS_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b8ddef2d0209d3c0800000000000000
+      internalID: -4334430910705444683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_TALKING_BACKWARDS_4
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6308a8c44d27ab020800000000000000
+      internalID: 2358323611024654390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_TALKING_BACKWARDS_5
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f330d53990f14460800000000000000
+      internalID: 7224319818102486006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_TALKING_BACKWARDS_6
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7d27b3217de4e910800000000000000
+      internalID: 1865877215824522620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_TALKING_BACKWARDS_7
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbf7c81eed78c08c0800000000000000
+      internalID: -4031698175066865732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_TALKING_BACKWARDS_8
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4c2c659a4e81ba30800000000000000
+      internalID: 4229317976063224907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_TALKING_BACKWARDS_9
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecaa1d940ff058590800000000000000
+      internalID: -7672708865450726706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_TALKING_BACKWARDS_10
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad5681ab869ba48c0800000000000000
+      internalID: -4014192258397477414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_TALKING_BACKWARDS_11
+      rect:
+        serializedVersion: 2
+        x: 7040
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 644600936e56d5680800000000000000
+      internalID: -8764737260319906746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_TALKING_BACKWARDS_12
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47a0e01090fd86660800000000000000
+      internalID: 7379393219211954804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_TALKING_BACKWARDS_13
+      rect:
+        serializedVersion: 2
+        x: 8320
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc7dfa2a74c414090800000000000000
+      internalID: -8052070788205914161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_TALKING_BACKWARDS_14
+      rect:
+        serializedVersion: 2
+        x: 8960
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d02fa6b38192768a0800000000000000
+      internalID: -6312031168683642355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_TALKING_BACKWARDS_15
+      rect:
+        serializedVersion: 2
+        x: 9600
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc785422b732c98c0800000000000000
+      internalID: -3991276157994170421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_TALKING_BACKWARDS_16
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44b2dc881bd5af370800000000000000
+      internalID: 8357095075625118532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_TALKING_BACKWARDS_17
+      rect:
+        serializedVersion: 2
+        x: 10880
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97464752e0f8d05c0800000000000000
+      internalID: -4247581582619810695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_TALKING_BACKWARDS_18
+      rect:
+        serializedVersion: 2
+        x: 11520
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95edf0b1ea73c2e60800000000000000
+      internalID: 7938781464065203801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_TALKING_BACKWARDS_19
+      rect:
+        serializedVersion: 2
+        x: 12160
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10a8eacc9f5bb2c80800000000000000
+      internalID: -8346377399915607551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 56e55c74fbeee7b4eb2e27bfcfcd25d1
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":20.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_MAINCHAR_TALKING_BACKWARDS_0: -5234135697596877126
+      SPRITE_MAINCHAR_TALKING_BACKWARDS_1: -1329258901827167877
+      SPRITE_MAINCHAR_TALKING_BACKWARDS_10: -4014192258397477414
+      SPRITE_MAINCHAR_TALKING_BACKWARDS_11: -8764737260319906746
+      SPRITE_MAINCHAR_TALKING_BACKWARDS_12: 7379393219211954804
+      SPRITE_MAINCHAR_TALKING_BACKWARDS_13: -8052070788205914161
+      SPRITE_MAINCHAR_TALKING_BACKWARDS_14: -6312031168683642355
+      SPRITE_MAINCHAR_TALKING_BACKWARDS_15: -3991276157994170421
+      SPRITE_MAINCHAR_TALKING_BACKWARDS_16: 8357095075625118532
+      SPRITE_MAINCHAR_TALKING_BACKWARDS_17: -4247581582619810695
+      SPRITE_MAINCHAR_TALKING_BACKWARDS_18: 7938781464065203801
+      SPRITE_MAINCHAR_TALKING_BACKWARDS_19: -8346377399915607551
+      SPRITE_MAINCHAR_TALKING_BACKWARDS_2: 2513080760381407871
+      SPRITE_MAINCHAR_TALKING_BACKWARDS_3: -4334430910705444683
+      SPRITE_MAINCHAR_TALKING_BACKWARDS_4: 2358323611024654390
+      SPRITE_MAINCHAR_TALKING_BACKWARDS_5: 7224319818102486006
+      SPRITE_MAINCHAR_TALKING_BACKWARDS_6: 1865877215824522620
+      SPRITE_MAINCHAR_TALKING_BACKWARDS_7: -4031698175066865732
+      SPRITE_MAINCHAR_TALKING_BACKWARDS_8: 4229317976063224907
+      SPRITE_MAINCHAR_TALKING_BACKWARDS_9: -7672708865450726706
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

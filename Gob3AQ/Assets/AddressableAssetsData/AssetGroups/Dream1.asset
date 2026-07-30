@@ -165,6 +165,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 47828a67721528649ac3487bc051a12d
+    m_Address: ANIMATION_ALTER_EGO_DREAM_1_TALK_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 47e0d58624ddf1945965697fbb03d079
     m_Address: SOUND_DIALOG_ALTER_EGO_DREAM_1_INTRO_1_8_SPANISH
     m_ReadOnly: 0
@@ -207,6 +212,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 51ba3bd509eb9574f9a44cb3bae40fe2
     m_Address: SOUND_DIALOG_PILAR_BED_INTRO_1_5_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51c2ef6f37b8e444f91a0746e9faa475
+    m_Address: ANIMATION_ALTER_EGO_DREAM_1_TALK_ENTRY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -275,6 +285,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7baefe895f094134fba0ed5a5ede5dea
+    m_Address: ANIMATION_ALTER_EGO_DREAM_1_TALK_EXEC2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7c411fed3c3e5604981422da936ba10b
     m_Address: SPRITE_ATLAS_DREAM1_1
     m_ReadOnly: 0
@@ -327,6 +342,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 94b427cebc5966a48b3f8839e3277543
     m_Address: SPRITE_MASK_DREAM_1_BED_SHEET
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 965f1ce84f4ced14c997105b70155fc8
+    m_Address: ANIMATION_ALTER_EGO_DREAM_1_TALK_EXEC1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -450,6 +470,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cdf96582451f36d41a1169f4528e1b9f
+    m_Address: SPRITE_ALTER_EGO_TALKING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ce72438aa8f086c4b9497ded032f7442
     m_Address: BACKGROUND_DREAM_1_CORRIDOR
     m_ReadOnly: 0
@@ -537,6 +562,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f2a5fdf860aa0ce44b2a5fdefcb82b1b
     m_Address: SPRITE_FOREGROUND_CORRIDOR_COLUMN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f38fb768719df244097fb8758850bcd2
+    m_Address: MUSIC_SHADOW
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

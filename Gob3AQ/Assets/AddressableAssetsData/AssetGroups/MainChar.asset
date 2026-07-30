@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: MainChar
   m_GUID: 793a9a7f8a5a26941a666e36c1d35917
   m_SerializeEntries:
+  - m_GUID: 08d195bf0cc52ab4f9e0363420b257da
+    m_Address: ANIMATION_MAINCHAR_LISTENING_BCKW_EXEC1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0cf42b1ce72e5784cb53b2dad65fe977
     m_Address: ANIMATION_MAINCHAR_TALKING_SEMI_2
     m_ReadOnly: 0
@@ -47,6 +52,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 29d1024da88e3a14e8657a23510d1b44
     m_Address: SPRITE_MAINCHAR_DRINKING_BEER
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f29fa45d4b017f4db1ed09ab9bbb4b2
+    m_Address: SPRITE_MAINCHAR_TALKING_BACKWARDS
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -232,6 +242,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 84eb1d4adf38e3c4cabacd851b23ee30
     m_Address: SPRITE_MAINCHAR_TALKING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ddd664268365ad498cab9685aae553f
+    m_Address: ANIMATION_MAINCHAR_LISTENING_BCKW_ENTRY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e9c5a6b7ab8bbb468ef117946c8c704
+    m_Address: ANIMATION_MAINCHAR_LISTENING_BCKW_EXIT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -462,6 +482,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fabb1e54ffa6af4489cbfa13cd2716b8
     m_Address: ANIMATION_MAINCHAR_WALKING_SIDE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff1462e78bdb00447a8e7a452cce2b10
+    m_Address: ANIMATION_MAINCHAR_LISTENING_BCKW_EXEC2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

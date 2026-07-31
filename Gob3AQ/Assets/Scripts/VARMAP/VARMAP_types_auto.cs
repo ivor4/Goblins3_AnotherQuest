@@ -11,7 +11,8 @@ namespace Gob3AQ.VARMAP.Types
         CHARACTER_NONE = -1, 
         CHARACTER_MAIN, 
         CHARACTER_MAIN_DREAM, 
-        CHARACTER_SNAKE, 
+        CHARACTER_BLANK, 
+        CHARACTER_SILVANA, 
         
         CHARACTER_TOTAL
         /* > ATG 1 END < */

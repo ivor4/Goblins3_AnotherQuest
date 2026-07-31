@@ -229,7 +229,7 @@ namespace Gob3AQ.VARMAP.Types
         public readonly ReadOnlyHashSet<GameSprite> sprites;
         public readonly ReadOnlyHashSet<GameItem> items;
         public readonly ReadOnlyHashSet<GameSound> sounds;
-        public readonly ReadOnlyHashSet<NameType> names;
+        public readonly ReadOnlyHashSet<DetailType> details;
         public readonly ReadOnlyHashSet<UnchainConditions> backgroundConditions_periodic;
         public readonly ReadOnlyHashSet<UnchainConditions> entryConditions;
         public readonly ReadOnlyHashSet<UnchainConditions> exitConditions;
@@ -238,20 +238,20 @@ namespace Gob3AQ.VARMAP.Types
         public ReadOnlySpan<GameSound> BackgroundMusic => backgroundMusic;
 
         public static readonly RoomInfo EMPTY = new(new GameSprite[0], new GameSound[0],new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(0)),
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(0)), new ReadOnlyHashSet<NameType>(new HashSet<NameType>(0)),
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(0)), new ReadOnlyHashSet<DetailType>(new HashSet<DetailType>(0)),
                 new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(0)),
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(0)),
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(0)), new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(0)));
 
         public RoomInfo(GameSprite[] backgrounds, GameSound[] backgroundMusic, ReadOnlyHashSet<GameSprite> sprites,
-            ReadOnlyHashSet<GameItem> items, ReadOnlyHashSet<NameType> names, ReadOnlyHashSet<GameSound> sounds,
+            ReadOnlyHashSet<GameItem> items, ReadOnlyHashSet<DetailType> details, ReadOnlyHashSet<GameSound> sounds,
             ReadOnlyHashSet<UnchainConditions> backgroundConditions, ReadOnlyHashSet<UnchainConditions> entryCondtiions, ReadOnlyHashSet<UnchainConditions> exitConditions)
         {
             this.backgrounds = backgrounds;
             this.backgroundMusic = backgroundMusic;
             this.sprites = sprites;
             this.items = items;
-            this.names = names;
+            this.details = details;
             this.sounds = sounds;
             this.backgroundConditions_periodic = backgroundConditions;
             this.entryConditions = entryCondtiions;
@@ -463,7 +463,7 @@ namespace Gob3AQ.VARMAP.Types
 
         public static readonly ItemInfo EMPTY = new(NameType.NAME_NONE,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(0)),
             GameSprite.SPRITE_NONE,false,GameSprite.SPRITE_NONE, GamePickableItem.ITEM_PICK_NONE,
-            DetailType.DETAIL_NONE, new(new HashSet<ActionConditions>(0)));
+            DetailType.PREFAB_NONE, new(new HashSet<ActionConditions>(0)));
 
         public ItemInfo(NameType name, GameItemFamily family, ReadOnlyHashSet<GameSprite> sprites,
             GameSprite defaultSprite, bool isPickable, GameSprite pickableSprite, GamePickableItem pickableItem,
@@ -663,16 +663,11 @@ namespace Gob3AQ.VARMAP.Types
     public readonly struct DetailInfo
     {
         public readonly PrefabEnum prefabPath;
-        public readonly ReadOnlyHashSet<NameType> names;
-        public readonly ReadOnlyHashSet<DialogPhrase> phrases;
 
-        public static readonly DetailInfo EMPTY = new(PrefabEnum.PREFAB_NONE, new ReadOnlyHashSet<NameType>(new HashSet<NameType>(0)),
-            new ReadOnlyHashSet<DialogPhrase>(new HashSet<DialogPhrase>(0)));
-        public DetailInfo(PrefabEnum prefabEnum, ReadOnlyHashSet<NameType> names, ReadOnlyHashSet<DialogPhrase> phrases)
+        public static readonly DetailInfo EMPTY = new(PrefabEnum.PREFAB_NONE);
+        public DetailInfo(PrefabEnum prefabEnum)
         {
             this.prefabPath = prefabEnum;
-            this.names = names;
-            this.phrases = phrases;
         }
     }
 

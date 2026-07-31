@@ -75,6 +75,7 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_NPC_PILAR_DREAM_1, 
         ITEM_NPC_ALTER_EGO_1, 
         ITEM_DOOR_DREAM_1_EXIT, 
+        ITEM_BLANK, 
         ITEM_LAST, 
         
 ITEM_TOTAL
@@ -541,8 +542,12 @@ ACTION_TOTAL
     public enum DetailType
     {
         /* > ATG 6 START < */
-        DETAIL_NONE = -1, 
-        DETAIL_EXTRAPERLO, 
+        PREFAB_NONE = -1, 
+        PREFAB_DETAIL_EXTRAPERLO, 
+        PREFAB_MAINCHAR, 
+        PREFAB_MAINCHAR_SEATED, 
+        PREFAB_MAINCHAR_DREAM, 
+        PREFAB_MAINCHAR_BED, 
         DETAIL_LAST, 
         
 DETAIL_TOTAL

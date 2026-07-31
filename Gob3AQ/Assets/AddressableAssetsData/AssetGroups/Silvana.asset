@@ -175,6 +175,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3099a38801da6c4ba13abea8a7a8e18
+    m_Address: SPRITE_SILVANA_SEATED_GARDEN_TALKING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e921d798ab20c60458f9864d7c094cc9
     m_Address: SPRITE_SILVANA_STEADY_STANDING
     m_ReadOnly: 0

@@ -137,7 +137,7 @@ namespace Gob3AQ.GameMenu
                         }
                         else
                         {
-                            if ((itemInfo.detailType != DetailType.DETAIL_NONE) && (prevChoosen != GameItem.ITEM_NONE))
+                            if ((itemInfo.detailType != DetailType.PREFAB_NONE) && (prevChoosen != GameItem.ITEM_NONE))
                             {
                                 CreateDetail(itemInfo.detailType);
                             }
@@ -157,7 +157,7 @@ namespace Gob3AQ.GameMenu
 
                     case UserInputInteraction.INPUT_INTERACTION_OBSERVE:
                         /* Observe in detail */
-                        if (itemInfo.detailType != DetailType.DETAIL_NONE)
+                        if (itemInfo.detailType != DetailType.PREFAB_NONE)
                         {
                             VARMAP_GameMenu.CANCEL_PICKABLE_ITEM();
                             CreateDetail(itemInfo.detailType);
@@ -274,13 +274,13 @@ namespace Gob3AQ.GameMenu
 
         private void DestroyLoadedDetail()
         {
-            if (detail_loaded != DetailType.DETAIL_NONE)
+            if (detail_loaded != DetailType.PREFAB_NONE)
             {
                 ref readonly DetailInfo dinfo = ref ItemsInteractionsClass.GetDetailInfo(detail_loaded);
                 VARMAP_GameMenu.LOAD_ADDITIONAL_PREFAB(false, dinfo.prefabPath, null);
             }
 
-            detail_loaded = DetailType.DETAIL_NONE;
+            detail_loaded = DetailType.PREFAB_NONE;
         }
 
         
@@ -407,7 +407,7 @@ namespace Gob3AQ.GameMenu
                 memento_combi_intersection = new(8);
                 memento_combi_union = new(8);
 
-                detail_loaded = DetailType.DETAIL_NONE;
+                detail_loaded = DetailType.PREFAB_NONE;
             }
         }
 
@@ -623,7 +623,7 @@ namespace Gob3AQ.GameMenu
                         break;
                     case Game_Status.GAME_STATUS_CHANGING_ROOM:
                         _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_LOADING);
-                        detail_loaded = DetailType.DETAIL_NONE;
+                        detail_loaded = DetailType.PREFAB_NONE;
                         SetUserInteraction(UserInputInteraction.INPUT_INTERACTION_TAKE);
                         _lastClickTimestamp = Time.time;
                         break;

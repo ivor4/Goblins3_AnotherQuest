@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: MainChar
   m_GUID: 793a9a7f8a5a26941a666e36c1d35917
   m_SerializeEntries:
+  - m_GUID: 033a8dc2b3f6e3f4799933ce8f2708cc
+    m_Address: SPRITE_MAINCHAR_SEATED_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 08d195bf0cc52ab4f9e0363420b257da
     m_Address: ANIMATION_MAINCHAR_LISTENING_BCKW_EXEC1
     m_ReadOnly: 0

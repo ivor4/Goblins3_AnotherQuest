@@ -85,6 +85,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2388ece083ca61648932d4ab3df328cf
+    m_Address: SPRITE_MAINCHAR_PEEING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 250bc07c235f95f42841e2efaa5e376e
     m_Address: ANIMATION_FIK_SHOOTING
     m_ReadOnly: 0
@@ -252,6 +257,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6b523d4b6acfbdc4f98c2b915988a6e3
     m_Address: SPRITE_GERMAN_WAITING_TALKING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 720edcedf43d26c4bb3975eb77501adc
+    m_Address: SPRITE_ATLAS_MAINCHAR_SEATED
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

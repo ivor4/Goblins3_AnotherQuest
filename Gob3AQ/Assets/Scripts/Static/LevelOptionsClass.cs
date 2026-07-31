@@ -61,6 +61,7 @@ namespace Gob3AQ.Brain.LevelOptions
         private static readonly Dictionary<Room, IReadOnlyList<PrefabEnum>> _CHARACTERS_TO_LOAD_PER_SCENE = new Dictionary<Room, IReadOnlyList<PrefabEnum>>()
         {
             {Room.CITY1_EXTRAPERLO3_2, new List<PrefabEnum>(){ PrefabEnum.PREFAB_MAINCHARACTER_SEATED }},
+            {Room.CHAPTER_SHOW, Array.Empty<PrefabEnum>() },
             {Room.DREAM_1_CORRIDOR, new List<PrefabEnum>(){ PrefabEnum.PREFAB_MAINCHARACTER_DREAM }},
             {Room.DREAM_1_FRAMEWORK, new List<PrefabEnum>(){ PrefabEnum.PREFAB_MAINCHARACTER_DREAM }},
             {Room.DREAM_1_KITCHEN, new List<PrefabEnum>(){ PrefabEnum.PREFAB_MAINCHARACTER_DREAM }},

@@ -495,12 +495,13 @@ namespace Gob3AQ.GameMaster
             /* Load sounds */
             Coroutine soundsCoroutine = StartCoroutine(ResourceSoundsClass.PreloadRoomSoundsCoroutine(room));
 
-            /* Load prefabs */
-            Coroutine prefabsCoroutine = StartCoroutine(ResourceAtlasClass.PreloadPrefabsCoroutine(room));
-
             yield return dialogsCoroutine;
             yield return spritesCoroutine;
             yield return soundsCoroutine;
+
+            /* Load prefabs (they may need some of loaded sprites) */
+            Coroutine prefabsCoroutine = StartCoroutine(ResourceAtlasClass.PreloadPrefabsCoroutine(room));
+            
             yield return prefabsCoroutine;
 
             

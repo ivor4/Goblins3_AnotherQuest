@@ -160,11 +160,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2388ece083ca61648932d4ab3df328cf
-    m_Address: SPRITE_MAINCHAR_PEEING
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 24a94d3b456455a4dba6f38830859a7b
     m_Address: ANIMATION_WAITER_TALKING
     m_ReadOnly: 0

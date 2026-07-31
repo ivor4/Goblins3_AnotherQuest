@@ -292,7 +292,7 @@ def process_rooms(ctx: CodeGenContext):
             
             ctx.room_atlas.insert_line(1, f"new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>({len(cols[4].split('|'))}){{{build_array_str(cols[4].split('|'), PREFIXES['sprite'])}}}), \n")
             ctx.room_atlas.insert_line(1, f"new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>({len(cols[5].split('|'))}){{{build_array_str(cols[5].split('|'), PREFIXES['item'])}}}), \n")
-            ctx.room_atlas.insert_line(1, f"new ReadOnlyHashSet<NameType>(new HashSet<NameType>({len(cols[6].split('|'))}){{{build_array_str(cols[6].split('|'), PREFIXES['name'])}}}), \n")
+            ctx.room_atlas.insert_line(1, f"new ReadOnlyHashSet<DetailType>(new HashSet<DetailType>({len(cols[6].split('|'))}){{{build_array_str(cols[6].split('|'), PREFIXES['detail'])}}}), \n")
             ctx.room_atlas.insert_line(1, f"new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>({len(cols[7].split('|'))}){{{build_array_str(cols[7].split('|'), PREFIXES['sound'])}}}), \n")
             ctx.room_atlas.insert_line(1, f"new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>({len(cols[8].split('|'))}){{{build_array_str(cols[8].split('|'), PREFIXES['unchain_cond'])}}}), \n")
             ctx.room_atlas.insert_line(1, f"new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>({len(cols[9].split('|'))}){{{build_array_str(cols[9].split('|'), PREFIXES['unchain_cond'])}}}), \n")
@@ -520,19 +520,14 @@ def process_events(ctx: CodeGenContext):
 
 
 def process_details(ctx: CodeGenContext):
-    rows = read_csv("DETAILS.csv", replace_commas=True)
+    rows = read_csv("PREFABS.csv", replace_commas=True)
     for idx, cols in enumerate(rows):
         if idx == 0: continue
         name = f"{cols[1]} = -1" if 'NONE' in cols[1] else cols[1]
         ctx.items_types.insert_line(6, f"{name}, \n")
         
         if 'NONE' not in cols[1]:
-            ctx.items_interact.insert_line(9, f"new({cols[2]}, /* {cols[1]} */ \n")
+            ctx.items_interact.insert_line(9, f"new({cols[2]}), /* {cols[1]} */ \n")
             
-            names = build_array_str(cols[3].split('|'), PREFIXES['name'])
-            ctx.items_interact.insert_line(9, f"new(new HashSet<NameType>({len(cols[3].split('|'))}){{{names}}}),\n")
-            
-            phrases = build_array_str(cols[4].split('|'), PREFIXES['phrase'])
-            ctx.items_interact.insert_line(9, f"new(new HashSet<DialogPhrase>({len(cols[4].split('|'))}){{{phrases}}})),\n\n")
             
     ctx.items_types.insert_line(6, '\nDETAIL_TOTAL\n')

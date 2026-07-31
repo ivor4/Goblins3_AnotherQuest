@@ -230,9 +230,10 @@ namespace Gob3AQ.LevelMaster
         {
             if (!_singleton) return;
 
-            VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)CharacterType.CHARACTER_MAIN, waypointIndex);
-            VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)CharacterType.CHARACTER_MAIN_DREAM, waypointIndex);
-            VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)CharacterType.CHARACTER_SNAKE, waypointIndex);
+            for (int i = 0; i < (int)CharacterType.CHARACTER_TOTAL; ++i)
+            {
+                VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT(i, waypointIndex);
+            }
             VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
             VARMAP_LevelMaster.SET_PLAYER_SELECTED(CharacterType.CHARACTER_NONE);
 
@@ -820,9 +821,11 @@ namespace Gob3AQ.LevelMaster
             DoorInfo doorInfo = _Door_Dict[doorItem];
 
             int waypointIndex = doorInfo.waypointLeadTo;
-            VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)CharacterType.CHARACTER_MAIN, waypointIndex);
-            VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)CharacterType.CHARACTER_MAIN_DREAM, waypointIndex);
-            VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)CharacterType.CHARACTER_SNAKE, waypointIndex);
+
+            for (int i = 0; i < (int)CharacterType.CHARACTER_TOTAL; ++i)
+            {
+                VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT(i, waypointIndex);
+            }
             VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
             VARMAP_LevelMaster.SET_PLAYER_SELECTED(CharacterType.CHARACTER_NONE);
 

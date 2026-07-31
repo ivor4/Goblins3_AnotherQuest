@@ -195,6 +195,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4ba00bf52f537b04bbac7c7efe09f119
+    m_Address: ANIMATION_ALTER_EGO_DREAM_1_DISAPPEAR
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4e9210fdb529e9d4dbbd43f1e06d8647
     m_Address: SOUND_DIALOG_PILAR_INTRO_1_4_SPANISH
     m_ReadOnly: 0

@@ -849,7 +849,7 @@ namespace Gob3AQ.GameEventMaster
                         }
                         else
                         {
-                            VARMAP_GameEventMaster.LOAD_ROOM_AS_ACTION(info.targetRoom, info.targetWaypointTag.Length == 0 ? -1 : info.intOption1);
+                            VARMAP_GameEventMaster.LOAD_ROOM_AS_ACTION(info.targetRoom, info.intOption1);
                         }
                         break;
                     case ActionType.ACTION_TYPE_START_CARD_GAME:

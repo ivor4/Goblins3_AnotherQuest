@@ -1,5 +1,5 @@
 ﻿NewItem,NewName,NewSprite,Pickable,Spawn,Picker_Character,ObservationPhrase,TakePhrase,Room,Output,Unnamed: 10,Unnamed: 11
-ITEM_NPC_PILAR_DREAM_1,NAME_PILAR,SPRITE_PILAR_STEADY,False,False,CHARACTER_MAIN_DREAM,Pilar. Tan guapa como la recordaba,,DREAM_1_BEDROOM,,,
+ITEM_FIG,NAME_FIG,SPRITE_FIG_PICKABLE,True,False,CHARACTER_MAIN_DREAM,Un higo. A Sultan le encantan los higos,,DREAM_1_KITCHEN_NIGHT,,,
 ,,,,,,,,,,,
 NewRoom,Background,BackgroundNight,Music,Output,,,,,,,
 CITY1_EXTRAPERLO1,BACKGROUND_CITY1_EXTRAPERLO,BACKGROUND_CITY1_EXTRAPERLO,MUSIC_EXTRAPERLO,,,,,,,,

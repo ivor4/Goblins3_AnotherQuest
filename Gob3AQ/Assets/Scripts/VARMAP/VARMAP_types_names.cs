@@ -70,6 +70,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_SULTAN, 
         NAME_PILAR, 
         NAME_ALTER_EGO1, 
+        NAME_FIG, 
         NAME_NPC_LAST, 
         
 NAME_TOTAL

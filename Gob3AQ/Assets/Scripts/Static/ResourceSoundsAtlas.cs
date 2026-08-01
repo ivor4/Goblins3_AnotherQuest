@@ -308,6 +308,8 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_ALTER_EGO_DREAM_1_INTRO_1_10_SPANISH"), /* SOUND_PHRASE_DIALOG_ALTER_EGO_DREAM_1_OPTION_0_9 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_ALTER_EGO_DREAM_1_INTRO_1_11_SPANISH"), /* SOUND_PHRASE_DIALOG_ALTER_EGO_DREAM_1_OPTION_0_10 */ 
             new(SoundEffect.EFFECT_NONE,"MUSIC_SHADOW"), /* MUSIC_SHADOW */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_OBSERVE_ALTER_EGO_DREAM_1_SPANISH"), /* SOUND_OBSERVE_ALTER_EGO_DREAM_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_OBSERVE_FIG_SPANISH"), /* SOUND_OBSERVE_FIG_PICKABLE */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

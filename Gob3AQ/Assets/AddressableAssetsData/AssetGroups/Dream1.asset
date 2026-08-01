@@ -425,6 +425,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bcd0a8f19be3703489582c85d1b4108f
+    m_Address: SOUND_OBSERVE_ALTER_EGO_DREAM_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bfa23e20021a36742816c5c1a6672126
     m_Address: SPRITE_ATLAS_PILAR_0
     m_ReadOnly: 0
@@ -507,6 +512,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d592436491ba11045b5c6986340d35ca
     m_Address: BACKGROUND_DREAM_1_KITCHEN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8b04c8952578e345965009f283ec577
+    m_Address: SOUND_OBSERVE_FIG_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -620,10 +620,14 @@ namespace Gob3AQ.LevelMaster
             if (playerSelected != CharacterType.CHARACTER_NONE)
             {
                 int furthestWaypointIndex = CheckFurthestReachableWaypoint(playerSelected, hovered.waypoint);
+
                 
+
                 if (chosenItem == GameItem.ITEM_NONE)
                 {
                     UserInputInteraction userInteraction = VARMAP_LevelMaster.GET_USER_INPUT_INTERACTION();
+
+                    Debug.Log($"Furthest waypoint for {userInteraction} is {furthestWaypointIndex} (candidate: {hovered.waypoint})");
 
                     switch (userInteraction)
                     {
@@ -673,6 +677,8 @@ namespace Gob3AQ.LevelMaster
             {
                 int furthestWaypoint = CheckFurthestReachableWaypoint(selectedCharacter, candidate_index);
                 InteractionUsage usage = InteractionUsage.CreatePlayerMove(selectedCharacter, furthestWaypoint);
+
+                Debug.Log($"Furthest waypoint for moving is {furthestWaypoint} (candidate: {candidate_index})");
 
                 VARMAP_LevelMaster.INTERACT_ITEM(ResourceDialogsAtlasClass.GetItemForCharacter(selectedCharacter), furthestWaypoint, out bool accepted);
                 if (accepted)

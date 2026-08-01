@@ -1375,6 +1375,8 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(1,GameSound.SOUND_PHRASE_DIALOG_ALTER_EGO_DREAM_1_OPTION_0_8, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_FOUR,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_ALTER_EGO_DREAM_1_OPTION_0_8 */ 
             new(0,GameSound.SOUND_PHRASE_DIALOG_ALTER_EGO_DREAM_1_OPTION_0_9, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_THREE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_ALTER_EGO_DREAM_1_OPTION_0_9 */ 
             new(1,GameSound.SOUND_PHRASE_DIALOG_ALTER_EGO_DREAM_1_OPTION_0_10, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_FOUR,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_ALTER_EGO_DREAM_1_OPTION_0_10 */ 
+            new(0,GameSound.SOUND_OBSERVE_ALTER_EGO_DREAM_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_ALTER_EGO_DREAM_1 */ 
+            new(0,GameSound.SOUND_OBSERVE_FIG_PICKABLE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_ITEM_FIG */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

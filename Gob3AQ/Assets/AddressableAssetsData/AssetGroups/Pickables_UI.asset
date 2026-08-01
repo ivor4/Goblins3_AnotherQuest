@@ -380,6 +380,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: befcb400bea56bd459ddeda82ca38b0d
+    m_Address: SPRITE_PICKABLE_FIG
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bf35420c0a29c7146bdcdb7484b4a1a8
     m_Address: SPRITE_PICKABLE_SHOELACE
     m_ReadOnly: 0

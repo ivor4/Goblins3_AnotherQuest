@@ -621,34 +621,34 @@ namespace Gob3AQ.LevelMaster
             {
                 int furthestWaypointIndex = CheckFurthestReachableWaypoint(playerSelected, hovered.waypoint);
 
-                
 
-                if (chosenItem == GameItem.ITEM_NONE)
+                if (furthestWaypointIndex == hovered.waypoint)
                 {
-                    UserInputInteraction userInteraction = VARMAP_LevelMaster.GET_USER_INPUT_INTERACTION();
-
-                    Debug.Log($"Furthest waypoint for {userInteraction} is {furthestWaypointIndex} (candidate: {hovered.waypoint})");
-
-                    switch (userInteraction)
+                    if (chosenItem == GameItem.ITEM_NONE)
                     {
-                        case UserInputInteraction.INPUT_INTERACTION_TAKE:
-                            usage = InteractionUsage.CreateTakeItem(playerSelected, hovered.item, furthestWaypointIndex);
-                            break;
-                        case UserInputInteraction.INPUT_INTERACTION_TALK:
-                            usage = InteractionUsage.CreateTalkItem(playerSelected, hovered.item, furthestWaypointIndex);
-                            break;
-                        default:
-                            usage = InteractionUsage.CreateObserveItem(playerSelected, hovered.item, furthestWaypointIndex);
-                            break;
-                    }
-                }
-                else
-                {
-                    usage = InteractionUsage.CreateUseItemWithItem(playerSelected, chosenItem,
-                        hovered.item, furthestWaypointIndex);
-                }
+                        UserInputInteraction userInteraction = VARMAP_LevelMaster.GET_USER_INPUT_INTERACTION();
 
-                VARMAP_LevelMaster.INTERACT_ITEM(ResourceDialogsAtlasClass.GetItemForCharacter(playerSelected), furthestWaypointIndex, out accepted);
+                        switch (userInteraction)
+                        {
+                            case UserInputInteraction.INPUT_INTERACTION_TAKE:
+                                usage = InteractionUsage.CreateTakeItem(playerSelected, hovered.item, furthestWaypointIndex);
+                                break;
+                            case UserInputInteraction.INPUT_INTERACTION_TALK:
+                                usage = InteractionUsage.CreateTalkItem(playerSelected, hovered.item, furthestWaypointIndex);
+                                break;
+                            default:
+                                usage = InteractionUsage.CreateObserveItem(playerSelected, hovered.item, furthestWaypointIndex);
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        usage = InteractionUsage.CreateUseItemWithItem(playerSelected, chosenItem,
+                            hovered.item, furthestWaypointIndex);
+                    }
+
+                    VARMAP_LevelMaster.INTERACT_ITEM(ResourceDialogsAtlasClass.GetItemForCharacter(playerSelected), furthestWaypointIndex, out accepted);
+                }
             }
 
             return accepted;
@@ -660,9 +660,14 @@ namespace Gob3AQ.LevelMaster
 
             if (playerSelected != CharacterType.CHARACTER_NONE)
             {
-                usage = InteractionUsage.CreateCrossDoor(playerSelected, hovered.item, hovered.waypoint);
+                int furthestWaypoint = CheckFurthestReachableWaypoint(playerSelected, hovered.waypoint);
 
-                VARMAP_LevelMaster.INTERACT_ITEM(ResourceDialogsAtlasClass.GetItemForCharacter(playerSelected), hovered.waypoint, out accepted);
+                if (furthestWaypoint == hovered.waypoint)
+                {
+                    usage = InteractionUsage.CreateCrossDoor(playerSelected, hovered.item, furthestWaypoint);
+                    VARMAP_LevelMaster.INTERACT_ITEM(ResourceDialogsAtlasClass.GetItemForCharacter(playerSelected), furthestWaypoint, out accepted);
+                }
+
                 VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
             }
 
@@ -677,8 +682,6 @@ namespace Gob3AQ.LevelMaster
             {
                 int furthestWaypoint = CheckFurthestReachableWaypoint(selectedCharacter, candidate_index);
                 InteractionUsage usage = InteractionUsage.CreatePlayerMove(selectedCharacter, furthestWaypoint);
-
-                Debug.Log($"Furthest waypoint for moving is {furthestWaypoint} (candidate: {candidate_index})");
 
                 VARMAP_LevelMaster.INTERACT_ITEM(ResourceDialogsAtlasClass.GetItemForCharacter(selectedCharacter), furthestWaypoint, out bool accepted);
                 if (accepted)
@@ -743,29 +746,26 @@ namespace Gob3AQ.LevelMaster
                 WaypointInfo wpInfo = _WP_Info_List[iteratedWaypoint];
 
                 if (wpInfo.ActionWhenCross != GameAction.ACTION_NONE) break;
-
-                bool occurred;
-
-                if (wpInfo.Reachability != WaypointReachability.REACHABLE_WHEN_COMBI)
-                {
-                    occurred = true;
-                }
-                else
-                {
-                    Span<GameEventCombi> events_needed = RentedSpan<GameEventCombi>.GetSpanOfSize(1);
-                    events_needed[0] = new GameEventCombi(wpInfo.NeededEvent.ev, wpInfo.NeededEvent.not);
-
-                    VARMAP_LevelMaster.IS_EVENT_COMBI_OCCURRED(events_needed, out occurred);
-                }
-
-                if (!occurred) break;
                 
                 /* Point to next Waypoint */
                 iteratedWaypoint = _WP_Info_List[iteratedWaypoint].Solution.TravelTo[waypointDst];
 
                 if (iteratedWaypoint != -1)
                 {
-                    furthestIndex = iteratedWaypoint;
+                    wpInfo = _WP_Info_List[iteratedWaypoint];
+                    Span<GameEventCombi> events_needed = RentedSpan<GameEventCombi>.GetSpanOfSize(1);
+                    events_needed[0] = new GameEventCombi(wpInfo.NeededEvent.ev, wpInfo.NeededEvent.not);
+
+                    VARMAP_LevelMaster.IS_EVENT_COMBI_OCCURRED(events_needed, out bool occurred);
+
+                    if (occurred)
+                    {
+                        furthestIndex = iteratedWaypoint;
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
                 else
                 {

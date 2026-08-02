@@ -930,6 +930,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN_DREAM,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
             new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_ITEM_FIG}), 
 
+            new( /* COND_TAKE_ITEM_FIG */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN_DREAM,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
+            new GameAction[2]{GameAction.ACTION_OBTAIN_ITEM_FIG, GameAction.ACTION_EVENT_FIG_PICKABLE_OBTAINED}), 
+
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,
@@ -1297,7 +1302,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_PICKABLE_FIG */
             NameType.NAME_FIG,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PICKABLE_FIG}),
             GameSprite.SPRITE_PICKABLE_FIG,true,GameSprite.SPRITE_PICKABLE_FIG,GamePickableItem.ITEM_PICK_PICKABLE_FIG,DetailType.PREFAB_NONE,
-            new(new HashSet<ActionConditions>(1){ActionConditions.COND_OBSERVE_ITEM_FIG})),
+            new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_FIG, ActionConditions.COND_TAKE_ITEM_FIG})),
 
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST}),
@@ -3087,6 +3092,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             false,ActionType.ACTION_TYPE_EARN_ITEM,GameItem.ITEM_PICKABLE_FIG,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_MAIN_DREAM,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_EVENT_FIG_PICKABLE_OBTAINED */
+            false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_ITEM_FIG_PICKABLE_TAKEN, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_LAST */

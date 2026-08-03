@@ -1,55 +1,49 @@
 fileFormatVersion: 2
-guid: d783913af5b438246b0c02b63ce6a34a
+guid: 39a6410cac378be4ab06d791c4040757
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2736652084012253891
-    second: SPRITE_MAINCHAR_LAUGH_0
+      213: 1464915636971532778
+    second: SPRITE_MAINCHAR_DUCK_OFFERING_0
   - first:
-      213: 4512690570669805794
-    second: SPRITE_MAINCHAR_LAUGH_1
+      213: 1374508641716517987
+    second: SPRITE_MAINCHAR_DUCK_OFFERING_1
   - first:
-      213: 6578128601403723731
-    second: SPRITE_MAINCHAR_LAUGH_2
+      213: 8884710193960717348
+    second: SPRITE_MAINCHAR_DUCK_OFFERING_2
   - first:
-      213: -825326911592239766
-    second: SPRITE_MAINCHAR_LAUGH_3
+      213: 8735314929704485068
+    second: SPRITE_MAINCHAR_DUCK_OFFERING_3
   - first:
-      213: -5154870891699134899
-    second: SPRITE_MAINCHAR_LAUGH_4
+      213: -6776152400374015573
+    second: SPRITE_MAINCHAR_DUCK_OFFERING_4
   - first:
-      213: 8584021495799753508
-    second: SPRITE_MAINCHAR_LAUGH_5
+      213: -3564440351318300040
+    second: SPRITE_MAINCHAR_DUCK_OFFERING_5
   - first:
-      213: 7831827399831691172
-    second: SPRITE_MAINCHAR_LAUGH_6
+      213: -1582475059396991793
+    second: SPRITE_MAINCHAR_DUCK_OFFERING_6
   - first:
-      213: 538928103823897834
-    second: SPRITE_MAINCHAR_LAUGH_7
+      213: 219202152021254004
+    second: SPRITE_MAINCHAR_DUCK_OFFERING_7
   - first:
-      213: 3858588453595141304
-    second: SPRITE_MAINCHAR_LAUGH_8
+      213: -2890263682814278604
+    second: SPRITE_MAINCHAR_DUCK_OFFERING_8
   - first:
-      213: 4293545217483186552
-    second: SPRITE_MAINCHAR_LAUGH_9
+      213: 446649605589262095
+    second: SPRITE_MAINCHAR_DUCK_OFFERING_9
   - first:
-      213: -7843322952221007924
-    second: SPRITE_MAINCHAR_LAUGH_10
+      213: -2511005020808295044
+    second: SPRITE_MAINCHAR_DUCK_OFFERING_10
   - first:
-      213: -5559171352227809405
-    second: SPRITE_MAINCHAR_LAUGH_11
+      213: -4663637159910539174
+    second: SPRITE_MAINCHAR_DUCK_OFFERING_11
   - first:
-      213: -8490293189213788743
-    second: SPRITE_MAINCHAR_LAUGH_12
+      213: -3711304662422781042
+    second: SPRITE_MAINCHAR_DUCK_OFFERING_12
   - first:
-      213: 3362379019155730170
-    second: SPRITE_MAINCHAR_LAUGH_13
-  - first:
-      213: 6955346678012793264
-    second: SPRITE_MAINCHAR_LAUGH_14
-  - first:
-      213: -7013419775276056322
-    second: SPRITE_MAINCHAR_LAUGH_15
+      213: 1493462361127072970
+    second: SPRITE_MAINCHAR_DUCK_OFFERING_13
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -117,7 +111,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -145,12 +139,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_0
+      name: SPRITE_MAINCHAR_DUCK_OFFERING_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -160,19 +154,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d3dfd92dd65750ad0800000000000000
-      internalID: -2736652084012253891
+      spriteID: ae17a97a20d645410800000000000000
+      internalID: 1464915636971532778
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_1
+      name: SPRITE_MAINCHAR_DUCK_OFFERING_1
       rect:
         serializedVersion: 2
-        x: 344
+        x: 640
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -182,19 +176,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2e0570e2a2c40ae30800000000000000
-      internalID: 4512690570669805794
+      spriteID: 36cb732c35c331310800000000000000
+      internalID: 1374508641716517987
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_2
+      name: SPRITE_MAINCHAR_DUCK_OFFERING_2
       rect:
         serializedVersion: 2
-        x: 688
+        x: 1280
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -204,19 +198,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3df818d4c153a4b50800000000000000
-      internalID: 6578128601403723731
+      spriteID: 42c025329d4dc4b70800000000000000
+      internalID: 8884710193960717348
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_3
+      name: SPRITE_MAINCHAR_DUCK_OFFERING_3
       rect:
         serializedVersion: 2
-        x: 1032
+        x: 1920
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -226,19 +220,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a6d69f2fb89db84f0800000000000000
-      internalID: -825326911592239766
+      spriteID: cc0c33a95a21a3970800000000000000
+      internalID: 8735314929704485068
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_4
+      name: SPRITE_MAINCHAR_DUCK_OFFERING_4
       rect:
         serializedVersion: 2
-        x: 1376
+        x: 2560
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -248,19 +242,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d4e95455c383678b0800000000000000
-      internalID: -5154870891699134899
+      spriteID: ba9dbcf1b4546f1a0800000000000000
+      internalID: -6776152400374015573
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_5
+      name: SPRITE_MAINCHAR_DUCK_OFFERING_5
       rect:
         serializedVersion: 2
-        x: 1720
+        x: 3200
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -270,19 +264,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 42b26710212902770800000000000000
-      internalID: 8584021495799753508
+      spriteID: 87aaa9cb260988ec0800000000000000
+      internalID: -3564440351318300040
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_6
+      name: SPRITE_MAINCHAR_DUCK_OFFERING_6
       rect:
         serializedVersion: 2
-        x: 2064
+        x: 3840
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -292,19 +286,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4af932d768d30bc60800000000000000
-      internalID: 7831827399831691172
+      spriteID: fc42aba515be90ae0800000000000000
+      internalID: -1582475059396991793
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_7
+      name: SPRITE_MAINCHAR_DUCK_OFFERING_7
       rect:
         serializedVersion: 2
-        x: 2408
+        x: 4480
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -314,19 +308,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ae4f5eb4148aa7700800000000000000
-      internalID: 538928103823897834
+      spriteID: 47f5a352233ca0300800000000000000
+      internalID: 219202152021254004
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_8
+      name: SPRITE_MAINCHAR_DUCK_OFFERING_8
       rect:
         serializedVersion: 2
-        x: 2752
+        x: 5120
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -336,19 +330,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8b456fe31c57c8530800000000000000
-      internalID: 3858588453595141304
+      spriteID: 43484a66e78b3e7d0800000000000000
+      internalID: -2890263682814278604
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_9
+      name: SPRITE_MAINCHAR_DUCK_OFFERING_9
       rect:
         serializedVersion: 2
-        x: 3096
+        x: 5760
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -358,19 +352,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 871a92b80acb59b30800000000000000
-      internalID: 4293545217483186552
+      spriteID: f0f57382371d23600800000000000000
+      internalID: 446649605589262095
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_10
+      name: SPRITE_MAINCHAR_DUCK_OFFERING_10
       rect:
         serializedVersion: 2
-        x: 3440
+        x: 6400
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -380,19 +374,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ccfd236a45be62390800000000000000
-      internalID: -7843322952221007924
+      spriteID: c7dcf79cc3e172dd0800000000000000
+      internalID: -2511005020808295044
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_11
+      name: SPRITE_MAINCHAR_DUCK_OFFERING_11
       rect:
         serializedVersion: 2
-        x: 3784
+        x: 7040
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -402,19 +396,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 387fee0eb1bd9d2b0800000000000000
-      internalID: -5559171352227809405
+      spriteID: a50883a46be674fb0800000000000000
+      internalID: -4663637159910539174
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_12
+      name: SPRITE_MAINCHAR_DUCK_OFFERING_12
       rect:
         serializedVersion: 2
-        x: 4128
+        x: 7680
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -424,19 +418,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9b56ef1f35b6c2a80800000000000000
-      internalID: -8490293189213788743
+      spriteID: e830a07a21cce7cc0800000000000000
+      internalID: -3711304662422781042
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_13
+      name: SPRITE_MAINCHAR_DUCK_OFFERING_13
       rect:
         serializedVersion: 2
-        x: 4472
+        x: 8320
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -446,52 +440,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: afee00d37e199ae20800000000000000
-      internalID: 3362379019155730170
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_14
-      rect:
-        serializedVersion: 2
-        x: 4816
-        y: 0
-        width: 344
-        height: 640
-      alignment: 9
-      pivot: {x: 0.5, y: 0.05}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0b155a0e3fa568060800000000000000
-      internalID: 6955346678012793264
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_15
-      rect:
-        serializedVersion: 2
-        x: 5160
-        y: 0
-        width: 344
-        height: 640
-      alignment: 9
-      pivot: {x: 0.5, y: 0.05}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ef088f18fd35bae90800000000000000
-      internalID: -7013419775276056322
+      spriteID: ac43560da18d9b410800000000000000
+      internalID: 1493462361127072970
       vertices: []
       indices: 
       edges: []
@@ -500,7 +450,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7d76ce1b7db716944a83cb9b601421b1
+    spriteID: eea8611419ad7064780299cf0c76e7dc
     internalID: 0
     vertices: []
     indices: 
@@ -510,24 +460,22 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":16.0,"y":1.0},"gridSpriteSize":{"x":344.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":14.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      SPRITE_MAINCHAR_LAUGH_0: -2736652084012253891
-      SPRITE_MAINCHAR_LAUGH_1: 4512690570669805794
-      SPRITE_MAINCHAR_LAUGH_10: -7843322952221007924
-      SPRITE_MAINCHAR_LAUGH_11: -5559171352227809405
-      SPRITE_MAINCHAR_LAUGH_12: -8490293189213788743
-      SPRITE_MAINCHAR_LAUGH_13: 3362379019155730170
-      SPRITE_MAINCHAR_LAUGH_14: 6955346678012793264
-      SPRITE_MAINCHAR_LAUGH_15: -7013419775276056322
-      SPRITE_MAINCHAR_LAUGH_2: 6578128601403723731
-      SPRITE_MAINCHAR_LAUGH_3: -825326911592239766
-      SPRITE_MAINCHAR_LAUGH_4: -5154870891699134899
-      SPRITE_MAINCHAR_LAUGH_5: 8584021495799753508
-      SPRITE_MAINCHAR_LAUGH_6: 7831827399831691172
-      SPRITE_MAINCHAR_LAUGH_7: 538928103823897834
-      SPRITE_MAINCHAR_LAUGH_8: 3858588453595141304
-      SPRITE_MAINCHAR_LAUGH_9: 4293545217483186552
+      SPRITE_MAINCHAR_DUCK_OFFERING_0: 1464915636971532778
+      SPRITE_MAINCHAR_DUCK_OFFERING_1: 1374508641716517987
+      SPRITE_MAINCHAR_DUCK_OFFERING_10: -2511005020808295044
+      SPRITE_MAINCHAR_DUCK_OFFERING_11: -4663637159910539174
+      SPRITE_MAINCHAR_DUCK_OFFERING_12: -3711304662422781042
+      SPRITE_MAINCHAR_DUCK_OFFERING_13: 1493462361127072970
+      SPRITE_MAINCHAR_DUCK_OFFERING_2: 8884710193960717348
+      SPRITE_MAINCHAR_DUCK_OFFERING_3: 8735314929704485068
+      SPRITE_MAINCHAR_DUCK_OFFERING_4: -6776152400374015573
+      SPRITE_MAINCHAR_DUCK_OFFERING_5: -3564440351318300040
+      SPRITE_MAINCHAR_DUCK_OFFERING_6: -1582475059396991793
+      SPRITE_MAINCHAR_DUCK_OFFERING_7: 219202152021254004
+      SPRITE_MAINCHAR_DUCK_OFFERING_8: -2890263682814278604
+      SPRITE_MAINCHAR_DUCK_OFFERING_9: 446649605589262095
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

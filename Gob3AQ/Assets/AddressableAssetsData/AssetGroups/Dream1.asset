@@ -25,6 +25,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 053b4b6c07052b448b31e788bed2235c
+    m_Address: SPRITE_SULTAN_EATING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0651429d93d4391439a98ba1a1d53550
     m_Address: SPRITE_PILAR_STEADY_ANIM
     m_ReadOnly: 0
@@ -280,6 +285,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71da789782c4b794382fbec282d4e69d
+    m_Address: ANIMATION_SULTAN_BARKING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7470a3f67e4b5fe4498b37e22a16413b
     m_Address: SOUND_DIALOG_PILAR_BED_INTRO_1_4_SPANISH
     m_ReadOnly: 0
@@ -345,6 +355,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f6f2e71b7b6ca1468f33a0ff61f3d2c
+    m_Address: SOUND_DOG_BARKING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 94b427cebc5966a48b3f8839e3277543
     m_Address: SPRITE_MASK_DREAM_1_BED_SHEET
     m_ReadOnly: 0
@@ -357,6 +372,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 972dd6b315c22e44b913e421806507e5
     m_Address: ANIMATION_SULTAN_LICKING_EXEC2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 97e44057b537dc34ab6b575e0ccd0193
+    m_Address: SPRITE_SULTAN_BARKING
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -592,6 +612,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f5eaf9cb633777746b3c50583aac57c4
     m_Address: ANIMATION_PILAR_BED_TALKING_EXEC2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa849bdc786c1114381c6251d5d5ac07
+    m_Address: ANIMATION_SULTAN_STEADY_EATING
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

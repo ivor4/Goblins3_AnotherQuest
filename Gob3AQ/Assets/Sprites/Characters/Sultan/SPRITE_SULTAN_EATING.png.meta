@@ -1,55 +1,67 @@
 fileFormatVersion: 2
-guid: d783913af5b438246b0c02b63ce6a34a
+guid: 053b4b6c07052b448b31e788bed2235c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2736652084012253891
-    second: SPRITE_MAINCHAR_LAUGH_0
+      213: -7357764553998004898
+    second: SPRITE_SULTAN_EATING_0
   - first:
-      213: 4512690570669805794
-    second: SPRITE_MAINCHAR_LAUGH_1
+      213: -2584247052548646727
+    second: SPRITE_SULTAN_EATING_1
   - first:
-      213: 6578128601403723731
-    second: SPRITE_MAINCHAR_LAUGH_2
+      213: 6496962445441982
+    second: SPRITE_SULTAN_EATING_2
   - first:
-      213: -825326911592239766
-    second: SPRITE_MAINCHAR_LAUGH_3
+      213: -7337704492553398498
+    second: SPRITE_SULTAN_EATING_3
   - first:
-      213: -5154870891699134899
-    second: SPRITE_MAINCHAR_LAUGH_4
+      213: -2341167555722813827
+    second: SPRITE_SULTAN_EATING_4
   - first:
-      213: 8584021495799753508
-    second: SPRITE_MAINCHAR_LAUGH_5
+      213: -2755695970101782558
+    second: SPRITE_SULTAN_EATING_5
   - first:
-      213: 7831827399831691172
-    second: SPRITE_MAINCHAR_LAUGH_6
+      213: 2824573759839661294
+    second: SPRITE_SULTAN_EATING_6
   - first:
-      213: 538928103823897834
-    second: SPRITE_MAINCHAR_LAUGH_7
+      213: 4608285328567332454
+    second: SPRITE_SULTAN_EATING_7
   - first:
-      213: 3858588453595141304
-    second: SPRITE_MAINCHAR_LAUGH_8
+      213: -1253021644456724880
+    second: SPRITE_SULTAN_EATING_8
   - first:
-      213: 4293545217483186552
-    second: SPRITE_MAINCHAR_LAUGH_9
+      213: 1261246628878720802
+    second: SPRITE_SULTAN_EATING_9
   - first:
-      213: -7843322952221007924
-    second: SPRITE_MAINCHAR_LAUGH_10
+      213: 6294909739520143048
+    second: SPRITE_SULTAN_EATING_10
   - first:
-      213: -5559171352227809405
-    second: SPRITE_MAINCHAR_LAUGH_11
+      213: -2394420980879419051
+    second: SPRITE_SULTAN_EATING_11
   - first:
-      213: -8490293189213788743
-    second: SPRITE_MAINCHAR_LAUGH_12
+      213: -5139367459362477660
+    second: SPRITE_SULTAN_EATING_12
   - first:
-      213: 3362379019155730170
-    second: SPRITE_MAINCHAR_LAUGH_13
+      213: -4711225231405041539
+    second: SPRITE_SULTAN_EATING_13
   - first:
-      213: 6955346678012793264
-    second: SPRITE_MAINCHAR_LAUGH_14
+      213: -9077498658436205167
+    second: SPRITE_SULTAN_EATING_14
   - first:
-      213: -7013419775276056322
-    second: SPRITE_MAINCHAR_LAUGH_15
+      213: -2084330199020360857
+    second: SPRITE_SULTAN_EATING_15
+  - first:
+      213: -8091142669596323064
+    second: SPRITE_SULTAN_EATING_16
+  - first:
+      213: -5367067195639877857
+    second: SPRITE_SULTAN_EATING_17
+  - first:
+      213: -3998777534386730669
+    second: SPRITE_SULTAN_EATING_18
+  - first:
+      213: -2193440812897720420
+    second: SPRITE_SULTAN_EATING_19
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -117,7 +129,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -145,12 +157,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_0
+      name: SPRITE_SULTAN_EATING_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -160,19 +172,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d3dfd92dd65750ad0800000000000000
-      internalID: -2736652084012253891
+      spriteID: e5d0df90f18f3e990800000000000000
+      internalID: -7357764553998004898
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_1
+      name: SPRITE_SULTAN_EATING_1
       rect:
         serializedVersion: 2
-        x: 344
+        x: 640
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -182,19 +194,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2e0570e2a2c40ae30800000000000000
-      internalID: 4512690570669805794
+      spriteID: 9b8dcf46ff8e22cd0800000000000000
+      internalID: -2584247052548646727
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_2
+      name: SPRITE_SULTAN_EATING_2
       rect:
         serializedVersion: 2
-        x: 688
+        x: 1280
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -204,19 +216,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3df818d4c153a4b50800000000000000
-      internalID: 6578128601403723731
+      spriteID: ebbfda2f3f4171000800000000000000
+      internalID: 6496962445441982
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_3
+      name: SPRITE_SULTAN_EATING_3
       rect:
         serializedVersion: 2
-        x: 1032
+        x: 1920
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -226,19 +238,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a6d69f2fb89db84f0800000000000000
-      internalID: -825326911592239766
+      spriteID: e17119e04ac3b2a90800000000000000
+      internalID: -7337704492553398498
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_4
+      name: SPRITE_SULTAN_EATING_4
       rect:
         serializedVersion: 2
-        x: 1376
+        x: 2560
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -248,19 +260,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d4e95455c383678b0800000000000000
-      internalID: -5154870891699134899
+      spriteID: d7ed8791380828fd0800000000000000
+      internalID: -2341167555722813827
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_5
+      name: SPRITE_SULTAN_EATING_5
       rect:
         serializedVersion: 2
-        x: 1720
+        x: 3200
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -270,19 +282,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 42b26710212902770800000000000000
-      internalID: 8584021495799753508
+      spriteID: 2e79b119d1dc1c9d0800000000000000
+      internalID: -2755695970101782558
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_6
+      name: SPRITE_SULTAN_EATING_6
       rect:
         serializedVersion: 2
-        x: 2064
+        x: 3840
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -292,19 +304,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4af932d768d30bc60800000000000000
-      internalID: 7831827399831691172
+      spriteID: eece12d8ed6e23720800000000000000
+      internalID: 2824573759839661294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_7
+      name: SPRITE_SULTAN_EATING_7
       rect:
         serializedVersion: 2
-        x: 2408
+        x: 4480
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -314,19 +326,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ae4f5eb4148aa7700800000000000000
-      internalID: 538928103823897834
+      spriteID: 66e66e0371be3ff30800000000000000
+      internalID: 4608285328567332454
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_8
+      name: SPRITE_SULTAN_EATING_8
       rect:
         serializedVersion: 2
-        x: 2752
+        x: 5120
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -336,19 +348,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8b456fe31c57c8530800000000000000
-      internalID: 3858588453595141304
+      spriteID: 076f742047f5c9ee0800000000000000
+      internalID: -1253021644456724880
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_9
+      name: SPRITE_SULTAN_EATING_9
       rect:
         serializedVersion: 2
-        x: 3096
+        x: 5760
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -358,19 +370,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 871a92b80acb59b30800000000000000
-      internalID: 4293545217483186552
+      spriteID: 22f99786029d08110800000000000000
+      internalID: 1261246628878720802
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_10
+      name: SPRITE_SULTAN_EATING_10
       rect:
         serializedVersion: 2
-        x: 3440
+        x: 6400
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -380,19 +392,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ccfd236a45be62390800000000000000
-      internalID: -7843322952221007924
+      spriteID: 8ceae356e030c5750800000000000000
+      internalID: 6294909739520143048
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_11
+      name: SPRITE_SULTAN_EATING_11
       rect:
         serializedVersion: 2
-        x: 3784
+        x: 7040
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -402,19 +414,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 387fee0eb1bd9d2b0800000000000000
-      internalID: -5559171352227809405
+      spriteID: 55990f7ddce45ced0800000000000000
+      internalID: -2394420980879419051
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_12
+      name: SPRITE_SULTAN_EATING_12
       rect:
         serializedVersion: 2
-        x: 4128
+        x: 7680
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -424,19 +436,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9b56ef1f35b6c2a80800000000000000
-      internalID: -8490293189213788743
+      spriteID: 4a96f76768c4da8b0800000000000000
+      internalID: -5139367459362477660
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_13
+      name: SPRITE_SULTAN_EATING_13
       rect:
         serializedVersion: 2
-        x: 4472
+        x: 8320
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -446,19 +458,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: afee00d37e199ae20800000000000000
-      internalID: 3362379019155730170
+      spriteID: d78be39fc9d5e9eb0800000000000000
+      internalID: -4711225231405041539
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_14
+      name: SPRITE_SULTAN_EATING_14
       rect:
         serializedVersion: 2
-        x: 4816
+        x: 8960
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -468,19 +480,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0b155a0e3fa568060800000000000000
-      internalID: 6955346678012793264
+      spriteID: 19533d6901f360280800000000000000
+      internalID: -9077498658436205167
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITE_MAINCHAR_LAUGH_15
+      name: SPRITE_SULTAN_EATING_15
       rect:
         serializedVersion: 2
-        x: 5160
+        x: 9600
         y: 0
-        width: 344
+        width: 640
         height: 640
       alignment: 9
       pivot: {x: 0.5, y: 0.05}
@@ -490,8 +502,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ef088f18fd35bae90800000000000000
-      internalID: -7013419775276056322
+      spriteID: 76ba5cc2ab8f213e0800000000000000
+      internalID: -2084330199020360857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SULTAN_EATING_16
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80394b75c9c76bf80800000000000000
+      internalID: -8091142669596323064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SULTAN_EATING_17
+      rect:
+        serializedVersion: 2
+        x: 10880
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1fab3e42d85485b0800000000000000
+      internalID: -5367067195639877857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SULTAN_EATING_18
+      rect:
+        serializedVersion: 2
+        x: 11520
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3590117d40d7188c0800000000000000
+      internalID: -3998777534386730669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SULTAN_EATING_19
+      rect:
+        serializedVersion: 2
+        x: 12160
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c972367b3355f81e0800000000000000
+      internalID: -2193440812897720420
       vertices: []
       indices: 
       edges: []
@@ -500,7 +600,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7d76ce1b7db716944a83cb9b601421b1
+    spriteID: f883b25ec88346a4594951ef4145c1cf
     internalID: 0
     vertices: []
     indices: 
@@ -510,24 +610,28 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":16.0,"y":1.0},"gridSpriteSize":{"x":344.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":20.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      SPRITE_MAINCHAR_LAUGH_0: -2736652084012253891
-      SPRITE_MAINCHAR_LAUGH_1: 4512690570669805794
-      SPRITE_MAINCHAR_LAUGH_10: -7843322952221007924
-      SPRITE_MAINCHAR_LAUGH_11: -5559171352227809405
-      SPRITE_MAINCHAR_LAUGH_12: -8490293189213788743
-      SPRITE_MAINCHAR_LAUGH_13: 3362379019155730170
-      SPRITE_MAINCHAR_LAUGH_14: 6955346678012793264
-      SPRITE_MAINCHAR_LAUGH_15: -7013419775276056322
-      SPRITE_MAINCHAR_LAUGH_2: 6578128601403723731
-      SPRITE_MAINCHAR_LAUGH_3: -825326911592239766
-      SPRITE_MAINCHAR_LAUGH_4: -5154870891699134899
-      SPRITE_MAINCHAR_LAUGH_5: 8584021495799753508
-      SPRITE_MAINCHAR_LAUGH_6: 7831827399831691172
-      SPRITE_MAINCHAR_LAUGH_7: 538928103823897834
-      SPRITE_MAINCHAR_LAUGH_8: 3858588453595141304
-      SPRITE_MAINCHAR_LAUGH_9: 4293545217483186552
+      SPRITE_SULTAN_EATING_0: -7357764553998004898
+      SPRITE_SULTAN_EATING_1: -2584247052548646727
+      SPRITE_SULTAN_EATING_10: 6294909739520143048
+      SPRITE_SULTAN_EATING_11: -2394420980879419051
+      SPRITE_SULTAN_EATING_12: -5139367459362477660
+      SPRITE_SULTAN_EATING_13: -4711225231405041539
+      SPRITE_SULTAN_EATING_14: -9077498658436205167
+      SPRITE_SULTAN_EATING_15: -2084330199020360857
+      SPRITE_SULTAN_EATING_16: -8091142669596323064
+      SPRITE_SULTAN_EATING_17: -5367067195639877857
+      SPRITE_SULTAN_EATING_18: -3998777534386730669
+      SPRITE_SULTAN_EATING_19: -2193440812897720420
+      SPRITE_SULTAN_EATING_2: 6496962445441982
+      SPRITE_SULTAN_EATING_3: -7337704492553398498
+      SPRITE_SULTAN_EATING_4: -2341167555722813827
+      SPRITE_SULTAN_EATING_5: -2755695970101782558
+      SPRITE_SULTAN_EATING_6: 2824573759839661294
+      SPRITE_SULTAN_EATING_7: 4608285328567332454
+      SPRITE_SULTAN_EATING_8: -1253021644456724880
+      SPRITE_SULTAN_EATING_9: 1261246628878720802
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

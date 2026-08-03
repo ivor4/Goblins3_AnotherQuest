@@ -10,16 +10,6 @@ namespace Gob3AQ.ResourceAnimationsAtlas
         public static readonly IReadOnlyDictionary<int, AnimationTrigger> STATE_HASH_TO_TRIGGER =
             new Dictionary<int, AnimationTrigger>()
             {
-                { Animator.StringToHash("Steady1"), AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE }, 
-                { Animator.StringToHash("Steady2"), AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO }, 
-                { Animator.StringToHash("Group_Cycle1"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE },
-                { Animator.StringToHash("Group_Cycle2"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_TWO },
-                { Animator.StringToHash("Group_Cycle3"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_THREE },
-                { Animator.StringToHash("Group_Cycle4"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_FOUR },
-                { Animator.StringToHash("Group_Talk"), AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE },
-                { Animator.StringToHash("Group_Talk2"), AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO },
-                { Animator.StringToHash("Group_Talk3"), AnimationTrigger.ANIMATION_TRIGGER_TALK_THREE },
-                { Animator.StringToHash("Group_Talk4"), AnimationTrigger.ANIMATION_TRIGGER_TALK_FOUR },
                 { Animator.StringToHash("Action1"), AnimationTrigger.ANIMATION_TRIGGER_ONE },
                 { Animator.StringToHash("Action2"), AnimationTrigger.ANIMATION_TRIGGER_TWO },
                 { Animator.StringToHash("Action3"), AnimationTrigger.ANIMATION_TRIGGER_THREE },
@@ -28,8 +18,45 @@ namespace Gob3AQ.ResourceAnimationsAtlas
                 { Animator.StringToHash("Action6"), AnimationTrigger.ANIMATION_TRIGGER_SIX },
                 { Animator.StringToHash("Action7"), AnimationTrigger.ANIMATION_TRIGGER_SEVEN },
                 { Animator.StringToHash("Action8"), AnimationTrigger.ANIMATION_TRIGGER_EIGHT },
-                { Animator.StringToHash("Group_WalkBack"), AnimationTrigger.ANIMATION_TRIGGER_WALK_BACK },
+                { Animator.StringToHash("Action9"), AnimationTrigger.ANIMATION_TRIGGER_NINE },
+                { Animator.StringToHash("Action10"), AnimationTrigger.ANIMATION_TRIGGER_TEN },
+                { Animator.StringToHash("Action11"), AnimationTrigger.ANIMATION_TRIGGER_ELEVEN },
+                { Animator.StringToHash("Action12"), AnimationTrigger.ANIMATION_TRIGGER_TWELVE },
+                { Animator.StringToHash("Action13"), AnimationTrigger.ANIMATION_TRIGGER_THIRTEEN },
+                { Animator.StringToHash("Action14"), AnimationTrigger.ANIMATION_TRIGGER_FOURTEEN },
+                { Animator.StringToHash("Action15"), AnimationTrigger.ANIMATION_TRIGGER_FIFTEEN },
+                { Animator.StringToHash("Action16"), AnimationTrigger.ANIMATION_TRIGGER_SIXTEEN },
+                { Animator.StringToHash("Group_Cycle1"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE },
+                { Animator.StringToHash("Group_Cycle2"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_TWO },
+                { Animator.StringToHash("Group_Cycle3"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_THREE },
+                { Animator.StringToHash("Group_Cycle4"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_FOUR },
+                { Animator.StringToHash("Group_Cycle5"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_FIVE },
+                { Animator.StringToHash("Group_Cycle6"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_SIX },
+                { Animator.StringToHash("Group_Cycle7"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_SEVEN },
+                { Animator.StringToHash("Group_Cycle8"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_EIGHT },
+                { Animator.StringToHash("Group_Cycle9"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_NINE },
+                { Animator.StringToHash("Group_Cycle10"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_TEN },
+                { Animator.StringToHash("Group_Cycle11"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ELEVEN },
+                { Animator.StringToHash("Group_Cycle12"), AnimationTrigger.ANIMATION_TRIGGER_CYCLE_TWELVE },
+                { Animator.StringToHash("Steady1"), AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE },
+                { Animator.StringToHash("Steady2"), AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO },
+                { Animator.StringToHash("Steady3"), AnimationTrigger.ANIMATION_TRIGGER_STEADY_THREE },
+                { Animator.StringToHash("Steady4"), AnimationTrigger.ANIMATION_TRIGGER_STEADY_FOUR },
+                { Animator.StringToHash("Steady5"), AnimationTrigger.ANIMATION_TRIGGER_STEADY_FIVE },
+                { Animator.StringToHash("Steady6"), AnimationTrigger.ANIMATION_TRIGGER_STEADY_SIX },
+                { Animator.StringToHash("Steady7"), AnimationTrigger.ANIMATION_TRIGGER_STEADY_SEVEN },
+                { Animator.StringToHash("Steady8"), AnimationTrigger.ANIMATION_TRIGGER_STEADY_EIGHT },
+                { Animator.StringToHash("Group_Talk"), AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE },
+                { Animator.StringToHash("Group_Talk2"), AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO },
+                { Animator.StringToHash("Group_Talk3"), AnimationTrigger.ANIMATION_TRIGGER_TALK_THREE },
+                { Animator.StringToHash("Group_Talk4"), AnimationTrigger.ANIMATION_TRIGGER_TALK_FOUR },
+                { Animator.StringToHash("Group_Talk5"), AnimationTrigger.ANIMATION_TRIGGER_TALK_FIVE },
+                { Animator.StringToHash("Group_Talk6"), AnimationTrigger.ANIMATION_TRIGGER_TALK_SIX },
+                { Animator.StringToHash("Group_Talk7"), AnimationTrigger.ANIMATION_TRIGGER_TALK_SEVEN },
+                { Animator.StringToHash("Group_Talk8"), AnimationTrigger.ANIMATION_TRIGGER_TALK_EIGHT },
+                
                 { Animator.StringToHash("Group_WalkFront"), AnimationTrigger.ANIMATION_TRIGGER_WALK_FRONT },
+                { Animator.StringToHash("Group_WalkBack"), AnimationTrigger.ANIMATION_TRIGGER_WALK_BACK },
                 { Animator.StringToHash("Group_WalkCornerBack"), AnimationTrigger.ANIMATION_TRIGGER_WALK_CORNERBACK },
                 { Animator.StringToHash("Group_WalkCornerFront"), AnimationTrigger.ANIMATION_TRIGGER_WALK_CORNERFRONT },
                 { Animator.StringToHash("Group_WalkSide"), AnimationTrigger.ANIMATION_TRIGGER_WALK_SIDE }
@@ -43,7 +70,7 @@ namespace Gob3AQ.ResourceAnimationsAtlas
         {
             return trigger
                 is >= AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE 
-                and <= AnimationTrigger.ANIMATION_TRIGGER_STEADY_FOUR; 
+                and <= AnimationTrigger.ANIMATION_TRIGGER_STEADY_EIGHT; 
         }
         
         public static bool IsTriggerWalking(AnimationTrigger trigger)
@@ -58,12 +85,12 @@ namespace Gob3AQ.ResourceAnimationsAtlas
             return trigger is 
                 (
                 >= AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE
-                and <= AnimationTrigger.ANIMATION_TRIGGER_CYCLE_FOUR
+                and <= AnimationTrigger.ANIMATION_TRIGGER_CYCLE_TWELVE
                 )
                 or
                 (
                 >= AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE
-                and <= AnimationTrigger.ANIMATION_TRIGGER_TALK_FOUR
+                and <= AnimationTrigger.ANIMATION_TRIGGER_TALK_EIGHT
                 )
                 or
                 (

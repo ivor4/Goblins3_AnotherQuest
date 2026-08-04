@@ -502,11 +502,11 @@ namespace Gob3AQ.ResourceAtlas
 
             new( /* MAP_1 */
             new GameSprite[1]{GameSprite.BACKGROUND_MAP_1},
-            new GameSound[1]{GameSound.SOUND_AMBIENCE_CITY_DAY},
+            new GameSound[1]{GameSound.MUSIC_MAP},
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_MAP_1}), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(2){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_PINPOINT_MAP}), 
             new ReadOnlyHashSet<DetailType>(new HashSet<DetailType>(1){DetailType.PREFAB_NONE}), 
-            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.SOUND_AMBIENCE_CITY_DAY}), 
+            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_MAP}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 

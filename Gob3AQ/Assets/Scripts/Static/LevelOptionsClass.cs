@@ -13,7 +13,7 @@ namespace Gob3AQ.Brain.LevelOptions
         public static IReadOnlyDictionary<Room, bool> IS_ROOM_FADE_OUT_LONG => _IS_ROOM_FADE_OUT_LONG;
         public static IReadOnlyDictionary<Room, IReadOnlyList<PrefabEnum>> CHARACTERS_TO_LOAD_PER_SCENE => _CHARACTERS_TO_LOAD_PER_SCENE;
         public static IReadOnlyDictionary<int, Tuple<string, NameType>> CHAPTER_TO_TITLE => _CHAPTER_TO_TITLE;
-        public static IReadOnlyDictionary<int, Tuple<Room, int>> CHAPTER_TO_ROOM_AND_INIT_WP => _CHAPTER_TO_ROOM_AND_INIT_WP;
+        public static IReadOnlyDictionary<int, Tuple<Room, string>> CHAPTER_TO_ROOM_AND_INIT_WP => _CHAPTER_TO_ROOM_AND_INIT_WP;
 
         public static ReadOnlySpan<InitialWalkInfo> GetInitialWalkInfo(Room room)
         {
@@ -93,9 +93,9 @@ namespace Gob3AQ.Brain.LevelOptions
             {1, new Tuple<string, NameType>("I", NameType.NAME_DENIAL) }
         };
 
-        private static readonly Dictionary<int, Tuple<Room, int>> _CHAPTER_TO_ROOM_AND_INIT_WP = new Dictionary<int, Tuple<Room, int>>()
+        private static readonly Dictionary<int, Tuple<Room, string>> _CHAPTER_TO_ROOM_AND_INIT_WP = new Dictionary<int, Tuple<Room, string>>()
         {
-            {1, new Tuple<Room, int>(Room.DREAM_1_CORRIDOR, 0) }
+            {1, new Tuple<Room, string>(Room.DREAM_1_CORRIDOR, "initial") }
         };
     }
 }

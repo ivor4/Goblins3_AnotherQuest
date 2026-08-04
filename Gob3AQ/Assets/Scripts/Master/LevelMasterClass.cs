@@ -208,8 +208,10 @@ namespace Gob3AQ.LevelMaster
         {
             if (!_singleton) return;
             if (_singleton.crossingDoor) return;
-            
-            VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)character, waypointIndex);
+
+            WaypointIdTupleStruct wpTuple = new WaypointIdTupleStruct(WaypointIDTupleType.WAYPOINT_ID_TUPLE_INDEX, string.Empty, waypointIndex);
+
+            VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)character, in wpTuple);
         }
 
         public static void ItemReachedWaypointService(GameItem item)
@@ -226,13 +228,24 @@ namespace Gob3AQ.LevelMaster
         }
 
         
-        public static void LoadRoomAsActionService(Room room, int waypointIndex)
+        public static void LoadRoomAsActionService(Room room, int waypointIndex, string waypointTag)
         {
             if (!_singleton) return;
 
+            WaypointIdTupleStruct wpTuple;
+
+            if(waypointTag == string.Empty)
+            {
+                wpTuple = new WaypointIdTupleStruct(WaypointIDTupleType.WAYPOINT_ID_TUPLE_INDEX, string.Empty, waypointIndex);
+            }
+            else
+            {
+                wpTuple = new WaypointIdTupleStruct(WaypointIDTupleType.WAYPOINT_ID_TUPLE_TAG, waypointTag, -1);
+            }
+
             for (int i = 0; i < (int)CharacterType.CHARACTER_TOTAL; ++i)
             {
-                VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT(i, waypointIndex);
+                VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT(i, in wpTuple);
             }
             VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
             VARMAP_LevelMaster.SET_PLAYER_SELECTED(CharacterType.CHARACTER_NONE);
@@ -332,8 +345,8 @@ namespace Gob3AQ.LevelMaster
                     if(deltaTime >= GameFixedConfig.FADE_BLACK_TIMEOUT_LONG_MS && pendingChapterEndLoadScene)
                     {
                         pendingChapterEndLoadScene = false;
-                        Tuple<Room, int> roomAndWaypoint = LevelOptionsClass.CHAPTER_TO_ROOM_AND_INIT_WP[VARMAP_LevelMaster.GET_CHAPTER_SHOW_NR()];
-                        VARMAP_LevelMaster.LOAD_ROOM_AS_ACTION(roomAndWaypoint.Item1, roomAndWaypoint.Item2);
+                        Tuple<Room, string> roomAndWaypoint = LevelOptionsClass.CHAPTER_TO_ROOM_AND_INIT_WP[VARMAP_LevelMaster.GET_CHAPTER_SHOW_NR()];
+                        VARMAP_LevelMaster.LOAD_ROOM_AS_ACTION(roomAndWaypoint.Item1, -1, roomAndWaypoint.Item2);
                     }
                     break;
                 case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
@@ -826,11 +839,11 @@ namespace Gob3AQ.LevelMaster
         {
             DoorInfo doorInfo = _Door_Dict[doorItem];
 
-            int waypointIndex = doorInfo.waypointLeadTo;
+            WaypointIdTupleStruct waypointIdTuple = new(WaypointIDTupleType.WAYPOINT_ID_TUPLE_TAG, doorInfo.waypointLeadTo, -1);
 
             for (int i = 0; i < (int)CharacterType.CHARACTER_TOTAL; ++i)
             {
-                VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT(i, waypointIndex);
+                VARMAP_LevelMaster.SET_ELEM_PLAYER_ACTUAL_WAYPOINT(i, in waypointIdTuple);
             }
             VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
             VARMAP_LevelMaster.SET_PLAYER_SELECTED(CharacterType.CHARACTER_NONE);

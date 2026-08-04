@@ -845,11 +845,11 @@ namespace Gob3AQ.GameEventMaster
                         if (info.targetRoom == Room.CHAPTER_SHOW)
                         {
                             VARMAP_GameEventMaster.SET_CHAPTER_SHOW_NR(info.intOption1);
-                            VARMAP_GameEventMaster.LOAD_ROOM_AS_ACTION(info.targetRoom, -1);
+                            VARMAP_GameEventMaster.LOAD_ROOM_AS_ACTION(info.targetRoom, -1, string.Empty);
                         }
                         else
                         {
-                            VARMAP_GameEventMaster.LOAD_ROOM_AS_ACTION(info.targetRoom, info.intOption1);
+                            VARMAP_GameEventMaster.LOAD_ROOM_AS_ACTION(info.targetRoom, -1, info.targetWaypointTag);
                         }
                         break;
                     case ActionType.ACTION_TYPE_START_CARD_GAME:

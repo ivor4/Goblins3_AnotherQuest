@@ -2611,7 +2611,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             false,ActionType.ACTION_TYPE_SCENE_CHANGE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.CITY1_EXTRAPERLO3,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.CITY1_EXTRAPERLO3,"initial",null,null,0,0,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_EVENT_DRUNK_STATE_REMOVE */
             false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
@@ -2731,7 +2731,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             false,ActionType.ACTION_TYPE_SCENE_CHANGE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.CITY1_EXTRAPERLO3_2,"",null,null,4,0,CardGameID.CARD_GAME_NONE), 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.CITY1_EXTRAPERLO3_2,"initial",null,null,0,0,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_TALK_DIALOG_SILVANA_GARDEN_2 */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
@@ -2851,7 +2851,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             false,ActionType.ACTION_TYPE_SCENE_CHANGE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.HIVE1_ROOM_1,"",null,null,1,0,CardGameID.CARD_GAME_NONE), 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.HIVE1_ROOM_1,"recap_extraperlo",null,null,0,0,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_EVENT_PENDING_RECAP_EXTRAPERLO_GARDEN */
             true,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
@@ -2893,7 +2893,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             false,ActionType.ACTION_TYPE_SCENE_CHANGE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_MORNING,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.CHAPTER_SHOW,"",null,null,1,0,CardGameID.CARD_GAME_NONE), 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_MORNING,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.CHAPTER_SHOW,"initial",null,null,0,0,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_DIALOGUE_OBSERVE_ITEM_DREAM_RADIO */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
@@ -3025,7 +3025,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             false,ActionType.ACTION_TYPE_SCENE_CHANGE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_MORNING,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.DREAM_1_BEDROOM_NIGHT,"",null,null,0,540,CardGameID.CARD_GAME_NONE), 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_MORNING,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.DREAM_1_BEDROOM_NIGHT,"initial",null,null,0,540,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_TALK_DIALOG_PILAR_BED_DREAM_1 */
             true,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
@@ -3043,7 +3043,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             false,ActionType.ACTION_TYPE_SCENE_CHANGE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_MORNING,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.DREAM_1_CORRIDOR_NIGHT,"",null,null,0,540,CardGameID.CARD_GAME_NONE), 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_MORNING,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.DREAM_1_CORRIDOR_NIGHT,"initial",null,null,0,540,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_SOUND_DREAM_FEMALE_CRY */
             false,ActionType.ACTION_TYPE_PLAY_SOUND,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

@@ -3,9 +3,8 @@ using Gob3AQ.VARMAP.Types.Cards;
 using Gob3AQ.VARMAP.Variable.IstreamableNamespace;
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.LowLevel;
 
 
 namespace Gob3AQ.VARMAP.Types
@@ -107,6 +106,12 @@ namespace Gob3AQ.VARMAP.Types
         NOTIFY_CHANGEMODE = 0x20
     }
 
+    public enum WaypointIDTupleType
+    {
+        WAYPOINT_ID_TUPLE_INDEX,
+        WAYPOINT_ID_TUPLE_TAG,
+    }
+
     public readonly struct InitialWalkInfo
     {
         public readonly int waypointFrom;
@@ -163,9 +168,9 @@ namespace Gob3AQ.VARMAP.Types
     public readonly struct DoorInfo : IEquatable<DoorInfo>
     {
         public readonly Room roomLeadTo;
-        public readonly int waypointLeadTo;
+        public readonly string waypointLeadTo;
 
-        public DoorInfo(Room roomLeadTo, int waypointLeadTo)
+        public DoorInfo(Room roomLeadTo, string waypointLeadTo)
         {
             this.roomLeadTo = roomLeadTo;
             this.waypointLeadTo = waypointLeadTo;
@@ -775,6 +780,143 @@ namespace Gob3AQ.VARMAP.Types
         {
             this.ev = ev;
             this.not = not;
+        }
+    }
+
+    public struct StreamableStringStruct : IStreamable
+    {
+        public readonly string Value => value;
+
+        public readonly int size;
+        private string value;
+
+        public StreamableStringStruct(int str_length, string value)
+        {
+            size = str_length * sizeof(char);
+            this.value = string.Empty;
+
+            if(size <= 0)
+            {
+                throw new ArgumentException("Size must be greater than 0", nameof(size));
+            }
+
+            SetValue(value);
+        }
+
+        public void SetValue(string value)
+        {
+            if (value.Length > size)
+            {
+                value = value[..size];
+            }
+            this.value = value;
+        }
+
+        public static void StaticParseFromBytes(ref StreamableStringStruct gstruct, ref ReadOnlySpan<byte> reader)
+        {
+            ReadStreamSpan<byte> readZone = new(reader);
+
+            string newVal = System.Text.Encoding.Unicode.GetString(readZone.ReadNext(gstruct.size)).TrimEnd('\0');
+
+            gstruct.SetValue(newVal);
+        }
+
+
+        public static void StaticParseToBytes(in StreamableStringStruct gstruct, ref Span<byte> writer)
+        {
+            WriteStreamSpan<byte> writeZone = new WriteStreamSpan<byte>(writer);
+
+            Span<byte> dst = writeZone.WriteNext(gstruct.size);
+            ReadOnlySpan<byte> src = MemoryMarshal.AsBytes(gstruct.value.AsSpan());
+
+            if (src.Length > gstruct.size)
+            {
+                src = src[..gstruct.size];
+            }
+
+            src.CopyTo(dst);
+
+            if (src.Length < gstruct.size)
+            {
+                dst[src.Length..].Fill(0);
+            }
+        }
+
+        public static IStreamable CreateNewInstance()
+        {
+            return new StreamableStringStruct(3, "STR");
+        }
+
+        public readonly int GetElemSize()
+        {
+            return size;
+        }
+
+        public void ParseFromBytes(ref ReadOnlySpan<byte> reader)
+        {
+            StaticParseFromBytes(ref this, ref reader);
+        }
+
+        public readonly void ParseToBytes(ref Span<byte> writer)
+        {
+            StaticParseToBytes(in this, ref writer);
+        }
+    }
+
+    public struct WaypointIdTupleStruct : IStreamable
+    {
+        /* String part will not be stored or be part of hash!!! */
+
+        public const int STRUCT_SIZE = 1 * sizeof(int);
+
+        
+
+        public WaypointIDTupleType type;
+        public string tag;
+        public int index;
+
+        public WaypointIdTupleStruct(WaypointIDTupleType type, string tag, int index)
+        {
+            this.type = type;
+            this.index = index;
+            this.tag = tag;
+        }
+
+        public static void StaticParseFromBytes(ref WaypointIdTupleStruct gstruct, ref ReadOnlySpan<byte> reader)
+        {
+            ReadStreamSpan<byte> readZone = new(reader);
+
+            gstruct.type = WaypointIDTupleType.WAYPOINT_ID_TUPLE_INDEX;
+            gstruct.index = BitConverter.ToInt32(readZone.ReadNext(sizeof(int)));
+            gstruct.tag = string.Empty;
+        }
+
+
+        public static void StaticParseToBytes(in WaypointIdTupleStruct gstruct, ref Span<byte> writer)
+        {
+            WriteStreamSpan<byte> writeZone = new WriteStreamSpan<byte>(writer);
+
+            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(int)), gstruct.index);
+        }
+
+        public static IStreamable CreateNewInstance()
+        {
+            return new WaypointIdTupleStruct(WaypointIDTupleType.WAYPOINT_ID_TUPLE_INDEX, string.Empty, -1);
+        }
+
+        public readonly int GetElemSize()
+        {
+            return STRUCT_SIZE;
+        }
+
+        public void ParseFromBytes(ref ReadOnlySpan<byte> reader)
+        {
+            StaticParseFromBytes(ref this, ref reader);
+        }
+
+        public readonly void ParseToBytes(ref Span<byte> writer)
+        {
+            StaticParseToBytes(in this, ref writer);
         }
     }
 

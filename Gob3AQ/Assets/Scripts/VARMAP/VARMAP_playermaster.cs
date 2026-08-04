@@ -43,9 +43,9 @@ namespace Gob3AQ.VARMAP.PlayerMaster
 
         /* GET/SET */
         /* > ATG 2 START */
-        public static GetVARMAPArrayElemValueDelegate<int> GET_ELEM_PLAYER_ACTUAL_WAYPOINT;
+        public static GetVARMAPArrayElemValueDelegate<WaypointIdTupleStruct> GET_ELEM_PLAYER_ACTUAL_WAYPOINT;
         public static GetVARMAPArraySizeDelegate GET_SIZE_PLAYER_ACTUAL_WAYPOINT;
-        public static GetVARMAPArrayDelegate<int> GET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
+        public static GetVARMAPArrayDelegate<WaypointIdTupleStruct> GET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;

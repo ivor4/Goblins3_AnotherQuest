@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Map
   m_GUID: 15a8678c0add3c74d9892f60cdf6eb6a
   m_SerializeEntries:
+  - m_GUID: 0814efde50e93674da040ffa1c6763c3
+    m_Address: MUSIC_MAP
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1ef99be4621926c4795a68ff98f4b447
     m_Address: PREFAB_PINPOINT_MAP
     m_ReadOnly: 0

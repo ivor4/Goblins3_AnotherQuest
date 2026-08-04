@@ -628,27 +628,35 @@ namespace Gob3AQ.GameElement
                 speed_reduction_factor = actualProgrammedPath.wp_distance / actualProgrammedPath.wp_distance3D;
             }
 
-            float absDeltaX = Mathf.Abs(delta.x);
-            float absDeltaY = Mathf.Abs(delta.y);
             AnimationTrigger walkdirTrigger;
 
-            if (absDeltaX >= 0.985f)
+            if (itemID != GameItem.ITEM_PINPOINT_MAP)
             {
-                walkdirTrigger = AnimationTrigger.ANIMATION_TRIGGER_WALK_SIDE;
+                float absDeltaX = Mathf.Abs(delta.x);               
 
-                mySpriteRenderer.flipX = (delta.x > 0) ^ reverseFlipX;
-            }
-            else if (absDeltaX >= 0.173f)
-            {
-                walkdirTrigger = delta.y >= 0f ? AnimationTrigger.ANIMATION_TRIGGER_WALK_CORNERBACK : AnimationTrigger.ANIMATION_TRIGGER_WALK_CORNERFRONT;
+                if (absDeltaX >= 0.985f)
+                {
+                    walkdirTrigger = AnimationTrigger.ANIMATION_TRIGGER_WALK_SIDE;
 
-                mySpriteRenderer.flipX = (delta.x > 0) ^ reverseFlipX;
+                    mySpriteRenderer.flipX = (delta.x > 0) ^ reverseFlipX;
+                }
+                else if (absDeltaX >= 0.173f)
+                {
+                    walkdirTrigger = delta.y >= 0f ? AnimationTrigger.ANIMATION_TRIGGER_WALK_CORNERBACK : AnimationTrigger.ANIMATION_TRIGGER_WALK_CORNERFRONT;
+
+                    mySpriteRenderer.flipX = (delta.x > 0) ^ reverseFlipX;
+                }
+                else
+                {
+                    walkdirTrigger = delta.y >= 0f ? AnimationTrigger.ANIMATION_TRIGGER_WALK_BACK : AnimationTrigger.ANIMATION_TRIGGER_WALK_FRONT;
+
+                    mySpriteRenderer.flipX = reverseFlipX;
+                }
             }
             else
             {
-                walkdirTrigger = delta.y >= 0f ? AnimationTrigger.ANIMATION_TRIGGER_WALK_BACK : AnimationTrigger.ANIMATION_TRIGGER_WALK_FRONT;
-
-                mySpriteRenderer.flipX = reverseFlipX;
+                /* Exception for pinpoint, which should not restart animation while crossing intermediate Waypoints */
+                walkdirTrigger = AnimationTrigger.ANIMATION_TRIGGER_WALK_SIDE;
             }
 
             PerformAnimation(walkdirTrigger, null, null, false, null, true);

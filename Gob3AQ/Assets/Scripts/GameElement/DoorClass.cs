@@ -16,7 +16,7 @@ namespace Gob3AQ.GameElement.Item.Door
         private Room _roomLeadTo;
 
         [SerializeField]
-        private int _waypointLeadTo;
+        private string _waypointLeadTo;
 
         private DoorInfo _doorInfo;
 

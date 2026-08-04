@@ -157,11 +157,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7958157023190005571, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.68
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 7958157023190005571, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.71
+      value: 1.55
       objectReference: {fileID: 0}
     - target: {fileID: 7958157023190005571, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -223,6 +223,10 @@ PrefabInstance:
       propertyPath: network
       value: 
       objectReference: {fileID: 1308009200}
+    - target: {fileID: 1199191521139679277, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
+      propertyPath: reachability
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1199191521139679277, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
       propertyPath: id_in_network
       value: 6
@@ -341,11 +345,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7958157023190005571, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.93
+      value: 3.33
       objectReference: {fileID: 0}
     - target: {fileID: 7958157023190005571, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.53
+      value: -0.61
       objectReference: {fileID: 0}
     - target: {fileID: 7958157023190005571, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -407,6 +411,10 @@ PrefabInstance:
       propertyPath: network
       value: 
       objectReference: {fileID: 1308009200}
+    - target: {fileID: 1199191521139679277, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
+      propertyPath: reachability
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1199191521139679277, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
       propertyPath: id_in_network
       value: 5
@@ -533,11 +541,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7958157023190005571, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.44
+      value: -3.14
       objectReference: {fileID: 0}
     - target: {fileID: 7958157023190005571, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.72
+      value: -1.22
       objectReference: {fileID: 0}
     - target: {fileID: 7958157023190005571, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -629,11 +637,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7958157023190005571, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.32
+      value: -0.9
       objectReference: {fileID: 0}
     - target: {fileID: 7958157023190005571, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.61
+      value: -2.87
       objectReference: {fileID: 0}
     - target: {fileID: 7958157023190005571, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -695,6 +703,10 @@ PrefabInstance:
       propertyPath: network
       value: 
       objectReference: {fileID: 1308009200}
+    - target: {fileID: 1199191521139679277, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
+      propertyPath: reachability
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1199191521139679277, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
       propertyPath: characterSizeFactor
       value: 1
@@ -1254,6 +1266,10 @@ PrefabInstance:
       propertyPath: network
       value: 
       objectReference: {fileID: 1308009200}
+    - target: {fileID: 1199191521139679277, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
+      propertyPath: reachability
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1199191521139679277, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
       propertyPath: id_in_network
       value: 7

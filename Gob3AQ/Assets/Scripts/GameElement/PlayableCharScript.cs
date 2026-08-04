@@ -135,8 +135,37 @@ namespace Gob3AQ.GameElement.PlayableChar
             VARMAP_PlayerMaster.IS_MODULE_LOADED(GameModules.MODULE_LevelMaster, out bool loadOk);
 
             if (!loadOk) return false;
-            
-            int wpStartIndex = VARMAP_PlayerMaster.GET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)charType);
+
+            ref readonly WaypointIdTupleStruct wpTuple = ref VARMAP_PlayerMaster.GET_ELEM_PLAYER_ACTUAL_WAYPOINT((int)charType);
+
+            int wpStartIndex;
+
+            if(wpTuple.type == WaypointIDTupleType.WAYPOINT_ID_TUPLE_TAG)
+            {
+                wpStartIndex = -1;
+
+                for(int i=0; i < waypoints_infos.Count; i++)
+                {
+                    if (waypoints_infos[i].Tag == wpTuple.tag)
+                    {
+                        wpStartIndex = i;
+                        break;
+                    }
+                }
+
+                if(wpStartIndex == -1)
+                {
+                    Debug.LogError($"PlayableCharScript: Waypoint tag '{wpTuple.tag}' not found for character '{charType}'");
+                }
+                else
+                {
+                    VARMAP_PlayerMaster.PLAYER_WAYPOINT_UPDATE(charType, wpStartIndex);
+                }
+            }
+            else
+            {
+                wpStartIndex = wpTuple.index;
+            }
 
 
             actualWaypoint = wpStartIndex == -1 ? 0 : wpStartIndex;

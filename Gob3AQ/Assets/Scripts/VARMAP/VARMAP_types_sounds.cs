@@ -297,6 +297,7 @@ namespace Gob3AQ.VARMAP.Types
         SOUND_MAINCHAR_FAREWELL_DREAM_1, 
         SOUND_MAINCHAR_RECAP_DREAM_1, 
         MUSIC_STATION_1, 
+        MUSIC_MAP, 
         SOUND_LAST, 
         
 SOUND_TOTAL

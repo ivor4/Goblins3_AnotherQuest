@@ -16,6 +16,7 @@ namespace Gob3AQ.VARMAP.DefaultValues
             rectangleSelectionColor = new Color(0,0,1,0.12f)
         };
 
+        public static WaypointIdTupleStruct WaypointIdTuple_Default => new(WaypointIDTupleType.WAYPOINT_ID_TUPLE_TAG, "initial", -1);
 
         public static KeyStruct KeyStruct_Default => new()
         {

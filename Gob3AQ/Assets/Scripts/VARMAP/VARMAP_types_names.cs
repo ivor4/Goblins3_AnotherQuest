@@ -71,6 +71,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_PILAR, 
         NAME_ALTER_EGO1, 
         NAME_FIG, 
+        NAME_PINPOINT_MAP, 
         NAME_NPC_LAST, 
         
 NAME_TOTAL

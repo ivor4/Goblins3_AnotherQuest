@@ -1315,6 +1315,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_PICKABLE_FIG,true,GameSprite.SPRITE_PICKABLE_FIG,GamePickableItem.ITEM_PICK_PICKABLE_FIG,DetailType.PREFAB_NONE,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_FIG, ActionConditions.COND_TAKE_ITEM_FIG})),
 
+            new ( /* ITEM_PINPOINT_MAP */
+            NameType.NAME_PINPOINT_MAP,GameItemFamily.ITEM_FAMILY_TYPE_NOACTION,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PINPOINT_MAP}),
+            GameSprite.SPRITE_PINPOINT_MAP,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_PINPOINT_MAP,
+            new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
+
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST}),
             GameSprite.SPRITE_LAST,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,
@@ -1424,6 +1429,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new(PrefabEnum.PREFAB_MAINCHARACTER_SEATED), /* PREFAB_MAINCHAR_SEATED */ 
             new(PrefabEnum.PREFAB_MAINCHARACTER_DREAM), /* PREFAB_MAINCHAR_DREAM */ 
             new(PrefabEnum.PREFAB_MAINCHARACTER_BED), /* PREFAB_MAINCHAR_BED */ 
+            new(PrefabEnum.PREFAB_PINPOINT_MAP), /* PREFAB_PINPOINT_MAP */ 
             new(PrefabEnum.PREFAB_NONE), /* DETAIL_LAST */ 
             /* > ATG 9 END < */
         };

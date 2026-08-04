@@ -313,6 +313,7 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_DOG_BARKING"), /* SOUND_DOG_BARKING */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_MAINCHAR_FAREWELL_DREAM_1_SPANISH"), /* SOUND_MAINCHAR_FAREWELL_DREAM_1 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_MAINCHAR_RECAP_DREAM_1_SPANISH"), /* SOUND_MAINCHAR_RECAP_DREAM_1 */ 
+            new(SoundEffect.EFFECT_NONE,"MUSIC_STATION_1"), /* MUSIC_STATION_1 */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

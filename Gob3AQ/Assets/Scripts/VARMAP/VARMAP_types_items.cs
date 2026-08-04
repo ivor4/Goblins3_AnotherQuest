@@ -77,6 +77,7 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_DOOR_DREAM_1_EXIT, 
         ITEM_BLANK, 
         ITEM_PICKABLE_FIG, 
+        ITEM_PINPOINT_MAP, 
         ITEM_LAST, 
         
 ITEM_TOTAL
@@ -576,6 +577,7 @@ ACTION_TOTAL
         PREFAB_MAINCHAR_SEATED, 
         PREFAB_MAINCHAR_DREAM, 
         PREFAB_MAINCHAR_BED, 
+        PREFAB_PINPOINT_MAP, 
         DETAIL_LAST, 
         
 DETAIL_TOTAL

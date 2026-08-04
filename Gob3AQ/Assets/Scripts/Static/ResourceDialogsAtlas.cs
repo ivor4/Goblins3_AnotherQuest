@@ -89,13 +89,16 @@ namespace Gob3AQ.ResourceDialogsAtlas
         private static readonly IReadOnlyDictionary<GameItem, CharacterType> ITEM_TO_CHAR_DICT = new Dictionary<GameItem, CharacterType>()
         {
             { GameItem.ITEM_PLAYER_MAIN, CharacterType.CHARACTER_MAIN },
-            { GameItem.ITEM_MAINCHAR_DREAM, CharacterType.CHARACTER_MAIN_DREAM }
+            { GameItem.ITEM_MAINCHAR_DREAM, CharacterType.CHARACTER_MAIN_DREAM },
+            { GameItem.ITEM_BLANK, CharacterType.CHARACTER_BLANK },
+            { GameItem.ITEM_PINPOINT_MAP, CharacterType.CHARACTER_BLANK }
         };
 
         private static readonly IReadOnlyDictionary<CharacterType, GameItem> CHAR_TO_ITEM_DICT = new Dictionary<CharacterType, GameItem>()
         {
             { CharacterType.CHARACTER_MAIN, GameItem.ITEM_PLAYER_MAIN },
-            { CharacterType.CHARACTER_MAIN_DREAM, GameItem.ITEM_MAINCHAR_DREAM }
+            { CharacterType.CHARACTER_MAIN_DREAM, GameItem.ITEM_MAINCHAR_DREAM },
+            { CharacterType.CHARACTER_BLANK, GameItem.ITEM_PINPOINT_MAP }
         };
 
 

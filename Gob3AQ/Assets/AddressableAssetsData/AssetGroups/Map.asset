@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Map
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Map
+  m_GUID: 15a8678c0add3c74d9892f60cdf6eb6a
+  m_SerializeEntries:
+  - m_GUID: 1ef99be4621926c4795a68ff98f4b447
+    m_Address: PREFAB_PINPOINT_MAP
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 394b50e041ce6cf408079c10f5a59011
+    m_Address: ANIMATION_PINPOINT_RELEASE_EXEC1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a767c2576d559145b752160ebe21868
+    m_Address: ANIMATION_PINPOINT_RELEASE_EXEC2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d86d738afb6c484fb4500707a4ed5b7
+    m_Address: ANIMATION_PINPOINT_RELEASE_ENTRY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6028ec040ab7a404ca53a7348a3f5bce
+    m_Address: ANIMATION_PINPOINT_RELEASE_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 801b9ab5a0e29f0448c58c96baf70482
+    m_Address: SPRITE_PINPOINT_MAP_ANIMATION
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8698b5427de8cff40aaec45967f301c2
+    m_Address: ANIMATOR_PINPOINT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 944ae24f8ce8f9246ae4b7fca8729c5a
+    m_Address: SPRITE_PINPOINT_MAP
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b7b7faaad842d0b478d21de91a2e9c41
+    m_Address: BACKGROUND_MAP_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: baeb0b36d2ad54f41839b9b166bcd21f
+    m_Address: ANIMATION_PINPOINT_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c215d68b56d868341add81d69e3299bf
+    m_Address: SCENE_MAP_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de767520d16e7b545848d278e54b0503
+    m_Address: SPRITE_ATLAS_MAP
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c63f0f3646ca67f4abe7e9d9a952af85, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 4eb1e835566492c43bad29ea437e60c6, type: 2}
+    - {fileID: 11400000, guid: 2acc4793b22adb9478ab3c5296275284, type: 2}

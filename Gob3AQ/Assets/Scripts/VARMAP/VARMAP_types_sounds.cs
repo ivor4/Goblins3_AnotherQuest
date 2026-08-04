@@ -296,6 +296,7 @@ namespace Gob3AQ.VARMAP.Types
         SOUND_DOG_BARKING, 
         SOUND_MAINCHAR_FAREWELL_DREAM_1, 
         SOUND_MAINCHAR_RECAP_DREAM_1, 
+        MUSIC_STATION_1, 
         SOUND_LAST, 
         
 SOUND_TOTAL

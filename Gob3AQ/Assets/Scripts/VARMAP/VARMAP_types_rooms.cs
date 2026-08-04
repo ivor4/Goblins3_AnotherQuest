@@ -29,6 +29,8 @@ namespace Gob3AQ.VARMAP.Types
         DREAM_1_BEDROOM_NIGHT, 
         DREAM_1_CORRIDOR_NIGHT, 
         DREAM_1_KITCHEN_NIGHT, 
+        MAP_1, 
+        STATION_1, 
         ROOM_LAST, 
         
 ROOMS_TOTAL 

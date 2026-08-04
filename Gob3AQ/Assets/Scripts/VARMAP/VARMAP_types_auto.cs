@@ -150,6 +150,7 @@ namespace Gob3AQ.VARMAP.Types
     {
         /* > ATG 6 START < */
         ITEM_FAMILY_TYPE_NONE = -1, 
+        ITEM_FAMILY_TYPE_NOACTION, 
         ITEM_FAMILY_TYPE_PLAYER, 
         ITEM_FAMILY_TYPE_DOOR, 
         ITEM_FAMILY_TYPE_NPC, 

@@ -1,0 +1,369 @@
+fileFormatVersion: 2
+guid: 801b9ab5a0e29f0448c58c96baf70482
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3816886343775888865
+    second: SPRITE_PINPOINT_MAP_ANIMATION_0
+  - first:
+      213: -1444069086155314935
+    second: SPRITE_PINPOINT_MAP_ANIMATION_1
+  - first:
+      213: -1475130388613418936
+    second: SPRITE_PINPOINT_MAP_ANIMATION_2
+  - first:
+      213: 4422746083330447654
+    second: SPRITE_PINPOINT_MAP_ANIMATION_3
+  - first:
+      213: 566154776709214352
+    second: SPRITE_PINPOINT_MAP_ANIMATION_4
+  - first:
+      213: 6462299824372536338
+    second: SPRITE_PINPOINT_MAP_ANIMATION_5
+  - first:
+      213: 6969592697215182376
+    second: SPRITE_PINPOINT_MAP_ANIMATION_6
+  - first:
+      213: 1096631460611107867
+    second: SPRITE_PINPOINT_MAP_ANIMATION_7
+  - first:
+      213: -3087503747361356243
+    second: SPRITE_PINPOINT_MAP_ANIMATION_8
+  - first:
+      213: -4134497333716617612
+    second: SPRITE_PINPOINT_MAP_ANIMATION_9
+  - first:
+      213: -1977223981889747391
+    second: SPRITE_PINPOINT_MAP_ANIMATION_10
+  - first:
+      213: -2090787931448907704
+    second: SPRITE_PINPOINT_MAP_ANIMATION_11
+  - first:
+      213: -7299865149497514325
+    second: SPRITE_PINPOINT_MAP_ANIMATION_12
+  - first:
+      213: 7579331389205805348
+    second: SPRITE_PINPOINT_MAP_ANIMATION_13
+  - first:
+      213: -1253365100060498622
+    second: SPRITE_PINPOINT_MAP_ANIMATION_14
+  - first:
+      213: 3607942032680103719
+    second: SPRITE_PINPOINT_MAP_ANIMATION_15
+  - first:
+      213: -1212011473535171083
+    second: SPRITE_PINPOINT_MAP_ANIMATION_16
+  - first:
+      213: 3457661322060652540
+    second: SPRITE_PINPOINT_MAP_ANIMATION_17
+  - first:
+      213: 1623332079202444287
+    second: SPRITE_PINPOINT_MAP_ANIMATION_18
+  - first:
+      213: -7550811222768183838
+    second: SPRITE_PINPOINT_MAP_ANIMATION_19
+  - first:
+      213: 6365845320971338628
+    second: SPRITE_PINPOINT_MAP_ANIMATION_20
+  - first:
+      213: -6197623510572206933
+    second: SPRITE_PINPOINT_MAP_ANIMATION_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_PINPOINT_MAP_ANIMATION_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.05625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1ad233d712b70bc0800000000000000
+      internalID: -3816886343775888865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PINPOINT_MAP_ANIMATION_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.05625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 909e69031d2a5fbe0800000000000000
+      internalID: -1444069086155314935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PINPOINT_MAP_ANIMATION_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.05625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84030552ab8478be0800000000000000
+      internalID: -1475130388613418936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PINPOINT_MAP_ANIMATION_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.05625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62959ac4120c06d30800000000000000
+      internalID: 4422746083330447654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PINPOINT_MAP_ANIMATION_4
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.05625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 090b4a115c26bd700800000000000000
+      internalID: 566154776709214352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PINPOINT_MAP_ANIMATION_5
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.05625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2145bc79373bea950800000000000000
+      internalID: 6462299824372536338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PINPOINT_MAP_ANIMATION_6
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.05625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 826eaa2b1a7f8b060800000000000000
+      internalID: 6969592697215182376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_PINPOINT_MAP_ANIMATION_7
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.05625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1c2e33d084083f00800000000000000
+      internalID: 1096631460611107867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 873291e4feb2d3d44a6560ce3003319d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":1.0},"gridSpriteSize":{"x":320.0,"y":320.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.44062501192092898,"y":0.05624999850988388},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_PINPOINT_MAP_ANIMATION_0: -3816886343775888865
+      SPRITE_PINPOINT_MAP_ANIMATION_1: -1444069086155314935
+      SPRITE_PINPOINT_MAP_ANIMATION_2: -1475130388613418936
+      SPRITE_PINPOINT_MAP_ANIMATION_3: 4422746083330447654
+      SPRITE_PINPOINT_MAP_ANIMATION_4: 566154776709214352
+      SPRITE_PINPOINT_MAP_ANIMATION_5: 6462299824372536338
+      SPRITE_PINPOINT_MAP_ANIMATION_6: 6969592697215182376
+      SPRITE_PINPOINT_MAP_ANIMATION_7: 1096631460611107867
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

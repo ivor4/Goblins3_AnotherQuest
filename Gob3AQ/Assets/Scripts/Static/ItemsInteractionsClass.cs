@@ -353,7 +353,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameAction[1]{GameAction.ACTION_TALK_DIALOG_SILVANA_GARDEN_2}), 
 
             new( /* UNCHAIN_RECAP_EXTRAPERLO_GARDEN_IN_ROOM */
-            true,false,false,new(GameEvent.EVENT_NONE, false), 
+            true,false,false,new(GameEvent.EVENT_PENDING_RECAP_EXTRAPERLO_GARDEN, true), 
             new GameEventCombi[1]{new(GameEvent.EVENT_PENDING_RECAP_EXTRAPERLO_GARDEN, false)}, 
             MomentType.MOMENT_ANY, 
             new GameAction[2]{GameAction.ACTION_DIALOGUE_MAINCHAR_RECAP_EXTRAPERLO, GameAction.ACTION_EVENT_REMOVE_PENDING_RECAP_EXTRAPERLO_GARDEN}), 
@@ -405,6 +405,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameEventCombi[1]{new(GameEvent.EVENT_ITEM_FIG_PICKABLE_TAKEN, false)}, 
             MomentType.MOMENT_ANY, 
             new GameAction[1]{GameAction.ACTION_DESTROY_ITEM_FIG}), 
+
+            new( /* UNCHAIN_RECAP_DREAM_1 */
+            true,false,false,new(GameEvent.EVENT_PENDING_RECAP_DREAM_1, true), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_PENDING_RECAP_DREAM_1, false)}, 
+            MomentType.MOMENT_ANY, 
+            new GameAction[2]{GameAction.ACTION_DIALOGUE_MAINCHAR_RECAP_DREAM_1, GameAction.ACTION_EVENT_CLEAR_PENDING_RECAP_DREAM_1}), 
 
             new( /* UNCHAIN_LAST */
             false,false,false,new(GameEvent.EVENT_NONE, false), 
@@ -938,7 +944,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new( /* COND_USE_FIG_SULTAN */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN_DREAM,GameItem.ITEM_PICKABLE_FIG,ItemInteractionType.INTERACTION_USE,
-            new GameAction[7]{GameAction.ACTION_PLAY_SOUND_DOG_BARKING, GameAction.ACTION_ANIMATE_SULTAN_BARKING, GameAction.ACTION_EVENT_SULTAN_ATE_FOOD, GameAction.ACTION_LOSE_FIG, GameAction.ACTION_ANIMATE_MAINCHAR_DUCK_OFFERING, GameAction.ACTION_ANIMATE_SULTAN_EATING, GameAction.ACTION_DIALOGUE_MAINCHAR_FAREWELL_DREAM_1}), 
+            new GameAction[8]{GameAction.ACTION_PLAY_SOUND_DOG_BARKING, GameAction.ACTION_ANIMATE_SULTAN_BARKING, GameAction.ACTION_EVENT_SULTAN_ATE_FOOD, GameAction.ACTION_LOSE_FIG, GameAction.ACTION_ANIMATE_MAINCHAR_DUCK_OFFERING, GameAction.ACTION_ANIMATE_SULTAN_EATING, GameAction.ACTION_DIALOGUE_MAINCHAR_FAREWELL_DREAM_1, GameAction.ACTION_EVENT_PENDING_RECAP_DREAM_1}), 
 
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
@@ -3146,6 +3152,24 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_MAINCHAR_FAREWELL_DREAM_1,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_EVENT_PENDING_RECAP_DREAM_1 */
+            false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_PENDING_RECAP_DREAM_1, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_EVENT_CLEAR_PENDING_RECAP_DREAM_1 */
+            false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_PENDING_RECAP_DREAM_1, true)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_MAINCHAR_RECAP_DREAM_1 */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_MAINCHAR_RECAP_DREAM_1,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

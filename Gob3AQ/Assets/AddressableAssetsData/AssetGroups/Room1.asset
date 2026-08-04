@@ -125,6 +125,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f4419f28ee964046a78997d68c7dd23
+    m_Address: SOUND_MAINCHAR_RECAP_DREAM_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 818bf58a12f6c1a49bc8c80989ccb539
     m_Address: BACKGROUND_HIVE1_WC
     m_ReadOnly: 0

@@ -580,6 +580,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ebdd2dbf96e2ebc44b589e0c26e6755f
+    m_Address: SOUND_MAINCHAR_FAREWELL_DREAM_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ece0b2586da7a6343b86530699fdc39c
     m_Address: ANIMATION_PILAR_BED_STEADY
     m_ReadOnly: 0

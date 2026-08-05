@@ -315,6 +315,13 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_MAINCHAR_RECAP_DREAM_1_SPANISH"), /* SOUND_MAINCHAR_RECAP_DREAM_1 */ 
             new(SoundEffect.EFFECT_NONE,"MUSIC_STATION_1"), /* MUSIC_STATION_1 */ 
             new(SoundEffect.EFFECT_NONE,"MUSIC_MAP"), /* MUSIC_MAP */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_REME_1_1_SPANISH"), /* SOUND_DIALOG_REME_1_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_REME_1_2_SPANISH"), /* SOUND_DIALOG_REME_1_2 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_REME_1_3_SPANISH"), /* SOUND_DIALOG_REME_1_3 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_REME_2_1_SPANISH"), /* SOUND_DIALOG_REME_2_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_REME_INTRO_1_SPANISH"), /* SOUND_DIALOG_REME_INTRO_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_REME_INTRO_2_SPANISH"), /* SOUND_DIALOG_REME_INTRO_2 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_REME_INTRO_3_SPANISH"), /* SOUND_DIALOG_REME_INTRO_3 */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

@@ -991,8 +991,8 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_HIVE1_NPC_REME */
-            NameType.NAME_NPC_REME,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_NPC_REME_IDLE}),
-            GameSprite.SPRITE_NPC_REME_IDLE,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,
+            NameType.NAME_NPC_REME,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_REME_STEADY}),
+            GameSprite.SPRITE_REME_STEADY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_TALK_REME_1, ActionConditions.COND_USE_CARDS_REME})),
 
             new ( /* ITEM_GENERIC_DOOR2 */

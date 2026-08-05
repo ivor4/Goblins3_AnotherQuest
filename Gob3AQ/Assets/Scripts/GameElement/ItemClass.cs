@@ -122,6 +122,9 @@ namespace Gob3AQ.GameElement.Item
 
             switch (gstatus)
             {
+                case Game_Status.GAME_STATUS_PLAY_DIALOG:
+                    AutomaticAnimationRefresh();
+                break;
                 case Game_Status.GAME_STATUS_PLAY:
                 case Game_Status.GAME_STATUS_PLAY_ANIMATION:
                     AutomaticAnimationRefresh();

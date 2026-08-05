@@ -863,15 +863,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 927938798410201299, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.76
+      value: 1.08
       objectReference: {fileID: 0}
     - target: {fileID: 927938798410201299, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.76
+      value: 1.08
       objectReference: {fileID: 0}
     - target: {fileID: 927938798410201299, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 1.4210527
       objectReference: {fileID: 0}
     - target: {fileID: 927938798410201299, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: m_LocalPosition.x
@@ -879,7 +879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 927938798410201299, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.33
+      value: -5.29
       objectReference: {fileID: 0}
     - target: {fileID: 927938798410201299, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: m_LocalPosition.z
@@ -922,28 +922,48 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2757196565734091061, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: startingTrigger
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757196565734091061, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: startingWaypoint
       value: 
-      objectReference: {fileID: 189257345}
+      objectReference: {fileID: 1971229984}
+    - target: {fileID: 2757196565734091061, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: programmedAnimations.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757196565734091061, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: programmedAnimations.Array.data[0].everyMs
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757196565734091061, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: programmedAnimations.Array.data[0].destTrigger
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757196565734091061, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: programmedAnimations.Array.data[0].conditionActualTrigger
+      value: 29
+      objectReference: {fileID: 0}
     - target: {fileID: 3638331546681014208, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: m_Name
       value: NPCReme
       objectReference: {fileID: 0}
     - target: {fileID: 7615836467117073131, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: m_Size.x
-      value: 5.12
+      value: 6.4
       objectReference: {fileID: 0}
     - target: {fileID: 7615836467117073131, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: m_Size.y
-      value: 5.12
+      value: 6.4
       objectReference: {fileID: 0}
     - target: {fileID: 7615836467117073131, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -5353242509884739454, guid: 8cc6bf1ff9ccbec4395e7ae0d8fa5a06, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7615836467117073131, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: m_WasSpriteAssigned
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8977490064374180080, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: m_Controller
@@ -1001,30 +1021,30 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.12, y: 5.12}
-    newSize: {x: 5.12, y: 5.12}
+    pivot: {x: 0.5, y: 0.05}
+    oldSize: {x: 6.4, y: 6.4}
+    newSize: {x: 6.4, y: 6.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.04468441, y: -2.8696184}
-      - {x: -1.9403676, y: -2.4893832}
-      - {x: -1.2007895, y: 0.65588737}
-      - {x: -0.9160938, y: 1.1309202}
-      - {x: -1.4731255, y: 1.77736}
-      - {x: -0.5046139, y: 2.6035511}
-      - {x: -0.009277701, y: 2.6440024}
-      - {x: 0.17692852, y: 3.5061367}
-      - {x: 0.9609308, y: 3.547986}
-      - {x: 1.1717682, y: 2.940794}
-      - {x: 0.773654, y: 2.3198347}
-      - {x: 0.98932266, y: 2.101677}
-      - {x: 0.82114506, y: 0.6401663}
-      - {x: 0.5543642, y: 0.44090307}
-      - {x: 0.9612737, y: -2.4893572}
+    - - {x: 0.19396242, y: 0.28786397}
+      - {x: -0.7654904, y: 0.2825923}
+      - {x: -1.174702, y: 0.47327894}
+      - {x: -0.9160938, y: 0.84396404}
+      - {x: -1.4586318, y: 0.932917}
+      - {x: -1.1770775, y: 4.3687654}
+      - {x: -0.09816699, y: 4.944481}
+      - {x: -0.071380466, y: 5.477148}
+      - {x: 0.5329123, y: 5.6523304}
+      - {x: 0.965005, y: 5.240307}
+      - {x: 0.65867794, y: 4.594227}
+      - {x: 0.73521745, y: 4.428243}
+      - {x: 0.7110001, y: 3.375427}
+      - {x: 0.51764905, y: 3.1945214}
+      - {x: 0.8327719, y: 0.5763378}
   m_UseDelaunayMesh: 1
 --- !u!1001 &965843683
 PrefabInstance:

@@ -722,9 +722,9 @@ namespace Gob3AQ.GameElement
             switch (newval)
             {
                 case Game_Status.GAME_STATUS_PLAY:
-                    SetActive(!isUnspawned);
-                    SetClickable(!isUnspawned && !isUnclickable);
-                    SetMotion(!isUnspawned);
+                    SetActive_Internal(!isUnspawned);
+                    SetClickable_Internal(!isUnspawned && !isUnclickable);
+                    SetMotion_Internal(!isUnspawned);
                     if (myAnimator)
                     {
                         myAnimator.enabled = true;
@@ -737,11 +737,11 @@ namespace Gob3AQ.GameElement
                 case Game_Status.GAME_STATUS_PLAY:
                     if (((newval != Game_Status.GAME_STATUS_PLAY_DIALOG) && (newval != Game_Status.GAME_STATUS_PLAY_ANIMATION)) || !myAnimator)
                     {
-                        SetActive(false);
+                        SetActive_Internal(false);
                     }
 
-                    SetClickable(false);
-                    SetMotion(newval == Game_Status.GAME_STATUS_PLAY_ANIMATION);
+                    SetClickable_Internal(false);
+                    SetMotion_Internal((newval == Game_Status.GAME_STATUS_PLAY_ANIMATION) && !isUnspawned);
 
                     if (((newval == Game_Status.GAME_STATUS_PLAY_MEMENTO) || (newval == Game_Status.GAME_STATUS_PLAY_ITEM_MENU) || (newval == Game_Status.GAME_STATUS_PLAY_DECISION)) && myAnimator)
                     {

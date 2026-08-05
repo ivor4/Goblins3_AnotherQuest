@@ -30,6 +30,7 @@ namespace Gob3AQ.FixedConfig
         public const float USER_INTERACTION_CHANGE_ANIMATION_TIME = 0.5f;
         public const ulong DOUBLE_CLICK_MS = 400;
         public const ulong BACKGROUND_ITEM_ACTIONS_MS = 3000;
+        public const ulong MAP_POINT_FINAL_MOVEMENT_COOLDOWN_MS = 500;
 
         /* HUD */
         public const float DISTANCE_MOUSE_FURTHEST_WP = 1.5f;

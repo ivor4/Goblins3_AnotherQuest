@@ -6,6 +6,7 @@ using Gob3AQ.GameElement.Clickable;
 using Gob3AQ.GameElement.PlayableChar;
 using Gob3AQ.Libs.Arith;
 using Gob3AQ.ResourceAtlas;
+using Gob3AQ.ResourceDialogs;
 using Gob3AQ.ResourceDialogsAtlas;
 using Gob3AQ.VARMAP.LevelMaster;
 using Gob3AQ.VARMAP.Types;
@@ -228,7 +229,7 @@ namespace Gob3AQ.LevelMaster
         }
 
         
-        public static void LoadRoomAsActionService(Room room, int waypointIndex, string waypointTag)
+        public static void LoadRoomAsActionService(Room room, int waypointIndex, string waypointTag, int chapterNr)
         {
             if (!_singleton) return;
 
@@ -249,6 +250,7 @@ namespace Gob3AQ.LevelMaster
             }
             VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
             VARMAP_LevelMaster.SET_PLAYER_SELECTED(CharacterType.CHARACTER_NONE);
+            VARMAP_LevelMaster.SET_CHAPTER_SHOW_NR(chapterNr);
 
             _singleton.crossingDoor = true;
 
@@ -346,7 +348,7 @@ namespace Gob3AQ.LevelMaster
                     {
                         pendingChapterEndLoadScene = false;
                         Tuple<Room, string> roomAndWaypoint = LevelOptionsClass.CHAPTER_TO_ROOM_AND_INIT_WP[VARMAP_LevelMaster.GET_CHAPTER_SHOW_NR()];
-                        VARMAP_LevelMaster.LOAD_ROOM_AS_ACTION(roomAndWaypoint.Item1, -1, roomAndWaypoint.Item2);
+                        VARMAP_LevelMaster.LOAD_ROOM_AS_ACTION(roomAndWaypoint.Item1, -1, roomAndWaypoint.Item2, -1);
                     }
                     break;
                 case Game_Status.GAME_STATUS_PLAY_ITEM_MENU:
@@ -439,7 +441,10 @@ namespace Gob3AQ.LevelMaster
                 GameItem menuItemHovered = VARMAP_LevelMaster.GET_ITEM_MENU_HOVER();
                 if (menuItemHovered != GameItem.ITEM_NONE)
                 {
-                    itemMenuHoverable.SetHoverInfo(new LevelElemInfo(menuItemHovered, GameItemFamily.ITEM_FAMILY_TYPE_OBJECT, -1, 0, true));
+                    ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(menuItemHovered);
+                    string labelName = ResourceDialogsClass.GetName(itemInfo.name);
+
+                    itemMenuHoverable.SetHoverInfo(new LevelElemInfo(menuItemHovered, GameItemFamily.ITEM_FAMILY_TYPE_OBJECT, labelName, -1, 0, true));
                     _RaycastedItems.Add(itemMenuHoverable);
                 }
             }
@@ -519,7 +524,23 @@ namespace Gob3AQ.LevelMaster
 
             if (changed)
             {
-                VARMAP_LevelMaster.SET_ITEM_HOVER(_HoveredElem.item);
+                bool activate;
+                LevelElemLabelInfo newLabel;
+
+                if (_HoveredElem.item != GameItem.ITEM_NONE)
+                {
+                    string name = _HoveredElem.name;
+                    activate = true;
+                    newLabel = new(name, _HoveredElem.family);
+                }
+                else
+                {
+                    activate = false;
+                    newLabel = LevelElemLabelInfo.EMPTY;
+                }
+                 
+
+                VARMAP_LevelMaster.LABEL_ELEM_HOVER(activate, in newLabel);
             }
         }
 
@@ -529,11 +550,12 @@ namespace Gob3AQ.LevelMaster
         {
             GameItem chosenItem = VARMAP_LevelMaster.GET_PICKABLE_ITEM_CHOSEN();
             CharacterType playerSelected = VARMAP_LevelMaster.GET_PLAYER_SELECTED();
-            
+
+            bool mapActive = VARMAP_LevelMaster.GET_MAP_ACTIVE();
 
             
             /* If no items menu or just a menu opened */
-            if (keys.isKeyCycleReleased(KeyFunctions.KEYFUNC_INVENTORY))
+            if (keys.isKeyCycleReleased(KeyFunctions.KEYFUNC_INVENTORY) && !mapActive)
             {
                 if ((chosenItem == GameItem.ITEM_NONE) && (playerSelected != CharacterType.CHARACTER_NONE))
                 {
@@ -546,7 +568,7 @@ namespace Gob3AQ.LevelMaster
             }
             /* Fast track */
             else if (keys.isKeyCyclePressed(KeyFunctions.KEYFUNC_DOUBLETAP) &&
-                     (_HoveredElem.family == GameItemFamily.ITEM_FAMILY_TYPE_DOOR))
+                     (_HoveredElem.family is GameItemFamily.ITEM_FAMILY_TYPE_DOOR or GameItemFamily.ITEM_FAMILY_TYPE_MAP_POINT))
             {
                 ref PendingCharacterInteraction pendingInter =
                     ref _PendingCharInteractions[(int)playerSelected];
@@ -613,11 +635,12 @@ namespace Gob3AQ.LevelMaster
 
 
                 case GameItemFamily.ITEM_FAMILY_TYPE_DOOR:
+                case GameItemFamily.ITEM_FAMILY_TYPE_MAP_POINT:
                     accepted = InteractWithDoor(playerSelected, ref usage, in hovered);
                     fastCrossAvailable = CheckFastCross(in usage, hovered.waypoint);
                     fastCrossAvailable &= accepted;
                     break;
-                
+
             }
 
             if (accepted)
@@ -625,6 +648,7 @@ namespace Gob3AQ.LevelMaster
                 _PendingCharInteractions[(int)playerSelected] = new PendingCharacterInteraction(in usage, fastCrossAvailable);
             }
         }
+
 
         private bool InteractWithItem(CharacterType playerSelected,GameItem chosenItem, ref InteractionUsage usage, in LevelElemInfo hovered)
         {
@@ -899,7 +923,7 @@ namespace Gob3AQ.LevelMaster
                     Array.Clear(_PendingCharInteractions, 0, _PendingCharInteractions.Length);
                     
                     VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
-                    VARMAP_LevelMaster.SET_ITEM_HOVER(_HoveredElem.item);
+                    VARMAP_LevelMaster.LABEL_ELEM_HOVER(false, in LevelElemLabelInfo.EMPTY);
 
                     _WP_Info_List = null;
                     break;

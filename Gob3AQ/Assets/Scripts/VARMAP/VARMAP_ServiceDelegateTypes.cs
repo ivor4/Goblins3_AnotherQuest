@@ -75,5 +75,6 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void ACTIVATE_FORCED_ZOOM_MODE_DELEGATE(bool activate, bool reversible, Bounds regionOfInterest);
     public delegate void START_CARD_GAME_DELEGATE(CardGameID cardGameID);
     public delegate void GIVE_UP_CARD_GAME_DELEGATE();
-    public delegate void LOAD_ROOM_AS_ACTION_DELEGATE(Room room, int waypointIndex, string waypointTag);
+    public delegate void LOAD_ROOM_AS_ACTION_DELEGATE(Room room, int waypointIndex, string waypointTag, int chapterNr);
+    public delegate void LABEL_ELEM_HOVER_DELEGATE(bool activate, in LevelElemLabelInfo labelInfo);
 }

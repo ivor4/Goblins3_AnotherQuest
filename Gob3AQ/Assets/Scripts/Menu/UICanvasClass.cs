@@ -427,17 +427,17 @@ namespace Gob3AQ.GameMenu.UICanvas
             }
         }
 
-        public void SetCursorLabel(GameItem item, in ItemInfo itemInfo)
+        public void SetCursorLabel(bool active, string labelName)
         {
             ref readonly MousePropertiesStruct mouseProps = ref VARMAP_GameMenu.GET_MOUSE_PROPERTIES();
 
-            if (item == GameItem.ITEM_NONE)
+            if (!active)
             {
                 cursor_textobj.SetActive(false);
             }
             else
             {
-                cursor_textobj_text.text = ResourceDialogsClass.GetName(itemInfo.name);
+                cursor_textobj_text.text = labelName;
                 cursor_textobj.SetActive(true);
             }
 

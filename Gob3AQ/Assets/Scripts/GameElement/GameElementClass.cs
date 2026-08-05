@@ -2,6 +2,7 @@ using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameElement.Clickable;
 using Gob3AQ.ResourceAnimationsAtlas;
+using Gob3AQ.ResourceDialogs;
 using Gob3AQ.ResourceSprites;
 using Gob3AQ.VARMAP.ItemMaster;
 using Gob3AQ.VARMAP.Types;
@@ -36,9 +37,10 @@ namespace Gob3AQ.GameElement
 
         protected enum PhysicalState
         {
-            PHYSICAL_STATE_STANDING = 0x0,
-            PHYSICAL_STATE_WALKING = 0x1,
-            PHYSICAL_STATE_LOCKED = 0x2,
+            PHYSICAL_STATE_STANDING,
+            PHYSICAL_STATE_WALKING,
+            PHYSICAL_STATE_WALKING_FINAL_COOLDOWN,
+            PHYSICAL_STATE_LOCKED
         }
 
 
@@ -91,9 +93,11 @@ namespace Gob3AQ.GameElement
         protected AnimationTrigger actualAnimationTrigger;
         protected AnimationTrigger autoSteadyTrigger;
         protected AnimationTrigger queuedTrigger;
+        protected string labelName;
         protected float prevAnimationNormalizedTime;
         protected bool registered;
         protected bool loaded;
+        private ulong finalWalkCooldownTimestamp;
         private bool isAvailable;
         private bool isActive_int;
         private bool isActive_ext;
@@ -124,16 +128,17 @@ namespace Gob3AQ.GameElement
             isUnspawned = false;
             isUnclickable = false;
 
-            hoverInfo = new(itemID, gameElementFamily, exposedWaypoint, hoverPriority, false);
+            ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(itemID);
+            labelName = ResourceDialogsClass.GetName(itemInfo.name);
+            gameElementFamily = itemInfo.family;
+
+            hoverInfo = new(itemID, gameElementFamily, labelName, exposedWaypoint, hoverPriority, false);
         }
 
         protected virtual void Start()
         {
             loaded = false;
 
-            ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(itemID);
-
-            gameElementFamily = itemInfo.family;
 
             actualAnimationTrigger = AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE;
             autoSteadyTrigger = AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE;
@@ -161,6 +166,16 @@ namespace Gob3AQ.GameElement
                 {
                     case PhysicalState.PHYSICAL_STATE_WALKING:
                         Execute_Walk();
+                        break;
+
+                    case PhysicalState.PHYSICAL_STATE_WALKING_FINAL_COOLDOWN:
+                        ulong elapsed = VARMAP_ItemMaster.GET_ELAPSED_TIME_MS() - finalWalkCooldownTimestamp;
+
+                        if(elapsed >= GameFixedConfig.MAP_POINT_FINAL_MOVEMENT_COOLDOWN_MS)
+                        {
+                            StartBufferedInteraction();
+                            physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
+                        }
                         break;
                 }
             }
@@ -247,7 +262,7 @@ namespace Gob3AQ.GameElement
             bool requestAccepted;
 
             /* Interact only if not talking or doing an action */
-            if (IsAvailable)
+            if (IsAvailable && (physicalstate is (not PhysicalState.PHYSICAL_STATE_LOCKED) and (not PhysicalState.PHYSICAL_STATE_WALKING_FINAL_COOLDOWN)))
             {
                 int target_index = waypoints_infos[actualWaypoint].Solution.TravelTo[destWp_index];
 
@@ -415,7 +430,7 @@ namespace Gob3AQ.GameElement
             var compound = isAvailable;
             compound &= isClickable_ext & isClickable_int;
 
-            hoverInfo = new(itemID, gameElementFamily, exposedWaypoint, hoverPriority, compound);           
+            hoverInfo = new(itemID, gameElementFamily, labelName, exposedWaypoint, hoverPriority, compound);           
         }
 
         protected virtual void UpdateSortingOrder()
@@ -578,12 +593,12 @@ namespace Gob3AQ.GameElement
                 ReachedWaypointFunction(actualProgrammedPath.target_index);
 
                 /* If last segment or action triggered or next waypoint or really unreachable */
-                if ((actualProgrammedPath.target_index == actualProgrammedPath.final_index))
+                if (actualProgrammedPath.target_index == actualProgrammedPath.final_index)
                 {
                     actualWaypoint = actualProgrammedPath.target_index;
                     PresetProgrammedPathStruct(actualWaypoint);
                     topParentTransform.position = target_pos;
-                    physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
+                    
                     myRigidbody.linearVelocity = Vector2.zero;
                     SetSize(waypoints_infos[actualWaypoint].CharacterSizeFactor);
 
@@ -591,7 +606,16 @@ namespace Gob3AQ.GameElement
                     ExecuteQueuedTrigger();
                     mySpriteRenderer.flipX = waypoints_infos[actualWaypoint].FlipXForAction ^ reverseFlipX;
 
-                    StartBufferedInteraction();
+                    if (itemID == GameItem.ITEM_PINPOINT_MAP)
+                    {
+                        physicalstate = PhysicalState.PHYSICAL_STATE_WALKING_FINAL_COOLDOWN;
+                        finalWalkCooldownTimestamp = VARMAP_ItemMaster.GET_ELAPSED_TIME_MS();
+                    }
+                    else
+                    {
+                        StartBufferedInteraction();
+                        physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
+                    }
                 }
                 else
                 {

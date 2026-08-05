@@ -34,9 +34,6 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
             REG_PICKABLE_ITEM_CHOSEN = _REG_PICKABLE_ITEM_CHOSEN;
             UNREG_PICKABLE_ITEM_CHOSEN = _UNREG_PICKABLE_ITEM_CHOSEN;
-            GET_ITEM_HOVER = _GET_ITEM_HOVER;
-            REG_ITEM_HOVER = _REG_ITEM_HOVER;
-            UNREG_ITEM_HOVER = _UNREG_ITEM_HOVER;
             GET_USER_INPUT_INTERACTION = _GET_USER_INPUT_INTERACTION;
             REG_USER_INPUT_INTERACTION = _REG_USER_INPUT_INTERACTION;
             UNREG_USER_INPUT_INTERACTION = _UNREG_USER_INPUT_INTERACTION;
@@ -48,6 +45,7 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
             NOTIFY_ENDED_ACTION = _NOTIFY_ENDED_ACTION;
             TAKE_LOADING_SNAPSHOT = _TAKE_LOADING_SNAPSHOT;
             ACTIVATE_FORCED_ZOOM_MODE = _ACTIVATE_FORCED_ZOOM_MODE;
+            LABEL_ELEM_HOVER = _LABEL_ELEM_HOVER;
             /* > ATG 1 END */
         }
 
@@ -71,9 +69,6 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
         public static GetVARMAPValueDelegate<GameItem> GET_PICKABLE_ITEM_CHOSEN;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> REG_PICKABLE_ITEM_CHOSEN;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> UNREG_PICKABLE_ITEM_CHOSEN;
-        public static GetVARMAPValueDelegate<GameItem> GET_ITEM_HOVER;
-        public static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> REG_ITEM_HOVER;
-        public static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> UNREG_ITEM_HOVER;
         public static GetVARMAPValueDelegate<UserInputInteraction> GET_USER_INPUT_INTERACTION;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<UserInputInteraction> REG_USER_INPUT_INTERACTION;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<UserInputInteraction> UNREG_USER_INPUT_INTERACTION;
@@ -137,6 +132,13 @@ public static TAKE_LOADING_SNAPSHOT_DELEGATE TAKE_LOADING_SNAPSHOT;
 /// <para> Method: <see cref="GraphicsMasterClass.ActivateForcedZoomMode"/> </para> 
 /// </summary>
 public static ACTIVATE_FORCED_ZOOM_MODE_DELEGATE ACTIVATE_FORCED_ZOOM_MODE;
+        /// <summary> 
+/// Tells Graphics Module to activate or deactivate label with specific info 
+/// <para> Owner: GraphicsMaster </para> 
+/// <para> Accessors: LevelMaster </para> 
+/// <para> Method: <see cref="GraphicsMasterClass.LabelElemHoverService"/> </para> 
+/// </summary>
+public static LABEL_ELEM_HOVER_DELEGATE LABEL_ELEM_HOVER;
         /* > ATG 3 END */
     }
 }

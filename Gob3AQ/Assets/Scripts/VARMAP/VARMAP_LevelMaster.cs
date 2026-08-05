@@ -7,6 +7,7 @@ using Gob3AQ.ItemMaster;
 using Gob3AQ.GameEventMaster;
 using Gob3AQ.GameMenu;
 using Gob3AQ.InputMaster;
+using Gob3AQ.GraphicsMaster;
 
 
 namespace Gob3AQ.VARMAP.LevelMaster
@@ -44,12 +45,12 @@ namespace Gob3AQ.VARMAP.LevelMaster
             GET_SHADOW_PLAYER_SELECTED = _GET_SHADOW_PLAYER_SELECTED;
             SET_PLAYER_SELECTED = _SET_PLAYER_SELECTED;
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
-            GET_ITEM_HOVER = _GET_ITEM_HOVER;
-            GET_SHADOW_ITEM_HOVER = _GET_SHADOW_ITEM_HOVER;
-            SET_ITEM_HOVER = _SET_ITEM_HOVER;
             GET_USER_INPUT_INTERACTION = _GET_USER_INPUT_INTERACTION;
             GET_BUSY_STATE = _GET_BUSY_STATE;
             GET_CHAPTER_SHOW_NR = _GET_CHAPTER_SHOW_NR;
+            GET_SHADOW_CHAPTER_SHOW_NR = _GET_SHADOW_CHAPTER_SHOW_NR;
+            SET_CHAPTER_SHOW_NR = _SET_CHAPTER_SHOW_NR;
+            GET_MAP_ACTIVE = _GET_MAP_ACTIVE;
             SAVE_GAME = _SAVE_GAME;
             LOAD_ROOM = _LOAD_ROOM;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
@@ -73,6 +74,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
             PERFORM_ACTION = _PERFORM_ACTION;
             NOTIFY_ENDED_ACTION = _NOTIFY_ENDED_ACTION;
             LOAD_ROOM_AS_ACTION = _LOAD_ROOM_AS_ACTION;
+            LABEL_ELEM_HOVER = _LABEL_ELEM_HOVER;
             /* > ATG 1 END */
         }
 
@@ -107,12 +109,12 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static GetVARMAPValueDelegate<CharacterType> GET_SHADOW_PLAYER_SELECTED;
         public static SetVARMAPValueDelegate<CharacterType> SET_PLAYER_SELECTED;
         public static GetVARMAPValueDelegate<GameItem> GET_PICKABLE_ITEM_CHOSEN;
-        public static GetVARMAPValueDelegate<GameItem> GET_ITEM_HOVER;
-        public static GetVARMAPValueDelegate<GameItem> GET_SHADOW_ITEM_HOVER;
-        public static SetVARMAPValueDelegate<GameItem> SET_ITEM_HOVER;
         public static GetVARMAPValueDelegate<UserInputInteraction> GET_USER_INPUT_INTERACTION;
         public static GetVARMAPValueDelegate<BusyState> GET_BUSY_STATE;
         public static GetVARMAPValueDelegate<int> GET_CHAPTER_SHOW_NR;
+        public static GetVARMAPValueDelegate<int> GET_SHADOW_CHAPTER_SHOW_NR;
+        public static SetVARMAPValueDelegate<int> SET_CHAPTER_SHOW_NR;
+        public static GetVARMAPValueDelegate<bool> GET_MAP_ACTIVE;
         /* > ATG 2 END */
 
         /* SERVICES */
@@ -278,6 +280,13 @@ public static NOTIFY_ENDED_ACTION_DELEGATE NOTIFY_ENDED_ACTION;
 /// <para> Method: <see cref="LevelMasterClass.LoadRoomAsActionService"/> </para> 
 /// </summary>
 public static LOAD_ROOM_AS_ACTION_DELEGATE LOAD_ROOM_AS_ACTION;
+        /// <summary> 
+/// Tells Graphics Module to activate or deactivate label with specific info 
+/// <para> Owner: GraphicsMaster </para> 
+/// <para> Accessors: LevelMaster </para> 
+/// <para> Method: <see cref="GraphicsMasterClass.LabelElemHoverService"/> </para> 
+/// </summary>
+public static LABEL_ELEM_HOVER_DELEGATE LABEL_ELEM_HOVER;
         /* > ATG 3 END */
     }
 }

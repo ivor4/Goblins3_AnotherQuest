@@ -125,11 +125,6 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPValueDelegate<GameItem> _SET_PICKABLE_ITEM_CHOSEN;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> _REG_PICKABLE_ITEM_CHOSEN;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> _UNREG_PICKABLE_ITEM_CHOSEN;
-        protected static GetVARMAPValueDelegate<GameItem> _GET_ITEM_HOVER;
-        protected static GetVARMAPValueDelegate<GameItem> _GET_SHADOW_ITEM_HOVER;
-        protected static SetVARMAPValueDelegate<GameItem> _SET_ITEM_HOVER;
-        protected static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> _REG_ITEM_HOVER;
-        protected static ReUnRegisterVARMAPValueChangeEventDelegate<GameItem> _UNREG_ITEM_HOVER;
         protected static GetVARMAPValueDelegate<UserInputInteraction> _GET_USER_INPUT_INTERACTION;
         protected static GetVARMAPValueDelegate<UserInputInteraction> _GET_SHADOW_USER_INPUT_INTERACTION;
         protected static SetVARMAPValueDelegate<UserInputInteraction> _SET_USER_INPUT_INTERACTION;
@@ -145,6 +140,11 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPValueDelegate<int> _SET_CHAPTER_SHOW_NR;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<int> _REG_CHAPTER_SHOW_NR;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<int> _UNREG_CHAPTER_SHOW_NR;
+        protected static GetVARMAPValueDelegate<bool> _GET_MAP_ACTIVE;
+        protected static GetVARMAPValueDelegate<bool> _GET_SHADOW_MAP_ACTIVE;
+        protected static SetVARMAPValueDelegate<bool> _SET_MAP_ACTIVE;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<bool> _REG_MAP_ACTIVE;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<bool> _UNREG_MAP_ACTIVE;
         protected static GetVARMAPValueDelegate<bool> _GET_LAST_VARMAP_VAL;
         protected static GetVARMAPValueDelegate<bool> _GET_SHADOW_LAST_VARMAP_VAL;
         protected static SetVARMAPValueDelegate<bool> _SET_LAST_VARMAP_VAL;
@@ -504,6 +504,13 @@ protected static GIVE_UP_CARD_GAME_DELEGATE _GIVE_UP_CARD_GAME;
 /// <para> Method: <see cref="LevelMasterClass.LoadRoomAsActionService"/> </para> 
 /// </summary>
 protected static LOAD_ROOM_AS_ACTION_DELEGATE _LOAD_ROOM_AS_ACTION;
+        /// <summary> 
+/// Tells Graphics Module to activate or deactivate label with specific info 
+/// <para> Owner: GraphicsMaster </para> 
+/// <para> Accessors: LevelMaster </para> 
+/// <para> Method: <see cref="GraphicsMasterClass.LabelElemHoverService"/> </para> 
+/// </summary>
+protected static LABEL_ELEM_HOVER_DELEGATE _LABEL_ELEM_HOVER;
         /// <summary> 
 /// Last service 
 /// <para> Owner: GameMaster </para> 

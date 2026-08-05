@@ -32,6 +32,9 @@ namespace Gob3AQ.VARMAP.GameMaster
             SET_GAMESTATUS = _SET_GAMESTATUS;
             GET_PRESSED_KEYS = _GET_PRESSED_KEYS;
             GET_BUSY_STATE = _GET_BUSY_STATE;
+            GET_MAP_ACTIVE = _GET_MAP_ACTIVE;
+            GET_SHADOW_MAP_ACTIVE = _GET_SHADOW_MAP_ACTIVE;
+            SET_MAP_ACTIVE = _SET_MAP_ACTIVE;
             GET_LAST_VARMAP_VAL = _GET_LAST_VARMAP_VAL;
             GET_SHADOW_LAST_VARMAP_VAL = _GET_SHADOW_LAST_VARMAP_VAL;
             SET_LAST_VARMAP_VAL = _SET_LAST_VARMAP_VAL;
@@ -71,6 +74,9 @@ namespace Gob3AQ.VARMAP.GameMaster
         public static SetVARMAPValueDelegate<Game_Status> SET_GAMESTATUS;
         public static GetVARMAPValueDelegate<KeyStruct> GET_PRESSED_KEYS;
         public static GetVARMAPValueDelegate<BusyState> GET_BUSY_STATE;
+        public static GetVARMAPValueDelegate<bool> GET_MAP_ACTIVE;
+        public static GetVARMAPValueDelegate<bool> GET_SHADOW_MAP_ACTIVE;
+        public static SetVARMAPValueDelegate<bool> SET_MAP_ACTIVE;
         public static GetVARMAPValueDelegate<bool> GET_LAST_VARMAP_VAL;
         public static GetVARMAPValueDelegate<bool> GET_SHADOW_LAST_VARMAP_VAL;
         public static SetVARMAPValueDelegate<bool> SET_LAST_VARMAP_VAL;

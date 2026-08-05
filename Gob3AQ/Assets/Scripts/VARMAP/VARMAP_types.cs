@@ -165,7 +165,22 @@ namespace Gob3AQ.VARMAP.Types
         }
     }
 
-    public readonly struct DoorInfo : IEquatable<DoorInfo>
+    /* Used for display label and cursor icon */
+    public readonly struct LevelElemLabelInfo
+    {
+        public readonly string name;
+        public readonly GameItemFamily family;
+
+        public static readonly LevelElemLabelInfo EMPTY = new(string.Empty, GameItemFamily.ITEM_FAMILY_TYPE_NONE);
+
+        public LevelElemLabelInfo(string name, GameItemFamily family)
+        {
+            this.name = name;
+            this.family = family;
+        }
+    }
+
+    public readonly struct DoorInfo
     {
         public readonly Room roomLeadTo;
         public readonly string waypointLeadTo;
@@ -175,38 +190,25 @@ namespace Gob3AQ.VARMAP.Types
             this.roomLeadTo = roomLeadTo;
             this.waypointLeadTo = waypointLeadTo;
         }
-
-        public bool Equals(DoorInfo other)
-        {
-            return (roomLeadTo == other.roomLeadTo) && (waypointLeadTo == other.waypointLeadTo);
-        }
-
-        public override bool Equals(object other)
-        {
-            return other is LevelElemInfo info && Equals(info);
-        }
-
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(roomLeadTo, waypointLeadTo);
-        }
     }
 
-
+    /* It is used in sets of HoverPending in LevelMaster, that is why needs to be IEquatable */
     public readonly struct LevelElemInfo : IEquatable<LevelElemInfo>
     {
         public readonly GameItem item;
         public readonly GameItemFamily family;
+        public readonly string name;
         public readonly int hoverPriority;
         public readonly int waypoint;
         public readonly bool active;
 
-        public static readonly LevelElemInfo EMPTY = new(GameItem.ITEM_NONE, GameItemFamily.ITEM_FAMILY_TYPE_NONE, -1, -100, false);
+        public static readonly LevelElemInfo EMPTY = new(GameItem.ITEM_NONE, GameItemFamily.ITEM_FAMILY_TYPE_NONE, string.Empty, -1, -100, false);
 
-        public LevelElemInfo(GameItem item, GameItemFamily family, int waypoint, int hoverPriority, bool active)
+        public LevelElemInfo(GameItem item, GameItemFamily family, string name, int waypoint, int hoverPriority, bool active)
         {
             this.item = item;
             this.family = family;
+            this.name = name;
             this.waypoint = waypoint;
             this.hoverPriority = hoverPriority;
             this.active = active;
@@ -214,7 +216,7 @@ namespace Gob3AQ.VARMAP.Types
 
         public readonly bool Equals(LevelElemInfo other)
         {
-            return (item == other.item) && (family == other.family);
+            return item == other.item;
         }
 
         public override readonly bool Equals(object other)
@@ -224,7 +226,7 @@ namespace Gob3AQ.VARMAP.Types
 
         public override readonly int GetHashCode()
         {
-            return HashCode.Combine(item, family);
+            return item.GetHashCode();
         }
     }
 

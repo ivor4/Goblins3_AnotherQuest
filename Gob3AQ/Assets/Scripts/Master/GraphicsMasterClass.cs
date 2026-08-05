@@ -139,6 +139,17 @@ namespace Gob3AQ.GraphicsMaster
             }
         }
 
+        public static void LabelElemHoverService(bool activate, in LevelElemLabelInfo labelInfo)
+        {
+            if (!_singleton) return;
+
+            _singleton.isDoorHovered = labelInfo.family == GameItemFamily.ITEM_FAMILY_TYPE_DOOR;
+
+            _singleton.UpdateCursorBaseSprite();
+
+            _singleton.uicanvas_cls.SetCursorLabel(activate, labelInfo.name);
+        }
+
         private void Awake()
         {
             if (_singleton != null)
@@ -174,7 +185,6 @@ namespace Gob3AQ.GraphicsMaster
 
             VARMAP_GraphicsMaster.REG_GAMESTATUS(_GameStatusChanged);
             VARMAP_GraphicsMaster.REG_PICKABLE_ITEM_CHOSEN(_OnPickedItemChanged);
-            VARMAP_GraphicsMaster.REG_ITEM_HOVER(_OnHoverItemChanged);
             VARMAP_GraphicsMaster.REG_USER_INPUT_INTERACTION(_OnUserInputInteractionChanged);
 
             StartLoadingFade();
@@ -268,7 +278,6 @@ namespace Gob3AQ.GraphicsMaster
 
                 VARMAP_GraphicsMaster.UNREG_GAMESTATUS(_GameStatusChanged);
                 VARMAP_GraphicsMaster.UNREG_PICKABLE_ITEM_CHOSEN(_OnPickedItemChanged);
-                VARMAP_GraphicsMaster.UNREG_ITEM_HOVER(_OnHoverItemChanged);
                 VARMAP_GraphicsMaster.UNREG_USER_INPUT_INTERACTION(_OnUserInputInteractionChanged);
             }
         }
@@ -622,27 +631,6 @@ namespace Gob3AQ.GraphicsMaster
 
                 UpdateCursorBaseSprite();
                 uicanvas_cls.SetCursorItem(newval);
-            }
-        }
-
-        private void _OnHoverItemChanged(ChangedEventType evtype, in GameItem oldval, in GameItem newval)
-        {
-            _ = evtype;
-
-            if (oldval != newval)
-            {
-                ref readonly ItemInfo itemInfo = ref ItemInfo.EMPTY;
-
-                if (newval != GameItem.ITEM_NONE)
-                {
-                    itemInfo = ref ItemsInteractionsClass.GetItemInfo(newval);
-                }
-
-                isDoorHovered = itemInfo.family == GameItemFamily.ITEM_FAMILY_TYPE_DOOR;
-
-                UpdateCursorBaseSprite();
-
-                uicanvas_cls.SetCursorLabel(newval, in itemInfo);
             }
         }
 

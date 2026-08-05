@@ -165,14 +165,29 @@ namespace Gob3AQ.GameMaster
                 case Game_Status.GAME_STATUS_LOADING:
                     if (moduleLoadingDone == ALL_MODULES_LOADED_MASK)
                     {
-                        if (VARMAP_GameMaster.GET_SHADOW_ACTUAL_ROOM() == Room.CHAPTER_SHOW)
+                        Game_Status newStatus;
+                        bool isMap;
+
+                        switch(VARMAP_GameMaster.GET_SHADOW_ACTUAL_ROOM())
                         {
-                            _SetGameStatus(Game_Status.GAME_STATUS_CHAPTER_SHOW);
+                            case Room.CHAPTER_SHOW:
+                                newStatus = Game_Status.GAME_STATUS_CHAPTER_SHOW;
+                                isMap = false;
+                                break;
+
+                            case Room.MAP_1:
+                                newStatus = Game_Status.GAME_STATUS_PLAY;
+                                isMap = true;
+                                break;
+
+                            default:
+                                newStatus = Game_Status.GAME_STATUS_PLAY;
+                                isMap = false;
+                                break;
                         }
-                        else
-                        {
-                            _SetGameStatus(Game_Status.GAME_STATUS_PLAY);
-                        }
+
+                        _SetGameStatus(newStatus);
+                        VARMAP_GameMaster.SET_MAP_ACTIVE(isMap);
                     }
                     break;
                 default:

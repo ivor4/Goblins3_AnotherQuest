@@ -78,6 +78,9 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_BLANK, 
         ITEM_PICKABLE_FIG, 
         ITEM_PINPOINT_MAP, 
+        ITEM_MAP_POINT_PERIPH_NEIGH, 
+        ITEM_MAP_POINT_CITY_CENTER, 
+        ITEM_MAP_POINT_SOUTH_NEIGH, 
         ITEM_LAST, 
         
 ITEM_TOTAL

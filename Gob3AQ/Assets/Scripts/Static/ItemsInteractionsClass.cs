@@ -528,7 +528,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
 
             new( /* COND_GO_STREET1_SOUTH_NEIGH */
             new GameEventCombi[1]{new(GameEvent.EVENT_ITEM_EXTRAPERLO_INVITATION_PICKABLE_TAKEN, true)}, 
-            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_CROSS_DOOR,
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_CROSS_DOOR,
             new GameAction[1]{GameAction.ACTION_DIALOGUE_NOT_GO_SOUTH_NEIGH}), 
 
             new( /* COND_TRY_TALK_PHARMACIST */
@@ -1316,9 +1316,24 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_FIG, ActionConditions.COND_TAKE_ITEM_FIG})),
 
             new ( /* ITEM_PINPOINT_MAP */
-            NameType.NAME_PINPOINT_MAP,GameItemFamily.ITEM_FAMILY_TYPE_NOACTION,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PINPOINT_MAP}),
+            NameType.NAME_PINPOINT_MAP,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PINPOINT_MAP}),
             GameSprite.SPRITE_PINPOINT_MAP,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_PINPOINT_MAP,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
+
+            new ( /* ITEM_MAP_POINT_PERIPH_NEIGH */
+            NameType.NAME_CITY_PERIPH,GameItemFamily.ITEM_FAMILY_TYPE_MAP_POINT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
+            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,
+            new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
+
+            new ( /* ITEM_MAP_POINT_CITY_CENTER */
+            NameType.NAME_CITY_CENTER,GameItemFamily.ITEM_FAMILY_TYPE_MAP_POINT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
+            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,
+            new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
+
+            new ( /* ITEM_MAP_POINT_SOUTH_NEIGH */
+            NameType.NAME_SOUTH_NEIGHBORHOOD,GameItemFamily.ITEM_FAMILY_TYPE_MAP_POINT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
+            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,
+            new(new HashSet<ActionConditions>(1){ActionConditions.COND_GO_STREET1_SOUTH_NEIGH})),
 
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST}),

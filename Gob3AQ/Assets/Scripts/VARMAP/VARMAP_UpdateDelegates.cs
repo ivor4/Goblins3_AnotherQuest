@@ -127,11 +127,6 @@ namespace Gob3AQ.VARMAP.Initialization
             _SET_PICKABLE_ITEM_CHOSEN = ((VARMAP_Variable_Interface<GameItem>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_CHOSEN]).SetValue;
             _REG_PICKABLE_ITEM_CHOSEN = ((VARMAP_Variable_Interface<GameItem>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_CHOSEN]).RegisterChangeEvent;
             _UNREG_PICKABLE_ITEM_CHOSEN = ((VARMAP_Variable_Interface<GameItem>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_CHOSEN]).UnregisterChangeEvent;
-            _GET_ITEM_HOVER = ((VARMAP_Variable_Interface<GameItem>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_HOVER]).GetValue;
-            _GET_SHADOW_ITEM_HOVER = ((VARMAP_Variable_Interface<GameItem>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_HOVER]).GetShadowValue;
-            _SET_ITEM_HOVER = ((VARMAP_Variable_Interface<GameItem>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_HOVER]).SetValue;
-            _REG_ITEM_HOVER = ((VARMAP_Variable_Interface<GameItem>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_HOVER]).RegisterChangeEvent;
-            _UNREG_ITEM_HOVER = ((VARMAP_Variable_Interface<GameItem>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_HOVER]).UnregisterChangeEvent;
             _GET_USER_INPUT_INTERACTION = ((VARMAP_Variable_Interface<UserInputInteraction>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_USER_INPUT_INTERACTION]).GetValue;
             _GET_SHADOW_USER_INPUT_INTERACTION = ((VARMAP_Variable_Interface<UserInputInteraction>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_USER_INPUT_INTERACTION]).GetShadowValue;
             _SET_USER_INPUT_INTERACTION = ((VARMAP_Variable_Interface<UserInputInteraction>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_USER_INPUT_INTERACTION]).SetValue;
@@ -147,6 +142,11 @@ namespace Gob3AQ.VARMAP.Initialization
             _SET_CHAPTER_SHOW_NR = ((VARMAP_Variable_Interface<int>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_CHAPTER_SHOW_NR]).SetValue;
             _REG_CHAPTER_SHOW_NR = ((VARMAP_Variable_Interface<int>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_CHAPTER_SHOW_NR]).RegisterChangeEvent;
             _UNREG_CHAPTER_SHOW_NR = ((VARMAP_Variable_Interface<int>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_CHAPTER_SHOW_NR]).UnregisterChangeEvent;
+            _GET_MAP_ACTIVE = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MAP_ACTIVE]).GetValue;
+            _GET_SHADOW_MAP_ACTIVE = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MAP_ACTIVE]).GetShadowValue;
+            _SET_MAP_ACTIVE = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MAP_ACTIVE]).SetValue;
+            _REG_MAP_ACTIVE = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MAP_ACTIVE]).RegisterChangeEvent;
+            _UNREG_MAP_ACTIVE = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MAP_ACTIVE]).UnregisterChangeEvent;
             _GET_LAST_VARMAP_VAL = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL]).GetValue;
             _GET_SHADOW_LAST_VARMAP_VAL = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL]).GetShadowValue;
             _SET_LAST_VARMAP_VAL = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL]).SetValue;
@@ -207,6 +207,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _START_CARD_GAME = CardMasterClass.StartCardGameService;
             _GIVE_UP_CARD_GAME = CardMasterClass.GiveUpCardGameService;
             _LOAD_ROOM_AS_ACTION = LevelMasterClass.LoadRoomAsActionService;
+            _LABEL_ELEM_HOVER = GraphicsMasterClass.LabelElemHoverService;
             _LAST_SERVICE = GameMasterClass.ExitGameService;
             /* > ATG 2 END */
         }

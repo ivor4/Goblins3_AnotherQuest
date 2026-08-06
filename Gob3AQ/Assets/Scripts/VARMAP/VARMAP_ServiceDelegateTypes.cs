@@ -48,6 +48,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void COMMIT_MEMENTO_NOTIF_DELEGATE(Memento memento);
     public delegate void INTERACT_ITEM_DELEGATE(GameItem item,int destWp_index, out bool accepted);
     public delegate void ACTION_TO_ITEM_DELEGATE(in ActionInfo actionInfo);
+    public delegate void TRY_UNCHAIN_CONDITION_DELEGATE(ReadOnlySpan<UnchainConditions> condition, bool onlyPeek, out bool empty, out bool somePerformed, out bool allPerformed);
     public delegate void ITEM_REACHED_WAYPOINT_DELEGATE(GameItem item);
     public delegate void IS_EVENT_COMBI_OCCURRED_DELEGATE(ReadOnlySpan<GameEventCombi> combi, out bool occurred);
     public delegate void IS_MEMENTO_UNLOCKED_DELEGATE(Memento memento, out bool occurred, out bool unwatched);

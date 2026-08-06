@@ -14,6 +14,7 @@ using Gob3AQ.Waypoint.Network;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 namespace Gob3AQ.LevelMaster
@@ -87,7 +88,9 @@ namespace Gob3AQ.LevelMaster
         public static void GetNearestWPService(Vector2 position, float maxRadius, out int candidate_index,
             out Vector2 candidate_pos)
         {
-            Span<GameEventCombi> gameEventCombis = RentedSpan<GameEventCombi>.GetSpanOfSize(1);
+            GameEventCombi combi = new();
+            Span<GameEventCombi> gameEventCombis = MemoryMarshal.CreateSpan(ref combi, 1);
+
             if (_singleton)
             {
                 float minDistance = float.PositiveInfinity;
@@ -106,9 +109,8 @@ namespace Gob3AQ.LevelMaster
                             pass = true;
                             break;
                         case WaypointReachability.REACHABLE_WHEN_COMBI:
-                            GameEventCombi combi = new(wpinfo.NeededEvent.ev, wpinfo.NeededEvent.not);
-                            gameEventCombis[0] = combi;
-                            VARMAP_LevelMaster.IS_EVENT_COMBI_OCCURRED(gameEventCombis, out pass);
+                            VARMAP_LevelMaster.TRY_UNCHAIN_CONDITION(wpinfo.CrossingConditions, true, out bool empty, out _, out pass);
+                            pass |= empty;
                             break;
                         default:
                             pass = false;
@@ -736,19 +738,15 @@ namespace Gob3AQ.LevelMaster
             /* Now interact if buffered */
             if (charPendingAction.pending)
             {
-                GameAction actionWhenCross = _WP_Info_List[_Player_List[(int)character].Waypoint].ActionWhenCross;
-                if (actionWhenCross != GameAction.ACTION_NONE)
-                {
-                    Span<GameAction> stackAction = RentedSpan<GameAction>.GetSpanOfSize(1);
-                    stackAction[0] = actionWhenCross;
-                    VARMAP_LevelMaster.PERFORM_ACTION(stackAction, null);
-                }
-                else if (usage.type != ItemInteractionType.INTERACTION_MOVE)
+                ReadOnlySpan<UnchainConditions> actionWhenCross = _WP_Info_List[_Player_List[(int)character].Waypoint].ActionOnStepConditions;
+
+                VARMAP_LevelMaster.TRY_UNCHAIN_CONDITION(actionWhenCross, false, out _, out bool somePerformed, out _);
+
+                if (!somePerformed && (usage.type != ItemInteractionType.INTERACTION_MOVE))
                 {
                     /* Check if it is available and is still in original position */
                     bool validTransaction = IsItemAvailable(usage.itemDest);
                     validTransaction &= _ItemDictionary[usage.itemDest].ExposedWaypoint == usage.destWaypoint_index;
-
 
                     if (validTransaction)
                     {
@@ -782,7 +780,9 @@ namespace Gob3AQ.LevelMaster
             {
                 WaypointInfo wpInfo = _WP_Info_List[iteratedWaypoint];
 
-                if (wpInfo.ActionWhenCross != GameAction.ACTION_NONE) break;
+                VARMAP_LevelMaster.TRY_UNCHAIN_CONDITION(wpInfo.ActionOnStepConditions, true, out _, out bool somePerformed, out _);
+
+                if (somePerformed) break;
                 
                 /* Point to next Waypoint */
                 iteratedWaypoint = _WP_Info_List[iteratedWaypoint].Solution.TravelTo[waypointDst];
@@ -790,10 +790,10 @@ namespace Gob3AQ.LevelMaster
                 if (iteratedWaypoint != -1)
                 {
                     wpInfo = _WP_Info_List[iteratedWaypoint];
-                    Span<GameEventCombi> events_needed = RentedSpan<GameEventCombi>.GetSpanOfSize(1);
-                    events_needed[0] = new GameEventCombi(wpInfo.NeededEvent.ev, wpInfo.NeededEvent.not);
 
-                    VARMAP_LevelMaster.IS_EVENT_COMBI_OCCURRED(events_needed, out bool occurred);
+                    VARMAP_LevelMaster.TRY_UNCHAIN_CONDITION(wpInfo.CrossingConditions, true, out bool empty, out _, out bool occurred);
+                    occurred |= empty;
+
 
                     if (occurred)
                     {
@@ -825,8 +825,8 @@ namespace Gob3AQ.LevelMaster
 
         private void PlayerEntryWalk()
         {
-            Span<GameEventCombi> stackCombi = RentedSpan<GameEventCombi>.GetSpanOfSize(1);
-            stackCombi[0] = new GameEventCombi(GameEvent.EVENT_MASTER_CHANGE_ROOM, false);
+            GameEventCombi eventCombi = new GameEventCombi(GameEvent.EVENT_MASTER_CHANGE_ROOM, false);
+            ReadOnlySpan<GameEventCombi> stackCombi = MemoryMarshal.CreateReadOnlySpan(ref eventCombi, 1);
 
             VARMAP_LevelMaster.IS_EVENT_COMBI_OCCURRED(stackCombi, out bool occurred);
 

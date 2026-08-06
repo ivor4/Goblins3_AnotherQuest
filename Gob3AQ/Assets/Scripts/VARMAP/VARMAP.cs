@@ -330,6 +330,13 @@ protected static USE_ITEM_DELEGATE _USE_ITEM;
 /// </summary>
 protected static PEEK_ITEM_DELEGATE _PEEK_ITEM;
         /// <summary> 
+/// Similar to PEEK_ITEM but without associated Item just pointing to named CONDITION 
+/// <para> Owner: GameEventMaster </para> 
+/// <para> Accessors: LevelMaster </para> 
+/// <para> Method: <see cref="GameEventMasterClass.TryUnchainConditionService"/> </para> 
+/// </summary>
+protected static TRY_UNCHAIN_CONDITION_DELEGATE _TRY_UNCHAIN_CONDITION;
+        /// <summary> 
 /// Cancels selected item 
 /// <para> Owner: GameMenu </para> 
 /// <para> Accessors: LevelMaster, ItemMaster </para> 

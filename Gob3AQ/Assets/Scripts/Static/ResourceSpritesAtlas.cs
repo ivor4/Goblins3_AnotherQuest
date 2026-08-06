@@ -123,6 +123,7 @@ namespace Gob3AQ.ResourceSpritesAtlas
             new("BACKGROUND_STATION_1", "SPRITE_ATLAS_TRAIN1_1"), /* BACKGROUND_STATION_1 */ 
             new("BACKGROUND_STATION_1_NIGHT", "SPRITE_ATLAS_TRAIN1_1"), /* BACKGROUND_STATION_1_NIGHT */ 
             new("BACKGROUND_MAP_1", "SPRITE_ATLAS_MAP"), /* BACKGROUND_MAP_1 */ 
+            new("BACKGROUND_MAP_1_NIGHT", "SPRITE_ATLAS_MAP"), /* BACKGROUND_MAP_1_NIGHT */ 
             new("SPRITE_PINPOINT_MAP", "SPRITE_ATLAS_MAP"), /* SPRITE_PINPOINT_MAP */ 
             new("SPRITE_LAST", ""), /* SPRITE_LAST */ 
             /* > ATG 1 END < */

@@ -412,6 +412,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_ANY, 
             new GameAction[2]{GameAction.ACTION_DIALOGUE_MAINCHAR_RECAP_DREAM_1, GameAction.ACTION_EVENT_CLEAR_PENDING_RECAP_DREAM_1}), 
 
+            new( /* UNCHAIN_SOUND_WATER_FLOWING */
+            true,false,false,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY, 
+            new GameAction[1]{GameAction.ACTION_PLAY_SOUND_WATER_FLOW}), 
+
             new( /* UNCHAIN_LAST */
             false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
@@ -3191,6 +3197,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_MAINCHAR_RECAP_DREAM_1,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_PLAY_SOUND_WATER_FLOW */
+            false,ActionType.ACTION_TYPE_PLAY_SOUND,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_AMBIENCE_WATER_FLOW,Room.ROOM_NONE,"",true,null,0,0,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

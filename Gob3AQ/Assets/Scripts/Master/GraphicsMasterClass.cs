@@ -11,6 +11,7 @@ using Gob3AQ.VARMAP.Types;
 using Gob3AQ.VARMAP.Types.Delegates;
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 namespace Gob3AQ.GraphicsMaster
@@ -493,7 +494,9 @@ namespace Gob3AQ.GraphicsMaster
 
         private void UpdateCameraEffects()
         {
-            Span<GameEventCombi> eventCombi = RentedSpan<GameEventCombi>.GetSpanOfSize(1);
+            GameEventCombi flatEventCombi = new GameEventCombi(GameEvent.EVENT_NONE, false);
+            Span<GameEventCombi> eventCombi = MemoryMarshal.CreateSpan(ref flatEventCombi, 1);
+
             eventCombi[0] = new GameEventCombi(GameEvent.EVENT_DRUNK_STATE, false);
 
             VARMAP_GraphicsMaster.IS_EVENT_COMBI_OCCURRED(eventCombi, out bool drunk);

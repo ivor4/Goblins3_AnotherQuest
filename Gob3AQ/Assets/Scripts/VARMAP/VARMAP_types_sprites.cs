@@ -106,6 +106,7 @@ namespace Gob3AQ.VARMAP.Types
         BACKGROUND_STATION_1, 
         BACKGROUND_STATION_1_NIGHT, 
         BACKGROUND_MAP_1, 
+        BACKGROUND_MAP_1_NIGHT, 
         SPRITE_PINPOINT_MAP, 
         SPRITE_LAST, 
         

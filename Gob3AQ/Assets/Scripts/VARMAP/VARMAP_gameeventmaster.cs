@@ -63,6 +63,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             MEMENTO_PARENT_WATCHED = _MEMENTO_PARENT_WATCHED;
             INTERACT_ITEM = _INTERACT_ITEM;
             ACTION_TO_ITEM = _ACTION_TO_ITEM;
+            TRY_UNCHAIN_CONDITION = _TRY_UNCHAIN_CONDITION;
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
             SHOW_DIALOGUE = _SHOW_DIALOGUE;
             SHOW_DECISION = _SHOW_DECISION;
@@ -189,6 +190,13 @@ public static INTERACT_ITEM_DELEGATE INTERACT_ITEM;
 /// <para> Method: <see cref="ItemMasterClass.ActionToItemService"/> </para> 
 /// </summary>
 public static ACTION_TO_ITEM_DELEGATE ACTION_TO_ITEM;
+        /// <summary> 
+/// Similar to PEEK_ITEM but without associated Item just pointing to named CONDITION 
+/// <para> Owner: GameEventMaster </para> 
+/// <para> Accessors: LevelMaster </para> 
+/// <para> Method: <see cref="GameEventMasterClass.TryUnchainConditionService"/> </para> 
+/// </summary>
+public static TRY_UNCHAIN_CONDITION_DELEGATE TRY_UNCHAIN_CONDITION;
         /// <summary> 
 /// Asks Game Master to set game mode 
 /// <para> Owner: GameMaster </para> 

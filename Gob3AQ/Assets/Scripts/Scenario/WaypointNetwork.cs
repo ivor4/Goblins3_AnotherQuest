@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Gob3AQ.LevelMaster;
 using Gob3AQ.VARMAP.Types;
+using System;
+
 
 
 
@@ -37,24 +39,27 @@ namespace Gob3AQ.Waypoint.Network
 
     public readonly struct WaypointInfo
     {
+        public readonly ReadOnlySpan<UnchainConditions> CrossingConditions => crossingConditions;
+        public readonly ReadOnlySpan<UnchainConditions> ActionOnStepConditions => actionOnStepConditions;
+
         public readonly Vector3 Position;
         public readonly WaypointReachability Reachability;
         public readonly WaypointSolution Solution;
         public readonly float CharacterSizeFactor;
-        public readonly GameEventCombi_prv NeededEvent;
-        public readonly GameAction ActionWhenCross;
+        private readonly UnchainConditions[] crossingConditions;
+        private readonly UnchainConditions[] actionOnStepConditions;
         public readonly bool FlipXForAction;
         public readonly string Tag;
 
         public WaypointInfo(Vector3 position, WaypointReachability reachability, WaypointSolution solution,
-            float characterSizeFactor, GameEventCombi_prv neededEvent, GameAction actionWhenCross, bool flipXForAction, string tag)
+            float characterSizeFactor, UnchainConditions[] crossingConditions, UnchainConditions[] actionOnStepConditions, bool flipXForAction, string tag)
         {
             Position = position;
             Reachability = reachability;
             Solution = solution;
             CharacterSizeFactor = characterSizeFactor;
-            NeededEvent = neededEvent;
-            ActionWhenCross = actionWhenCross;
+            this.crossingConditions = crossingConditions;
+            this.actionOnStepConditions = actionOnStepConditions;
             FlipXForAction = flipXForAction;
             Tag = tag;
         }
@@ -83,8 +88,7 @@ namespace Gob3AQ.Waypoint.Network
 
             for (int i = 0; i < children.Count; ++i)
             {
-                WaypointInfo info = new(children[i].transform.position, children[i].Reachability,
-                    solutions[i], children[i].CharacterSizeFactor, children[i].NeededEvent, children[i].ActionWhenCross, children[i].FlipXForAction, children[i].WpTag);
+                WaypointInfo info = children[i].GetWaypointInfo(solutions[i]);
                 waypoints_info.Add(info);
             }
 

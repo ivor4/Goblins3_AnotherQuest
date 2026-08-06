@@ -311,6 +311,7 @@ namespace Gob3AQ.VARMAP.Types
         SOUND_FOOTSTEP_2, 
         SOUND_FOOTSTEP_3, 
         SOUND_FOOTSTEP_4, 
+        MUSIC_CITY_1, 
         SOUND_LAST, 
         
 SOUND_TOTAL

@@ -28,10 +28,10 @@ namespace Gob3AQ.Waypoint
         private WaypointReachability reachability;
 
         [SerializeField]
-        private GameEventCombi_prv neededEvent;
+        private UnchainConditions[] crossingConditions;
 
         [SerializeField]
-        private GameAction actionWhenCross;
+        private UnchainConditions[] actionOnStepConditions;
 
         [SerializeField]
         private bool flipXForAction;
@@ -39,18 +39,19 @@ namespace Gob3AQ.Waypoint
         [SerializeField]
         private string wpTag;
 
-        public float CharacterSizeFactor => characterSizeFactor;
+
         public int ID_in_Network => id_in_network;
         public IReadOnlyList<WaypointClass> ConnectedWaypoints => connectedWaypoints;
-        public WaypointReachability Reachability => reachability;
-        public GameEventCombi_prv NeededEvent => neededEvent;
-        public GameAction ActionWhenCross => actionWhenCross;
-        public bool FlipXForAction => flipXForAction;
-        public string WpTag => wpTag;
+
 
         private void Start()
         {
             gameObject.SetActive(false);
+        }
+
+        public WaypointInfo GetWaypointInfo(WaypointSolution solution)
+        {
+            return new WaypointInfo(transform.position, reachability, solution, characterSizeFactor, crossingConditions, actionOnStepConditions, flipXForAction, wpTag);
         }
 
 

@@ -68,6 +68,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
             ITEM_REACHED_WAYPOINT = _ITEM_REACHED_WAYPOINT;
             USE_ITEM = _USE_ITEM;
             PEEK_ITEM = _PEEK_ITEM;
+            TRY_UNCHAIN_CONDITION = _TRY_UNCHAIN_CONDITION;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             LOCK_PLAYER = _LOCK_PLAYER;
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
@@ -238,6 +239,13 @@ public static USE_ITEM_DELEGATE USE_ITEM;
 /// <para> Method: <see cref="ItemMasterClass.PeekItemService"/> </para> 
 /// </summary>
 public static PEEK_ITEM_DELEGATE PEEK_ITEM;
+        /// <summary> 
+/// Similar to PEEK_ITEM but without associated Item just pointing to named CONDITION 
+/// <para> Owner: GameEventMaster </para> 
+/// <para> Accessors: LevelMaster </para> 
+/// <para> Method: <see cref="GameEventMasterClass.TryUnchainConditionService"/> </para> 
+/// </summary>
+public static TRY_UNCHAIN_CONDITION_DELEGATE TRY_UNCHAIN_CONDITION;
         /// <summary> 
 /// Cancels selected item 
 /// <para> Owner: GameMenu </para> 

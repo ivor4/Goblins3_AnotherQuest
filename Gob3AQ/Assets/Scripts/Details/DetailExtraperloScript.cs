@@ -5,6 +5,7 @@ using System;
 using Gob3AQ.Libs.Arith;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Runtime.InteropServices;
 
 namespace Gob3AQ.GameMenu.DetailActiveElem
 {
@@ -49,8 +50,8 @@ namespace Gob3AQ.GameMenu.DetailActiveElem
             activeCornerScripts[2] = forward.transform.Find("BackgroundUnfolded/Corner3").GetComponent<DetailActiveElemScript>();
             activeCornerScripts[3] = forward.transform.Find("BackgroundUnfolded/Corner4").GetComponent<DetailActiveElemScript>();
 
-            Span<GameEventCombi> span = RentedSpan<GameEventCombi>.GetSpanOfSize(1);
-            span[0] = new(GameEvent.EVENT_EXTRAPERLO_SHOWN_OLD_INVITATION, false);
+            GameEventCombi spanEvent = new(GameEvent.EVENT_EXTRAPERLO_SHOWN_OLD_INVITATION, false);
+            ReadOnlySpan<GameEventCombi> span = MemoryMarshal.CreateReadOnlySpan(ref spanEvent, 1);
 
             VARMAP_GameMenu.IS_EVENT_COMBI_OCCURRED(span, out bool occurred);
 
@@ -81,8 +82,8 @@ namespace Gob3AQ.GameMenu.DetailActiveElem
         {
             if (!doFolded)
             {
-                Span<GameEventCombi> span = RentedSpan<GameEventCombi>.GetSpanOfSize(1);
-                span[0] = new(GameEvent.EVENT_EXTRAPERLO_INV_FOLDED_CORNERS, false);
+                GameEventCombi eventSpan = new(GameEvent.EVENT_EXTRAPERLO_INV_FOLDED_CORNERS, false);
+                ReadOnlySpan<GameEventCombi> span = MemoryMarshal.CreateReadOnlySpan(ref eventSpan, 1);
 
                 VARMAP_GameMenu.IS_EVENT_COMBI_OCCURRED(span, out bool occurred);
 
@@ -108,8 +109,8 @@ namespace Gob3AQ.GameMenu.DetailActiveElem
 
         private void RefreshActiveElemDetail()
         {
-            Span<GameEventCombi> gameEventCombi = RentedSpan<GameEventCombi>.GetSpanOfSize(1);
-            gameEventCombi[0] = new(GameEvent.EVENT_INVITATION_REVEALED, false);
+            GameEventCombi eventSpan = new(GameEvent.EVENT_INVITATION_REVEALED, false);
+            ReadOnlySpan<GameEventCombi> gameEventCombi = MemoryMarshal.CreateReadOnlySpan(ref eventSpan, 1);
             VARMAP_GameMenu.IS_EVENT_COMBI_OCCURRED(gameEventCombi, out bool occurred);
 
 

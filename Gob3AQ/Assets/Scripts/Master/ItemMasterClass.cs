@@ -9,6 +9,7 @@ using Gob3AQ.VARMAP.Types;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 namespace Gob3AQ.ItemMaster
@@ -265,8 +266,8 @@ namespace Gob3AQ.ItemMaster
             if(!conditionOK && !isPeek)
             {
                 GameAction defaultNegativeAction = GetDefaultNegativeAction(usage.type);
-                Span<GameAction> negativeActions = RentedSpan<GameAction>.GetSpanOfSize(1);
-                negativeActions[0] = defaultNegativeAction;
+                ReadOnlySpan<GameAction> negativeActions = MemoryMarshal.CreateReadOnlySpan(ref defaultNegativeAction, 1);
+
                 VARMAP_ItemMaster.PERFORM_ACTION(negativeActions, null);
             }
 

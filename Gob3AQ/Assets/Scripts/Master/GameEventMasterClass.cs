@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using Gob3AQ.Libs.Arith;
 using UnityEngine;
 using Gob3AQ.Waypoint.Network;
+using System.Runtime.InteropServices;
 
 namespace Gob3AQ.GameEventMaster
 {
@@ -115,6 +116,28 @@ namespace Gob3AQ.GameEventMaster
                     evOccurred ^= combi[i].eventNOT; // If condition is NOT, invert result
                     occurred &= evOccurred;
                 }
+            }
+        }
+
+        public static void TryUnchainConditionService(ReadOnlySpan<UnchainConditions> condition, bool onlyPeek, out bool empty, out bool somePerformed, out bool allPerformed)
+        {
+            somePerformed = false;
+            allPerformed = false;
+            empty = true;
+
+            if(condition.Length == 0) return;
+            if (condition[0] == UnchainConditions.UNCHAIN_NONE) return;
+            if (!_singleton) return;
+
+            allPerformed = true;
+            empty = false;
+
+            for (int i = 0; i < condition.Length; ++i)
+            {
+                ref readonly UnchainInfo unchainInfo = ref ItemsInteractionsClass.GetUnchainInfo(condition[i]);
+                bool accepted = _singleton.TryUnchainAction(in unchainInfo, onlyPeek);
+                somePerformed |= accepted;
+                allPerformed &= accepted;
             }
         }
 
@@ -247,7 +270,7 @@ namespace Gob3AQ.GameEventMaster
             foreach (UnchainConditions unchainConditions in roomInfo.exitConditions)
             {
                 ref readonly UnchainInfo unchainInfo = ref ItemsInteractionsClass.GetUnchainInfo(unchainConditions);
-                _singleton.TryUnchainAction(in unchainInfo);
+                _singleton.TryUnchainAction(in unchainInfo, false);
             }
         }
 
@@ -395,7 +418,8 @@ namespace Gob3AQ.GameEventMaster
             bool ended;
 
             /* Retrieve all Unchainers */
-            Span<GameEventCombi> ignoreIfCondition = RentedSpan<GameEventCombi>.GetSpanOfSize(1);
+            GameEventCombi eventCombi = new GameEventCombi(GameEvent.EVENT_NONE, false);
+            Span<GameEventCombi> ignoreIfCondition = MemoryMarshal.CreateSpan(ref eventCombi, 1);
 
             if (index < (int)UnchainConditions.UNCHAIN_TOTAL)
             {
@@ -477,7 +501,7 @@ namespace Gob3AQ.GameEventMaster
             {
                 UnchainInfo unchainer_info = ItemsInteractionsClass.GetUnchainInfo(kvp.Key);
 
-                if (TryUnchainAction(in unchainer_info))
+                if (TryUnchainAction(in unchainer_info, false))
                 {
                     if (!unchainer_info.repeat)
                     {
@@ -509,7 +533,8 @@ namespace Gob3AQ.GameEventMaster
             bool pending;
 
             /* Retrieve all Unchainers */
-            Span<GameEventCombi> ignoreIfCondition = RentedSpan<GameEventCombi>.GetSpanOfSize(1);
+            GameEventCombi eventCombi = new GameEventCombi(GameEvent.EVENT_NONE, false);
+            Span<GameEventCombi> ignoreIfCondition = MemoryMarshal.CreateSpan(ref eventCombi, 1);
 
             /* Check if ignoreif condition comply (NONE means never ignore) */
             if (unchainer_info.ignoreif.eventType != GameEvent.EVENT_NONE)
@@ -584,7 +609,7 @@ namespace Gob3AQ.GameEventMaster
                         ref readonly UnchainInfo unchainerInfo = ref ItemsInteractionsClass.GetUnchainInfo(unchainer);
 
                         /* If it is completed, add to remove list */
-                        if (TryUnchainAction(in unchainerInfo))
+                        if (TryUnchainAction(in unchainerInfo, false))
                         {
                             if (!unchainerInfo.repeat)
                             {
@@ -756,14 +781,14 @@ namespace Gob3AQ.GameEventMaster
             }
         }
 
-        private bool TryUnchainAction(in UnchainInfo info)
+        private bool TryUnchainAction(in UnchainInfo info, bool onlyPeek)
         {
             ReadOnlySpan<GameEventCombi> neededEvents = info.NeededEvents;
             IsEventCombiOccurredService(neededEvents, out bool occurred);
             occurred &= IsMomentValid(info.momentType);
 
             /* If occurred, execute it */
-            if (occurred)
+            if (occurred && !onlyPeek)
             {
                 PerformActionService(info.UnchainActions, null);
             }
@@ -830,7 +855,8 @@ namespace Gob3AQ.GameEventMaster
                     case ActionType.ACTION_TYPE_PLAY_SOUND:
                         mustWait = info.waitForEnd;
                         notifyAction = NotifyAction.NOTIFY_SOUND;
-                        VARMAP_GameEventMaster.PLAY_SOUND(info.targetSound, mustWait ? EndOfSoundPlayCallback : null, false);
+                        bool loop = info.boolOption1.HasValue && info.boolOption1.Value;
+                        VARMAP_GameEventMaster.PLAY_SOUND(info.targetSound, mustWait ? EndOfSoundPlayCallback : null, loop);
                         break;
                     case ActionType.ACTION_TYPE_STOP_SOUND:
                         mustWait = info.waitForEnd;
@@ -957,7 +983,7 @@ namespace Gob3AQ.GameEventMaster
                     foreach(UnchainConditions unchainer in roomInfo.backgroundConditions_periodic)
                     {
                         ref readonly UnchainInfo unchainInfo = ref ItemsInteractionsClass.GetUnchainInfo(unchainer);
-                        TryUnchainAction(in unchainInfo);
+                        TryUnchainAction(in unchainInfo, false);
                     }
 
                     _bckgActionsTimestamp = elapsedTime;
@@ -1015,7 +1041,7 @@ namespace Gob3AQ.GameEventMaster
 
                             foreach (UnchainConditions unchainConditions in roomInfo.entryConditions)
                             {
-                                TryUnchainAction(in ItemsInteractionsClass.GetUnchainInfo(unchainConditions));
+                                TryUnchainAction(in ItemsInteractionsClass.GetUnchainInfo(unchainConditions), false);
                             }
                         }
                         break;

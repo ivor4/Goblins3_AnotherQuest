@@ -328,6 +328,7 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_FOOTSTEP_2"), /* SOUND_FOOTSTEP_2 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_FOOTSTEP_3"), /* SOUND_FOOTSTEP_3 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_FOOTSTEP_4"), /* SOUND_FOOTSTEP_4 */ 
+            new(SoundEffect.EFFECT_NONE,"MUSIC_CITY_1"), /* MUSIC_CITY_1 */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

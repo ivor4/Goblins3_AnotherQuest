@@ -13,6 +13,7 @@ using Gob3AQ.VARMAP.Variable;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -549,7 +550,8 @@ namespace Gob3AQ.GameMaster
 
         private static void ManageChangeRoomEvents(bool changeDayEvent, bool changeRoomEvent)
         {
-            Span<GameEventCombi> combiStack = RentedSpan<GameEventCombi>.GetSpanOfSize(1);
+            GameEventCombi eventCombi = new GameEventCombi(GameEvent.EVENT_NONE, false);
+            Span<GameEventCombi> combiStack = MemoryMarshal.CreateSpan(ref eventCombi, 1);
 
             if(changeDayEvent)
             {

@@ -1826,75 +1826,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a49f2b209f453849a22cb3a27c43d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gob3AQ.Waypoint.Network.WaypointNetwork
---- !u!1001 &1373844701
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1777118362426465311, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
-      propertyPath: loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1777118362426465311, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
-      propertyPath: dayMoment
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1777118362426465311, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
-      propertyPath: soundItem
-      value: 43
-      objectReference: {fileID: 0}
-    - target: {fileID: 3862802606018836202, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.70181
-      objectReference: {fileID: 0}
-    - target: {fileID: 3862802606018836202, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.56222
-      objectReference: {fileID: 0}
-    - target: {fileID: 3862802606018836202, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3862802606018836202, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3862802606018836202, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3862802606018836202, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3862802606018836202, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3862802606018836202, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3862802606018836202, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3862802606018836202, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6767379477366607139, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
-      propertyPath: m_Name
-      value: BckgSoundEmitter
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d920f6817720d5b4a807b3c7187bdab6, type: 3}
 --- !u!1001 &1564803851
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2349,7 +2280,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 145606356}
-  - {fileID: 1373844701}
   - {fileID: 550354194}
   - {fileID: 61930134}
   - {fileID: 1194608836}

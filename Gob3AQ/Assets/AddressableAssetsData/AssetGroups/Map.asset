@@ -60,6 +60,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 96872f21c9d21b242bcca6f2ffd15ea0
+    m_Address: BACKGROUND_MAP_1_NIGHT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b7b7faaad842d0b478d21de91a2e9c41
     m_Address: BACKGROUND_MAP_1
     m_ReadOnly: 0

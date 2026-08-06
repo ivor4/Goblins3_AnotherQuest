@@ -118,7 +118,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
 
             new( /* DIALOG_REME */
             new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_HIVE1_NPC_REME},
-            new DialogOption[2]{DialogOption.DIALOG_OPTION_REME_1, DialogOption.DIALOG_OPTION_REME_2}
+            new DialogOption[3]{DialogOption.DIALOG_OPTION_REME_1, DialogOption.DIALOG_OPTION_REME_2, DialogOption.DIALOG_OPTION_REME_3}
             ),
 
             new( /* DIALOG_REME_CARDS */
@@ -376,6 +376,16 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new DialogOption[1]{DialogOption.DIALOG_ALTER_EGO_DREAM_1_OPTION_0}
             ),
 
+            new( /* DIALOG_REME_BLOCKING_PATH */
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_HIVE1_NPC_REME},
+            new DialogOption[1]{DialogOption.DIALOG_REME_BLOCKING_PATH_OPTION_0}
+            ),
+
+            new( /* DIALOG_REME_SOAP */
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_HIVE1_NPC_REME},
+            new DialogOption[1]{DialogOption.DIALOG_REME_SOAP_OPTION_0}
+            ),
+
             new( /* DIALOG_LAST */
             new GameItem[1]{GameItem.ITEM_NONE},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE}
@@ -412,8 +422,15 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
             new GameAction[1]{GameAction.ACTION_NONE},
+            DialogType.DIALOG_REME,false,
+            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_REME_2_1, DialogPhrase.PHRASE_DIALOG_REME_2_2}
+            ),
+            new( /* DIALOG_OPTION_REME_3 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_NONE,false,
-            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_REME_2_1}
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_REME_3_1}
             ),
             new( /* DIALOG_OPTION_REME_CARDS */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
@@ -989,6 +1006,20 @@ namespace Gob3AQ.ResourceDialogsAtlas
             DialogType.DIALOG_NONE,false,
             new DialogPhrase[11]{DialogPhrase.PHRASE_DIALOG_ALTER_EGO_DREAM_1_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_ALTER_EGO_DREAM_1_OPTION_0_1, DialogPhrase.PHRASE_DIALOG_ALTER_EGO_DREAM_1_OPTION_0_2, DialogPhrase.PHRASE_DIALOG_ALTER_EGO_DREAM_1_OPTION_0_3, DialogPhrase.PHRASE_DIALOG_ALTER_EGO_DREAM_1_OPTION_0_4, DialogPhrase.PHRASE_DIALOG_ALTER_EGO_DREAM_1_OPTION_0_5, DialogPhrase.PHRASE_DIALOG_ALTER_EGO_DREAM_1_OPTION_0_6, DialogPhrase.PHRASE_DIALOG_ALTER_EGO_DREAM_1_OPTION_0_7, DialogPhrase.PHRASE_DIALOG_ALTER_EGO_DREAM_1_OPTION_0_8, DialogPhrase.PHRASE_DIALOG_ALTER_EGO_DREAM_1_OPTION_0_9, DialogPhrase.PHRASE_DIALOG_ALTER_EGO_DREAM_1_OPTION_0_10}
             ),
+            new( /* DIALOG_REME_BLOCKING_PATH_OPTION_0 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_NONE},
+            DialogType.DIALOG_NONE,false,
+            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_REME_BLOCKING_PATH_OPTION_0_0, DialogPhrase.PHRASE_DIALOG_REME_BLOCKING_PATH_OPTION_0_1}
+            ),
+            new( /* DIALOG_REME_SOAP_OPTION_0 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_NONE},
+            DialogType.DIALOG_NONE,false,
+            new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_REME_SOAP_1, DialogPhrase.PHRASE_DIALOG_REME_SOAP_2}
+            ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
@@ -1015,7 +1046,9 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,GameSound.SOUND_DIALOG_REME_1_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_CYCLE_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_REME_1_1 */ 
             new(1,GameSound.SOUND_DIALOG_REME_1_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_REME_1_2 */ 
             new(1,GameSound.SOUND_DIALOG_REME_1_3, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_REME_1_3 */ 
-            new(0,GameSound.SOUND_DIALOG_REME_2_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_REME_2_1 */ 
+            new(0,GameSound.SOUND_DIALOG_REME_2_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_CYCLE_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_REME_2_1 */ 
+            new(1,GameSound.SOUND_DIALOG_REME_2_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_REME_2_2 */ 
+            new(0,GameSound.SOUND_DIALOG_REME_3_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_REME_3_1 */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MEMENTO_FIND_JOB_1 */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_HIVE1_AD_BOARD_1 */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_NOT_EXIT_HIVE1_HALL_1 */ 
@@ -1374,6 +1407,10 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,GameSound.SOUND_OBSERVE_FIG_PICKABLE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_ITEM_FIG */ 
             new(0,GameSound.SOUND_MAINCHAR_FAREWELL_DREAM_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MAINCHAR_FAREWELL_DREAM_1 */ 
             new(0,GameSound.SOUND_MAINCHAR_RECAP_DREAM_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MAINCHAR_RECAP_DREAM_1 */ 
+            new(1,GameSound.SOUND_DIALOG_REME_BLOCKING_PATH_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_REME_BLOCKING_PATH_OPTION_0_0 */ 
+            new(0,GameSound.SOUND_DIALOG_REME_BLOCKING_PATH_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_CYCLE_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_REME_BLOCKING_PATH_OPTION_0_1 */ 
+            new(0,GameSound.SOUND_DIALOG_REME_SOAP_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_CYCLE_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_REME_SOAP_1 */ 
+            new(0,GameSound.SOUND_DIALOG_REME_SOAP_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_SEVEN,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_REME_SOAP_2 */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

@@ -688,6 +688,17 @@ namespace Gob3AQ.LevelMaster
 
                     VARMAP_LevelMaster.INTERACT_ITEM(ResourceDialogsAtlasClass.GetItemForCharacter(playerSelected), furthestWaypointIndex, out accepted);
                 }
+                /* If final point was not reachable, move player to the furthest reachable waypoint */
+                else
+                {
+                    usage = InteractionUsage.CreatePlayerMove(playerSelected, furthestWaypointIndex);
+
+                    VARMAP_LevelMaster.INTERACT_ITEM(ResourceDialogsAtlasClass.GetItemForCharacter(playerSelected), furthestWaypointIndex, out accepted);
+                    if (accepted)
+                    {
+                        _PendingCharInteractions[(int)playerSelected] = new PendingCharacterInteraction(in usage, false);
+                    }
+                }
             }
 
             return accepted;
@@ -705,6 +716,16 @@ namespace Gob3AQ.LevelMaster
                 {
                     usage = InteractionUsage.CreateCrossDoor(playerSelected, hovered.item, furthestWaypoint);
                     VARMAP_LevelMaster.INTERACT_ITEM(ResourceDialogsAtlasClass.GetItemForCharacter(playerSelected), furthestWaypoint, out accepted);
+                }
+                else
+                {
+                    usage = InteractionUsage.CreatePlayerMove(playerSelected, furthestWaypoint);
+
+                    VARMAP_LevelMaster.INTERACT_ITEM(ResourceDialogsAtlasClass.GetItemForCharacter(playerSelected), furthestWaypoint, out accepted);
+                    if (accepted)
+                    {
+                        _PendingCharInteractions[(int)playerSelected] = new PendingCharacterInteraction(in usage, false);
+                    }
                 }
 
                 VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
@@ -782,7 +803,8 @@ namespace Gob3AQ.LevelMaster
 
                 VARMAP_LevelMaster.TRY_UNCHAIN_CONDITION(wpInfo.ActionOnStepConditions, true, out _, out bool somePerformed, out _);
 
-                if (somePerformed) break;
+                /* Make possible to scape backwards from an action triggered waypoint */
+                if (somePerformed && (iteratedWaypoint != waypointSrc)) break;
                 
                 /* Point to next Waypoint */
                 iteratedWaypoint = _WP_Info_List[iteratedWaypoint].Solution.TravelTo[waypointDst];

@@ -418,6 +418,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_ANY, 
             new GameAction[1]{GameAction.ACTION_PLAY_SOUND_WATER_FLOW}), 
 
+            new( /* UNCHAIN_REME_BLOCKS_PATH */
+            true,false,false,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_REME_MOVED, true)}, 
+            MomentType.MOMENT_MORNING, 
+            new GameAction[3]{GameAction.ACTION_ANIMATE_REME_BLOCK_PATH, GameAction.ACTION_MOVE_MAINCHAR_TO_FALLBACK_REME, GameAction.ACTION_DIALOGUE_REME_BLOCKING_PATH}), 
+
             new( /* UNCHAIN_LAST */
             false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
@@ -952,6 +958,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN_DREAM,GameItem.ITEM_PICKABLE_FIG,ItemInteractionType.INTERACTION_USE,
             new GameAction[8]{GameAction.ACTION_PLAY_SOUND_DOG_BARKING, GameAction.ACTION_ANIMATE_SULTAN_BARKING, GameAction.ACTION_EVENT_SULTAN_ATE_FOOD, GameAction.ACTION_LOSE_FIG, GameAction.ACTION_ANIMATE_MAINCHAR_DUCK_OFFERING, GameAction.ACTION_ANIMATE_SULTAN_EATING, GameAction.ACTION_DIALOGUE_MAINCHAR_FAREWELL_DREAM_1, GameAction.ACTION_EVENT_PENDING_RECAP_DREAM_1}), 
 
+            new( /* COND_USE_SOAP_REME */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_SOAP_PICKABLE,ItemInteractionType.INTERACTION_USE,
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_REME_SOAP}), 
+
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,
@@ -999,7 +1010,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_HIVE1_NPC_REME */
             NameType.NAME_NPC_REME,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_REME_STEADY}),
             GameSprite.SPRITE_REME_STEADY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,
-            new(new HashSet<ActionConditions>(2){ActionConditions.COND_TALK_REME_1, ActionConditions.COND_USE_CARDS_REME})),
+            new(new HashSet<ActionConditions>(3){ActionConditions.COND_TALK_REME_1, ActionConditions.COND_USE_CARDS_REME, ActionConditions.COND_USE_SOAP_REME})),
 
             new ( /* ITEM_GENERIC_DOOR2 */
             NameType.NAME_ITEM_CROSS,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
@@ -3203,6 +3214,30 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_AMBIENCE_WATER_FLOW,Room.ROOM_NONE,"",true,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_ANIMATE_REME_BLOCK_PATH */
+            true,ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION,GameItem.ITEM_HIVE1_NPC_REME,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_TWO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_MOVE_MAINCHAR_TO_FALLBACK_REME */
+            true,ActionType.ACTION_TYPE_MOVE_TO_WAYPOINT,GameItem.ITEM_PLAYER_MAIN,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"fallback",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_REME_BLOCKING_PATH */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_REME_BLOCKING_PATH,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_REME_SOAP */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_REME_SOAP,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

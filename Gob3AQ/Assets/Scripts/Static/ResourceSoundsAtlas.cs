@@ -329,6 +329,13 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_FOOTSTEP_3"), /* SOUND_FOOTSTEP_3 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_FOOTSTEP_4"), /* SOUND_FOOTSTEP_4 */ 
             new(SoundEffect.EFFECT_NONE,"MUSIC_CITY_1"), /* MUSIC_CITY_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_MOP_STICK_ON_FLOOR"), /* SOUND_MOP_STICK_ON_FLOOR */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_REME_BLOCKING_PATH_1_SPANISH"), /* SOUND_DIALOG_REME_BLOCKING_PATH_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_REME_BLOCKING_PATH_2_SPANISH"), /* SOUND_DIALOG_REME_BLOCKING_PATH_2 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_REME_2_2_SPANISH"), /* SOUND_DIALOG_REME_2_2 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_REME_3_1_SPANISH"), /* SOUND_DIALOG_REME_3_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_REME_SOAP_1_SPANISH"), /* SOUND_DIALOG_REME_SOAP_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_REME_SOAP_2_SPANISH"), /* SOUND_DIALOG_REME_SOAP_2 */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

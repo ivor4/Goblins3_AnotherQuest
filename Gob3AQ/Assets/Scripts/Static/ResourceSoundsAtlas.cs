@@ -324,6 +324,10 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_REME_INTRO_3_SPANISH"), /* SOUND_DIALOG_REME_INTRO_3 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_MOP_1"), /* SOUND_MOP_1 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_MOP_2"), /* SOUND_MOP_2 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_FOOTSTEP_1"), /* SOUND_FOOTSTEP_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_FOOTSTEP_2"), /* SOUND_FOOTSTEP_2 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_FOOTSTEP_3"), /* SOUND_FOOTSTEP_3 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_FOOTSTEP_4"), /* SOUND_FOOTSTEP_4 */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

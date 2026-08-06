@@ -508,7 +508,7 @@ namespace Gob3AQ.GameElement
         {
             float normTime = stateInfo.normalizedTime % 1f;
 
-            if ((normTime < prevAnimationNormalizedTime))
+            if (normTime < prevAnimationNormalizedTime)
             {
                 if (pendingStateCrossings == 1)
                 {

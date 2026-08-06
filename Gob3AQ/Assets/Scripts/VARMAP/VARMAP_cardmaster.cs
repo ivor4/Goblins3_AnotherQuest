@@ -84,7 +84,7 @@ public static SHOW_DIALOGUE_DELEGATE SHOW_DIALOGUE;
         /// <summary> 
 /// Plays a sound and (optionally) callback is called 
 /// <para> Owner: SoundMaster </para> 
-/// <para> Accessors: DialogMaster, CardMaster, GameEventMaster </para> 
+/// <para> Accessors: DialogMaster, ItemMaster, CardMaster, GameEventMaster </para> 
 /// <para> Method: <see cref="SoundMasterClass.PlaySoundService"/> </para> 
 /// </summary>
 public static PLAY_SOUND_DELEGATE PLAY_SOUND;

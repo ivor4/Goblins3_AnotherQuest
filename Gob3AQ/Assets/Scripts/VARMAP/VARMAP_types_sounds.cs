@@ -305,6 +305,8 @@ namespace Gob3AQ.VARMAP.Types
         SOUND_DIALOG_REME_INTRO_1, 
         SOUND_DIALOG_REME_INTRO_2, 
         SOUND_DIALOG_REME_INTRO_3, 
+        SOUND_MOP_1, 
+        SOUND_MOP_2, 
         SOUND_LAST, 
         
 SOUND_TOTAL

@@ -7,6 +7,7 @@ using Gob3AQ.ItemMaster;
 using Gob3AQ.GameEventMaster;
 using Gob3AQ.GraphicsMaster;
 using Gob3AQ.InputMaster;
+using Gob3AQ.SoundMaster;
 
 namespace Gob3AQ.VARMAP.ItemMaster
 {
@@ -48,6 +49,8 @@ namespace Gob3AQ.VARMAP.ItemMaster
             PEEK_ITEM = _PEEK_ITEM;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             ZOOM_SUBSCRIPTION = _ZOOM_SUBSCRIPTION;
+            PLAY_SOUND = _PLAY_SOUND;
+            STOP_SOUND = _STOP_SOUND;
             START_ANIMATION = _START_ANIMATION;
             ITEM_PERFORM_ANIMATION = _ITEM_PERFORM_ANIMATION;
             PERFORM_ACTION = _PERFORM_ACTION;
@@ -182,6 +185,20 @@ public static CANCEL_PICKABLE_ITEM_DELEGATE CANCEL_PICKABLE_ITEM;
 /// <para> Method: <see cref="GraphicsMasterClass.ZoomSubscriptionService"/> </para> 
 /// </summary>
 public static ZOOM_SUBSCRIPTION_DELEGATE ZOOM_SUBSCRIPTION;
+        /// <summary> 
+/// Plays a sound and (optionally) callback is called 
+/// <para> Owner: SoundMaster </para> 
+/// <para> Accessors: DialogMaster, ItemMaster, CardMaster, GameEventMaster </para> 
+/// <para> Method: <see cref="SoundMasterClass.PlaySoundService"/> </para> 
+/// </summary>
+public static PLAY_SOUND_DELEGATE PLAY_SOUND;
+        /// <summary> 
+/// Stops first match of sound with given ID which is being played 
+/// <para> Owner: SoundMaster </para> 
+/// <para> Accessors: DialogMaster, ItemMaster, GameEventMaster </para> 
+/// <para> Method: <see cref="SoundMasterClass.StopSoundService"/> </para> 
+/// </summary>
+public static STOP_SOUND_DELEGATE STOP_SOUND;
         /// <summary> 
 /// Starts an animation in background or main mode 
 /// <para> Owner: DialogMaster </para> 

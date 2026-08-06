@@ -220,14 +220,14 @@ public static CHANGE_DAY_MOMENT_DELEGATE CHANGE_DAY_MOMENT;
         /// <summary> 
 /// Plays a sound and (optionally) callback is called 
 /// <para> Owner: SoundMaster </para> 
-/// <para> Accessors: DialogMaster, CardMaster, GameEventMaster </para> 
+/// <para> Accessors: DialogMaster, ItemMaster, CardMaster, GameEventMaster </para> 
 /// <para> Method: <see cref="SoundMasterClass.PlaySoundService"/> </para> 
 /// </summary>
 public static PLAY_SOUND_DELEGATE PLAY_SOUND;
         /// <summary> 
 /// Stops first match of sound with given ID which is being played 
 /// <para> Owner: SoundMaster </para> 
-/// <para> Accessors: DialogMaster, GameEventMaster </para> 
+/// <para> Accessors: DialogMaster, ItemMaster, GameEventMaster </para> 
 /// <para> Method: <see cref="SoundMasterClass.StopSoundService"/> </para> 
 /// </summary>
 public static STOP_SOUND_DELEGATE STOP_SOUND;

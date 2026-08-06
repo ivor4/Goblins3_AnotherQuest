@@ -222,7 +222,7 @@ namespace Gob3AQ.GameElement
                 autoSteadyTrigger = usedTrigger;
                 myAnimator.SetInteger(ResourceAnimationsAtlasClass.STEADY_INDEX_HASH, (int)trigger);
             }
-            else if ((trigger == AnimationTrigger.ANIMATION_TRIGGER_AUTO_STEADY))
+            else if (trigger == AnimationTrigger.ANIMATION_TRIGGER_AUTO_STEADY)
             {
                 usedTrigger = autoSteadyTrigger;
             }
@@ -722,9 +722,9 @@ namespace Gob3AQ.GameElement
             switch (newval)
             {
                 case Game_Status.GAME_STATUS_PLAY:
-                    SetActive_Internal(!isUnspawned);
-                    SetClickable_Internal(!isUnspawned && !isUnclickable);
-                    SetMotion_Internal(!isUnspawned);
+                    SetActive(!isUnspawned);
+                    SetClickable(!isUnspawned && !isUnclickable);
+                    SetMotion(!isUnspawned);
                     if (myAnimator)
                     {
                         myAnimator.enabled = true;
@@ -737,11 +737,11 @@ namespace Gob3AQ.GameElement
                 case Game_Status.GAME_STATUS_PLAY:
                     if (((newval != Game_Status.GAME_STATUS_PLAY_DIALOG) && (newval != Game_Status.GAME_STATUS_PLAY_ANIMATION)) || !myAnimator)
                     {
-                        SetActive_Internal(false);
+                        SetActive(false);
                     }
 
-                    SetClickable_Internal(false);
-                    SetMotion_Internal((newval == Game_Status.GAME_STATUS_PLAY_ANIMATION) && !isUnspawned);
+                    SetClickable(false);
+                    SetMotion((newval == Game_Status.GAME_STATUS_PLAY_ANIMATION) && !isUnspawned);
 
                     if (((newval == Game_Status.GAME_STATUS_PLAY_MEMENTO) || (newval == Game_Status.GAME_STATUS_PLAY_ITEM_MENU) || (newval == Game_Status.GAME_STATUS_PLAY_DECISION)) && myAnimator)
                     {

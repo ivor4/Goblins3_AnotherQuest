@@ -213,6 +213,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Gob3AQ.GameElement.Item.Door.DoorClass
   itemID: 7
   startingWaypoint: {fileID: 0}
+  startingExposedWaypoint: {fileID: 0}
   hoverPriority: 0
+  reverseFlipX: 0
   _roomLeadTo: 0
   _waypointLeadTo: 0

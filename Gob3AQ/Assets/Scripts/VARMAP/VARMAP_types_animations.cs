@@ -6,7 +6,6 @@ namespace Gob3AQ.VARMAP.Types
     {
         /* > ATG 1 START < */
         ANIMATION_NONE = -1, 
-        ANIMATION_REME_TEST, 
         ANIMATION_LAST, 
         
 ANIMATION_TOTAL

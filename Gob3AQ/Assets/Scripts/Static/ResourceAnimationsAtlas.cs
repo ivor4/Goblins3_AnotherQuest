@@ -119,25 +119,6 @@ namespace Gob3AQ.ResourceAnimationsAtlas
 
         private static readonly AnimationConfig[] _AnimationConfig = new AnimationConfig[(int)GameAnimation.ANIMATION_TOTAL]
         {
-            /* ANIMATION_REME TEST */
-            new(new AnimationMilestoneConfig[]
-            {
-                /* Milestone 1 */
-                new(AnimationSrcTrigger.SRC_TRIGGER_ANIM_END, 0f,
-                    new AnimationActionConfig[]
-                    {
-                        new(noAction, GameItem.ITEM_HIVE1_NPC_REME, AnimationTrigger.ANIMATION_TRIGGER_TWO, GameSound.SOUND_NONE),   /* Action 1 */
-                    }
-                ),
-                /* Milestone 2 */
-                new(AnimationSrcTrigger.SRC_TRIGGER_CALLBACK, 0f,
-                    new AnimationActionConfig[]
-                    {
-                        new(noAction, GameItem.ITEM_NONE, AnimationTrigger.ANIMATION_TRIGGER_ONE, GameSound.SOUND_NONE),   /* Action 1 */
-                    }
-                ),
-            }),
-
             /* ANIMATION_LAST */
             new(new AnimationMilestoneConfig[]
             {
@@ -151,6 +132,6 @@ namespace Gob3AQ.ResourceAnimationsAtlas
             }),
         };
 
-        
+
     }
 }

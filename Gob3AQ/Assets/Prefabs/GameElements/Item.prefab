@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6869328664999452173}
   - component: {fileID: 2156666538551087206}
   - component: {fileID: 8977490064374180080}
+  - component: {fileID: 7995844811939611804}
   m_Layer: 7
   m_Name: Item
   m_TagString: Untagged
@@ -195,6 +196,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7995844811939611804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3638331546681014208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f55f98b77af7662419ec156505da170f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameCode::SoundEventClass
 --- !u!1 &5801370947504161610
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +254,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Gob3AQ.GameElement.Item.ItemClass
   itemID: -1
   startingWaypoint: {fileID: 0}
+  startingExposedWaypoint: {fileID: 0}
   hoverPriority: 0
+  reverseFlipX: 0
   needsZoom: 0
   maxZoomLevel: 0
   nightColor: {r: 1, g: 1, b: 1, a: 1}

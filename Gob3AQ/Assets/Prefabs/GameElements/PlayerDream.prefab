@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4801519446974137385}
   - component: {fileID: 8621761418770102589}
   - component: {fileID: 532510409014139305}
+  - component: {fileID: -8274650233339521889}
   m_Layer: 9
   m_Name: PlayerDream
   m_TagString: Untagged
@@ -181,6 +182,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-8274650233339521889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5519695226610497340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f55f98b77af7662419ec156505da170f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameCode::SoundEventClass
 --- !u!1 &5981460380196308911
 GameObject:
   m_ObjectHideFlags: 0

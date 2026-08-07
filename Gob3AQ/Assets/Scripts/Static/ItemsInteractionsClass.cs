@@ -1462,6 +1462,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new(PrefabEnum.PREFAB_MAINCHARACTER_DREAM), /* PREFAB_MAINCHAR_DREAM */ 
             new(PrefabEnum.PREFAB_MAINCHARACTER_BED), /* PREFAB_MAINCHAR_BED */ 
             new(PrefabEnum.PREFAB_PINPOINT_MAP), /* PREFAB_PINPOINT_MAP */ 
+            new(PrefabEnum.PREFAB_DETAIL_UNDER_BED), /* PREFAB_DETAIL_UNDER_BED */ 
             new(PrefabEnum.PREFAB_NONE), /* DETAIL_LAST */ 
             /* > ATG 9 END < */
         };

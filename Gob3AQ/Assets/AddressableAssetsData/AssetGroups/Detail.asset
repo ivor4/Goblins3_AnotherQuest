@@ -25,6 +25,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 421864a43f0bcef4688f73742c599a80
+    m_Address: PREFAB_DETAIL_UNDER_BED
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5307058ab86639e4db8a8f19ddab76c8
     m_Address: SPRITE_DETAIL_EXTRAPERLO_FOLDED
     m_ReadOnly: 0
@@ -37,6 +42,21 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6b0b7172efd4f6043b54c77bc1255034
     m_Address: PREFAB_DETAIL_EXTRAPERLO
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b319388dc1fedb4081776d430cd9b46
+    m_Address: SPRITE_DETAIL_KEY_UNDER_BED_ANIM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d9d9708fd746fd419c26d1459846a23
+    m_Address: SPRITE_DETAIL_KEY_UNDER_BED
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8e42d81963f7974e94cb943e731c9ba
+    m_Address: BACKGROUND_DETAIL_UNDER_BED
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

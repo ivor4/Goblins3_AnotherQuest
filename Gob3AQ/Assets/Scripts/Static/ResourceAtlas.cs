@@ -216,7 +216,8 @@ namespace Gob3AQ.ResourceAtlas
             "PREFAB_MAINCHARACTER_SEATED",
             "PREFAB_MAINCHARACTER_DREAM",
             "PREFAB_MAINCHARACTER_BED",
-            "PREFAB_PINPOINT_MAP"
+            "PREFAB_PINPOINT_MAP",
+            "PREFAB_DETAIL_UNDER_BED"
         };
 
         
@@ -227,7 +228,7 @@ namespace Gob3AQ.ResourceAtlas
             new( /* HIVE1_ROOM_1 */
             new GameSprite[1]{GameSprite.BACKGROUND_HIVE1_ROOM1},
             new GameSound[1]{GameSound.MUSIC_INN},
-            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_HIVE1_ROOM1, GameSprite.SPRITE_ITEM_DECO_BED_LAYER}), 
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(3){GameSprite.BACKGROUND_HIVE1_ROOM1, GameSprite.SPRITE_ITEM_DECO_BED_LAYER, GameSprite.SPRITE_DETAIL_UNDER_BED}), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(8){GameItem.ITEM_HIVE1_CHEST, GameItem.ITEM_HIVE1_WARDROBE, GameItem.ITEM_HIVE1_WARDROBE_OPENED, GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_HIVE1_PERFUME, GameItem.ITEM_SOAP_PICKABLE, GameItem.ITEM_HIVE1_BED, GameItem.ITEM_PLAYER_MAIN}), 
             new ReadOnlyHashSet<DetailType>(new HashSet<DetailType>(1){DetailType.PREFAB_NONE}), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_INN}), 

@@ -108,6 +108,7 @@ namespace Gob3AQ.VARMAP.Types
         BACKGROUND_MAP_1, 
         BACKGROUND_MAP_1_NIGHT, 
         SPRITE_PINPOINT_MAP, 
+        SPRITE_DETAIL_UNDER_BED, 
         SPRITE_LAST, 
         
 SPRITE_TOTAL

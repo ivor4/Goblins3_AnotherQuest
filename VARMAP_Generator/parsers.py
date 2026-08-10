@@ -402,6 +402,7 @@ def process_items(ctx: CodeGenContext):
         if 'NONE' not in name:
             is_pickable = 'true' in cols[6].lower()
             pickname = name.replace('ITEM_', 'ITEM_PICK_') if is_pickable else 'ITEM_PICK_NONE'
+            is_prefab_detail = 'true' in cols[9].lower()
             
             if is_pickable:
                 ctx.items_types.insert_line(2, f"{pickname}, \n")
@@ -413,10 +414,10 @@ def process_items(ctx: CodeGenContext):
             sprites = build_array_str(cols[4].split('|'), PREFIXES['sprite'])
             ctx.items_interact.insert_line(3, f"{PREFIXES['name']}{cols[2]},{PREFIXES['family']}{cols[3]},new(new HashSet<GameSprite>({len(cols[4].split('|'))}){{{sprites}}}),\n")
             
-            ctx.items_interact.insert_line(3, f"{PREFIXES['sprite']}{cols[5]},{str(is_pickable).lower()},{PREFIXES['sprite']}{cols[7]},{PREFIXES['pickable']}{pickname},{PREFIXES['detail']}{cols[8]},\n")
+            ctx.items_interact.insert_line(3, f"{PREFIXES['sprite']}{cols[5]},{str(is_pickable).lower()},{PREFIXES['sprite']}{cols[7]},{PREFIXES['pickable']}{pickname},{PREFIXES['detail']}{cols[8]},{str(is_prefab_detail).lower()},\n")
             
-            conds = build_array_str(cols[9].split('|'), PREFIXES['cond'])
-            ctx.items_interact.insert_line(3, f"new(new HashSet<ActionConditions>({len(cols[9].split('|'))}){{{conds}}})),\n\n")
+            conds = build_array_str(cols[10].split('|'), PREFIXES['cond'])
+            ctx.items_interact.insert_line(3, f"new(new HashSet<ActionConditions>({len(cols[10].split('|'))}){{{conds}}})),\n\n")
             
     ctx.items_types.insert_line(1, "\nITEM_TOTAL\n")
     ctx.items_types.insert_line(2, "\nITEM_PICK_TOTAL\n")

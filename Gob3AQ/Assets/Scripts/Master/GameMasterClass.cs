@@ -19,7 +19,6 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
-using UnityEngine.U2D;
 
 namespace Gob3AQ.GameMaster
 {
@@ -405,6 +404,8 @@ namespace Gob3AQ.GameMaster
 
         public static void LoadAdditionalPrefabService(bool load, PrefabEnum prefabAddressable, Action<GameObject> callback)
         {
+            if (!_singleton) return;
+
             if (load)
             {
                 _singleton.StartCoroutine(LoadAdditionalPrefabCouroutine(prefabAddressable, callback));
@@ -417,6 +418,8 @@ namespace Gob3AQ.GameMaster
 
         public static void LoadAdditionalSoundService(bool load, GameSound sound, Action<AudioClip> callback)
         {
+            if (!_singleton) return;
+
             if (load)
             {
                 _singleton.StartCoroutine(LoadAdditionalSoundCouroutine(sound, callback));
@@ -445,6 +448,9 @@ namespace Gob3AQ.GameMaster
 
         public static void ExitGameService(out bool error)
         {
+            error = true;
+            if (!_singleton) return;
+
             saveGamePending = false;
             loadScenePending = Room.ROOM_NONE;
             loadScenePendingFromGameLoad = false;

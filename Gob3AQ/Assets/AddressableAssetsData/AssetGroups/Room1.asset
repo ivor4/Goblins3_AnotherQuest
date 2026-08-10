@@ -45,6 +45,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b0c55059412c6240ba10046b3a383a1
+    m_Address: SPRITE_KEY_UNDER_BED
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f4b090a5ec8f6e42ac5830d3761dabf
+    m_Address: SOUND_OBSERVE_ROOM_KEY_NOT_TAKEN_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2031a8dc0a94d324ebac96c6aadd9236
     m_Address: SOUND_AMBIENCE_WATER_FLOW
     m_ReadOnly: 0
@@ -85,6 +95,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 32a107abe8cd03049a2e54997f205bd3
+    m_Address: ANIMATOR_KEY_UNDER_BED
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 32bf3e21d7270cb4aa3c755453c77dc1
     m_Address: SPRITE_HIVE1_CHEST_OPENED
     m_ReadOnly: 0
@@ -95,13 +110,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 353235826e7ccc04ebfd2dae3f00db25
+    m_Address: SOUND_OBSERVE_SERVICE_DOOR_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 367433e1c51f07b468f16b8bb69186dc
     m_Address: BACKGROUND_HIVE1_CORRIDOR1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 383cefc661ff01a4e826e33467881039
-    m_Address: SPRITE_ATLAS_DETAIL_UNDER_BED
+    m_Address: SPRITE_ATLAS_UNDER_BED
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -195,6 +215,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b319388dc1fedb4081776d430cd9b46
+    m_Address: SPRITE_KEY_UNDER_BED_ANIM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6bd7cd2eb89fb4a4a941ddae91d246f9
     m_Address: SOUND_DIALOG_REME_INTRO_2_SPANISH
     m_ReadOnly: 0
@@ -215,6 +240,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 82712cf09e0a9be4c8728781d7e40c4c
+    m_Address: SOUND_TAKE_COIN25_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 863f6bcfd805fd241a793b16642bb6d7
     m_Address: ANIMATION_REME_TALKING_EXEC1
     m_ReadOnly: 0
@@ -222,6 +252,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 86fc82cc45cf0694188196e2096d0966
     m_Address: SPRITE_REME_WASHING_MOP
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8795fde59b49cab4d9ea1f6cb19e26ed
+    m_Address: BACKGROUND_UNDER_BED
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -350,6 +385,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c7cd40d5ca5480642b7493b0993f4541
+    m_Address: SOUND_OBSERVE_COIN25_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c9135d5b99dde5c45b789a8cd9669935
     m_Address: ANIMATION_REME_WASHING_MOP
     m_ReadOnly: 0
@@ -370,6 +410,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9082aa84649ad44ea1baf3df2ae6cd7
+    m_Address: ANIMATION_KEY_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ebdc3fdecaa908e4faad7191103663fc
     m_Address: SPRITE_HIVE1_CHEST_CLOSED
     m_ReadOnly: 0
@@ -385,8 +430,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eeccd5f2617b69a4e927158cf6297ec3
+    m_Address: SCENE_UNDER_BED
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f0703ccf3c923904faca7ad4b7b18a57
     m_Address: SPRITE_HIVE1_BED_LAYER
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f2afda6fdd3f84d48af1fd46587f8c1c
+    m_Address: SOUND_DIALOG_TRY_CROSS_SERVICE_DOOR_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

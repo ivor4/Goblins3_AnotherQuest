@@ -22,6 +22,11 @@ namespace Gob3AQ.Brain.LevelOptions
             return retVal;
         }
 
+        public static bool GetRoomUsesDialogZoom(Room room)
+        {
+            return !_ROOM_AVOIDS_DIALOG_ZOOM.Contains(room);
+        }
+
 
         private static readonly string[] _ROOM_TO_SCENE_NAME = new string[(int)Room.ROOMS_TOTAL]
         {
@@ -50,6 +55,7 @@ namespace Gob3AQ.Brain.LevelOptions
             "SCENE_DREAM_1_KITCHEN_NIGHT",
             "SCENE_MAP_1",
             "SCENE_STATION_1",
+            "SCENE_UNDER_BED",
             ""
         };
 
@@ -71,7 +77,13 @@ namespace Gob3AQ.Brain.LevelOptions
             {Room.DREAM_1_BEDROOM_NIGHT, new List<PrefabEnum>(){ PrefabEnum.PREFAB_MAINCHARACTER_BED }},
             {Room.DREAM_1_CORRIDOR_NIGHT, new List<PrefabEnum>(){ PrefabEnum.PREFAB_MAINCHARACTER_DREAM }},
             {Room.DREAM_1_KITCHEN_NIGHT, new List<PrefabEnum>(){ PrefabEnum.PREFAB_MAINCHARACTER_DREAM }},
-            {Room.MAP_1, new List<PrefabEnum>(){ PrefabEnum.PREFAB_PINPOINT_MAP }}
+            {Room.MAP_1, new List<PrefabEnum>(){ PrefabEnum.PREFAB_PINPOINT_MAP }},
+            {Room.UNDER_BED, Array.Empty<PrefabEnum>() },
+        };
+
+        private static readonly HashSet<Room> _ROOM_AVOIDS_DIALOG_ZOOM = new HashSet<Room>()
+        {
+            Room.UNDER_BED
         };
 
         private static readonly InitialWalkInfo[] _DefaultInitialWalkInfo = new InitialWalkInfo[1]

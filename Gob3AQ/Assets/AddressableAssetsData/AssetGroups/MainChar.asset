@@ -45,6 +45,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 222b79f7c1fb95e44995de028238b654
+    m_Address: ANIMATION_MAINCHAR_UNLOCKING_EXEC1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 243d6c3a856131b4ca7ca0d5c31e0a78
     m_Address: ANIMATION_MAINCHAR_WALKING_CORNER_BACK_ENTRY_EXIT
     m_ReadOnly: 0
@@ -62,6 +67,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2a49ef21d2d4eee4aabf1b184da7b897
     m_Address: SOUND_FOOTSTEP_3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a583c6c603954c489fa8bf591a7f379
+    m_Address: ANIMATION_MAINCHAR_UNLOCKING_EXEC2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -145,6 +155,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4bb8b7ef95f04334eb11f4d2d24fefee
+    m_Address: ANIMATION_MAINCHAR_UNLOCKING_ENTRY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 500061fa2288a47488eb48e9341b2dbf
     m_Address: ANIMATION_MAINCHAR_SEATED_TALKING_EXEC1
     m_ReadOnly: 0
@@ -225,6 +240,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b0d1892916399746aaf717fe94296af
+    m_Address: ANIMATION_MAINCHAR_UNLOCKING_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 71c6d2499ceacb347a9b0afb7889f193
     m_Address: SOUND_TAKE_UNKNOWN_WOMEN_SPANISH
     m_ReadOnly: 0
@@ -257,6 +277,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 84eb1d4adf38e3c4cabacd851b23ee30
     m_Address: SPRITE_MAINCHAR_TALKING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ae896c547b2c7f45a398fa51a446c5f
+    m_Address: SPRITE_MAINCHAR_UNLOCKING_DOOR
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -1,0 +1,639 @@
+fileFormatVersion: 2
+guid: 8ae896c547b2c7f45a398fa51a446c5f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7848557478442269473
+    second: SPRITE_MAINCHAR_UNLOCKING_DOOR_0
+  - first:
+      213: 7310793963789799463
+    second: SPRITE_MAINCHAR_UNLOCKING_DOOR_1
+  - first:
+      213: -8836689072245679846
+    second: SPRITE_MAINCHAR_UNLOCKING_DOOR_2
+  - first:
+      213: -6973700122904665796
+    second: SPRITE_MAINCHAR_UNLOCKING_DOOR_3
+  - first:
+      213: -9047006269402764232
+    second: SPRITE_MAINCHAR_UNLOCKING_DOOR_4
+  - first:
+      213: 6699567922747600058
+    second: SPRITE_MAINCHAR_UNLOCKING_DOOR_5
+  - first:
+      213: -7166513337477506434
+    second: SPRITE_MAINCHAR_UNLOCKING_DOOR_6
+  - first:
+      213: 2056369893607736519
+    second: SPRITE_MAINCHAR_UNLOCKING_DOOR_7
+  - first:
+      213: 8483969442869292977
+    second: SPRITE_MAINCHAR_UNLOCKING_DOOR_8
+  - first:
+      213: 2577688371458876555
+    second: SPRITE_MAINCHAR_UNLOCKING_DOOR_9
+  - first:
+      213: 1484651623298698530
+    second: SPRITE_MAINCHAR_UNLOCKING_DOOR_10
+  - first:
+      213: 8099715842630225130
+    second: SPRITE_MAINCHAR_UNLOCKING_DOOR_11
+  - first:
+      213: -57951058550460365
+    second: SPRITE_MAINCHAR_UNLOCKING_DOOR_12
+  - first:
+      213: 4625966478194489323
+    second: SPRITE_MAINCHAR_UNLOCKING_DOOR_13
+  - first:
+      213: 3631354242383047648
+    second: SPRITE_MAINCHAR_UNLOCKING_DOOR_14
+  - first:
+      213: 8784915680590669178
+    second: SPRITE_MAINCHAR_UNLOCKING_DOOR_15
+  - first:
+      213: -5759605181423950182
+    second: SPRITE_MAINCHAR_UNLOCKING_DOOR_16
+  - first:
+      213: -7911217367809277780
+    second: SPRITE_MAINCHAR_UNLOCKING_DOOR_17
+  - first:
+      213: 3964466035621386
+    second: SPRITE_MAINCHAR_UNLOCKING_DOOR_18
+  - first:
+      213: -2595532765160563043
+    second: SPRITE_MAINCHAR_UNLOCKING_DOOR_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_UNLOCKING_DOOR_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd4863a8e82541390800000000000000
+      internalID: -7848557478442269473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_UNLOCKING_DOOR_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 720d2c53068257560800000000000000
+      internalID: 7310793963789799463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_UNLOCKING_DOOR_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a19583a8b16cd5580800000000000000
+      internalID: -8836689072245679846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_UNLOCKING_DOOR_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c316b2cbfa0783f90800000000000000
+      internalID: -6973700122904665796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_UNLOCKING_DOOR_4
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83c24872bb3927280800000000000000
+      internalID: -9047006269402764232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_UNLOCKING_DOOR_5
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abce8f7a785a9fc50800000000000000
+      internalID: 6699567922747600058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_UNLOCKING_DOOR_6
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7add81e61e6b8c90800000000000000
+      internalID: -7166513337477506434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_UNLOCKING_DOOR_7
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c40c4be581b98c10800000000000000
+      internalID: 2056369893607736519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_UNLOCKING_DOOR_8
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bf2e7f124d1db570800000000000000
+      internalID: 8483969442869292977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_UNLOCKING_DOOR_9
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b84267aaae9c5c320800000000000000
+      internalID: 2577688371458876555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_UNLOCKING_DOOR_10
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22d0ded09ca8a9410800000000000000
+      internalID: 1484651623298698530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_UNLOCKING_DOOR_11
+      rect:
+        serializedVersion: 2
+        x: 7040
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aec049d05a8f76070800000000000000
+      internalID: 8099715842630225130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_UNLOCKING_DOOR_12
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 330fdbcb1dd123ff0800000000000000
+      internalID: -57951058550460365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_UNLOCKING_DOOR_13
+      rect:
+        serializedVersion: 2
+        x: 8320
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be7b5a3a00cb23040800000000000000
+      internalID: 4625966478194489323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_UNLOCKING_DOOR_14
+      rect:
+        serializedVersion: 2
+        x: 8960
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0eb69d69179256230800000000000000
+      internalID: 3631354242383047648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_UNLOCKING_DOOR_15
+      rect:
+        serializedVersion: 2
+        x: 9600
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a75ad5b544a4ae970800000000000000
+      internalID: 8784915680590669178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_UNLOCKING_DOOR_16
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a96e9ba6a95c110b0800000000000000
+      internalID: -5759605181423950182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_UNLOCKING_DOOR_17
+      rect:
+        serializedVersion: 2
+        x: 10880
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca0c3da28b5b53290800000000000000
+      internalID: -7911217367809277780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_UNLOCKING_DOOR_18
+      rect:
+        serializedVersion: 2
+        x: 11520
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0ef6cd29a51e0000800000000000000
+      internalID: 3964466035621386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MAINCHAR_UNLOCKING_DOOR_19
+      rect:
+        serializedVersion: 2
+        x: 12160
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9e97b9a3b0dafbd0800000000000000
+      internalID: -2595532765160563043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 35e13aab2a399364497d9f1a86c39507
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":20.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_MAINCHAR_UNLOCKING_DOOR_0: -7848557478442269473
+      SPRITE_MAINCHAR_UNLOCKING_DOOR_1: 7310793963789799463
+      SPRITE_MAINCHAR_UNLOCKING_DOOR_10: 1484651623298698530
+      SPRITE_MAINCHAR_UNLOCKING_DOOR_11: 8099715842630225130
+      SPRITE_MAINCHAR_UNLOCKING_DOOR_12: -57951058550460365
+      SPRITE_MAINCHAR_UNLOCKING_DOOR_13: 4625966478194489323
+      SPRITE_MAINCHAR_UNLOCKING_DOOR_14: 3631354242383047648
+      SPRITE_MAINCHAR_UNLOCKING_DOOR_15: 8784915680590669178
+      SPRITE_MAINCHAR_UNLOCKING_DOOR_16: -5759605181423950182
+      SPRITE_MAINCHAR_UNLOCKING_DOOR_17: -7911217367809277780
+      SPRITE_MAINCHAR_UNLOCKING_DOOR_18: 3964466035621386
+      SPRITE_MAINCHAR_UNLOCKING_DOOR_19: -2595532765160563043
+      SPRITE_MAINCHAR_UNLOCKING_DOOR_2: -8836689072245679846
+      SPRITE_MAINCHAR_UNLOCKING_DOOR_3: -6973700122904665796
+      SPRITE_MAINCHAR_UNLOCKING_DOOR_4: -9047006269402764232
+      SPRITE_MAINCHAR_UNLOCKING_DOOR_5: 6699567922747600058
+      SPRITE_MAINCHAR_UNLOCKING_DOOR_6: -7166513337477506434
+      SPRITE_MAINCHAR_UNLOCKING_DOOR_7: 2056369893607736519
+      SPRITE_MAINCHAR_UNLOCKING_DOOR_8: 8483969442869292977
+      SPRITE_MAINCHAR_UNLOCKING_DOOR_9: 2577688371458876555
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

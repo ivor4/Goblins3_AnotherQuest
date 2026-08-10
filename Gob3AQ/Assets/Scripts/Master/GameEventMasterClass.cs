@@ -1,16 +1,15 @@
 using Gob3AQ.Brain.ItemsInteraction;
+using Gob3AQ.Brain.LevelOptions;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.VARMAP.GameEventMaster;
 using Gob3AQ.VARMAP.Types;
-using Gob3AQ.VARMAP.Types.Cards;
+using Gob3AQ.Waypoint.Network;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Gob3AQ.Libs.Arith;
-using UnityEngine;
-using Gob3AQ.Waypoint.Network;
 using System.Runtime.InteropServices;
+using UnityEngine;
 
 namespace Gob3AQ.GameEventMaster
 {
@@ -77,6 +76,7 @@ namespace Gob3AQ.GameEventMaster
         /// Timestamp for periodic background tasks execution
         /// </summary>
         private ulong _bckgActionsTimestamp;
+        private ulong _waitActionTimestamp;
         private List<ActionOrder> _pendingActions;
         private List<DelayedActionOrder> _pendingDelayedActions; 
         private NotifyAction _actionEndedFlag;
@@ -704,6 +704,17 @@ namespace Gob3AQ.GameEventMaster
                 }
                 else
                 {
+                    /* If pending timeout */
+                    if((_actionExpectedFlag & NotifyAction.NOTIFY_TIMEOUT) == NotifyAction.NOTIFY_TIMEOUT)
+                    {
+                        ulong delta = VARMAP_GameEventMaster.GET_ELAPSED_TIME_MS() - _waitActionTimestamp;
+
+                        if(delta >= (ulong)actionInfo.intOption1)
+                        {
+                            _actionEndedFlag |= NotifyAction.NOTIFY_TIMEOUT;
+                        }
+                    }
+
                     endedAction = (_actionEndedFlag & _actionExpectedFlag) == _actionExpectedFlag;
                     stop = !endedAction;
                 }
@@ -809,7 +820,9 @@ namespace Gob3AQ.GameEventMaster
                 ActionType actionTypeOverride = info.type;
 
                 /* Downgrade dialog to background dialog when it has been called from item menu */
-                if((actionTypeOverride == ActionType.ACTION_TYPE_START_DIALOGUE) && (VARMAP_GameEventMaster.GET_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY_ITEM_MENU))
+                if((actionTypeOverride == ActionType.ACTION_TYPE_START_DIALOGUE) && 
+                    ((VARMAP_GameEventMaster.GET_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY_ITEM_MENU)|| (!LevelOptionsClass.GetRoomUsesDialogZoom(VARMAP_GameEventMaster.GET_ACTUAL_ROOM())))
+                    )
                 {
                     actionTypeOverride = ActionType.ACTION_TYPE_START_DIALOGUE_BCKG;
                 }
@@ -951,6 +964,14 @@ namespace Gob3AQ.GameEventMaster
                         {
                             VARMAP_GameEventMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out error);
                             mustWait = info.waitForEnd & !error;
+                            break;
+                        }
+
+                    case ActionType.ACTION_TYPE_WAIT_MS:
+                        {
+                            _waitActionTimestamp = VARMAP_GameEventMaster.GET_ELAPSED_TIME_MS();
+                            notifyAction = NotifyAction.NOTIFY_TIMEOUT;
+                            mustWait = true;
                             break;
                         }
                     default:

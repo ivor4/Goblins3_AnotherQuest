@@ -82,7 +82,6 @@ namespace Gob3AQ.VARMAP.Types
         PREFAB_MAINCHARACTER_DREAM,
         PREFAB_MAINCHARACTER_BED,
         PREFAB_PINPOINT_MAP,
-        PREFAB_DETAIL_UNDER_BED,
 
         PREFAB_TOTAL
     }
@@ -104,7 +103,8 @@ namespace Gob3AQ.VARMAP.Types
         NOTIFY_SOUND = 0x4,
         NOTIFY_MOVEMENT = 0x8,
         NOTIFY_ZOOM = 0x10,
-        NOTIFY_CHANGEMODE = 0x20
+        NOTIFY_CHANGEMODE = 0x20,
+        NOTIFY_TIMEOUT = 0x40
     }
 
     public enum WaypointIDTupleType
@@ -466,17 +466,18 @@ namespace Gob3AQ.VARMAP.Types
         public readonly GameSprite pickableSprite;
         public readonly GamePickableItem pickableItem;
         public readonly DetailType detailType;
+        public readonly bool isPrefabDetail;
         public readonly ReadOnlyHashSet<ActionConditions> conditions;
 
 
 
         public static readonly ItemInfo EMPTY = new(NameType.NAME_NONE,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(0)),
             GameSprite.SPRITE_NONE,false,GameSprite.SPRITE_NONE, GamePickableItem.ITEM_PICK_NONE,
-            DetailType.PREFAB_NONE, new(new HashSet<ActionConditions>(0)));
+            DetailType.PREFAB_NONE, false, new(new HashSet<ActionConditions>(0)));
 
         public ItemInfo(NameType name, GameItemFamily family, ReadOnlyHashSet<GameSprite> sprites,
             GameSprite defaultSprite, bool isPickable, GameSprite pickableSprite, GamePickableItem pickableItem,
-            DetailType detailType, ReadOnlyHashSet<ActionConditions> conditions)
+            DetailType detailType, bool isPrefabDetail, ReadOnlyHashSet<ActionConditions> conditions)
         {
             this.name = name;
             this.family = family;
@@ -486,6 +487,7 @@ namespace Gob3AQ.VARMAP.Types
             this.pickableSprite = pickableSprite;
             this.pickableItem = pickableItem;
             this.detailType = detailType;
+            this.isPrefabDetail = isPrefabDetail;
             this.conditions = conditions;
         }
     }

@@ -1,5 +1,5 @@
 ﻿NewItem,NewName,NewSprite,Pickable,Spawn,Picker_Character,ObservationPhrase,TakePhrase,Room,Output,Unnamed: 10,Unnamed: 11
-ITEM_FIG,NAME_FIG,SPRITE_FIG_PICKABLE,True,False,CHARACTER_MAIN_DREAM,Un higo. A Sultan le encantan los higos,,DREAM_1_KITCHEN_NIGHT,,,
+DOOR_SERVICE_HIVE,NAME_DOOR_SERVICE,SPRITE_BLANK,False,False,CHARACTER_MAIN,La puerta de servicio. Quizá haya alguna cosa interesante dentro,,HIVE1_CORRIDOR_1,,,
 ,,,,,,,,,,,
 NewRoom,Background,BackgroundNight,Music,Output,,,,,,,
 CITY1_EXTRAPERLO1,BACKGROUND_CITY1_EXTRAPERLO,BACKGROUND_CITY1_EXTRAPERLO,MUSIC_EXTRAPERLO,,,,,,,,

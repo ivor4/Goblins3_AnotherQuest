@@ -72,6 +72,10 @@ namespace Gob3AQ.VARMAP.Types
         NAME_ALTER_EGO1, 
         NAME_FIG, 
         NAME_PINPOINT_MAP, 
+        NAME_UNDER_BED, 
+        NAME_HIVE_ROOM_KEY, 
+        NAME_COIN25, 
+        NAME_DOOR_SERVICE, 
         NAME_NPC_LAST, 
         
 NAME_TOTAL

@@ -163,7 +163,7 @@ namespace Gob3AQ.ResourceAtlas
                 {
                     ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(item);
 
-                    if (itemInfo.detailType != DetailType.PREFAB_NONE)
+                    if ((itemInfo.detailType != DetailType.PREFAB_NONE) && !itemInfo.isPrefabDetail)
                     {
                         detailInfo = ref ItemsInteractionsClass.GetDetailInfo(itemInfo.detailType);
                         _prefabsToLoad.Add(detailInfo.prefabPath);
@@ -216,8 +216,7 @@ namespace Gob3AQ.ResourceAtlas
             "PREFAB_MAINCHARACTER_SEATED",
             "PREFAB_MAINCHARACTER_DREAM",
             "PREFAB_MAINCHARACTER_BED",
-            "PREFAB_PINPOINT_MAP",
-            "PREFAB_DETAIL_UNDER_BED"
+            "PREFAB_PINPOINT_MAP"
         };
 
         
@@ -228,7 +227,7 @@ namespace Gob3AQ.ResourceAtlas
             new( /* HIVE1_ROOM_1 */
             new GameSprite[1]{GameSprite.BACKGROUND_HIVE1_ROOM1},
             new GameSound[1]{GameSound.MUSIC_INN},
-            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(3){GameSprite.BACKGROUND_HIVE1_ROOM1, GameSprite.SPRITE_ITEM_DECO_BED_LAYER, GameSprite.SPRITE_DETAIL_UNDER_BED}), 
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_HIVE1_ROOM1, GameSprite.SPRITE_ITEM_DECO_BED_LAYER}), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(8){GameItem.ITEM_HIVE1_CHEST, GameItem.ITEM_HIVE1_WARDROBE, GameItem.ITEM_HIVE1_WARDROBE_OPENED, GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_HIVE1_PERFUME, GameItem.ITEM_SOAP_PICKABLE, GameItem.ITEM_HIVE1_BED, GameItem.ITEM_PLAYER_MAIN}), 
             new ReadOnlyHashSet<DetailType>(new HashSet<DetailType>(1){DetailType.PREFAB_NONE}), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_INN}), 
@@ -241,7 +240,7 @@ namespace Gob3AQ.ResourceAtlas
             new GameSprite[2]{GameSprite.BACKGROUND_HIVE1_CORRIDOR1, GameSprite.BACKGROUND_HIVE1_CORRIDOR1_N},
             new GameSound[1]{GameSound.MUSIC_INN},
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_HIVE1_CORRIDOR1, GameSprite.BACKGROUND_HIVE1_CORRIDOR1_N}), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(3){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_HIVE1_NPC_REME, GameItem.ITEM_PLAYER_MAIN}), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(4){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_HIVE1_NPC_REME, GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_DOOR_SERVICE_HIVE}), 
             new ReadOnlyHashSet<DetailType>(new HashSet<DetailType>(1){DetailType.PREFAB_NONE}), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_INN}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
@@ -520,6 +519,18 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(2){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_PLAYER_MAIN}), 
             new ReadOnlyHashSet<DetailType>(new HashSet<DetailType>(1){DetailType.PREFAB_NONE}), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_STATION_1}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
+            ),
+
+            new( /* UNDER_BED */
+            new GameSprite[1]{GameSprite.BACKGROUND_UNDER_BED},
+            new GameSound[1]{GameSound.MUSIC_INN},
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_UNDER_BED}), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(3){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_PICKABLE_KEY_HIVE_ROOM, GameItem.ITEM_PICKABLE_COIN25}), 
+            new ReadOnlyHashSet<DetailType>(new HashSet<DetailType>(1){DetailType.PREFAB_NONE}), 
+            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_INN}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 

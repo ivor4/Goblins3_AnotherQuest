@@ -138,7 +138,7 @@ namespace Gob3AQ.GameMenu
                         }
                         else
                         {
-                            if ((itemInfo.detailType != DetailType.PREFAB_NONE) && (prevChoosen != GameItem.ITEM_NONE))
+                            if ((itemInfo.detailType != DetailType.PREFAB_NONE) && itemInfo.isPrefabDetail && (prevChoosen != GameItem.ITEM_NONE))
                             {
                                 CreateDetail(itemInfo.detailType);
                             }

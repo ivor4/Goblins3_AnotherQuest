@@ -436,6 +436,18 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_ANY, 
             new GameAction[1]{GameAction.ACTION_SPAWN_ITEM_PICKABLE_HIVE_ROOM_KEY}), 
 
+            new( /* UNCHAIN_SPAWN_SERVICE_LOCKED_DOOR */
+            false,false,false,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_USED_KEY_ON_SERVICE_DOOR, true)}, 
+            MomentType.MOMENT_ANY, 
+            new GameAction[1]{GameAction.ACTION_SPAWN_SERVICE_DOOR_LOCKED}), 
+
+            new( /* UNCHAIN_SPAWN_SERVICE_OPENED_DOOR */
+            false,false,false,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_USED_KEY_ON_SERVICE_DOOR, false)}, 
+            MomentType.MOMENT_ANY, 
+            new GameAction[1]{GameAction.ACTION_SPAWN_SERVICE_DOOR_OPENED}), 
+
             new( /* UNCHAIN_LAST */
             false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
@@ -1013,7 +1025,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new( /* COND_USE_HIVE_KEY_SERVICE_DOOR */
             new GameEventCombi[1]{new(GameEvent.EVENT_USED_KEY_ON_SERVICE_DOOR, true)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_PICKABLE_KEY_HIVE_ROOM,ItemInteractionType.INTERACTION_USE,
-            new GameAction[6]{GameAction.ACTION_SET_GAME_ANIMATION_MODE, GameAction.ACTION_MOVE_MAINCHAR_TO_UNLOCK_HIVE_POS, GameAction.ACTION_ANIMATE_MAINCHAR_UNLOCKING_DOOR, GameAction.ACTION_PLAY_SOUND_KEY_UNLOCKS_DOOR, GameAction.ACTION_WAIT_2S, GameAction.ACTION_REMOVE_GAME_ANIMATION_MODE}), 
+            new GameAction[9]{GameAction.ACTION_SET_GAME_ANIMATION_MODE, GameAction.ACTION_MOVE_MAINCHAR_TO_UNLOCK_HIVE_POS, GameAction.ACTION_ANIMATE_MAINCHAR_UNLOCKING_DOOR, GameAction.ACTION_PLAY_SOUND_KEY_UNLOCKS_DOOR, GameAction.ACTION_WAIT_2S, GameAction.ACTION_DESTROY_SERVICE_DOOR_LOCKED, GameAction.ACTION_EVENT_USED_KEY_ON_SERVICE_DOOR, GameAction.ACTION_REMOVE_GAME_ANIMATION_MODE, GameAction.ACTION_DIALOG_AFTER_BREAK_KEY}), 
 
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
@@ -1423,6 +1435,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
             NameType.NAME_DOOR_SERVICE,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
             GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(3){ActionConditions.COND_OBSERVE_DOOR_SERVICE_HIVE, ActionConditions.COND_TRY_CROSS_SERVICE_DOOR_LOCKED, ActionConditions.COND_USE_HIVE_KEY_SERVICE_DOOR})),
+
+            new ( /* ITEM_DOOR_SERVICE_HIVE_OPENED */
+            NameType.NAME_DOOR_SERVICE,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(2){GameSprite.SPRITE_SERVICE_DOOR_OPENED_DAY, GameSprite.SPRITE_SERVICE_DOOR_OPENED_NIGHT}),
+            GameSprite.SPRITE_SERVICE_DOOR_OPENED_DAY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST}),
@@ -3428,6 +3445,36 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_KEY_UNLOCKS_DOOR,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOG_AFTER_BREAK_KEY */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_MAINCHAR_AFTER_BREAKING_KEY,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_EVENT_USED_KEY_ON_SERVICE_DOOR */
+            false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_USED_KEY_ON_SERVICE_DOOR, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_SPAWN_SERVICE_DOOR_LOCKED */
+            false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_DOOR_SERVICE_HIVE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_SPAWN_SERVICE_DOOR_OPENED */
+            false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_DOOR_SERVICE_HIVE_OPENED,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DESTROY_SERVICE_DOOR_LOCKED */
+            false,ActionType.ACTION_TYPE_DESTROY,GameItem.ITEM_DOOR_SERVICE_HIVE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

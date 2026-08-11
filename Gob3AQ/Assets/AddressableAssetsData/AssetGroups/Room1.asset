@@ -230,6 +230,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ac8d4c21f7c24b4db23e5c3c61c3514
+    m_Address: SOUND_KEY_UNLOCKS_DOOR
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7f4419f28ee964046a78997d68c7dd23
     m_Address: SOUND_MAINCHAR_RECAP_DREAM_1_SPANISH
     m_ReadOnly: 0
@@ -300,6 +305,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a570ee35a12a61648b7bfbc988a4c1f4
+    m_Address: SPRITE_SERVICE_DOOR_OPENED_NIGHT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a75b7445ea97e974bb97beccacf0f9b0
     m_Address: SPRITE_ATLAS_HIVE1_2
     m_ReadOnly: 0
@@ -322,6 +332,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ae7c13f98cc3241468d749bc8ff7e12d
     m_Address: ANIMATOR_REME
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b38689945fdb2464d90389c9b584d7d1
+    m_Address: SOUND_MAINCHAR_AFTER_BREAKING_KEY_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -452,6 +467,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fc1321eaef286c3478f455f590954402
     m_Address: SPRITE_ATLAS_HIVE1_3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff95fcf4bc6f3744da4e858c98565417
+    m_Address: SPRITE_SERVICE_DOOR_OPENED_DAY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -343,6 +343,7 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_OBSERVE_SERVICE_DOOR_SPANISH"), /* SOUND_OBSERVE_SERVICE_DOOR */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_TRY_CROSS_SERVICE_DOOR_SPANISH"), /* SOUND_DIALOG_TRY_CROSS_SERVICE_DOOR */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_KEY_UNLOCKS_DOOR"), /* SOUND_KEY_UNLOCKS_DOOR */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_MAINCHAR_AFTER_BREAKING_KEY_SPANISH"), /* SOUND_MAINCHAR_AFTER_BREAKING_KEY */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

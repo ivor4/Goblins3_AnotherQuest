@@ -142,16 +142,7 @@ namespace Gob3AQ.GameElement.PlayableChar
 
             if(wpTuple.type == WaypointIDTupleType.WAYPOINT_ID_TUPLE_TAG)
             {
-                wpStartIndex = -1;
-
-                for(int i=0; i < waypoints_infos.Count; i++)
-                {
-                    if (waypoints_infos[i].Tag == wpTuple.tag)
-                    {
-                        wpStartIndex = i;
-                        break;
-                    }
-                }
+                wpStartIndex = WaypointInfo.SearchWaypointIndexFromTag(waypoints_infos, wpTuple.tag);
 
                 if(wpStartIndex == -1)
                 {

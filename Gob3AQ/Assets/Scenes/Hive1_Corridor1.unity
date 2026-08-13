@@ -3260,6 +3260,14 @@ PrefabInstance:
       value: 79
       objectReference: {fileID: 0}
     - target: {fileID: 7285149739629647594, guid: 7d3dc241ee35f624293e1691ed3e54f0, type: 3}
+      propertyPath: _roomLeadTo
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 7285149739629647594, guid: 7d3dc241ee35f624293e1691ed3e54f0, type: 3}
+      propertyPath: _waypointLeadTo
+      value: serviceEntry
+      objectReference: {fileID: 0}
+    - target: {fileID: 7285149739629647594, guid: 7d3dc241ee35f624293e1691ed3e54f0, type: 3}
       propertyPath: startingWaypoint
       value: 
       objectReference: {fileID: 561889516}
@@ -3284,6 +3292,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1199191521139679277, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
+      propertyPath: wpTag
+      value: serviceExitWalk
+      objectReference: {fileID: 0}
     - target: {fileID: 1199191521139679277, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
       propertyPath: network
       value: 

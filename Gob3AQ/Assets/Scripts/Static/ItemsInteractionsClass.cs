@@ -439,13 +439,13 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new( /* UNCHAIN_SPAWN_SERVICE_LOCKED_DOOR */
             false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_USED_KEY_ON_SERVICE_DOOR, true)}, 
-            MomentType.MOMENT_ANY, 
+            MomentType.MOMENT_MORNING, 
             new GameAction[1]{GameAction.ACTION_SPAWN_SERVICE_DOOR_LOCKED}), 
 
             new( /* UNCHAIN_SPAWN_SERVICE_OPENED_DOOR */
             false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_USED_KEY_ON_SERVICE_DOOR, false)}, 
-            MomentType.MOMENT_ANY, 
+            MomentType.MOMENT_MORNING, 
             new GameAction[1]{GameAction.ACTION_SPAWN_SERVICE_DOOR_OPENED}), 
 
             new( /* UNCHAIN_LAST */
@@ -1024,7 +1024,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
 
             new( /* COND_USE_HIVE_KEY_SERVICE_DOOR */
             new GameEventCombi[1]{new(GameEvent.EVENT_USED_KEY_ON_SERVICE_DOOR, true)}, 
-            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_PICKABLE_KEY_HIVE_ROOM,ItemInteractionType.INTERACTION_USE,
+            MomentType.MOMENT_MORNING,CharacterType.CHARACTER_MAIN,GameItem.ITEM_PICKABLE_KEY_HIVE_ROOM,ItemInteractionType.INTERACTION_USE,
             new GameAction[9]{GameAction.ACTION_SET_GAME_ANIMATION_MODE, GameAction.ACTION_MOVE_MAINCHAR_TO_UNLOCK_HIVE_POS, GameAction.ACTION_ANIMATE_MAINCHAR_UNLOCKING_DOOR, GameAction.ACTION_PLAY_SOUND_KEY_UNLOCKS_DOOR, GameAction.ACTION_WAIT_2S, GameAction.ACTION_DESTROY_SERVICE_DOOR_LOCKED, GameAction.ACTION_EVENT_USED_KEY_ON_SERVICE_DOOR, GameAction.ACTION_REMOVE_GAME_ANIMATION_MODE, GameAction.ACTION_DIALOG_AFTER_BREAK_KEY}), 
 
             new( /* COND_LAST */

@@ -904,16 +904,7 @@ namespace Gob3AQ.GameEventMaster
                             break;
                         }
                     case ActionType.ACTION_TYPE_MOVE_TO_WAYPOINT:
-                        int wpIndex = -1;
-                        for(int i=0; i < _WP_Info.Count; ++i)
-                        {
-                            WaypointInfo wpInfo = _WP_Info[i];
-                            if(wpInfo.Tag == info.targetWaypointTag)
-                            {
-                                wpIndex = i;
-                                break;
-                            }
-                        }
+                        int wpIndex = WaypointInfo.SearchWaypointIndexFromTag(_WP_Info, info.targetWaypointTag);
 
                         if (wpIndex != -1)
                         {

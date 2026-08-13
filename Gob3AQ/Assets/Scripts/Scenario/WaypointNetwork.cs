@@ -51,6 +51,19 @@ namespace Gob3AQ.Waypoint.Network
         public readonly bool FlipXForAction;
         public readonly string Tag;
 
+        public static int SearchWaypointIndexFromTag(IReadOnlyList<WaypointInfo> list, string tag)
+        {
+            for(int i=0; i < list.Count; ++i)
+            {
+                if (list[i].Tag == tag)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
         public WaypointInfo(Vector3 position, WaypointReachability reachability, WaypointSolution solution,
             float characterSizeFactor, UnchainConditions[] crossingConditions, UnchainConditions[] actionOnStepConditions, bool flipXForAction, string tag)
         {

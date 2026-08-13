@@ -864,11 +864,19 @@ namespace Gob3AQ.LevelMaster
 
                     foreach (InitialWalkInfo walkInfo in walkInfos)
                     {
-                        if ((walkInfo.waypointFrom == _Player_List[i].Waypoint)&&(walkInfo.waypointFrom != walkInfo.waypointTo))
+                        if ((walkInfo.waypointFrom == _WP_Info_List[_Player_List[i].Waypoint].Tag)&&(walkInfo.waypointFrom != walkInfo.waypointTo))
                         {
-                            InteractionUsage usage = InteractionUsage.CreatePlayerMove((CharacterType)i, walkInfo.waypointTo);
+                            int wpTo = WaypointInfo.SearchWaypointIndexFromTag(_WP_Info_List, walkInfo.waypointTo);
 
-                            VARMAP_LevelMaster.INTERACT_ITEM(ResourceDialogsAtlasClass.GetItemForCharacter(_Player_List[i].CharType), walkInfo.waypointTo, out bool accepted);
+                            if (wpTo == -1)
+                            {
+                                Debug.LogError($"Waypoint tag {walkInfo.waypointTo} mentioned in a walkInfo (initial walk) not found in room");
+                                continue;
+                            }
+
+                            InteractionUsage usage = InteractionUsage.CreatePlayerMove((CharacterType)i, wpTo);
+
+                            VARMAP_LevelMaster.INTERACT_ITEM(ResourceDialogsAtlasClass.GetItemForCharacter(_Player_List[i].CharType), wpTo, out bool accepted);
                             if (accepted)
                             {
                                 _PendingCharInteractions[i] = new PendingCharacterInteraction(in usage, false);

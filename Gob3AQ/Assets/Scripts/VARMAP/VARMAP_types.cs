@@ -115,12 +115,12 @@ namespace Gob3AQ.VARMAP.Types
 
     public readonly struct InitialWalkInfo
     {
-        public readonly int waypointFrom;
-        public readonly int waypointTo;
+        public readonly string waypointFrom;
+        public readonly string waypointTo;
 
-        public static readonly InitialWalkInfo EMPTY = new(-1, -1);
+        public static readonly InitialWalkInfo EMPTY = new(string.Empty, string.Empty);
 
-        public InitialWalkInfo(int from, int to)
+        public InitialWalkInfo(string from, string to)
         {
             waypointFrom = from;
             waypointTo = to;

@@ -56,6 +56,7 @@ namespace Gob3AQ.Brain.LevelOptions
             "SCENE_MAP_1",
             "SCENE_STATION_1",
             "SCENE_UNDER_BED",
+            "SCENE_SERVICE_ROOM",
             ""
         };
 
@@ -88,16 +89,13 @@ namespace Gob3AQ.Brain.LevelOptions
 
         private static readonly InitialWalkInfo[] _DefaultInitialWalkInfo = new InitialWalkInfo[1]
         {
-            new(0,0)
+            new(string.Empty,string.Empty)
         };
 
         private static readonly Dictionary<Room, InitialWalkInfo[]> _RoomInitialWaypointWalk = new Dictionary<Room, InitialWalkInfo[]>
         {
-            {Room.CITY1_STREET_1, new InitialWalkInfo[]{new(1,5), new(7,8), new(9,6), new(0,4) } }, /* CITY1_STREET_1 */
-            {Room.HIVE1_BACKALLEY, new InitialWalkInfo[]{new(2,4) } }, /* HIVE1_BACKALLEY */
-            {Room.CITY1_SOUTH_STREET_1, new InitialWalkInfo[]{new(6,0), new(3,5) } }, /* CITY1_SOUTH_STREET_1 */
-            {Room.CITY1_SOUTH_STREET_2, new InitialWalkInfo[]{new(3,5), new(8,1) } }, /* CITY1_SOUTH_STREET_2 */
-            {Room.CITY1_EXTRAPERLO2, new InitialWalkInfo[]{new(1,3) } }, /* CITY1_EXTRAPERLO2 */
+            {Room.HIVE1_CORRIDOR_1, new InitialWalkInfo[]{new("serviceExit", "serviceExitWalk")} },
+            {Room.SERVICE_ROOM, new InitialWalkInfo[]{new("serviceEntry", "serviceEntryWalk")} }
         };
 
         private static readonly Dictionary<int, Tuple<string, NameType>> _CHAPTER_TO_TITLE = new Dictionary<int, Tuple<string, NameType>>()

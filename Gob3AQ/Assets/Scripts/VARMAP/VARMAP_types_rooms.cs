@@ -32,6 +32,7 @@ namespace Gob3AQ.VARMAP.Types
         MAP_1, 
         STATION_1, 
         UNDER_BED, 
+        SERVICE_ROOM, 
         ROOM_LAST, 
         
 ROOMS_TOTAL 

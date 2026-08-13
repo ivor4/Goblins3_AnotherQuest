@@ -30,6 +30,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 07d71510096f5044aba9721afa13914f
+    m_Address: SPRITE_ATLAS_SERVICE_ROOM1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0ac151a8d5bd349468367843d4511ed0
     m_Address: BACKGROUND_HIVE1_HALL1
     m_ReadOnly: 0
@@ -77,6 +82,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 280d0d2f85bf91140893df6083533edc
     m_Address: SOUND_MAINCHAR_RECAP_EXTRAPERLO_GARDEN_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 28bc6a2c26b622f41b5ef5b08ce6af0f
+    m_Address: BACKGROUND_SERVICE_ROOM_DAY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -202,6 +212,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 62e4f596507566349b491dc21de72a27
     m_Address: SOUND_DIALOG_REME_BLOCKING_PATH_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 65ae9623f750c5e4d90178219c77733d
+    m_Address: SCENE_SERVICE_ROOM
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

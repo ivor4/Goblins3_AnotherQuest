@@ -448,6 +448,18 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_MORNING, 
             new GameAction[1]{GameAction.ACTION_SPAWN_SERVICE_DOOR_OPENED}), 
 
+            new( /* UNCHAINER_ITEM_MIX_JAR_TAKE_1 */
+            false,false,false,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_ITEM_MIX_JAR_PICKABLE_TAKEN, false)}, 
+            MomentType.MOMENT_ANY, 
+            new GameAction[1]{GameAction.ACTION_DESTROY_ITEM_MIX_JAR}), 
+
+            new( /* UNCHAINER_ITEM_PICKABLE_TAR_CAN_TAKE_1 */
+            false,false,false,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_ITEM_PICKABLE_TAR_CAN_PICKABLE_TAKEN, false)}, 
+            MomentType.MOMENT_ANY, 
+            new GameAction[1]{GameAction.ACTION_DESTROY_ITEM_PICKABLE_TAR_CAN}), 
+
             new( /* UNCHAIN_LAST */
             false,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
@@ -1027,6 +1039,21 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_MORNING,CharacterType.CHARACTER_MAIN,GameItem.ITEM_PICKABLE_KEY_HIVE_ROOM,ItemInteractionType.INTERACTION_USE,
             new GameAction[9]{GameAction.ACTION_SET_GAME_ANIMATION_MODE, GameAction.ACTION_MOVE_MAINCHAR_TO_UNLOCK_HIVE_POS, GameAction.ACTION_ANIMATE_MAINCHAR_UNLOCKING_DOOR, GameAction.ACTION_PLAY_SOUND_KEY_UNLOCKS_DOOR, GameAction.ACTION_WAIT_2S, GameAction.ACTION_DESTROY_SERVICE_DOOR_LOCKED, GameAction.ACTION_EVENT_USED_KEY_ON_SERVICE_DOOR, GameAction.ACTION_REMOVE_GAME_ANIMATION_MODE, GameAction.ACTION_DIALOG_AFTER_BREAK_KEY}), 
 
+            new( /* COND_OBSERVE_ITEM_GUMBALL_MACHINE */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_ITEM_GUMBALL_MACHINE}), 
+
+            new( /* COND_OBSERVE_ITEM_MIX_JAR */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_ITEM_MIX_JAR}), 
+
+            new( /* COND_OBSERVE_ITEM_PICKABLE_TAR_CAN */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_ITEM_PICKABLE_TAR_CAN}), 
+
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,
@@ -1441,6 +1468,21 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_SERVICE_DOOR_OPENED_DAY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
+            new ( /* ITEM_GUMBALL_MACHINE */
+            NameType.NAME_GUMBALL_MACHINE,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
+            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            new(new HashSet<ActionConditions>(1){ActionConditions.COND_OBSERVE_ITEM_GUMBALL_MACHINE})),
+
+            new ( /* ITEM_MIX_JAR */
+            NameType.NAME_MIX_JAR,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_MIX_JAR}),
+            GameSprite.SPRITE_MIX_JAR,true,GameSprite.SPRITE_PICKABLE_MIX_JAR,GamePickableItem.ITEM_PICK_MIX_JAR,DetailType.PREFAB_NONE,false,
+            new(new HashSet<ActionConditions>(1){ActionConditions.COND_OBSERVE_ITEM_MIX_JAR})),
+
+            new ( /* ITEM_PICKABLE_TAR_CAN */
+            NameType.NAME_TAR_CAN,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_TAR_CAN}),
+            GameSprite.SPRITE_TAR_CAN,true,GameSprite.SPRITE_PICKABLE_TAR_CAN,GamePickableItem.ITEM_PICK_PICKABLE_TAR_CAN,DetailType.PREFAB_NONE,false,
+            new(new HashSet<ActionConditions>(1){ActionConditions.COND_OBSERVE_ITEM_PICKABLE_TAR_CAN})),
+
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST}),
             GameSprite.SPRITE_LAST,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
@@ -1463,6 +1505,8 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameItem.ITEM_PICKABLE_FIG,	/* ITEM_PICK_PICKABLE_FIG */
             GameItem.ITEM_PICKABLE_KEY_HIVE_ROOM,	/* ITEM_PICK_PICKABLE_KEY_HIVE_ROOM */
             GameItem.ITEM_PICKABLE_COIN25,	/* ITEM_PICK_PICKABLE_COIN25 */
+            GameItem.ITEM_MIX_JAR,	/* ITEM_PICK_MIX_JAR */
+            GameItem.ITEM_PICKABLE_TAR_CAN,	/* ITEM_PICK_PICKABLE_TAR_CAN */
             /* > ATG 4 END < */
         };
 
@@ -1480,6 +1524,8 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_PICKABLE_FIG,	/* ITEM_PICK_PICKABLE_FIG */
             GameSprite.SPRITE_PICKABLE_HIVE_ROOM_KEY,	/* ITEM_PICK_PICKABLE_KEY_HIVE_ROOM */
             GameSprite.SPRITE_COIN25,	/* ITEM_PICK_PICKABLE_COIN25 */
+            GameSprite.SPRITE_PICKABLE_MIX_JAR,	/* ITEM_PICK_MIX_JAR */
+            GameSprite.SPRITE_PICKABLE_TAR_CAN,	/* ITEM_PICK_PICKABLE_TAR_CAN */
             /* > ATG 5 END < */
         };
 
@@ -3473,6 +3519,48 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new( /* ACTION_DESTROY_SERVICE_DOOR_LOCKED */
             false,ActionType.ACTION_TYPE_DESTROY,GameItem.ITEM_DOOR_SERVICE_HIVE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_OBSERVE_ITEM_GUMBALL_MACHINE */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_GUMBALL_MACHINE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_OBSERVE_ITEM_MIX_JAR */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_MIX_JAR,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DESTROY_ITEM_MIX_JAR */
+            false,ActionType.ACTION_TYPE_DESTROY,GameItem.ITEM_MIX_JAR,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_OBTAIN_ITEM_MIX_JAR */
+            false,ActionType.ACTION_TYPE_EARN_ITEM,GameItem.ITEM_MIX_JAR,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_OBSERVE_ITEM_PICKABLE_TAR_CAN */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_OBSERVE_ITEM_PICKABLE_TAR_CAN,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DESTROY_ITEM_PICKABLE_TAR_CAN */
+            false,ActionType.ACTION_TYPE_DESTROY,GameItem.ITEM_PICKABLE_TAR_CAN,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_OBTAIN_ITEM_PICKABLE_TAR_CAN */
+            false,ActionType.ACTION_TYPE_EARN_ITEM,GameItem.ITEM_PICKABLE_TAR_CAN,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
 

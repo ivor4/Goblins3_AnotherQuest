@@ -95,6 +95,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 295e50e8eb1ff3046928cf33a85fef8c
+    m_Address: FOREGROUND_SERVICE_ROOM_DAY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2b83dbdfd0c092845876aeb11803d151
     m_Address: ANIMATION_REME_LISTENING_EXEC2
     m_ReadOnly: 0
@@ -180,6 +185,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 50b2f44918ab0cb48bfecc8fdfafd343
+    m_Address: SPRITE_MIX_JAR
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 529171e34eeeb3442ab6cb2b319c35cb
     m_Address: SOUND_POOR_MAN_BCKG_3
     m_ReadOnly: 0
@@ -207,6 +217,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 60bd4ba515d601e4ca23a495ae80226f
     m_Address: SCENE_HIVE1_CORRIDOR_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 616c01754f1b7c9498f35f124f6b76c8
+    m_Address: SOUND_DIALOG_OBSERVE_ITEM_GUMBALL_MACHINE_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -427,6 +442,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cc5294fcb7eef2248b5dd6fc945da8fd
     m_Address: SPRITE_HIVE1_ROACH_HEAD
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d24661899a0142845a92003be82a279d
+    m_Address: SPRITE_TAR_CAN
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

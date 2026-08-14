@@ -105,6 +105,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 193e6729001ddde468c7a06458a53874
+    m_Address: SPRITE_PICKABLE_TAR_CAN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 19986b55f08c1ee40bf2a05f3fdde491
     m_Address: ANIMATION_GENERIC_CYCLE6_EXEC
     m_ReadOnly: 0

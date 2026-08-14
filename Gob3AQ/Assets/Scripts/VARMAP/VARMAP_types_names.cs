@@ -76,6 +76,9 @@ namespace Gob3AQ.VARMAP.Types
         NAME_HIVE_ROOM_KEY, 
         NAME_COIN25, 
         NAME_DOOR_SERVICE, 
+        NAME_GUMBALL_MACHINE, 
+        NAME_MIX_JAR, 
+        NAME_TAR_CAN, 
         NAME_NPC_LAST, 
         
 NAME_TOTAL

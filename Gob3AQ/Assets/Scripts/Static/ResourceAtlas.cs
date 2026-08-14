@@ -538,11 +538,11 @@ namespace Gob3AQ.ResourceAtlas
 
             new( /* SERVICE_ROOM */
             new GameSprite[1]{GameSprite.BACKGROUND_SERVICE_ROOM_DAY},
-            new GameSound[1]{GameSound.MUSIC_INN},
-            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_SERVICE_ROOM_DAY}), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(2){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_PLAYER_MAIN}), 
+            new GameSound[1]{GameSound.MUSIC_ROOM_PUZZLE},
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_SERVICE_ROOM_DAY, GameSprite.FOREGROUND_SERVICE_ROOM_DAY}), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(5){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_GUMBALL_MACHINE, GameItem.ITEM_MIX_JAR, GameItem.ITEM_PICKABLE_TAR_CAN}), 
             new ReadOnlyHashSet<DetailType>(new HashSet<DetailType>(1){DetailType.PREFAB_NONE}), 
-            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_INN}), 
+            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_ROOM_PUZZLE}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 

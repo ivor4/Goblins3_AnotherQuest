@@ -68,4 +68,7 @@
 66,NAME_HIVE_ROOM_KEY,Inn key,Llave de pensión
 67,NAME_COIN25,25 cents coin,Moneda de 25 céntimos
 68,NAME_DOOR_SERVICE,Service room,Habitación de servicio
-69,NAME_NPC_LAST,Last,Ultimo
+69,NAME_GUMBALL_MACHINE,Gumball machine,Máquina de pelotas
+70,NAME_MIX_JAR,NAME_MIX_JAR,NAME_MIX_JAR
+71,NAME_TAR_CAN,NAME_TAR_CAN,NAME_TAR_CAN
+72,NAME_NPC_LAST,Last,Ultimo

@@ -540,6 +540,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a31a39c890e38e246b9fd0bbdc8a8c67
+    m_Address: SPRITE_PICKABLE_MIX_JAR
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a3d1a760842c0ba45b1df0955c707ec6
     m_Address: ANIMATION_GENERIC_ACTION5
     m_ReadOnly: 0
@@ -807,6 +812,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f973b020147f8314f8da2ab7c55f6cb8
     m_Address: SOUND_ANY_ITEM_TAKE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: febddca0751c17b40961eb44b06f6030
+    m_Address: SPRITE_PICKABLE_HIVE_ROOM_KEY_BROKEN
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

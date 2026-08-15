@@ -79,6 +79,8 @@ namespace Gob3AQ.VARMAP.Types
         NAME_GUMBALL_MACHINE, 
         NAME_MIX_JAR, 
         NAME_TAR_CAN, 
+        NAME_HIVE_KEY_BROKEN, 
+        NAME_SQUAT_WC, 
         NAME_NPC_LAST, 
         
 NAME_TOTAL

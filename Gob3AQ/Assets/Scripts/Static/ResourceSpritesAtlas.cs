@@ -137,6 +137,7 @@ namespace Gob3AQ.ResourceSpritesAtlas
             new("SPRITE_PICKABLE_MIX_JAR", "SPRITE_ATLAS_PICKABLE_0"), /* SPRITE_PICKABLE_MIX_JAR */ 
             new("SPRITE_TAR_CAN", "SPRITE_ATLAS_SERVICE_ROOM1"), /* SPRITE_TAR_CAN */ 
             new("SPRITE_PICKABLE_TAR_CAN", "SPRITE_ATLAS_PICKABLE_0"), /* SPRITE_PICKABLE_TAR_CAN */ 
+            new("SPRITE_PICKABLE_HIVE_ROOM_KEY_BROKEN", "SPRITE_ATLAS_PICKABLE_0"), /* SPRITE_PICKABLE_HIVE_ROOM_KEY_BROKEN */ 
             new("SPRITE_LAST", ""), /* SPRITE_LAST */ 
             /* > ATG 1 END < */
         };

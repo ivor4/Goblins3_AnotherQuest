@@ -260,6 +260,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 796bad3c33db9a6428ad998fb2858267
+    m_Address: ANIMATION_MAINCHAR_MANIP_BACK_EXEC2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7975c83786b5dbb448569ce6cef4cef7
     m_Address: SPRITE_MAINCHAR_STEADY
     m_ReadOnly: 0
@@ -335,6 +340,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ff21eabb5a91134f804a5fb5a4fd099
+    m_Address: ANIMATION_MAINCHAR_MANIP_BACK_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a0be924a691b58e42a6d68ce2aecccc3
     m_Address: SPRITE_MAINCHAR_LISTENING_1
     m_ReadOnly: 0
@@ -397,6 +407,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b7d079a09262b434193cd6e9666240f9
     m_Address: SPRITE_MAINCHAR_INVENT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc2ae16ce24224f43870eff831028697
+    m_Address: SPRITE_MAINCHAR_MANIPULATING_BACK
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -485,6 +500,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3bac51d0b80f5642aa04f8a97456f69
+    m_Address: ANIMATION_MAINCHAR_MANIP_BACK_ENTRY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e49b08cb9ee88be408b6eb584ea6d4f2
     m_Address: SOUND_FOOTSTEP_1
     m_ReadOnly: 0
@@ -512,6 +532,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: efd424ec04805a345a82ed176bca6893
     m_Address: PREFAB_MAINCHARACTER_SEATED
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0f400008b52652448904323250cedfc
+    m_Address: ANIMATION_MAINCHAR_MANIP_BACK_EXEC1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

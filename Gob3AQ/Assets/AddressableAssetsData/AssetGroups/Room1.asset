@@ -195,6 +195,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53460e6c84ced2049b071065081f1db5
+    m_Address: SOUND_DIALOG_OBSERVE_TAR_CAN_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 57976d4bd985b6c45a95496b8452836d
     m_Address: SPRITE_HIVE1_WARDROBE_OPENED
     m_ReadOnly: 0
@@ -202,6 +207,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58e7294c7dcc66849a84c7af79848839
     m_Address: BACKGROUND_HIVE1_WC_NIGHT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5c8462685cf20874c9fbea8dd4477cc6
+    m_Address: SOUND_DIALOG_OBSERVE_ITEM_SQUAT_WC_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -312,6 +322,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9149b9195ddde064dbbe8a2c44e149ba
     m_Address: ANIMATION_REME_LISTENING_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92d15486d89a7e64e86102b1bb57cf43
+    m_Address: SOUND_USE_COIN
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -460,6 +475,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e07b7dfcf3d6eae418d2306edb93b476
+    m_Address: SOUND_USE_GUMBALL_MACHINE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e9082aa84649ad44ea1baf3df2ae6cd7
     m_Address: ANIMATION_KEY_STEADY
     m_ReadOnly: 0
@@ -490,6 +510,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f117a8e286cb1464593886e445bc6fbd
+    m_Address: SOUND_DIALOG_OBSERVE_BROKEN_HIVE_ROOM_KEY_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f2afda6fdd3f84d48af1fd46587f8c1c
     m_Address: SOUND_DIALOG_TRY_CROSS_SERVICE_DOOR_SPANISH
     m_ReadOnly: 0
@@ -497,6 +522,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f70bf93d3f18c3c48826dff133252650
     m_Address: SPRITE_ATLAS_HIVE1_5
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa6ce33210726d04eaa947f700f6c47e
+    m_Address: SOUND_DIALOG_OBSERVE_MIX_JAR_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -386,6 +386,11 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new DialogOption[1]{DialogOption.DIALOG_REME_SOAP_OPTION_0}
             ),
 
+            new( /* DIALOG_OBTAINED_GUMBALL */
+            new GameItem[1]{GameItem.ITEM_PLAYER_MAIN},
+            new DialogOption[1]{DialogOption.DIALOG_OBTAINED_GUMBALL_OPTION_0}
+            ),
+
             new( /* DIALOG_LAST */
             new GameItem[1]{GameItem.ITEM_NONE},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE}
@@ -1020,6 +1025,13 @@ namespace Gob3AQ.ResourceDialogsAtlas
             DialogType.DIALOG_NONE,false,
             new DialogPhrase[2]{DialogPhrase.PHRASE_DIALOG_REME_SOAP_1, DialogPhrase.PHRASE_DIALOG_REME_SOAP_2}
             ),
+            new( /* DIALOG_OBTAINED_GUMBALL_OPTION_0 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[6]{GameAction.ACTION_SET_GAME_ANIMATION_MODE, GameAction.ACTION_ANIMATE_CLATTERING_COIN, GameAction.ACTION_EVENT_COIN_IN_CRACK, GameAction.ACTION_DESTROY_CLATTERING_COIN, GameAction.ACTION_REMOVE_GAME_ANIMATION_MODE, GameAction.ACTION_DIALOGUE_OBSERVED_CLATTERING_COIN_ROLL},
+            DialogType.DIALOG_NONE,false,
+            new DialogPhrase[1]{DialogPhrase.PHRASE_OBTAINED_GUMBALL}
+            ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
@@ -1424,6 +1436,8 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,GameSound.SOUND_DIALOG_OBSERVE_ITEM_SQUAT_WC, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_ITEM_SQUAT_WC */ 
             new(0,GameSound.SOUND_DIALOG_OBSERVE_GUMBALL, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_ITEM_PICKABLE_GUMBALL */ 
             new(0,GameSound.SOUND_DIALOG_OBTAINED_GUMBALL, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBTAINED_GUMBALL */ 
+            new(0,GameSound.SOUND_DIALOG_OBSERVE_CLATTERING_COIN_ROLL, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVED_CLATTERING_COIN_ROLL */ 
+            new(0,GameSound.SOUND_OBSERVE_COIN_IN_CRACK, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_COIN_IN_CRACK */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

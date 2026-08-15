@@ -1,9 +1,10 @@
 ﻿TASK,PRIO,DONE,ONGOING
-Parry - Notifications - Max 4 queue,5,False,False
+Toast - Notifications - Max 4 queue,5,False,False
 Trophies,4,False,False
 Waypoints only reachable for actions,2,True,True
 Reduce cond stackallocs (they use JIT),5,False,False
 Character 'Señor desubicado',4,False,False
 Questioning 'Mosca puñetera',4,False,False
-Fade to black between scenes,2,True,True
+Move unchainers to triggered by the room,4,False,False
+Phrase factory 2 laws. One man in both places and two objects same place,5,False,False
 Last,5,False,False

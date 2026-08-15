@@ -93,6 +93,7 @@ namespace Gob3AQ.GameElement
         protected AnimationTrigger actualAnimationTrigger;
         protected AnimationTrigger autoSteadyTrigger;
         protected AnimationTrigger queuedTrigger;
+        protected AnimationTrigger transitioningToTrigger;  /* System is travelling to this animation (after activating queued) */
         protected string labelName;
         protected float prevAnimationNormalizedTime;
         protected bool registered;
@@ -228,7 +229,8 @@ namespace Gob3AQ.GameElement
             }
 
             /* If animation is yet present, for example Talking -> Talking */
-            if (actualAnimationTrigger == usedTrigger)
+            /* Added additional condition to avoid interpreting actualAnimation = usedTrigger as exiting from this animation when another was prepared and triggered */
+            if ((actualAnimationTrigger == usedTrigger)&&(transitioningToTrigger == usedTrigger))
             {
                 queuedTrigger = AnimationTrigger.ANIMATION_TRIGGER_ZERO;
                 startCallback?.Invoke();
@@ -249,7 +251,8 @@ namespace Gob3AQ.GameElement
                 animationStartCallback = startCallback;
                 animationEndCallback = endCallback;
 
-
+                /* This does not cancel queued trigger. It only gets process faster by activating trigger if actual animation was walking or steady or immediate command */
+                /* Animation won't be entered twice because all blocks have a Not Equal (actual animation) as stacked transition exit condition */
                 if (immediate || ResourceAnimationsAtlasClass.IsTriggerWalking(actualAnimationTrigger) || ResourceAnimationsAtlasClass.IsTriggerSteady(actualAnimationTrigger))
                 {
                     ActivateTrigger(queuedTrigger);
@@ -553,6 +556,8 @@ namespace Gob3AQ.GameElement
             myAnimator.SetInteger(ResourceAnimationsAtlasClass.ANIMATION_INDEX_HASH, (int)trigger);
             myAnimator.SetTrigger(ResourceAnimationsAtlasClass.TRANSITION_TRIGGER_HASH);
             myAnimator.SetTrigger(ResourceAnimationsAtlasClass.TRANSITION_TRIGGER_EXT_HASH);
+
+            transitioningToTrigger = trigger;
         }
 
         protected void ExecuteQueuedTrigger()

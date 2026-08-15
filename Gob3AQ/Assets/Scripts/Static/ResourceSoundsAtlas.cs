@@ -352,6 +352,9 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_OBSERVE_ITEM_SQUAT_WC_SPANISH"), /* SOUND_DIALOG_OBSERVE_ITEM_SQUAT_WC */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_USE_COIN"), /* SOUND_USE_COIN */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_USE_GUMBALL_MACHINE"), /* SOUND_USE_GUMBALL_MACHINE */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_COIN_CLATTERING"), /* SOUND_COIN_CLATTERING */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_OBSERVE_GUMBALL_SPANISH"), /* SOUND_DIALOG_OBSERVE_GUMBALL */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_OBTAINED_GUMBALL_SPANISH"), /* SOUND_DIALOG_OBTAINED_GUMBALL */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

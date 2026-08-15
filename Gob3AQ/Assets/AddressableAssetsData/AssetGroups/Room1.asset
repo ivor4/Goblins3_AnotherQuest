@@ -45,6 +45,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 13182b918f718ea49a719a97a61cdd33
+    m_Address: SOUND_DIALOG_OBTAINED_GUMBALL_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 18e43d2b8727b8e409179f50cdb1c8c4
     m_Address: SPRITE_REME_TALKING
     m_ReadOnly: 0
@@ -77,6 +82,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 242c80f42c45edc4e942a9b83183144d
     m_Address: ANIMATION_REME_SWEEPING_EXEC1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 26cf2cbf37d09c644a5bd445cfb0b6b9
+    m_Address: SOUND_DIALOG_OBSERVE_GUMBALL_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -455,6 +465,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9eff75c67606d64281fc0a426624dea
+    m_Address: ANIMATION_COIN_FALL_FROM_MACHINE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cc5294fcb7eef2248b5dd6fc945da8fd
     m_Address: SPRITE_HIVE1_ROACH_HEAD
     m_ReadOnly: 0
@@ -532,6 +547,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fc1321eaef286c3478f455f590954402
     m_Address: SPRITE_ATLAS_HIVE1_3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff3c9ac75c2d6a947898387efea1d833
+    m_Address: ANIMATOR_COIN25
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

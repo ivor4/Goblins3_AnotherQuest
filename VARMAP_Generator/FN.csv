@@ -1,5 +1,5 @@
 ﻿NewItem,NewName,NewSprite,Pickable,Spawn,Picker_Character,ObservationPhrase,TakePhrase,Room,Output,Unnamed: 10,Unnamed: 11
-ITEM_SQUAT_WC,NAME_SQUAT_WC,SPRITE_BLANK,False,False,CHARACTER_MAIN,Una placa turca con algunas manchitas alrededor. La joya de la corona de esta habitación,,SERVICE_ROOM,,,
+ITEM_PICKABLE_GUMBALL,NAME_GUMBALL,SPRITE_PICKABLE_GUMBALL,True,False,CHARACTER_MAIN,Una pelota de goma! Qué bien nos lo vamos a pasar!,,SERVICE_ROOM,,,
 ,,,,,,,,,,,
 NewRoom,Background,BackgroundNight,Music,Output,,,,,,,
 CITY1_EXTRAPERLO1,BACKGROUND_CITY1_EXTRAPERLO,BACKGROUND_CITY1_EXTRAPERLO,MUSIC_EXTRAPERLO,,,,,,,,

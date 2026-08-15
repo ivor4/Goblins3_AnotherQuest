@@ -185,6 +185,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f94822e102449642a657f4bd15e96a6
+    m_Address: SPRITE_PICKABLE_GUMBALL
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 30bf4ccfcd20d32468d9d2ff0e75414a
     m_Address: ANIMATION_GENERIC_CYCLE2_EXEC
     m_ReadOnly: 0

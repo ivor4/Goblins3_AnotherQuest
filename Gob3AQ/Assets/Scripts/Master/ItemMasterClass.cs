@@ -102,7 +102,7 @@ namespace Gob3AQ.ItemMaster
                 case ActionType.ACTION_TYPE_UNCLICKABLE:
                     if (_singleton._levelItems.TryGetValue(actionInfo.targetItem, out instance))
                     {
-                        instance.SetUnclickable(true);
+                        instance.SetUnclickable(actionInfo.boolOption1.HasValue && actionInfo.boolOption1.Value);
                     }
                     break;
 

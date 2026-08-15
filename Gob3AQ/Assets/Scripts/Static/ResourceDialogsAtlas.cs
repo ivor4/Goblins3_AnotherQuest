@@ -1422,6 +1422,8 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,GameSound.SOUND_DIALOG_OBSERVE_TAR_CAN, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_ITEM_PICKABLE_TAR_CAN */ 
             new(0,GameSound.SOUND_DIALOG_OBSERVE_BROKEN_HIVE_ROOM_KEY, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_ITEM_PICKABLE_HIVE_KEY_BROKEN */ 
             new(0,GameSound.SOUND_DIALOG_OBSERVE_ITEM_SQUAT_WC, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_ITEM_SQUAT_WC */ 
+            new(0,GameSound.SOUND_DIALOG_OBSERVE_GUMBALL, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_ITEM_PICKABLE_GUMBALL */ 
+            new(0,GameSound.SOUND_DIALOG_OBTAINED_GUMBALL, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBTAINED_GUMBALL */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

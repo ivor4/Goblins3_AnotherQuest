@@ -87,16 +87,9 @@ namespace Gob3AQ.GameMenu.MementoItem
         {
             this.parent = parent;
 
-            if (totallyCleared)
-            {
-                item_color_reload_idle = color_item_idle;
-                item_color_reload_hover = color_all_hover;
-            }
-            else
-            {
-                item_color_reload_idle = color_item_uncleared;
-                item_color_reload_hover = color_item_uncleared;
-            }
+
+            item_color_reload_idle = color_item_idle;
+            item_color_reload_hover = color_all_hover;
 
             ResetVisual();
 

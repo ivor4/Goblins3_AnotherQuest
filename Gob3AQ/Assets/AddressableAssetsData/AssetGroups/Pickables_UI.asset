@@ -805,6 +805,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f2f14a7a081912048b4608a68f673e00
+    m_Address: SPRITE_MEMENTO_REME
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f3137094f875bfd4f96c8edd39935e6a
     m_Address: ANIMATION_GENERIC_CYCLE6_EXEC2
     m_ReadOnly: 0

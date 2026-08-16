@@ -82,6 +82,8 @@ namespace Gob3AQ.VARMAP.Types
         NAME_HIVE_KEY_BROKEN, 
         NAME_SQUAT_WC, 
         NAME_GUMBALL, 
+        NAME_GIANT_ROACH, 
+        NAME_MEMENTO_REME, 
         NAME_NPC_LAST, 
         
 NAME_TOTAL

@@ -40,6 +40,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0cb01fc3c6f5ad84587a701b8ffcdfc3
+    m_Address: SPRITE_WINDOW_GIANT_ROACH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0d14a8a72c74b6b4d97942a74caf3514
     m_Address: ANIMATION_REME_TALKING_EXEC2
     m_ReadOnly: 0
@@ -87,6 +92,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 242c80f42c45edc4e942a9b83183144d
     m_Address: ANIMATION_REME_SWEEPING_EXEC1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 262544ae31b471141a784f9d51cfe412
+    m_Address: ANIMATION_GIANT_ROACH_STEADY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -220,6 +230,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 55e1ceb9643700347952cabbf0e1f0b0
+    m_Address: ANIMATION_GIANT_ROACH_CLIMB
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5642c11cf244a494bb137c6db7caab20
+    m_Address: ANIMATOR_GIANT_ROACH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 57976d4bd985b6c45a95496b8452836d
     m_Address: SPRITE_HIVE1_WARDROBE_OPENED
     m_ReadOnly: 0
@@ -231,7 +251,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5c8462685cf20874c9fbea8dd4477cc6
-    m_Address: SOUND_DIALOG_OBSERVE_ITEM_SQUAT_WC_SPANISH
+    m_Address: SOUND_DIALOG_OBSERVE_ITEM_SQUAT_WC_1_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -287,6 +307,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6d7672b06471d0c459ff9a19cca5f512
     m_Address: SOUND_POOR_MAN_BCKG_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6eb9c4e97a03fcd4d97ff26d5ab801e0
+    m_Address: SOUND_GIANT_ROACH_GROWL
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -355,6 +380,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 941ab1d407b298c4589b26b456a6f3cf
+    m_Address: SOUND_DIALOG_OBSERVE_ITEM_SQUAT_WC_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 957c752728fad8046b7d7800a3c7732f
+    m_Address: SOUND_DIALOG_REME_ROACHES_3_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 959297e8d5df02d4d8bbeebb2b9c755e
     m_Address: BACKGROUND_HIVE1_CORRIDOR1_NIGHT
     m_ReadOnly: 0
@@ -395,6 +430,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a95b06d5b6a05264e89633625f44d12f
+    m_Address: SOUND_DIALOG_REME_ROACHES_4_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ab71db5c6536c254580b854722e314df
     m_Address: MUSIC_INN
     m_ReadOnly: 0
@@ -427,6 +467,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b7f68399c31e2414ba6a556d41b0e323
     m_Address: ANIMATION_REME_BLOCKING_PATH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b809297d153f80748b4029a9b42ba156
+    m_Address: SOUND_DIALOG_REME_ROACHES_2_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -542,6 +587,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e9082aa84649ad44ea1baf3df2ae6cd7
     m_Address: ANIMATION_KEY_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ebbae0b6ddf24a84a9c7123a3a5091c0
+    m_Address: SOUND_DIALOG_REME_ROACHES_1_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

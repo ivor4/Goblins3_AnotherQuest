@@ -45,6 +45,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 19127c295c4ed3540bad0a4b5fe6339f
+    m_Address: ANIMATION_MAINCHAR_GRAB_CF_EXEC1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 222b79f7c1fb95e44995de028238b654
     m_Address: ANIMATION_MAINCHAR_UNLOCKING_EXEC1
     m_ReadOnly: 0
@@ -102,6 +107,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 39a6410cac378be4ab06d791c4040757
     m_Address: SPRITE_MAINCHAR_DUCK_OFFERING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a5b2f191c7c5aa428a7bd7b30ce7f32
+    m_Address: ANIMATION_MAINCHAR_GRAB_CF_ENTRY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -275,6 +285,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8076ee1930ce50f4f8fe1485dba5fc91
+    m_Address: SPRITE_MAINCHAR_GRAB_CORNERFRONT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8432c713367f3744ea6973c65d6dddcb
     m_Address: SOUND_MAINCHAR_DONT_WANT_MORE_SPANISH
     m_ReadOnly: 0
@@ -337,6 +352,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9ba51ca4e66db0c4ca77959161d73c36
     m_Address: ANIMATION_MAINCHAR_TALKING2_STARTING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e2b1e152cb91214896337a205e45b6f
+    m_Address: ANIMATION_MAINCHAR_GRAB_CF_EXIT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -432,6 +452,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bfe5784bb5e0e7f4b877cc05e218c6ca
     m_Address: SPRITE_MAINCHAR_ANNOYED
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c15b67888ed326d4d87c4e5bdcd76a80
+    m_Address: ANIMATION_MAINCHAR_GRAB_CF_EXEC2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

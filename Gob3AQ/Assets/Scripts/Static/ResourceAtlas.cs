@@ -544,7 +544,7 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<DetailType>(new HashSet<DetailType>(1){DetailType.PREFAB_NONE}), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_ROOM_PUZZLE}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
-            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(2){UnchainConditions.UNCHAINER_UNCLICKABLE_CLATTERING_COIN, UnchainConditions.UNCHAIN_DESTROY_CLATTERING_COIN}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(3){UnchainConditions.UNCHAINER_UNCLICKABLE_CLATTERING_COIN, UnchainConditions.UNCHAIN_DESTROY_CLATTERING_COIN, UnchainConditions.UNCHAIN_DESTROY_TAR_CAN}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
             ),
 

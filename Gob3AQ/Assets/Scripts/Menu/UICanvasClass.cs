@@ -115,9 +115,9 @@ namespace Gob3AQ.GameMenu.UICanvas
         private Image tool_talkButton_img;
         private Image tool_observeButton_img;
 
-        private GameObject memento_ContentObj;
+        private GameObject memento_itemsContentObj;
         private TMP_Text memento_descrText;
-        private RectTransform memento_ContentRectTransform;
+        private RectTransform memento_itemsContentRectTransform;
         private MementoParent memento_selectedItem;
         private HashSet<MementoParent> memento_combinedItems;
         private MementoItemClass[] memento_itemClass;
@@ -190,9 +190,9 @@ namespace Gob3AQ.GameMenu.UICanvas
             tool_talkButton_img = tool_talkButton.gameObject.GetComponent<Image>();
             tool_observeButton_img = tool_observeButton.gameObject.GetComponent<Image>();
 
-            memento_ContentObj = UICanvas_mementoObj.transform.Find("MementoList/Viewport/Content").gameObject;
-            memento_descrText = UICanvas_mementoObj.transform.Find("MementoDescr").GetComponent<TMP_Text>();
-            memento_ContentRectTransform = memento_ContentObj.GetComponent<RectTransform>();
+            memento_itemsContentObj = UICanvas_mementoObj.transform.Find("MementoList/Viewport/Content").gameObject;
+            memento_descrText = UICanvas_mementoObj.transform.Find("MementoDescr/Viewport/Content/DescrText").GetComponent<TMP_Text>();
+            memento_itemsContentRectTransform = memento_itemsContentObj.GetComponent<RectTransform>();
             memento_unlocked_parents_list = new((int)MementoParent.MEMENTO_PARENT_TOTAL);
             memento_unlocked_parents = new((int)MementoParent.MEMENTO_PARENT_TOTAL);
             memento_parent_dict = new((int)MementoParent.MEMENTO_PARENT_TOTAL);
@@ -677,9 +677,9 @@ namespace Gob3AQ.GameMenu.UICanvas
         private void MementoSortAndResizeAll()
         {
             /* Fit content to size */
-            Vector2 sizeDelta = memento_ContentRectTransform.sizeDelta;
+            Vector2 sizeDelta = memento_itemsContentRectTransform.sizeDelta;
             sizeDelta.y = memento_unlocked_parents_list.Count * memento_itemClass[0].GetSize.y;
-            memento_ContentRectTransform.sizeDelta = sizeDelta;
+            memento_itemsContentRectTransform.sizeDelta = sizeDelta;
 
             /* Sort active parent list (the ones with a higher ID are supposed to be unlocked laster in game)
             * Therefore, later unlocked events should appear first */
@@ -797,7 +797,7 @@ namespace Gob3AQ.GameMenu.UICanvas
             /* Keep them ready for usage */
             for (int i=0; i < memento_itemObj.Length; ++i)
             {
-                memento_itemObj[i].transform.SetParent(memento_ContentObj.transform, false);
+                memento_itemObj[i].transform.SetParent(memento_itemsContentObj.transform, false);
                 memento_itemClass[i] = memento_itemObj[i].GetComponent<MementoItemClass>();
                 MementoItemClass itemClass = memento_itemClass[i];
 

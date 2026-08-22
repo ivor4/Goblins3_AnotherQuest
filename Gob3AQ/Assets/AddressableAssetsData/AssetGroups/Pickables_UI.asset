@@ -325,6 +325,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5a375450962d40e48a24f614e62e2b44
+    m_Address: SPRITE_ICON_TICK
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5b5dfcd027b7896458e987d88903a354
     m_Address: ANIMATION_GENERIC_CYCLE7_ENTRY
     m_ReadOnly: 0

@@ -32,6 +32,7 @@ namespace Gob3AQ.GameMenu.MementoItem
         private Color item_color_reload_hover;
 
         private GameObject newsObj;
+        private GameObject completedObj;
         private RectTransform rectTransform;
         private Image backgroundImage;
         private Image itemImage;
@@ -117,8 +118,12 @@ namespace Gob3AQ.GameMenu.MementoItem
             backgroundImage = GetComponent<Image>();
             itemImage = transform.Find("Icon").GetComponent<Image>();
             newsObj = itemImage.transform.Find("News").gameObject;
+            completedObj = itemImage.transform.Find("Completed").gameObject;
             text = transform.Find("Name").GetComponent<TMP_Text>();
             rectTransform = GetComponent<RectTransform>();
+
+            newsObj.GetComponent<Image>().sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_INTERNAL_CIRCLE);
+            completedObj.GetComponent<Image>().sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_ICON_TICK);
         }
 
         void Start()

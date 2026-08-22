@@ -116,6 +116,7 @@ namespace Gob3AQ.GameMenu.UICanvas
         private Image tool_observeButton_img;
 
         private GameObject memento_itemsContentObj;
+        private Image memento_largeIcon;
         private TMP_Text memento_descrText;
         private RectTransform memento_itemsContentRectTransform;
         private MementoParent memento_selectedItem;
@@ -192,6 +193,7 @@ namespace Gob3AQ.GameMenu.UICanvas
 
             memento_itemsContentObj = UICanvas_mementoObj.transform.Find("MementoList/Viewport/Content").gameObject;
             memento_descrText = UICanvas_mementoObj.transform.Find("MementoDescr/Viewport/Content/DescrText").GetComponent<TMP_Text>();
+            memento_largeIcon = UICanvas_mementoObj.transform.Find("MementoDescr/Viewport/Content/Icon").GetComponent<Image>();
             memento_itemsContentRectTransform = memento_itemsContentObj.GetComponent<RectTransform>();
             memento_unlocked_parents_list = new((int)MementoParent.MEMENTO_PARENT_TOTAL);
             memento_unlocked_parents = new((int)MementoParent.MEMENTO_PARENT_TOTAL);
@@ -210,6 +212,8 @@ namespace Gob3AQ.GameMenu.UICanvas
             memento_selectedItem = MementoParent.MEMENTO_PARENT_NONE;
 
             stringBuilder = new(512);
+
+            memento_largeIcon.gameObject.SetActive(false);
         }
 
         public void Show_Hide_Toolbar(bool show)
@@ -566,6 +570,7 @@ namespace Gob3AQ.GameMenu.UICanvas
         public void MementoMenuActivated()
         {
             memento_descrText.text = string.Empty;
+            memento_largeIcon.gameObject.SetActive(false);
 
             ClearCombinedMementos();
 
@@ -672,6 +677,8 @@ namespace Gob3AQ.GameMenu.UICanvas
             }
 
             memento_descrText.text = stringBuilder.ToString();
+            memento_largeIcon.sprite = ResourceSpritesClass.GetSprite(memParInfo.sprite);
+            memento_largeIcon.gameObject.SetActive(true);
         }
 
         private void MementoSortAndResizeAll()

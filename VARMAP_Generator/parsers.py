@@ -402,22 +402,22 @@ def process_items(ctx: CodeGenContext):
         if 'NONE' not in name:
             is_pickable = 'true' in cols[6].lower()
             pickname = name.replace('ITEM_', 'ITEM_PICK_') if is_pickable else 'ITEM_PICK_NONE'
-            is_prefab_detail = 'true' in cols[9].lower()
+            is_prefab_detail = 'true' in cols[10].lower()
             
             if is_pickable:
                 ctx.items_types.insert_line(2, f"{pickname}, \n")
                 ctx.items_interact.insert_line(4, f"{PREFIXES['item']}{name},\t/* {pickname} */\n")
-                ctx.items_interact.insert_line(5, f"{PREFIXES['sprite']}{cols[7]},\t/* {pickname} */\n")
+                ctx.items_interact.insert_line(5, f"{PREFIXES['sprite']}{cols[8]},\t/* {pickname} */\n")
             
             ctx.items_interact.insert_line(3, f"new ( /* {name} */\n")
             
             sprites = build_array_str(cols[4].split('|'), PREFIXES['sprite'])
             ctx.items_interact.insert_line(3, f"{PREFIXES['name']}{cols[2]},{PREFIXES['family']}{cols[3]},new(new HashSet<GameSprite>({len(cols[4].split('|'))}){{{sprites}}}),\n")
             
-            ctx.items_interact.insert_line(3, f"{PREFIXES['sprite']}{cols[5]},{str(is_pickable).lower()},{PREFIXES['sprite']}{cols[7]},{PREFIXES['pickable']}{pickname},{PREFIXES['detail']}{cols[8]},{str(is_prefab_detail).lower()},\n")
+            ctx.items_interact.insert_line(3, f"{PREFIXES['sprite']}{cols[5]},{str(is_pickable).lower()},{cols[7].lower()},{PREFIXES['sprite']}{cols[8]},{PREFIXES['pickable']}{pickname},{PREFIXES['detail']}{cols[9]},{str(is_prefab_detail).lower()},\n")
             
-            conds = build_array_str(cols[10].split('|'), PREFIXES['cond'])
-            ctx.items_interact.insert_line(3, f"new(new HashSet<ActionConditions>({len(cols[10].split('|'))}){{{conds}}})),\n\n")
+            conds = build_array_str(cols[11].split('|'), PREFIXES['cond'])
+            ctx.items_interact.insert_line(3, f"new(new HashSet<ActionConditions>({len(cols[11].split('|'))}){{{conds}}})),\n\n")
             
     ctx.items_types.insert_line(1, "\nITEM_TOTAL\n")
     ctx.items_types.insert_line(2, "\nITEM_PICK_TOTAL\n")
@@ -504,9 +504,9 @@ def process_events(ctx: CodeGenContext):
             if zone == 2:
                 ctx.items_interact.insert_line(6, f"/* {cols[1]} */\n")
                 ctx.items_interact.insert_line(6, f"new(\n")
-                ctx.items_interact.insert_line(6, f"{PREFIXES['name']}{cols[2]},{PREFIXES['sprite']}{cols[3]},\n")
-                mementos = build_array_str(cols[4].split('|'), PREFIXES['memento'])
-                ctx.items_interact.insert_line(6, f"new Memento[{len(cols[4].split('|'))}]{{{mementos}}}\n")
+                ctx.items_interact.insert_line(6, f"{PREFIXES['name']}{cols[2]},{PREFIXES['sprite']}{cols[3]},{PREFIXES['item']}{cols[4]},\n")
+                mementos = build_array_str(cols[5].split('|'), PREFIXES['memento'])
+                ctx.items_interact.insert_line(6, f"new Memento[{len(cols[5].split('|'))}]{{{mementos}}}\n")
                 ctx.items_interact.insert_line(6, f"),\n\n")
             elif zone == 3:
                 ctx.items_interact.insert_line(7, f"/* {cols[1]} */\n")

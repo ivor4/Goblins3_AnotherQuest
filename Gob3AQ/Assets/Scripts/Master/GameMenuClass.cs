@@ -78,6 +78,13 @@ namespace Gob3AQ.GameMenu
             }
         }
 
+        public static void ShowPushNotificationService(DialogPhrase notifPhrase, PushNotificationType notifType)
+        {
+            if (!_singleton) return;
+
+
+        }
+
         private void ShowDecisionExec(DecisionType decision)
         {
             ref readonly DecisionConfig decisionConfig = ref ResourceDecisionsAtlasClass.GetDecisionConfig(decision);

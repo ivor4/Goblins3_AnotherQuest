@@ -79,6 +79,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             ACTIVATE_FORCED_ZOOM_MODE = _ACTIVATE_FORCED_ZOOM_MODE;
             START_CARD_GAME = _START_CARD_GAME;
             LOAD_ROOM_AS_ACTION = _LOAD_ROOM_AS_ACTION;
+            SHOW_PUSH_NOTIFICATION = _SHOW_PUSH_NOTIFICATION;
             /* > ATG 1 END */
         }
 
@@ -302,6 +303,13 @@ public static START_CARD_GAME_DELEGATE START_CARD_GAME;
 /// <para> Method: <see cref="LevelMasterClass.LoadRoomAsActionService"/> </para> 
 /// </summary>
 public static LOAD_ROOM_AS_ACTION_DELEGATE LOAD_ROOM_AS_ACTION;
+        /// <summary> 
+/// Shows a custom notification which will eventually expire 
+/// <para> Owner: GameMenu </para> 
+/// <para> Accessors: GameEventMaster </para> 
+/// <para> Method: <see cref="GameMenuClass.ShowPushNotificationService"/> </para> 
+/// </summary>
+public static SHOW_PUSH_NOTIFICATION_DELEGATE SHOW_PUSH_NOTIFICATION;
         /* > ATG 3 END */
     }
 }

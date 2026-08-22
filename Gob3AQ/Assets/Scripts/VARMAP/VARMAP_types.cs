@@ -107,6 +107,14 @@ namespace Gob3AQ.VARMAP.Types
         NOTIFY_TIMEOUT = 0x40
     }
 
+    public enum PushNotificationType
+    {
+        PUSH_NOTIFICATION_EARN_MEMENTO,
+        PUSH_NOTIFICATION_EARN_ITEM,
+        PUSH_NOTIFICATION_COMPLETE_MEMENTO,
+        PUSH_NOTIFICATION_LOSE_ITEM
+    }
+
     public enum WaypointIDTupleType
     {
         WAYPOINT_ID_TUPLE_INDEX,
@@ -463,6 +471,7 @@ namespace Gob3AQ.VARMAP.Types
         public readonly ReadOnlyHashSet<GameSprite> sprites;
         public readonly GameSprite defaultSprite;
         public readonly bool isPickable;
+        public readonly bool isIdea;
         public readonly GameSprite pickableSprite;
         public readonly GamePickableItem pickableItem;
         public readonly DetailType detailType;
@@ -472,11 +481,11 @@ namespace Gob3AQ.VARMAP.Types
 
 
         public static readonly ItemInfo EMPTY = new(NameType.NAME_NONE,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(0)),
-            GameSprite.SPRITE_NONE,false,GameSprite.SPRITE_NONE, GamePickableItem.ITEM_PICK_NONE,
+            GameSprite.SPRITE_NONE,false,false,GameSprite.SPRITE_NONE, GamePickableItem.ITEM_PICK_NONE,
             DetailType.PREFAB_NONE, false, new(new HashSet<ActionConditions>(0)));
 
         public ItemInfo(NameType name, GameItemFamily family, ReadOnlyHashSet<GameSprite> sprites,
-            GameSprite defaultSprite, bool isPickable, GameSprite pickableSprite, GamePickableItem pickableItem,
+            GameSprite defaultSprite, bool isPickable, bool isIdea, GameSprite pickableSprite, GamePickableItem pickableItem,
             DetailType detailType, bool isPrefabDetail, ReadOnlyHashSet<ActionConditions> conditions)
         {
             this.name = name;
@@ -484,6 +493,7 @@ namespace Gob3AQ.VARMAP.Types
             this.sprites = sprites;
             this.defaultSprite = defaultSprite;
             this.isPickable = isPickable;
+            this.isIdea = isIdea;
             this.pickableSprite = pickableSprite;
             this.pickableItem = pickableItem;
             this.detailType = detailType;
@@ -496,16 +506,18 @@ namespace Gob3AQ.VARMAP.Types
     {
         public readonly NameType name;
         public readonly GameSprite sprite;
+        public readonly GameItem associatedItem;
         private readonly Memento[] children;
 
         public readonly ReadOnlySpan<Memento> Children => children;
 
-        public static readonly MementoParentInfo EMPTY = new(NameType.NAME_NONE, GameSprite.SPRITE_NONE,new Memento[0]);
+        public static readonly MementoParentInfo EMPTY = new(NameType.NAME_NONE, GameSprite.SPRITE_NONE, GameItem.ITEM_NONE, new Memento[0]);
 
-        public MementoParentInfo(NameType name, GameSprite sprite, Memento[] children)
+        public MementoParentInfo(NameType name, GameSprite sprite, GameItem associatedItem, Memento[] children)
         {
             this.name = name;
             this.sprite = sprite;
+            this.associatedItem = associatedItem;
             this.children = children;
         }
     }

@@ -170,6 +170,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 278594b5d91ff8c46b75938190adfe40
+    m_Address: SPRITE_ICON_PUSH_COMPLETE_MEMENTO
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 27a69597165a3994e8972b4d3cb6e286
     m_Address: SPRITE_CURSOR_USING
     m_ReadOnly: 0
@@ -630,6 +635,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba087f94968ea0e4aad2c3dc32bdcf05
+    m_Address: SPRITE_ICON_PUSH_OBTAIN_MEMENTO
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bc8b132edd2a6bc4a893488ae2ee80f6
     m_Address: ANIMATION_GENERIC_ACTION11
     m_ReadOnly: 0
@@ -695,6 +705,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cbd452808c1cf2349b504a660484e9ec
+    m_Address: SPRITE_ICON_PUSH_OBTAIN_ITEM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cd3265f7437714f418b6f3fe7a85f086
     m_Address: PREFAB_MEMENTO
     m_ReadOnly: 0
@@ -757,6 +772,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e69d905d2a137cd49bd1e8a23d8c1b38
     m_Address: ANIMATION_GENERIC_WALKINGCORNERBACK_ENTRY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6de7c8ca75aa17439a9829bff99edbb
+    m_Address: SPRITE_ICON_PUSH_LOSE_ITEM
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

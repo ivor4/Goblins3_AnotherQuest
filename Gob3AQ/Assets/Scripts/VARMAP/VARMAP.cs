@@ -519,6 +519,13 @@ protected static LOAD_ROOM_AS_ACTION_DELEGATE _LOAD_ROOM_AS_ACTION;
 /// </summary>
 protected static LABEL_ELEM_HOVER_DELEGATE _LABEL_ELEM_HOVER;
         /// <summary> 
+/// Shows a custom notification which will eventually expire 
+/// <para> Owner: GameMenu </para> 
+/// <para> Accessors: GameEventMaster </para> 
+/// <para> Method: <see cref="GameMenuClass.ShowPushNotificationService"/> </para> 
+/// </summary>
+protected static SHOW_PUSH_NOTIFICATION_DELEGATE _SHOW_PUSH_NOTIFICATION;
+        /// <summary> 
 /// Last service 
 /// <para> Owner: GameMaster </para> 
 /// <para> Accessors:  </para> 

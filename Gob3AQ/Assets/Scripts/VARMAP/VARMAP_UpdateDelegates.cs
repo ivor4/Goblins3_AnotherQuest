@@ -209,6 +209,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _GIVE_UP_CARD_GAME = CardMasterClass.GiveUpCardGameService;
             _LOAD_ROOM_AS_ACTION = LevelMasterClass.LoadRoomAsActionService;
             _LABEL_ELEM_HOVER = GraphicsMasterClass.LabelElemHoverService;
+            _SHOW_PUSH_NOTIFICATION = GameMenuClass.ShowPushNotificationService;
             _LAST_SERVICE = GameMasterClass.ExitGameService;
             /* > ATG 2 END */
         }

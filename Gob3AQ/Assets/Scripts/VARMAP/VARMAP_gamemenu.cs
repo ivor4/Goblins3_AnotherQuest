@@ -73,6 +73,7 @@ namespace Gob3AQ.VARMAP.GameMenu
             LOAD_ADDITIONAL_PREFAB = _LOAD_ADDITIONAL_PREFAB;
             PERFORM_ACTION = _PERFORM_ACTION;
             GIVE_UP_CARD_GAME = _GIVE_UP_CARD_GAME;
+            SHOW_PUSH_NOTIFICATION = _SHOW_PUSH_NOTIFICATION;
             /* > ATG 1 END */
         }
 
@@ -255,6 +256,13 @@ public static PERFORM_ACTION_DELEGATE PERFORM_ACTION;
 /// <para> Method: <see cref="CardMasterClass.GiveUpCardGameService"/> </para> 
 /// </summary>
 public static GIVE_UP_CARD_GAME_DELEGATE GIVE_UP_CARD_GAME;
+        /// <summary> 
+/// Shows a custom notification which will eventually expire 
+/// <para> Owner: GameMenu </para> 
+/// <para> Accessors: GameEventMaster </para> 
+/// <para> Method: <see cref="GameMenuClass.ShowPushNotificationService"/> </para> 
+/// </summary>
+public static SHOW_PUSH_NOTIFICATION_DELEGATE SHOW_PUSH_NOTIFICATION;
         /* > ATG 3 END */
     }
 }

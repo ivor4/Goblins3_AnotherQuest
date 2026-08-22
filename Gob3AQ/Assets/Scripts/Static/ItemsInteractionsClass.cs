@@ -1135,452 +1135,462 @@ namespace Gob3AQ.Brain.ItemsInteraction
             /* > ATG 3 START < */
             new ( /* ITEM_PLAYER_MAIN */
             NameType.NAME_CHAR_MAIN,GameItemFamily.ITEM_FAMILY_TYPE_PLAYER,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_MAINCHAR_STEADY}),
-            GameSprite.SPRITE_NONE,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_MAINCHAR,false,
+            GameSprite.SPRITE_NONE,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_MAINCHAR,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_HIVE1_CHEST */
             NameType.NAME_ITEM_SECR_DESK,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(2){GameSprite.SPRITE_ITEM_CHEST_OPENED, GameSprite.SPRITE_ITEM_CHEST_CLOSED}),
-            GameSprite.SPRITE_ITEM_CHEST_CLOSED,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_ITEM_CHEST_CLOSED,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_OPEN_CHEST, ActionConditions.COND_CLOSE_CHEST})),
 
             new ( /* ITEM_CARDS_PICKABLE */
             NameType.NAME_ITEM_CARDS,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ITEM_CARDS}),
-            GameSprite.SPRITE_ITEM_CARDS,true,GameSprite.SPRITE_ITEM_CARDS_PICKABLE,GamePickableItem.ITEM_PICK_CARDS_PICKABLE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_ITEM_CARDS,true,false,GameSprite.SPRITE_ITEM_CARDS_PICKABLE,GamePickableItem.ITEM_PICK_CARDS_PICKABLE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_TAKE_CARDS})),
 
             new ( /* ITEM_HIVE1_WARDROBE */
             NameType.NAME_ITEM_WARDROBE,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OPEN_HIVE1_WARDROBE})),
 
             new ( /* ITEM_HIVE1_WARDROBE_OPENED */
             NameType.NAME_ITEM_WARDROBE,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ITEM_WARDROBE_OPENED}),
-            GameSprite.SPRITE_ITEM_WARDROBE_OPENED,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_ITEM_WARDROBE_OPENED,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_CLOSE_HIVE1_WARDROBE})),
 
             new ( /* ITEM_GENERIC_DOOR1 */
             NameType.NAME_ITEM_CROSS,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_HIVE1_NPC_REME */
             NameType.NAME_NPC_REME,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_REME_STEADY}),
-            GameSprite.SPRITE_REME_STEADY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_REME_STEADY,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(3){ActionConditions.COND_TALK_REME_1, ActionConditions.COND_USE_CARDS_REME, ActionConditions.COND_USE_SOAP_REME})),
 
             new ( /* ITEM_GENERIC_DOOR2 */
             NameType.NAME_ITEM_CROSS,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_GENERIC_DOOR3 */
             NameType.NAME_ITEM_CROSS,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_HIVE1_PERFUME */
             NameType.NAME_ITEM_PERFUME,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(3){ActionConditions.COND_USE_HIVE1_PERFUME, ActionConditions.COND_USE_HIVE1_PERFUME_NOT_1, ActionConditions.COND_USE_HIVE1_PERFUME_NOT_2})),
 
             new ( /* ITEM_HIVE1_AD_BOARD */
             NameType.NAME_ITEM_AD_BOARD,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OBSERVE_HIVE1_AD_BOARD_1})),
 
             new ( /* ITEM_HIVE1_EXIT_DOOR */
             NameType.NAME_ITEM_CROSS,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(3){ActionConditions.COND_EXIT_HIVE1_HALL_1, ActionConditions.COND_EXIT_HIVE1_HALL_2, ActionConditions.COND_EXIT_HIVE1_HALL_3})),
 
             new ( /* ITEM_HIVE1_BASIN */
             NameType.NAME_ITEM_BASIN,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(3){ActionConditions.COND_USE_HIVE1_BASIN_NO_SOAP, ActionConditions.COND_USE_HIVE1_BASIN_W_SOAP, ActionConditions.COND_USE_HIVE1_BASIN_W_SOAP_REPEAT})),
 
             new ( /* ITEM_SOAP_PICKABLE */
             NameType.NAME_ITEM_SOAP,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,true,GameSprite.SPRITE_PICKABLE_SOAP,GamePickableItem.ITEM_PICK_SOAP_PICKABLE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,true,false,GameSprite.SPRITE_PICKABLE_SOAP,GamePickableItem.ITEM_PICK_SOAP_PICKABLE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_TAKE_SOAP})),
 
             new ( /* ITEM_HIVE1_BED */
             NameType.NAME_ITEM_BED,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_USE_BED_PENDING_DREAM_1, ActionConditions.COND_USE_HIVE1_BED})),
 
             new ( /* ITEM_STREET1_STH_DOOR */
             NameType.NAME_SOUTH_NEIGHBORHOOD,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_GO_STREET1_SOUTH_NEIGH})),
 
             new ( /* ITEM_STREET1_CENTER_DOOR */
             NameType.NAME_CITY_CENTER,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_STREET2_PERIPH_DOOR */
             NameType.NAME_CITY_PERIPH,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_PHARMACY_DOOR */
             NameType.NAME_PHARMACY,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_PHARMACY_NPC_QUEUE */
             NameType.NAME_QUEUE_PEOPLE,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_NPC_PHARMACY_QUEUE}),
-            GameSprite.SPRITE_NPC_PHARMACY_QUEUE,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_NPC_PHARMACY_QUEUE,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_PHARMACY_NPC_OWNER */
             NameType.NAME_PHARMACIST,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_NPC_PHARMACY_OWNER}),
-            GameSprite.SPRITE_NPC_PHARMACY_OWNER,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_NPC_PHARMACY_OWNER,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_TRY_TALK_PHARMACIST})),
 
             new ( /* ITEM_CITY1_UMBRELLA */
             NameType.NAME_UMBRELLA,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_CITY1_MANYO_UMBRELLA}),
-            GameSprite.SPRITE_CITY1_MANYO_UMBRELLA,true,GameSprite.SPRITE_PICKABLE_UMBRELLA,GamePickableItem.ITEM_PICK_CITY1_UMBRELLA,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_CITY1_MANYO_UMBRELLA,true,false,GameSprite.SPRITE_PICKABLE_UMBRELLA,GamePickableItem.ITEM_PICK_CITY1_UMBRELLA,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_TAKE_UMBRELLA_MORNING, ActionConditions.COND_TAKE_UMBRELLA_NIGHT})),
 
             new ( /* ITEM_ELMANYO_DOOR */
             NameType.NAME_ELMANYO,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_ELMANYO_OWNER */
             NameType.NAME_OWNER,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_MANYO_OWNER}),
-            GameSprite.SPRITE_MANYO_OWNER,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_MANYO_OWNER,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_TALK_MANYO_OWNER})),
 
             new ( /* ITEM_STUFFED_DEER */
             NameType.NAME_STUFFED_DEER,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_TALK_DEER})),
 
             new ( /* ITEM_ELMANYO_OWNER_NIGHT */
             NameType.NAME_OWNER,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_TALK_MANYO_OWNER})),
 
             new ( /* ITEM_ELMANYO_CROWD */
             NameType.NAME_CROWD,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_HIVE1_POOR_MAN_WC */
             NameType.NAME_POOR_MAN_WC,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_HIVE1_POOR_MAN_STEADY}),
-            GameSprite.SPRITE_HIVE1_POOR_MAN_STEADY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_HIVE1_POOR_MAN_STEADY,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_HIVE1_POOR_MAN_WC, ActionConditions.COND_TALK_POOR_MAN_WC})),
 
             new ( /* ITEM_HIVE1_ROACH_HEAD */
             NameType.NAME_ROACH,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_HIVE1_ROACH_HEAD}),
-            GameSprite.SPRITE_HIVE1_ROACH_HEAD,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_HIVE1_ROACH_HEAD,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_HIVE1_ROACH, ActionConditions.COND_TAKE_HIVE1_ROACH_HEAD})),
 
             new ( /* ITEM_HIVE1_PIPE */
             NameType.NAME_PIPE,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_HIVE1_PIPE, ActionConditions.COND_OBSERVE_ITEM_HIVE1_PIPE_2})),
 
             new ( /* ITEM_HIVE1_VALVE_BOX */
             NameType.NAME_VALVE_BOX,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(5){ActionConditions.COND_OBSERVE_ITEM_HIVE1_VALVE_BOX, ActionConditions.COND_OBSERVE_ITEM_HIVE1_VALVE_BOX_2, ActionConditions.COND_TAKE_VALVE_BOX_1, ActionConditions.COND_TAKE_VALVE_BOX_MORNING, ActionConditions.COND_USE_SHOELACE_VALVE_BOX})),
 
             new ( /* ITEM_HIVE1_BACKALLEY_PIPE */
             NameType.NAME_PIPE,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_HIVE1_BACKALLEY_PIPE, ActionConditions.COND_OBSERVE_ITEM_HIVE1_BACKALLEY_PIPE_2})),
 
             new ( /* ITEM_HIVE1_SHOELACE */
             NameType.NAME_SHOELACE,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_HIVE1_SHOELACE}),
-            GameSprite.SPRITE_HIVE1_SHOELACE,true,GameSprite.SPRITE_SHOELACE_PICKABLE,GamePickableItem.ITEM_PICK_HIVE1_SHOELACE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_HIVE1_SHOELACE,true,false,GameSprite.SPRITE_SHOELACE_PICKABLE,GamePickableItem.ITEM_PICK_HIVE1_SHOELACE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(4){ActionConditions.COND_OBSERVE_ITEM_HIVE1_SHOELACE, ActionConditions.COND_TAKE_ITEM_HIVE1_SHOELACE, ActionConditions.COND_TAKE_ITEM_HIVE1_SHOELACE_NOT, ActionConditions.COND_TAKE_ITEM_HIVE1_SHOELACE_NOT_2})),
 
             new ( /* ITEM_HIVE1_VALVE */
             NameType.NAME_VALVE,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_HIVE1_VALVE_BOX_OPENED}),
-            GameSprite.SPRITE_HIVE1_VALVE_BOX_OPENED,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_HIVE1_VALVE_BOX_OPENED,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(3){ActionConditions.COND_OBSERVE_ITEM_HIVE1_VALVE, ActionConditions.COND_TAKE_HIVE1_VALVE, ActionConditions.COND_TAKE_HIVE1_VALVE_2})),
 
             new ( /* ITEM_HIVE1_MAN_WC_CURED */
             NameType.NAME_ARTURO,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ARTURO_STEADY}),
-            GameSprite.SPRITE_ARTURO_STEADY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_ARTURO_STEADY,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_HIVE1_MAN_WC_CURED, ActionConditions.COND_TALK_ITEM_HIVE1_MAN_WC_CURED})),
 
             new ( /* ITEM_EXTRAPERLO_INVITATION */
             NameType.NAME_INVITATION,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,true,GameSprite.SPRITE_PICKABLE_EXTRAPERLO,GamePickableItem.ITEM_PICK_EXTRAPERLO_INVITATION,DetailType.PREFAB_DETAIL_EXTRAPERLO,true,
+            GameSprite.SPRITE_BLANK,true,false,GameSprite.SPRITE_PICKABLE_EXTRAPERLO,GamePickableItem.ITEM_PICK_EXTRAPERLO_INVITATION,DetailType.PREFAB_DETAIL_EXTRAPERLO,true,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_EXTRAPERLO_INVITATION_DETAIL */
             NameType.NAME_ANNOTATION,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL_1, ActionConditions.COND_OBSERVE_ITEM_EXTRAPERLO_INVITATION_DETAIL_2})),
 
             new ( /* ITEM_PHARMACY_INKWELL */
             NameType.NAME_INKWELL,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PHARMACY_INKWELL_NORMAL}),
-            GameSprite.SPRITE_PHARMACY_INKWELL_NORMAL,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_PHARMACY_INKWELL_NORMAL,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(5){ActionConditions.COND_OBSERVE_ITEM_PHARMACY_INKWELL, ActionConditions.COND_TAKE_INKWELL_NOT_1, ActionConditions.COND_TAKE_INKWELL_NOT_2, ActionConditions.COND_TAKE_INKWELL_NOT_3, ActionConditions.COND_USE_UMBRELLA_INKWELL})),
 
             new ( /* ITEM_PHARMACY_INK */
             NameType.NAME_INK,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PHARMACY_INKWELL_WASTED}),
-            GameSprite.SPRITE_PHARMACY_INKWELL_WASTED,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_PHARMACY_INKWELL_WASTED,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(3){ActionConditions.COND_OBSERVE_ITEM_PHARMACY_INK, ActionConditions.COND_USE_INVITATION_INK, ActionConditions.COND_USE_INVITATION_INK_2})),
 
             new ( /* ITEM_NPC_FIK */
             NameType.NAME_FIK,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_FIK_STANDING}),
-            GameSprite.SPRITE_FIK_STANDING,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_FIK_STANDING,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_TALK_FIK})),
 
             new ( /* ITEM_DOOR_EXTRAPERLO */
             NameType.NAME_ITEM_CROSS,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_TRY_CROSS_EXTRAPERLO_DOOR})),
 
             new ( /* ITEM_FOREGROUND_EXTRP_WALL */
             NameType.NAME_ITEM_CROSS,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_FOREGROUND_EXTRAPERLO_WALL}),
-            GameSprite.SPRITE_FOREGROUND_EXTRAPERLO_WALL,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_FOREGROUND_EXTRAPERLO_WALL,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_HIVE1_WATER_FLOWING */
             NameType.NAME_WATER_FLOWING,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(2){GameSprite.SPRITE_WATER_FLOW_BACKALLEY, GameSprite.SPRITE_WATER_FLOW_BACKALLEY_NIGHT}),
-            GameSprite.SPRITE_WATER_FLOW_BACKALLEY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_WATER_FLOW_BACKALLEY,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_DOOR_EXTRAPERLO_REAL */
             NameType.NAME_ITEM_CROSS,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_EXTRAPERLO_DOOR_OPENED}),
-            GameSprite.SPRITE_EXTRAPERLO_DOOR_OPENED,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_EXTRAPERLO_DOOR_OPENED,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_NPC_GERMAN */
             NameType.NAME_GERMAN,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_GERMAN_WAITING}),
-            GameSprite.SPRITE_GERMAN_WAITING,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_GERMAN_WAITING,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_NPC_WAITER */
             NameType.NAME_WAITER,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_WAITER_STEADY}),
-            GameSprite.SPRITE_WAITER_STEADY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_WAITER_STEADY,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(4){ActionConditions.COND_TALK_WAITER_NO_INVITATION, ActionConditions.COND_USE_OLD_INVITATION_W_WAITER, ActionConditions.COND_USE_NEW_INVITATION_W_WAITER, ActionConditions.COND_TALK_WAITER_W_INVITATION})),
 
             new ( /* ITEM_NPC_UNKNOWN_WOMEN */
             NameType.NAME_UNKNOWN_GIRLS,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_UNKNOWN_WOMEN_STEADY}),
-            GameSprite.SPRITE_UNKNOWN_WOMEN_STEADY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_UNKNOWN_WOMEN_STEADY,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_TALK_UNKNOWN_WOMEN, ActionConditions.COND_TAKE_UNKNOWN_WOMEN})),
 
             new ( /* ITEM_NPC_ARTURO_EXTRAPERLO */
             NameType.NAME_ARTURO,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ARTURO_STEADY}),
-            GameSprite.SPRITE_ARTURO_STEADY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_ARTURO_STEADY,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(3){ActionConditions.COND_OBSERVE_ITEM_NPC_ARTURO_EXTRAPERLO, ActionConditions.COND_TALK_ARTURO_DRUNK, ActionConditions.COND_TALK_ITEM_NPC_ARTURO_EXTRAPERLO})),
 
             new ( /* ITEM_NPC_CLOWN */
             NameType.NAME_CLOWN,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_CLOWN_STEADY}),
-            GameSprite.SPRITE_CLOWN_STEADY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_CLOWN_STEADY,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_TALK_CLOWN_DRUNK, ActionConditions.COND_TALK_ITEM_NPC_CLOWN})),
 
             new ( /* ITEM_NPC_SILVANA_EXTRAPERLO */
             NameType.NAME_SILVANA,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_SILVANA_STEADY_READING}),
-            GameSprite.SPRITE_SILVANA_STEADY_READING,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_SILVANA_STEADY_READING,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(3){ActionConditions.COND_TALK_SILVANA_DRUNK, ActionConditions.COND_TALK_ITEM_NPC_SILVANA_EXTRAPERLO, ActionConditions.COND_TALK_SILVANA_OLIVE})),
 
             new ( /* ITEM_EXTRAPERLO_INVITATION_FOLDED */
             NameType.NAME_INVITATION,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PICKABLE_EXTRAPERLO_FOLDED}),
-            GameSprite.SPRITE_PICKABLE_EXTRAPERLO_FOLDED,true,GameSprite.SPRITE_PICKABLE_EXTRAPERLO_FOLDED,GamePickableItem.ITEM_PICK_EXTRAPERLO_INVITATION_FOLDED,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_PICKABLE_EXTRAPERLO_FOLDED,true,false,GameSprite.SPRITE_PICKABLE_EXTRAPERLO_FOLDED,GamePickableItem.ITEM_PICK_EXTRAPERLO_INVITATION_FOLDED,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_EXTRAPERLO_INVITATION_CORNER */
             NameType.NAME_CORNER,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_INVITATION_CORNER, ActionConditions.COND_TAKE_INVITATION_CORNER})),
 
             new ( /* ITEM_OBJECT_OLIVE_BOWL */
             NameType.NAME_OLIVE_BOWL,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_EXTRAPERLO_OLIVE_BOWL}),
-            GameSprite.SPRITE_EXTRAPERLO_OLIVE_BOWL,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_EXTRAPERLO_OLIVE_BOWL,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(3){ActionConditions.COND_OBSERVE_ITEM_OBJECT_OLIVE_BOWL, ActionConditions.COND_TAKE_OLIVE_FROM_BOWL, ActionConditions.COND_TAKE_OLIVE_FROM_BOWL_ALREADY})),
 
             new ( /* ITEM_OBJECT_BEER_FULL */
             NameType.NAME_BEER_FULL,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BEER_FULL}),
-            GameSprite.SPRITE_BEER_FULL,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BEER_FULL,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(4){ActionConditions.COND_OBSERVE_ITEM_OBJECT_BEER_FULL, ActionConditions.COND_TAKE_BEER_FIRST_ROUND, ActionConditions.COND_TAKE_BEER_SECOND_ROUND, ActionConditions.COND_TAKE_BEER_THIRD_ROUND})),
 
             new ( /* ITEM_PICKABLE_OLIVE */
             NameType.NAME_OLIVE,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PICKABLE_OLIVE}),
-            GameSprite.SPRITE_PICKABLE_OLIVE,true,GameSprite.SPRITE_PICKABLE_OLIVE,GamePickableItem.ITEM_PICK_PICKABLE_OLIVE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_PICKABLE_OLIVE,true,false,GameSprite.SPRITE_PICKABLE_OLIVE,GamePickableItem.ITEM_PICK_PICKABLE_OLIVE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OBSERVE_ITEM_PICKABLE_OLIVE})),
 
             new ( /* ITEM_INNOCENT_PLANT */
             NameType.NAME_INNOCENT_PLANT,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_INNOCENT_PLANT, ActionConditions.COND_USE_BLADDER_WITH_PLANT})),
 
             new ( /* ITEM_PICKABLE_BLADDER */
             NameType.NAME_FULL_BLADDER,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PICKABLE_BLADDER}),
-            GameSprite.SPRITE_PICKABLE_BLADDER,true,GameSprite.SPRITE_PICKABLE_BLADDER,GamePickableItem.ITEM_PICK_PICKABLE_BLADDER,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_PICKABLE_BLADDER,true,false,GameSprite.SPRITE_PICKABLE_BLADDER,GamePickableItem.ITEM_PICK_PICKABLE_BLADDER,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OBSERVE_BLADDER})),
 
             new ( /* ITEM_NPC_SILVANA_EXTRAPERLO_GARD */
             NameType.NAME_SILVANA,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_SILVANA_STEADY_STANDING}),
-            GameSprite.SPRITE_SILVANA_STEADY_STANDING,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_SILVANA_STEADY_STANDING,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_NPC_SILVANA_EXTRAPERLO_GARD_SEAT */
             NameType.NAME_SILVANA,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_SILVANA_SEATED_GARDEN_STEADY}),
-            GameSprite.SPRITE_SILVANA_SEATED_GARDEN_STEADY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_SILVANA_SEATED_GARDEN_STEADY,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_OK, ActionConditions.COND_TALK_ITEM_NPC_SILVANA_EXTRAPERLO_GARD_SEAT})),
 
             new ( /* ITEM_PAMFRY */
             NameType.NAME_CLIENT,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PAMFRY_SHOUTING}),
-            GameSprite.SPRITE_PAMFRY_SHOUTING,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_PAMFRY_SHOUTING,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_FIK_EXTRAPERLO_GARDEN */
             NameType.NAME_FIK,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_FIK_STANDING}),
-            GameSprite.SPRITE_FIK_STANDING,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_FIK_STANDING,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_MAINCHAR_DREAM */
             NameType.NAME_CHAR_MAIN,GameItemFamily.ITEM_FAMILY_TYPE_PLAYER,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_NONE}),
-            GameSprite.SPRITE_NONE,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_MAINCHAR_DREAM,false,
+            GameSprite.SPRITE_NONE,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_MAINCHAR_DREAM,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_DREAM_RADIO */
             NameType.NAME_RADIO,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(3){ActionConditions.COND_OBSERVE_ITEM_DREAM_RADIO, ActionConditions.COND_TAKE_DREAM_RADIO_ON, ActionConditions.COND_TAKE_DREAM_RADIO_OFF})),
 
             new ( /* ITEM_CLASSROOM_PORTRAIT */
             NameType.NAME_PORTRAIT,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OBSERVE_ITEM_CLASSROOM_PORTRAIT})),
 
             new ( /* ITEM_DREAM_CLOCK */
             NameType.NAME_CLOCK,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OBSERVE_ITEM_DREAM_CLOCK})),
 
             new ( /* ITEM_NPC_SULTAN */
             NameType.NAME_SULTAN,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_SULTAN_STEADY}),
-            GameSprite.SPRITE_SULTAN_STEADY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_SULTAN_STEADY,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(3){ActionConditions.COND_OBSERVE_ITEM_NPC_SULTAN, ActionConditions.COND_TALK_SULTAN_DREAM_1, ActionConditions.COND_USE_FIG_SULTAN})),
 
             new ( /* ITEM_NPC_PILAR_DREAM_1 */
             NameType.NAME_PILAR,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PILAR_STEADY}),
-            GameSprite.SPRITE_PILAR_STEADY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_PILAR_STEADY,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_NPC_PILAR_DREAM_1, ActionConditions.COND_TALK_ITEM_NPC_PILAR_DREAM_1})),
 
             new ( /* ITEM_NPC_ALTER_EGO_1 */
             NameType.NAME_ALTER_EGO1,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ALTER_EGO_STEADY}),
-            GameSprite.SPRITE_ALTER_EGO_STEADY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_ALTER_EGO_STEADY,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_TALK_ITEM_NPC_ALTER_EGO_1, ActionConditions.COND_OBSERVE_ITEM_NPC_ALTER_EGO_1})),
 
             new ( /* ITEM_DOOR_DREAM_1_EXIT */
             NameType.NAME_ITEM_CROSS,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_DOG_DID_NOT_EAT})),
 
             new ( /* ITEM_BLANK */
             NameType.NAME_CHAR_MAIN,GameItemFamily.ITEM_FAMILY_TYPE_PLAYER,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_PICKABLE_FIG */
             NameType.NAME_FIG,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PICKABLE_FIG}),
-            GameSprite.SPRITE_PICKABLE_FIG,true,GameSprite.SPRITE_PICKABLE_FIG,GamePickableItem.ITEM_PICK_PICKABLE_FIG,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_PICKABLE_FIG,true,false,GameSprite.SPRITE_PICKABLE_FIG,GamePickableItem.ITEM_PICK_PICKABLE_FIG,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_FIG, ActionConditions.COND_TAKE_ITEM_FIG})),
 
             new ( /* ITEM_PINPOINT_MAP */
             NameType.NAME_PINPOINT_MAP,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PINPOINT_MAP}),
-            GameSprite.SPRITE_PINPOINT_MAP,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_PINPOINT_MAP,false,
+            GameSprite.SPRITE_PINPOINT_MAP,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_PINPOINT_MAP,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_MAP_POINT_PERIPH_NEIGH */
             NameType.NAME_CITY_PERIPH,GameItemFamily.ITEM_FAMILY_TYPE_MAP_POINT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_MAP_POINT_CITY_CENTER */
             NameType.NAME_CITY_CENTER,GameItemFamily.ITEM_FAMILY_TYPE_MAP_POINT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_MAP_POINT_SOUTH_NEIGH */
             NameType.NAME_SOUTH_NEIGHBORHOOD,GameItemFamily.ITEM_FAMILY_TYPE_MAP_POINT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_GO_STREET1_SOUTH_NEIGH})),
 
             new ( /* ITEM_UNDER_BED */
             NameType.NAME_UNDER_BED,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OBSERVE_UNDER_BED})),
 
             new ( /* ITEM_PICKABLE_KEY_HIVE_ROOM */
             NameType.NAME_HIVE_ROOM_KEY,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_KEY_UNDER_BED}),
-            GameSprite.SPRITE_KEY_UNDER_BED,true,GameSprite.SPRITE_PICKABLE_HIVE_ROOM_KEY,GamePickableItem.ITEM_PICK_PICKABLE_KEY_HIVE_ROOM,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_KEY_UNDER_BED,true,false,GameSprite.SPRITE_PICKABLE_HIVE_ROOM_KEY,GamePickableItem.ITEM_PICK_PICKABLE_KEY_HIVE_ROOM,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ROOM_KEY_NOT_TAKEN, ActionConditions.COND_TAKE_HIVE_ROOM_KEY_PICKABLE})),
 
             new ( /* ITEM_PICKABLE_COIN25 */
             NameType.NAME_COIN25,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_COIN25}),
-            GameSprite.SPRITE_COIN25,true,GameSprite.SPRITE_COIN25,GamePickableItem.ITEM_PICK_PICKABLE_COIN25,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_COIN25,true,false,GameSprite.SPRITE_COIN25,GamePickableItem.ITEM_PICK_PICKABLE_COIN25,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_PICKABLE_COIN25, ActionConditions.COND_TAKE_ITEM_PICKABLE_COIN25})),
 
             new ( /* ITEM_DOOR_SERVICE_HIVE */
             NameType.NAME_DOOR_SERVICE,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(3){ActionConditions.COND_OBSERVE_DOOR_SERVICE_HIVE, ActionConditions.COND_TRY_CROSS_SERVICE_DOOR_LOCKED, ActionConditions.COND_USE_HIVE_KEY_SERVICE_DOOR})),
 
             new ( /* ITEM_DOOR_SERVICE_HIVE_OPENED */
             NameType.NAME_DOOR_SERVICE,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(2){GameSprite.SPRITE_SERVICE_DOOR_OPENED_DAY, GameSprite.SPRITE_SERVICE_DOOR_OPENED_NIGHT}),
-            GameSprite.SPRITE_SERVICE_DOOR_OPENED_DAY,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_SERVICE_DOOR_OPENED_DAY,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_GUMBALL_MACHINE */
             NameType.NAME_GUMBALL_MACHINE,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_GUMBALL_MACHINE, ActionConditions.COND_USE_25COIN_GUMBALL_MACHINE})),
 
             new ( /* ITEM_MIX_JAR */
             NameType.NAME_MIX_JAR,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_MIX_JAR}),
-            GameSprite.SPRITE_MIX_JAR,true,GameSprite.SPRITE_PICKABLE_MIX_JAR,GamePickableItem.ITEM_PICK_MIX_JAR,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_MIX_JAR,true,false,GameSprite.SPRITE_PICKABLE_MIX_JAR,GamePickableItem.ITEM_PICK_MIX_JAR,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OBSERVE_ITEM_MIX_JAR})),
 
             new ( /* ITEM_PICKABLE_TAR_CAN */
             NameType.NAME_TAR_CAN,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_TAR_CAN}),
-            GameSprite.SPRITE_TAR_CAN,true,GameSprite.SPRITE_PICKABLE_TAR_CAN,GamePickableItem.ITEM_PICK_PICKABLE_TAR_CAN,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_TAR_CAN,true,false,GameSprite.SPRITE_PICKABLE_TAR_CAN,GamePickableItem.ITEM_PICK_PICKABLE_TAR_CAN,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_PICKABLE_TAR_CAN, ActionConditions.COND_TAKE_TAR_CAN})),
 
             new ( /* ITEM_PICKABLE_HIVE_KEY_BROKEN */
             NameType.NAME_HIVE_KEY_BROKEN,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PICKABLE_HIVE_ROOM_KEY_BROKEN}),
-            GameSprite.SPRITE_PICKABLE_HIVE_ROOM_KEY_BROKEN,true,GameSprite.SPRITE_PICKABLE_HIVE_ROOM_KEY_BROKEN,GamePickableItem.ITEM_PICK_PICKABLE_HIVE_KEY_BROKEN,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_PICKABLE_HIVE_ROOM_KEY_BROKEN,true,false,GameSprite.SPRITE_PICKABLE_HIVE_ROOM_KEY_BROKEN,GamePickableItem.ITEM_PICK_PICKABLE_HIVE_KEY_BROKEN,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OBSERVE_ITEM_PICKABLE_HIVE_KEY_BROKEN})),
 
             new ( /* ITEM_SQUAT_WC */
             NameType.NAME_SQUAT_WC,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OBSERVE_ITEM_SQUAT_WC})),
 
             new ( /* ITEM_PICKABLE_GUMBALL */
             NameType.NAME_GUMBALL,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PICKABLE_GUMBALL}),
-            GameSprite.SPRITE_PICKABLE_GUMBALL,true,GameSprite.SPRITE_PICKABLE_GUMBALL,GamePickableItem.ITEM_PICK_PICKABLE_GUMBALL,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_PICKABLE_GUMBALL,true,false,GameSprite.SPRITE_PICKABLE_GUMBALL,GamePickableItem.ITEM_PICK_PICKABLE_GUMBALL,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OBSERVE_ITEM_PICKABLE_GUMBALL})),
 
             new ( /* ITEM_CLATTERING_COIN */
             NameType.NAME_COIN25,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_COIN25}),
-            GameSprite.SPRITE_COIN25,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_COIN25,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_COIN_IN_CRACK */
             NameType.NAME_COIN25,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_COIN_IN_CRACK}),
-            GameSprite.SPRITE_COIN_IN_CRACK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_COIN_IN_CRACK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_COIN_IN_CRACK, ActionConditions.COND_TRY_TAKE_COIN_IN_CRACK})),
 
             new ( /* ITEM_WINDOW_GIANT_ROACH */
             NameType.NAME_GIANT_ROACH,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_WINDOW_GIANT_ROACH}),
-            GameSprite.SPRITE_BLANK,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
+
+            new ( /* ITEM_IDEA_FIND_JOB */
+            NameType.NAME_MEMENTO_FIND_JOB_1,GameItemFamily.ITEM_FAMILY_TYPE_IDEA,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_MEMENTO_JOB}),
+            GameSprite.SPRITE_MEMENTO_JOB,true,true,GameSprite.SPRITE_MEMENTO_JOB,GamePickableItem.ITEM_PICK_IDEA_FIND_JOB,DetailType.PREFAB_NONE,false,
+            new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
+
+            new ( /* ITEM_IDEA_REME */
+            NameType.NAME_MEMENTO_REME,GameItemFamily.ITEM_FAMILY_TYPE_IDEA,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_MEMENTO_REME}),
+            GameSprite.SPRITE_MEMENTO_REME,true,true,GameSprite.SPRITE_MEMENTO_REME,GamePickableItem.ITEM_PICK_IDEA_REME,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST}),
-            GameSprite.SPRITE_LAST,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_LAST,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             /* > ATG 3 END < */
@@ -1604,6 +1614,8 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameItem.ITEM_PICKABLE_TAR_CAN,	/* ITEM_PICK_PICKABLE_TAR_CAN */
             GameItem.ITEM_PICKABLE_HIVE_KEY_BROKEN,	/* ITEM_PICK_PICKABLE_HIVE_KEY_BROKEN */
             GameItem.ITEM_PICKABLE_GUMBALL,	/* ITEM_PICK_PICKABLE_GUMBALL */
+            GameItem.ITEM_IDEA_FIND_JOB,	/* ITEM_PICK_IDEA_FIND_JOB */
+            GameItem.ITEM_IDEA_REME,	/* ITEM_PICK_IDEA_REME */
             /* > ATG 4 END < */
         };
 
@@ -1625,6 +1637,8 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_PICKABLE_TAR_CAN,	/* ITEM_PICK_PICKABLE_TAR_CAN */
             GameSprite.SPRITE_PICKABLE_HIVE_ROOM_KEY_BROKEN,	/* ITEM_PICK_PICKABLE_HIVE_KEY_BROKEN */
             GameSprite.SPRITE_PICKABLE_GUMBALL,	/* ITEM_PICK_PICKABLE_GUMBALL */
+            GameSprite.SPRITE_MEMENTO_JOB,	/* ITEM_PICK_IDEA_FIND_JOB */
+            GameSprite.SPRITE_MEMENTO_REME,	/* ITEM_PICK_IDEA_REME */
             /* > ATG 5 END < */
         };
 
@@ -1633,31 +1647,31 @@ namespace Gob3AQ.Brain.ItemsInteraction
             /* > ATG 6 START < */
             /* MEMENTO_PARENT_REME */
             new(
-            NameType.NAME_MEMENTO_REME,GameSprite.SPRITE_MEMENTO_REME,
+            NameType.NAME_MEMENTO_REME,GameSprite.SPRITE_MEMENTO_REME,GameItem.ITEM_IDEA_REME,
             new Memento[1]{Memento.MEMENTO_REME_1}
             ),
 
             /* MEMENTO_PARENT_JOB_FIND_1 */
             new(
-            NameType.NAME_MEMENTO_FIND_JOB_1,GameSprite.SPRITE_MEMENTO_JOB,
+            NameType.NAME_MEMENTO_FIND_JOB_1,GameSprite.SPRITE_MEMENTO_JOB,GameItem.ITEM_IDEA_FIND_JOB,
             new Memento[2]{Memento.MEMENTO_JOB_FIND_1_1, Memento.MEMENTO_JOB_FIND_1_2}
             ),
 
             /* MEMENTO_PARENT_RECIPE_MISSION */
             new(
-            NameType.NAME_MEMENTO_RECIPE_MISSION,GameSprite.SPRITE_MEMENTO_RECIPE,
+            NameType.NAME_MEMENTO_RECIPE_MISSION,GameSprite.SPRITE_MEMENTO_RECIPE,GameItem.ITEM_NONE,
             new Memento[1]{Memento.MEMENTO_RECIPE_MISSION_1}
             ),
 
             /* MEMENTO_PARENT_POOR_MAN_WC */
             new(
-            NameType.NAME_MEMENTO_PARENT_POOR_MAN_WC,GameSprite.SPRITE_MEMENTO_POOR_MAN_WC,
+            NameType.NAME_MEMENTO_PARENT_POOR_MAN_WC,GameSprite.SPRITE_MEMENTO_POOR_MAN_WC,GameItem.ITEM_NONE,
             new Memento[3]{Memento.MEMENTO_POOR_MAN_WC_1, Memento.MEMENTO_POOR_MAN_WC_2, Memento.MEMENTO_POOR_MAN_WC_3}
             ),
 
             /* MEMENTO_PARENT_LAST */
             new(
-            NameType.NAME_NPC_LAST,GameSprite.SPRITE_NONE,
+            NameType.NAME_NPC_LAST,GameSprite.SPRITE_NONE,GameItem.ITEM_NONE,
             new Memento[1]{Memento.MEMENTO_LAST}
             ),
 

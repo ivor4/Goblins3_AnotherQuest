@@ -115,6 +115,12 @@ namespace Gob3AQ.VARMAP.Types
         PUSH_NOTIFICATION_LOSE_ITEM
     }
 
+    public enum InventoryTabType
+    {
+        INVENTORY_TAB_ITEMS,
+        INVENTORY_TAB_IDEAS
+    }
+
     public enum WaypointIDTupleType
     {
         WAYPOINT_ID_TUPLE_INDEX,

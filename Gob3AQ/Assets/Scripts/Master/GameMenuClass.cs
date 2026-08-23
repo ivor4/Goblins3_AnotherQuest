@@ -43,6 +43,8 @@ namespace Gob3AQ.GameMenu
         private DecisionType decision_input_type;
         private DecisionTaskType decision_actualTaskType;
 
+        private InventoryTabType inventory_tabType;
+
         private HashSet<MementoCombi> memento_combi_union;
         private HashSet<MementoCombi> memento_combi_intersection;
 
@@ -195,6 +197,12 @@ namespace Gob3AQ.GameMenu
             {
                 VARMAP_GameMenu.SET_ITEM_MENU_HOVER(GameItem.ITEM_NONE);
             }
+        }
+
+        private void OnInventoryTabClick(InventoryTabType tabType)
+        {
+            inventory_tabType = tabType;
+            RefreshItemMenuElements();
         }
 
         private void OnMenuButtonClick(MenuButtonType type)
@@ -416,6 +424,8 @@ namespace Gob3AQ.GameMenu
                 memento_combi_union = new(8);
 
                 detail_loaded = DetailType.PREFAB_NONE;
+
+                inventory_tabType = InventoryTabType.INVENTORY_TAB_ITEMS;
             }
         }
 
@@ -441,7 +451,7 @@ namespace Gob3AQ.GameMenu
         private IEnumerator LoadCoroutine()
         {
             Coroutine uicoroutine = StartCoroutine(_uicanvas_cls.Execute_Load_Coroutine(OnDialogOptionClick,
-                OnDecisionOptionClick, OnInventoryItemClick, OnInventoryItemHover, OnMenuButtonClick, OnMementoItemClick));
+                OnDecisionOptionClick, OnInventoryItemClick, OnInventoryItemHover, OnInventoryTabClick, OnMenuButtonClick, OnMementoItemClick));
             yield return uicoroutine;
 
             /* Preset with actual value */
@@ -515,13 +525,42 @@ namespace Gob3AQ.GameMenu
             int totalarrayItems = item_owner.Length;
             int lastFoundItemIndex = 0;
 
+            _uicanvas_cls.SetInventoryTab(inventory_tabType);
+
 
             /* Fill all spots with first available item */
-            for(int i = 0; i < GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS; i++)
+            if (inventory_tabType == InventoryTabType.INVENTORY_TAB_ITEMS)
             {
-                bool found = false;
-                if (selectedChar != CharacterType.CHARACTER_NONE)
+                for (int i = 0; i < GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS; i++)
                 {
+                    bool found = false;
+                    if (selectedChar != CharacterType.CHARACTER_NONE)
+                    {
+                        for (; (lastFoundItemIndex < totalarrayItems) && (!found); lastFoundItemIndex++)
+                        {
+                            /* If this element has to show a picked item */
+                            if (item_owner[lastFoundItemIndex] == selectedChar)
+                            {
+                                GameItem gitem = ItemsInteractionsClass.GetItemFromPickable((GamePickableItem)lastFoundItemIndex);
+                                _uicanvas_cls.ActivateInventoryItem(i, true, gitem);
+                                found = true;
+                            }
+                        }
+                    }
+
+                    if (!found)
+                    {
+                        /* Otherwise keep hidden */
+                        _uicanvas_cls.ActivateInventoryItem(i, false, GameItem.ITEM_NONE);
+                    }
+                }
+            }
+            else
+            {
+                    #error "HERE MARKER"
+                for (int i = 0; i < GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS; i++)
+                {
+                    bool found = false;
                     for (; (lastFoundItemIndex < totalarrayItems) && (!found); lastFoundItemIndex++)
                     {
                         /* If this element has to show a picked item */
@@ -532,14 +571,13 @@ namespace Gob3AQ.GameMenu
                             found = true;
                         }
                     }
-                }
 
-                if(!found)
-                {
-                    /* Otherwise keep hidden */
-                    _uicanvas_cls.ActivateInventoryItem(i, false, GameItem.ITEM_NONE);
+                    if (!found)
+                    {
+                        /* Otherwise keep hidden */
+                        _uicanvas_cls.ActivateInventoryItem(i, false, GameItem.ITEM_NONE);
+                    }
                 }
-                
             }
         }
 

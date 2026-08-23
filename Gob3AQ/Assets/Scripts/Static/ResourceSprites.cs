@@ -44,6 +44,14 @@ namespace Gob3AQ.ResourceSprites
                 GameSprite.SPRITE_UI_CURSOR_DOOR,
                 GameSprite.SPRITE_INTERNAL_CIRCLE,
                 GameSprite.SPRITE_ICON_TICK,
+                GameSprite.SPRITE_ICON_PUSH_OBTAIN_MEMENTO,
+                GameSprite.SPRITE_ICON_PUSH_COMPLETE_MEMENTO,
+                GameSprite.SPRITE_ICON_PUSH_OBTAIN_ITEM,
+                GameSprite.SPRITE_ICON_PUSH_LOSE_ITEM,
+                GameSprite.SPRITE_INVENTORY_ARROW,
+                GameSprite.SPRITE_INVENTORY_SELECTED_TAB,
+                GameSprite.SPRITE_ICON_INVENTORY_ITEM,
+                GameSprite.SPRITE_ICON_INVENTORY_IDEA,
                 GameSprite.SPRITE_CARD_REVERSE
             };
 

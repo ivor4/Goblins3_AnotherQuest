@@ -24,6 +24,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void ZOOM_CHANGED_DELEGATE(float newZoomLevel);
     public delegate void DISPLAYED_ITEM_CLICK(GameItem item);
     public delegate void DISPLAYED_ITEM_HOVER(GameItem item, bool hover);
+    public delegate void INVENTORY_TAB_CLICK(InventoryTabType tabType);
 
 
     public delegate void START_GAME_DELEGATE(out bool error);

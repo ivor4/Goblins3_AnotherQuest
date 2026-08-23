@@ -105,6 +105,8 @@ namespace Gob3AQ.GameMenu.MementoItem
                 text.text = name;
 
                 newsObj.SetActive(unwatched);
+
+                completedObj.SetActive(totallyCleared);
             }
             else
             {
@@ -121,15 +123,16 @@ namespace Gob3AQ.GameMenu.MementoItem
             completedObj = itemImage.transform.Find("Completed").gameObject;
             text = transform.Find("Name").GetComponent<TMP_Text>();
             rectTransform = GetComponent<RectTransform>();
-
-            newsObj.GetComponent<Image>().sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_INTERNAL_CIRCLE);
-            completedObj.GetComponent<Image>().sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_ICON_TICK);
         }
 
         void Start()
         {
             item_color_idle = color_item_uncleared;
             item_color_hover = color_item_uncleared;
+
+            newsObj.GetComponent<Image>().sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_INTERNAL_CIRCLE);
+            completedObj.GetComponent<Image>().sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_ICON_TICK);
+
             ResetVisual();
         }
 

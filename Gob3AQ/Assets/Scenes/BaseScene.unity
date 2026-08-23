@@ -127,6 +127,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 202060734334126560, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 202060734334126560, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 202060734334126560, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 854975424256864511, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -154,18 +166,6 @@ PrefabInstance:
     - target: {fileID: 3468970076067584290, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4025754469358858170, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
-      propertyPath: m_Color.b
-      value: 0.09433961
-      objectReference: {fileID: 0}
-    - target: {fileID: 4025754469358858170, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
-      propertyPath: m_Color.g
-      value: 0.09433961
-      objectReference: {fileID: 0}
-    - target: {fileID: 4025754469358858170, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
-      propertyPath: m_Color.r
-      value: 0.09433961
       objectReference: {fileID: 0}
     - target: {fileID: 4393278064670122710, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
       propertyPath: m_Pivot.x
@@ -251,6 +251,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4901676167398436625, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
+      propertyPath: m_Size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5483328542270280563, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.00037356705
+      objectReference: {fileID: 0}
     - target: {fileID: 6526073827026402296, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -266,6 +274,10 @@ PrefabInstance:
     - target: {fileID: 6910175552404248689, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
       propertyPath: m_Name
       value: UICanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7159358405810063162, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.00034605022
       objectReference: {fileID: 0}
     - target: {fileID: 8951149274311812720, guid: 4af8f93ba3dee824c84332598d1456cc, type: 3}
       propertyPath: m_Camera

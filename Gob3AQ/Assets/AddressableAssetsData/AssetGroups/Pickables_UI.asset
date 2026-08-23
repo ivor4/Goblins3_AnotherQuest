@@ -190,6 +190,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2c5ab6e424bc59241b60a8c315037168
+    m_Address: SPRITE_INVENTORY_ARROW
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2f94822e102449642a657f4bd15e96a6
     m_Address: SPRITE_PICKABLE_GUMBALL
     m_ReadOnly: 0
@@ -227,6 +232,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 38f923fe989751146b96e4e3ba3d0c41
     m_Address: ANIMATION_GENERIC_TALK4_EXEC
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 393d09a6bd3452042becccec36fc630e
+    m_Address: SPRITE_ICON_INVENTORY_ITEM
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -320,11 +330,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 57dfcde8303e8a142b3bddfde29b2c35
-    m_Address: SPRITE_INVENTORY
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5a375450962d40e48a24f614e62e2b44
     m_Address: SPRITE_ICON_TICK
     m_ReadOnly: 0
@@ -402,6 +407,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6ea9c4c55a5be4e4382f19256b9ad177
     m_Address: ANIMATION_GENERIC_ACTION3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 703ca40569b04b440ae66071a0a63b90
+    m_Address: SPRITE_ICON_INVENTORY_IDEA
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -610,6 +620,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b130e875b38f351478347906fe48d16f
+    m_Address: SPRITE_INVENTORY_SELECTED_TAB
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b247a3ac8f4d1a34689e01af043e9f42
     m_Address: ANIMATION_GENERIC_TALK6_EXIT
     m_ReadOnly: 0
@@ -787,6 +802,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e6f832677f360df48b340aa5d387b74d
     m_Address: ANIMATION_GENERIC_ACTION7
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e732b5d5570e21c459d93673cc36b1e1
+    m_Address: SPRITE_INVENTORY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

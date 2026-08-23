@@ -64,7 +64,7 @@ namespace Gob3AQ.FixedConfig
         public const int MAX_RAYCASTED_ITEMS = 4;
         public const int MAX_LEVEL_WAYPOINTS = 128;
         public const int MAX_DIALOG_TALKERS = 3;
-        public const int MAX_DISPLAYED_PICKED_ITEMS = 16;
+        public const int MAX_DISPLAYED_PICKED_ITEMS = 15;
         public const int MAX_DISPLAYED_HOR_PICKED_ITEMS = 4;
         public const int MAX_SUBSCRIBED_EVENTS_PER_ITEM = 8;
         public const int MAX_ANIMATIONS_PERFORMING = 16;

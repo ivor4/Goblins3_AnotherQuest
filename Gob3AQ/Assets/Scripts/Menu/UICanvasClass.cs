@@ -59,6 +59,7 @@ namespace Gob3AQ.GameMenu.UICanvas
     public class UICanvasClass : MonoBehaviour
     {
         private const string SEPARATOR = "\n\n_____________________________\n\n";
+        private static readonly Color CLEAR_WHITE = new Color(1f, 1f, 1f, 0f);
 
         private GameObject UICanvas_loadingObj;
         private GameObject UICanvas_dialogObj;
@@ -115,8 +116,17 @@ namespace Gob3AQ.GameMenu.UICanvas
         private Image tool_talkButton_img;
         private Image tool_observeButton_img;
 
+        private Button inventory_itemsTabButton;
+        private Button inventory_ideasTabButton;
+        private Button inventory_rightButton;
+        private Button inventory_leftButton;
+
+        /* This one only remembers last selected option (Commanded from GameMenuClass) */
+        private InventoryTabType inventory_latchedTabType;
+
         private GameObject memento_itemsContentObj;
         private Image memento_largeIcon;
+        private GameObject memento_largeIconTick;
         private TMP_Text memento_descrText;
         private RectTransform memento_itemsContentRectTransform;
         private MementoParent memento_selectedItem;
@@ -191,9 +201,16 @@ namespace Gob3AQ.GameMenu.UICanvas
             tool_talkButton_img = tool_talkButton.gameObject.GetComponent<Image>();
             tool_observeButton_img = tool_observeButton.gameObject.GetComponent<Image>();
 
+            inventory_itemsTabButton = UICanvas_itemMenuObj.transform.Find("ItemTabButton").GetComponent<Button>();
+            inventory_ideasTabButton = UICanvas_itemMenuObj.transform.Find("IdeaTabButton").GetComponent<Button>();
+            inventory_rightButton = UICanvas_itemMenuObj.transform.Find("RightButton").GetComponent<Button>();
+            inventory_leftButton = UICanvas_itemMenuObj.transform.Find("LeftButton").GetComponent<Button>();
+
             memento_itemsContentObj = UICanvas_mementoObj.transform.Find("MementoList/Viewport/Content").gameObject;
             memento_descrText = UICanvas_mementoObj.transform.Find("MementoDescr/Viewport/Content/DescrText").GetComponent<TMP_Text>();
             memento_largeIcon = UICanvas_mementoObj.transform.Find("MementoDescr/Viewport/Content/Icon").GetComponent<Image>();
+            memento_largeIconTick = UICanvas_mementoObj.transform.Find("MementoDescr/Viewport/Content/Icon/Completed").gameObject;
+            memento_largeIconTick.GetComponent<Image>().sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_ICON_TICK);
             memento_itemsContentRectTransform = memento_itemsContentObj.GetComponent<RectTransform>();
             memento_unlocked_parents_list = new((int)MementoParent.MEMENTO_PARENT_TOTAL);
             memento_unlocked_parents = new((int)MementoParent.MEMENTO_PARENT_TOTAL);
@@ -213,7 +230,10 @@ namespace Gob3AQ.GameMenu.UICanvas
 
             stringBuilder = new(512);
 
+            memento_largeIconTick.SetActive(false);
             memento_largeIcon.gameObject.SetActive(false);
+
+            inventory_latchedTabType = InventoryTabType.INVENTORY_TAB_ITEMS;
         }
 
         public void Show_Hide_Toolbar(bool show)
@@ -561,6 +581,35 @@ namespace Gob3AQ.GameMenu.UICanvas
             inventory_obj.Enable(activate);
         }
 
+        public void SetInventoryTab(InventoryTabType tabType)
+        {
+            inventory_latchedTabType = tabType;
+            ColorBlock cblock;
+
+            switch (tabType)
+            {
+                case InventoryTabType.INVENTORY_TAB_ITEMS:
+                    cblock = inventory_itemsTabButton.colors;
+                    cblock.normalColor = Color.white;
+                    inventory_itemsTabButton.colors = cblock;
+
+                    cblock = inventory_ideasTabButton.colors;
+                    cblock.normalColor = CLEAR_WHITE;
+                    inventory_ideasTabButton.colors = cblock;
+                    break;
+
+                default:
+                    cblock = inventory_ideasTabButton.colors;
+                    cblock.normalColor = Color.white;
+                    inventory_ideasTabButton.colors = cblock;
+
+                    cblock = inventory_itemsTabButton.colors;
+                    cblock.normalColor = CLEAR_WHITE;
+                    inventory_itemsTabButton.colors = cblock;
+                    break;
+            }
+        }
+
         public void AnimateNewUserInteraction(UserInputInteraction interaction)
         {
             /* Passthrough */
@@ -570,6 +619,7 @@ namespace Gob3AQ.GameMenu.UICanvas
         public void MementoMenuActivated()
         {
             memento_descrText.text = string.Empty;
+            memento_largeIconTick.SetActive(false);
             memento_largeIcon.gameObject.SetActive(false);
 
             ClearCombinedMementos();
@@ -657,6 +707,7 @@ namespace Gob3AQ.GameMenu.UICanvas
 
             stringBuilder.Clear();
             bool addedElement = false;
+            bool completed = false;
 
             for (int i = 0; i < children.Length; ++i)
             {
@@ -670,6 +721,7 @@ namespace Gob3AQ.GameMenu.UICanvas
                     }
 
                     ref readonly MementoInfo memInfo = ref ItemsInteractionsClass.GetMementoInfo(memento);
+                    completed |= memInfo.final;
                     ResourceDialogsClass.GetPhraseContent(memInfo.phrase, out PhraseContent phraseContent);
                     stringBuilder.Append(phraseContent.message);
                     addedElement = true;
@@ -679,6 +731,7 @@ namespace Gob3AQ.GameMenu.UICanvas
             memento_descrText.text = stringBuilder.ToString();
             memento_largeIcon.sprite = ResourceSpritesClass.GetSprite(memParInfo.sprite);
             memento_largeIcon.gameObject.SetActive(true);
+            memento_largeIconTick.SetActive(completed);
         }
 
         private void MementoSortAndResizeAll()
@@ -733,6 +786,7 @@ namespace Gob3AQ.GameMenu.UICanvas
             DECISION_OPTION_CLICK_DELEGATE OnDecisionOptionClick,
             DISPLAYED_ITEM_CLICK OnItemDisplayClick,
             DISPLAYED_ITEM_HOVER OnHover,
+            INVENTORY_TAB_CLICK OnInventoryTabClick,
             MENU_BUTTON_CLICK_DELEGATE OnMenuButtonClick,
             MEMENTO_ITEM_CLICK_DELEGATE OnMementoItemClick
             )
@@ -746,6 +800,8 @@ namespace Gob3AQ.GameMenu.UICanvas
             tool_takeButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_TAKE));
             tool_talkButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_TALK));
             tool_observeButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_OBSERVE));
+            inventory_itemsTabButton.onClick.AddListener(() => OnInventoryTabClick(InventoryTabType.INVENTORY_TAB_ITEMS));
+            inventory_ideasTabButton.onClick.AddListener(() => OnInventoryTabClick(InventoryTabType.INVENTORY_TAB_IDEAS));
             detail_returnButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_DETAIL_RETURN));
 
 
@@ -783,6 +839,17 @@ namespace Gob3AQ.GameMenu.UICanvas
             }
 
             UICanvas_itemMenuObj.GetComponent<Image>().sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_INVENTORY);
+
+            inventory_itemsTabButton.image.sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_INVENTORY_SELECTED_TAB);
+            inventory_ideasTabButton.image.sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_INVENTORY_SELECTED_TAB);
+            inventory_rightButton.image.sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_INVENTORY_ARROW);
+            inventory_leftButton.image.sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_INVENTORY_ARROW);
+
+            inventory_itemsTabButton.transform.Find("Icon").GetComponent<Image>().sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_ICON_INVENTORY_ITEM);
+            inventory_ideasTabButton.transform.Find("Icon").GetComponent<Image>().sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_ICON_INVENTORY_IDEA);
+
+            SetInventoryTab(InventoryTabType.INVENTORY_TAB_ITEMS);
+
             tool_takeButton.image.sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_UI_TAKE);
             tool_talkButton.image.sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_UI_TALK);
             tool_observeButton.image.sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_UI_OBSERVE);

@@ -174,8 +174,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _GET_NEAREST_WP = LevelMasterClass.GetNearestWPService;
             _IS_EVENT_COMBI_OCCURRED = GameEventMasterClass.IsEventCombiOccurredService;
             _COMMIT_EVENT = GameEventMasterClass.CommitEventService;
-            _COMMIT_MEMENTO_NOTIF = GameMenuClass.CommitMementoNotifService;
-            _IS_MEMENTO_UNLOCKED = GameEventMasterClass.IsMementoUnlockedService;
+            _GET_MEMENTO_STATUS = GameEventMasterClass.GetMementosStatusService;
             _MEMENTO_PARENT_WATCHED = GameEventMasterClass.MementoParentWatchedService;
             _INTERACT_ITEM = ItemMasterClass.InteractItemService;
             _ACTION_TO_ITEM = ItemMasterClass.ActionToItemService;

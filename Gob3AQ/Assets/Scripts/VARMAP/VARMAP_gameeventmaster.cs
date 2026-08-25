@@ -58,8 +58,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             GET_WP_LIST = _GET_WP_LIST;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
             COMMIT_EVENT = _COMMIT_EVENT;
-            COMMIT_MEMENTO_NOTIF = _COMMIT_MEMENTO_NOTIF;
-            IS_MEMENTO_UNLOCKED = _IS_MEMENTO_UNLOCKED;
+            GET_MEMENTO_STATUS = _GET_MEMENTO_STATUS;
             MEMENTO_PARENT_WATCHED = _MEMENTO_PARENT_WATCHED;
             INTERACT_ITEM = _INTERACT_ITEM;
             ACTION_TO_ITEM = _ACTION_TO_ITEM;
@@ -157,19 +156,12 @@ public static IS_EVENT_COMBI_OCCURRED_DELEGATE IS_EVENT_COMBI_OCCURRED;
 /// </summary>
 public static COMMIT_EVENT_DELEGATE COMMIT_EVENT;
         /// <summary> 
-/// Tells Memento Manager (Menu) a new memento has been unlocked 
-/// <para> Owner: GameMenu </para> 
-/// <para> Accessors: GameEventMaster </para> 
-/// <para> Method: <see cref="GameMenuClass.CommitMementoNotifService"/> </para> 
-/// </summary>
-public static COMMIT_MEMENTO_NOTIF_DELEGATE COMMIT_MEMENTO_NOTIF;
-        /// <summary> 
-/// Tells if a memento is unlocked 
+/// Gives a list of all memento status 
 /// <para> Owner: GameEventMaster </para> 
 /// <para> Accessors: GameMenu </para> 
-/// <para> Method: <see cref="GameEventMasterClass.IsMementoUnlockedService"/> </para> 
+/// <para> Method: <see cref="GameEventMasterClass.GetMementosStatusService"/> </para> 
 /// </summary>
-public static IS_MEMENTO_UNLOCKED_DELEGATE IS_MEMENTO_UNLOCKED;
+public static GET_MEMENTO_STATUS_DELEGATE GET_MEMENTO_STATUS;
         /// <summary> 
 /// If a Memento has been analyzed 
 /// <para> Owner: GameEventMaster </para> 

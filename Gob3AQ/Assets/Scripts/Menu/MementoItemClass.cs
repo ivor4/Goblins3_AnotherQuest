@@ -47,20 +47,12 @@ namespace Gob3AQ.GameMenu.MementoItem
             gameObject.SetActive(activate);
         }
 
-        public void Select(bool select, bool doubleClick)
+        public void Select(bool select)
         {
             if(select)
             {
-                if (doubleClick)
-                {
-                    background_color_idle = color_background_selected_combi;
-                    background_color_hover = color_background_selected_combi;
-                }
-                else
-                {
-                    background_color_idle = color_background_selected;
-                    background_color_hover = color_background_selected;
-                }
+                background_color_idle = color_background_selected;
+                background_color_hover = color_background_selected;
                 item_color_idle = item_color_reload_hover;
                 text_color_idle = color_all_hover;
 

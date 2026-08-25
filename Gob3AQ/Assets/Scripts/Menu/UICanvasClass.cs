@@ -130,14 +130,9 @@ namespace Gob3AQ.GameMenu.UICanvas
         private TMP_Text memento_descrText;
         private RectTransform memento_itemsContentRectTransform;
         private MementoParent memento_selectedItem;
-        private HashSet<MementoParent> memento_combinedItems;
         private MementoItemClass[] memento_itemClass;
         private List<MementoParent> memento_unlocked_parents_list;
-        private HashSet<MementoParent> memento_unlocked_parents;
         private Dictionary<MementoParent, MementoItemClass> memento_parent_dict;
-        private HashSet<MementoParent> memento_totallyCleared;
-        private HashSet<MementoParent> memento_unwatched;
-        private HashSet<Memento> memento_unlocked;
 
         private GameObject detailObj_instance;
         private Button detail_returnButton;
@@ -213,13 +208,8 @@ namespace Gob3AQ.GameMenu.UICanvas
             memento_largeIconTick.GetComponent<Image>().sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_ICON_TICK);
             memento_itemsContentRectTransform = memento_itemsContentObj.GetComponent<RectTransform>();
             memento_unlocked_parents_list = new((int)MementoParent.MEMENTO_PARENT_TOTAL);
-            memento_unlocked_parents = new((int)MementoParent.MEMENTO_PARENT_TOTAL);
             memento_parent_dict = new((int)MementoParent.MEMENTO_PARENT_TOTAL);
-            memento_totallyCleared = new((int)MementoParent.MEMENTO_PARENT_TOTAL);
-            memento_unlocked = new((int)Memento.MEMENTO_TOTAL);
-            memento_unwatched = new((int)MementoParent.MEMENTO_PARENT_TOTAL);
             memento_itemClass = new MementoItemClass[(int)MementoParent.MEMENTO_PARENT_TOTAL];
-            memento_combinedItems = new(2);
 
             detail_returnButton = UICanvas_detailObj.transform.Find("ReturnButton").GetComponent<Button>();
 
@@ -616,126 +606,33 @@ namespace Gob3AQ.GameMenu.UICanvas
             cursor_userInteraction_cls.AnimateNewUserInteraction(interaction);
         }
 
-        public void MementoMenuActivated()
+        public void MementoMenuActivated(ReadOnlySpan<MementoStatus> mementoParentStatus)
         {
+            /* Clear previous icon and description */
             memento_descrText.text = string.Empty;
             memento_largeIconTick.SetActive(false);
             memento_largeIcon.gameObject.SetActive(false);
 
-            ClearCombinedMementos();
-
+            /* Clear previous selection */
             if (memento_selectedItem != MementoParent.MEMENTO_PARENT_NONE)
             {
-                memento_parent_dict[memento_selectedItem].Select(false, false);
-                memento_selectedItem = MementoParent.MEMENTO_PARENT_NONE;
-            }
-        }
-
-
-        public void NewMementoUnlocked(Memento memento, bool unwatched, bool sortAndResize)
-        {
-            ref readonly MementoInfo memInfo = ref ItemsInteractionsClass.GetMementoInfo(memento);
-            memento_unlocked.Add(memento);
-
-            if(unwatched)
-            {
-                memento_unwatched.Add(memInfo.parent);
-            }
-
-            /* Assumed only one initial per parent Memento */
-            if (!memento_unlocked_parents.Contains(memInfo.parent))
-            {
-                memento_unlocked_parents_list.Add(memInfo.parent);
-                memento_unlocked_parents.Add(memInfo.parent);
-            }
-
-            if (memInfo.final)
-            {
-                memento_totallyCleared.Add(memInfo.parent);
-            }
-
-            if(sortAndResize)
-            {
-                MementoSortAndResizeAll();
-            }
-        }
-
-        public void MementoParentClicked(MementoParent parent, bool doubleClick, out ReadOnlyHashSet<MementoParent> combinedMementos)
-        {
-            memento_unwatched.Remove(parent);
-            MementoItemClass itemClass = memento_parent_dict[parent];
-
-            MementoParent prevSelected = memento_selectedItem;
-            if ((memento_selectedItem != MementoParent.MEMENTO_PARENT_NONE) && (!memento_combinedItems.Contains(memento_selectedItem)))
-            {
-                memento_parent_dict[memento_selectedItem].Select(false, false);
+                memento_parent_dict[memento_selectedItem].Select(false);
                 memento_selectedItem = MementoParent.MEMENTO_PARENT_NONE;
             }
 
-            bool mementoCombinedFull = memento_combinedItems.Count >= 2;
+            /* Refill unlocked list */
+            memento_unlocked_parents_list.Clear();
 
-            if (doubleClick && (!mementoCombinedFull))
+            for(int i=0; i < mementoParentStatus.Length; ++i)
             {
-                if (memento_combinedItems.Contains(parent) || (prevSelected != parent))
+                ref readonly MementoStatus parentStatus = ref mementoParentStatus[i];
+
+                if(parentStatus.unlocked)
                 {
-                    memento_combinedItems.Remove(parent);
-                    itemClass.Select(true, false);
-                    memento_selectedItem = parent;
-                }
-                else
-                {
-                    memento_combinedItems.Add(parent);
-                    itemClass.Select(true, true);
-                }
-            }
-            else
-            {
-                if (mementoCombinedFull || memento_combinedItems.Contains(parent))
-                {
-                    ClearCombinedMementos(); 
-                }
-
-                itemClass.Select(true, false);
-                memento_selectedItem = parent;
-            }
-
-            combinedMementos = new(memento_combinedItems);
-            
-
-            ref readonly MementoParentInfo memParInfo = ref ItemsInteractionsClass.GetMementoParentInfo(parent);
-            ReadOnlySpan<Memento> children = memParInfo.Children;
-
-            stringBuilder.Clear();
-            bool addedElement = false;
-            bool completed = false;
-
-            for (int i = 0; i < children.Length; ++i)
-            {
-                Memento memento = children[i];
-
-                if (memento_unlocked.Contains(memento))
-                {
-                    if (addedElement && (i > 0))
-                    {
-                        stringBuilder.Append(SEPARATOR);
-                    }
-
-                    ref readonly MementoInfo memInfo = ref ItemsInteractionsClass.GetMementoInfo(memento);
-                    completed |= memInfo.final;
-                    ResourceDialogsClass.GetPhraseContent(memInfo.phrase, out PhraseContent phraseContent);
-                    stringBuilder.Append(phraseContent.message);
-                    addedElement = true;
+                    memento_unlocked_parents_list.Add((MementoParent)i);
                 }
             }
 
-            memento_descrText.text = stringBuilder.ToString();
-            memento_largeIcon.sprite = ResourceSpritesClass.GetSprite(memParInfo.sprite);
-            memento_largeIcon.gameObject.SetActive(true);
-            memento_largeIconTick.SetActive(completed);
-        }
-
-        private void MementoSortAndResizeAll()
-        {
             /* Fit content to size */
             Vector2 sizeDelta = memento_itemsContentRectTransform.sizeDelta;
             sizeDelta.y = memento_unlocked_parents_list.Count * memento_itemClass[0].GetSize.y;
@@ -756,13 +653,11 @@ namespace Gob3AQ.GameMenu.UICanvas
                 if (i < memento_unlocked_parents_list.Count)
                 {
                     MementoParent parent = memento_unlocked_parents_list[i];
+                    ref readonly MementoStatus parentStatus = ref mementoParentStatus[(int)parent];
                     memento_parent_dict[parent] = instance;
 
-                    instance.SetMementoParent(parent,
-                        memento_totallyCleared.Contains(parent),
-                        memento_unwatched.Contains(parent));
+                    instance.SetMementoParent(parent, parentStatus.completed, parentStatus.unwatched);
                     instance.Activate(true);
-                    
                 }
                 /* Deactivated ones */
                 else
@@ -772,15 +667,57 @@ namespace Gob3AQ.GameMenu.UICanvas
             }
         }
 
-        private void ClearCombinedMementos()
+
+
+        public void MementoParentClicked(MementoParent parent, ReadOnlySpan<MementoStatus> mementoStatus, ReadOnlySpan<MementoStatus> mementoParentStatus)
         {
-            foreach (MementoParent mementoParent in memento_combinedItems)
+            MementoItemClass itemClass = memento_parent_dict[parent];
+            ref readonly MementoStatus parentStatus = ref mementoParentStatus[(int)parent];
+
+            if(memento_selectedItem != MementoParent.MEMENTO_PARENT_NONE)
             {
-                memento_parent_dict[mementoParent].Select(false, false);
+                memento_parent_dict[memento_selectedItem].Select(false);
             }
 
-            memento_combinedItems.Clear();
+            itemClass.Select(true);
+            memento_selectedItem = parent;
+
+            ref readonly MementoParentInfo memParInfo = ref ItemsInteractionsClass.GetMementoParentInfo(parent);
+            ReadOnlySpan<Memento> children = memParInfo.Children;
+
+            stringBuilder.Clear();
+            bool addedElement = false;
+            bool completed = false;
+
+            for (int i = 0; i < children.Length; ++i)
+            {
+                Memento memento = children[i];
+                ref readonly MementoStatus childStatus = ref mementoStatus[(int)memento];
+
+                if (childStatus.unlocked)
+                {
+                    if (addedElement && (i > 0))
+                    {
+                        stringBuilder.Append(SEPARATOR);
+                    }
+
+                    ref readonly MementoInfo memInfo = ref ItemsInteractionsClass.GetMementoInfo(memento);
+                    completed |= memInfo.final;
+                    ResourceDialogsClass.GetPhraseContent(memInfo.phrase, out PhraseContent phraseContent);
+                    stringBuilder.Append(phraseContent.message);
+                    addedElement = true;
+                }
+            }
+
+            memento_descrText.text = stringBuilder.ToString();
+            memento_largeIcon.sprite = ResourceSpritesClass.GetSprite(memParInfo.sprite);
+            memento_largeIcon.gameObject.SetActive(true);
+            memento_largeIconTick.SetActive(completed);
         }
+
+
+
+
 
         public IEnumerator Execute_Load_Coroutine(DIALOG_OPTION_CLICK_DELEGATE OnDialogOptionClick,
             DECISION_OPTION_CLICK_DELEGATE OnDecisionOptionClick,
@@ -886,30 +823,12 @@ namespace Gob3AQ.GameMenu.UICanvas
                     yield return ResourceAtlasClass.WaitForNextFrame;
                 }
             }
-
-            /* Update lists */
-            /* Check for all active mementos */
-            for (int i = 0; i < (int)Memento.MEMENTO_TOTAL; ++i)
-            {
-                Memento memento = (Memento)i;
-
-                VARMAP_GameMenu.IS_MEMENTO_UNLOCKED(memento, out bool unlocked, out bool unwatched);
-
-                if (unlocked)
-                {
-                    NewMementoUnlocked(memento, unwatched, false);
-                }
-            }
-            yield return ResourceAtlasClass.WaitForNextFrame;
-
-            MementoSortAndResizeAll();
         }
-
- 
 
         private static int MementoParentSortMethod(MementoParent a, MementoParent b)
         {
             return (int)b - (int)a;
         }
+
     }
 }

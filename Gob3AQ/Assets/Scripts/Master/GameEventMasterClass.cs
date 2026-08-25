@@ -81,26 +81,48 @@ namespace Gob3AQ.GameEventMaster
         private List<DelayedActionOrder> _pendingDelayedActions; 
         private NotifyAction _actionEndedFlag;
         private NotifyAction _actionExpectedFlag;
+        private MementoStatus[] _mementoStatusArray;
+        private MementoStatus[] _mementoParentStatusArray;
         private IReadOnlyList<WaypointInfo> _WP_Info;
 
         private static readonly IReadOnlyDictionary<string, Action> CUSTOM_FN_DICT = new Dictionary<string, Action>()
         {
-            
+
         };
 
 
-
-        public static void IsMementoUnlockedService(Memento memento, out bool occurred, out bool unwatched)
+        public static void GetMementosStatusService(out ReadOnlySpan<MementoStatus> statusSpan, out ReadOnlySpan<MementoStatus> parentStatusSpan)
         {
-            GetArrayIndexAndPos((int)memento, out int arraypos, out int elembit);
-            ref readonly MultiBitFieldStruct mbfs = ref VARMAP_GameEventMaster.GET_ELEM_UNLOCKED_MEMENTO(arraypos);
-            occurred = mbfs.GetIndividualBool(elembit);
+            statusSpan = Array.Empty<MementoStatus>();
+            parentStatusSpan = Array.Empty<MementoStatus>();
 
-            ref readonly MementoInfo memInfo = ref ItemsInteractionsClass.GetMementoInfo(memento);
-            GetArrayIndexAndPos((int)memInfo.parent, out arraypos, out elembit);
+            if (!_singleton) return;
 
-            mbfs = ref VARMAP_GameEventMaster.GET_ELEM_UNWATCHED_PARENT_MEMENTO(arraypos);
-            unwatched = mbfs.GetIndividualBool(elembit);
+            statusSpan = _singleton._mementoStatusArray;
+            parentStatusSpan = _singleton._mementoParentStatusArray;
+
+            Array.Clear(_singleton._mementoParentStatusArray, 0, _singleton._mementoParentStatusArray.Length);            
+
+            for (Memento memento = 0; memento < Memento.MEMENTO_TOTAL; ++memento)
+            {
+                GetArrayIndexAndPos((int)memento, out int arraypos, out int elembit);
+                ref readonly MultiBitFieldStruct mbfs = ref VARMAP_GameEventMaster.GET_ELEM_UNLOCKED_MEMENTO(arraypos);
+                bool occurred = mbfs.GetIndividualBool(elembit);
+
+                ref readonly MementoInfo memInfo = ref ItemsInteractionsClass.GetMementoInfo(memento);
+                GetArrayIndexAndPos((int)memInfo.parent, out arraypos, out elembit);
+
+                mbfs = ref VARMAP_GameEventMaster.GET_ELEM_UNWATCHED_PARENT_MEMENTO(arraypos);
+                bool unwatched = mbfs.GetIndividualBool(elembit);
+
+                bool completed = occurred & memInfo.final;
+
+                _singleton._mementoStatusArray[(int)memento] = new MementoStatus(occurred, completed, unwatched);
+
+                ref MementoStatus parentVal = ref _singleton._mementoParentStatusArray[(int)memInfo.parent];
+
+                parentVal = new MementoStatus(parentVal.unlocked | occurred, parentVal.completed | completed, parentVal.unwatched | unwatched);
+            }
         }
 
 
@@ -221,7 +243,6 @@ namespace Gob3AQ.GameEventMaster
                 mbfs.SetIndividualBool(elembit, true);
 
                 VARMAP_GameEventMaster.SET_ELEM_UNWATCHED_PARENT_MEMENTO(arraypos, in mbfs);
-                VARMAP_GameEventMaster.COMMIT_MEMENTO_NOTIF(memento);
 
                 BusyState busyState = VARMAP_GameEventMaster.GET_SHADOW_BUSY_STATE();
                 busyState = UpdateBusyState(busyState, true, false);
@@ -333,6 +354,9 @@ namespace Gob3AQ.GameEventMaster
 
                 _actionEndedFlag = NotifyAction.NOTIFY_NONE;
                 _actionExpectedFlag = NotifyAction.NOTIFY_NONE;
+
+                _mementoStatusArray = new MementoStatus[(int)Memento.MEMENTO_TOTAL];
+                _mementoParentStatusArray = new MementoStatus[(int)MementoParent.MEMENTO_PARENT_TOTAL];
             }
         }
 

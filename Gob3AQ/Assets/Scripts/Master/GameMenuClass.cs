@@ -44,24 +44,14 @@ namespace Gob3AQ.GameMenu
         private DecisionTaskType decision_actualTaskType;
 
         private InventoryTabType inventory_tabType;
-
-        private HashSet<MementoCombi> memento_combi_union;
-        private HashSet<MementoCombi> memento_combi_intersection;
+        private List<GamePickableItem> inventory_availableItems;
+        private byte inventory_pageIndex;
 
         private bool prevShowToolbarCommand;
 
         private DetailType detail_loaded;
 
         
-
-
-        public static void CommitMementoNotifService(Memento memento)
-        {
-            if(_singleton != null)
-            {
-                _singleton._uicanvas_cls.NewMementoUnlocked(memento, true, true);
-            }
-        }
 
 
         public static void CancelPickableItemService()
@@ -201,8 +191,13 @@ namespace Gob3AQ.GameMenu
 
         private void OnInventoryTabClick(InventoryTabType tabType)
         {
-            inventory_tabType = tabType;
-            RefreshItemMenuElements();
+            if ((inventory_tabType != tabType) && _itemMenuOpened)
+            {
+                inventory_tabType = tabType;
+                inventory_pageIndex = 0;
+
+                RefreshItemMenuElements();
+            }
         }
 
         private void OnMenuButtonClick(MenuButtonType type)
@@ -264,15 +259,10 @@ namespace Gob3AQ.GameMenu
             ref readonly MementoParentInfo memParInfo = ref ItemsInteractionsClass.GetMementoParentInfo(mementoParent);
             VARMAP_GameMenu.MEMENTO_PARENT_WATCHED(mementoParent);
 
-            /* Double click */
-            float timestamp_ms = Time.time;
-            bool doubleClick = DoubleClickDetect(timestamp_ms);
+            VARMAP_GameMenu.GET_MEMENTO_STATUS(out ReadOnlySpan<MementoStatus> mementoStatus, out ReadOnlySpan<MementoStatus> mementoParentStatus);
 
-            /* Display and get Combined */
-            _uicanvas_cls.MementoParentClicked(mementoParent, doubleClick, out ReadOnlyHashSet<MementoParent> combinedMementos);
-
-            /* Get one of both, when 2 and check for combis */
-            CheckMementoCombination(combinedMementos);
+            /* Display */
+            _uicanvas_cls.MementoParentClicked(mementoParent, mementoStatus, mementoParentStatus);
         }
 
         private void OnDialogOptionClick(DialogOption option, DialogPhrase phrase)
@@ -313,98 +303,7 @@ namespace Gob3AQ.GameMenu
             VARMAP_GameMenu.SET_ITEM_MENU_HOVER(GameItem.ITEM_NONE);
         }
 
-        
 
-        private void CheckMementoCombination(ReadOnlyHashSet<MementoParent> combinedParents)
-        {
-            /* In theory, both should be reciprocally related, no matter which of both is examined against the other */
-            MementoParent firstInvolved = MementoParent.MEMENTO_PARENT_NONE;
-            MementoParent secondInvolved = MementoParent.MEMENTO_PARENT_NONE;
-
-            if(combinedParents.Count == 2)
-            {
-                foreach(MementoParent parent in combinedParents)
-                {
-                    if (firstInvolved == MementoParent.MEMENTO_PARENT_NONE)
-                    {
-                        firstInvolved = parent;
-                    }
-                    else
-                    {
-                        secondInvolved = parent;
-                    }
-                }
-
-                ref readonly MementoParentInfo memParInfoFirst = ref ItemsInteractionsClass.GetMementoParentInfo(firstInvolved);
-                ref readonly MementoParentInfo memParInfoSecond = ref ItemsInteractionsClass.GetMementoParentInfo(secondInvolved);
-
-                memento_combi_union.Clear();
-                memento_combi_intersection.Clear();
-
-                foreach(Memento child in memParInfoFirst.Children)
-                {
-                    VARMAP_GameMenu.IS_MEMENTO_UNLOCKED(child, out bool occurred, out _);
-
-                    if(occurred)
-                    {
-                        ref readonly MementoInfo memInfo = ref ItemsInteractionsClass.GetMementoInfo(child);
-                        memento_combi_intersection.UnionWith(memInfo.combinations);
-                    }
-                }
-
-                foreach (Memento child in memParInfoSecond.Children)
-                {
-                    VARMAP_GameMenu.IS_MEMENTO_UNLOCKED(child, out bool occurred, out _);
-
-                    if (occurred)
-                    {
-                        ref readonly MementoInfo memInfo = ref ItemsInteractionsClass.GetMementoInfo(child);
-                        memento_combi_union.UnionWith(memInfo.combinations);
-                    }
-                }
-
-                memento_combi_intersection.IntersectWith(memento_combi_union);
-                memento_combi_intersection.Remove(MementoCombi.MEMENTO_COMBI_NONE);
-
-                /* Take first in intersection (There should be only one, in case) */
-                MementoCombi intersected = MementoCombi.MEMENTO_COMBI_NONE;
-
-                foreach(MementoCombi combiCommon in memento_combi_intersection)
-                {
-                    intersected = combiCommon;
-                    break;
-                }
-
-
-                if (intersected != MementoCombi.MEMENTO_COMBI_NONE)
-                {
-                    /* Check if triggered event is not already triggered */
-                    ref readonly MementoCombiInfo memCombiInfo = ref ItemsInteractionsClass.GetMementoCombiInfo(intersected);
-
-                    GameEventCombi eventCombi = new(memCombiInfo.triggeredEvent, false);
-                    ReadOnlySpan<GameEventCombi> one_event = MemoryMarshal.CreateReadOnlySpan(ref eventCombi, 1);
-                    VARMAP_GameMenu.IS_EVENT_COMBI_OCCURRED(one_event, out bool occurred);
-
-                    /* Then commit */
-                    if(!occurred)
-                    {
-                        VARMAP_GameMenu.COMMIT_EVENT(one_event);
-
-                        //VARMAP_GameMenu.SHOW_DIALOGUE(talkers, DialogType.DIALOG_SIMPLE, DialogPhrase.PHRASE_GREAT_IDEA_COMBI, false);
-                    }
-                    else
-                    {
-                        //VARMAP_GameMenu.SHOW_DIALOGUE(talkers, DialogType.DIALOG_SIMPLE, DialogPhrase.PHRASE_ALREADY_COMBI, false);
-                    }
-                }
-                else
-                {
-                    //VARMAP_GameMenu.SHOW_DIALOGUE(talkers, DialogType.DIALOG_SIMPLE, DialogPhrase.PHRASE_NONSENSE_COMBI, false);
-                }
-
-                VARMAP_GameMenu.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_DIALOG, out _);
-            }
-        }
 
 
         void Awake()
@@ -420,12 +319,11 @@ namespace Gob3AQ.GameMenu
                 decision_optionPending = false;
                 decision_actualTaskType = DecisionTaskType.DECISION_TASK_NONE;
 
-                memento_combi_intersection = new(8);
-                memento_combi_union = new(8);
-
                 detail_loaded = DetailType.PREFAB_NONE;
 
                 inventory_tabType = InventoryTabType.INVENTORY_TAB_ITEMS;
+
+                inventory_availableItems = new((int)GamePickableItem.ITEM_PICK_TOTAL);
             }
         }
 
@@ -433,7 +331,6 @@ namespace Gob3AQ.GameMenu
 
         void Start()
         {
-            VARMAP_GameMenu.REG_PICKABLE_ITEM_OWNER(_OnItemOwnerChanged);
             VARMAP_GameMenu.REG_GAMESTATUS(_OnGameStatusChanged);
             VARMAP_GameMenu.KEY_SUBSCRIPTION(KeyFunctionsIndex.KEYFUNC_INDEX_CHANGEACTION, _OnKeyPressedChanged, true);
 
@@ -507,7 +404,6 @@ namespace Gob3AQ.GameMenu
             {
                 _singleton = null;
 
-                VARMAP_GameMenu.UNREG_PICKABLE_ITEM_OWNER(_OnItemOwnerChanged);
                 VARMAP_GameMenu.UNREG_GAMESTATUS(_OnGameStatusChanged);
                 VARMAP_GameMenu.KEY_SUBSCRIPTION(KeyFunctionsIndex.KEYFUNC_INDEX_CHANGEACTION, _OnKeyPressedChanged, false);
             }
@@ -520,6 +416,7 @@ namespace Gob3AQ.GameMenu
         {
             ReadOnlySpan<CharacterType> item_owner = VARMAP_GameMenu.GET_ARRAY_PICKABLE_ITEM_OWNER();
             CharacterType selectedChar = VARMAP_GameMenu.GET_PLAYER_SELECTED();
+            VARMAP_GameMenu.GET_MEMENTO_STATUS(out ReadOnlySpan<MementoStatus> mementoStatus, out ReadOnlySpan<MementoStatus> parentStatus);
 
 
             int totalarrayItems = item_owner.Length;
@@ -531,6 +428,17 @@ namespace Gob3AQ.GameMenu
             /* Fill all spots with first available item */
             if (inventory_tabType == InventoryTabType.INVENTORY_TAB_ITEMS)
             {
+                inventory_availableItems.Clear();
+                for(int i = 0; i < item_owner.Length; ++i)
+                {
+                    if (item_owner[i] == selectedChar)
+                    {
+                        inventory_availableItems.Add((GamePickableItem)i);
+                    }
+                }
+
+#error "Left here"
+
                 for (int i = 0; i < GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS; i++)
                 {
                     bool found = false;
@@ -557,7 +465,6 @@ namespace Gob3AQ.GameMenu
             }
             else
             {
-                    #error "HERE MARKER"
                 for (int i = 0; i < GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS; i++)
                 {
                     bool found = false;
@@ -581,26 +488,19 @@ namespace Gob3AQ.GameMenu
             }
         }
 
+        private void RefreshMementoElements()
+        {
+            VARMAP_GameMenu.GET_MEMENTO_STATUS(out _, out ReadOnlySpan<MementoStatus> mementoParentStatus);
+
+            _uicanvas_cls.MementoMenuActivated(mementoParentStatus);
+        }
+
         private void SetUserInteraction(UserInputInteraction interaction)
         {
             _uicanvas_cls.SetUserInteraction(interaction);
             VARMAP_GameMenu.SET_USER_INPUT_INTERACTION(interaction);
         }
 
-
-        private void _OnItemOwnerChanged(ChangedEventType evtype, in CharacterType oldVal, in CharacterType newVal)
-        {
-            _ = evtype;
-            _ = oldVal;
-            _ = newVal;
-
-            /* Populate menu */
-
-            if (_itemMenuOpened)
-            {
-                RefreshItemMenuElements();
-            }
-        }
 
         private void _OnKeyPressedChanged(KeyFunctionsIndex key, bool isPressed)
         {
@@ -665,7 +565,7 @@ namespace Gob3AQ.GameMenu
                         break;
                     case Game_Status.GAME_STATUS_PLAY_MEMENTO:
                         _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_MEMENTO);
-                        _uicanvas_cls.MementoMenuActivated();
+                        RefreshMementoElements();
                         break;
                     case Game_Status.GAME_STATUS_CHANGING_ROOM:
                         _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_LOADING);
@@ -710,8 +610,6 @@ namespace Gob3AQ.GameMenu
                 }
             }
         }
-
-        
 
     }
 }

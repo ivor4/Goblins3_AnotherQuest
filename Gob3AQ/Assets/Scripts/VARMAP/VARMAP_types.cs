@@ -127,6 +127,20 @@ namespace Gob3AQ.VARMAP.Types
         WAYPOINT_ID_TUPLE_TAG,
     }
 
+    public readonly struct MementoStatus
+    {
+        public readonly bool unlocked;
+        public readonly bool completed;
+        public readonly bool unwatched;
+
+        public MementoStatus(bool unlocked, bool completed, bool unwatched)
+        {
+            this.unlocked = unlocked;
+            this.completed = completed;
+            this.unwatched = unwatched;
+        }
+    }
+
     public readonly struct InitialWalkInfo
     {
         public readonly string waypointFrom;

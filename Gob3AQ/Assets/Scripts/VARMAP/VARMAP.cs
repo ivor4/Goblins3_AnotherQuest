@@ -274,19 +274,12 @@ protected static IS_EVENT_COMBI_OCCURRED_DELEGATE _IS_EVENT_COMBI_OCCURRED;
 /// </summary>
 protected static COMMIT_EVENT_DELEGATE _COMMIT_EVENT;
         /// <summary> 
-/// Tells Memento Manager (Menu) a new memento has been unlocked 
-/// <para> Owner: GameMenu </para> 
-/// <para> Accessors: GameEventMaster </para> 
-/// <para> Method: <see cref="GameMenuClass.CommitMementoNotifService"/> </para> 
-/// </summary>
-protected static COMMIT_MEMENTO_NOTIF_DELEGATE _COMMIT_MEMENTO_NOTIF;
-        /// <summary> 
-/// Tells if a memento is unlocked 
+/// Gives a list of all memento status 
 /// <para> Owner: GameEventMaster </para> 
 /// <para> Accessors: GameMenu </para> 
-/// <para> Method: <see cref="GameEventMasterClass.IsMementoUnlockedService"/> </para> 
+/// <para> Method: <see cref="GameEventMasterClass.GetMementosStatusService"/> </para> 
 /// </summary>
-protected static IS_MEMENTO_UNLOCKED_DELEGATE _IS_MEMENTO_UNLOCKED;
+protected static GET_MEMENTO_STATUS_DELEGATE _GET_MEMENTO_STATUS;
         /// <summary> 
 /// If a Memento has been analyzed 
 /// <para> Owner: GameEventMaster </para> 

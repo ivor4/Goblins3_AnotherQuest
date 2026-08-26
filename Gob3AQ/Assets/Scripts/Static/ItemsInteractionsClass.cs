@@ -8,19 +8,6 @@ namespace Gob3AQ.Brain.ItemsInteraction
 { 
     public static class ItemsInteractionsClass
     {
-        public static ref readonly MementoCombiInfo GetMementoCombiInfo(MementoCombi mementoCombi)
-        {
-            if ((uint)mementoCombi >= (uint)MementoCombi.MEMENTO_COMBI_TOTAL)
-            {
-                Debug.LogError($"[ItemsInteractionsClass] GetMementoCombiInfo: Invalid memento combi item {mementoCombi}");
-                return ref MementoCombiInfo.EMPTY;
-            }
-            else
-            {
-                return ref _MementoCombiInfo[(int)mementoCombi];
-            }
-        }
-
         public static ref readonly MementoParentInfo GetMementoParentInfo(MementoParent mementoParent)
         {
             if ((uint)mementoParent >= (uint)MementoParent.MEMENTO_PARENT_TOTAL)
@@ -1645,33 +1632,33 @@ namespace Gob3AQ.Brain.ItemsInteraction
         private static readonly MementoParentInfo[] _MementoParentInfo = new MementoParentInfo[(int)MementoParent.MEMENTO_PARENT_TOTAL]
         {
             /* > ATG 6 START < */
-            /* MEMENTO_PARENT_REME */
-            new(
-            NameType.NAME_MEMENTO_REME,GameSprite.SPRITE_MEMENTO_REME,GameItem.ITEM_IDEA_REME,
-            new Memento[1]{Memento.MEMENTO_REME_1}
-            ),
-
             /* MEMENTO_PARENT_JOB_FIND_1 */
             new(
-            NameType.NAME_MEMENTO_FIND_JOB_1,GameSprite.SPRITE_MEMENTO_JOB,GameItem.ITEM_IDEA_FIND_JOB,
+            NameType.NAME_MEMENTO_FIND_JOB_1,GameSprite.SPRITE_MEMENTO_JOB,GameItem.ITEM_IDEA_FIND_JOB,CharacterType.CHARACTER_MAIN,
             new Memento[2]{Memento.MEMENTO_JOB_FIND_1_1, Memento.MEMENTO_JOB_FIND_1_2}
+            ),
+
+            /* MEMENTO_PARENT_REME */
+            new(
+            NameType.NAME_MEMENTO_REME,GameSprite.SPRITE_MEMENTO_REME,GameItem.ITEM_IDEA_REME,CharacterType.CHARACTER_MAIN,
+            new Memento[1]{Memento.MEMENTO_REME_1}
             ),
 
             /* MEMENTO_PARENT_RECIPE_MISSION */
             new(
-            NameType.NAME_MEMENTO_RECIPE_MISSION,GameSprite.SPRITE_MEMENTO_RECIPE,GameItem.ITEM_NONE,
+            NameType.NAME_MEMENTO_RECIPE_MISSION,GameSprite.SPRITE_MEMENTO_RECIPE,GameItem.ITEM_NONE,CharacterType.CHARACTER_MAIN,
             new Memento[1]{Memento.MEMENTO_RECIPE_MISSION_1}
             ),
 
             /* MEMENTO_PARENT_POOR_MAN_WC */
             new(
-            NameType.NAME_MEMENTO_PARENT_POOR_MAN_WC,GameSprite.SPRITE_MEMENTO_POOR_MAN_WC,GameItem.ITEM_NONE,
+            NameType.NAME_MEMENTO_PARENT_POOR_MAN_WC,GameSprite.SPRITE_MEMENTO_POOR_MAN_WC,GameItem.ITEM_NONE,CharacterType.CHARACTER_MAIN,
             new Memento[3]{Memento.MEMENTO_POOR_MAN_WC_1, Memento.MEMENTO_POOR_MAN_WC_2, Memento.MEMENTO_POOR_MAN_WC_3}
             ),
 
             /* MEMENTO_PARENT_LAST */
             new(
-            NameType.NAME_NPC_LAST,GameSprite.SPRITE_NONE,GameItem.ITEM_NONE,
+            NameType.NAME_NPC_LAST,GameSprite.SPRITE_NONE,GameItem.ITEM_NONE,CharacterType.CHARACTER_MAIN,
             new Memento[1]{Memento.MEMENTO_LAST}
             ),
 
@@ -1682,41 +1669,27 @@ namespace Gob3AQ.Brain.ItemsInteraction
         {
             /* > ATG 7 START < */
             /* MEMENTO_JOB_FIND_1_1 */
-            new(MementoParent.MEMENTO_PARENT_JOB_FIND_1,DialogPhrase.PHRASE_MEMENTO_FIND_JOB_1,
-            new(new HashSet<MementoCombi>(1){MementoCombi.MEMENTO_COMBI_NONE}),false),
+            new(MementoParent.MEMENTO_PARENT_JOB_FIND_1,DialogPhrase.PHRASE_MEMENTO_FIND_JOB_1,false),
             /* MEMENTO_JOB_FIND_1_2 */
-            new(MementoParent.MEMENTO_PARENT_JOB_FIND_1,DialogPhrase.PHRASE_OBSERVE_HIVE1_AD_BOARD_1,
-            new(new HashSet<MementoCombi>(1){MementoCombi.MEMENTO_COMBI_NONE}),false),
+            new(MementoParent.MEMENTO_PARENT_JOB_FIND_1,DialogPhrase.PHRASE_OBSERVE_HIVE1_AD_BOARD_1,false),
             /* MEMENTO_REME_1 */
-            new(MementoParent.MEMENTO_PARENT_REME,DialogPhrase.PHRASE_MEMENTO_REME_1,
-            new(new HashSet<MementoCombi>(1){MementoCombi.MEMENTO_COMBI_NONE}),false),
+            new(MementoParent.MEMENTO_PARENT_REME,DialogPhrase.PHRASE_MEMENTO_REME_1,false),
             /* MEMENTO_RECIPE_MISSION_1 */
-            new(MementoParent.MEMENTO_PARENT_RECIPE_MISSION,DialogPhrase.PHRASE_MEMENTO_RECIPE_MISSION_1,
-            new(new HashSet<MementoCombi>(1){MementoCombi.MEMENTO_COMBI_NONE}),false),
+            new(MementoParent.MEMENTO_PARENT_RECIPE_MISSION,DialogPhrase.PHRASE_MEMENTO_RECIPE_MISSION_1,false),
             /* MEMENTO_POOR_MAN_WC_1 */
-            new(MementoParent.MEMENTO_PARENT_POOR_MAN_WC,DialogPhrase.PHRASE_MEMENTO_POOR_MAN_WC_1,
-            new(new HashSet<MementoCombi>(1){MementoCombi.MEMENTO_COMBI_NONE}),false),
+            new(MementoParent.MEMENTO_PARENT_POOR_MAN_WC,DialogPhrase.PHRASE_MEMENTO_POOR_MAN_WC_1,false),
             /* MEMENTO_POOR_MAN_WC_2 */
-            new(MementoParent.MEMENTO_PARENT_POOR_MAN_WC,DialogPhrase.PHRASE_MEMENTO_POOR_MAN_WC_2,
-            new(new HashSet<MementoCombi>(1){MementoCombi.MEMENTO_COMBI_NONE}),false),
+            new(MementoParent.MEMENTO_PARENT_POOR_MAN_WC,DialogPhrase.PHRASE_MEMENTO_POOR_MAN_WC_2,false),
             /* MEMENTO_POOR_MAN_WC_3 */
-            new(MementoParent.MEMENTO_PARENT_POOR_MAN_WC,DialogPhrase.PHRASE_MEMENTO_POOR_MAN_WC_3,
-            new(new HashSet<MementoCombi>(1){MementoCombi.MEMENTO_COMBI_NONE}),true),
+            new(MementoParent.MEMENTO_PARENT_POOR_MAN_WC,DialogPhrase.PHRASE_MEMENTO_POOR_MAN_WC_3,true),
             /* MEMENTO_LAST */
-            new(MementoParent.MEMENTO_PARENT_LAST,DialogPhrase.PHRASE_NONE,
-            new(new HashSet<MementoCombi>(1){MementoCombi.MEMENTO_COMBI_NONE}),false),
+            new(MementoParent.MEMENTO_PARENT_LAST,DialogPhrase.PHRASE_NONE,false),
             /* > ATG 7 END < */
-        };
-
-        private static readonly MementoCombiInfo[] _MementoCombiInfo = new MementoCombiInfo[(int)MementoCombi.MEMENTO_COMBI_TOTAL]
-        {
-            /* > ATG 8 START */
-            /* > ATG 8 END */
         };
 
         private static readonly DetailInfo[] _DetailInfo = new DetailInfo[(int)DetailType.DETAIL_TOTAL]
         {
-            /* > ATG 9 START < */
+            /* > ATG 8 START < */
             new(PrefabEnum.PREFAB_DETAIL_EXTRAPERLO), /* PREFAB_DETAIL_EXTRAPERLO */ 
             new(PrefabEnum.PREFAB_MAINCHARACTER), /* PREFAB_MAINCHAR */ 
             new(PrefabEnum.PREFAB_MAINCHARACTER_SEATED), /* PREFAB_MAINCHAR_SEATED */ 
@@ -1724,12 +1697,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new(PrefabEnum.PREFAB_MAINCHARACTER_BED), /* PREFAB_MAINCHAR_BED */ 
             new(PrefabEnum.PREFAB_PINPOINT_MAP), /* PREFAB_PINPOINT_MAP */ 
             new(PrefabEnum.PREFAB_NONE), /* DETAIL_LAST */ 
-            /* > ATG 9 END < */
+            /* > ATG 8 END < */
         };
 
         private static readonly ActionInfo[] _ActionInfo = new ActionInfo[(int)GameAction.ACTION_TOTAL]
         {
-            /* > ATG 10 START < */
+            /* > ATG 9 START < */
             new( /* ACTION_NONE */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
@@ -3914,7 +3887,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
 
-            /* > ATG 10 END < */
+            /* > ATG 9 END < */
         };
     }
 }

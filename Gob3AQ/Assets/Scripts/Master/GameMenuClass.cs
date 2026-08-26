@@ -46,6 +46,7 @@ namespace Gob3AQ.GameMenu
         private InventoryTabType inventory_tabType;
         private List<GamePickableItem> inventory_availableItems;
         private byte inventory_pageIndex;
+        private byte inventory_lastPageIndex;
 
         private bool prevShowToolbarCommand;
 
@@ -200,6 +201,30 @@ namespace Gob3AQ.GameMenu
             }
         }
 
+        private void OnInventoryArrowClick(bool left)
+        {
+            if(_itemMenuOpened)
+            {
+                byte newPageIndex;
+
+
+                if (left)
+                {
+                    newPageIndex = (byte)Math.Clamp(inventory_pageIndex - 1, 0, inventory_lastPageIndex);
+                }
+                else
+                {
+                    newPageIndex = (byte)Math.Clamp(inventory_pageIndex + 1, 0, inventory_lastPageIndex);
+                }
+
+                if (newPageIndex != inventory_pageIndex)
+                {
+                    inventory_pageIndex = newPageIndex;
+                    RefreshItemMenuElements();
+                }
+            }
+        }
+
         private void OnMenuButtonClick(MenuButtonType type)
         {
             Game_Status gstatus = VARMAP_GameMenu.GET_GAMESTATUS();
@@ -348,7 +373,7 @@ namespace Gob3AQ.GameMenu
         private IEnumerator LoadCoroutine()
         {
             Coroutine uicoroutine = StartCoroutine(_uicanvas_cls.Execute_Load_Coroutine(OnDialogOptionClick,
-                OnDecisionOptionClick, OnInventoryItemClick, OnInventoryItemHover, OnInventoryTabClick, OnMenuButtonClick, OnMementoItemClick));
+                OnDecisionOptionClick, OnInventoryItemClick, OnInventoryItemHover, OnInventoryTabClick, OnInventoryArrowClick, OnMenuButtonClick, OnMementoItemClick));
             yield return uicoroutine;
 
             /* Preset with actual value */
@@ -414,78 +439,73 @@ namespace Gob3AQ.GameMenu
 
         private void RefreshItemMenuElements()
         {
-            ReadOnlySpan<CharacterType> item_owner = VARMAP_GameMenu.GET_ARRAY_PICKABLE_ITEM_OWNER();
             CharacterType selectedChar = VARMAP_GameMenu.GET_PLAYER_SELECTED();
-            VARMAP_GameMenu.GET_MEMENTO_STATUS(out ReadOnlySpan<MementoStatus> mementoStatus, out ReadOnlySpan<MementoStatus> parentStatus);
-
-
-            int totalarrayItems = item_owner.Length;
-            int lastFoundItemIndex = 0;
+            
 
             _uicanvas_cls.SetInventoryTab(inventory_tabType);
 
+            inventory_availableItems.Clear();
 
             /* Fill all spots with first available item */
             if (inventory_tabType == InventoryTabType.INVENTORY_TAB_ITEMS)
             {
-                inventory_availableItems.Clear();
-                for(int i = 0; i < item_owner.Length; ++i)
+                ReadOnlySpan<CharacterType> item_owner = VARMAP_GameMenu.GET_ARRAY_PICKABLE_ITEM_OWNER();
+
+                for (int i = 0; i < item_owner.Length; ++i)
                 {
                     if (item_owner[i] == selectedChar)
                     {
                         inventory_availableItems.Add((GamePickableItem)i);
                     }
                 }
-
-#error "Left here"
-
-                for (int i = 0; i < GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS; i++)
-                {
-                    bool found = false;
-                    if (selectedChar != CharacterType.CHARACTER_NONE)
-                    {
-                        for (; (lastFoundItemIndex < totalarrayItems) && (!found); lastFoundItemIndex++)
-                        {
-                            /* If this element has to show a picked item */
-                            if (item_owner[lastFoundItemIndex] == selectedChar)
-                            {
-                                GameItem gitem = ItemsInteractionsClass.GetItemFromPickable((GamePickableItem)lastFoundItemIndex);
-                                _uicanvas_cls.ActivateInventoryItem(i, true, gitem);
-                                found = true;
-                            }
-                        }
-                    }
-
-                    if (!found)
-                    {
-                        /* Otherwise keep hidden */
-                        _uicanvas_cls.ActivateInventoryItem(i, false, GameItem.ITEM_NONE);
-                    }
-                }
             }
             else
             {
-                for (int i = 0; i < GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS; i++)
-                {
-                    bool found = false;
-                    for (; (lastFoundItemIndex < totalarrayItems) && (!found); lastFoundItemIndex++)
-                    {
-                        /* If this element has to show a picked item */
-                        if (item_owner[lastFoundItemIndex] == selectedChar)
-                        {
-                            GameItem gitem = ItemsInteractionsClass.GetItemFromPickable((GamePickableItem)lastFoundItemIndex);
-                            _uicanvas_cls.ActivateInventoryItem(i, true, gitem);
-                            found = true;
-                        }
-                    }
+                VARMAP_GameMenu.GET_MEMENTO_STATUS(out _, out ReadOnlySpan<MementoStatus> parentStatus);
 
-                    if (!found)
+                for (int i = 0; i < parentStatus.Length; ++i)
+                {
+                    ref readonly MementoStatus parentStatusInfo = ref parentStatus[i];
+                    ref readonly MementoParentInfo parentInfo = ref ItemsInteractionsClass.GetMementoParentInfo((MementoParent)i);
+
+                    if ((parentInfo.associatedItem != GameItem.ITEM_NONE) && (parentInfo.associatedChar == selectedChar) && parentStatusInfo.unlocked)
                     {
-                        /* Otherwise keep hidden */
-                        _uicanvas_cls.ActivateInventoryItem(i, false, GameItem.ITEM_NONE);
+                        ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(parentInfo.associatedItem);
+
+                        if (itemInfo.isPickable && itemInfo.isIdea)
+                        {
+                            inventory_availableItems.Add(itemInfo.pickableItem);
+                        }
                     }
                 }
             }
+
+            int startIndex = inventory_pageIndex * GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS;
+
+            /* for (int i = startIndex; (i < endIndex) && (i < inventory_availableItems.Count); ++i) */
+
+            for (int i = 0; i < GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS; ++i)
+            {
+                int i_warp = startIndex + i;
+
+                if ((selectedChar != CharacterType.CHARACTER_NONE) && (i_warp < inventory_availableItems.Count))
+                {
+                    GameItem gitem = ItemsInteractionsClass.GetItemFromPickable(inventory_availableItems[i_warp]);
+                    _uicanvas_cls.ActivateInventoryItem(i, true, gitem);
+                }
+                else
+                {
+                    /* Otherwise keep hidden */
+                    _uicanvas_cls.ActivateInventoryItem(i, false, GameItem.ITEM_NONE);
+                }
+            }
+
+            int lastPageIndex = (inventory_availableItems.Count + (GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS - 1)) / GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS;
+            lastPageIndex = Math.Max(0, lastPageIndex - 1);
+
+            inventory_lastPageIndex = (byte)lastPageIndex;
+
+            _uicanvas_cls.ActivateInventoryArrows(inventory_pageIndex > 0, inventory_pageIndex < inventory_lastPageIndex);
         }
 
         private void RefreshMementoElements()
@@ -560,6 +580,8 @@ namespace Gob3AQ.GameMenu
                         _uicanvas_cls.SetDisplayMode(DisplayMode.DISPLAY_MODE_INVENTORY);
                         /* Populate menu */
                         SetUserInteraction(UserInputInteraction.INPUT_INTERACTION_TAKE);
+                        inventory_tabType = InventoryTabType.INVENTORY_TAB_ITEMS;
+                        inventory_pageIndex = 0;
                         RefreshItemMenuElements();
                         _itemMenuOpened = true;
                         break;

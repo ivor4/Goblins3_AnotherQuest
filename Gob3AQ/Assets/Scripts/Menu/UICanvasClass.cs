@@ -600,6 +600,12 @@ namespace Gob3AQ.GameMenu.UICanvas
             }
         }
 
+        public void ActivateInventoryArrows(bool leftArrow, bool rightArrow)
+        {
+            inventory_leftButton.enabled = leftArrow;
+            inventory_rightButton.enabled = rightArrow;
+        }
+
         public void AnimateNewUserInteraction(UserInputInteraction interaction)
         {
             /* Passthrough */
@@ -724,6 +730,7 @@ namespace Gob3AQ.GameMenu.UICanvas
             DISPLAYED_ITEM_CLICK OnItemDisplayClick,
             DISPLAYED_ITEM_HOVER OnHover,
             INVENTORY_TAB_CLICK OnInventoryTabClick,
+            INVENTORY_ARROW_CLICK OnInventoryArrowClick,
             MENU_BUTTON_CLICK_DELEGATE OnMenuButtonClick,
             MEMENTO_ITEM_CLICK_DELEGATE OnMementoItemClick
             )
@@ -739,6 +746,8 @@ namespace Gob3AQ.GameMenu.UICanvas
             tool_observeButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_OBSERVE));
             inventory_itemsTabButton.onClick.AddListener(() => OnInventoryTabClick(InventoryTabType.INVENTORY_TAB_ITEMS));
             inventory_ideasTabButton.onClick.AddListener(() => OnInventoryTabClick(InventoryTabType.INVENTORY_TAB_IDEAS));
+            inventory_leftButton.onClick.AddListener(() => OnInventoryArrowClick(true));
+            inventory_rightButton.onClick.AddListener(() => OnInventoryArrowClick(false));
             detail_returnButton.onClick.AddListener(() => OnMenuButtonClick(MenuButtonType.MENU_BUTTON_DETAIL_RETURN));
 
 
@@ -827,7 +836,7 @@ namespace Gob3AQ.GameMenu.UICanvas
 
         private static int MementoParentSortMethod(MementoParent a, MementoParent b)
         {
-            return (int)b - (int)a;
+            return (int)a - (int)b;
         }
 
     }

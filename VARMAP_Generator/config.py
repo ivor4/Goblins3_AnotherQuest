@@ -64,7 +64,6 @@ PREFIXES = {
     'unchain': 'ActionType.',
     'memento': 'Memento.',
     'memento_parent': 'MementoParent.',
-    'memento_combi': 'MementoCombi.',
     'moment': 'MomentType.',
     'animation': 'GameAnimation.',
     'detail': 'DetailType.',

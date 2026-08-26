@@ -527,17 +527,19 @@ namespace Gob3AQ.VARMAP.Types
         public readonly NameType name;
         public readonly GameSprite sprite;
         public readonly GameItem associatedItem;
+        public readonly CharacterType associatedChar;
         private readonly Memento[] children;
 
         public readonly ReadOnlySpan<Memento> Children => children;
 
-        public static readonly MementoParentInfo EMPTY = new(NameType.NAME_NONE, GameSprite.SPRITE_NONE, GameItem.ITEM_NONE, new Memento[0]);
+        public static readonly MementoParentInfo EMPTY = new(NameType.NAME_NONE, GameSprite.SPRITE_NONE, GameItem.ITEM_NONE, CharacterType.CHARACTER_NONE, new Memento[0]);
 
-        public MementoParentInfo(NameType name, GameSprite sprite, GameItem associatedItem, Memento[] children)
+        public MementoParentInfo(NameType name, GameSprite sprite, GameItem associatedItem, CharacterType associatedChar, Memento[] children)
         {
             this.name = name;
             this.sprite = sprite;
             this.associatedItem = associatedItem;
+            this.associatedChar = associatedChar;
             this.children = children;
         }
     }
@@ -546,33 +548,18 @@ namespace Gob3AQ.VARMAP.Types
     {
         public readonly MementoParent parent;
         public readonly DialogPhrase phrase;
-        public readonly ReadOnlyHashSet<MementoCombi> combinations;
         public readonly bool final;
 
-        public static readonly MementoInfo EMPTY = new(MementoParent.MEMENTO_PARENT_NONE, DialogPhrase.PHRASE_NONE,
-            new(new HashSet<MementoCombi>(0)), false);
+        public static readonly MementoInfo EMPTY = new(MementoParent.MEMENTO_PARENT_NONE, DialogPhrase.PHRASE_NONE, false);
 
-        public MementoInfo(MementoParent parent, DialogPhrase phrase, ReadOnlyHashSet<MementoCombi> combinations, bool final)
+        public MementoInfo(MementoParent parent, DialogPhrase phrase, bool final)
         {
             this.parent = parent;
             this.phrase = phrase;
-            this.combinations = combinations;
             this.final = final;
         }
     }
 
-    public readonly struct MementoCombiInfo
-    {
-        public readonly GameEvent triggeredEvent;
-
-
-        public static readonly MementoCombiInfo EMPTY = new(GameEvent.EVENT_NONE);
-
-        public MementoCombiInfo(GameEvent triggeredEvent)
-        {
-            this.triggeredEvent = triggeredEvent;
-        }
-    }
 
     public readonly struct UnchainInfo
     {

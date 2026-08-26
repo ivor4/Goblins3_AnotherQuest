@@ -76,7 +76,7 @@ class CodeGenContext:
         self.names_types = ATGFile(config.NAMES_TYPES_PATH, 1)
         self.sprite_types = ATGFile(config.SPRITE_TYPES_PATH, 1)
         self.sound_types = ATGFile(config.SOUND_TYPES_PATH, 1)
-        self.event_types = ATGFile(config.EVENT_TYPES_PATH, 4)
+        self.event_types = ATGFile(config.EVENT_TYPES_PATH, 3)
         self.card_types = ATGFile(config.CARD_TYPES_PATH, 1)
         self.anim_types = ATGFile(config.ANIMATION_TYPES_PATH, 1)
         self.modules_types = ATGFile(config.MODULES_TYPES_PATH, 1)
@@ -85,7 +85,7 @@ class CodeGenContext:
         self.phrases_text = ATGFile(config.PHRASES_TEXT_PATH, 0)
         self.names_text = ATGFile(config.NAMES_TEXT_PATH, 0)
         
-        self.items_interact = ATGFile(config.ITEMS_INTERACTION_PATH, 10)
+        self.items_interact = ATGFile(config.ITEMS_INTERACTION_PATH, 9)
         self.dialog_atlas = ATGFile(config.DIALOG_ATLAS_PATH, 3)
         self.decision_atlas = ATGFile(config.DECISION_ATLAS_PATH, 2)
         self.sprite_atlas = ATGFile(config.SPRITE_ATLAS_PATH, 1)

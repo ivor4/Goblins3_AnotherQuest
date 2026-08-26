@@ -84,8 +84,8 @@ EVENT_TOTAL
     {
         /* > ATG 2 START < */
         MEMENTO_PARENT_NONE = -1, 
-        MEMENTO_PARENT_REME, 
         MEMENTO_PARENT_JOB_FIND_1, 
+        MEMENTO_PARENT_REME, 
         MEMENTO_PARENT_RECIPE_MISSION, 
         MEMENTO_PARENT_POOR_MAN_WC, 
         MEMENTO_PARENT_LAST, 
@@ -109,15 +109,6 @@ MEMENTO_PARENT_TOTAL
         
 MEMENTO_TOTAL
         /* > ATG 3 END < */
-    }
-
-    public enum MementoCombi
-    {
-        /* > ATG 4 START < */
-        MEMENTO_COMBI_NONE = -1, 
-        
-MEMENTO_COMBI_TOTAL
-        /* > ATG 4 END < */
     }
 
 }

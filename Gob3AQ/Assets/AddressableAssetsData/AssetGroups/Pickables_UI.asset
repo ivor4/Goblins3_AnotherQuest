@@ -65,6 +65,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0bebd9fc7b678f948a565dcd8188b9f7
+    m_Address: FONT_SDF_ROUGUE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0bfb17cd0658d254cbc38cf90dac55f8
     m_Address: ANIMATION_GENERIC_TALK8_ENTRY
     m_ReadOnly: 0
@@ -362,6 +367,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6318f73906ad06d45bee8a7d66bf2b7a
     m_Address: ANIMATION_GENERIC_STEADY6
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 65bdd31f021d5544aa74fa29a5dbd16c
+    m_Address: SPRITE_BOOK_MEMENTOS
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

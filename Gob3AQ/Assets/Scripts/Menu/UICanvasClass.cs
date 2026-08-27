@@ -121,8 +121,6 @@ namespace Gob3AQ.GameMenu.UICanvas
         private Button inventory_rightButton;
         private Button inventory_leftButton;
 
-        /* This one only remembers last selected option (Commanded from GameMenuClass) */
-        private InventoryTabType inventory_latchedTabType;
 
         private GameObject memento_itemsContentObj;
         private Image memento_largeIcon;
@@ -222,8 +220,6 @@ namespace Gob3AQ.GameMenu.UICanvas
 
             memento_largeIconTick.SetActive(false);
             memento_largeIcon.gameObject.SetActive(false);
-
-            inventory_latchedTabType = InventoryTabType.INVENTORY_TAB_ITEMS;
         }
 
         public void Show_Hide_Toolbar(bool show)
@@ -573,7 +569,6 @@ namespace Gob3AQ.GameMenu.UICanvas
 
         public void SetInventoryTab(InventoryTabType tabType)
         {
-            inventory_latchedTabType = tabType;
             ColorBlock cblock;
 
             switch (tabType)
@@ -602,8 +597,8 @@ namespace Gob3AQ.GameMenu.UICanvas
 
         public void ActivateInventoryArrows(bool leftArrow, bool rightArrow)
         {
-            inventory_leftButton.enabled = leftArrow;
-            inventory_rightButton.enabled = rightArrow;
+            inventory_leftButton.interactable = leftArrow;
+            inventory_rightButton.interactable = rightArrow;
         }
 
         public void AnimateNewUserInteraction(UserInputInteraction interaction)
@@ -804,9 +799,11 @@ namespace Gob3AQ.GameMenu.UICanvas
             yield return ResourceAtlasClass.WaitForNextFrame;
 
             /* Fill memento loaded list */
-            
- 
+
+
             /* Load memento */
+            UICanvas_mementoObj.GetComponent<Image>().sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_BOOK_MEMENTOS);
+
             GameObject memento_item_prefab = ResourceAtlasClass.GetPrefab(PrefabEnum.PREFAB_MEMENTO_ITEM);
 
             AsyncInstantiateOperation<GameObject> handle = InstantiateAsync<GameObject>(memento_item_prefab, (int)MementoParent.MEMENTO_PARENT_TOTAL);

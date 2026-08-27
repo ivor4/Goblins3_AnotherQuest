@@ -14,13 +14,12 @@ namespace Gob3AQ.GameMenu.MementoItem
     public class MementoItemClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
     {
         private static readonly Color color_item_idle = new(0.5f, 0.5f, 0.5f, 0.5f);
-        private static readonly Color color_text_idle = new(0.85f, 0.85f, 0.85f, 1.0f);
-        private static readonly Color color_all_hover = Color.white;
-        private static readonly Color color_item_uncleared = Color.black;
+        private static readonly Color color_text_idle = new(0.35f, 0.35f, 0.35f, 1.0f);
+        private static readonly Color color_text_hover = new(0.094f, 0.004f, 0.004f, 1.0f);
+        private static readonly Color color_item_hover = Color.white;
 
         private static readonly Color color_transparent = new(1.0f, 1.0f, 1.0f, 0.0f);
-        private static readonly Color color_background_selected = new(0.42f, 0.7f, 1.0f, 1.0f);
-        private static readonly Color color_background_selected_combi = new(0.94f, 0.83f, 0.29f);
+        private static readonly Color color_background_selected = new(0.95f, 0.95f, 0.95f, 1.0f);
 
         private Color text_color_idle;
         private Color text_color_hover;
@@ -54,7 +53,7 @@ namespace Gob3AQ.GameMenu.MementoItem
                 background_color_idle = color_background_selected;
                 background_color_hover = color_background_selected;
                 item_color_idle = item_color_reload_hover;
-                text_color_idle = color_all_hover;
+                text_color_idle = color_text_hover;
 
                 Refresh_Hover();
 
@@ -82,7 +81,7 @@ namespace Gob3AQ.GameMenu.MementoItem
 
 
             item_color_reload_idle = color_item_idle;
-            item_color_reload_hover = color_all_hover;
+            item_color_reload_hover = color_item_hover;
 
             ResetVisual();
 
@@ -119,9 +118,6 @@ namespace Gob3AQ.GameMenu.MementoItem
 
         void Start()
         {
-            item_color_idle = color_item_uncleared;
-            item_color_hover = color_item_uncleared;
-
             newsObj.GetComponent<Image>().sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_INTERNAL_CIRCLE);
             completedObj.GetComponent<Image>().sprite = ResourceSpritesClass.GetSprite(GameSprite.SPRITE_ICON_TICK);
 
@@ -156,7 +152,7 @@ namespace Gob3AQ.GameMenu.MementoItem
             background_color_idle = color_transparent;
             background_color_hover = color_transparent;
             text_color_idle = color_text_idle;
-            text_color_hover = color_all_hover;
+            text_color_hover = color_text_hover;
             item_color_idle = item_color_reload_idle;
             item_color_hover = item_color_reload_hover;
 

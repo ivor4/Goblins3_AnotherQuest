@@ -52,6 +52,7 @@ namespace Gob3AQ.ResourceSprites
                 GameSprite.SPRITE_INVENTORY_SELECTED_TAB,
                 GameSprite.SPRITE_ICON_INVENTORY_ITEM,
                 GameSprite.SPRITE_ICON_INVENTORY_IDEA,
+                GameSprite.SPRITE_BOOK_MEMENTOS,
                 GameSprite.SPRITE_CARD_REVERSE
             };
 

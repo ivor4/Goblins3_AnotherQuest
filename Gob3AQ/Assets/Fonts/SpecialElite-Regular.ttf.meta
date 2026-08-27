@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 29e6283ef770c6842b03c7498b41c4ea
+guid: 7d67bb2716aebe94aae9d59166d37ac6
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Rouge Script
+  - Special Elite
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

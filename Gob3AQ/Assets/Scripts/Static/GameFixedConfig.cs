@@ -31,6 +31,8 @@ namespace Gob3AQ.FixedConfig
         public const ulong DOUBLE_CLICK_MS = 400;
         public const ulong BACKGROUND_ITEM_ACTIONS_MS = 3000;
         public const ulong MAP_POINT_FINAL_MOVEMENT_COOLDOWN_MS = 500;
+        public const ulong PUSH_NOTIF_APPEAR_MS = 500;
+        public const ulong PUSH_NOTIF_STAY_MS = 1500;
 
         /* HUD */
         public const float DISTANCE_MOUSE_FURTHEST_WP = 1.5f;
@@ -68,6 +70,7 @@ namespace Gob3AQ.FixedConfig
         public const int MAX_DISPLAYED_HOR_PICKED_ITEMS = 4;
         public const int MAX_SUBSCRIBED_EVENTS_PER_ITEM = 8;
         public const int MAX_ANIMATIONS_PERFORMING = 16;
+        public const int MAX_QUEUED_PUSH_NOTIFS = 4;
 
 
         /* File routes */

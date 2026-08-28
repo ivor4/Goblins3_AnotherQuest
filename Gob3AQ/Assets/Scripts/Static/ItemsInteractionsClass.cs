@@ -1034,12 +1034,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new( /* COND_TAKE_ITEM_PICKABLE_COIN25 */
             new GameEventCombi[1]{new(GameEvent.EVENT_COIN25_PICKABLE_TAKEN, true)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            new GameAction[5]{GameAction.ACTION_DIALOGUE_TAKE_ITEM_PICKABLE_COIN25, GameAction.ACTION_OBTAIN_ITEM_PICKABLE_COIN25, GameAction.ACTION_EVENT_COIN25_PICKABLE_TAKEN, GameAction.ACTION_DESTROY_ITEM_PICKABLE_COIN25, GameAction.ACTION_PLAY_SOUND_ANY_ITEM_TAKE}), 
+            new GameAction[4]{GameAction.ACTION_DIALOGUE_TAKE_ITEM_PICKABLE_COIN25, GameAction.ACTION_OBTAIN_ITEM_PICKABLE_COIN25, GameAction.ACTION_EVENT_COIN25_PICKABLE_TAKEN, GameAction.ACTION_DESTROY_ITEM_PICKABLE_COIN25}), 
 
             new( /* COND_TAKE_HIVE_ROOM_KEY_PICKABLE */
             new GameEventCombi[1]{new(GameEvent.EVENT_HIVE_ROOM_KEY_PICKABLE_TAKEN, true)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            new GameAction[4]{GameAction.ACTION_OBTAIN_ITEM_PICKABLE_HIVE_ROOM_KEY, GameAction.ACTION_EVENT_HIVE_ROOM_KEY_TAKEN, GameAction.ACTION_DESTROY_ITEM_PICKABLE_HIVE_ROOM_KEY, GameAction.ACTION_PLAY_SOUND_ANY_ITEM_TAKE}), 
+            new GameAction[3]{GameAction.ACTION_OBTAIN_ITEM_PICKABLE_HIVE_ROOM_KEY, GameAction.ACTION_EVENT_HIVE_ROOM_KEY_TAKEN, GameAction.ACTION_DESTROY_ITEM_PICKABLE_HIVE_ROOM_KEY}), 
 
             new( /* COND_OBSERVE_DOOR_SERVICE_HIVE */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
@@ -1104,7 +1104,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new( /* COND_TAKE_TAR_CAN */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
-            new GameAction[7]{GameAction.ACTION_ANIMATE_MAINCHAR_GRAB_CORNERFRONT, GameAction.ACTION_ANIMATE_MAINCHAR_STEADY, GameAction.ACTION_EVENT_ITEM_PICKABLE_TAR_CAN_PICKABLE_TAKEN, GameAction.ACTION_DESTROY_TAR_CAN, GameAction.ACTION_PLAY_SOUND_ANY_ITEM_TAKE, GameAction.ACTION_OBTAIN_ITEM_TAR_CAN, GameAction.ACTION_DIALOGUE_OBTAIN_TAR_CAN}), 
+            new GameAction[6]{GameAction.ACTION_ANIMATE_MAINCHAR_GRAB_CORNERFRONT, GameAction.ACTION_ANIMATE_MAINCHAR_STEADY, GameAction.ACTION_EVENT_ITEM_PICKABLE_TAR_CAN_PICKABLE_TAKEN, GameAction.ACTION_DESTROY_TAR_CAN, GameAction.ACTION_OBTAIN_ITEM_TAR_CAN, GameAction.ACTION_DIALOGUE_OBTAIN_TAR_CAN}), 
 
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 

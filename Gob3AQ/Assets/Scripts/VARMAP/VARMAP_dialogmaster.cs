@@ -110,7 +110,7 @@ public static DIALOGUE_SELECT_OPTION_DELEGATE DIALOGUE_SELECT_OPTION;
         /// <summary> 
 /// Plays a sound and (optionally) callback is called 
 /// <para> Owner: SoundMaster </para> 
-/// <para> Accessors: DialogMaster, ItemMaster, CardMaster, GameEventMaster </para> 
+/// <para> Accessors: GameMenu, DialogMaster, ItemMaster, CardMaster, GameEventMaster </para> 
 /// <para> Method: <see cref="SoundMasterClass.PlaySoundService"/> </para> 
 /// </summary>
 public static PLAY_SOUND_DELEGATE PLAY_SOUND;

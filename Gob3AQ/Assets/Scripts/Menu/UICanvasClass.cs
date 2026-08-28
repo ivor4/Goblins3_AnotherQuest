@@ -4,6 +4,7 @@ using Gob3AQ.GameMenu.Decision;
 using Gob3AQ.GameMenu.Dialog;
 using Gob3AQ.GameMenu.MementoItem;
 using Gob3AQ.GameMenu.PickableItemDisplay;
+using Gob3AQ.GameMenu.PushNotif;
 using Gob3AQ.Libs.Arith;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceDialogs;
@@ -69,6 +70,7 @@ namespace Gob3AQ.GameMenu.UICanvas
         private GameObject UICanvas_detailObj;
         private GameObject UICanvas_cardObj;
         private GameObject UICanvas_chapterObj;
+        private GameObject UICanvas_pushNotifObj;
 
         private Image UICanvas_dialogObj_background;
         private TMP_Text UICanvas_dialogObj_sender;
@@ -132,6 +134,10 @@ namespace Gob3AQ.GameMenu.UICanvas
         private List<MementoParent> memento_unlocked_parents_list;
         private Dictionary<MementoParent, MementoItemClass> memento_parent_dict;
 
+        private PushNotifClass pushNotifInstance;
+
+        
+
         private GameObject detailObj_instance;
         private Button detail_returnButton;
 
@@ -154,6 +160,7 @@ namespace Gob3AQ.GameMenu.UICanvas
             UICanvas_detailObj = transform.Find("DetailObj").gameObject;
             UICanvas_cardObj = transform.Find("CardObj").gameObject;
             UICanvas_chapterObj = transform.Find("ChapterObj").gameObject;
+            UICanvas_pushNotifObj = transform.Find("PushNotifObj").gameObject;
 
             UICanvas_chapterObj_chapterNo = UICanvas_chapterObj.transform.Find("ChapterText").GetComponent<TMP_Text>();
             UICanvas_chapterObj_chapterName = UICanvas_chapterObj.transform.Find("ChapterTitleText").GetComponent<TMP_Text>();
@@ -208,6 +215,9 @@ namespace Gob3AQ.GameMenu.UICanvas
             memento_unlocked_parents_list = new((int)MementoParent.MEMENTO_PARENT_TOTAL);
             memento_parent_dict = new((int)MementoParent.MEMENTO_PARENT_TOTAL);
             memento_itemClass = new MementoItemClass[(int)MementoParent.MEMENTO_PARENT_TOTAL];
+
+            pushNotifInstance = UICanvas_pushNotifObj.GetComponent<PushNotifClass>();
+
 
             detail_returnButton = UICanvas_detailObj.transform.Find("ReturnButton").GetComponent<Button>();
 
@@ -716,7 +726,10 @@ namespace Gob3AQ.GameMenu.UICanvas
             memento_largeIconTick.SetActive(completed);
         }
 
-
+        public void ShowPushNotification(in PushNotificationInfo info)
+        {
+            pushNotifInstance.AddNotification(in info);
+        }
 
 
 

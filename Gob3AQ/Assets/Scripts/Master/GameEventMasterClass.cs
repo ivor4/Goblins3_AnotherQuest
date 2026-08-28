@@ -247,6 +247,13 @@ namespace Gob3AQ.GameEventMaster
                 BusyState busyState = VARMAP_GameEventMaster.GET_SHADOW_BUSY_STATE();
                 busyState = UpdateBusyState(busyState, true, false);
                 VARMAP_GameEventMaster.SET_BUSY_STATE(busyState);
+
+                VARMAP_GameEventMaster.SHOW_PUSH_NOTIFICATION(DialogPhrase.PHRASE_PUSH_OBTAIN_MEMENTO, PushNotificationType.PUSH_NOTIFICATION_EARN_MEMENTO);
+
+                if(memInfo.final)
+                {
+                    VARMAP_GameEventMaster.SHOW_PUSH_NOTIFICATION(DialogPhrase.PHRASE_PUSH_COMPLETE_MEMENTO, PushNotificationType.PUSH_NOTIFICATION_COMPLETE_MEMENTO);
+                }
             }
         }
 
@@ -989,6 +996,14 @@ namespace Gob3AQ.GameEventMaster
                             mustWait = true;
                             break;
                         }
+                    case ActionType.ACTION_TYPE_EARN_ITEM:
+                        VARMAP_GameEventMaster.SHOW_PUSH_NOTIFICATION(DialogPhrase.PHRASE_PUSH_OBTAIN_ITEM, PushNotificationType.PUSH_NOTIFICATION_EARN_ITEM);
+                        VARMAP_GameEventMaster.ACTION_TO_ITEM(in info);
+                        break;
+                    case ActionType.ACTION_TYPE_LOSE_ITEM:
+                        VARMAP_GameEventMaster.SHOW_PUSH_NOTIFICATION(DialogPhrase.PHRASE_PUSH_LOSE_ITEM, PushNotificationType.PUSH_NOTIFICATION_LOSE_ITEM);
+                        VARMAP_GameEventMaster.ACTION_TO_ITEM(in info);
+                        break;
                     default:
                         VARMAP_GameEventMaster.ACTION_TO_ITEM(in info);
                         break;

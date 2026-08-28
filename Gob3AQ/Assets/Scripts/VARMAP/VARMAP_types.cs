@@ -127,6 +127,20 @@ namespace Gob3AQ.VARMAP.Types
         WAYPOINT_ID_TUPLE_TAG,
     }
 
+    public readonly struct PushNotificationInfo
+    {
+        public readonly PushNotificationType notifType;
+        public readonly string message;
+
+        public static readonly PushNotificationInfo EMPTY = new(PushNotificationType.PUSH_NOTIFICATION_LOSE_ITEM, string.Empty);
+
+        public PushNotificationInfo(PushNotificationType notifType, string message)
+        {
+            this.notifType = notifType;
+            this.message = message;
+        }
+    }
+
     public readonly struct MementoStatus
     {
         public readonly bool unlocked;

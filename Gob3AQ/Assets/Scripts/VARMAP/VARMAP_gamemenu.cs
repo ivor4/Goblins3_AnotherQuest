@@ -70,6 +70,7 @@ namespace Gob3AQ.VARMAP.GameMenu
             DIALOGUE_SELECT_OPTION = _DIALOGUE_SELECT_OPTION;
             SHOW_DECISION = _SHOW_DECISION;
             LOAD_ADDITIONAL_PREFAB = _LOAD_ADDITIONAL_PREFAB;
+            PLAY_SOUND = _PLAY_SOUND;
             PERFORM_ACTION = _PERFORM_ACTION;
             GIVE_UP_CARD_GAME = _GIVE_UP_CARD_GAME;
             SHOW_PUSH_NOTIFICATION = _SHOW_PUSH_NOTIFICATION;
@@ -234,6 +235,13 @@ public static SHOW_DECISION_DELEGATE SHOW_DECISION;
 /// <para> Method: <see cref="GameMasterClass.LoadAdditionalPrefabService"/> </para> 
 /// </summary>
 public static LOAD_ADDITIONAL_PREFAB_DELEGATE LOAD_ADDITIONAL_PREFAB;
+        /// <summary> 
+/// Plays a sound and (optionally) callback is called 
+/// <para> Owner: SoundMaster </para> 
+/// <para> Accessors: GameMenu, DialogMaster, ItemMaster, CardMaster, GameEventMaster </para> 
+/// <para> Method: <see cref="SoundMasterClass.PlaySoundService"/> </para> 
+/// </summary>
+public static PLAY_SOUND_DELEGATE PLAY_SOUND;
         /// <summary> 
 /// Performs a named action 
 /// <para> Owner: GameEventMaster </para> 

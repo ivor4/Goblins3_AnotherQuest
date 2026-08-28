@@ -35,7 +35,12 @@ namespace Gob3AQ.ResourceSounds
                 GameSound.SOUND_CARD_PLACE_1,
                 GameSound.SOUND_CARD_PLACE_2,
                 GameSound.SOUND_CARD_PLACE_3,
-                GameSound.SOUND_CARD_TAKEBACK
+                GameSound.SOUND_CARD_TAKEBACK,
+                GameSound.SOUND_ANY_ITEM_TAKE,
+                GameSound.SOUND_FOOTSTEP_1,
+                GameSound.SOUND_FOOTSTEP_2,
+                GameSound.SOUND_FOOTSTEP_3,
+                GameSound.SOUND_FOOTSTEP_4
             };
 
 

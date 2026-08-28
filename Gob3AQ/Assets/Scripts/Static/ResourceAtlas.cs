@@ -242,7 +242,7 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_HIVE1_CORRIDOR1, GameSprite.BACKGROUND_HIVE1_CORRIDOR1_N}), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(6){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_HIVE1_NPC_REME, GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_DOOR_SERVICE_HIVE, GameItem.ITEM_DOOR_SERVICE_HIVE_OPENED, GameItem.ITEM_WINDOW_GIANT_ROACH}), 
             new ReadOnlyHashSet<DetailType>(new HashSet<DetailType>(1){DetailType.PREFAB_NONE}), 
-            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_INN}), 
+            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(4){GameSound.MUSIC_INN, GameSound.SOUND_MOP_1, GameSound.SOUND_MOP_2, GameSound.SOUND_MOP_STICK_ON_FLOOR}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHIAN_UNCLICKABLE_GIANT_ROACH}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 

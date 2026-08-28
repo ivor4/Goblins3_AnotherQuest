@@ -75,7 +75,11 @@ namespace Gob3AQ.GameMenu
         {
             if (!_singleton) return;
 
+            ResourceDialogsClass.GetPhraseContent(notifPhrase, out PhraseContent phraseContent);
 
+            PushNotificationInfo info = new(notifType, phraseContent.message);
+
+            _singleton._uicanvas_cls.ShowPushNotification(in info);
         }
 
         private void ShowDecisionExec(DecisionType decision)

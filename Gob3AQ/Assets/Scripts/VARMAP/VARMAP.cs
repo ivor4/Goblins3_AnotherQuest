@@ -409,7 +409,7 @@ protected static LOAD_ADDITIONAL_SOUND_DELEGATE _LOAD_ADDITIONAL_SOUND;
         /// <summary> 
 /// Plays a sound and (optionally) callback is called 
 /// <para> Owner: SoundMaster </para> 
-/// <para> Accessors: DialogMaster, ItemMaster, CardMaster, GameEventMaster </para> 
+/// <para> Accessors: GameMenu, DialogMaster, ItemMaster, CardMaster, GameEventMaster </para> 
 /// <para> Method: <see cref="SoundMasterClass.PlaySoundService"/> </para> 
 /// </summary>
 protected static PLAY_SOUND_DELEGATE _PLAY_SOUND;

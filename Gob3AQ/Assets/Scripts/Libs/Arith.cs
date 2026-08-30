@@ -7,7 +7,45 @@ using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Gob3AQ.Libs.Arith
-{    
+{
+    public static class HashSetExtensions
+    {
+        /// <summary>
+        /// Versión Zero-Alloc de UnionWith para HashSet.
+        /// </summary>
+        public static void UnionWithNonAlloc<T>(this HashSet<T> target, HashSet<T> other)
+        {
+            if (target == null || other == null) return;
+
+            // Opcional: reserva memoria interna si esperas un crecimiento masivo para evitar reallocs de arrays
+            // target.EnsureCapacity(target.Count + other.Count);
+
+            // Al iterar directamente sobre el HashSet, C# usa su struct enumerator nativo (0 Alloc)
+            foreach (var item in other)
+            {
+                target.Add(item);
+            }
+        }
+
+        /// <summary>
+        /// Versión Zero-Alloc de SymmetricExceptWith para HashSet.
+        /// (Elimina los elementos comunes y añade los que no están en target)
+        /// </summary>
+        public static void SymmetricExceptWithNonAlloc<T>(this HashSet<T> target, HashSet<T> other)
+        {
+            if (target == null || other == null) return;
+
+            foreach (var item in other)
+            {
+                // Si ya lo tiene, lo quita (efecto simétrico). Si no lo tiene, lo añade.
+                if (!target.Add(item))
+                {
+                    target.Remove(item);
+                }
+            }
+        }
+    }
+
     public static class Sorting<T> where T : IComparable
     {
         public static void SortArray(Span<T> span)
@@ -61,6 +99,11 @@ namespace Gob3AQ.Libs.Arith
             {
                 dest[index++] = elem;
             }
+        }
+
+        public readonly HashSet<T>.Enumerator GetEnumerator()
+        {
+            return _hash.GetEnumerator();
         }
 
         readonly IEnumerator<T> IEnumerable<T>.GetEnumerator()

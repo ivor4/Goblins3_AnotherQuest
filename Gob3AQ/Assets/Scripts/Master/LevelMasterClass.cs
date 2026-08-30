@@ -453,13 +453,13 @@ namespace Gob3AQ.LevelMaster
 
             /* Remain only items which are not common between previous and actual cycle  */
             /* This will make system forget about elements which are in continuous hover or absence of */
-            _PrevRaycastedItems.SymmetricExceptWith(_RaycastedItems);
+            _PrevRaycastedItems.SymmetricExceptWithNonAlloc(_RaycastedItems);
 
             /* If there is at least one difference, recalculate */
             if (_PrevRaycastedItems.Count > 0)
             {
                 /* Actuals (+) Differences = Actuals (+) Previous */
-                _PrevRaycastedItems.UnionWith(_RaycastedItems);
+                _PrevRaycastedItems.UnionWithNonAlloc(_RaycastedItems);
 
                 foreach (IGameObjectHoverable hoverable in _PrevRaycastedItems)
                 {
@@ -480,7 +480,7 @@ namespace Gob3AQ.LevelMaster
 
             /* Take actual ones, which will be used as previous */
             _PrevRaycastedItems.Clear();
-            _PrevRaycastedItems.UnionWith(_RaycastedItems);
+            _PrevRaycastedItems.UnionWithNonAlloc(_RaycastedItems);
         }
 
 

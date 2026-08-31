@@ -158,5 +158,10 @@ namespace Gob3AQ.ResourceSounds
                 return null;
             }
         }
+
+        public static bool IsSoundAvailable(GameSound sound)
+        {
+            return _cachedHandles.ContainsKey(sound);
+        }
     }
 }

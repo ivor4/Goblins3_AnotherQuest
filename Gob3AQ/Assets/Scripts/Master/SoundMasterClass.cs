@@ -123,8 +123,16 @@ namespace Gob3AQ.SoundMaster
             source.PreparePlay(sound, group, callback, loop);
             _singleton.usedSources.Add(source);
 
-            VARMAP_SoundMaster.LOAD_ADDITIONAL_SOUND(true, sound, source.ReceiveLoadedClip);
-            _singleton.loadedSounds.Add(sound);
+
+            if (!ResourceSoundsClass.IsSoundAvailable(sound))
+            {
+                VARMAP_SoundMaster.LOAD_ADDITIONAL_SOUND(true, sound, source.ReceiveLoadedClip);
+                _singleton.loadedSounds.Add(sound);
+            }
+            else
+            {
+                source.ReceiveLoadedClip(ResourceSoundsClass.GetSound(sound));
+            }
         }
 
         public static void StopSoundService(GameSound sound)

@@ -150,11 +150,6 @@ namespace Gob3AQ.SoundMaster
                 _singleton.availableSources.Enqueue(audio);
                 break;
             }
-
-            if(_singleton.usedSources.Count == 0)
-            {
-                _singleton.UnloadLoadedSounds();
-            }
         }
 
         private void Awake()
@@ -283,7 +278,6 @@ namespace Gob3AQ.SoundMaster
         {
             if (applicationPaused) return;
             
-            bool removed = false;
             for (int i = usedSources.Count - 1; i >= 0; --i)
             {
                 PooledAudioSource usedSource = usedSources[i];
@@ -293,12 +287,6 @@ namespace Gob3AQ.SoundMaster
                 usedSource.Stop();
                 availableSources.Enqueue(usedSource);
                 usedSources.RemoveAt(i);
-                removed = true;
-            }
-
-            if (removed && (usedSources.Count == 0))
-            {
-                UnloadLoadedSounds();
             }
         }
 

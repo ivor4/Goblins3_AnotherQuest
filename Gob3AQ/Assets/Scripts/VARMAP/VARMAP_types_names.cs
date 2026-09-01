@@ -84,6 +84,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_GUMBALL, 
         NAME_GIANT_ROACH, 
         NAME_MEMENTO_REME, 
+        NAME_MEMENTO_ROACHES, 
         NAME_NPC_LAST, 
         
 NAME_TOTAL

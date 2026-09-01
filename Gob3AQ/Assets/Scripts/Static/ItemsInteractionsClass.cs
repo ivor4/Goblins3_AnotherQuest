@@ -1650,6 +1650,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new Memento[1]{Memento.MEMENTO_RECIPE_MISSION_1}
             ),
 
+            /* MEMENTO_PARENT_ROACHES */
+            new(
+            NameType.NAME_MEMENTO_ROACHES,GameSprite.SPRITE_MEMENTO_ROACHES,GameItem.ITEM_NONE,CharacterType.CHARACTER_MAIN,
+            new Memento[1]{Memento.MEMENTO_ROACHES_1}
+            ),
+
             /* MEMENTO_PARENT_POOR_MAN_WC */
             new(
             NameType.NAME_MEMENTO_PARENT_POOR_MAN_WC,GameSprite.SPRITE_MEMENTO_POOR_MAN_WC,GameItem.ITEM_NONE,CharacterType.CHARACTER_MAIN,
@@ -1674,6 +1680,8 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new(MementoParent.MEMENTO_PARENT_JOB_FIND_1,DialogPhrase.PHRASE_OBSERVE_HIVE1_AD_BOARD_1,false),
             /* MEMENTO_REME_1 */
             new(MementoParent.MEMENTO_PARENT_REME,DialogPhrase.PHRASE_MEMENTO_REME_1,false),
+            /* MEMENTO_ROACHES_1 */
+            new(MementoParent.MEMENTO_PARENT_ROACHES,DialogPhrase.PHRASE_MEMENTO_ROACHES_1,false),
             /* MEMENTO_RECIPE_MISSION_1 */
             new(MementoParent.MEMENTO_PARENT_RECIPE_MISSION,DialogPhrase.PHRASE_MEMENTO_RECIPE_MISSION_1,false),
             /* MEMENTO_POOR_MAN_WC_1 */

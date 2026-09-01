@@ -445,6 +445,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 780d4d3f356854443b75f0a25338fde9
+    m_Address: SPRITE_MEMENTO_ROACHES
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 78cb0d348791b504797f6d5fbd0c7c36
     m_Address: ANIMATION_GENERIC_CYCLE11_EXIT
     m_ReadOnly: 0

@@ -765,6 +765,13 @@ namespace Gob3AQ.VARMAP.Types
                 CharacterType.CHARACTER_NONE, itemDest, -1, destWp_index);
         }
 
+        public static InteractionUsage CreateCombineItems(CharacterType playerSource, GameItem itemSource,
+            GameItem itemDest, int destWp_index)
+        {
+            return new InteractionUsage(ItemInteractionType.INTERACTION_COMBINE, playerSource, itemSource,
+                CharacterType.CHARACTER_NONE, itemDest, -1, destWp_index);
+        }
+
         public static InteractionUsage CreateObserveItem(CharacterType playerSource, GameItem itemDest, int destWp_index)
         {
             return new InteractionUsage(ItemInteractionType.INTERACTION_OBSERVE, playerSource, GameItem.ITEM_NONE,

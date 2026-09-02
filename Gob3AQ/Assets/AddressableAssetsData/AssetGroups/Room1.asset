@@ -515,6 +515,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3bbea957ac9c38409b3fb27c31d7ec3
+    m_Address: SOUND_COMBINE_IDEA_ROACHES_REME_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c5407b11c526d9b4397f1feb69c74c44
     m_Address: SPRITE_REME_STEADY
     m_ReadOnly: 0
@@ -537,6 +542,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c9eff75c67606d64281fc0a426624dea
     m_Address: ANIMATION_COIN_FALL_FROM_MACHINE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca1a3637a11d16548b4a601965f06b8c
+    m_Address: SOUND_USE_IDEA_ROACHES_REME_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

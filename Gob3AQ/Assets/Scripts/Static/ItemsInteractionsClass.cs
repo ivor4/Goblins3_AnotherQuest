@@ -1079,7 +1079,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new( /* COND_OBSERVE_ITEM_SQUAT_WC */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,
-            new GameAction[2]{GameAction.ACTION_DIALOGUE_OBSERVE_ITEM_SQUAT_WC, GameAction.ACTION_EVENT_OBSERVED_SQUAT_WC}), 
+            new GameAction[2]{GameAction.ACTION_DIALOGUE_OBSERVE_ITEM_SQUAT_WC, GameAction.ACTION_MEMENTO_ROACHES_1}), 
 
             new( /* COND_USE_25COIN_GUMBALL_MACHINE */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
@@ -1105,6 +1105,21 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,
             new GameAction[6]{GameAction.ACTION_ANIMATE_MAINCHAR_GRAB_CORNERFRONT, GameAction.ACTION_ANIMATE_MAINCHAR_STEADY, GameAction.ACTION_EVENT_ITEM_PICKABLE_TAR_CAN_PICKABLE_TAKEN, GameAction.ACTION_DESTROY_TAR_CAN, GameAction.ACTION_OBTAIN_ITEM_TAR_CAN, GameAction.ACTION_DIALOGUE_OBTAIN_TAR_CAN}), 
+
+            new( /* COND_USE_IDEA_ROACHES_REME */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_IDEA_ROACHES,ItemInteractionType.INTERACTION_USE,
+            new GameAction[2]{GameAction.ACTION_EVENT_USED_IDEA_ROACHES_REME, GameAction.ACTION_DIALOGUE_USE_IDEA_ROACHES_REME}), 
+
+            new( /* COND_COMBINE_IDEAS_REME_ROACHES */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_IDEA_ROACHES,ItemInteractionType.INTERACTION_COMBINE,
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_COMBINE_IDEA_REME_ROACHES}), 
+
+            new( /* COND_COMBINE_IDEAS_ROACHES_REME */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_IDEA_REME,ItemInteractionType.INTERACTION_COMBINE,
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_COMBINE_IDEA_REME_ROACHES}), 
 
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
@@ -1153,7 +1168,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_HIVE1_NPC_REME */
             NameType.NAME_NPC_REME,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_REME_STEADY}),
             GameSprite.SPRITE_REME_STEADY,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
-            new(new HashSet<ActionConditions>(3){ActionConditions.COND_TALK_REME_1, ActionConditions.COND_USE_CARDS_REME, ActionConditions.COND_USE_SOAP_REME})),
+            new(new HashSet<ActionConditions>(4){ActionConditions.COND_TALK_REME_1, ActionConditions.COND_USE_CARDS_REME, ActionConditions.COND_USE_SOAP_REME, ActionConditions.COND_USE_IDEA_ROACHES_REME})),
 
             new ( /* ITEM_GENERIC_DOOR2 */
             NameType.NAME_ITEM_CROSS,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
@@ -1573,7 +1588,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_IDEA_REME */
             NameType.NAME_MEMENTO_REME,GameItemFamily.ITEM_FAMILY_TYPE_IDEA,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_MEMENTO_REME}),
             GameSprite.SPRITE_MEMENTO_REME,true,true,GameSprite.SPRITE_MEMENTO_REME,GamePickableItem.ITEM_PICK_IDEA_REME,DetailType.PREFAB_NONE,false,
-            new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
+            new(new HashSet<ActionConditions>(1){ActionConditions.COND_COMBINE_IDEAS_REME_ROACHES})),
+
+            new ( /* ITEM_IDEA_ROACHES */
+            NameType.NAME_MEMENTO_ROACHES,GameItemFamily.ITEM_FAMILY_TYPE_IDEA,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_MEMENTO_ROACHES}),
+            GameSprite.SPRITE_MEMENTO_ROACHES,true,true,GameSprite.SPRITE_MEMENTO_ROACHES,GamePickableItem.ITEM_PICK_IDEA_ROACHES,DetailType.PREFAB_NONE,false,
+            new(new HashSet<ActionConditions>(1){ActionConditions.COND_COMBINE_IDEAS_ROACHES_REME})),
 
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST}),
@@ -1603,6 +1623,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameItem.ITEM_PICKABLE_GUMBALL,	/* ITEM_PICK_PICKABLE_GUMBALL */
             GameItem.ITEM_IDEA_FIND_JOB,	/* ITEM_PICK_IDEA_FIND_JOB */
             GameItem.ITEM_IDEA_REME,	/* ITEM_PICK_IDEA_REME */
+            GameItem.ITEM_IDEA_ROACHES,	/* ITEM_PICK_IDEA_ROACHES */
             /* > ATG 4 END < */
         };
 
@@ -1626,6 +1647,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_PICKABLE_GUMBALL,	/* ITEM_PICK_PICKABLE_GUMBALL */
             GameSprite.SPRITE_MEMENTO_JOB,	/* ITEM_PICK_IDEA_FIND_JOB */
             GameSprite.SPRITE_MEMENTO_REME,	/* ITEM_PICK_IDEA_REME */
+            GameSprite.SPRITE_MEMENTO_ROACHES,	/* ITEM_PICK_IDEA_ROACHES */
             /* > ATG 5 END < */
         };
 
@@ -1652,8 +1674,8 @@ namespace Gob3AQ.Brain.ItemsInteraction
 
             /* MEMENTO_PARENT_ROACHES */
             new(
-            NameType.NAME_MEMENTO_ROACHES,GameSprite.SPRITE_MEMENTO_ROACHES,GameItem.ITEM_NONE,CharacterType.CHARACTER_MAIN,
-            new Memento[1]{Memento.MEMENTO_ROACHES_1}
+            NameType.NAME_MEMENTO_ROACHES,GameSprite.SPRITE_MEMENTO_ROACHES,GameItem.ITEM_IDEA_ROACHES,CharacterType.CHARACTER_MAIN,
+            new Memento[2]{Memento.MEMENTO_ROACHES_1, Memento.MEMENTO_ROACHES_2}
             ),
 
             /* MEMENTO_PARENT_POOR_MAN_WC */
@@ -1682,6 +1704,8 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new(MementoParent.MEMENTO_PARENT_REME,DialogPhrase.PHRASE_MEMENTO_REME_1,false),
             /* MEMENTO_ROACHES_1 */
             new(MementoParent.MEMENTO_PARENT_ROACHES,DialogPhrase.PHRASE_MEMENTO_ROACHES_1,false),
+            /* MEMENTO_ROACHES_2 */
+            new(MementoParent.MEMENTO_PARENT_ROACHES,DialogPhrase.PHRASE_MEMENTO_ROACHES_2,false),
             /* MEMENTO_RECIPE_MISSION_1 */
             new(MementoParent.MEMENTO_PARENT_RECIPE_MISSION,DialogPhrase.PHRASE_MEMENTO_RECIPE_MISSION_1,false),
             /* MEMENTO_POOR_MAN_WC_1 */
@@ -3470,7 +3494,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"fallback",null,null,0,0,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_DIALOGUE_REME_BLOCKING_PATH */
-            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            true,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_REME_BLOCKING_PATH,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
@@ -3686,7 +3710,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_DIALOGUE_OBSERVE_ITEM_SQUAT_WC */
-            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            true,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_OBSERVE_SQUAT_WC,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
@@ -3859,12 +3883,6 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_GIANT_ROACH_GROWL,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
 
-            new( /* ACTION_EVENT_OBSERVED_SQUAT_WC */
-            false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
-            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_OBSERVED_SQUAT_WC, false)}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
-
             new( /* ACTION_UNCLICKABLE_GIANT_ROACH */
             false,ActionType.ACTION_TYPE_UNCLICKABLE,GameItem.ITEM_WINDOW_GIANT_ROACH,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
@@ -3877,17 +3895,41 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ONE,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
 
-            new( /* ACTION_EVENT_REME_SAID_SCARED_ROACHES */
-            false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
-            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
-            new GameEventCombi[1]{new(GameEvent.EVENT_REME_SAID_SCARED_ROACHES, false)}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
-
             new( /* ACTION_MEMENTO_REME_1 */
             false,ActionType.ACTION_TYPE_MEMENTO,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_REME_1,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_MEMENTO_ROACHES_1 */
+            false,ActionType.ACTION_TYPE_MEMENTO,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_ROACHES_1,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_MEMENTO_ROACHES_2 */
+            false,ActionType.ACTION_TYPE_MEMENTO,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_ROACHES_2,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_EVENT_USED_IDEA_ROACHES_REME */
+            false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_USED_IDEA_ROACHES_REME, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_COMBINE_IDEA_REME_ROACHES */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_COMBINE_IDEA_REME_ROACHES,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_USE_IDEA_ROACHES_REME */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogPhrase.PHRASE_USE_IDEA_ROACHES_REME,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

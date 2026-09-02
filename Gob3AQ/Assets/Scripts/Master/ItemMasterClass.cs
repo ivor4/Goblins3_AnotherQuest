@@ -248,8 +248,8 @@ namespace Gob3AQ.ItemMaster
                 if (((usage.playerSource == conditionInfo.srcChar) || (conditionInfo.srcChar == CharacterType.CHARACTER_NONE)) && 
                     ((conditionInfo.actionCondType == usage.type) || ((usage.type != ItemInteractionType.INTERACTION_CROSS_DOOR) && (conditionInfo.actionCondType == ItemInteractionType.INTERACTION_NONE))) &&
                     ((conditionInfo.momentType == MomentType.MOMENT_ANY) || (conditionInfo.momentType == actualMoment)) &&
-                    ((usage.type != ItemInteractionType.INTERACTION_USE) ||
-                    ((usage.itemSource == conditionInfo.srcItem) && srcItemInfo.isPickable && (owners[(int)srcItemInfo.pickableItem] == usage.playerSource))
+                    (((usage.type != ItemInteractionType.INTERACTION_USE) && (usage.type != ItemInteractionType.INTERACTION_COMBINE)) ||
+                    ((usage.itemSource == conditionInfo.srcItem) && srcItemInfo.isPickable && (srcItemInfo.isIdea || (owners[(int)srcItemInfo.pickableItem] == usage.playerSource)))
                     ))
                 {
                     VARMAP_ItemMaster.IS_EVENT_COMBI_OCCURRED(conditionInfo.NeededEvents, out bool occurred);

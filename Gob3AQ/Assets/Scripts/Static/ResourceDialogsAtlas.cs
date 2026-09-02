@@ -1045,11 +1045,11 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new DialogPhrase[2]{DialogPhrase.PHRASE_OBSERVE_ITEM_SQUAT_WC, DialogPhrase.PHRASE_OBSERVE_ITEM_SQUAT_WC_2}
             ),
             new( /* DIALOG_REME_ROACHES_OPTION */
-            new GameEventCombi[1]{new(GameEvent.EVENT_OBSERVED_SQUAT_WC, false)},
+            new GameEventCombi[1]{new(GameEvent.EVENT_USED_IDEA_ROACHES_REME, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[2]{GameAction.ACTION_PLAY_SOUND_ROACH_GROWL, GameAction.ACTION_ANIMATE_GIANT_ROACH_CLIMB},
+            new GameAction[3]{GameAction.ACTION_PLAY_SOUND_ROACH_GROWL, GameAction.ACTION_ANIMATE_GIANT_ROACH_CLIMB, GameAction.ACTION_MEMENTO_ROACHES_2},
             DialogType.DIALOG_NONE,false,
-            new DialogPhrase[3]{DialogPhrase.PHRASE_DIALOG_REME_ROACHES_1, DialogPhrase.PHRASE_DIALOG_REME_ROACHES_2, DialogPhrase.PHRASE_DIALOG_REME_ROACHES_3}
+            new DialogPhrase[4]{DialogPhrase.PHRASE_DIALOG_REME_ROACHES_1, DialogPhrase.PHRASE_DIALOG_REME_ROACHES_2, DialogPhrase.PHRASE_DIALOG_REME_ROACHES_3, DialogPhrase.PHRASE_DIALOG_REME_ROACHES_4}
             ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
@@ -1470,6 +1470,9 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_PUSH_OBTAIN_ITEM */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_PUSH_LOSE_ITEM */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MEMENTO_ROACHES_1 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MEMENTO_ROACHES_2 */ 
+            new(0,GameSound.SOUND_COMBINE_IDEA_ROACHES_REME, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_COMBINE_IDEA_REME_ROACHES */ 
+            new(0,GameSound.SOUND_USE_IDEA_ROACHES_REME, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_USE_IDEA_ROACHES_REME */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

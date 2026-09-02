@@ -365,6 +365,8 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_REME_ROACHES_2_SPANISH"), /* SOUND_DIALOG_REME_ROACHES_2 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_REME_ROACHES_3_SPANISH"), /* SOUND_DIALOG_REME_ROACHES_3 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_REME_ROACHES_4_SPANISH"), /* SOUND_DIALOG_REME_ROACHES_4 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_COMBINE_IDEA_ROACHES_REME_SPANISH"), /* SOUND_COMBINE_IDEA_ROACHES_REME */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_USE_IDEA_ROACHES_REME_SPANISH"), /* SOUND_USE_IDEA_ROACHES_REME */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

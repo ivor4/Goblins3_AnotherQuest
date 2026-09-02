@@ -406,4 +406,7 @@
 404,PHRASE_PUSH_OBTAIN_ITEM,0,SOUND_NONE,ANIMATION_TRIGGER_ZERO,ANIMATION_TRIGGER_ZERO,ANIMATION_TRIGGER_ZERO,¡Nuevo item en el inventario!,¡Nuevo item en el inventario!
 405,PHRASE_PUSH_LOSE_ITEM,0,SOUND_NONE,ANIMATION_TRIGGER_ZERO,ANIMATION_TRIGGER_ZERO,ANIMATION_TRIGGER_ZERO,Item usado,Item usado
 406,PHRASE_MEMENTO_ROACHES_1,0,SOUND_NONE,ANIMATION_TRIGGER_ZERO,ANIMATION_TRIGGER_ZERO,ANIMATION_TRIGGER_ZERO,Una terrible plaga de cucarachas asola la pensión,Una terrible plaga de cucarachas asola la pensión
-407,PHRASE_DIALOG_LAST,0,SOUND_NONE,ANIMATION_TRIGGER_TALK_ONE,ANIMATION_TRIGGER_ZERO,ANIMATION_TRIGGER_ZERO,Last one,Last one
+407,PHRASE_MEMENTO_ROACHES_2,0,SOUND_NONE,ANIMATION_TRIGGER_ZERO,ANIMATION_TRIGGER_ZERO,ANIMATION_TRIGGER_ZERO,Parece ser que Reme tiene pánico a las cucarachas. Cosa que podría ser útil,Parece ser que Reme tiene pánico a las cucarachas. Cosa que podría ser útil
+408,PHRASE_COMBINE_IDEA_REME_ROACHES,0,SOUND_COMBINE_IDEA_ROACHES_REME,ANIMATION_TRIGGER_ZERO,ANIMATION_TRIGGER_ZERO,ANIMATION_TRIGGER_ZERO,¡Es una idea macabramente divertida! Quizá hacer que Reme huya de las cucaraches haga que me deje pasar,¡Es una idea macabramente divertida! Quizá hacer que Reme huya de las cucaraches haga que me deje pasar
+409,PHRASE_USE_IDEA_ROACHES_REME,0,SOUND_USE_IDEA_ROACHES_REME,ANIMATION_TRIGGER_TALK_TWO,ANIMATION_TRIGGER_ZERO,ANIMATION_TRIGGER_ZERO,Podría preguntarle a Reme por las cucarachas que he visto,Podría preguntarle a Reme por las cucarachas que he visto
+410,PHRASE_DIALOG_LAST,0,SOUND_NONE,ANIMATION_TRIGGER_TALK_ONE,ANIMATION_TRIGGER_ZERO,ANIMATION_TRIGGER_ZERO,Last one,Last one

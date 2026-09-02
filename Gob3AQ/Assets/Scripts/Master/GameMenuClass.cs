@@ -3,16 +3,13 @@ using Gob3AQ.Brain.LevelOptions;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameMenu.DetailActiveElem;
 using Gob3AQ.GameMenu.UICanvas;
-using Gob3AQ.Libs.Arith;
 using Gob3AQ.ResourceDecisionsAtlas;
 using Gob3AQ.ResourceDialogs;
-using Gob3AQ.ResourceDialogsAtlas;
 using Gob3AQ.VARMAP.GameMenu;
 using Gob3AQ.VARMAP.Types;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using UnityEngine;
 
 namespace Gob3AQ.GameMenu
@@ -146,9 +143,15 @@ namespace Gob3AQ.GameMenu
                             {
                                 CreateDetail(itemInfo.detailType);
                             }
-                            else if(itemInfo.isPickable)
+                            else if(itemInfo.isPickable && (prevChoosen == GameItem.ITEM_NONE))
                             {
                                 VARMAP_GameMenu.SET_PICKABLE_ITEM_CHOSEN(item);
+                            }
+                            else if(itemInfo.isPickable && (prevChoosen != GameItem.ITEM_NONE))
+                            {
+                                CharacterType playerSelected = VARMAP_GameMenu.GET_PLAYER_SELECTED();
+                                InteractionUsage usage = InteractionUsage.CreateCombineItems(playerSelected, prevChoosen, item, -1);
+                                VARMAP_GameMenu.USE_ITEM(in usage, out _);
                             }
                             /* Detail element to manipulate with Take */
                             else

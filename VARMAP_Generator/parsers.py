@@ -383,7 +383,7 @@ def process_action_conds(ctx: CodeGenContext):
             events = parse_events(cols[8])
             ctx.items_interact.insert_line(9, f"new GameEventCombi[{len(cols[8].split('|'))}]{{{events}}}, \n")
             
-            ctx.items_interact.insert_line(9, f"{PREFIXES['decision']}{cols[9]},{PREFIXES['moment']}{cols[10]},{PREFIXES['dialog']}{cols[11]},{PREFIXES['phrase']}{cols[12]},{PREFIXES['anim_trigger']}{cols[13]},{PREFIXES['animation']}{cols[14]},{PREFIXES['sound']}{cols[15]},{PREFIXES['room']}{cols[16]},\"{cols[17]}\",{cols[18].lower().replace('none','null')},{cols[19].lower().replace('none','null')},{cols[20]},{cols[21]},{PREFIXES['cardgame']}{cols[22]}), \n\n")
+            ctx.items_interact.insert_line(9, f"{PREFIXES['decision']}{cols[9]},{PREFIXES['moment']}{cols[10]},{PREFIXES['dialog']}{cols[11]},{PREFIXES['dialog_opt']}{cols[12]},{PREFIXES['phrase']}{cols[13]},{PREFIXES['anim_trigger']}{cols[14]},{PREFIXES['animation']}{cols[15]},{PREFIXES['sound']}{cols[16]},{PREFIXES['room']}{cols[17]},\"{cols[18]}\",{cols[19].lower().replace('none','null')},{cols[20].lower().replace('none','null')},{cols[21]},{cols[22]},{PREFIXES['cardgame']}{cols[23]}), \n\n")
 
     ctx.items_types.insert_line(5, '\nACTION_TOTAL\n')
 

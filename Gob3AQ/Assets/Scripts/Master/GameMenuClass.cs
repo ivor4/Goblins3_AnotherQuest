@@ -123,7 +123,9 @@ namespace Gob3AQ.GameMenu
 
         public void OnInventoryItemClick(GameItem item)
         {
-            if (_itemMenuOpened)
+            BusyState busyState = VARMAP_GameMenu.GET_BUSY_STATE();
+
+            if (_itemMenuOpened && (busyState == BusyState.GAME_NOT_BUSY))
             {
                 UserInputInteraction currentInteraction = VARMAP_GameMenu.GET_USER_INPUT_INTERACTION();
                 ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(item);
@@ -152,6 +154,7 @@ namespace Gob3AQ.GameMenu
                                 CharacterType playerSelected = VARMAP_GameMenu.GET_PLAYER_SELECTED();
                                 InteractionUsage usage = InteractionUsage.CreateCombineItems(playerSelected, prevChoosen, item, -1);
                                 VARMAP_GameMenu.USE_ITEM(in usage, out _);
+                                VARMAP_GameMenu.CANCEL_PICKABLE_ITEM();
                             }
                             /* Detail element to manipulate with Take */
                             else

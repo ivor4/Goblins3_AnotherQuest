@@ -139,6 +139,7 @@ namespace Gob3AQ.DialogMaster
         private GameItem[] dialog_input_talkers;
         private int dialog_input_numTalkers;
         private DialogType dialog_input_type;
+        private DialogOption dialog_input_dialogOption;
         private DialogPhrase dialog_input_phrase;
         private GameItem dialog_input_forcedSingleTalker;
         private bool dialog_input_backgroundDialog;
@@ -171,10 +172,11 @@ namespace Gob3AQ.DialogMaster
         /// The actual processing occurs in the next Update cycle via the DIALOG_STATE_STARTING state.
         /// </remarks>
         /// <param name="dialog">The type of dialogue to display, which determines the structure and options available.</param>
+        /// <param name="option">The option to display for the dialogue. (Optional)</param>
         /// <param name="phrase">The initial phrase to display if the dialogue type is simple.</param>
         /// <param name="forcedSingleTalker">An optional specific item to act as the speaker, overriding defaults.</param>
         /// <param name="backgroundDialog">If true, the dialogue plays without blocking user interaction.</param>
-        public static void ShowDialogueService(DialogType dialog, DialogPhrase phrase, GameItem forcedSingleTalker, bool backgroundDialog)
+        public static void ShowDialogueService(DialogType dialog, DialogOption option, DialogPhrase phrase, GameItem forcedSingleTalker, bool backgroundDialog)
         {
             if (!_singleton) return;
 
@@ -190,6 +192,7 @@ namespace Gob3AQ.DialogMaster
 
             /* Copy default talkers to array */
             _singleton.dialog_input_type = dialog;
+            _singleton.dialog_input_dialogOption = option;
             _singleton.dialog_input_phrase = phrase;
             _singleton.dialog_input_forcedSingleTalker = forcedSingleTalker;
             _singleton.dialog_input_backgroundDialog = backgroundDialog;

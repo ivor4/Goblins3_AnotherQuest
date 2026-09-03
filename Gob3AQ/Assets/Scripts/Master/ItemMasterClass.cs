@@ -265,7 +265,7 @@ namespace Gob3AQ.ItemMaster
 
             if(!conditionOK && !isPeek)
             {
-                GameAction defaultNegativeAction = GetDefaultNegativeAction(usage.type);
+                GameAction defaultNegativeAction = GetDefaultNegativeAction(srcItemInfo.isIdea, usage.type);
                 ReadOnlySpan<GameAction> negativeActions = MemoryMarshal.CreateReadOnlySpan(ref defaultNegativeAction, 1);
 
                 VARMAP_ItemMaster.PERFORM_ACTION(negativeActions, null);
@@ -298,7 +298,7 @@ namespace Gob3AQ.ItemMaster
 
 
 
-        private static GameAction GetDefaultNegativeAction(ItemInteractionType interaction)
+        private static GameAction GetDefaultNegativeAction(bool srcItemIsIdea, ItemInteractionType interaction)
         {
             switch (interaction)
             {
@@ -308,6 +308,17 @@ namespace Gob3AQ.ItemMaster
                     return GameAction.ACTION_DIALOG_USELESS_OBSERVE;
                 case ItemInteractionType.INTERACTION_CROSS_DOOR:
                     return GameAction.ACTION_NONE;
+                case ItemInteractionType.INTERACTION_COMBINE:
+                    return GameAction.ACTION_DIALOGUE_MAINCHAR_NONSENSE_COMBINE;
+                case ItemInteractionType.INTERACTION_USE:
+                    if(srcItemIsIdea)
+                    {
+                        return GameAction.ACTION_DIALOGUE_MAINCHAR_NONSENSE_USE_IDEA;
+                    }
+                    else
+                    {
+                        return GameAction.ACTION_DIALOG_USELESS_ACTION;
+                    }
                 default:
                     return GameAction.ACTION_DIALOG_USELESS_ACTION;
             }

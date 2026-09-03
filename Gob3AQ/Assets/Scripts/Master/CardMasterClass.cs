@@ -977,7 +977,7 @@ namespace Gob3AQ.CardMaster
             if (!pendingEvents.Contains(cardEvent)) return;
             
             TauntInfo tauntInfo = gameInfo.comments[cardEvent];
-            VARMAP_CardMaster.SHOW_DIALOGUE(DialogType.DIALOG_SIMPLE, tauntInfo.phrase, tauntInfo.phraseSrc, true);
+            VARMAP_CardMaster.SHOW_DIALOGUE(DialogType.DIALOG_SIMPLE, DialogOption.DIALOG_OPTION_NONE, tauntInfo.phrase, tauntInfo.phraseSrc, true);
             pendingEvents.Remove(cardEvent);
         }
 
@@ -1063,7 +1063,7 @@ namespace Gob3AQ.CardMaster
                 
                 eventToRemove = e;
                 TauntInfo tauntInfo = gameInfo.comments[e];
-                VARMAP_CardMaster.SHOW_DIALOGUE(DialogType.DIALOG_SIMPLE, tauntInfo.phrase, tauntInfo.phraseSrc, true);
+                VARMAP_CardMaster.SHOW_DIALOGUE(DialogType.DIALOG_SIMPLE, DialogOption.DIALOG_OPTION_NONE, tauntInfo.phrase, tauntInfo.phraseSrc, true);
                 break;
             }
 

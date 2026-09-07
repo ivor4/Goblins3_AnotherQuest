@@ -42,7 +42,7 @@ namespace Gob3AQ.VARMAP.ItemMaster
             GET_WP_LIST = _GET_WP_LIST;
             GET_NEAREST_WP = _GET_NEAREST_WP;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
-            INTERACT_ITEM = _INTERACT_ITEM;
+            MOVE_ITEM_TO_WAYPOINT = _MOVE_ITEM_TO_WAYPOINT;
             ACTION_TO_ITEM = _ACTION_TO_ITEM;
             ITEM_REACHED_WAYPOINT = _ITEM_REACHED_WAYPOINT;
             USE_ITEM = _USE_ITEM;
@@ -137,12 +137,12 @@ public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
 /// </summary>
 public static IS_EVENT_COMBI_OCCURRED_DELEGATE IS_EVENT_COMBI_OCCURRED;
         /// <summary> 
-/// Makes player interact with usage data 
+/// Moves item to another waypoint 
 /// <para> Owner: ItemMaster </para> 
 /// <para> Accessors: LevelMaster, GameEventMaster </para> 
-/// <para> Method: <see cref="ItemMasterClass.InteractItemService"/> </para> 
+/// <para> Method: <see cref="ItemMasterClass.MoveItemToWaypointService"/> </para> 
 /// </summary>
-public static INTERACT_ITEM_DELEGATE INTERACT_ITEM;
+public static MOVE_ITEM_TO_WAYPOINT_DELEGATE MOVE_ITEM_TO_WAYPOINT;
         /// <summary> 
 /// Applies an unchain event to an item such as spawn or setsprite 
 /// <para> Owner: ItemMaster </para> 

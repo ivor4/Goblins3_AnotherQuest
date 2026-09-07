@@ -894,7 +894,7 @@ namespace Gob3AQ.GameEventMaster
                     case ActionType.ACTION_TYPE_START_DIALOGUE_IN_OPT:
                         mustWait = info.waitForEnd;
                         notifyAction = NotifyAction.NOTIFY_DIALOG;
-                        VARMAP_GameEventMaster.SHOW_DIALOGUE(info.targetDialog, info.targetDialogOption,info.targetPhrase, GameItem.ITEM_NONE, true);
+                        VARMAP_GameEventMaster.SHOW_DIALOGUE(info.targetDialog, info.targetDialogOption,info.targetPhrase, GameItem.ITEM_NONE, false);
                         break;
                     case ActionType.ACTION_TYPE_START_ANIMATION:
                         mustWait = info.waitForEnd;
@@ -944,7 +944,7 @@ namespace Gob3AQ.GameEventMaster
 
                         if (wpIndex != -1)
                         {
-                            VARMAP_GameEventMaster.INTERACT_ITEM(info.targetItem, wpIndex, out bool moveOk);
+                            VARMAP_GameEventMaster.MOVE_ITEM_TO_WAYPOINT(info.targetItem, wpIndex, out bool moveOk);
                             mustWait = info.waitForEnd & moveOk;
                             if(mustWait)
                             {

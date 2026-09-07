@@ -60,7 +60,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             COMMIT_EVENT = _COMMIT_EVENT;
             GET_MEMENTO_STATUS = _GET_MEMENTO_STATUS;
             MEMENTO_PARENT_WATCHED = _MEMENTO_PARENT_WATCHED;
-            INTERACT_ITEM = _INTERACT_ITEM;
+            MOVE_ITEM_TO_WAYPOINT = _MOVE_ITEM_TO_WAYPOINT;
             ACTION_TO_ITEM = _ACTION_TO_ITEM;
             TRY_UNCHAIN_CONDITION = _TRY_UNCHAIN_CONDITION;
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
@@ -170,12 +170,12 @@ public static GET_MEMENTO_STATUS_DELEGATE GET_MEMENTO_STATUS;
 /// </summary>
 public static MEMENTO_PARENT_WATCHED_DELEGATE MEMENTO_PARENT_WATCHED;
         /// <summary> 
-/// Makes player interact with usage data 
+/// Moves item to another waypoint 
 /// <para> Owner: ItemMaster </para> 
 /// <para> Accessors: LevelMaster, GameEventMaster </para> 
-/// <para> Method: <see cref="ItemMasterClass.InteractItemService"/> </para> 
+/// <para> Method: <see cref="ItemMasterClass.MoveItemToWaypointService"/> </para> 
 /// </summary>
-public static INTERACT_ITEM_DELEGATE INTERACT_ITEM;
+public static MOVE_ITEM_TO_WAYPOINT_DELEGATE MOVE_ITEM_TO_WAYPOINT;
         /// <summary> 
 /// Applies an unchain event to an item such as spawn or setsprite 
 /// <para> Owner: ItemMaster </para> 

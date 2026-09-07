@@ -545,11 +545,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ca1a3637a11d16548b4a601965f06b8c
-    m_Address: SOUND_USE_IDEA_ROACHES_REME_SPANISH
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ca55e66d3bc6e8e49aca7c35e882a794
     m_Address: SOUND_DIALOG_TRY_TAKE_COIN_IN_CRACK_SPANISH
     m_ReadOnly: 0

@@ -18,7 +18,7 @@
 16,COMMIT_EVENT,COMMIT_EVENT_DELEGATE,GameEventMasterClass.CommitEventService,Activates/Deactivates an event,,X,-,-,-,-,X,-,-,-,-,W
 17,GET_MEMENTO_STATUS,GET_MEMENTO_STATUS_DELEGATE,GameEventMasterClass.GetMementosStatusService,Gives a list of all memento status,,-,-,-,-,-,X,-,-,-,-,W
 18,MEMENTO_PARENT_WATCHED,MEMENTO_PARENT_WATCHED_DELEGATE,GameEventMasterClass.MementoParentWatchedService,If a Memento has been analyzed,,-,-,-,-,-,X,-,-,-,-,W
-19,INTERACT_ITEM,INTERACT_ITEM_DELEGATE,ItemMasterClass.InteractItemService,Makes player interact with usage data,,-,-,X,-,-,-,-,-,W,-,X
+19,MOVE_ITEM_TO_WAYPOINT,MOVE_ITEM_TO_WAYPOINT_DELEGATE,ItemMasterClass.MoveItemToWaypointService,Moves item to another waypoint,,-,-,X,-,-,-,-,-,W,-,X
 20,ACTION_TO_ITEM,ACTION_TO_ITEM_DELEGATE,ItemMasterClass.ActionToItemService,Applies an unchain event to an item such as spawn or setsprite,,-,-,-,-,-,-,-,-,W,-,X
 21,ITEM_REACHED_WAYPOINT,ITEM_REACHED_WAYPOINT_DELEGATE,LevelMasterClass.ItemReachedWaypointService,Tells LevelMaster that player reached Waypoint to start action in case,,-,-,W,-,-,-,-,-,X,-,-
 22,USE_ITEM,USE_ITEM_DELEGATE,ItemMasterClass.UseItemService,Uses an item with something,,-,-,X,-,-,X,-,-,W,-,-

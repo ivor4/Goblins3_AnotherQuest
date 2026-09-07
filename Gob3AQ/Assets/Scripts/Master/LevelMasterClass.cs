@@ -658,47 +658,44 @@ namespace Gob3AQ.LevelMaster
 
             if (playerSelected != CharacterType.CHARACTER_NONE)
             {
-                int furthestWaypointIndex = CheckFurthestReachableWaypoint(playerSelected, hovered.waypoint);
+                
 
+                if (chosenItem == GameItem.ITEM_NONE)
+                {
+                    UserInputInteraction userInteraction = VARMAP_LevelMaster.GET_USER_INPUT_INTERACTION();
+
+                    switch (userInteraction)
+                    {
+                        case UserInputInteraction.INPUT_INTERACTION_TAKE:
+                            usage = InteractionUsage.CreateTakeItem(playerSelected, hovered.item, hovered.waypoint);
+                            break;
+                        case UserInputInteraction.INPUT_INTERACTION_TALK:
+                            usage = InteractionUsage.CreateTalkItem(playerSelected, hovered.item, hovered.waypoint);
+                            break;
+                        default:
+                            usage = InteractionUsage.CreateObserveItem(playerSelected, hovered.item, hovered.waypoint);
+                            break;
+                    }
+                }
+                else
+                {
+                    usage = InteractionUsage.CreateUseItemWithItem(playerSelected, chosenItem,
+                        hovered.item, hovered.waypoint);
+                }
+
+                VARMAP_LevelMaster.PEEK_ITEM(in usage, out InteractionUsageOutcome outcome);
+
+
+                int furthestWaypointIndex = CheckFurthestReachableWaypoint(playerSelected, outcome.waypointIndex);
 
                 if (furthestWaypointIndex == hovered.waypoint)
                 {
-                    if (chosenItem == GameItem.ITEM_NONE)
-                    {
-                        UserInputInteraction userInteraction = VARMAP_LevelMaster.GET_USER_INPUT_INTERACTION();
-
-                        switch (userInteraction)
-                        {
-                            case UserInputInteraction.INPUT_INTERACTION_TAKE:
-                                usage = InteractionUsage.CreateTakeItem(playerSelected, hovered.item, furthestWaypointIndex);
-                                break;
-                            case UserInputInteraction.INPUT_INTERACTION_TALK:
-                                usage = InteractionUsage.CreateTalkItem(playerSelected, hovered.item, furthestWaypointIndex);
-                                break;
-                            default:
-                                usage = InteractionUsage.CreateObserveItem(playerSelected, hovered.item, furthestWaypointIndex);
-                                break;
-                        }
-                    }
-                    else
-                    {
-                        usage = InteractionUsage.CreateUseItemWithItem(playerSelected, chosenItem,
-                            hovered.item, furthestWaypointIndex);
-                    }
-
-                    VARMAP_LevelMaster.INTERACT_ITEM(ResourceDialogsAtlasClass.GetItemForCharacter(playerSelected), furthestWaypointIndex, out accepted);
                 }
-                /* If final point was not reachable, move player to the furthest reachable waypoint */
                 else
                 {
-                    usage = InteractionUsage.CreatePlayerMove(playerSelected, furthestWaypointIndex);
-
-                    VARMAP_LevelMaster.INTERACT_ITEM(ResourceDialogsAtlasClass.GetItemForCharacter(playerSelected), furthestWaypointIndex, out accepted);
-                    if (accepted)
-                    {
-                        _PendingCharInteractions[(int)playerSelected] = new PendingCharacterInteraction(in usage, false);
-                    }
                 }
+
+                // THIS IS PENDING VARMAP_LevelMaster.MOVE_ITEM_TO_WAYPOINT(ResourceDialogsAtlasClass.GetItemForCharacter(playerSelected), furthestWaypointIndex, out accepted);
             }
 
             return accepted;
@@ -715,17 +712,13 @@ namespace Gob3AQ.LevelMaster
                 if (furthestWaypoint == hovered.waypoint)
                 {
                     usage = InteractionUsage.CreateCrossDoor(playerSelected, hovered.item, furthestWaypoint);
-                    VARMAP_LevelMaster.INTERACT_ITEM(ResourceDialogsAtlasClass.GetItemForCharacter(playerSelected), furthestWaypoint, out accepted);
+                    VARMAP_LevelMaster.MOVE_ITEM_TO_WAYPOINT(ResourceDialogsAtlasClass.GetItemForCharacter(playerSelected), furthestWaypoint, out accepted);
                 }
                 else
                 {
                     usage = InteractionUsage.CreatePlayerMove(playerSelected, furthestWaypoint);
 
-                    VARMAP_LevelMaster.INTERACT_ITEM(ResourceDialogsAtlasClass.GetItemForCharacter(playerSelected), furthestWaypoint, out accepted);
-                    if (accepted)
-                    {
-                        _PendingCharInteractions[(int)playerSelected] = new PendingCharacterInteraction(in usage, false);
-                    }
+                    VARMAP_LevelMaster.MOVE_ITEM_TO_WAYPOINT(ResourceDialogsAtlasClass.GetItemForCharacter(playerSelected), furthestWaypoint, out accepted);
                 }
 
                 VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
@@ -743,7 +736,7 @@ namespace Gob3AQ.LevelMaster
                 int furthestWaypoint = CheckFurthestReachableWaypoint(selectedCharacter, candidate_index);
                 InteractionUsage usage = InteractionUsage.CreatePlayerMove(selectedCharacter, furthestWaypoint);
 
-                VARMAP_LevelMaster.INTERACT_ITEM(ResourceDialogsAtlasClass.GetItemForCharacter(selectedCharacter), furthestWaypoint, out bool accepted);
+                VARMAP_LevelMaster.MOVE_ITEM_TO_WAYPOINT(ResourceDialogsAtlasClass.GetItemForCharacter(selectedCharacter), furthestWaypoint, out bool accepted);
                 if (accepted)
                 {
                     _PendingCharInteractions[(int)selectedCharacter] = new PendingCharacterInteraction(in usage, false);
@@ -876,7 +869,7 @@ namespace Gob3AQ.LevelMaster
 
                             InteractionUsage usage = InteractionUsage.CreatePlayerMove((CharacterType)i, wpTo);
 
-                            VARMAP_LevelMaster.INTERACT_ITEM(ResourceDialogsAtlasClass.GetItemForCharacter(_Player_List[i].CharType), wpTo, out bool accepted);
+                            VARMAP_LevelMaster.MOVE_ITEM_TO_WAYPOINT(ResourceDialogsAtlasClass.GetItemForCharacter(_Player_List[i].CharType), wpTo, out bool accepted);
                             if (accepted)
                             {
                                 _PendingCharInteractions[i] = new PendingCharacterInteraction(in usage, false);

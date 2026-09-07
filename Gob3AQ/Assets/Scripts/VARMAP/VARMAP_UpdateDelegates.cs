@@ -176,7 +176,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _COMMIT_EVENT = GameEventMasterClass.CommitEventService;
             _GET_MEMENTO_STATUS = GameEventMasterClass.GetMementosStatusService;
             _MEMENTO_PARENT_WATCHED = GameEventMasterClass.MementoParentWatchedService;
-            _INTERACT_ITEM = ItemMasterClass.InteractItemService;
+            _MOVE_ITEM_TO_WAYPOINT = ItemMasterClass.MoveItemToWaypointService;
             _ACTION_TO_ITEM = ItemMasterClass.ActionToItemService;
             _ITEM_REACHED_WAYPOINT = LevelMasterClass.ItemReachedWaypointService;
             _USE_ITEM = ItemMasterClass.UseItemService;

@@ -258,7 +258,7 @@ namespace Gob3AQ.DialogMaster
             dialog_waitAnimationCompleted = true;
         }
 
-        private void ShowDialogueExec(DialogType dialog, DialogPhrase phrase, GameItem forcedSingleTalker,bool background, bool dialogStart)
+        private void ShowDialogueExec(DialogType dialog, DialogOption forcedOption, DialogPhrase phrase, GameItem forcedSingleTalker,bool background, bool dialogStart)
         {
             int selectableOptions;
 
@@ -301,6 +301,30 @@ namespace Gob3AQ.DialogMaster
 
                 uniquePhrase = headPhrase;
                 uniqueOption = dialogOptions[0];
+
+                selectableOptions = 1;
+            }
+            else if(forcedOption != DialogOption.DIALOG_OPTION_NONE)
+            {
+                ref readonly DialogOptionConfig dialogOptionConfig = ref ResourceDialogsAtlasClass.GetDialogOptionConfig(forcedOption);
+
+                ReadOnlySpan<DialogPhrase> dialogPhrases = dialogOptionConfig.Phrases;
+                DialogPhrase headPhrase;
+
+                if (dialogOptionConfig.randomized)
+                {
+                    int randomIndex = GetRandomizedOption(forcedOption, in dialogOptionConfig);
+                    headPhrase = dialogPhrases[randomIndex];
+                    uniqueNumPhrases = 1;
+                }
+                else
+                {
+                    headPhrase = dialogPhrases[0];
+                    uniqueNumPhrases = dialogOptionConfig.Phrases.Length;
+                }
+
+                uniquePhrase = headPhrase;
+                uniqueOption = forcedOption;
 
                 selectableOptions = 1;
             }
@@ -663,7 +687,7 @@ namespace Gob3AQ.DialogMaster
             {
                 case DialogTaskType.DIALOG_STATE_STARTING:
                     dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
-                    ShowDialogueExec(dialog_input_type, dialog_input_phrase, dialog_input_forcedSingleTalker, dialog_input_backgroundDialog, true);
+                    ShowDialogueExec(dialog_input_type, dialog_input_dialogOption, dialog_input_phrase, dialog_input_forcedSingleTalker, dialog_input_backgroundDialog, true);
                     break;
                 case DialogTaskType.DIALOG_STATE_WAIT_ANIMATION_START:
                     {
@@ -708,7 +732,7 @@ namespace Gob3AQ.DialogMaster
                     {
                         dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
                         DialogOptionConfig dialogConfig = ResourceDialogsAtlasClass.GetDialogOptionConfig(dialog_optionPhrases);
-                        ShowDialogueExec(dialogConfig.dialogTriggered, DialogPhrase.PHRASE_NONE, GameItem.ITEM_NONE, dialog_background, false);
+                        ShowDialogueExec(dialogConfig.dialogTriggered, DialogOption.DIALOG_OPTION_NONE, DialogPhrase.PHRASE_NONE, GameItem.ITEM_NONE, dialog_background, false);
                     }
                     break;
 

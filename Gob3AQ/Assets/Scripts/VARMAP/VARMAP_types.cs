@@ -685,6 +685,7 @@ namespace Gob3AQ.VARMAP.Types
         public readonly CharacterType srcChar;
         public readonly GameItem srcItem;
         public readonly ItemInteractionType actionCondType;
+        public readonly string waypointTag;
         private readonly GameAction[] unchainActions;
 
         public ReadOnlySpan<GameEventCombi> NeededEvents => neededEvents;
@@ -692,16 +693,17 @@ namespace Gob3AQ.VARMAP.Types
 
 
         public static readonly ActionConditionsInfo EMPTY = new(new GameEventCombi[0], MomentType.MOMENT_ANY, CharacterType.CHARACTER_NONE,
-            GameItem.ITEM_NONE, ItemInteractionType.INTERACTION_NONE, new GameAction[0]);
+            GameItem.ITEM_NONE, ItemInteractionType.INTERACTION_NONE, string.Empty, new GameAction[0]);
 
         public ActionConditionsInfo(GameEventCombi[] events, MomentType momentType, CharacterType srcChar, GameItem srcItem,
-            ItemInteractionType actionOK, GameAction[] unchainActions)
+            ItemInteractionType actionOK, string waypointTag, GameAction[] unchainActions)
         {
             neededEvents = events;
             this.momentType = momentType;
             this.srcChar = srcChar;
             this.srcItem = srcItem;
             actionCondType = actionOK;
+            this.waypointTag = waypointTag;
             this.unchainActions = unchainActions;
         }
     }
@@ -721,9 +723,11 @@ namespace Gob3AQ.VARMAP.Types
     public readonly ref struct InteractionUsageOutcome
     {
         public readonly bool ok;
-        public InteractionUsageOutcome(bool ok)
+        public readonly int waypointIndex;
+        public InteractionUsageOutcome(bool ok, int waypointIndex)
         {
             this.ok = ok;
+            this.waypointIndex = waypointIndex;
         }
     }
 

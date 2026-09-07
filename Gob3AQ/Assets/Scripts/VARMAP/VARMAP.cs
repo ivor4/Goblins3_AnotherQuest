@@ -288,12 +288,12 @@ protected static GET_MEMENTO_STATUS_DELEGATE _GET_MEMENTO_STATUS;
 /// </summary>
 protected static MEMENTO_PARENT_WATCHED_DELEGATE _MEMENTO_PARENT_WATCHED;
         /// <summary> 
-/// Makes player interact with usage data 
+/// Moves item to another waypoint 
 /// <para> Owner: ItemMaster </para> 
 /// <para> Accessors: LevelMaster, GameEventMaster </para> 
-/// <para> Method: <see cref="ItemMasterClass.InteractItemService"/> </para> 
+/// <para> Method: <see cref="ItemMasterClass.MoveItemToWaypointService"/> </para> 
 /// </summary>
-protected static INTERACT_ITEM_DELEGATE _INTERACT_ITEM;
+protected static MOVE_ITEM_TO_WAYPOINT_DELEGATE _MOVE_ITEM_TO_WAYPOINT;
         /// <summary> 
 /// Applies an unchain event to an item such as spawn or setsprite 
 /// <para> Owner: ItemMaster </para> 

@@ -353,10 +353,10 @@ def process_action_conds(ctx: CodeGenContext):
             
             events = parse_events(cols[2])
             ctx.items_interact.insert_line(2, f"new GameEventCombi[{len(cols[2].split('|'))}]{{{events}}}, \n")
-            ctx.items_interact.insert_line(2, f"{PREFIXES['moment']}{cols[3]},{PREFIXES['char']}{cols[4]},{PREFIXES['item']}{cols[5]},{PREFIXES['interaction']}{cols[6]},\n")
+            ctx.items_interact.insert_line(2, f"{PREFIXES['moment']}{cols[3]},{PREFIXES['char']}{cols[4]},{PREFIXES['item']}{cols[5]},{PREFIXES['interaction']}{cols[6]},\"{cols[7]}\",\n")
             
-            actions = build_array_str(cols[7].split('|'), PREFIXES['action'])
-            ctx.items_interact.insert_line(2, f"new GameAction[{len(cols[7].split('|'))}]{{{actions}}}), \n\n")
+            actions = build_array_str(cols[8].split('|'), PREFIXES['action'])
+            ctx.items_interact.insert_line(2, f"new GameAction[{len(cols[8].split('|'))}]{{{actions}}}), \n\n")
             
         elif zone == 2:
             ctx.items_types.insert_line(4, f"{name}, \n")

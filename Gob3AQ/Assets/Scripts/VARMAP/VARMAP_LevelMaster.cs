@@ -64,7 +64,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
             GET_NEAREST_WP = _GET_NEAREST_WP;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
-            INTERACT_ITEM = _INTERACT_ITEM;
+            MOVE_ITEM_TO_WAYPOINT = _MOVE_ITEM_TO_WAYPOINT;
             ITEM_REACHED_WAYPOINT = _ITEM_REACHED_WAYPOINT;
             USE_ITEM = _USE_ITEM;
             PEEK_ITEM = _PEEK_ITEM;
@@ -212,12 +212,12 @@ public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
 /// </summary>
 public static IS_EVENT_COMBI_OCCURRED_DELEGATE IS_EVENT_COMBI_OCCURRED;
         /// <summary> 
-/// Makes player interact with usage data 
+/// Moves item to another waypoint 
 /// <para> Owner: ItemMaster </para> 
 /// <para> Accessors: LevelMaster, GameEventMaster </para> 
-/// <para> Method: <see cref="ItemMasterClass.InteractItemService"/> </para> 
+/// <para> Method: <see cref="ItemMasterClass.MoveItemToWaypointService"/> </para> 
 /// </summary>
-public static INTERACT_ITEM_DELEGATE INTERACT_ITEM;
+public static MOVE_ITEM_TO_WAYPOINT_DELEGATE MOVE_ITEM_TO_WAYPOINT;
         /// <summary> 
 /// Tells LevelMaster that player reached Waypoint to start action in case 
 /// <para> Owner: LevelMaster </para> 

@@ -6,6 +6,7 @@ using Gob3AQ.Libs.Arith;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.VARMAP.ItemMaster;
 using Gob3AQ.VARMAP.Types;
+using Gob3AQ.Waypoint.Network;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,8 +21,9 @@ namespace Gob3AQ.ItemMaster
         private IReadOnlyDictionary<GameItem, GameElementClass> _levelItems;
         private int itemsToLoad;
         private int itemsLoaded;
+        private IReadOnlyList<WaypointInfo> _waypointInfos;
 
-        public static void InteractItemService(GameItem item, int destWp_index, out bool accepted)
+        public static void MoveItemToWaypointService(GameItem item, int destWp_index, out bool accepted)
         {
             if (_singleton)
             {
@@ -126,11 +128,23 @@ namespace Gob3AQ.ItemMaster
 
         public static void UseItemService(in InteractionUsage usage, out InteractionUsageOutcome outcome)
         {
+            if (!_singleton)
+            {
+                outcome = default;
+                return;
+            }
+
             ItemInteractionCommon(in usage, out outcome, false);
         }
 
         public static void PeekItemService(in InteractionUsage usage, out InteractionUsageOutcome outcome)
         {
+            if (!_singleton)
+            {
+                outcome = default;
+                return;
+            }
+
             ItemInteractionCommon(in usage, out outcome, true);
         }
 
@@ -225,7 +239,8 @@ namespace Gob3AQ.ItemMaster
         private static void ItemInteractionCommon(in InteractionUsage usage, out InteractionUsageOutcome outcome, bool isPeek)
         {
             /* If item is not defined, it is not possible to process it */
-            var conditionOK = false;
+            bool conditionOK = false;
+            int waypointOutputIndex = -1;
             MomentType actualMoment = VARMAP_ItemMaster.GET_DAY_MOMENT();
 
 
@@ -258,7 +273,21 @@ namespace Gob3AQ.ItemMaster
                     
                     /* Trigger additional event (in case) */
                     if(!isPeek) VARMAP_ItemMaster.PERFORM_ACTION(conditionInfo.UnchainActions, null);
+
                     conditionOK = true;
+
+                    if(conditionInfo.waypointTag == string.Empty)
+                    {
+                        waypointOutputIndex = usage.destWaypoint_index;
+                    }
+                    else if(conditionInfo.waypointTag == "_self")
+                    {
+                        /* Character */
+                    }
+                    else
+                    {
+                        waypointOutputIndex = WaypointInfo.SearchWaypointIndexFromTag(_singleton._waypointInfos, conditionInfo.waypointTag);
+                    }
                     break;
                 }
             }
@@ -271,7 +300,7 @@ namespace Gob3AQ.ItemMaster
                 VARMAP_ItemMaster.PERFORM_ACTION(negativeActions, null);
             }
 
-            outcome = new(conditionOK);
+            outcome = new(conditionOK, waypointOutputIndex);
         }
 
         private IEnumerator LoadingCoroutine()
@@ -285,6 +314,8 @@ namespace Gob3AQ.ItemMaster
             }
 
             yield return ResourceAtlasClass.WaitForNextFrame;
+
+            VARMAP_ItemMaster.GET_WP_LIST(out _waypointInfos);
 
             while (itemsLoaded < itemsToLoad)
             {

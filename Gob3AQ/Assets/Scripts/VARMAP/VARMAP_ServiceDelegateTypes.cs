@@ -47,7 +47,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void GET_PLAYER_LIST_DELEGATE(out ReadOnlySpan<PlayableCharScript> list);
     public delegate void GET_NEAREST_WP_DELEGATE(Vector2 position, float maxRadius, out int candidate_index, out Vector2 candidate_pos);
     public delegate void COMMIT_EVENT_DELEGATE(ReadOnlySpan<GameEventCombi> combi);
-    public delegate void INTERACT_ITEM_DELEGATE(GameItem item,int destWp_index, out bool accepted);
+    public delegate void MOVE_ITEM_TO_WAYPOINT_DELEGATE(GameItem item,int destWp_index, out bool accepted);
     public delegate void ACTION_TO_ITEM_DELEGATE(in ActionInfo actionInfo);
     public delegate void TRY_UNCHAIN_CONDITION_DELEGATE(ReadOnlySpan<UnchainConditions> condition, bool onlyPeek, out bool empty, out bool somePerformed, out bool allPerformed);
     public delegate void ITEM_REACHED_WAYPOINT_DELEGATE(GameItem item);

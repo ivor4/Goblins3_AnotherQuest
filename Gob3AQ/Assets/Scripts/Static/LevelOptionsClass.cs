@@ -57,6 +57,7 @@ namespace Gob3AQ.Brain.LevelOptions
             "SCENE_STATION_1",
             "SCENE_UNDER_BED",
             "SCENE_SERVICE_ROOM",
+            "SCENE_HIVE1_LAB",
             ""
         };
 
@@ -80,11 +81,13 @@ namespace Gob3AQ.Brain.LevelOptions
             {Room.DREAM_1_KITCHEN_NIGHT, new List<PrefabEnum>(){ PrefabEnum.PREFAB_MAINCHARACTER_DREAM }},
             {Room.MAP_1, new List<PrefabEnum>(){ PrefabEnum.PREFAB_PINPOINT_MAP }},
             {Room.UNDER_BED, Array.Empty<PrefabEnum>() },
+            {Room.HIVE1_LAB, Array.Empty<PrefabEnum>() },
         };
 
         private static readonly HashSet<Room> _ROOM_AVOIDS_DIALOG_ZOOM = new HashSet<Room>()
         {
-            Room.UNDER_BED
+            Room.UNDER_BED,
+            Room.HIVE1_LAB
         };
 
         private static readonly InitialWalkInfo[] _DefaultInitialWalkInfo = new InitialWalkInfo[1]

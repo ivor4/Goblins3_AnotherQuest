@@ -658,8 +658,6 @@ namespace Gob3AQ.LevelMaster
 
             if (playerSelected != CharacterType.CHARACTER_NONE)
             {
-                
-
                 if (chosenItem == GameItem.ITEM_NONE)
                 {
                     UserInputInteraction userInteraction = VARMAP_LevelMaster.GET_USER_INPUT_INTERACTION();
@@ -685,17 +683,17 @@ namespace Gob3AQ.LevelMaster
 
                 VARMAP_LevelMaster.PEEK_ITEM(in usage, out InteractionUsageOutcome outcome);
 
+                int proposedWaypointIndex = GetWaypointIndexFromTag(playerSelected, outcome.waypointTag, usage.destWaypoint_index);
 
-                int furthestWaypointIndex = CheckFurthestReachableWaypoint(playerSelected, outcome.waypointIndex);
+                int furthestWaypointIndex = CheckFurthestReachableWaypoint(playerSelected, proposedWaypointIndex);
 
-                if (furthestWaypointIndex == hovered.waypoint)
+                /* If path is shorter than expected, convert into single move operation */
+                if (furthestWaypointIndex != proposedWaypointIndex)
                 {
-                }
-                else
-                {
+                    usage = InteractionUsage.CreatePlayerMove(playerSelected, furthestWaypointIndex);
                 }
 
-                // THIS IS PENDING VARMAP_LevelMaster.MOVE_ITEM_TO_WAYPOINT(ResourceDialogsAtlasClass.GetItemForCharacter(playerSelected), furthestWaypointIndex, out accepted);
+                VARMAP_LevelMaster.MOVE_ITEM_TO_WAYPOINT(ResourceDialogsAtlasClass.GetItemForCharacter(playerSelected), furthestWaypointIndex, out accepted);
             }
 
             return accepted;
@@ -707,20 +705,21 @@ namespace Gob3AQ.LevelMaster
 
             if (playerSelected != CharacterType.CHARACTER_NONE)
             {
-                int furthestWaypoint = CheckFurthestReachableWaypoint(playerSelected, hovered.waypoint);
+                usage = InteractionUsage.CreateCrossDoor(playerSelected, hovered.item, hovered.waypoint);
 
-                if (furthestWaypoint == hovered.waypoint)
-                {
-                    usage = InteractionUsage.CreateCrossDoor(playerSelected, hovered.item, furthestWaypoint);
-                    VARMAP_LevelMaster.MOVE_ITEM_TO_WAYPOINT(ResourceDialogsAtlasClass.GetItemForCharacter(playerSelected), furthestWaypoint, out accepted);
-                }
-                else
+                VARMAP_LevelMaster.PEEK_ITEM(in usage, out InteractionUsageOutcome outcome);
+
+                int proposedWaypointIndex = GetWaypointIndexFromTag(playerSelected, outcome.waypointTag, usage.destWaypoint_index);
+
+                int furthestWaypoint = CheckFurthestReachableWaypoint(playerSelected, proposedWaypointIndex);
+
+                /* Convert in simple move if something forbids reaching final waypoint */
+                if (furthestWaypoint != proposedWaypointIndex)
                 {
                     usage = InteractionUsage.CreatePlayerMove(playerSelected, furthestWaypoint);
-
-                    VARMAP_LevelMaster.MOVE_ITEM_TO_WAYPOINT(ResourceDialogsAtlasClass.GetItemForCharacter(playerSelected), furthestWaypoint, out accepted);
                 }
 
+                VARMAP_LevelMaster.MOVE_ITEM_TO_WAYPOINT(ResourceDialogsAtlasClass.GetItemForCharacter(playerSelected), furthestWaypoint, out accepted);
                 VARMAP_LevelMaster.CANCEL_PICKABLE_ITEM();
             }
 
@@ -923,6 +922,26 @@ namespace Gob3AQ.LevelMaster
             }
 
             return available;
+        }
+
+        private int GetWaypointIndexFromTag(CharacterType actualCharacter, string waypointTag, int defaultIndex)
+        {
+            int retVal;
+
+            if(waypointTag == string.Empty)
+            {
+                retVal = defaultIndex;
+            }
+            else if(waypointTag == "_self")
+            {
+                retVal = _Player_List[(int)actualCharacter].Waypoint;
+            }
+            else
+            {
+                retVal = WaypointInfo.SearchWaypointIndexFromTag(_WP_Info_List, waypointTag);
+            }
+
+            return retVal;
         }
 
         private void _GameStatusChanged(ChangedEventType evtype, in Game_Status oldval, in Game_Status newval)

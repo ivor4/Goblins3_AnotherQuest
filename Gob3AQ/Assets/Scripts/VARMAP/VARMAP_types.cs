@@ -723,11 +723,11 @@ namespace Gob3AQ.VARMAP.Types
     public readonly ref struct InteractionUsageOutcome
     {
         public readonly bool ok;
-        public readonly int waypointIndex;
-        public InteractionUsageOutcome(bool ok, int waypointIndex)
+        public readonly string waypointTag;
+        public InteractionUsageOutcome(bool ok, string waypointTag)
         {
             this.ok = ok;
-            this.waypointIndex = waypointIndex;
+            this.waypointTag = waypointTag;
         }
     }
 

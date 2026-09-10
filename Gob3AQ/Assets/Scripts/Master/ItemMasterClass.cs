@@ -21,7 +21,6 @@ namespace Gob3AQ.ItemMaster
         private IReadOnlyDictionary<GameItem, GameElementClass> _levelItems;
         private int itemsToLoad;
         private int itemsLoaded;
-        private IReadOnlyList<WaypointInfo> _waypointInfos;
 
         public static void MoveItemToWaypointService(GameItem item, int destWp_index, out bool accepted)
         {
@@ -240,7 +239,7 @@ namespace Gob3AQ.ItemMaster
         {
             /* If item is not defined, it is not possible to process it */
             bool conditionOK = false;
-            int waypointOutputIndex = -1;
+            string waypointOutputTag = string.Empty;
             MomentType actualMoment = VARMAP_ItemMaster.GET_DAY_MOMENT();
 
 
@@ -275,19 +274,7 @@ namespace Gob3AQ.ItemMaster
                     if(!isPeek) VARMAP_ItemMaster.PERFORM_ACTION(conditionInfo.UnchainActions, null);
 
                     conditionOK = true;
-
-                    if(conditionInfo.waypointTag == string.Empty)
-                    {
-                        waypointOutputIndex = usage.destWaypoint_index;
-                    }
-                    else if(conditionInfo.waypointTag == "_self")
-                    {
-                        /* Character */
-                    }
-                    else
-                    {
-                        waypointOutputIndex = WaypointInfo.SearchWaypointIndexFromTag(_singleton._waypointInfos, conditionInfo.waypointTag);
-                    }
+                    waypointOutputTag = conditionInfo.waypointTag;
                     break;
                 }
             }
@@ -300,7 +287,7 @@ namespace Gob3AQ.ItemMaster
                 VARMAP_ItemMaster.PERFORM_ACTION(negativeActions, null);
             }
 
-            outcome = new(conditionOK, waypointOutputIndex);
+            outcome = new(conditionOK, waypointOutputTag);
         }
 
         private IEnumerator LoadingCoroutine()
@@ -314,8 +301,6 @@ namespace Gob3AQ.ItemMaster
             }
 
             yield return ResourceAtlasClass.WaitForNextFrame;
-
-            VARMAP_ItemMaster.GET_WP_LIST(out _waypointInfos);
 
             while (itemsLoaded < itemsToLoad)
             {

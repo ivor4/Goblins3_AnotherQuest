@@ -365,6 +365,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 901afd87effacb7438c02ba6f9db7ce4
+    m_Address: BACKGROUND_HIVE1_LAB
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 912c2f10bc211974685eac4e6b4c56ac
     m_Address: SOUND_MOP_STICK_ON_FLOOR
     m_ReadOnly: 0
@@ -522,6 +527,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c5407b11c526d9b4397f1feb69c74c44
     m_Address: SPRITE_REME_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c573bf7c1b070114480035c555896e25
+    m_Address: SPRITE_ATLAS_HIVE1_LAB1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

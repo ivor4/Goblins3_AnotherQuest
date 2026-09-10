@@ -1,6 +1,7 @@
 ﻿TASK,PRIO,DONE,ONGOING
 Trophies,4,False,False
-Waypoint of action could be imposed by COND_USE,3,False,False
+Waypoint of action could be imposed by COND_USE,3,True,True
+Escena rejas Ang. Bruna,4,False,False
 Character 'Señor desubicado',4,False,False
 Questioning 'Mosca puñetera',4,False,False
 Phrase factory 2 laws. One man in both places and two objects same place,5,False,False

@@ -548,6 +548,18 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
             ),
 
+            new( /* HIVE1_LAB */
+            new GameSprite[1]{GameSprite.BACKGROUND_HIVE1_LAB},
+            new GameSound[1]{GameSound.MUSIC_ROOM_PUZZLE},
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_HIVE1_LAB}), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(1){GameItem.ITEM_GENERIC_DOOR1}), 
+            new ReadOnlyHashSet<DetailType>(new HashSet<DetailType>(1){DetailType.PREFAB_NONE}), 
+            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_ROOM_PUZZLE}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
+            ),
+
             new( /* ROOM_LAST */
             new GameSprite[1]{GameSprite.SPRITE_NONE},
             new GameSound[1]{GameSound.SOUND_NONE},

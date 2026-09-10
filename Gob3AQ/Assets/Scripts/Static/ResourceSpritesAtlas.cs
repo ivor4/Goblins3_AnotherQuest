@@ -154,6 +154,7 @@ namespace Gob3AQ.ResourceSpritesAtlas
             new("SPRITE_ICON_INVENTORY_IDEA", "SPRITE_ATLAS_UI_0"), /* SPRITE_ICON_INVENTORY_IDEA */ 
             new("SPRITE_BOOK_MEMENTOS", "SPRITE_ATLAS_UI_0"), /* SPRITE_BOOK_MEMENTOS */ 
             new("SPRITE_MEMENTO_ROACHES", "SPRITE_ATLAS_PICKABLE_0"), /* SPRITE_MEMENTO_ROACHES */ 
+            new("BACKGROUND_HIVE1_LAB", "SPRITE_ATLAS_HIVE1_LAB1"), /* BACKGROUND_HIVE1_LAB */ 
             new("SPRITE_LAST", ""), /* SPRITE_LAST */ 
             /* > ATG 1 END < */
         };

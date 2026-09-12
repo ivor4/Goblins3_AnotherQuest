@@ -396,6 +396,11 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new DialogOption[1]{DialogOption.DIALOG_OBSERVE_SQUAT_WC_OPTION_0}
             ),
 
+            new( /* DIALOG_OBSERVE_LAB_MAGAZINE */
+            new GameItem[1]{GameItem.ITEM_PLAYER_MAIN},
+            new DialogOption[1]{DialogOption.DIALOG_OPTION_OBSERVE_LAB_MAGAZINE_0}
+            ),
+
             new( /* DIALOG_LAST */
             new GameItem[1]{GameItem.ITEM_NONE},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE}
@@ -1051,6 +1056,13 @@ namespace Gob3AQ.ResourceDialogsAtlas
             DialogType.DIALOG_NONE,false,
             new DialogPhrase[4]{DialogPhrase.PHRASE_DIALOG_REME_ROACHES_1, DialogPhrase.PHRASE_DIALOG_REME_ROACHES_2, DialogPhrase.PHRASE_DIALOG_REME_ROACHES_3, DialogPhrase.PHRASE_DIALOG_REME_ROACHES_4}
             ),
+            new( /* DIALOG_OPTION_OBSERVE_LAB_MAGAZINE_0 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_NONE},
+            DialogType.DIALOG_NONE,false,
+            new DialogPhrase[5]{DialogPhrase.PHRASE_OBSERVE_LAB_MAGAZINE_1, DialogPhrase.PHRASE_OBSERVE_LAB_MAGAZINE_2, DialogPhrase.PHRASE_OBSERVE_LAB_MAGAZINE_3, DialogPhrase.PHRASE_OBSERVE_LAB_MAGAZINE_4, DialogPhrase.PHRASE_OBSERVE_LAB_MAGAZINE_5}
+            ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
@@ -1475,6 +1487,11 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MEMENTO_ROACHES_2 */ 
             new(0,GameSound.SOUND_MAINCHAR_NONSENSE_COMBINE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MAINCHAR_NONSENSE_COMBINE */ 
             new(0,GameSound.SOUND_MAINCHAR_NONSENSE_USE_IDEA, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MAINCHAR_NONSENSE_USE_IDEA */ 
+            new(0,GameSound.SOUND_OBSERVE_LAB_MAGAZINE_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_LAB_MAGAZINE_1 */ 
+            new(0,GameSound.SOUND_OBSERVE_LAB_MAGAZINE_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_LAB_MAGAZINE_2 */ 
+            new(0,GameSound.SOUND_OBSERVE_LAB_MAGAZINE_3, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_LAB_MAGAZINE_3 */ 
+            new(0,GameSound.SOUND_OBSERVE_LAB_MAGAZINE_4, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_LAB_MAGAZINE_4 */ 
+            new(0,GameSound.SOUND_OBSERVE_LAB_MAGAZINE_5, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_LAB_MAGAZINE_5 */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

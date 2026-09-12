@@ -55,6 +55,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 147a451392d2d464a9c2a647303cb6c0
+    m_Address: SPRITE_HIVE1_LAB_INSECTICIDE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 18e43d2b8727b8e409179f50cdb1c8c4
     m_Address: SPRITE_REME_TALKING
     m_ReadOnly: 0
@@ -295,6 +300,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6ac6e58259f4aa647bb1e0ea3f2bdc28
+    m_Address: SCENE_HIVE1_LAB
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6b319388dc1fedb4081776d430cd9b46
     m_Address: SPRITE_KEY_UNDER_BED_ANIM
     m_ReadOnly: 0
@@ -312,6 +322,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6eb9c4e97a03fcd4d97ff26d5ab801e0
     m_Address: SOUND_GIANT_ROACH_GROWL
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a485ba999146214f8dd401f9fa4e7ca
+    m_Address: SPRITE_HIVE1_LAB_VARNISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -360,6 +375,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ba144e6a51c9bb4a91efb7dd0966f21
+    m_Address: SOUND_OBSERVE_LAB_MAGAZINE_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9009c1606cc754a4396e22d14035ddd6
     m_Address: SOUND_DIALOG_REME_3_1_SPANISH
     m_ReadOnly: 0
@@ -400,6 +420,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 97832f412cf06b04ca18e8fc42bdf2a6
+    m_Address: SOUND_OBSERVE_LAB_MAGAZINE_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 98624f80b47a7294b93527a940f493e7
     m_Address: SPRITE_HIVE1_CHEST_CARDS
     m_ReadOnly: 0
@@ -422,6 +447,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a75b7445ea97e974bb97beccacf0f9b0
     m_Address: SPRITE_ATLAS_HIVE1_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7ceeabefde12fe4e92c90eeaea36543
+    m_Address: SPRITE_HIVE1_LAB_FLOORWASHER
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -477,6 +507,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b809297d153f80748b4029a9b42ba156
     m_Address: SOUND_DIALOG_REME_ROACHES_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b90d6f266ce352543be25dca1c6188e9
+    m_Address: SPRITE_HIVE1_LAB_DETERGENT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -560,6 +595,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cac8f6839b128c34d8a465f244ee5c90
+    m_Address: SOUND_OBSERVE_LAB_MAGAZINE_5_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cc5294fcb7eef2248b5dd6fc945da8fd
     m_Address: SPRITE_HIVE1_ROACH_HEAD
     m_ReadOnly: 0
@@ -577,6 +617,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d2bf5b60e7395694cbd639a1b9f7a9c5
     m_Address: ANIMATION_TAR_CAN_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d6b629a75853aef4aadd562e667b7aef
+    m_Address: SOUND_OBSERVE_LAB_MAGAZINE_4_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -642,6 +687,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f2afda6fdd3f84d48af1fd46587f8c1c
     m_Address: SOUND_DIALOG_TRY_CROSS_SERVICE_DOOR_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f680e4a745b9b174886e231e804ff7cc
+    m_Address: SOUND_OBSERVE_LAB_MAGAZINE_3_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

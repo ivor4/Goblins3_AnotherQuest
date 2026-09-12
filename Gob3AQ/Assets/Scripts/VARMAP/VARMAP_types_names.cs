@@ -85,6 +85,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_GIANT_ROACH, 
         NAME_MEMENTO_REME, 
         NAME_MEMENTO_ROACHES, 
+        NAME_LAB_MAGAZINE, 
         NAME_NPC_LAST, 
         
 NAME_TOTAL

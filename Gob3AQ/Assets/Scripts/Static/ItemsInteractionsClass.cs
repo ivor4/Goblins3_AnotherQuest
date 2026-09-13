@@ -481,7 +481,19 @@ namespace Gob3AQ.Brain.ItemsInteraction
             true,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             MomentType.MOMENT_ANY, 
-            new GameAction[1]{GameAction.ACTION_DESPAWN_KEY_SCRATCHER}), 
+            new GameAction[2]{GameAction.ACTION_DESPAWN_KEY_SCRATCHER, GameAction.ACTION_DESPAWN_RUST_UNITS_GENERATOR}), 
+
+            new( /* UNCHAIN_RUST_POWDER_SPAWN */
+            false,false,false,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[2]{new(GameEvent.EVENT_SCRATCHED_RUSTY_SPRING, false), new(GameEvent.EVENT_OBTAINED_RUST_POWDER, true)}, 
+            MomentType.MOMENT_ANY, 
+            new GameAction[1]{GameAction.ACTION_SPAWN_RUST_POWDER}), 
+
+            new( /* UNCHAIN_FALLBACK_SET_SPRITE_RUST_POWDER */
+            true,false,false,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[2]{new(GameEvent.EVENT_SCRATCHED_RUSTY_SPRING, false), new(GameEvent.EVENT_OBTAINED_RUST_POWDER, true)}, 
+            MomentType.MOMENT_ANY, 
+            new GameAction[1]{GameAction.ACTION_FALLBACK_SET_SPRITE_RUST_POWDER}), 
 
             new( /* UNCHAIN_LAST */
             false,false,false,new(GameEvent.EVENT_NONE, false), 
@@ -1180,7 +1192,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new( /* COND_USE_BROKEN_KEY_RUSTY_SPRING */
             new GameEventCombi[2]{new(GameEvent.EVENT_READ_LAB_MAGAZINE, false), new(GameEvent.EVENT_SCRATCHED_RUSTY_SPRING, true)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_PICKABLE_HIVE_KEY_BROKEN,ItemInteractionType.INTERACTION_USE,"",
-            new GameAction[4]{GameAction.ACTION_SPAWN_KEY_SCRATCHER, GameAction.ACTION_ANIMATE_KEY_SCRATCHER, GameAction.ACTION_ANIMATE_KEY_SCRATCHER_2, GameAction.ACTION_PLAY_SOUND_METAL_SCRATCHING}), 
+            new GameAction[11]{GameAction.ACTION_SET_GAME_ANIMATION_MODE, GameAction.ACTION_SPAWN_KEY_SCRATCHER, GameAction.ACTION_ANIMATE_KEY_SCRATCHER, GameAction.ACTION_ANIMATE_KEY_SCRATCHER_2, GameAction.ACTION_PLAY_SOUND_METAL_SCRATCHING, GameAction.ACTION_SPAWN_RUST_UNITS_GENERATOR, GameAction.ACTION_WAIT_4S, GameAction.ACTION_DESPAWN_KEY_SCRATCHER, GameAction.ACTION_WAIT_2S, GameAction.ACTION_EVENT_SCRATCHED_RUSTY_SPRING, GameAction.ACTION_REMOVE_GAME_ANIMATION_MODE}), 
 
             new( /* COND_USE_BROKEN_KEY_RUSTY_SPRING_NOT */
             new GameEventCombi[1]{new(GameEvent.EVENT_READ_LAB_MAGAZINE, true)}, 
@@ -1196,6 +1208,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,"",
             new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_ITEM_RUST_POWDER}), 
+
+            new( /* COND_TAKE_ITEM_RUST_POWDER */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,"",
+            new GameAction[4]{GameAction.ACTION_DESPAWN_RUST_POWDER, GameAction.ACTION_OBTAIN_RUST_POWDER, GameAction.ACTION_EVENT_OBTAINED_RUST_POWDER, GameAction.ACTION_DESPAWN_RUST_UNITS_GENERATOR}), 
 
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
@@ -1707,13 +1724,18 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new(new HashSet<ActionConditions>(4){ActionConditions.COND_OBSERVE_ITEM_RUSTY_SPRING, ActionConditions.COND_USE_BROKEN_KEY_RUSTY_SPRING, ActionConditions.COND_USE_BROKEN_KEY_RUSTY_SPRING_NOT, ActionConditions.COND_USE_BROKEN_KEY_RUSTY_SPRING_NOT_2})),
 
             new ( /* ITEM_RUST_POWDER */
-            NameType.NAME_RUST_POWDER,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PICKABLE_RUST_POWDER}),
-            GameSprite.SPRITE_PICKABLE_RUST_POWDER,true,false,GameSprite.SPRITE_PICKABLE_RUST_POWDER,GamePickableItem.ITEM_PICK_RUST_POWDER,DetailType.PREFAB_NONE,false,
-            new(new HashSet<ActionConditions>(1){ActionConditions.COND_OBSERVE_ITEM_RUST_POWDER})),
+            NameType.NAME_RUST_POWDER,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
+            GameSprite.SPRITE_BLANK,true,false,GameSprite.SPRITE_PICKABLE_RUST_POWDER,GamePickableItem.ITEM_PICK_RUST_POWDER,DetailType.PREFAB_NONE,false,
+            new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_RUST_POWDER, ActionConditions.COND_TAKE_ITEM_RUST_POWDER})),
 
             new ( /* ITEM_KEY_SCRATCHER */
             NameType.NAME_HIVE_ROOM_KEY,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PICKABLE_HIVE_ROOM_KEY_BROKEN}),
             GameSprite.SPRITE_PICKABLE_HIVE_ROOM_KEY_BROKEN,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
+
+            new ( /* ITEM_RUST_UNITS_GENERATOR */
+            NameType.NAME_RUST_POWDER,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
+            GameSprite.SPRITE_BLANK,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
 
             new ( /* ITEM_LAST */
@@ -1853,6 +1875,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new(PrefabEnum.PREFAB_MAINCHARACTER_DREAM), /* PREFAB_MAINCHAR_DREAM */ 
             new(PrefabEnum.PREFAB_MAINCHARACTER_BED), /* PREFAB_MAINCHAR_BED */ 
             new(PrefabEnum.PREFAB_PINPOINT_MAP), /* PREFAB_PINPOINT_MAP */ 
+            new(PrefabEnum.PREFAB_RUST_UNIT), /* PREFAB_RUST_UNIT */ 
             new(PrefabEnum.PREFAB_NONE), /* DETAIL_LAST */ 
             /* > ATG 8 END < */
         };
@@ -4186,7 +4209,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_KEY_SCRATCHER,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
-            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,1,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_DESPAWN_KEY_SCRATCHER */
             false,ActionType.ACTION_TYPE_DESPAWN,GameItem.ITEM_KEY_SCRATCHER,GameSprite.SPRITE_NONE,
@@ -4211,6 +4234,48 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_METAL_SCRATCHING,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_SPAWN_RUST_UNITS_GENERATOR */
+            false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_RUST_UNITS_GENERATOR,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DESPAWN_RUST_UNITS_GENERATOR */
+            false,ActionType.ACTION_TYPE_DESPAWN,GameItem.ITEM_RUST_UNITS_GENERATOR,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_WAIT_4S */
+            true,ActionType.ACTION_TYPE_WAIT_MS,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,4000,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_SPAWN_RUST_POWDER */
+            false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_RUST_POWDER,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_OBTAIN_RUST_POWDER */
+            false,ActionType.ACTION_TYPE_EARN_ITEM,GameItem.ITEM_RUST_POWDER,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DESPAWN_RUST_POWDER */
+            false,ActionType.ACTION_TYPE_DESPAWN,GameItem.ITEM_RUST_POWDER,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_FALLBACK_SET_SPRITE_RUST_POWDER */
+            false,ActionType.ACTION_TYPE_SET_SPRITE,GameItem.ITEM_RUST_POWDER,GameSprite.SPRITE_PICKABLE_RUST_POWDER,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

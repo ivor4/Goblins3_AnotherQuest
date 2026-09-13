@@ -90,6 +90,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21f473182b55fea49931ee5e9a484a42
+    m_Address: PREFAB_RUST_UNIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 228a22083e10aa741b5fb145fe93470c
     m_Address: SPRITE_ATLAS_HIVE1_6
     m_ReadOnly: 0

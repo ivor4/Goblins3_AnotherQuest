@@ -1,6 +1,7 @@
 using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameElement.Clickable;
+using Gob3AQ.GameElement.Extension;
 using Gob3AQ.ResourceAnimationsAtlas;
 using Gob3AQ.ResourceDialogs;
 using Gob3AQ.ResourceSprites;
@@ -98,6 +99,7 @@ namespace Gob3AQ.GameElement
         protected float prevAnimationNormalizedTime;
         protected bool registered;
         protected bool loaded;
+        private IGameElementExtension geExtension;
         private ulong finalWalkCooldownTimestamp;
         private bool isAvailable;
         private bool isActive_int;
@@ -132,6 +134,8 @@ namespace Gob3AQ.GameElement
             ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(itemID);
             labelName = ResourceDialogsClass.GetName(itemInfo.name);
             gameElementFamily = itemInfo.family;
+
+            geExtension = GetComponent<IGameElementExtension>();
 
             hoverInfo = new(itemID, gameElementFamily, labelName, exposedWaypoint, hoverPriority, false);
         }
@@ -302,7 +306,23 @@ namespace Gob3AQ.GameElement
 
         public void SetUnspawned(bool unspawned)
         {
+            bool prevValue = isUnspawned;
             isUnspawned = unspawned;
+
+            if(unspawned != prevValue)
+            {
+                if (geExtension != null)
+                {
+                    if (unspawned)
+                    {
+                        geExtension.OnDespawn();
+                    }
+                    else
+                    { 
+                        geExtension.OnSpawn();
+                    }
+                }
+            }
         }
 
 
@@ -373,8 +393,6 @@ namespace Gob3AQ.GameElement
             {
                 spriteMask.enabled = enable;
             }
-
-            _Hover_Refresh();
         }
 
         /// <summary>
@@ -458,6 +476,11 @@ namespace Gob3AQ.GameElement
             if (registered)
             {
                 VARMAP_ItemMaster.ITEM_REGISTER(false, this);
+
+                if(geExtension != null)
+                {
+                    geExtension.OnExtensionDestroy();
+                }
             }
         }
 

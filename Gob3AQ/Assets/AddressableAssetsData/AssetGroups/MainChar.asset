@@ -95,6 +95,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3299e29bb85ee274c9fac85a6b39be1a
+    m_Address: SOUND_NONSENSE_NOT_THOUGHT_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 34d487551e868e3408a036b2490a9454
     m_Address: ANIMATION_MAINCHAR_SEATED_TALKING_EXEC2
     m_ReadOnly: 0
@@ -127,6 +132,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 41c0a2445c215bd459ef7ecda241f433
     m_Address: SPRITE_MAINCHAR_LISTENING_3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4327dc24efa59f94aaab54b665e4ee9f
+    m_Address: SPRITE_MAINCHAR_ABOUT_ENJOY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -402,6 +412,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a96ab7d4b6f3dc541ac4c2a0cd66f0de
     m_Address: ANIMATION_MAINCHAR_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab82cdf3a5b243743b18de5ae5d71181
+    m_Address: ANIMATION_MAINCHAR_ABOUT_ENJOY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

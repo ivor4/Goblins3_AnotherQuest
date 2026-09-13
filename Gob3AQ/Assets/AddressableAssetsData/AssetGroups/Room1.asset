@@ -45,6 +45,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0cf64cdeefcbd4c4aab8dd03da92e288
+    m_Address: SOUND_OBSERVE_ITEM_PICKABLE_LAB_INSECTICIDE_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0d14a8a72c74b6b4d97942a74caf3514
     m_Address: ANIMATION_REME_TALKING_EXEC2
     m_ReadOnly: 0
@@ -140,6 +145,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2fd77aefa9a97f44b929224c156197f9
+    m_Address: SOUND_OBSERVE_EXPERIMENT_TABLE_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 32a107abe8cd03049a2e54997f205bd3
     m_Address: ANIMATOR_KEY_UNDER_BED
     m_ReadOnly: 0
@@ -172,6 +182,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 383cefc661ff01a4e826e33467881039
     m_Address: SPRITE_ATLAS_UNDER_BED
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b4846889f74b73439c7e892e3df47d3
+    m_Address: ANIMATION_KEY_SCRATCHER_SCRATCH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -210,6 +225,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a6f3176abaa84a459c35f78d8d22b2e
+    m_Address: SOUND_TAKE_EXPERIMENT_TABLE_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4f7aea69bebd89f489a830cfb806976e
     m_Address: SPRITE_REME_LISTENING
     m_ReadOnly: 0
@@ -222,6 +242,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 50b2f44918ab0cb48bfecc8fdfafd343
     m_Address: SPRITE_MIX_JAR
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 510991f604f8d0045bed6c8ae0469c2d
+    m_Address: ANIMATOR_KEY_SCRATCHER
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -285,6 +310,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6438d0c56c4253449b65182597bd276f
+    m_Address: ANIMATION_KEY_SCRATCHER_APPEAR
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 65ae9623f750c5e4d90178219c77733d
     m_Address: SCENE_SERVICE_ROOM
     m_ReadOnly: 0
@@ -292,6 +322,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 65b326779b7646140a26a7bd0104ac13
     m_Address: SOUND_DIALOG_REME_2_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66314c760fc9ca04b9039df5734b7fac
+    m_Address: SOUND_MAINCHAR_LETS_EXPERIMENT_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -380,6 +415,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e3a93004d0a617488e3991fd0394d4e
+    m_Address: SOUND_OBSERVE_ITEM_RUSTY_SPRING_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9009c1606cc754a4396e22d14035ddd6
     m_Address: SOUND_DIALOG_REME_3_1_SPANISH
     m_ReadOnly: 0
@@ -422,6 +462,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 97832f412cf06b04ca18e8fc42bdf2a6
     m_Address: SOUND_OBSERVE_LAB_MAGAZINE_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 97d602f19355a7b4c8fac2484698fcc2
+    m_Address: SOUND_METAL_SCRATCHING
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -492,6 +537,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b42477c4269805d40af503cfacfd5235
     m_Address: SOUND_OBSERVE_ITEM_OLIVE_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b747dbc2f0ea0704c9045456d885448b
+    m_Address: SOUND_OBSERVE_ITEM_PICKABLE_LAB_VARNISH_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -610,6 +660,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d23249e7842b11c4484309a33551e6b2
+    m_Address: SOUND_OBSERVE_ITEM_PICKABLE_LAB_FLOORWASHER_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d24661899a0142845a92003be82a279d
     m_Address: SPRITE_TAR_CAN
     m_ReadOnly: 0
@@ -627,6 +682,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d813509abde52554b9a9b0193a292716
     m_Address: SCENE_HIVE1_WC_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db5056f7c5f06d04385c024064295169
+    m_Address: SOUND_OBSERVE_ITEM_PICKABLE_LAB_DETERGENT_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -675,6 +735,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: efdd3fa94f1e6d74e910c00205fc12c8
+    m_Address: SOUND_OBSERVE_ITEM_RUST_POWDER_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f0703ccf3c923904faca7ad4b7b18a57
     m_Address: SPRITE_HIVE1_BED_LAYER
     m_ReadOnly: 0
@@ -682,6 +747,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f117a8e286cb1464593886e445bc6fbd
     m_Address: SOUND_DIALOG_OBSERVE_BROKEN_HIVE_ROOM_KEY_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f21141648518bed4e910dbb2fa2a2912
+    m_Address: SPRITE_RUST_POWDER_UNIT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

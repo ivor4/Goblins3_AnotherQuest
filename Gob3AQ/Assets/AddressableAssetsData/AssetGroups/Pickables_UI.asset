@@ -215,6 +215,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 361cb3baf3a31e94599974759abfc6c2
+    m_Address: SPRITE_PICKABLE_RUST_POWDER
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 36b9f2d54e3be5040825ee63ad96f275
     m_Address: SPRITE_PICKABLE_EXTRAPERLO
     m_ReadOnly: 0

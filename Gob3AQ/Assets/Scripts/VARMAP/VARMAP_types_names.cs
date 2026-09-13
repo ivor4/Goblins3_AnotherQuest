@@ -86,6 +86,13 @@ namespace Gob3AQ.VARMAP.Types
         NAME_MEMENTO_REME, 
         NAME_MEMENTO_ROACHES, 
         NAME_LAB_MAGAZINE, 
+        NAME_LAB_WORKDESK, 
+        NAME_FLOORWASHER, 
+        NAME_DETERGENT, 
+        NAME_INSECTICIDE, 
+        NAME_VARNISH, 
+        NAME_RUSTY_SPRING, 
+        NAME_RUST_POWDER, 
         NAME_NPC_LAST, 
         
 NAME_TOTAL

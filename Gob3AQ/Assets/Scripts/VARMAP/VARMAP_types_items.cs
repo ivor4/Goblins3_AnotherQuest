@@ -108,6 +108,7 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_RUST_POWDER, 
         ITEM_KEY_SCRATCHER, 
         ITEM_RUST_UNITS_GENERATOR, 
+        ITEM_LAB_JUG, 
         ITEM_LAST, 
         
 ITEM_TOTAL

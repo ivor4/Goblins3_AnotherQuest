@@ -465,6 +465,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 966e7d5ce8c27cc4fa583b446fbd082d
+    m_Address: SPRITE_JUG_LIQUID_MASK
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 97832f412cf06b04ca18e8fc42bdf2a6
     m_Address: SOUND_OBSERVE_LAB_MAGAZINE_2_SPANISH
     m_ReadOnly: 0
@@ -522,6 +527,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ab71db5c6536c254580b854722e314df
     m_Address: MUSIC_INN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: abc11e806e1318f489ce4892a76736a7
+    m_Address: SPRITE_JUG_EMPTY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

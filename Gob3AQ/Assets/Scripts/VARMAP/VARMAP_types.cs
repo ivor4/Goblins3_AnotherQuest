@@ -338,57 +338,7 @@ namespace Gob3AQ.VARMAP.Types
         }
     }
 
-    public readonly struct AnimationConfig
-    {
-        public ReadOnlySpan<AnimationMilestoneConfig> Milestones => milestones;
 
-        private readonly AnimationMilestoneConfig[] milestones;
-
-        public static readonly AnimationConfig EMPTY = new(new AnimationMilestoneConfig[0]);
-
-        public AnimationConfig(AnimationMilestoneConfig[] milestones)
-        {
-            this.milestones = milestones;
-        }
-    }
-
-    public readonly struct AnimationMilestoneConfig
-    {
-        public ReadOnlySpan<AnimationActionConfig> Actions => actions;
-
-        public readonly AnimationSrcTrigger srcTrigger;
-        public readonly float srcTriggerTime;
-        private readonly AnimationActionConfig[] actions;
-
-        public static readonly AnimationMilestoneConfig EMPTY = new(AnimationSrcTrigger.SRC_TRIGGER_ANIM_END, 0f, new AnimationActionConfig[0]);
-
-        public AnimationMilestoneConfig(AnimationSrcTrigger srcTrigger, float srcTriggerTime, AnimationActionConfig[] actions)
-        {
-            this.srcTrigger = srcTrigger;
-            this.srcTriggerTime = srcTriggerTime;
-            this.actions = actions;
-        }
-    }
-
-    public readonly struct AnimationActionConfig
-    {
-        public ReadOnlySpan<GameAction> TriggeredActions => triggeredActions;
-
-        private readonly GameAction[] triggeredActions;
-        public readonly GameItem dstItem;
-        public readonly AnimationTrigger trigger;
-        public readonly GameSound sound;
-
-        public static readonly AnimationActionConfig EMPTY = new(new GameAction[0], GameItem.ITEM_NONE, AnimationTrigger.ANIMATION_TRIGGER_ONE, GameSound.SOUND_NONE);
-
-        public AnimationActionConfig(GameAction[] triggeredActions, GameItem dstItem, AnimationTrigger trigger, GameSound sound)
-        {
-            this.triggeredActions = triggeredActions;
-            this.dstItem = dstItem;
-            this.trigger = trigger;
-            this.sound = sound;
-        }
-    }
 
     public readonly struct DialogConfig
     {

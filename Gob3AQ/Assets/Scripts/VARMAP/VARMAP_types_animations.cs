@@ -8,15 +8,9 @@ namespace Gob3AQ.VARMAP.Types
         ANIMATION_NONE = -1, 
         ANIMATION_LAST, 
         
-ANIMATION_TOTAL
+        ANIMATION_TOTAL
         /* > ATG 1 END < */
     }
 
 
-    public enum AnimationSrcTrigger
-    {
-        SRC_TRIGGER_TIME_FROM_PREV,
-        SRC_TRIGGER_CALLBACK,
-        SRC_TRIGGER_ANIM_END
-    }
 }

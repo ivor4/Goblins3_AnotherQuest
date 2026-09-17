@@ -1,7 +1,6 @@
 ﻿using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameMenu.UICanvas;
-using Gob3AQ.ResourceAnimationsAtlas;
 using Gob3AQ.ResourceDialogs;
 using Gob3AQ.ResourceDialogsAtlas;
 using Gob3AQ.VARMAP.DialogMaster;
@@ -26,108 +25,8 @@ namespace Gob3AQ.DialogMaster
             DIALOG_STATE_LAUNCH_NEXT_DIALOG
         }
 
-        private enum AnimationState
-        {
-            WAITING_TRIGGER,
-            ENDED
-        }
 
-        private class AnimationRuntime
-        {
-            private bool isMainMode;
-            private GameAnimation animation;
-            private int milestoneIndex;
-            private ulong prevMilestoneTimestamp;
-            private AnimationState state;
-            private bool callbackReceived;
-
-            public bool IsMainMode => isMainMode;
-
-            public AnimationRuntime()
-            {
-                Configure(false, GameAnimation.ANIMATION_NONE, 0);
-            }
-
-            public void Configure(bool isMainModeInput, GameAnimation animationInput, ulong startTimestamp)
-            {
-                isMainMode = isMainModeInput;
-                animation = animationInput;
-                prevMilestoneTimestamp = startTimestamp;
-                milestoneIndex = 0;
-                state = AnimationState.WAITING_TRIGGER;
-                callbackReceived = false;
-            }
-
-            public bool Execute(ulong timestamp)
-            {
-                bool ended;
-                ref readonly AnimationConfig animationConfig = ref ResourceAnimationsAtlasClass.GetAnimationConfig(animation);
-                
-
-                ref readonly AnimationMilestoneConfig milestoneConfig = ref animationConfig.Milestones[milestoneIndex];
-
-                switch(state)
-                {
-                    case AnimationState.WAITING_TRIGGER:
-                        ended = false;
-                        bool executeActions;
-                        ulong deltaTime = timestamp - prevMilestoneTimestamp;
-
-                        if (milestoneConfig.srcTrigger == AnimationSrcTrigger.SRC_TRIGGER_TIME_FROM_PREV)
-                        {
-                            executeActions = deltaTime >= milestoneConfig.srcTriggerTime;
-                        }
-                        else if (milestoneConfig.srcTrigger == AnimationSrcTrigger.SRC_TRIGGER_CALLBACK)
-                        {
-                            executeActions = callbackReceived;
-                        }
-                        else
-                        {
-                            /* Some callback for animation end for this case */
-                            executeActions = true;
-                        }
-
-                        if(executeActions)
-                        {
-                            callbackReceived = false;
-                            prevMilestoneTimestamp = timestamp;
-
-                            foreach (AnimationActionConfig actionconfig in milestoneConfig.Actions)
-                            {
-                                VARMAP_DialogMaster.PERFORM_ACTION(actionconfig.TriggeredActions, null);
-                                VARMAP_DialogMaster.ITEM_PERFORM_ANIMATION(actionconfig.dstItem, actionconfig.trigger, null, AnimationEndCallback, false, null, false);
-                                if(actionconfig.sound != GameSound.SOUND_NONE)
-                                {
-                                    VARMAP_DialogMaster.PLAY_SOUND(actionconfig.sound, null, false);
-                                }
-                            }
-
-                            if (milestoneIndex == animationConfig.Milestones.Length - 1)
-                            {
-                                ended = true;
-                                state = AnimationState.ENDED;
-                            }
-                            else
-                            {
-                                ++milestoneIndex;
-                                state = AnimationState.WAITING_TRIGGER;
-                            }
-                        }
-                        break;
-                    
-                    default:
-                        ended = true;
-                    break;
-                }
-
-                return ended;
-            }
-
-            private void AnimationEndCallback()
-            {
-                callbackReceived = true;
-            }
-        }
+       
 
         private static DialogMasterClass _singleton;
 
@@ -157,11 +56,6 @@ namespace Gob3AQ.DialogMaster
         private Dictionary<DialogOption, List<byte>> dialog_randomized_left_indexes;
 
 
-        /// <summary>
-        /// All active animations, used to know if an animation is being played or not
-        /// </summary>
-        private List<AnimationRuntime> animation_activeAnimations;
-        private Queue<AnimationRuntime> animation_freeAnimations;
 
 
         /// <summary>
@@ -215,10 +109,7 @@ namespace Gob3AQ.DialogMaster
         {
             if (!_singleton) return;
 
-            if (!_singleton.animation_freeAnimations.TryDequeue(out AnimationRuntime animationRuntime)) return;
-            
-            animationRuntime.Configure(mainMode, animation, VARMAP_DialogMaster.GET_ELAPSED_TIME_MS());
-            _singleton.animation_activeAnimations.Add(animationRuntime);
+
         }
 
         public static void DialogueSelectOptionService(DialogOption option, DialogPhrase phrase)
@@ -540,16 +431,7 @@ namespace Gob3AQ.DialogMaster
             dialog_input_numTalkers = 0;
         }
 
-        private void Stop_Animations()
-        {
-            for(int i = animation_activeAnimations.Count - 1; i >= 0; --i)
-            {
-                animation_freeAnimations.Enqueue(animation_activeAnimations[i]);
-                animation_activeAnimations.RemoveAt(i);
-            }
 
-            VARMAP_DialogMaster.NOTIFY_ENDED_ACTION(NotifyAction.NOTIFY_ANIMATION);
-        }
 
         private void EndPhrase_Action()
         {
@@ -639,14 +521,6 @@ namespace Gob3AQ.DialogMaster
                 dialog_input_talkers = new GameItem[GameFixedConfig.MAX_DIALOG_TALKERS];
                 dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
                 dialog_randomized_left_indexes = new(GameFixedConfig.MAX_RANDOMIZED_DIALOGS_PER_SCENE);
-
-                animation_activeAnimations = new(GameFixedConfig.MAX_ANIMATIONS_PERFORMING);
-                animation_freeAnimations = new(GameFixedConfig.MAX_ANIMATIONS_PERFORMING);
-
-                for(int i=0; i < GameFixedConfig.MAX_ANIMATIONS_PERFORMING; ++i)
-                {
-                    animation_freeAnimations.Enqueue(new());
-                }
             }
         }
 
@@ -660,27 +534,6 @@ namespace Gob3AQ.DialogMaster
         {
             ulong actualTimestamp = VARMAP_DialogMaster.GET_ELAPSED_TIME_MS();
 
-            /* Animations */
-            bool someAnimationEnded = false;
-
-            for(int i = animation_activeAnimations.Count - 1; i >= 0; --i)
-            {
-                AnimationRuntime activeAnimation = animation_activeAnimations[i];
-                bool ended = activeAnimation.Execute(actualTimestamp);
-
-                if (ended)
-                {
-                    animation_activeAnimations.RemoveAt(i);
-                    animation_freeAnimations.Enqueue(activeAnimation);
-                }
-
-                someAnimationEnded |= ended;
-            }
-
-            if(someAnimationEnded && (animation_activeAnimations.Count == 0))
-            {
-                VARMAP_DialogMaster.NOTIFY_ENDED_ACTION(NotifyAction.NOTIFY_ANIMATION);
-            }
 
             /* Dialogs */
             switch (dialog_actualTaskType)
@@ -763,7 +616,6 @@ namespace Gob3AQ.DialogMaster
                     case Game_Status.GAME_STATUS_CHANGING_ROOM:
                     case Game_Status.GAME_STATUS_PLAY_CARDS:
                         Stop_DialogAndPhrase();
-                        Stop_Animations();
                         dialog_randomized_left_indexes.Clear();
                         break;
 

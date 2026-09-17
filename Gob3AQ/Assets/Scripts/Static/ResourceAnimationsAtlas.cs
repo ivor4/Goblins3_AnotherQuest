@@ -101,37 +101,6 @@ namespace Gob3AQ.ResourceAnimationsAtlas
             
         
 
-        public static ref readonly AnimationConfig GetAnimationConfig(GameAnimation animation)
-        {
-            if ((uint)animation < (uint)GameAnimation.ANIMATION_TOTAL)
-            {
-                return ref _AnimationConfig[(int)animation];
-            }
-            else
-            {
-                Debug.LogError($"Trying to get AnimationConfig for invalid animation {animation}");
-                return ref AnimationConfig.EMPTY;
-            }
-        }
-
-        private static readonly GameAction[] noAction = Array.Empty<GameAction>();
-
-
-        private static readonly AnimationConfig[] _AnimationConfig = new AnimationConfig[(int)GameAnimation.ANIMATION_TOTAL]
-        {
-            /* ANIMATION_LAST */
-            new(new AnimationMilestoneConfig[]
-            {
-                /* Milestone 1 */
-                new(AnimationSrcTrigger.SRC_TRIGGER_ANIM_END, 0f,
-                    new AnimationActionConfig[]
-                    {
-                        new(noAction, GameItem.ITEM_PLAYER_MAIN, AnimationTrigger.ANIMATION_TRIGGER_ONE, GameSound.SOUND_NONE),   /* Action 1 */
-                    }
-                ),
-            }),
-        };
-
 
     }
 }

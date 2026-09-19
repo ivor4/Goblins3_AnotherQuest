@@ -147,6 +147,15 @@ namespace Gob3AQ.VARMAP.Initialization
             _SET_MAP_ACTIVE = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MAP_ACTIVE]).SetValue;
             _REG_MAP_ACTIVE = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MAP_ACTIVE]).RegisterChangeEvent;
             _UNREG_MAP_ACTIVE = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MAP_ACTIVE]).UnregisterChangeEvent;
+            _GET_ELEM_LAB_VALUES = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAB_VALUES]).GetListElem;
+            _GET_SHADOW_ELEM_LAB_VALUES = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAB_VALUES]).GetShadowListElem;
+            _SET_ELEM_LAB_VALUES = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAB_VALUES]).SetListElem;
+            _GET_SIZE_LAB_VALUES = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAB_VALUES]).GetListSize;
+            _GET_ARRAY_LAB_VALUES = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAB_VALUES]).GetListCopy;
+            _GET_SHADOW_ARRAY_LAB_VALUES = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAB_VALUES]).GetShadowListCopy;
+            _SET_ARRAY_LAB_VALUES = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAB_VALUES]).SetListValues;
+            _REG_LAB_VALUES = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAB_VALUES]).RegisterChangeEvent;
+            _UNREG_LAB_VALUES = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAB_VALUES]).UnregisterChangeEvent;
             _GET_LAST_VARMAP_VAL = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL]).GetValue;
             _GET_SHADOW_LAST_VARMAP_VAL = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL]).GetShadowValue;
             _SET_LAST_VARMAP_VAL = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL]).SetValue;
@@ -182,6 +191,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _USE_ITEM = ItemMasterClass.UseItemService;
             _PEEK_ITEM = ItemMasterClass.PeekItemService;
             _TRY_UNCHAIN_CONDITION = GameEventMasterClass.TryUnchainConditionService;
+            _MANAGE_EXT_PICKABLE_ITEM = GameMenuClass.ManageExtPickableItemService;
             _CANCEL_PICKABLE_ITEM = GameMenuClass.CancelPickableItemService;
             _KEY_SUBSCRIPTION = InputMasterClass.KeySubscriptionService;
             _LOCK_PLAYER = PlayerMasterClass.LockPlayerService;

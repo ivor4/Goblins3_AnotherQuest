@@ -34,6 +34,9 @@ namespace Gob3AQ.VARMAP.ItemMaster
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             GET_PLAYER_SELECTED = _GET_PLAYER_SELECTED;
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
+            GET_ELEM_LAB_VALUES = _GET_ELEM_LAB_VALUES;
+            GET_SIZE_LAB_VALUES = _GET_SIZE_LAB_VALUES;
+            GET_ARRAY_LAB_VALUES = _GET_ARRAY_LAB_VALUES;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             ITEM_REGISTER = _ITEM_REGISTER;
@@ -76,6 +79,9 @@ namespace Gob3AQ.VARMAP.ItemMaster
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
         public static GetVARMAPValueDelegate<CharacterType> GET_PLAYER_SELECTED;
         public static GetVARMAPValueDelegate<GameItem> GET_PICKABLE_ITEM_CHOSEN;
+        public static GetVARMAPArrayElemValueDelegate<ulong> GET_ELEM_LAB_VALUES;
+        public static GetVARMAPArraySizeDelegate GET_SIZE_LAB_VALUES;
+        public static GetVARMAPArrayDelegate<ulong> GET_ARRAY_LAB_VALUES;
         /* > ATG 2 END */
 
         /* SERVICES */

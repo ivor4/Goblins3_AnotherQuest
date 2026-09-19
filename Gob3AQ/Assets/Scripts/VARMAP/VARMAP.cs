@@ -145,6 +145,15 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPValueDelegate<bool> _SET_MAP_ACTIVE;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<bool> _REG_MAP_ACTIVE;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<bool> _UNREG_MAP_ACTIVE;
+        protected static GetVARMAPArrayElemValueDelegate<ulong> _GET_ELEM_LAB_VALUES;
+        protected static GetVARMAPArrayElemValueDelegate<ulong> _GET_SHADOW_ELEM_LAB_VALUES;
+        protected static SetVARMAPArrayElemValueDelegate<ulong> _SET_ELEM_LAB_VALUES;
+        protected static GetVARMAPArraySizeDelegate _GET_SIZE_LAB_VALUES;
+        protected static GetVARMAPArrayDelegate<ulong> _GET_ARRAY_LAB_VALUES;
+        protected static GetVARMAPArrayDelegate<ulong> _GET_SHADOW_ARRAY_LAB_VALUES;
+        protected static SetVARMAPArrayDelegate<ulong> _SET_ARRAY_LAB_VALUES;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<ulong> _REG_LAB_VALUES;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<ulong> _UNREG_LAB_VALUES;
         protected static GetVARMAPValueDelegate<bool> _GET_LAST_VARMAP_VAL;
         protected static GetVARMAPValueDelegate<bool> _GET_SHADOW_LAST_VARMAP_VAL;
         protected static SetVARMAPValueDelegate<bool> _SET_LAST_VARMAP_VAL;
@@ -329,6 +338,13 @@ protected static PEEK_ITEM_DELEGATE _PEEK_ITEM;
 /// <para> Method: <see cref="GameEventMasterClass.TryUnchainConditionService"/> </para> 
 /// </summary>
 protected static TRY_UNCHAIN_CONDITION_DELEGATE _TRY_UNCHAIN_CONDITION;
+        /// <summary> 
+/// Uses a pickable item which is not in inventory and makes able interface to use it with another object 
+/// <para> Owner: GameMenu </para> 
+/// <para> Accessors: GameEventMaster </para> 
+/// <para> Method: <see cref="GameMenuClass.ManageExtPickableItemService"/> </para> 
+/// </summary>
+protected static MANAGE_EXT_PICKABLE_ITEM_DELEGATE _MANAGE_EXT_PICKABLE_ITEM;
         /// <summary> 
 /// Cancels selected item 
 /// <para> Owner: GameMenu </para> 

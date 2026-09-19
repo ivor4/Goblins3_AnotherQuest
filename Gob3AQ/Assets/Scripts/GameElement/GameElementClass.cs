@@ -2,6 +2,7 @@ using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameElement.Clickable;
 using Gob3AQ.GameElement.Extension;
+using Gob3AQ.GameElement.Notification;
 using Gob3AQ.ResourceAnimationsAtlas;
 using Gob3AQ.ResourceDialogs;
 using Gob3AQ.ResourceSprites;
@@ -13,6 +14,7 @@ using Gob3AQ.Waypoint.Network;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 namespace Gob3AQ.GameElement
 {
@@ -24,7 +26,7 @@ namespace Gob3AQ.GameElement
     }
     
     [System.Serializable]
-    public class GameElementClass : MonoBehaviour, IGameObjectHoverable, IAnimatorListener
+    public class GameElementClass : MonoBehaviour, IGameObjectHoverable, IAnimatorListener, INotificationReceiver
     {
         private struct WaypointProgrammedPath
         {
@@ -566,6 +568,17 @@ namespace Gob3AQ.GameElement
             }
         }
 
+        public void OnNotify(Playable origin, INotification notification, object context)
+        {
+            _ = origin;
+            _ = context;
+
+            if(notification is ChangeSortingEmiter sortingEmiter)
+            {
+                mySpriteRenderer.sortingLayerID = ResourceSpritesClass.SpriteSortingLayerArray[(int)sortingEmiter.sortingLayer].id;
+            }
+        }
+
         private void ActivateTrigger(AnimationTrigger trigger)
         {
             if (storedPendingSteadyTrigger.HasValue)
@@ -783,5 +796,7 @@ namespace Gob3AQ.GameElement
         {
             return ref hoverInfo;
         }
+
+        
     }
 }

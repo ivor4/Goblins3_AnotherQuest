@@ -69,7 +69,7 @@ class CodeGenContext:
         self.delegate_update = ATGFile(config.DELEGATEUPDATE_PATH, 2)
         self.savedata = ATGFile(config.SAVEDATA_PATH, 1)
         
-        self.auto_types = ATGFile(config.AUTO_TYPES_PATH, 7)
+        self.auto_types = ATGFile(config.AUTO_TYPES_PATH, 8)
         self.dialog_types = ATGFile(config.DIALOG_TYPES_PATH, 3)
         self.decision_types = ATGFile(config.DECISION_TYPES_PATH, 2)
         self.rooms_types = ATGFile(config.ROOMS_TYPES_PATH, 1)

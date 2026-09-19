@@ -68,6 +68,7 @@ PREFIXES = {
     'animation': 'GameAnimation.',
     'detail': 'DetailType.',
     'unchain_cond': 'UnchainConditions.',
+    'customFn': 'CustomFunction.',
     'cardgame': 'CardGameID.',
     'room': 'Room.'
 }

@@ -63,6 +63,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             MOVE_ITEM_TO_WAYPOINT = _MOVE_ITEM_TO_WAYPOINT;
             ACTION_TO_ITEM = _ACTION_TO_ITEM;
             TRY_UNCHAIN_CONDITION = _TRY_UNCHAIN_CONDITION;
+            MANAGE_EXT_PICKABLE_ITEM = _MANAGE_EXT_PICKABLE_ITEM;
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
             SHOW_DIALOGUE = _SHOW_DIALOGUE;
             SHOW_DECISION = _SHOW_DECISION;
@@ -190,6 +191,13 @@ public static ACTION_TO_ITEM_DELEGATE ACTION_TO_ITEM;
 /// <para> Method: <see cref="GameEventMasterClass.TryUnchainConditionService"/> </para> 
 /// </summary>
 public static TRY_UNCHAIN_CONDITION_DELEGATE TRY_UNCHAIN_CONDITION;
+        /// <summary> 
+/// Uses a pickable item which is not in inventory and makes able interface to use it with another object 
+/// <para> Owner: GameMenu </para> 
+/// <para> Accessors: GameEventMaster </para> 
+/// <para> Method: <see cref="GameMenuClass.ManageExtPickableItemService"/> </para> 
+/// </summary>
+public static MANAGE_EXT_PICKABLE_ITEM_DELEGATE MANAGE_EXT_PICKABLE_ITEM;
         /// <summary> 
 /// Asks Game Master to set game mode 
 /// <para> Owner: GameMaster </para> 

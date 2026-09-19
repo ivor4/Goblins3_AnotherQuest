@@ -50,7 +50,10 @@ namespace Gob3AQ.GameMenu
         private DetailType detail_loaded;
 
         
-
+        public static void ManageExtPickableItemService(GameItem item)
+        {
+            VARMAP_GameMenu.SET_PICKABLE_ITEM_CHOSEN(item);
+        }
 
         public static void CancelPickableItemService()
         {

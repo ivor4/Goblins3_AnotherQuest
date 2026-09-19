@@ -1,3 +1,4 @@
+using Gob3AQ.Brain.CustomFunctions;
 using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.Brain.LevelOptions;
 using Gob3AQ.FixedConfig;
@@ -85,10 +86,7 @@ namespace Gob3AQ.GameEventMaster
         private MementoStatus[] _mementoParentStatusArray;
         private IReadOnlyList<WaypointInfo> _WP_Info;
 
-        private static readonly IReadOnlyDictionary<string, Action> CUSTOM_FN_DICT = new Dictionary<string, Action>()
-        {
-
-        };
+        
 
 
         public static void GetMementosStatusService(out ReadOnlySpan<MementoStatus> statusSpan, out ReadOnlySpan<MementoStatus> parentStatusSpan)
@@ -957,15 +955,7 @@ namespace Gob3AQ.GameEventMaster
                         }
                         break;
                     case ActionType.ACTION_TYPE_EXEC_CUSTOM_FN:
-                        if(CUSTOM_FN_DICT.TryGetValue(info.targetWaypointTag, out Action fn))
-                        {
-                            mustWait = info.waitForEnd;
-                            fn?.Invoke();
-                        }
-                        else
-                        {
-                            Debug.LogError($"Error calling custom function {info.targetWaypointTag}");
-                        }
+                        CustomFunctionsClass.CUSTOM_FN_DICT[info.customFunction]?.Invoke();
                         break;
                     case ActionType.ACTION_TYPE_SET_ZOOM_REGION:
                         GameObject foundZoomObject = GameObject.Find(info.targetWaypointTag);
@@ -991,6 +981,12 @@ namespace Gob3AQ.GameEventMaster
                         {
                             VARMAP_GameEventMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out error);
                             mustWait = info.waitForEnd & !error;
+                            break;
+                        }
+
+                    case ActionType.ACTION_TYPE_PICK_EXT_PICKABLE:
+                        {
+                            VARMAP_GameEventMaster.MANAGE_EXT_PICKABLE_ITEM(info.targetItem);
                             break;
                         }
 

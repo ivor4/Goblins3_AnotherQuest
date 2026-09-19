@@ -17,6 +17,8 @@ namespace Gob3AQ.ResourceSprites
 {
     public static class ResourceSpritesClass
     {
+        public static ReadOnlySpan<SortingLayer> SpriteSortingLayerArray => _spriteSortingLayerArray;
+        private static SortingLayer[] _spriteSortingLayerArray;
         private static Dictionary<GameSprite, AsyncOperationHandle<Sprite>> _cachedHandles;
         private static HashSet<GameSprite> _spritesToLoadArray;
         private static HashSet<GameSprite> _spritesToRelease;
@@ -29,6 +31,8 @@ namespace Gob3AQ.ResourceSprites
             _cachedHandles = new(GameFixedConfig.MAX_CACHED_SPRITES);
             _spritesToLoadArray = new(GameFixedConfig.MAX_CACHED_SPRITES);
             _spritesToRelease = new(GameFixedConfig.MAX_CACHED_SPRITES);
+
+            _spriteSortingLayerArray = SortingLayer.layers;
 
             HashSet<GameSprite> editableHash = new(GameFixedConfig.MAX_CACHED_SPRITES)
             {

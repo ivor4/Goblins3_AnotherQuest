@@ -19,4 +19,5 @@
 17,BUSY_STATE,BusyState,0,0,BusyState.GAME_NOT_BUSY,N,,R,-,R,-,-,R,R,-,-,-,W
 18,CHAPTER_SHOW_NR,int,0,0,0,N,,-,-,W,-,-,R,-,-,-,-,-
 19,MAP_ACTIVE,bool,0,0,false,N,,W,-,R,-,-,R,-,-,-,-,-
-20,LAST_VARMAP_VAL,bool,0,0,false,N,,W,-,-,-,-,-,-,-,-,-,-
+20,LAB_VALUES,ulong,0,16,0UL,N,,-,-,W,-,-,-,-,-,R,-,-
+21,LAST_VARMAP_VAL,bool,0,0,false,N,,W,-,-,-,-,-,-,-,-,-,-

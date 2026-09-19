@@ -319,6 +319,7 @@ def process_auto_types(ctx: CodeGenContext):
             elif zone == 4: ctx.auto_types.insert_line(zone, 'ACTION_TYPE_TOTAL\n')
             elif zone == 5: ctx.auto_types.insert_line(zone, 'DIALOG_ANIMATION_TOTAL\n')
             elif zone == 6: ctx.auto_types.insert_line(zone, 'ITEM_FAMILY_TYPE_TOTAL\n')
+            elif zone == 7: ctx.auto_types.insert_line(zone, 'MOMENT_TOTAL\n')
             zone += 1
             ignoreNext = True
             continue
@@ -326,7 +327,8 @@ def process_auto_types(ctx: CodeGenContext):
         name = f"{cols[1]} = -1" if 'NONE' in cols[1] else cols[1]
         ctx.auto_types.insert_line(zone, f"{name}, \n")
         
-    ctx.auto_types.insert_line(7, '\nMOMENT_TOTAL\n')
+    ctx.auto_types.insert_line(8, '\n')
+    ctx.auto_types.insert_line(8, 'CUSTOM_FUNCTION_TOTAL\n')
 
 
 def process_action_conds(ctx: CodeGenContext):
@@ -383,7 +385,9 @@ def process_action_conds(ctx: CodeGenContext):
             events = parse_events(cols[8])
             ctx.items_interact.insert_line(9, f"new GameEventCombi[{len(cols[8].split('|'))}]{{{events}}}, \n")
             
-            ctx.items_interact.insert_line(9, f"{PREFIXES['decision']}{cols[9]},{PREFIXES['moment']}{cols[10]},{PREFIXES['dialog']}{cols[11]},{PREFIXES['dialog_opt']}{cols[12]},{PREFIXES['phrase']}{cols[13]},{PREFIXES['anim_trigger']}{cols[14]},{PREFIXES['animation']}{cols[15]},{PREFIXES['sound']}{cols[16]},{PREFIXES['room']}{cols[17]},\"{cols[18]}\",{cols[19].lower().replace('none','null')},{cols[20].lower().replace('none','null')},{cols[21]},{cols[22]},{PREFIXES['cardgame']}{cols[23]}), \n\n")
+            ctx.items_interact.insert_line(9, f"{PREFIXES['decision']}{cols[9]},{PREFIXES['moment']}{cols[10]},{PREFIXES['dialog']}{cols[11]},{PREFIXES['dialog_opt']}{cols[12]},"+\
+                f"{PREFIXES['phrase']}{cols[13]},{PREFIXES['anim_trigger']}{cols[14]},{PREFIXES['animation']}{cols[15]},{PREFIXES['sound']}{cols[16]},{PREFIXES['room']}{cols[17]},\"{cols[18]}\","+\
+                f"{cols[19].lower().replace('none','null')},{cols[20].lower().replace('none','null')},{cols[21]},{cols[22]},{PREFIXES['customFn']}{cols[23]},{PREFIXES['cardgame']}{cols[24]}), \n\n")
 
     ctx.items_types.insert_line(5, '\nACTION_TOTAL\n')
 
@@ -402,22 +406,22 @@ def process_items(ctx: CodeGenContext):
         if 'NONE' not in name:
             is_pickable = 'true' in cols[6].lower()
             pickname = name.replace('ITEM_', 'ITEM_PICK_') if is_pickable else 'ITEM_PICK_NONE'
-            is_prefab_detail = 'true' in cols[10].lower()
+            is_prefab_detail = 'true' in cols[11].lower()
             
             if is_pickable:
                 ctx.items_types.insert_line(2, f"{pickname}, \n")
                 ctx.items_interact.insert_line(4, f"{PREFIXES['item']}{name},\t/* {pickname} */\n")
-                ctx.items_interact.insert_line(5, f"{PREFIXES['sprite']}{cols[8]},\t/* {pickname} */\n")
+                ctx.items_interact.insert_line(5, f"{PREFIXES['sprite']}{cols[9]},\t/* {pickname} */\n")
             
             ctx.items_interact.insert_line(3, f"new ( /* {name} */\n")
             
             sprites = build_array_str(cols[4].split('|'), PREFIXES['sprite'])
             ctx.items_interact.insert_line(3, f"{PREFIXES['name']}{cols[2]},{PREFIXES['family']}{cols[3]},new(new HashSet<GameSprite>({len(cols[4].split('|'))}){{{sprites}}}),\n")
             
-            ctx.items_interact.insert_line(3, f"{PREFIXES['sprite']}{cols[5]},{str(is_pickable).lower()},{cols[7].lower()},{PREFIXES['sprite']}{cols[8]},{PREFIXES['pickable']}{pickname},{PREFIXES['detail']}{cols[9]},{str(is_prefab_detail).lower()},\n")
+            ctx.items_interact.insert_line(3, f"{PREFIXES['sprite']}{cols[5]},{str(is_pickable).lower()},{cols[7].lower()},{cols[8].lower()},{PREFIXES['sprite']}{cols[9]},{PREFIXES['pickable']}{pickname},{PREFIXES['detail']}{cols[10]},{str(is_prefab_detail).lower()},\n")
             
-            conds = build_array_str(cols[11].split('|'), PREFIXES['cond'])
-            ctx.items_interact.insert_line(3, f"new(new HashSet<ActionConditions>({len(cols[11].split('|'))}){{{conds}}})),\n\n")
+            conds = build_array_str(cols[12].split('|'), PREFIXES['cond'])
+            ctx.items_interact.insert_line(3, f"new(new HashSet<ActionConditions>({len(cols[12].split('|'))}){{{conds}}})),\n\n")
             
     ctx.items_types.insert_line(1, "\nITEM_TOTAL\n")
     ctx.items_types.insert_line(2, "\nITEM_PICK_TOTAL\n")

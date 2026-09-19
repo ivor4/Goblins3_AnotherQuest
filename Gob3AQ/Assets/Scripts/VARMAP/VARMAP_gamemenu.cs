@@ -64,6 +64,7 @@ namespace Gob3AQ.VARMAP.GameMenu
             GET_MEMENTO_STATUS = _GET_MEMENTO_STATUS;
             MEMENTO_PARENT_WATCHED = _MEMENTO_PARENT_WATCHED;
             USE_ITEM = _USE_ITEM;
+            MANAGE_EXT_PICKABLE_ITEM = _MANAGE_EXT_PICKABLE_ITEM;
             CANCEL_PICKABLE_ITEM = _CANCEL_PICKABLE_ITEM;
             KEY_SUBSCRIPTION = _KEY_SUBSCRIPTION;
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
@@ -193,6 +194,13 @@ public static MEMENTO_PARENT_WATCHED_DELEGATE MEMENTO_PARENT_WATCHED;
 /// <para> Method: <see cref="ItemMasterClass.UseItemService"/> </para> 
 /// </summary>
 public static USE_ITEM_DELEGATE USE_ITEM;
+        /// <summary> 
+/// Uses a pickable item which is not in inventory and makes able interface to use it with another object 
+/// <para> Owner: GameMenu </para> 
+/// <para> Accessors: GameEventMaster </para> 
+/// <para> Method: <see cref="GameMenuClass.ManageExtPickableItemService"/> </para> 
+/// </summary>
+public static MANAGE_EXT_PICKABLE_ITEM_DELEGATE MANAGE_EXT_PICKABLE_ITEM;
         /// <summary> 
 /// Cancels selected item 
 /// <para> Owner: GameMenu </para> 

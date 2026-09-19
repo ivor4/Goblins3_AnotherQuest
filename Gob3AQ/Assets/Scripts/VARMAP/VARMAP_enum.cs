@@ -23,6 +23,7 @@ namespace Gob3AQ.VARMAP.Enum
         VARMAP_ID_BUSY_STATE,
         VARMAP_ID_CHAPTER_SHOW_NR,
         VARMAP_ID_MAP_ACTIVE,
+        VARMAP_ID_LAB_VALUES,
         VARMAP_ID_LAST_VARMAP_VAL,
         VARMAP_ID_TOTAL
         /* > ATG 1 END < */

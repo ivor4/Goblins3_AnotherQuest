@@ -40,6 +40,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c3a48e8e52a48f4a9cd20df6328a4d4
+    m_Address: MATERIAL_LAB_LIQUID_SPRITE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0cb01fc3c6f5ad84587a701b8ffcdfc3
     m_Address: SPRITE_WINDOW_GIANT_ROACH
     m_ReadOnly: 0
@@ -376,7 +381,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7cbf65ec58904584d85ed974ca6129ac
-    m_Address: MATERIAL_LAB_LIQUID
+    m_Address: MATERIAL_LAB_LIQUID_FLOORWASHER
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -557,6 +562,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b42477c4269805d40af503cfacfd5235
     m_Address: SOUND_OBSERVE_ITEM_OLIVE_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b5f633163b7dd0c4dbdb1b0dc2e87810
+    m_Address: SPRITE_LIQUID_BASE
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

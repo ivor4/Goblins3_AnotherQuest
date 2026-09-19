@@ -128,6 +128,30 @@ namespace Gob3AQ.VARMAP.Types
         WAYPOINT_ID_TUPLE_TAG,
     }
 
+    public enum NotifSortingLayer
+    {
+        Background,
+        Default,
+        Char_Items_Bckg,
+        Char_Items_Bckg_2,
+        Char_Items,
+        Char_Items_Frgrnd,
+        Foreground,
+        UI
+    }
+
+    public enum LabLiquid
+    {
+        LAB_LIQUID_NONE = -1,
+        LAB_LIQUID_FLOORWASHER,
+        LAB_LIQUID_DETERGENT,
+        LAB_LIQUID_INSECTICIDE,
+        LAB_LIQUID_VARNISH,
+        LAB_LIQUID_RUST,
+
+        LAB_LIQUID_TOTAL
+    }
+
     public readonly struct PushNotificationInfo
     {
         public readonly PushNotificationType notifType;
@@ -457,6 +481,7 @@ namespace Gob3AQ.VARMAP.Types
         public readonly GameSprite defaultSprite;
         public readonly bool isPickable;
         public readonly bool isIdea;
+        public readonly bool isExtUsable;
         public readonly GameSprite pickableSprite;
         public readonly GamePickableItem pickableItem;
         public readonly DetailType detailType;
@@ -466,11 +491,11 @@ namespace Gob3AQ.VARMAP.Types
 
 
         public static readonly ItemInfo EMPTY = new(NameType.NAME_NONE,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(0)),
-            GameSprite.SPRITE_NONE,false,false,GameSprite.SPRITE_NONE, GamePickableItem.ITEM_PICK_NONE,
+            GameSprite.SPRITE_NONE,false,false,false,GameSprite.SPRITE_NONE, GamePickableItem.ITEM_PICK_NONE,
             DetailType.PREFAB_NONE, false, new(new HashSet<ActionConditions>(0)));
 
         public ItemInfo(NameType name, GameItemFamily family, ReadOnlyHashSet<GameSprite> sprites,
-            GameSprite defaultSprite, bool isPickable, bool isIdea, GameSprite pickableSprite, GamePickableItem pickableItem,
+            GameSprite defaultSprite, bool isPickable, bool isIdea, bool isExtUsable, GameSprite pickableSprite, GamePickableItem pickableItem,
             DetailType detailType, bool isPrefabDetail, ReadOnlyHashSet<ActionConditions> conditions)
         {
             this.name = name;
@@ -479,6 +504,7 @@ namespace Gob3AQ.VARMAP.Types
             this.defaultSprite = defaultSprite;
             this.isPickable = isPickable;
             this.isIdea = isIdea;
+            this.isExtUsable = isExtUsable;
             this.pickableSprite = pickableSprite;
             this.pickableItem = pickableItem;
             this.detailType = detailType;
@@ -581,6 +607,7 @@ namespace Gob3AQ.VARMAP.Types
         public readonly bool? boolOption2;
         public readonly int intOption1;
         public readonly int delayTicks;
+        public readonly CustomFunction customFunction;
         public readonly CardGameID targetCardGame;
 
         public ReadOnlySpan<GameEventCombi> TargetEvents => targetEvents;
@@ -590,18 +617,18 @@ namespace Gob3AQ.VARMAP.Types
             return new ActionInfo(false, ActionType.ACTION_TYPE_DESPAWN, targetItem, GameSprite.SPRITE_NONE,
                 CharacterType.CHARACTER_NONE, Memento.MEMENTO_NONE, new GameEventCombi[0], DecisionType.DECISION_NONE,
                 MomentType.MOMENT_ANY, DialogType.DIALOG_NONE, DialogOption.DIALOG_OPTION_NONE, DialogPhrase.PHRASE_NONE, AnimationTrigger.ANIMATION_TRIGGER_ZERO, GameAnimation.ANIMATION_NONE, GameSound.SOUND_NONE,
-                Room.ROOM_NONE, string.Empty, null, null, 0, 0, CardGameID.CARD_GAME_NONE);
+                Room.ROOM_NONE, string.Empty, null, null, 0, 0, CustomFunction.CUSTOM_FUNCTION_NONE, CardGameID.CARD_GAME_NONE);
         }
 
         public static readonly ActionInfo EMPTY = new(false, ActionType.ACTION_TYPE_NONE, GameItem.ITEM_NONE, GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE, Memento.MEMENTO_NONE, new GameEventCombi[0], DecisionType.DECISION_NONE,
             MomentType.MOMENT_ANY, DialogType.DIALOG_NONE, DialogOption.DIALOG_OPTION_NONE, DialogPhrase.PHRASE_NONE, AnimationTrigger.ANIMATION_TRIGGER_ZERO, GameAnimation.ANIMATION_NONE, GameSound.SOUND_NONE,
-            Room.ROOM_NONE, string.Empty, null, null, 0, 0, CardGameID.CARD_GAME_NONE);
+            Room.ROOM_NONE, string.Empty, null, null, 0, 0, CustomFunction.CUSTOM_FUNCTION_NONE, CardGameID.CARD_GAME_NONE);
 
         public ActionInfo(bool waitForEnd, ActionType type, GameItem targetItem, GameSprite targetSprite, CharacterType targetCharacter, Memento targetMemento,
             GameEventCombi[] targetEvents, DecisionType targetDecision, MomentType targetMomentOfDay, DialogType targetDialog, DialogOption targetDialogOption,
             DialogPhrase targetPhrase, AnimationTrigger animTrigger, GameAnimation targetAnimation, GameSound targetSound, Room targetRoom, string targetWaypointTag,
-            bool? boolOption1, bool? boolOption2, int intOption1, int delayTicks, CardGameID targetCardGame)
+            bool? boolOption1, bool? boolOption2, int intOption1, int delayTicks, CustomFunction customFunction, CardGameID targetCardGame)
         {
             this.waitForEnd = waitForEnd;
             this.type = type;
@@ -624,6 +651,7 @@ namespace Gob3AQ.VARMAP.Types
             this.boolOption2 = boolOption2;
             this.intOption1 = intOption1;
             this.delayTicks = delayTicks;
+            this.customFunction = customFunction;
             this.targetCardGame = targetCardGame;
         }
     }

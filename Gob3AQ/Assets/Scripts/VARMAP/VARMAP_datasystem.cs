@@ -205,6 +205,7 @@ namespace Gob3AQ.VARMAP.Initialization
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_BUSY_STATE] = new VARMAP_Variable<BusyState>(VARMAP_Variable_ID.VARMAP_ID_BUSY_STATE, VARMAP_parsers.BusyState_ParseFromBytes, VARMAP_parsers.BusyState_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_CHAPTER_SHOW_NR] = new VARMAP_Variable<int>(VARMAP_Variable_ID.VARMAP_ID_CHAPTER_SHOW_NR, VARMAP_parsers.int_ParseFromBytes, VARMAP_parsers.int_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MAP_ACTIVE] = new VARMAP_Variable<bool>(VARMAP_Variable_ID.VARMAP_ID_MAP_ACTIVE, VARMAP_parsers.bool_ParseFromBytes, VARMAP_parsers.bool_ParseToBytes);
+            DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAB_VALUES] = new VARMAP_Array<ulong>(VARMAP_Variable_ID.VARMAP_ID_LAB_VALUES, 16, VARMAP_parsers.ulong_ParseFromBytes, VARMAP_parsers.ulong_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL] = new VARMAP_Variable<bool>(VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL, VARMAP_parsers.bool_ParseFromBytes, VARMAP_parsers.bool_ParseToBytes);
             /* > ATG 1 END < */
 

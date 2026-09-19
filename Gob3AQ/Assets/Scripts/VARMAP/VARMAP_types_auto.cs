@@ -60,6 +60,7 @@ namespace Gob3AQ.VARMAP.Types
         ACTION_TYPE_UNCLICKABLE, 
         ACTION_TYPE_INVISIBLE, 
         ACTION_TYPE_VISIBLE, 
+        ACTION_TYPE_PICK_EXT_PICKABLE, 
         ACTION_TYPE_SET_SPRITE, 
         ACTION_TYPE_TRIGGER_ITEM_ANIMATION, 
         ACTION_TYPE_EARN_ITEM, 
@@ -170,9 +171,19 @@ namespace Gob3AQ.VARMAP.Types
         MOMENT_NIGHT, 
         MOMENT_ANY, 
         
-MOMENT_TOTAL
+        MOMENT_TOTAL
         /* > ATG 7 END < */
+    }
 
+    public enum CustomFunction
+    {
+        /* > ATG 8 START < */
+        CUSTOM_FUNCTION_NONE = -1, 
+        CUSTOM_FUNCTION_LAB_ADD_FLOORWASHER, 
+        CUSTOM_FUNCTION_LAST, 
+        
+        CUSTOM_FUNCTION_TOTAL
+        /* > ATG 8 END < */
     }
 
 

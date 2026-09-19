@@ -1,4 +1,4 @@
-Shader "Custom/LabLiquidShader"
+Shader "Custom/LabLiquidParticleShader"
 {
     Properties
     {

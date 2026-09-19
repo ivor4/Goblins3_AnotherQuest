@@ -555,7 +555,7 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_HIVE1_LAB}), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(7){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_LAB_MAGAZINE, GameItem.ITEM_PICKABLE_LAB_FLOORWASHER, GameItem.ITEM_PICKABLE_LAB_DETERGENT, GameItem.ITEM_PICKABLE_LAB_INSECTICIDE, GameItem.ITEM_PICKABLE_LAB_VARNISH, GameItem.ITEM_LAB_JUG}), 
             new ReadOnlyHashSet<DetailType>(new HashSet<DetailType>(1){DetailType.PREFAB_NONE}), 
-            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_ROOM_PUZZLE}), 
+            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(2){GameSound.MUSIC_ROOM_PUZZLE, GameSound.SOUND_LIQUID_POUR_JUG}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 

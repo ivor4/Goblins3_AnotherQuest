@@ -375,6 +375,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7cbf65ec58904584d85ed974ca6129ac
+    m_Address: MATERIAL_LAB_LIQUID
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7f4419f28ee964046a78997d68c7dd23
     m_Address: SOUND_MAINCHAR_RECAP_DREAM_1_SPANISH
     m_ReadOnly: 0
@@ -587,6 +592,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: baad7b8d02b026242bd11b2ece9106c0
     m_Address: ANIMATION_REME_TALKING_ENTRY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bad3b82b500d9fe4db302b6dd196fec5
+    m_Address: SOUND_LIQUID_POUR_JUG
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

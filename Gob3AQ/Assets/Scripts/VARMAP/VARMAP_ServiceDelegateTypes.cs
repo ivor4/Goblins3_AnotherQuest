@@ -8,6 +8,7 @@ using Gob3AQ.Waypoint.Network;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 namespace Gob3AQ.VARMAP.Types.Delegates
 {
@@ -41,6 +42,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void ITEM_REGISTER_DELEGATE(bool register, GameElementClass instance);
     public delegate void MONO_REGISTER_DELEGATE(PlayableCharScript mono, bool add);
     public delegate void DOOR_REGISTER_DELEGATE(GameItem doorItem, bool add, in DoorInfo doorInfo);
+    public delegate void DIRECTOR_REGISTER_DELEGATE(GameAnimation animation, AnimationDirectorClass director, bool add);
     public delegate void OBTAIN_SCENARIO_ITEMS_DELEGATE(out IReadOnlyDictionary<GameItem, GameElementClass> dict);
     public delegate void PLAYER_WAYPOINT_UPDATE_DELEGATE(CharacterType character, int wpIndex);
     public delegate void GET_WP_LIST_DELEGATE(out IReadOnlyList<WaypointInfo> infos);
@@ -67,7 +69,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void LOAD_ADDITIONAL_SOUND_DELEGATE(bool load, GameSound sound, Action<AudioClip> callback);
     public delegate void PLAY_SOUND_DELEGATE(GameSound sound, Action callback, bool loop);
     public delegate void STOP_SOUND_DELEGATE(GameSound sound);
-    public delegate void START_ANIMATION_DELEGATE(GameAnimation animation, bool mainMode);
+    public delegate void START_ANIMATION_DELEGATE(GameAnimation animation);
     public delegate void ITEM_PERFORM_ANIMATION_DELEGATE(GameItem item, AnimationTrigger trigger, Action startCallback, Action endCallback, bool storeSteadyOnly, bool? doFlipX, bool immediate);
     public delegate void PERFORM_ACTION_DELEGATE(ReadOnlySpan<GameAction> actions, Action callback);
     public delegate void IS_DIALOG_ACTIVE_DELEGATE(out bool active);

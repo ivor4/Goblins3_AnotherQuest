@@ -772,7 +772,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: c98101bfe67d337449798a73cd5d9b6d, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -808,9 +808,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 388668120}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2588cfcc7b7ee44e87f7e0c754ac1cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 071171ea34d49334998950ccc0e089b5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: GameCode::Gob3AQ.GameElement.Notification.SoundNotificationReceiver
+  m_EditorClassIdentifier: GameCode::AnimationDirectorClass
+  ownedAnimation: 0
 --- !u!1 &782968366
 GameObject:
   m_ObjectHideFlags: 0

@@ -206,6 +206,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _PLAY_SOUND = SoundMasterClass.PlaySoundService;
             _STOP_SOUND = SoundMasterClass.StopSoundService;
             _START_ANIMATION = DialogMasterClass.StartAnimationService;
+            _DIRECTOR_REGISTER = DialogMasterClass.DirectorRegisterService;
             _ITEM_PERFORM_ANIMATION = ItemMasterClass.PerformAnimationService;
             _PERFORM_ACTION = GameEventMasterClass.PerformActionService;
             _IS_DIALOG_ACTIVE = DialogMasterClass.IsDialogActiveService;

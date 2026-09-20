@@ -40,6 +40,7 @@ namespace Gob3AQ.VARMAP.DialogMaster
             PLAY_SOUND = _PLAY_SOUND;
             STOP_SOUND = _STOP_SOUND;
             START_ANIMATION = _START_ANIMATION;
+            DIRECTOR_REGISTER = _DIRECTOR_REGISTER;
             ITEM_PERFORM_ANIMATION = _ITEM_PERFORM_ANIMATION;
             PERFORM_ACTION = _PERFORM_ACTION;
             IS_DIALOG_ACTIVE = _IS_DIALOG_ACTIVE;
@@ -124,10 +125,17 @@ public static STOP_SOUND_DELEGATE STOP_SOUND;
         /// <summary> 
 /// Starts an animation in background or main mode 
 /// <para> Owner: DialogMaster </para> 
-/// <para> Accessors: ItemMaster, GameEventMaster </para> 
+/// <para> Accessors: GameEventMaster </para> 
 /// <para> Method: <see cref="DialogMasterClass.StartAnimationService"/> </para> 
 /// </summary>
 public static START_ANIMATION_DELEGATE START_ANIMATION;
+        /// <summary> 
+/// Registers a a playable director owner to be accessible when starting animations 
+/// <para> Owner: DialogMaster </para> 
+/// <para> Accessors: ItemMaster </para> 
+/// <para> Method: <see cref="DialogMasterClass.DirectorRegisterService"/> </para> 
+/// </summary>
+public static DIRECTOR_REGISTER_DELEGATE DIRECTOR_REGISTER;
         /// <summary> 
 /// Makes an item start an animation 
 /// <para> Owner: ItemMaster </para> 

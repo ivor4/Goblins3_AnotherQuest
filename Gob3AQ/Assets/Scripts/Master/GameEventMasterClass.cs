@@ -897,7 +897,7 @@ namespace Gob3AQ.GameEventMaster
                     case ActionType.ACTION_TYPE_START_ANIMATION:
                         mustWait = info.waitForEnd;
                         notifyAction = NotifyAction.NOTIFY_ANIMATION;
-                        VARMAP_GameEventMaster.START_ANIMATION(info.targetAnimation, false);
+                        VARMAP_GameEventMaster.START_ANIMATION(info.targetAnimation);
                         break;
                     case ActionType.ACTION_TYPE_PLAY_SOUND:
                         mustWait = info.waitForEnd;

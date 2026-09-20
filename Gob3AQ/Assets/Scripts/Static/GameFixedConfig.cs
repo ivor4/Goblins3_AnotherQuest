@@ -52,7 +52,6 @@ namespace Gob3AQ.FixedConfig
 
 
         /* Performance */
-        public const int MAX_FIXED_SPRITES_TO_LOAD = (int)GamePickableItem.ITEM_PICK_TOTAL + 16;
         public const int MAX_CACHED_SPRITES = 64 + (int)GamePickableItem.ITEM_PICK_TOTAL + (int)Memento.MEMENTO_TOTAL;
         public const int MAX_AD_HOC_SOUNDS = 16;
         public const int MAX_CACHED_PHRASES = 512;
@@ -62,14 +61,11 @@ namespace Gob3AQ.FixedConfig
         public const int MAX_POOLED_ITEMS = 32;
         public const int MAX_BUFFERED_EVENTS = 16;
         public const int MAX_PENDING_UNCHAINERS = 128;
-        public const int MAX_UNCHAINER_CONDITIONS = 4;
         public const int MAX_RAYCASTED_ITEMS = 4;
         public const int MAX_LEVEL_WAYPOINTS = 128;
         public const int MAX_DIALOG_TALKERS = 3;
         public const int MAX_DISPLAYED_PICKED_ITEMS = 15;
-        public const int MAX_DISPLAYED_HOR_PICKED_ITEMS = 4;
-        public const int MAX_SUBSCRIBED_EVENTS_PER_ITEM = 8;
-        public const int MAX_ANIMATIONS_PERFORMING = 16;
+        public const int MAX_ANIMATIONS_PERFORMING = 8;
         public const int MAX_QUEUED_PUSH_NOTIFS = 4;
 
 

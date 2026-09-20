@@ -8,6 +8,7 @@ using Gob3AQ.GameEventMaster;
 using Gob3AQ.GraphicsMaster;
 using Gob3AQ.InputMaster;
 using Gob3AQ.SoundMaster;
+using Gob3AQ.DialogMaster;
 
 namespace Gob3AQ.VARMAP.ItemMaster
 {
@@ -54,7 +55,7 @@ namespace Gob3AQ.VARMAP.ItemMaster
             ZOOM_SUBSCRIPTION = _ZOOM_SUBSCRIPTION;
             PLAY_SOUND = _PLAY_SOUND;
             STOP_SOUND = _STOP_SOUND;
-            START_ANIMATION = _START_ANIMATION;
+            DIRECTOR_REGISTER = _DIRECTOR_REGISTER;
             ITEM_PERFORM_ANIMATION = _ITEM_PERFORM_ANIMATION;
             PERFORM_ACTION = _PERFORM_ACTION;
             GET_ITEM_SPRITE_BOUNDARIES = _GET_ITEM_SPRITE_BOUNDARIES;
@@ -206,12 +207,12 @@ public static PLAY_SOUND_DELEGATE PLAY_SOUND;
 /// </summary>
 public static STOP_SOUND_DELEGATE STOP_SOUND;
         /// <summary> 
-/// Starts an animation in background or main mode 
+/// Registers a a playable director owner to be accessible when starting animations 
 /// <para> Owner: DialogMaster </para> 
-/// <para> Accessors: ItemMaster, GameEventMaster </para> 
-/// <para> Method: <see cref="DialogMasterClass.StartAnimationService"/> </para> 
+/// <para> Accessors: ItemMaster </para> 
+/// <para> Method: <see cref="DialogMasterClass.DirectorRegisterService"/> </para> 
 /// </summary>
-public static START_ANIMATION_DELEGATE START_ANIMATION;
+public static DIRECTOR_REGISTER_DELEGATE DIRECTOR_REGISTER;
         /// <summary> 
 /// Makes an item start an animation 
 /// <para> Owner: ItemMaster </para> 

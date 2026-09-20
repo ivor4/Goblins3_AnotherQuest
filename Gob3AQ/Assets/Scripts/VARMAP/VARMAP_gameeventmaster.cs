@@ -243,7 +243,7 @@ public static STOP_SOUND_DELEGATE STOP_SOUND;
         /// <summary> 
 /// Starts an animation in background or main mode 
 /// <para> Owner: DialogMaster </para> 
-/// <para> Accessors: ItemMaster, GameEventMaster </para> 
+/// <para> Accessors: GameEventMaster </para> 
 /// <para> Method: <see cref="DialogMasterClass.StartAnimationService"/> </para> 
 /// </summary>
 public static START_ANIMATION_DELEGATE START_ANIMATION;

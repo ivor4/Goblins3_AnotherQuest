@@ -8,6 +8,7 @@ using Gob3AQ.VARMAP.Types;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 
 namespace Gob3AQ.DialogMaster
@@ -25,6 +26,14 @@ namespace Gob3AQ.DialogMaster
             DIALOG_STATE_LAUNCH_NEXT_DIALOG
         }
 
+        private enum AnimationTaskType
+        {
+            ANIMATION_STATE_NONE,
+            ANIMATION_STATE_STARTING,
+            ANIMATION_STATE_PERFORMING,
+            ANIMATION_STATE_WAITING_FOR_END
+        }
+
 
        
 
@@ -34,6 +43,10 @@ namespace Gob3AQ.DialogMaster
         private GameObject UICanvas;
 
         private UICanvasClass _uicanvas_cls;
+        private Dictionary<GameAnimation, AnimationDirectorClass> animation_directors;
+        private GameAnimation animation_pendingStart;
+        private GameAnimation animation_actual_performing;
+        private AnimationTaskType animation_actualTaskType;
 
         private GameItem[] dialog_input_talkers;
         private int dialog_input_numTalkers;
@@ -105,11 +118,33 @@ namespace Gob3AQ.DialogMaster
             }
         }
 
-        public static void StartAnimationService(GameAnimation animation, bool mainMode)
+        public static void DirectorRegisterService(GameAnimation animation, AnimationDirectorClass director, bool add)
         {
             if (!_singleton) return;
 
+            if (add)
+            {
+                _singleton.animation_directors.Add(animation, director);
+            }
+            else
+            {
+                _singleton.animation_directors.Remove(animation);
+            }
+        }
 
+        public static void StartAnimationService(GameAnimation animation)
+        {
+            if (!_singleton) return;
+
+            if (_singleton.animation_actualTaskType == AnimationTaskType.ANIMATION_STATE_NONE)
+            {
+                _singleton.animation_pendingStart = animation;
+                _singleton.animation_actualTaskType = AnimationTaskType.ANIMATION_STATE_STARTING;
+            }
+            else
+            {
+                Debug.LogError($"Already performing animation (req: {animation}), actual: {_singleton.animation_actual_performing}");
+            }
         }
 
         public static void DialogueSelectOptionService(DialogOption option, DialogPhrase phrase)
@@ -521,6 +556,7 @@ namespace Gob3AQ.DialogMaster
                 dialog_input_talkers = new GameItem[GameFixedConfig.MAX_DIALOG_TALKERS];
                 dialog_actualTaskType = DialogTaskType.DIALOG_STATE_NONE;
                 dialog_randomized_left_indexes = new(GameFixedConfig.MAX_RANDOMIZED_DIALOGS_PER_SCENE);
+                animation_directors = new(GameFixedConfig.MAX_ANIMATIONS_PERFORMING);
             }
         }
 
@@ -534,6 +570,30 @@ namespace Gob3AQ.DialogMaster
         {
             ulong actualTimestamp = VARMAP_DialogMaster.GET_ELAPSED_TIME_MS();
 
+            /* Animations */
+            switch(animation_actualTaskType)
+            {
+                case AnimationTaskType.ANIMATION_STATE_STARTING:
+                    {
+                        AnimationDirectorClass director = animation_directors[animation_pendingStart];
+                        animation_actual_performing = animation_pendingStart;
+                        animation_pendingStart = GameAnimation.ANIMATION_NONE;
+
+                        director.Play(AnimationEndedCallback);
+
+                        animation_actualTaskType = AnimationTaskType.ANIMATION_STATE_PERFORMING;
+                    }
+                    break;
+
+                case AnimationTaskType.ANIMATION_STATE_WAITING_FOR_END:
+                    animation_actualTaskType = AnimationTaskType.ANIMATION_STATE_NONE;
+                    animation_actual_performing = GameAnimation.ANIMATION_NONE;
+                    VARMAP_DialogMaster.NOTIFY_ENDED_ACTION(NotifyAction.NOTIFY_ANIMATION);
+                    break;
+
+                default:
+                    break;
+            }
 
             /* Dialogs */
             switch (dialog_actualTaskType)
@@ -605,6 +665,14 @@ namespace Gob3AQ.DialogMaster
             }
         }
 
+        private void AnimationEndedCallback()
+        {
+            if(animation_actualTaskType == AnimationTaskType.ANIMATION_STATE_PERFORMING)
+            {
+                animation_actualTaskType = AnimationTaskType.ANIMATION_STATE_WAITING_FOR_END;
+            }
+        }
+
         private void _GameStatusChanged(ChangedEventType evtype, in Game_Status oldval, in Game_Status newval)
         {
             _ = evtype;
@@ -614,6 +682,15 @@ namespace Gob3AQ.DialogMaster
                 switch (newval)
                 {
                     case Game_Status.GAME_STATUS_CHANGING_ROOM:
+                        animation_directors.Clear();
+                        animation_actual_performing = GameAnimation.ANIMATION_NONE;
+                        animation_pendingStart = GameAnimation.ANIMATION_NONE;
+                        animation_actualTaskType = AnimationTaskType.ANIMATION_STATE_NONE;
+
+                        Stop_DialogAndPhrase();
+                        dialog_randomized_left_indexes.Clear();
+                        break;
+
                     case Game_Status.GAME_STATUS_PLAY_CARDS:
                         Stop_DialogAndPhrase();
                         dialog_randomized_left_indexes.Clear();

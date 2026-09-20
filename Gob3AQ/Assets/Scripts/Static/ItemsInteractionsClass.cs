@@ -1234,6 +1234,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,"",
             new GameAction[1]{GameAction.ACTION_PICK_EXTPICKABLE_VARNISH}), 
 
+            new( /* COND_USE_FLOORWASHER_JUG */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_PICKABLE_LAB_FLOORWASHER,ItemInteractionType.INTERACTION_USE,"",
+            new GameAction[1]{GameAction.ACTION_USE_FLOORWASHER_JUG}), 
+
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,"",
@@ -1720,22 +1725,22 @@ namespace Gob3AQ.Brain.ItemsInteraction
 
             new ( /* ITEM_PICKABLE_LAB_FLOORWASHER */
             NameType.NAME_FLOORWASHER,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_HIVE1_LAB_FLOORWASHER}),
-            GameSprite.SPRITE_HIVE1_LAB_FLOORWASHER,false,false,true,GameSprite.SPRITE_HIVE1_LAB_FLOORWASHER,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_HIVE1_LAB_FLOORWASHER,true,false,true,GameSprite.SPRITE_HIVE1_LAB_FLOORWASHER,GamePickableItem.ITEM_PICK_PICKABLE_LAB_FLOORWASHER,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_PICKABLE_LAB_FLOORWASHER, ActionConditions.COND_TAKE_FLOORWASHER})),
 
             new ( /* ITEM_PICKABLE_LAB_DETERGENT */
             NameType.NAME_DETERGENT,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_HIVE1_LAB_DETERGENT}),
-            GameSprite.SPRITE_HIVE1_LAB_DETERGENT,false,false,true,GameSprite.SPRITE_HIVE1_LAB_DETERGENT,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_HIVE1_LAB_DETERGENT,true,false,true,GameSprite.SPRITE_HIVE1_LAB_DETERGENT,GamePickableItem.ITEM_PICK_PICKABLE_LAB_DETERGENT,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_PICKABLE_LAB_DETERGENT, ActionConditions.COND_TAKE_DETERGENT})),
 
             new ( /* ITEM_PICKABLE_LAB_INSECTICIDE */
             NameType.NAME_INSECTICIDE,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_HIVE1_LAB_INSECTICIDE}),
-            GameSprite.SPRITE_HIVE1_LAB_INSECTICIDE,false,false,true,GameSprite.SPRITE_HIVE1_LAB_INSECTICIDE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_HIVE1_LAB_INSECTICIDE,true,false,true,GameSprite.SPRITE_HIVE1_LAB_INSECTICIDE,GamePickableItem.ITEM_PICK_PICKABLE_LAB_INSECTICIDE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_PICKABLE_LAB_INSECTICIDE, ActionConditions.COND_TAKE_INSECTICIDE})),
 
             new ( /* ITEM_PICKABLE_LAB_VARNISH */
             NameType.NAME_VARNISH,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_HIVE1_LAB_VARNISH}),
-            GameSprite.SPRITE_HIVE1_LAB_VARNISH,false,false,true,GameSprite.SPRITE_HIVE1_LAB_VARNISH,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            GameSprite.SPRITE_HIVE1_LAB_VARNISH,true,false,true,GameSprite.SPRITE_HIVE1_LAB_VARNISH,GamePickableItem.ITEM_PICK_PICKABLE_LAB_VARNISH,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_PICKABLE_LAB_VARNISH, ActionConditions.COND_TAKE_VARNISH})),
 
             new ( /* ITEM_RUSTY_SPRING */
@@ -1761,7 +1766,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_LAB_JUG */
             NameType.NAME_MIX_JAR,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(2){GameSprite.SPRITE_JUG_EMPTY, GameSprite.SPRITE_JUG_LIQUID_MASK}),
             GameSprite.SPRITE_JUG_EMPTY,false,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
-            new(new HashSet<ActionConditions>(1){ActionConditions.COND_OBSERVE_ITEM_MIX_JAR})),
+            new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_MIX_JAR, ActionConditions.COND_USE_FLOORWASHER_JUG})),
 
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST}),
@@ -1792,6 +1797,10 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameItem.ITEM_IDEA_FIND_JOB,	/* ITEM_PICK_IDEA_FIND_JOB */
             GameItem.ITEM_IDEA_REME,	/* ITEM_PICK_IDEA_REME */
             GameItem.ITEM_IDEA_ROACHES,	/* ITEM_PICK_IDEA_ROACHES */
+            GameItem.ITEM_PICKABLE_LAB_FLOORWASHER,	/* ITEM_PICK_PICKABLE_LAB_FLOORWASHER */
+            GameItem.ITEM_PICKABLE_LAB_DETERGENT,	/* ITEM_PICK_PICKABLE_LAB_DETERGENT */
+            GameItem.ITEM_PICKABLE_LAB_INSECTICIDE,	/* ITEM_PICK_PICKABLE_LAB_INSECTICIDE */
+            GameItem.ITEM_PICKABLE_LAB_VARNISH,	/* ITEM_PICK_PICKABLE_LAB_VARNISH */
             GameItem.ITEM_RUST_POWDER,	/* ITEM_PICK_RUST_POWDER */
             /* > ATG 4 END < */
         };
@@ -1817,6 +1826,10 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_MEMENTO_JOB,	/* ITEM_PICK_IDEA_FIND_JOB */
             GameSprite.SPRITE_MEMENTO_REME,	/* ITEM_PICK_IDEA_REME */
             GameSprite.SPRITE_MEMENTO_ROACHES,	/* ITEM_PICK_IDEA_ROACHES */
+            GameSprite.SPRITE_HIVE1_LAB_FLOORWASHER,	/* ITEM_PICK_PICKABLE_LAB_FLOORWASHER */
+            GameSprite.SPRITE_HIVE1_LAB_DETERGENT,	/* ITEM_PICK_PICKABLE_LAB_DETERGENT */
+            GameSprite.SPRITE_HIVE1_LAB_INSECTICIDE,	/* ITEM_PICK_PICKABLE_LAB_INSECTICIDE */
+            GameSprite.SPRITE_HIVE1_LAB_VARNISH,	/* ITEM_PICK_PICKABLE_LAB_VARNISH */
             GameSprite.SPRITE_PICKABLE_RUST_POWDER,	/* ITEM_PICK_RUST_POWDER */
             /* > ATG 5 END < */
         };
@@ -4331,6 +4344,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_LAB_ADD_FLOORWASHER,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_ANIMATION_FLOORWASHER_JUG */
+            true,ActionType.ACTION_TYPE_START_ANIMATION,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_FLOORWASHER_JUG,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

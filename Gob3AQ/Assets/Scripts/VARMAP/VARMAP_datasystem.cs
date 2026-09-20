@@ -195,6 +195,7 @@ namespace Gob3AQ.VARMAP.Initialization
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_ACTUAL_WAYPOINT] = new VARMAP_SafeArray<WaypointIdTupleStruct>(VARMAP_Variable_ID.VARMAP_ID_PLAYER_ACTUAL_WAYPOINT, 4, true, WaypointIdTupleStruct.StaticParseFromBytes, WaypointIdTupleStruct.StaticParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_CAMERA_DISPOSITION] = new VARMAP_Variable<CameraDispositionStruct>(VARMAP_Variable_ID.VARMAP_ID_CAMERA_DISPOSITION, CameraDispositionStruct.StaticParseFromBytes, CameraDispositionStruct.StaticParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_DAY_MOMENT] = new VARMAP_Variable<MomentType>(VARMAP_Variable_ID.VARMAP_ID_DAY_MOMENT, VARMAP_parsers.MomentType_ParseFromBytes, VARMAP_parsers.MomentType_ParseToBytes);
+            DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MISC_VALUES] = new VARMAP_Array<ulong>(VARMAP_Variable_ID.VARMAP_ID_MISC_VALUES, 64, VARMAP_parsers.ulong_ParseFromBytes, VARMAP_parsers.ulong_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_HOVER] = new VARMAP_Variable<GameItem>(VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_HOVER, VARMAP_parsers.GameItem_ParseFromBytes, VARMAP_parsers.GameItem_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_GAMESTATUS] = new VARMAP_Variable<Game_Status>(VARMAP_Variable_ID.VARMAP_ID_GAMESTATUS, VARMAP_parsers.Game_Status_ParseFromBytes, VARMAP_parsers.Game_Status_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PRESSED_KEYS] = new VARMAP_Variable<KeyStruct>(VARMAP_Variable_ID.VARMAP_ID_PRESSED_KEYS, KeyStruct.StaticParseFromBytes, KeyStruct.StaticParseToBytes);
@@ -205,7 +206,6 @@ namespace Gob3AQ.VARMAP.Initialization
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_BUSY_STATE] = new VARMAP_Variable<BusyState>(VARMAP_Variable_ID.VARMAP_ID_BUSY_STATE, VARMAP_parsers.BusyState_ParseFromBytes, VARMAP_parsers.BusyState_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_CHAPTER_SHOW_NR] = new VARMAP_Variable<int>(VARMAP_Variable_ID.VARMAP_ID_CHAPTER_SHOW_NR, VARMAP_parsers.int_ParseFromBytes, VARMAP_parsers.int_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MAP_ACTIVE] = new VARMAP_Variable<bool>(VARMAP_Variable_ID.VARMAP_ID_MAP_ACTIVE, VARMAP_parsers.bool_ParseFromBytes, VARMAP_parsers.bool_ParseToBytes);
-            DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAB_VALUES] = new VARMAP_Array<ulong>(VARMAP_Variable_ID.VARMAP_ID_LAB_VALUES, 16, VARMAP_parsers.ulong_ParseFromBytes, VARMAP_parsers.ulong_ParseToBytes);
             DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL] = new VARMAP_Variable<bool>(VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL, VARMAP_parsers.bool_ParseFromBytes, VARMAP_parsers.bool_ParseToBytes);
             /* > ATG 1 END < */
 

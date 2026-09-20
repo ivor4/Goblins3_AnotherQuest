@@ -152,6 +152,26 @@ namespace Gob3AQ.VARMAP.Types
         LAB_LIQUID_TOTAL
     }
 
+    public enum MiscValuesIndex
+    {
+        MISC_VALUE_INDEX_NONE = -1,
+        MISC_VALUE_INDEX_LAB_POURED_PORTIONS,
+        MISC_VALUE_INDEX_LAB_PORTION_VALS,
+
+        MISC_VALUE_INDEX_TOTAL
+    }
+
+    public enum ItemExtensionFunction
+    {
+        ITEM_EXTENSION_FN_NONE = -1,
+        ITEM_EXTENSION_FN_FILL_LIQUID_FIRST_PORTION,
+        ITEM_EXTENSION_FN_FILL_LIQUID_SECOND_PORTION,
+        ITEM_EXTENSION_FN_FILL_LIQUID_THIRD_PORTION,
+        ITEM_EXTENSION_FN_FILL_LIQUID_FOURTH_PORTION,
+
+        ITEM_EXTENSION_FN_TOTAL
+    }
+
     public readonly struct PushNotificationInfo
     {
         public readonly PushNotificationType notifType;

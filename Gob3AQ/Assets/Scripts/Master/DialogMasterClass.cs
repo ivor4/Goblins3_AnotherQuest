@@ -1,5 +1,6 @@
 ﻿using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.FixedConfig;
+using Gob3AQ.GameElement.Animation;
 using Gob3AQ.GameMenu.UICanvas;
 using Gob3AQ.ResourceDialogs;
 using Gob3AQ.ResourceDialogsAtlas;
@@ -8,7 +9,6 @@ using Gob3AQ.VARMAP.Types;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Playables;
 
 
 namespace Gob3AQ.DialogMaster
@@ -578,10 +578,11 @@ namespace Gob3AQ.DialogMaster
                         AnimationDirectorClass director = animation_directors[animation_pendingStart];
                         animation_actual_performing = animation_pendingStart;
                         animation_pendingStart = GameAnimation.ANIMATION_NONE;
+                        animation_actualTaskType = AnimationTaskType.ANIMATION_STATE_PERFORMING;
 
                         director.Play(AnimationEndedCallback);
 
-                        animation_actualTaskType = AnimationTaskType.ANIMATION_STATE_PERFORMING;
+                        VARMAP_DialogMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_ANIMATION, out _);
                     }
                     break;
 
@@ -589,6 +590,8 @@ namespace Gob3AQ.DialogMaster
                     animation_actualTaskType = AnimationTaskType.ANIMATION_STATE_NONE;
                     animation_actual_performing = GameAnimation.ANIMATION_NONE;
                     VARMAP_DialogMaster.NOTIFY_ENDED_ACTION(NotifyAction.NOTIFY_ANIMATION);
+
+                    VARMAP_DialogMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY, out _);
                     break;
 
                 default:
@@ -681,6 +684,7 @@ namespace Gob3AQ.DialogMaster
             {
                 switch (newval)
                 {
+                    case Game_Status.GAME_STATUS_STOPPED:
                     case Game_Status.GAME_STATUS_CHANGING_ROOM:
                         animation_directors.Clear();
                         animation_actual_performing = GameAnimation.ANIMATION_NONE;

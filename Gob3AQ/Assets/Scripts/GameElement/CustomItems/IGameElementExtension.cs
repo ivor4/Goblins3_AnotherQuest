@@ -1,3 +1,4 @@
+using Gob3AQ.VARMAP.Types;
 using UnityEngine;
 
 namespace Gob3AQ.GameElement.Extension
@@ -8,5 +9,6 @@ namespace Gob3AQ.GameElement.Extension
         public void OnSpawn();
         public void OnDespawn();
         public void OnExtensionDestroy();
+        public void OnReceiveExtFn(ItemExtensionFunction extFn);
     }
 }

@@ -30,14 +30,14 @@ namespace Gob3AQ.VARMAP.ItemMaster
             GET_SHADOW_ARRAY_PICKABLE_ITEM_OWNER = _GET_SHADOW_ARRAY_PICKABLE_ITEM_OWNER;
             SET_ARRAY_PICKABLE_ITEM_OWNER = _SET_ARRAY_PICKABLE_ITEM_OWNER;
             GET_DAY_MOMENT = _GET_DAY_MOMENT;
+            GET_ELEM_MISC_VALUES = _GET_ELEM_MISC_VALUES;
+            GET_SIZE_MISC_VALUES = _GET_SIZE_MISC_VALUES;
+            GET_ARRAY_MISC_VALUES = _GET_ARRAY_MISC_VALUES;
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             GET_PLAYER_SELECTED = _GET_PLAYER_SELECTED;
             GET_PICKABLE_ITEM_CHOSEN = _GET_PICKABLE_ITEM_CHOSEN;
-            GET_ELEM_LAB_VALUES = _GET_ELEM_LAB_VALUES;
-            GET_SIZE_LAB_VALUES = _GET_SIZE_LAB_VALUES;
-            GET_ARRAY_LAB_VALUES = _GET_ARRAY_LAB_VALUES;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
             ITEM_REGISTER = _ITEM_REGISTER;
@@ -59,6 +59,7 @@ namespace Gob3AQ.VARMAP.ItemMaster
             ITEM_PERFORM_ANIMATION = _ITEM_PERFORM_ANIMATION;
             PERFORM_ACTION = _PERFORM_ACTION;
             GET_ITEM_SPRITE_BOUNDARIES = _GET_ITEM_SPRITE_BOUNDARIES;
+            EXECUTE_ITEM_EXT_FUNCTION = _EXECUTE_ITEM_EXT_FUNCTION;
             /* > ATG 1 END */
         }
 
@@ -75,14 +76,14 @@ namespace Gob3AQ.VARMAP.ItemMaster
         public static GetVARMAPArrayDelegate<CharacterType> GET_SHADOW_ARRAY_PICKABLE_ITEM_OWNER;
         public static SetVARMAPArrayDelegate<CharacterType> SET_ARRAY_PICKABLE_ITEM_OWNER;
         public static GetVARMAPValueDelegate<MomentType> GET_DAY_MOMENT;
+        public static GetVARMAPArrayElemValueDelegate<ulong> GET_ELEM_MISC_VALUES;
+        public static GetVARMAPArraySizeDelegate GET_SIZE_MISC_VALUES;
+        public static GetVARMAPArrayDelegate<ulong> GET_ARRAY_MISC_VALUES;
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
         public static GetVARMAPValueDelegate<CharacterType> GET_PLAYER_SELECTED;
         public static GetVARMAPValueDelegate<GameItem> GET_PICKABLE_ITEM_CHOSEN;
-        public static GetVARMAPArrayElemValueDelegate<ulong> GET_ELEM_LAB_VALUES;
-        public static GetVARMAPArraySizeDelegate GET_SIZE_LAB_VALUES;
-        public static GetVARMAPArrayDelegate<ulong> GET_ARRAY_LAB_VALUES;
         /* > ATG 2 END */
 
         /* SERVICES */
@@ -234,6 +235,13 @@ public static PERFORM_ACTION_DELEGATE PERFORM_ACTION;
 /// <para> Method: <see cref="ItemMasterClass.GetItemBoundariesService"/> </para> 
 /// </summary>
 public static GET_ITEM_SPRITE_BOUNDARIES_DELEGATE GET_ITEM_SPRITE_BOUNDARIES;
+        /// <summary> 
+/// Executes for a IGameElementExtension a named function 
+/// <para> Owner: ItemMaster </para> 
+/// <para> Accessors: GameEventMaster </para> 
+/// <para> Method: <see cref="ItemMasterClass.ExecuteItemExtFunctionService"/> </para> 
+/// </summary>
+public static EXECUTE_ITEM_EXT_FUNCTION_DELEGATE EXECUTE_ITEM_EXT_FUNCTION;
         /* > ATG 3 END */
     }
 }

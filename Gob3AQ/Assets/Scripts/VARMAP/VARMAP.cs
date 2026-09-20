@@ -95,6 +95,15 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPValueDelegate<MomentType> _SET_DAY_MOMENT;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<MomentType> _REG_DAY_MOMENT;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<MomentType> _UNREG_DAY_MOMENT;
+        protected static GetVARMAPArrayElemValueDelegate<ulong> _GET_ELEM_MISC_VALUES;
+        protected static GetVARMAPArrayElemValueDelegate<ulong> _GET_SHADOW_ELEM_MISC_VALUES;
+        protected static SetVARMAPArrayElemValueDelegate<ulong> _SET_ELEM_MISC_VALUES;
+        protected static GetVARMAPArraySizeDelegate _GET_SIZE_MISC_VALUES;
+        protected static GetVARMAPArrayDelegate<ulong> _GET_ARRAY_MISC_VALUES;
+        protected static GetVARMAPArrayDelegate<ulong> _GET_SHADOW_ARRAY_MISC_VALUES;
+        protected static SetVARMAPArrayDelegate<ulong> _SET_ARRAY_MISC_VALUES;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<ulong> _REG_MISC_VALUES;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<ulong> _UNREG_MISC_VALUES;
         protected static GetVARMAPValueDelegate<GameItem> _GET_ITEM_MENU_HOVER;
         protected static GetVARMAPValueDelegate<GameItem> _GET_SHADOW_ITEM_MENU_HOVER;
         protected static SetVARMAPValueDelegate<GameItem> _SET_ITEM_MENU_HOVER;
@@ -145,15 +154,6 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPValueDelegate<bool> _SET_MAP_ACTIVE;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<bool> _REG_MAP_ACTIVE;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<bool> _UNREG_MAP_ACTIVE;
-        protected static GetVARMAPArrayElemValueDelegate<ulong> _GET_ELEM_LAB_VALUES;
-        protected static GetVARMAPArrayElemValueDelegate<ulong> _GET_SHADOW_ELEM_LAB_VALUES;
-        protected static SetVARMAPArrayElemValueDelegate<ulong> _SET_ELEM_LAB_VALUES;
-        protected static GetVARMAPArraySizeDelegate _GET_SIZE_LAB_VALUES;
-        protected static GetVARMAPArrayDelegate<ulong> _GET_ARRAY_LAB_VALUES;
-        protected static GetVARMAPArrayDelegate<ulong> _GET_SHADOW_ARRAY_LAB_VALUES;
-        protected static SetVARMAPArrayDelegate<ulong> _SET_ARRAY_LAB_VALUES;
-        protected static ReUnRegisterVARMAPValueChangeEventDelegate<ulong> _REG_LAB_VALUES;
-        protected static ReUnRegisterVARMAPValueChangeEventDelegate<ulong> _UNREG_LAB_VALUES;
         protected static GetVARMAPValueDelegate<bool> _GET_LAST_VARMAP_VAL;
         protected static GetVARMAPValueDelegate<bool> _GET_SHADOW_LAST_VARMAP_VAL;
         protected static SetVARMAPValueDelegate<bool> _SET_LAST_VARMAP_VAL;
@@ -541,6 +541,13 @@ protected static LABEL_ELEM_HOVER_DELEGATE _LABEL_ELEM_HOVER;
 /// <para> Method: <see cref="GameMenuClass.ShowPushNotificationService"/> </para> 
 /// </summary>
 protected static SHOW_PUSH_NOTIFICATION_DELEGATE _SHOW_PUSH_NOTIFICATION;
+        /// <summary> 
+/// Executes for a IGameElementExtension a named function 
+/// <para> Owner: ItemMaster </para> 
+/// <para> Accessors: GameEventMaster </para> 
+/// <para> Method: <see cref="ItemMasterClass.ExecuteItemExtFunctionService"/> </para> 
+/// </summary>
+protected static EXECUTE_ITEM_EXT_FUNCTION_DELEGATE _EXECUTE_ITEM_EXT_FUNCTION;
         /// <summary> 
 /// Last service 
 /// <para> Owner: GameMaster </para> 

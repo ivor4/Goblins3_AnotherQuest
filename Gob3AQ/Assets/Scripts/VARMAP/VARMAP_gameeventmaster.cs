@@ -47,6 +47,13 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             GET_SHADOW_ARRAY_UNWATCHED_PARENT_MEMENTO = _GET_SHADOW_ARRAY_UNWATCHED_PARENT_MEMENTO;
             SET_ARRAY_UNWATCHED_PARENT_MEMENTO = _SET_ARRAY_UNWATCHED_PARENT_MEMENTO;
             GET_DAY_MOMENT = _GET_DAY_MOMENT;
+            GET_ELEM_MISC_VALUES = _GET_ELEM_MISC_VALUES;
+            GET_SHADOW_ELEM_MISC_VALUES = _GET_SHADOW_ELEM_MISC_VALUES;
+            SET_ELEM_MISC_VALUES = _SET_ELEM_MISC_VALUES;
+            GET_SIZE_MISC_VALUES = _GET_SIZE_MISC_VALUES;
+            GET_ARRAY_MISC_VALUES = _GET_ARRAY_MISC_VALUES;
+            GET_SHADOW_ARRAY_MISC_VALUES = _GET_SHADOW_ARRAY_MISC_VALUES;
+            SET_ARRAY_MISC_VALUES = _SET_ARRAY_MISC_VALUES;
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
@@ -80,6 +87,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             START_CARD_GAME = _START_CARD_GAME;
             LOAD_ROOM_AS_ACTION = _LOAD_ROOM_AS_ACTION;
             SHOW_PUSH_NOTIFICATION = _SHOW_PUSH_NOTIFICATION;
+            EXECUTE_ITEM_EXT_FUNCTION = _EXECUTE_ITEM_EXT_FUNCTION;
             /* > ATG 1 END */
         }
 
@@ -111,6 +119,13 @@ namespace Gob3AQ.VARMAP.GameEventMaster
         public static GetVARMAPArrayDelegate<MultiBitFieldStruct> GET_SHADOW_ARRAY_UNWATCHED_PARENT_MEMENTO;
         public static SetVARMAPArrayDelegate<MultiBitFieldStruct> SET_ARRAY_UNWATCHED_PARENT_MEMENTO;
         public static GetVARMAPValueDelegate<MomentType> GET_DAY_MOMENT;
+        public static GetVARMAPArrayElemValueDelegate<ulong> GET_ELEM_MISC_VALUES;
+        public static GetVARMAPArrayElemValueDelegate<ulong> GET_SHADOW_ELEM_MISC_VALUES;
+        public static SetVARMAPArrayElemValueDelegate<ulong> SET_ELEM_MISC_VALUES;
+        public static GetVARMAPArraySizeDelegate GET_SIZE_MISC_VALUES;
+        public static GetVARMAPArrayDelegate<ulong> GET_ARRAY_MISC_VALUES;
+        public static GetVARMAPArrayDelegate<ulong> GET_SHADOW_ARRAY_MISC_VALUES;
+        public static SetVARMAPArrayDelegate<ulong> SET_ARRAY_MISC_VALUES;
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
@@ -310,6 +325,13 @@ public static LOAD_ROOM_AS_ACTION_DELEGATE LOAD_ROOM_AS_ACTION;
 /// <para> Method: <see cref="GameMenuClass.ShowPushNotificationService"/> </para> 
 /// </summary>
 public static SHOW_PUSH_NOTIFICATION_DELEGATE SHOW_PUSH_NOTIFICATION;
+        /// <summary> 
+/// Executes for a IGameElementExtension a named function 
+/// <para> Owner: ItemMaster </para> 
+/// <para> Accessors: GameEventMaster </para> 
+/// <para> Method: <see cref="ItemMasterClass.ExecuteItemExtFunctionService"/> </para> 
+/// </summary>
+public static EXECUTE_ITEM_EXT_FUNCTION_DELEGATE EXECUTE_ITEM_EXT_FUNCTION;
         /* > ATG 3 END */
     }
 }

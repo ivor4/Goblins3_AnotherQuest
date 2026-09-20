@@ -1,6 +1,7 @@
 using Gob3AQ.Brain.ItemsInteraction;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameElement;
+using Gob3AQ.GameElement.Extension;
 using Gob3AQ.GameElement.PlayableChar;
 using Gob3AQ.Libs.Arith;
 using Gob3AQ.ResourceAtlas;
@@ -19,8 +20,20 @@ namespace Gob3AQ.ItemMaster
     {
         private static ItemMasterClass _singleton;
         private IReadOnlyDictionary<GameItem, GameElementClass> _levelItems;
+        private Dictionary<ItemExtensionFunction, IGameElementExtension> _extensionItems;
         private int itemsToLoad;
         private int itemsLoaded;
+
+
+        public static void ExecuteItemExtFunctionService(ItemExtensionFunction fn)
+        {
+            if (!_singleton) return;
+
+            if(_singleton._extensionItems.TryGetValue(fn, out IGameElementExtension elem))
+            {
+                elem.OnReceiveExtFn(fn);
+            }
+        }
 
         public static void MoveItemToWaypointService(GameItem item, int destWp_index, out bool accepted)
         {
@@ -177,6 +190,20 @@ namespace Gob3AQ.ItemMaster
             }
         }
 
+        public static void AddItemExtension(ItemExtensionFunction fn, IGameElementExtension elem)
+        {
+            if (!_singleton) return;
+
+            _singleton._extensionItems.Add(fn, elem);
+        }
+
+        public static void RemoveItemExtension(ItemExtensionFunction fn)
+        {
+            if (!_singleton) return;
+
+            _singleton._extensionItems.Remove(fn);
+        }
+
 
 
         void Awake()
@@ -188,6 +215,7 @@ namespace Gob3AQ.ItemMaster
             else
             {
                 _singleton = this;
+                _extensionItems = new(GameFixedConfig.MAX_ANIMATIONS_PERFORMING);
             }
         }
 
@@ -348,9 +376,11 @@ namespace Gob3AQ.ItemMaster
             {
                 switch(newval)
                 {
+                    case Game_Status.GAME_STATUS_STOPPED:
                     case Game_Status.GAME_STATUS_CHANGING_ROOM:
                         itemsLoaded = 0;
                         itemsToLoad = 0;
+                        _extensionItems.Clear();
                         break;
                     case Game_Status.GAME_STATUS_LOADING:
                         VARMAP_ItemMaster.OBTAIN_SCENARIO_ITEMS(out _levelItems);

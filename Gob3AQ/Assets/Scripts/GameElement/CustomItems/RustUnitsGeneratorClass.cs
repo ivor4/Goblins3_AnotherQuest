@@ -138,6 +138,9 @@ namespace Gob3AQ.GameElement.Extension.RustUnitsGenerator
             }
         }
 
-
+        public void OnReceiveExtFn(ItemExtensionFunction extFn)
+        {
+            
+        }
     }
 }

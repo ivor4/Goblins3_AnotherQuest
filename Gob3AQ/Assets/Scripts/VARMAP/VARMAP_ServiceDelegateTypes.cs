@@ -1,4 +1,5 @@
 ﻿using Gob3AQ.GameElement;
+using Gob3AQ.GameElement.Animation;
 using Gob3AQ.GameElement.Clickable;
 using Gob3AQ.GameElement.PlayableChar;
 using Gob3AQ.Libs.Arith;
@@ -83,4 +84,5 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void LOAD_ROOM_AS_ACTION_DELEGATE(Room room, int waypointIndex, string waypointTag, int chapterNr);
     public delegate void LABEL_ELEM_HOVER_DELEGATE(bool activate, in LevelElemLabelInfo labelInfo);
     public delegate void SHOW_PUSH_NOTIFICATION_DELEGATE(DialogPhrase phrase, PushNotificationType notifType);
+    public delegate void EXECUTE_ITEM_EXT_FUNCTION_DELEGATE(ItemExtensionFunction fn);
 }

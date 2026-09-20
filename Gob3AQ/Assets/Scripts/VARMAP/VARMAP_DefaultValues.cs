@@ -25,6 +25,7 @@ namespace Gob3AQ.VARMAP.DefaultValues
             ((VARMAP_Variable_Interface<WaypointIdTupleStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_ACTUAL_WAYPOINT]).InitializeListElems(WaypointIdTuple_Default);
             ((VARMAP_Variable_Interface<CameraDispositionStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_CAMERA_DISPOSITION]).SetValue(CameraDispositionStruct_Default);
             ((VARMAP_Variable_Interface<MomentType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_DAY_MOMENT]).SetValue(MomentType.MOMENT_MORNING);
+            ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MISC_VALUES]).InitializeListElems(0UL);
             ((VARMAP_Variable_Interface<GameItem>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_HOVER]).SetValue(GameItem.ITEM_NONE);
             ((VARMAP_Variable_Interface<Game_Status>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_GAMESTATUS]).SetValue(Game_Status.GAME_STATUS_STOPPED);
             ((VARMAP_Variable_Interface<KeyStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PRESSED_KEYS]).SetValue(KeyStruct_Default);
@@ -35,7 +36,6 @@ namespace Gob3AQ.VARMAP.DefaultValues
             ((VARMAP_Variable_Interface<BusyState>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_BUSY_STATE]).SetValue(BusyState.GAME_NOT_BUSY);
             ((VARMAP_Variable_Interface<int>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_CHAPTER_SHOW_NR]).SetValue(0);
             ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MAP_ACTIVE]).SetValue(false);
-            ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAB_VALUES]).InitializeListElems(0UL);
             ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL]).SetValue(false);
             /* > ATG 1 END < */
         }

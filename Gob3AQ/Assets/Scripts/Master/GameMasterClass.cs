@@ -350,10 +350,10 @@ namespace Gob3AQ.GameMaster
             switch (newmode)
             {
                 case Game_Status.GAME_STATUS_PLAY_DIALOG:
-                    valid = (oldmode == Game_Status.GAME_STATUS_PLAY) || (oldmode == Game_Status.GAME_STATUS_PLAY_MEMENTO) || (oldmode == Game_Status.GAME_STATUS_PLAY_ANIMATION);
+                    valid = oldmode is Game_Status.GAME_STATUS_PLAY or Game_Status.GAME_STATUS_PLAY_MEMENTO or Game_Status.GAME_STATUS_PLAY_ANIMATION;
                     break;
                 case Game_Status.GAME_STATUS_PLAY_DECISION:
-                    valid = (oldmode == Game_Status.GAME_STATUS_PLAY) || (oldmode == Game_Status.GAME_STATUS_PLAY_MEMENTO);
+                    valid = oldmode is Game_Status.GAME_STATUS_PLAY or Game_Status.GAME_STATUS_PLAY_MEMENTO;
                     break;
                 case Game_Status.GAME_STATUS_STOPPED:
                 case Game_Status.GAME_STATUS_PLAY_MEMENTO:
@@ -362,24 +362,19 @@ namespace Gob3AQ.GameMaster
                     valid = oldmode == Game_Status.GAME_STATUS_PLAY;
                     break;
                 case Game_Status.GAME_STATUS_PLAY:
-                    valid = (oldmode == Game_Status.GAME_STATUS_PLAY_DIALOG) ||
-                        (oldmode == Game_Status.GAME_STATUS_PLAY_DECISION) ||
-                        (oldmode == Game_Status.GAME_STATUS_PLAY_MEMENTO) ||
-                        (oldmode == Game_Status.GAME_STATUS_STOPPED) ||
-                        (oldmode == Game_Status.GAME_STATUS_PLAY_ITEM_MENU) ||
-                        (oldmode == Game_Status.GAME_STATUS_PAUSE) ||
-                        (oldmode == Game_Status.GAME_STATUS_PLAY_CARDS) ||
-                        (oldmode == Game_Status.GAME_STATUS_PLAY_ANIMATION) ||
-                        (oldmode == Game_Status.GAME_STATUS_CHAPTER_SHOW);
+                    valid = oldmode is Game_Status.GAME_STATUS_PLAY_DIALOG or Game_Status.GAME_STATUS_PLAY_DECISION or
+                        Game_Status.GAME_STATUS_PLAY_MEMENTO or Game_Status.GAME_STATUS_STOPPED or 
+                        Game_Status.GAME_STATUS_PLAY_ITEM_MENU or Game_Status.GAME_STATUS_PAUSE or 
+                        Game_Status.GAME_STATUS_PLAY_CARDS or Game_Status.GAME_STATUS_PLAY_ANIMATION or Game_Status.GAME_STATUS_CHAPTER_SHOW;
                     break;
                 case Game_Status.GAME_STATUS_PLAY_CARDS:
-                    valid = (oldmode == Game_Status.GAME_STATUS_PLAY) || (oldmode == Game_Status.GAME_STATUS_PLAY_DIALOG);
+                    valid = oldmode is Game_Status.GAME_STATUS_PLAY or Game_Status.GAME_STATUS_PLAY_DIALOG;
                     break;
                 case Game_Status.GAME_STATUS_PLAY_ANIMATION:
-                    valid = (oldmode == Game_Status.GAME_STATUS_PLAY) || (oldmode == Game_Status.GAME_STATUS_PLAY_DIALOG);
+                    valid = oldmode is Game_Status.GAME_STATUS_PLAY or Game_Status.GAME_STATUS_PLAY_DIALOG;
                     break;
                 case Game_Status.GAME_STATUS_CHAPTER_SHOW:
-                    valid = (oldmode == Game_Status.GAME_STATUS_LOADING);
+                    valid = oldmode == Game_Status.GAME_STATUS_LOADING;
                     break;
                 default:
                     valid = false;

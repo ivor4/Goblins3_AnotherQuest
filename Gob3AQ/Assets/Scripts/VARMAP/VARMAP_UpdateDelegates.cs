@@ -97,6 +97,15 @@ namespace Gob3AQ.VARMAP.Initialization
             _SET_DAY_MOMENT = ((VARMAP_Variable_Interface<MomentType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_DAY_MOMENT]).SetValue;
             _REG_DAY_MOMENT = ((VARMAP_Variable_Interface<MomentType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_DAY_MOMENT]).RegisterChangeEvent;
             _UNREG_DAY_MOMENT = ((VARMAP_Variable_Interface<MomentType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_DAY_MOMENT]).UnregisterChangeEvent;
+            _GET_ELEM_MISC_VALUES = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MISC_VALUES]).GetListElem;
+            _GET_SHADOW_ELEM_MISC_VALUES = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MISC_VALUES]).GetShadowListElem;
+            _SET_ELEM_MISC_VALUES = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MISC_VALUES]).SetListElem;
+            _GET_SIZE_MISC_VALUES = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MISC_VALUES]).GetListSize;
+            _GET_ARRAY_MISC_VALUES = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MISC_VALUES]).GetListCopy;
+            _GET_SHADOW_ARRAY_MISC_VALUES = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MISC_VALUES]).GetShadowListCopy;
+            _SET_ARRAY_MISC_VALUES = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MISC_VALUES]).SetListValues;
+            _REG_MISC_VALUES = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MISC_VALUES]).RegisterChangeEvent;
+            _UNREG_MISC_VALUES = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MISC_VALUES]).UnregisterChangeEvent;
             _GET_ITEM_MENU_HOVER = ((VARMAP_Variable_Interface<GameItem>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_HOVER]).GetValue;
             _GET_SHADOW_ITEM_MENU_HOVER = ((VARMAP_Variable_Interface<GameItem>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_HOVER]).GetShadowValue;
             _SET_ITEM_MENU_HOVER = ((VARMAP_Variable_Interface<GameItem>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_HOVER]).SetValue;
@@ -147,15 +156,6 @@ namespace Gob3AQ.VARMAP.Initialization
             _SET_MAP_ACTIVE = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MAP_ACTIVE]).SetValue;
             _REG_MAP_ACTIVE = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MAP_ACTIVE]).RegisterChangeEvent;
             _UNREG_MAP_ACTIVE = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MAP_ACTIVE]).UnregisterChangeEvent;
-            _GET_ELEM_LAB_VALUES = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAB_VALUES]).GetListElem;
-            _GET_SHADOW_ELEM_LAB_VALUES = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAB_VALUES]).GetShadowListElem;
-            _SET_ELEM_LAB_VALUES = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAB_VALUES]).SetListElem;
-            _GET_SIZE_LAB_VALUES = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAB_VALUES]).GetListSize;
-            _GET_ARRAY_LAB_VALUES = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAB_VALUES]).GetListCopy;
-            _GET_SHADOW_ARRAY_LAB_VALUES = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAB_VALUES]).GetShadowListCopy;
-            _SET_ARRAY_LAB_VALUES = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAB_VALUES]).SetListValues;
-            _REG_LAB_VALUES = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAB_VALUES]).RegisterChangeEvent;
-            _UNREG_LAB_VALUES = ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAB_VALUES]).UnregisterChangeEvent;
             _GET_LAST_VARMAP_VAL = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL]).GetValue;
             _GET_SHADOW_LAST_VARMAP_VAL = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL]).GetShadowValue;
             _SET_LAST_VARMAP_VAL = ((VARMAP_Variable_Interface<bool>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_LAST_VARMAP_VAL]).SetValue;
@@ -220,6 +220,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _LOAD_ROOM_AS_ACTION = LevelMasterClass.LoadRoomAsActionService;
             _LABEL_ELEM_HOVER = GraphicsMasterClass.LabelElemHoverService;
             _SHOW_PUSH_NOTIFICATION = GameMenuClass.ShowPushNotificationService;
+            _EXECUTE_ITEM_EXT_FUNCTION = ItemMasterClass.ExecuteItemExtFunctionService;
             _LAST_SERVICE = GameMasterClass.ExitGameService;
             /* > ATG 2 END */
         }

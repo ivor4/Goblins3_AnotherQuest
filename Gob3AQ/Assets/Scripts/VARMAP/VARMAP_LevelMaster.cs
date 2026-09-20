@@ -51,13 +51,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
             GET_SHADOW_CHAPTER_SHOW_NR = _GET_SHADOW_CHAPTER_SHOW_NR;
             SET_CHAPTER_SHOW_NR = _SET_CHAPTER_SHOW_NR;
             GET_MAP_ACTIVE = _GET_MAP_ACTIVE;
-            GET_ELEM_LAB_VALUES = _GET_ELEM_LAB_VALUES;
-            GET_SHADOW_ELEM_LAB_VALUES = _GET_SHADOW_ELEM_LAB_VALUES;
-            SET_ELEM_LAB_VALUES = _SET_ELEM_LAB_VALUES;
-            GET_SIZE_LAB_VALUES = _GET_SIZE_LAB_VALUES;
-            GET_ARRAY_LAB_VALUES = _GET_ARRAY_LAB_VALUES;
-            GET_SHADOW_ARRAY_LAB_VALUES = _GET_SHADOW_ARRAY_LAB_VALUES;
-            SET_ARRAY_LAB_VALUES = _SET_ARRAY_LAB_VALUES;
             SAVE_GAME = _SAVE_GAME;
             LOAD_ROOM = _LOAD_ROOM;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
@@ -123,13 +116,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
         public static GetVARMAPValueDelegate<int> GET_SHADOW_CHAPTER_SHOW_NR;
         public static SetVARMAPValueDelegate<int> SET_CHAPTER_SHOW_NR;
         public static GetVARMAPValueDelegate<bool> GET_MAP_ACTIVE;
-        public static GetVARMAPArrayElemValueDelegate<ulong> GET_ELEM_LAB_VALUES;
-        public static GetVARMAPArrayElemValueDelegate<ulong> GET_SHADOW_ELEM_LAB_VALUES;
-        public static SetVARMAPArrayElemValueDelegate<ulong> SET_ELEM_LAB_VALUES;
-        public static GetVARMAPArraySizeDelegate GET_SIZE_LAB_VALUES;
-        public static GetVARMAPArrayDelegate<ulong> GET_ARRAY_LAB_VALUES;
-        public static GetVARMAPArrayDelegate<ulong> GET_SHADOW_ARRAY_LAB_VALUES;
-        public static SetVARMAPArrayDelegate<ulong> SET_ARRAY_LAB_VALUES;
         /* > ATG 2 END */
 
         /* SERVICES */

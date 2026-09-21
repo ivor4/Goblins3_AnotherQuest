@@ -14,12 +14,13 @@ namespace Gob3AQ.Brain.CustomFunctions
             {CustomFunction.CUSTOM_FUNCTION_NONE, null },
             {CustomFunction.CUSTOM_FUNCTION_RESET_LAB_MISC_VALUES, Custom_Reset_Lab_Misc_Values },
             {CustomFunction.CUSTOM_FUNCTION_RECOVER_LAB_MISC_VALUES, Custom_Lab_Recover_Values },
+            {CustomFunction.CUSTOM_FUNCTION_UPDATE_JUG_LIQUID, Custom_Lab_Update_Values },
             {CustomFunction.CUSTOM_FUNCTION_LAB_ADD_FLOORWASHER,  Custom_Lab_Add_Florwasher}
         };
 
         private static void Custom_Reset_Lab_Misc_Values()
         {
-            for(int i = (int)MiscValuesIndex.MISC_VALUE_INDEX_LAB_POURED_PORTIONS; i <= (int)MiscValuesIndex.MISC_VALUE_INDEX_LAB_PORTION_VALS; ++i)
+            for(int i = (int)MiscValuesIndex.MISC_VALUE_INDEX_LAB_PORTION_VALS; i <= (int)MiscValuesIndex.MISC_VALUE_INDEX_LAB_PORTION_VALS; ++i)
             {
                 VARMAP_GameEventMaster.SET_ELEM_MISC_VALUES(i, 0UL);
             }
@@ -27,11 +28,20 @@ namespace Gob3AQ.Brain.CustomFunctions
 
         private static void Custom_Lab_Recover_Values()
         {
-            ulong poured_nr = VARMAP_GameEventMaster.GET_SHADOW_ELEM_MISC_VALUES((int)MiscValuesIndex.MISC_VALUE_INDEX_LAB_POURED_PORTIONS);
+            ulong uval = VARMAP_GameEventMaster.GET_SHADOW_ELEM_MISC_VALUES((int)MiscValuesIndex.MISC_VALUE_INDEX_LAB_PORTION_VALS);
 
-            poured_nr = Math.Clamp(poured_nr, 0, 4);
+            NumberPack npack = new(true, long1: (int)uval);
 
-            /* TODO */
+            VARMAP_GameEventMaster.EXECUTE_ITEM_EXT_FUNCTION(ItemExtensionFunction.ITEM_EXTENSION_FN_FILL_LAB_LIQUID, in npack);
+        }
+
+        private static void Custom_Lab_Update_Values()
+        {
+            ulong uval = VARMAP_GameEventMaster.GET_SHADOW_ELEM_MISC_VALUES((int)MiscValuesIndex.MISC_VALUE_INDEX_LAB_PORTION_VALS);
+
+            NumberPack npack = new(false, long1: (int)uval);
+
+            VARMAP_GameEventMaster.EXECUTE_ITEM_EXT_FUNCTION(ItemExtensionFunction.ITEM_EXTENSION_FN_FILL_LAB_LIQUID, in npack);
         }
 
         private static void Custom_Lab_Add_Florwasher()
@@ -41,11 +51,47 @@ namespace Gob3AQ.Brain.CustomFunctions
 
         private static void Custom_Lab_Add_Liquid(LabLiquid liquid)
         {
-            GameAction gameAction = GameAction.ACTION_ANIMATION_FLOORWASHER_JUG;
+            Span<GameAction> twoActions = stackalloc GameAction[2];
 
-            Span<GameAction> actions = MemoryMarshal.CreateSpan(ref gameAction, 1);
+            ulong uval = VARMAP_GameEventMaster.GET_SHADOW_ELEM_MISC_VALUES((int)MiscValuesIndex.MISC_VALUE_INDEX_LAB_PORTION_VALS);
+            NumberPack npack = new(long1: (int)uval);
+            LabLiquidConf liquidConf = new(in npack);
 
-            VARMAP_GameEventMaster.PERFORM_ACTION(actions, null);
+            if ((liquidConf.nTotal < 4) && (liquid != LabLiquid.LAB_LIQUID_NONE))
+            {
+                switch(liquid)
+                {
+                    case LabLiquid.LAB_LIQUID_FLOORWASHER:
+                        liquidConf.nFloorwasher++;
+                        break;
+                    case LabLiquid.LAB_LIQUID_DETERGENT:
+                        liquidConf.nDetergent++;
+                        break;
+                    case LabLiquid.LAB_LIQUID_INSECTICIDE:
+                        liquidConf.nInsecticide++;
+                        break;
+                    case LabLiquid.LAB_LIQUID_VARNISH:
+                        liquidConf.nVarnish++;
+                        break;
+                    default:
+                        liquidConf.nRust++;
+                        break;
+                }
+
+                liquidConf.nTotal++;
+
+                npack = liquidConf.ToNumberPack(false);
+
+
+                Debug.Log($"Sending liquid update  npack.long1 {npack.long1} and nFloorw {liquidConf.nFloorwasher} and nTotal {liquidConf.nTotal}");
+
+                VARMAP_GameEventMaster.SET_ELEM_MISC_VALUES((int)MiscValuesIndex.MISC_VALUE_INDEX_LAB_PORTION_VALS, (ulong)npack.long1);
+
+                twoActions[0] = GameAction.ACTION_ANIMATION_FLOORWASHER_JUG;
+                twoActions[1] = GameAction.ACTION_CUSTOM_UPDATE_JUG_LIQUID_VALUE;
+
+                VARMAP_GameEventMaster.PERFORM_ACTION(twoActions, null);
+            }
         }
     }
 }

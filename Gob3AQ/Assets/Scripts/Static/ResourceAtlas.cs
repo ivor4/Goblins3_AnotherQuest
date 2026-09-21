@@ -557,7 +557,7 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<DetailType>(new HashSet<DetailType>(1){DetailType.PREFAB_NONE}), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(2){GameSound.MUSIC_ROOM_PUZZLE, GameSound.SOUND_LIQUID_POUR_JUG}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
-            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_RECOVER_JUG_LIQUID_VALUE}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
             ),
 

@@ -1,3 +1,4 @@
+using Gob3AQ.ItemMaster;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.VARMAP.ItemMaster;
 using Gob3AQ.VARMAP.Types;
@@ -138,9 +139,10 @@ namespace Gob3AQ.GameElement.Extension.RustUnitsGenerator
             }
         }
 
-        public void OnReceiveExtFn(ItemExtensionFunction extFn)
+        public void OnReceiveExtFn(ItemExtensionFunction extFn, in NumberPack numberPack)
         {
-            
+            _ = extFn;
+            _ = numberPack;
         }
     }
 }

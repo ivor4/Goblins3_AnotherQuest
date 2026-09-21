@@ -25,13 +25,13 @@ namespace Gob3AQ.ItemMaster
         private int itemsLoaded;
 
 
-        public static void ExecuteItemExtFunctionService(ItemExtensionFunction fn)
+        public static void ExecuteItemExtFunctionService(ItemExtensionFunction fn, in NumberPack numberPack)
         {
             if (!_singleton) return;
 
             if(_singleton._extensionItems.TryGetValue(fn, out IGameElementExtension elem))
             {
-                elem.OnReceiveExtFn(fn);
+                elem.OnReceiveExtFn(fn, in numberPack);
             }
         }
 

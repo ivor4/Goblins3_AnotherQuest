@@ -9,6 +9,6 @@ namespace Gob3AQ.GameElement.Extension
         public void OnSpawn();
         public void OnDespawn();
         public void OnExtensionDestroy();
-        public void OnReceiveExtFn(ItemExtensionFunction extFn);
+        public void OnReceiveExtFn(ItemExtensionFunction extFn, in NumberPack numberPack);
     }
 }

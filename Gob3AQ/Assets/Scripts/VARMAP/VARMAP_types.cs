@@ -202,12 +202,12 @@ namespace Gob3AQ.VARMAP.Types
         {
             ulong uval = (ulong)numberPack.long1;
 
-            nFloorwasher = (int)(uval & 0x7u) % 5;
-            nDetergent = (int)((uval >> 8) & 0x7u) % 5;
-            nInsecticide = (int)((uval >> 16) & 0x7u) % 5;
-            nVarnish = (int)((uval >> 24) & 0x7u) % 5;
-            nRust = (int)((uval >> 32) & 0x7u) % 5;
-            nTotal = (int)((uval >> 40) & 0x7u) % 5;
+            nFloorwasher = (int)(uval & 0x7ul) % 5;
+            nDetergent = (int)((uval >> 8) & 0x7ul) % 5;
+            nInsecticide = (int)((uval >> 16) & 0x7ul) % 5;
+            nVarnish = (int)((uval >> 24) & 0x7ul) % 5;
+            nRust = (int)((uval >> 32) & 0x7ul) % 5;
+            nTotal = (int)((uval >> 40) & 0x7ul) % 5;
         }
 
         public readonly NumberPack ToNumberPack(bool immediate)
@@ -215,11 +215,11 @@ namespace Gob3AQ.VARMAP.Types
             NumberPack npack;
 
             ulong uval = (ulong)(nFloorwasher % 5);
-            uval |= (ulong)(nDetergent % 5) << 8;
-            uval |= (ulong)(nInsecticide % 5) << 16;
-            uval |= (ulong)(nVarnish % 5) << 24;
-            uval |= (ulong)(nRust % 5) << 32;
-            uval |= (ulong)(nTotal % 5) << 40;
+            uval |= ((ulong)(nDetergent % 5)) << 8;
+            uval |= ((ulong)(nInsecticide % 5)) << 16;
+            uval |= ((ulong)(nVarnish % 5)) << 24;
+            uval |= ((ulong)(nRust % 5)) << 32;
+            uval |= ((ulong)(nTotal % 5)) << 40;
 
             npack = new NumberPack(immediate, long1:(long)uval);
 
@@ -681,7 +681,7 @@ namespace Gob3AQ.VARMAP.Types
         public readonly bool? boolOption1;
         public readonly bool? boolOption2;
         public readonly int intOption1;
-        public readonly int delayTicks;
+        public readonly int delay_ms;
         public readonly CustomFunction customFunction;
         public readonly CardGameID targetCardGame;
 
@@ -703,7 +703,7 @@ namespace Gob3AQ.VARMAP.Types
         public ActionInfo(bool waitForEnd, ActionType type, GameItem targetItem, GameSprite targetSprite, CharacterType targetCharacter, Memento targetMemento,
             GameEventCombi[] targetEvents, DecisionType targetDecision, MomentType targetMomentOfDay, DialogType targetDialog, DialogOption targetDialogOption,
             DialogPhrase targetPhrase, AnimationTrigger animTrigger, GameAnimation targetAnimation, GameSound targetSound, Room targetRoom, string targetWaypointTag,
-            bool? boolOption1, bool? boolOption2, int intOption1, int delayTicks, CustomFunction customFunction, CardGameID targetCardGame)
+            bool? boolOption1, bool? boolOption2, int intOption1, int delay_ms, CustomFunction customFunction, CardGameID targetCardGame)
         {
             this.waitForEnd = waitForEnd;
             this.type = type;
@@ -725,7 +725,7 @@ namespace Gob3AQ.VARMAP.Types
             this.boolOption1 = boolOption1;
             this.boolOption2 = boolOption2;
             this.intOption1 = intOption1;
-            this.delayTicks = delayTicks;
+            this.delay_ms = delay_ms;
             this.customFunction = customFunction;
             this.targetCardGame = targetCardGame;
         }

@@ -80,6 +80,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d6e778d0d1e83c4ca5f60bb9d08cf24
+    m_Address: MATERIAL_LAB_LIQUID_VARNISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1f4b090a5ec8f6e42ac5830d3761dabf
     m_Address: SOUND_OBSERVE_ROOM_KEY_NOT_TAKEN_SPANISH
     m_ReadOnly: 0

@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LabLiquidSpriteMaterial
-  m_Shader: {fileID: 4800000, guid: ea9ef0f6f5be78f4c9d6e13de4c4b4f5, type: 3}
+  m_Name: LabLiquidVarnishPartMaterial
+  m_Shader: {fileID: 4800000, guid: 6120e18cd266eb341a5e3725afbdca52, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -41,20 +41,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - PixelSnap: 0
-    - _AlphaContrast: 1.5
+    - _EdgeFalloff: 4.41
     - _EnableExternalAlpha: 0
-    - _MaxAlpha: 1
-    - _MinAlpha: 0.84
-    - _Turbulence: 0.8
-    - _WaveFreq: 12
-    - _WaveSpeed: 2.5
-    - _WaveStrength: 0.013
+    - _FlowSpeed: 6
+    - _WaveDistort: 0.058
+    - _WaveFreq: 8
     - _ZWrite: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _FlowDirection: {r: 0, g: -0.5, b: 0, a: 0}
+    - _MainColor: {r: 0.43396223, g: 0.40903538, b: 0.13714838, a: 0.5803922}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+    - _RimColor: {r: 1, g: 0.98441, b: 0.8160377, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

@@ -61,7 +61,7 @@ namespace Gob3AQ.GameElement.Extension.LabLiquid
                 ulong actualTimestamp = VARMAP_ItemMaster.GET_ELAPSED_TIME_MS();
                 ulong delta = actualTimestamp - prevTimestamp;
 
-                liquidLevelActual = Mathf.Clamp(liquidLevelActual + (delta * 1f), 0f, liquidLevelTarget);
+                liquidLevelActual = Mathf.Clamp(liquidLevelActual + (delta * 1f/1500), 0f, liquidLevelTarget);
 
                 RefreshLiquid();
 
@@ -73,8 +73,6 @@ namespace Gob3AQ.GameElement.Extension.LabLiquid
         {
             /* Mix breakdwon */
             liquidConf = new LabLiquidConf(in numberPack);
-
-            Debug.Log($"Unpacking update  npack.long1 {numberPack.long1} and nFloorw {liquidConf.nFloorwasher} and nTotal {liquidConf.nTotal}");
 
             liquidLevelTarget = liquidConf.nTotal;
 
@@ -90,7 +88,7 @@ namespace Gob3AQ.GameElement.Extension.LabLiquid
 
         private void RefreshLiquid()
         {
-            body.transform.localScale = new Vector3(body.transform.localScale.x, liquidLevelActual, 1f);
+            body.transform.localScale = new Vector3(body.transform.localScale.x, liquidLevelActual * 0.75f, 1f);
         }
 
     }

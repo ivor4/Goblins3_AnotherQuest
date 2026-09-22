@@ -38,12 +38,12 @@ namespace Gob3AQ.GameEventMaster
         private struct DelayedActionOrder
         {
             public ActionOrder actionOrder;
-            public int remaining_ticks;
+            public long remaining_ms;
 
-            public DelayedActionOrder(ActionOrder actionOrder, int delay_ticks)
+            public DelayedActionOrder(ActionOrder actionOrder, int delay_ms)
             {
                 this.actionOrder = actionOrder;
-                remaining_ticks = delay_ticks;
+                remaining_ms = delay_ms;
             }
         }
 
@@ -77,6 +77,7 @@ namespace Gob3AQ.GameEventMaster
         /// Timestamp for periodic background tasks execution
         /// </summary>
         private ulong _bckgActionsTimestamp;
+        private ulong _prevTimestamp;
         private ulong _waitActionTimestamp;
         private List<ActionOrder> _pendingActions;
         private List<DelayedActionOrder> _pendingDelayedActions; 
@@ -378,12 +379,15 @@ namespace Gob3AQ.GameEventMaster
         /* Therefore here in Update are processed changed events from last cycle (which is desirable scenario) */
         private void Update()
         {
+            ulong timestamp;
             bool processingEvents;
             bool processingActions;
             BusyState prevBusyState;
             BusyState actualBusyState;
 
-            ExecuteBackgroundActions();
+            timestamp = VARMAP_GameEventMaster.GET_ELAPSED_TIME_MS();
+
+            ExecuteBackgroundActions(timestamp);
 
             processingEvents = _bufferedEvents.Count != 0;
 
@@ -391,7 +395,7 @@ namespace Gob3AQ.GameEventMaster
             actualBusyState = BusyState.GAME_NOT_BUSY;
 
             ProcessPendingEvents(ref processingEvents);
-            processingActions = ProcessPendingActions();
+            processingActions = ProcessPendingActions(timestamp);
 
             actualBusyState = UpdateBusyState(actualBusyState, processingEvents, processingActions);
 
@@ -399,6 +403,8 @@ namespace Gob3AQ.GameEventMaster
             {
                 VARMAP_GameEventMaster.SET_BUSY_STATE(actualBusyState);
             }
+
+            _prevTimestamp = timestamp;
         }
 
 
@@ -676,7 +682,7 @@ namespace Gob3AQ.GameEventMaster
             }
         }
 
-        private bool ProcessPendingActions()
+        private bool ProcessPendingActions(ulong timestamp)
         {
             bool stop = false;
             bool processingActions = (_pendingDelayedActions.Count + _pendingActions.Count) != 0;
@@ -685,12 +691,13 @@ namespace Gob3AQ.GameEventMaster
             for(int i = _pendingDelayedActions.Count - 1; i >= 0; --i)
             {
                 DelayedActionOrder delayedAction = _pendingDelayedActions[i];
-                --delayedAction.remaining_ticks;
-                if (delayedAction.remaining_ticks <= 0)
+                ulong delta = timestamp - _prevTimestamp;
+                delayedAction.remaining_ms -= (long)delta;
+                if (delayedAction.remaining_ms <= 0)
                 {
                     /* Execute action and remove from list */
                     /* Delayed actions cannot be await */
-                    _ = ExecuteAction(delayedAction.actionOrder.action, true);
+                    _ = ExecuteAction(timestamp, delayedAction.actionOrder.action, true);
                     _pendingDelayedActions.RemoveAt(i);
 
                     delayedAction.actionOrder.callback?.Invoke();
@@ -717,15 +724,15 @@ namespace Gob3AQ.GameEventMaster
                     actionOrder.performedAndWaiting = true;
 
                     /* Will be marked as ended as it will no longer belong pending actions queue and cannot be await */
-                    if (actionInfo.delayTicks != 0)
+                    if (actionInfo.delay_ms != 0)
                     {
-                        _pendingDelayedActions.Add(new DelayedActionOrder(actionOrder, actionInfo.delayTicks));
+                        _pendingDelayedActions.Add(new DelayedActionOrder(actionOrder, actionInfo.delay_ms));
                         stop = false;
                         endedAction = true;
                     }
                     else
                     {
-                        stop = ExecuteAction(actionOrder.action, false);
+                        stop = ExecuteAction(timestamp, actionOrder.action, false);
                         endedAction = !stop;
                     }
                     
@@ -736,7 +743,7 @@ namespace Gob3AQ.GameEventMaster
                     /* If pending timeout */
                     if((_actionExpectedFlag & NotifyAction.NOTIFY_TIMEOUT) == NotifyAction.NOTIFY_TIMEOUT)
                     {
-                        ulong delta = VARMAP_GameEventMaster.GET_ELAPSED_TIME_MS() - _waitActionTimestamp;
+                        ulong delta = timestamp - _waitActionTimestamp;
 
                         if(delta >= (ulong)actionInfo.intOption1)
                         {
@@ -751,13 +758,13 @@ namespace Gob3AQ.GameEventMaster
                 /* If action was not required to be waited or is an action which does not need wait */
                 if (endedAction)
                 {
-                    string status = actionInfo.delayTicks != 0 ? "Delayed" : "Ended";
+                    string status = actionInfo.delay_ms != 0 ? "Delayed" : "Ended";
                     Debug.Log($"{status} action: {actionOrder.action}");
 
                     _pendingActions.RemoveAt(0);
 
                     /* If there is a callback, execute it and stop processing more actions until next cycle, to avoid multiple calls in same frame */
-                    if (actionInfo.delayTicks == 0)
+                    if (actionInfo.delay_ms == 0)
                     {
                         actionOrder.callback?.Invoke();
                     }
@@ -836,7 +843,7 @@ namespace Gob3AQ.GameEventMaster
             return occurred;
         }
 
-        private bool ExecuteAction(GameAction action, bool isDelayed)
+        private bool ExecuteAction(ulong timestamp, GameAction action, bool isDelayed)
         {
             bool mustWait = false;
             NotifyAction notifyAction = NotifyAction.NOTIFY_NONE;
@@ -992,7 +999,7 @@ namespace Gob3AQ.GameEventMaster
 
                     case ActionType.ACTION_TYPE_WAIT_MS:
                         {
-                            _waitActionTimestamp = VARMAP_GameEventMaster.GET_ELAPSED_TIME_MS();
+                            _waitActionTimestamp = timestamp;
                             notifyAction = NotifyAction.NOTIFY_TIMEOUT;
                             mustWait = true;
                             break;
@@ -1019,15 +1026,14 @@ namespace Gob3AQ.GameEventMaster
             return mustWait;
         }
 
-        private void ExecuteBackgroundActions()
+        private void ExecuteBackgroundActions(ulong timestamp)
         {
-            ulong elapsedTime = VARMAP_GameEventMaster.GET_ELAPSED_TIME_MS();
             VARMAP_GameEventMaster.IS_DIALOG_ACTIVE(out bool dialogActive);
 
             /* Reset timestamp when not in play mode or there is an active background dialog */
             if ((VARMAP_GameEventMaster.GET_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY) && (!dialogActive))
             {
-                if (elapsedTime - _bckgActionsTimestamp >= GameFixedConfig.BACKGROUND_ITEM_ACTIONS_MS)
+                if (timestamp - _bckgActionsTimestamp >= GameFixedConfig.BACKGROUND_ITEM_ACTIONS_MS)
                 {
                     MomentType currentMoment = VARMAP_GameEventMaster.GET_DAY_MOMENT();
                     ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(VARMAP_GameEventMaster.GET_ACTUAL_ROOM());
@@ -1038,12 +1044,12 @@ namespace Gob3AQ.GameEventMaster
                         TryUnchainAction(in unchainInfo, false);
                     }
 
-                    _bckgActionsTimestamp = elapsedTime;
+                    _bckgActionsTimestamp = timestamp;
                 }
             }
             else
             {
-                _bckgActionsTimestamp = elapsedTime;
+                _bckgActionsTimestamp = timestamp;
             }
         }
         

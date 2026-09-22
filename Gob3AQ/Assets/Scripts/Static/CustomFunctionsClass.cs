@@ -30,7 +30,7 @@ namespace Gob3AQ.Brain.CustomFunctions
         {
             ulong uval = VARMAP_GameEventMaster.GET_SHADOW_ELEM_MISC_VALUES((int)MiscValuesIndex.MISC_VALUE_INDEX_LAB_PORTION_VALS);
 
-            NumberPack npack = new(true, long1: (int)uval);
+            NumberPack npack = new(true, long1: (long)uval);
 
             VARMAP_GameEventMaster.EXECUTE_ITEM_EXT_FUNCTION(ItemExtensionFunction.ITEM_EXTENSION_FN_FILL_LAB_LIQUID, in npack);
         }
@@ -39,7 +39,7 @@ namespace Gob3AQ.Brain.CustomFunctions
         {
             ulong uval = VARMAP_GameEventMaster.GET_SHADOW_ELEM_MISC_VALUES((int)MiscValuesIndex.MISC_VALUE_INDEX_LAB_PORTION_VALS);
 
-            NumberPack npack = new(false, long1: (int)uval);
+            NumberPack npack = new(false, long1: (long)uval);
 
             VARMAP_GameEventMaster.EXECUTE_ITEM_EXT_FUNCTION(ItemExtensionFunction.ITEM_EXTENSION_FN_FILL_LAB_LIQUID, in npack);
         }
@@ -54,7 +54,7 @@ namespace Gob3AQ.Brain.CustomFunctions
             Span<GameAction> twoActions = stackalloc GameAction[2];
 
             ulong uval = VARMAP_GameEventMaster.GET_SHADOW_ELEM_MISC_VALUES((int)MiscValuesIndex.MISC_VALUE_INDEX_LAB_PORTION_VALS);
-            NumberPack npack = new(long1: (int)uval);
+            NumberPack npack = new(long1: (long)uval);
             LabLiquidConf liquidConf = new(in npack);
 
             if ((liquidConf.nTotal < 4) && (liquid != LabLiquid.LAB_LIQUID_NONE))
@@ -82,13 +82,11 @@ namespace Gob3AQ.Brain.CustomFunctions
 
                 npack = liquidConf.ToNumberPack(false);
 
-
-                Debug.Log($"Sending liquid update  npack.long1 {npack.long1} and nFloorw {liquidConf.nFloorwasher} and nTotal {liquidConf.nTotal}");
-
                 VARMAP_GameEventMaster.SET_ELEM_MISC_VALUES((int)MiscValuesIndex.MISC_VALUE_INDEX_LAB_PORTION_VALS, (ulong)npack.long1);
 
-                twoActions[0] = GameAction.ACTION_ANIMATION_FLOORWASHER_JUG;
-                twoActions[1] = GameAction.ACTION_CUSTOM_UPDATE_JUG_LIQUID_VALUE;
+                twoActions[0] = GameAction.ACTION_CUSTOM_UPDATE_JUG_LIQUID_VALUE;   /* With delay of 2.5s */
+                twoActions[1] = GameAction.ACTION_ANIMATION_FLOORWASHER_JUG;
+                
 
                 VARMAP_GameEventMaster.PERFORM_ACTION(twoActions, null);
             }

@@ -191,6 +191,8 @@ namespace Gob3AQ.VARMAP.Types
 
     public struct LabLiquidConf
     {
+        public const int MAX_DOSE_NR = 5;
+        private const int MAX_DOSE_MOD = MAX_DOSE_NR + 1;
         public int nFloorwasher;
         public int nDetergent;
         public int nInsecticide;
@@ -202,24 +204,24 @@ namespace Gob3AQ.VARMAP.Types
         {
             ulong uval = (ulong)numberPack.long1;
 
-            nFloorwasher = (int)(uval & 0x7ul) % 5;
-            nDetergent = (int)((uval >> 8) & 0x7ul) % 5;
-            nInsecticide = (int)((uval >> 16) & 0x7ul) % 5;
-            nVarnish = (int)((uval >> 24) & 0x7ul) % 5;
-            nRust = (int)((uval >> 32) & 0x7ul) % 5;
-            nTotal = (int)((uval >> 40) & 0x7ul) % 5;
+            nFloorwasher = (int)(uval & 0x7ul) % MAX_DOSE_MOD;
+            nDetergent = (int)((uval >> 8) & 0x7ul) % MAX_DOSE_MOD;
+            nInsecticide = (int)((uval >> 16) & 0x7ul) % MAX_DOSE_MOD;
+            nVarnish = (int)((uval >> 24) & 0x7ul) % MAX_DOSE_MOD;
+            nRust = (int)((uval >> 32) & 0x7ul) % MAX_DOSE_MOD;
+            nTotal = (int)((uval >> 40) & 0x7ul) % MAX_DOSE_MOD;
         }
 
         public readonly NumberPack ToNumberPack(bool immediate)
         {
             NumberPack npack;
 
-            ulong uval = (ulong)(nFloorwasher % 5);
-            uval |= ((ulong)(nDetergent % 5)) << 8;
-            uval |= ((ulong)(nInsecticide % 5)) << 16;
-            uval |= ((ulong)(nVarnish % 5)) << 24;
-            uval |= ((ulong)(nRust % 5)) << 32;
-            uval |= ((ulong)(nTotal % 5)) << 40;
+            ulong uval = (ulong)(nFloorwasher % MAX_DOSE_MOD);
+            uval |= ((ulong)(nDetergent % MAX_DOSE_MOD)) << 8;
+            uval |= ((ulong)(nInsecticide % MAX_DOSE_MOD)) << 16;
+            uval |= ((ulong)(nVarnish % MAX_DOSE_MOD)) << 24;
+            uval |= ((ulong)(nRust % MAX_DOSE_MOD)) << 32;
+            uval |= ((ulong)(nTotal % MAX_DOSE_MOD)) << 40;
 
             npack = new NumberPack(immediate, long1:(long)uval);
 

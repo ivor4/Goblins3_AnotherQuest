@@ -1245,6 +1245,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_PICKABLE_LAB_FLOORWASHER,ItemInteractionType.INTERACTION_USE,"",
             new GameAction[1]{GameAction.ACTION_USE_FLOORWASHER_JUG}), 
 
+            new( /* COND_USE_VARNISH_JUG */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_PICKABLE_LAB_VARNISH,ItemInteractionType.INTERACTION_USE,"",
+            new GameAction[1]{GameAction.ACTION_USE_VARNISH_JUG}), 
+
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,"",
@@ -1772,7 +1777,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_LAB_JUG */
             NameType.NAME_MIX_JAR,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(2){GameSprite.SPRITE_JUG_EMPTY, GameSprite.SPRITE_JUG_LIQUID_MASK}),
             GameSprite.SPRITE_JUG_EMPTY,false,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
-            new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_MIX_JAR, ActionConditions.COND_USE_FLOORWASHER_JUG})),
+            new(new HashSet<ActionConditions>(3){ActionConditions.COND_OBSERVE_ITEM_MIX_JAR, ActionConditions.COND_USE_FLOORWASHER_JUG, ActionConditions.COND_USE_VARNISH_JUG})),
 
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST}),
@@ -4351,11 +4356,23 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_LAB_ADD_FLOORWASHER,CardGameID.CARD_GAME_NONE), 
 
+            new( /* ACTION_USE_VARNISH_JUG */
+            false,ActionType.ACTION_TYPE_EXEC_CUSTOM_FN,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_LAB_ADD_VARNISH,CardGameID.CARD_GAME_NONE), 
+
             new( /* ACTION_ANIMATION_FLOORWASHER_JUG */
             true,ActionType.ACTION_TYPE_START_ANIMATION,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_FLOORWASHER_JUG,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_ANIMATION_VARNISH_JUG */
+            false,ActionType.ACTION_TYPE_START_ANIMATION,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_VARNISH_JUG,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_CUSTOM_RECOVER_JUG_LIQUID_VALUE */
             false,ActionType.ACTION_TYPE_EXEC_CUSTOM_FN,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

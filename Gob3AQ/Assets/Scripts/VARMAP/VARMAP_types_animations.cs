@@ -7,6 +7,7 @@ namespace Gob3AQ.VARMAP.Types
         /* > ATG 1 START < */
         ANIMATION_NONE = -1, 
         ANIMATION_FLOORWASHER_JUG, 
+        ANIMATION_VARNISH_JUG, 
         ANIMATION_LAST, 
         
 ANIMATION_TOTAL

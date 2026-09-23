@@ -15,7 +15,8 @@ namespace Gob3AQ.Brain.CustomFunctions
             {CustomFunction.CUSTOM_FUNCTION_RESET_LAB_MISC_VALUES, Custom_Reset_Lab_Misc_Values },
             {CustomFunction.CUSTOM_FUNCTION_RECOVER_LAB_MISC_VALUES, Custom_Lab_Recover_Values },
             {CustomFunction.CUSTOM_FUNCTION_UPDATE_JUG_LIQUID, Custom_Lab_Update_Values },
-            {CustomFunction.CUSTOM_FUNCTION_LAB_ADD_FLOORWASHER,  Custom_Lab_Add_Florwasher}
+            {CustomFunction.CUSTOM_FUNCTION_LAB_ADD_FLOORWASHER,  Custom_Lab_Add_Florwasher},
+            {CustomFunction.CUSTOM_FUNCTION_LAB_ADD_VARNISH,  Custom_Lab_Add_Varnish}
         };
 
         private static void Custom_Reset_Lab_Misc_Values()
@@ -49,6 +50,11 @@ namespace Gob3AQ.Brain.CustomFunctions
             Custom_Lab_Add_Liquid(LabLiquid.LAB_LIQUID_FLOORWASHER);
         }
 
+        private static void Custom_Lab_Add_Varnish()
+        {
+            Custom_Lab_Add_Liquid(LabLiquid.LAB_LIQUID_VARNISH);
+        }
+
         private static void Custom_Lab_Add_Liquid(LabLiquid liquid)
         {
             Span<GameAction> twoActions = stackalloc GameAction[2];
@@ -56,25 +62,33 @@ namespace Gob3AQ.Brain.CustomFunctions
             ulong uval = VARMAP_GameEventMaster.GET_SHADOW_ELEM_MISC_VALUES((int)MiscValuesIndex.MISC_VALUE_INDEX_LAB_PORTION_VALS);
             NumberPack npack = new(long1: (long)uval);
             LabLiquidConf liquidConf = new(in npack);
+            
 
-            if ((liquidConf.nTotal < 4) && (liquid != LabLiquid.LAB_LIQUID_NONE))
+            if ((liquidConf.nTotal < LabLiquidConf.MAX_DOSE_NR) && (liquid != LabLiquid.LAB_LIQUID_NONE))
             {
-                switch(liquid)
+                GameAction animationAction;
+
+                switch (liquid)
                 {
                     case LabLiquid.LAB_LIQUID_FLOORWASHER:
                         liquidConf.nFloorwasher++;
+                        animationAction = GameAction.ACTION_ANIMATION_FLOORWASHER_JUG;
                         break;
                     case LabLiquid.LAB_LIQUID_DETERGENT:
                         liquidConf.nDetergent++;
+                        animationAction = GameAction.ACTION_ANIMATION_FLOORWASHER_JUG;
                         break;
                     case LabLiquid.LAB_LIQUID_INSECTICIDE:
                         liquidConf.nInsecticide++;
+                        animationAction = GameAction.ACTION_ANIMATION_FLOORWASHER_JUG;
                         break;
                     case LabLiquid.LAB_LIQUID_VARNISH:
                         liquidConf.nVarnish++;
+                        animationAction = GameAction.ACTION_ANIMATION_VARNISH_JUG;
                         break;
                     default:
                         liquidConf.nRust++;
+                        animationAction = GameAction.ACTION_ANIMATION_FLOORWASHER_JUG;
                         break;
                 }
 
@@ -84,8 +98,8 @@ namespace Gob3AQ.Brain.CustomFunctions
 
                 VARMAP_GameEventMaster.SET_ELEM_MISC_VALUES((int)MiscValuesIndex.MISC_VALUE_INDEX_LAB_PORTION_VALS, (ulong)npack.long1);
 
-                twoActions[0] = GameAction.ACTION_CUSTOM_UPDATE_JUG_LIQUID_VALUE;   /* With delay of 2.5s */
-                twoActions[1] = GameAction.ACTION_ANIMATION_FLOORWASHER_JUG;
+                twoActions[0] = GameAction.ACTION_CUSTOM_UPDATE_JUG_LIQUID_VALUE;   /* With delay of 2.0s */
+                twoActions[1] = animationAction;
                 
 
                 VARMAP_GameEventMaster.PERFORM_ACTION(twoActions, null);

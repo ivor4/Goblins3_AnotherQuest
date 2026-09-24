@@ -23,7 +23,7 @@ namespace Gob3AQ.GameElement.Extension.LabLiquidExt
         {
             {LabLiquid.LAB_LIQUID_FLOORWASHER, new(0.5f, 0.1f, 0.2f, 1f) },
             {LabLiquid.LAB_LIQUID_DETERGENT, Color.gray },
-            {LabLiquid.LAB_LIQUID_INSECTICIDE, Color.green },
+            {LabLiquid.LAB_LIQUID_INSECTICIDE, new(0.137f, 0.435f, 0.2313f, 1f) },
             {LabLiquid.LAB_LIQUID_VARNISH, Color.lightYellow },
             {LabLiquid.LAB_LIQUID_RUST, Color.red }
         };

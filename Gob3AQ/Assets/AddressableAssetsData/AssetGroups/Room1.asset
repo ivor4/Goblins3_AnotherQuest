@@ -515,6 +515,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a141b2a96ecceef46ad4777fb7e17b3b
+    m_Address: MATERIAL_LAB_LIQUID_INSECTICIDE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a570ee35a12a61648b7bfbc988a4c1f4
     m_Address: SPRITE_SERVICE_DOOR_OPENED_NIGHT
     m_ReadOnly: 0

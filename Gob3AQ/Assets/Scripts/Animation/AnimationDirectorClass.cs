@@ -53,6 +53,10 @@ namespace Gob3AQ.GameElement.Animation
             {
                 VARMAP_ItemMaster.PLAY_SOUND(soundMarker.sound, null, false);
             }
+            else if(notification is SoundStopMarker soundStopMarker)
+            {
+                VARMAP_ItemMaster.STOP_SOUND(soundStopMarker.sound);
+            }
         }
 
         private void AnimationEnded(PlayableDirector dir)

@@ -88,8 +88,6 @@ namespace Gob3AQ.GameElement.Extension.LabLiquidExt
                 liquidLevelActual = Mathf.Lerp(liquidLevelSource, liquidLevelTarget, factor);
                 liquidColorActual = Color.Lerp(liquidColorSource, liquidColorTarget, factor);
 
-                Debug.Log($"Source {liquidColorSource}, Actual {liquidColorActual}, Target {liquidColorTarget}");
-
                 RefreshLiquid();
             }
         }
@@ -138,7 +136,7 @@ namespace Gob3AQ.GameElement.Extension.LabLiquidExt
 
         private void RefreshLiquid()
         {
-            body.transform.localScale = new Vector3(body.transform.localScale.x, liquidLevelActual * 0.6f, 1f);
+            body.transform.localScale = new Vector3(body.transform.localScale.x, liquidLevelActual * 0.54f, 1f);
             spriteRenderer.color = liquidColorActual;
         }
 

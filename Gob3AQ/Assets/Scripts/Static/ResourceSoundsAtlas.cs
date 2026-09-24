@@ -385,6 +385,7 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_OBSERVE_ITEM_RUST_POWDER_SPANISH"), /* SOUND_OBSERVE_ITEM_RUST_POWDER */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_NONSENSE_NOT_THOUGHT_SPANISH"), /* SOUND_NONSENSE_NOT_THOUGHT */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_LIQUID_POUR_JUG"), /* SOUND_LIQUID_POUR_JUG */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_POWDER_POUR_JUG"), /* SOUND_POWDER_POUR_JUG */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

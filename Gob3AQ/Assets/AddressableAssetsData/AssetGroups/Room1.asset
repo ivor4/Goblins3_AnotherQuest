@@ -25,6 +25,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 03facea0787146c468d7f9da1795717b
+    m_Address: SOUND_POWDER_POUR_JUG
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0668b4cefc741434db1d3905b7118365
     m_Address: SOUND_DIALOG_REME_1_2_SPANISH
     m_ReadOnly: 0

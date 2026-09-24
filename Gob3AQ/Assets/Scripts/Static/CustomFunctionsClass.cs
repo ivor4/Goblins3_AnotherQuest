@@ -16,6 +16,7 @@ namespace Gob3AQ.Brain.CustomFunctions
             {CustomFunction.CUSTOM_FUNCTION_RECOVER_LAB_MISC_VALUES, Custom_Lab_Recover_Values },
             {CustomFunction.CUSTOM_FUNCTION_UPDATE_JUG_LIQUID, Custom_Lab_Update_Values },
             {CustomFunction.CUSTOM_FUNCTION_LAB_ADD_FLOORWASHER,  Custom_Lab_Add_Florwasher},
+            {CustomFunction.CUSTOM_FUNCTION_LAB_ADD_DETERGENT,  Custom_Lab_Add_Detergent},
             {CustomFunction.CUSTOM_FUNCTION_LAB_ADD_VARNISH,  Custom_Lab_Add_Varnish}
         };
 
@@ -50,6 +51,11 @@ namespace Gob3AQ.Brain.CustomFunctions
             Custom_Lab_Add_Liquid(LabLiquid.LAB_LIQUID_FLOORWASHER);
         }
 
+        private static void Custom_Lab_Add_Detergent()
+        {
+            Custom_Lab_Add_Liquid(LabLiquid.LAB_LIQUID_DETERGENT);
+        }
+
         private static void Custom_Lab_Add_Varnish()
         {
             Custom_Lab_Add_Liquid(LabLiquid.LAB_LIQUID_VARNISH);
@@ -76,7 +82,7 @@ namespace Gob3AQ.Brain.CustomFunctions
                         break;
                     case LabLiquid.LAB_LIQUID_DETERGENT:
                         liquidConf.nDetergent++;
-                        animationAction = GameAction.ACTION_ANIMATION_FLOORWASHER_JUG;
+                        animationAction = GameAction.ACTION_ANIMATION_DETERGENT_JUG;
                         break;
                     case LabLiquid.LAB_LIQUID_INSECTICIDE:
                         liquidConf.nInsecticide++;

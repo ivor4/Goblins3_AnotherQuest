@@ -1501,6 +1501,12 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,GameSound.SOUND_OBSERVE_ITEM_PICKABLE_LAB_VARNISH, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE}), /* PHRASE_OBSERVE_ITEM_PICKABLE_LAB_VARNISH */ 
             new(0,GameSound.SOUND_OBSERVE_ITEM_RUSTY_SPRING, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_ITEM_RUSTY_SPRING */ 
             new(0,GameSound.SOUND_OBSERVE_ITEM_RUST_POWDER, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_ITEM_RUST_POWDER */ 
+            new(0,GameSound.SOUND_MAINCHAR_COMMENT_PERFECT_MIX_LAB, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_COMMENT_PERFECT_MIX_LAB */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MEMENTO_HIVE_LAB_1 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MEMENTO_HIVE_LAB_2 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MEMENTO_HIVE_LAB_3 */ 
+            new(0,GameSound.SOUND_MAINCHAR_NONSENSE_NOTYET, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MAINCHAR_NONSENSE_NOTYET */ 
+            new(0,GameSound.SOUND_TRY_USE_WITH_COMPLETE_JUG_MIX, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_TRY_USE_WITH_COMPLETE_JUG_MIX */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

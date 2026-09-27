@@ -528,8 +528,8 @@ namespace Gob3AQ.ResourceAtlas
             new( /* UNDER_BED */
             new GameSprite[1]{GameSprite.BACKGROUND_UNDER_BED},
             new GameSound[1]{GameSound.MUSIC_INN},
-            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_UNDER_BED}), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(7){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_PICKABLE_KEY_HIVE_ROOM, GameItem.ITEM_PICKABLE_COIN25, GameItem.ITEM_RUSTY_SPRING, GameItem.ITEM_RUST_POWDER, GameItem.ITEM_KEY_SCRATCHER, GameItem.ITEM_RUST_UNITS_GENERATOR}), 
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_UNDER_BED, GameSprite.SPRITE_RUST_POWDER_UNIT}), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(7){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_PICKABLE_KEY_HIVE_ROOM, GameItem.ITEM_PICKABLE_COIN25, GameItem.ITEM_RUSTY_SPRING, GameItem.ITEM_PICKABLE_RUST_POWDER, GameItem.ITEM_KEY_SCRATCHER, GameItem.ITEM_RUST_UNITS_GENERATOR}), 
             new ReadOnlyHashSet<DetailType>(new HashSet<DetailType>(1){DetailType.PREFAB_RUST_UNIT}), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_INN}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
@@ -552,7 +552,7 @@ namespace Gob3AQ.ResourceAtlas
             new( /* HIVE1_LAB */
             new GameSprite[1]{GameSprite.BACKGROUND_HIVE1_LAB},
             new GameSound[1]{GameSound.MUSIC_ROOM_PUZZLE},
-            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_HIVE1_LAB}), 
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_HIVE1_LAB, GameSprite.SPRITE_RUST_POWDER_UNIT}), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(7){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_LAB_MAGAZINE, GameItem.ITEM_PICKABLE_LAB_FLOORWASHER, GameItem.ITEM_PICKABLE_LAB_DETERGENT, GameItem.ITEM_PICKABLE_LAB_INSECTICIDE, GameItem.ITEM_PICKABLE_LAB_VARNISH, GameItem.ITEM_LAB_JUG}), 
             new ReadOnlyHashSet<DetailType>(new HashSet<DetailType>(1){DetailType.PREFAB_NONE}), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(2){GameSound.MUSIC_ROOM_PUZZLE, GameSound.SOUND_LIQUID_POUR_JUG}), 

@@ -191,37 +191,42 @@ namespace Gob3AQ.VARMAP.Types
 
     public struct LabLiquidConf
     {
-        public const int MAX_DOSE_NR = 5;
-        private const int MAX_DOSE_MOD = MAX_DOSE_NR + 1;
+        public const int MAX_HEIGHT_NR = 5;
         public int nFloorwasher;
         public int nDetergent;
         public int nInsecticide;
         public int nVarnish;
         public int nRust;
+        public int height;
         public int nTotal;
+        public bool isValid;
 
         public LabLiquidConf(in NumberPack numberPack)
         {
             ulong uval = (ulong)numberPack.long1;
 
-            nFloorwasher = (int)(uval & 0x7ul) % MAX_DOSE_MOD;
-            nDetergent = (int)((uval >> 8) & 0x7ul) % MAX_DOSE_MOD;
-            nInsecticide = (int)((uval >> 16) & 0x7ul) % MAX_DOSE_MOD;
-            nVarnish = (int)((uval >> 24) & 0x7ul) % MAX_DOSE_MOD;
-            nRust = (int)((uval >> 32) & 0x7ul) % MAX_DOSE_MOD;
-            nTotal = (int)((uval >> 40) & 0x7ul) % MAX_DOSE_MOD;
+            nFloorwasher = (int)(uval & 0x7ul);
+            nDetergent = (int)((uval >> 4) & 0x7ul);
+            nInsecticide = (int)((uval >> 8) & 0x7ul);
+            nVarnish = (int)((uval >> 12) & 0x7ul);
+            nRust = (int)((uval >> 16) & 0x7ul);
+            height = (int)((uval >> 20) & 0x7ul);
+            nTotal = (int)((uval >> 24) & 0xFul);
+            isValid = (int)((uval >> 28) & 0x1ul) != 0;
         }
 
         public readonly NumberPack ToNumberPack(bool immediate)
         {
             NumberPack npack;
 
-            ulong uval = (ulong)(nFloorwasher % MAX_DOSE_MOD);
-            uval |= ((ulong)(nDetergent % MAX_DOSE_MOD)) << 8;
-            uval |= ((ulong)(nInsecticide % MAX_DOSE_MOD)) << 16;
-            uval |= ((ulong)(nVarnish % MAX_DOSE_MOD)) << 24;
-            uval |= ((ulong)(nRust % MAX_DOSE_MOD)) << 32;
-            uval |= ((ulong)(nTotal % MAX_DOSE_MOD)) << 40;
+            ulong uval = (ulong)nFloorwasher & 0x7ul;
+            uval |= ((ulong)nDetergent & 0x7ul) << 4;
+            uval |= ((ulong)nInsecticide & 0x7ul) << 8;
+            uval |= ((ulong)nVarnish & 0x7ul) << 12;
+            uval |= ((ulong)nRust & 0x7ul) << 16;
+            uval |= ((ulong)height & 0x7ul) << 20;
+            uval |= ((ulong)nTotal & 0xFul) << 24;
+            uval |= (isValid ? 0x1ul : 0x0ul) << 28;
 
             npack = new NumberPack(immediate, long1:(long)uval);
 

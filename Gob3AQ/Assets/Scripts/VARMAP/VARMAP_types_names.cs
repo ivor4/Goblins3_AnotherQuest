@@ -93,6 +93,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_VARNISH, 
         NAME_RUSTY_SPRING, 
         NAME_RUST_POWDER, 
+        NAME_MEMENTO_HIVE_LAB, 
         NAME_NPC_LAST, 
         
 NAME_TOTAL

@@ -535,6 +535,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9241b5357491ea14f9bca2953d47bd28
+    m_Address: SPRITE_MEMENTO_HIVE_LAB
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 92d845b6379f4fd45bb81c5c91f0fb6f
     m_Address: SCENE_BASE
     m_ReadOnly: 0

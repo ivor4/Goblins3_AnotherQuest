@@ -230,6 +230,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41f80089fd4bb804196cde190d0e3266
+    m_Address: SOUND_MAINCHAR_COMMENT_PERFECT_MIX_LAB_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 42e01c4f42ddf6641b0da0a552bd1af6
     m_Address: SPRITE_REME_BLOCKING_PATH
     m_ReadOnly: 0
@@ -297,6 +302,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58e7294c7dcc66849a84c7af79848839
     m_Address: BACKGROUND_HIVE1_WC_NIGHT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5c07501cee60e6144923dbb89c825025
+    m_Address: MATERIAL_LAB_LIQUID_PERFECT_MIX
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -580,6 +590,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4d195c909ea88f4fba9b8a1b299aea5
+    m_Address: TIMELINE_LAB_RUST_POUR
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b5f633163b7dd0c4dbdb1b0dc2e87810
     m_Address: SPRITE_LIQUID_BASE
     m_ReadOnly: 0
@@ -707,6 +722,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d1146cd8e63552f4793dc847852c68d3
     m_Address: SOUND_OBSERVE_COIN_IN_CRACK_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d145a6759c2b2694195dc5434b6f4306
+    m_Address: SOUND_TRY_USE_WITH_COMPLETE_JUG_MIX_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -9,6 +9,7 @@ namespace Gob3AQ.GameElement.Extension.LabLiquidExt
     public class LabLiquidClass : MonoBehaviour, IGameElementExtension
     {
         private GameObject body;
+        private GameObject perfectParticles;
         private SpriteRenderer spriteRenderer;
         private LabLiquidConf liquidConf;
         private float liquidLevelSource;
@@ -17,6 +18,7 @@ namespace Gob3AQ.GameElement.Extension.LabLiquidExt
         private Color liquidColorSource;
         private Color liquidColorTarget;
         private Color liquidColorActual;
+        private float progress;
         private ulong startTimestamp;
 
         private static readonly IReadOnlyDictionary<LabLiquid, Color> colorDict = new Dictionary<LabLiquid, Color>()
@@ -27,6 +29,8 @@ namespace Gob3AQ.GameElement.Extension.LabLiquidExt
             {LabLiquid.LAB_LIQUID_VARNISH, Color.lightYellow },
             {LabLiquid.LAB_LIQUID_RUST, Color.red }
         };
+
+        private static Color perfectColor = new(0.886f, 0.046f, 0.046f, 1f);
 
         private static readonly Color colorGray = new (0.5f, 0.5f, 0.5f, 1.0f);
 
@@ -58,6 +62,7 @@ namespace Gob3AQ.GameElement.Extension.LabLiquidExt
         private void Awake()
         {
             body = transform.Find("Body").gameObject;
+            perfectParticles = transform.Find("PerfectMixParticleSystem").gameObject;
             spriteRenderer = body.GetComponent<SpriteRenderer>();
         }
 
@@ -71,18 +76,23 @@ namespace Gob3AQ.GameElement.Extension.LabLiquidExt
             liquidColorActual = colorGray;
             liquidColorTarget = colorGray;
 
+            progress = 0f;
+
             body.transform.localScale = new Vector3(body.transform.localScale.x, 0, 1);
             ItemMasterClass.AddItemExtension(ItemExtensionFunction.ITEM_EXTENSION_FN_FILL_LAB_LIQUID, this);
         }
 
         private void Update()
         {
-            if(liquidLevelActual < liquidLevelTarget)
+            if(progress < 1f)
             {
                 ulong actualTimestamp = VARMAP_ItemMaster.GET_ELAPSED_TIME_MS();
                 ulong delta = actualTimestamp - startTimestamp;
 
                 float factor = 1.05f + (0f - 1.05f) * Mathf.Exp(-(float)delta/(1500f/4f));
+
+                progress = factor;
+
                 factor = Mathf.Clamp(factor, 0.0f, 1.0f);
 
                 liquidLevelActual = Mathf.Lerp(liquidLevelSource, liquidLevelTarget, factor);
@@ -98,11 +108,16 @@ namespace Gob3AQ.GameElement.Extension.LabLiquidExt
             liquidConf = new LabLiquidConf(in numberPack);
 
             liquidLevelSource = liquidLevelActual;
-            liquidLevelTarget = liquidConf.nTotal;
+            liquidLevelTarget = liquidConf.height;
 
             liquidColorSource = liquidColorActual;
 
-            if (liquidConf.nTotal > 0)
+            if(liquidConf.isValid)
+            {
+                liquidColorTarget = perfectColor;
+                perfectParticles.SetActive(true);
+            }
+            else if (liquidConf.nTotal > 0)
             {
                 float mixR = (colorDict[LabLiquid.LAB_LIQUID_FLOORWASHER].r * liquidConf.nFloorwasher) + (colorDict[LabLiquid.LAB_LIQUID_DETERGENT].r * liquidConf.nDetergent) +
                     (colorDict[LabLiquid.LAB_LIQUID_INSECTICIDE].r * liquidConf.nInsecticide) + (colorDict[LabLiquid.LAB_LIQUID_VARNISH].r * liquidConf.nVarnish);
@@ -128,7 +143,13 @@ namespace Gob3AQ.GameElement.Extension.LabLiquidExt
                 liquidColorActual = liquidColorTarget;
                 liquidColorSource = liquidColorActual;
 
+                progress = 1f;
+
                 RefreshLiquid();
+            }
+            else
+            {
+                progress = 0f;
             }
 
             startTimestamp = VARMAP_ItemMaster.GET_ELAPSED_TIME_MS();

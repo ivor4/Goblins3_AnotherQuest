@@ -360,6 +360,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 986413bcdcccdc642b226f8a4813bac1
+    m_Address: SOUND_MAINCHAR_NONSENSE_TOO_MUCH_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9a1ea0a3c04b9f748b858c311527a659
     m_Address: ANIMATION_MAINCHAR_WALKING_SIDE_ENTRY
     m_ReadOnly: 0

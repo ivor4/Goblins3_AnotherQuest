@@ -76,7 +76,7 @@ namespace Gob3AQ.Brain.CustomFunctions
 
         private static void Custom_Lab_Add_Liquid(LabLiquid liquid)
         {
-            Span<GameAction> threeActions = stackalloc GameAction[3];
+            Span<GameAction> threeActions = stackalloc GameAction[4];
 
             ulong uval = VARMAP_GameEventMaster.GET_SHADOW_ELEM_MISC_VALUES((int)MiscValuesIndex.MISC_VALUE_INDEX_LAB_PORTION_VALS);
             NumberPack npack = new(long1: (long)uval);
@@ -144,7 +144,12 @@ namespace Gob3AQ.Brain.CustomFunctions
                 threeActions[0] = GameAction.ACTION_CUSTOM_UPDATE_JUG_LIQUID_VALUE;   /* With delay of 2.0s */
                 threeActions[1] = animationAction;
                 threeActions[2] = GameAction.ACTION_CUSTOM_LAB_POST_CHECK_VALUE;
-                
+                threeActions[3] = GameAction.ACTION_LOSE_RUST_POWDER;
+
+                if(liquid != LabLiquid.LAB_LIQUID_RUST)
+                {
+                    threeActions = threeActions[..3];
+                }
 
                 VARMAP_GameEventMaster.PERFORM_ACTION(threeActions, null);
             }
@@ -164,7 +169,10 @@ namespace Gob3AQ.Brain.CustomFunctions
             }
             else
             {
+                threeActions = threeActions[..1];
+                threeActions[0] = GameAction.ACTION_DIALOGUE_MAINCHAR_NONSENSE_TOO_MUCH;
 
+                VARMAP_GameEventMaster.PERFORM_ACTION(threeActions, null);
             }
         }
 

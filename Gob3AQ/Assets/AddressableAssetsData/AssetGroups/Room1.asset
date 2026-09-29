@@ -265,11 +265,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 50b2f44918ab0cb48bfecc8fdfafd343
-    m_Address: SPRITE_MIX_JAR
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 510991f604f8d0045bed6c8ae0469c2d
     m_Address: ANIMATOR_KEY_SCRATCHER
     m_ReadOnly: 0

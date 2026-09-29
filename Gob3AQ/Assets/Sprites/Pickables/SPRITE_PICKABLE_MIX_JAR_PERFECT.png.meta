@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 50b2f44918ab0cb48bfecc8fdfafd343
+guid: 514e69963b49ec042bb8117efc4d1ec1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7865779012891499943
-    second: SPRITE_MIX_JAR_0
+      213: -8821180544030652970
+    second: SPRITE_PICKABLE_MIX_JAR_PERFECT_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SPRITE_MIX_JAR_0
+      name: SPRITE_PICKABLE_MIX_JAR_PERFECT_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 215
-        height: 258
+        x: 13
+        y: 10
+        width: 108
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7adde19665cd82d60800000000000000
-      internalID: 7865779012891499943
+      spriteID: 6d54775280fd49580800000000000000
+      internalID: -8821180544030652970
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SPRITE_MIX_JAR_0: 7865779012891499943
+      SPRITE_PICKABLE_MIX_JAR_PERFECT_0: -8821180544030652970
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

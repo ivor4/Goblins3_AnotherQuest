@@ -1685,8 +1685,8 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new(new HashSet<ActionConditions>(2){ActionConditions.COND_OBSERVE_ITEM_GUMBALL_MACHINE, ActionConditions.COND_USE_25COIN_GUMBALL_MACHINE})),
 
             new ( /* ITEM_PICKABLE_MIX_JAR */
-            NameType.NAME_MIX_JAR,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_MIX_JAR}),
-            GameSprite.SPRITE_MIX_JAR,true,false,false,GameSprite.SPRITE_PICKABLE_MIX_JAR,GamePickableItem.ITEM_PICK_PICKABLE_MIX_JAR,DetailType.PREFAB_NONE,false,
+            NameType.NAME_MIX_JAR,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(3){GameSprite.SPRITE_JUG_EMPTY, GameSprite.SPRITE_PICKABLE_MIX_JAR_IMPERFECT, GameSprite.SPRITE_PICKABLE_MIX_JAR_PERFECT}),
+            GameSprite.SPRITE_JUG_EMPTY,true,false,false,GameSprite.SPRITE_PICKABLE_MIX_JAR_IMPERFECT,GamePickableItem.ITEM_PICK_PICKABLE_MIX_JAR,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(1){ActionConditions.COND_OBSERVE_ITEM_MIX_JAR})),
 
             new ( /* ITEM_PICKABLE_TAR_CAN */
@@ -1794,6 +1794,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_JUG_EMPTY,false,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new(new HashSet<ActionConditions>(6){ActionConditions.COND_OBSERVE_ITEM_MIX_JAR, ActionConditions.COND_USE_FLOORWASHER_JUG, ActionConditions.COND_USE_DETERGENT_JUG, ActionConditions.COND_USE_INSECTICIDE_JUG, ActionConditions.COND_USE_VARNISH_JUG, ActionConditions.COND_USE_RUST_JUG})),
 
+            new ( /* ITEM_PICKABLE_PERFECT_MIX_JAR */
+            NameType.NAME_PERFECT_MIX_JAR,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PICKABLE_MIX_JAR_PERFECT}),
+            GameSprite.SPRITE_PICKABLE_MIX_JAR_PERFECT,true,false,false,GameSprite.SPRITE_PICKABLE_MIX_JAR_PERFECT,GamePickableItem.ITEM_PICK_PICKABLE_PERFECT_MIX_JAR,DetailType.PREFAB_NONE,false,
+            new(new HashSet<ActionConditions>(1){ActionConditions.COND_OK})),
+
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST}),
             GameSprite.SPRITE_LAST,false,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
@@ -1828,6 +1833,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameItem.ITEM_PICKABLE_LAB_INSECTICIDE,	/* ITEM_PICK_PICKABLE_LAB_INSECTICIDE */
             GameItem.ITEM_PICKABLE_LAB_VARNISH,	/* ITEM_PICK_PICKABLE_LAB_VARNISH */
             GameItem.ITEM_PICKABLE_RUST_POWDER,	/* ITEM_PICK_PICKABLE_RUST_POWDER */
+            GameItem.ITEM_PICKABLE_PERFECT_MIX_JAR,	/* ITEM_PICK_PICKABLE_PERFECT_MIX_JAR */
             /* > ATG 4 END < */
         };
 
@@ -1845,7 +1851,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_PICKABLE_FIG,	/* ITEM_PICK_PICKABLE_FIG */
             GameSprite.SPRITE_PICKABLE_HIVE_ROOM_KEY,	/* ITEM_PICK_PICKABLE_KEY_HIVE_ROOM */
             GameSprite.SPRITE_COIN25,	/* ITEM_PICK_PICKABLE_COIN25 */
-            GameSprite.SPRITE_PICKABLE_MIX_JAR,	/* ITEM_PICK_PICKABLE_MIX_JAR */
+            GameSprite.SPRITE_PICKABLE_MIX_JAR_IMPERFECT,	/* ITEM_PICK_PICKABLE_MIX_JAR */
             GameSprite.SPRITE_PICKABLE_TAR_CAN,	/* ITEM_PICK_PICKABLE_TAR_CAN */
             GameSprite.SPRITE_PICKABLE_HIVE_ROOM_KEY_BROKEN,	/* ITEM_PICK_PICKABLE_HIVE_KEY_BROKEN */
             GameSprite.SPRITE_PICKABLE_GUMBALL,	/* ITEM_PICK_PICKABLE_GUMBALL */
@@ -1857,6 +1863,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_HIVE1_LAB_INSECTICIDE,	/* ITEM_PICK_PICKABLE_LAB_INSECTICIDE */
             GameSprite.SPRITE_HIVE1_LAB_VARNISH,	/* ITEM_PICK_PICKABLE_LAB_VARNISH */
             GameSprite.SPRITE_PICKABLE_RUST_POWDER,	/* ITEM_PICK_PICKABLE_RUST_POWDER */
+            GameSprite.SPRITE_PICKABLE_MIX_JAR_PERFECT,	/* ITEM_PICK_PICKABLE_PERFECT_MIX_JAR */
             /* > ATG 5 END < */
         };
 

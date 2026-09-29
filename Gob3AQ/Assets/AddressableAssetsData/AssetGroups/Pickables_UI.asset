@@ -155,6 +155,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23a39bcddd533dd45840274ed2f0aaa4
+    m_Address: SPRITE_PICKABLE_MIX_JAR_IMPERFECT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 244155a4ebf69b643bf47640bd7d1cba
     m_Address: ANIMATION_GENERIC_CYCLE2_ENTRY
     m_ReadOnly: 0
@@ -302,6 +307,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4ebc44b86d2c8454683ac46935fd5453
     m_Address: ANIMATION_GENERIC_CYCLE11_EXEC
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 514e69963b49ec042bb8117efc4d1ec1
+    m_Address: SPRITE_PICKABLE_MIX_JAR_PERFECT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

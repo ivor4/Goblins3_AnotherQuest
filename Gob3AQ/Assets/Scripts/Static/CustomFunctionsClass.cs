@@ -180,7 +180,7 @@ namespace Gob3AQ.Brain.CustomFunctions
 
         private static void Custom_Lab_Post_Check()
         {
-            Span<GameAction> threeActions = stackalloc GameAction[3];
+            Span<GameAction> actions = stackalloc GameAction[4];
 
             ulong uval = VARMAP_GameEventMaster.GET_SHADOW_ELEM_MISC_VALUES((int)MiscValuesIndex.MISC_VALUE_INDEX_LAB_PORTION_VALS);
             NumberPack npack = new(long1: (long)uval);
@@ -188,18 +188,21 @@ namespace Gob3AQ.Brain.CustomFunctions
 
             if(liquidConf.isValid)
             {
-                threeActions[0] = GameAction.ACTION_EVENT_LAB_PERFECT_MIX;
-                threeActions[1] = GameAction.ACTION_MEMENTO_HIVE_LAB_3;
-                threeActions[2] = GameAction.ACTION_DIALOGUE_COMMENT_PERFECT_MIX_LAB;
+                Custom_Reset_Lab_Misc_Values();
 
-                VARMAP_GameEventMaster.PERFORM_ACTION(threeActions, null);
+                actions[0] = GameAction.ACTION_EVENT_LAB_PERFECT_MIX;
+                actions[1] = GameAction.ACTION_PLAY_SOUND_MIX_JAR_BUBBLES_LOOP;
+                actions[2] = GameAction.ACTION_MEMENTO_HIVE_LAB_3;
+                actions[3] = GameAction.ACTION_DIALOGUE_COMMENT_PERFECT_MIX_LAB;
+
+                VARMAP_GameEventMaster.PERFORM_ACTION(actions, null);
             }
         }
 
         private static void Custom_Service_Jar_Init_State()
         {
             Span<GameEventCombi> conditions = stackalloc GameEventCombi[1];
-            Span<GameAction> actions = stackalloc GameAction[1];
+            Span<GameAction> actions = stackalloc GameAction[3];
 
             conditions[0] = new(GameEvent.EVENT_LAB_STARTED_MIX, false);
             VARMAP_GameEventMaster.IS_EVENT_COMBI_OCCURRED(conditions, out bool startedMix);
@@ -210,29 +213,38 @@ namespace Gob3AQ.Brain.CustomFunctions
 
             if (perfectMix)
             {
-                actions[0] = GameAction.ACTION_DESTROY_LAB_WORKDESK;
-                VARMAP_GameEventMaster.PERFORM_ACTION(actions, null);
+                Span<GameAction> action = actions[..1];
+                action[0] = GameAction.ACTION_DESTROY_LAB_WORKDESK;
+                VARMAP_GameEventMaster.PERFORM_ACTION(action, null);
             }
 
             if (jarInInventory)
             {
                 actions[0] = GameAction.ACTION_DESPAWN_MIX_JAR;
-                VARMAP_GameEventMaster.PERFORM_ACTION(actions, null);
+                actions[1] = GameAction.ACTION_DESPAWN_IMPERFECT_MIX_JAR;
+                actions[2] = GameAction.ACTION_DESPAWN_PERFECT_MIX_JAR;
             }
             else if(perfectMix)
             {
-                actions[0] = GameAction.ACTION_SET_SPRITE_MIX_JAR_PERFECT;
-                VARMAP_GameEventMaster.PERFORM_ACTION(actions, null);
+                actions[0] = GameAction.ACTION_DESPAWN_MIX_JAR;
+                actions[1] = GameAction.ACTION_DESPAWN_IMPERFECT_MIX_JAR;
+                actions[2] = GameAction.ACTION_PLAY_SOUND_MIX_JAR_BUBBLES_LOOP;
             }
             else if(startedMix)
             {
-                actions[0] = GameAction.ACTION_SET_SPRITE_MIX_JAR_IMPERFECT;
-                VARMAP_GameEventMaster.PERFORM_ACTION(actions, null);
+                actions = actions[..2];
+                actions[0] = GameAction.ACTION_DESPAWN_MIX_JAR;
+                actions[1] = GameAction.ACTION_DESPAWN_PERFECT_MIX_JAR;
             }
             else
             {
                 /* Empty jar on its place */
+                actions = actions[..2];
+                actions[0] = GameAction.ACTION_DESPAWN_IMPERFECT_MIX_JAR;
+                actions[1] = GameAction.ACTION_DESPAWN_PERFECT_MIX_JAR;
             }
+
+            VARMAP_GameEventMaster.PERFORM_ACTION(actions, null);
         }
     }
 }

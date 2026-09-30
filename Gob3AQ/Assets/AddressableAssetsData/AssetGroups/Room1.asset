@@ -300,6 +300,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59a6c6b639f763a489f164b3a8aeb270
+    m_Address: SOUND_MIX_JAR_BUBBLES
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5c07501cee60e6144923dbb89c825025
     m_Address: MATERIAL_LAB_LIQUID_PERFECT_MIX
     m_ReadOnly: 0
@@ -337,6 +342,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6438d0c56c4253449b65182597bd276f
     m_Address: ANIMATION_KEY_SCRATCHER_APPEAR
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 64998eab6638b4f4db75f5efb44dade4
+    m_Address: SOUND_OBSERVE_IMPERFECT_MIX_JAR_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -512,6 +522,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9ad06cac1608bac4fb6e806681d305c5
     m_Address: SOUND_FART_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b468d466b6f40149943c76118f45169
+    m_Address: SOUND_OBSERVE_PERFECT_MIX_JAR_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

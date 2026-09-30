@@ -86,5 +86,6 @@
 84,NAME_RUSTY_SPRING,Rusty spring,Muelle oxidado
 85,NAME_RUST_POWDER,Rust powder,Virutas de óxido
 86,NAME_MEMENTO_HIVE_LAB,Insecticide experiment,Experimento insecticida
-87,NAME_PERFECT_MIX_JAR,Mass insecticide weapon,Arma de insecticidio masivo
-88,NAME_NPC_LAST,Last,Ultimo
+87,NAME_IMPERFECT_MIX_JAR,Failed experiment,Experimento fallido
+88,NAME_PERFECT_MIX_JAR,Mass insecticide weapon,Arma de insecticidio masivo
+89,NAME_NPC_LAST,Last,Ultimo

@@ -20,7 +20,8 @@ namespace Gob3AQ.Brain.CustomFunctions
             {CustomFunction.CUSTOM_FUNCTION_LAB_ADD_INSECTICIDE,  Custom_Lab_Add_Insecticide},
             {CustomFunction.CUSTOM_FUNCTION_LAB_ADD_VARNISH,  Custom_Lab_Add_Varnish},
             {CustomFunction.CUSTOM_FUNCTION_LAB_ADD_RUST,  Custom_Lab_Add_Rust},
-            {CustomFunction.CUSTOM_FUNCTION_LAB_POST_CHECK, Custom_Lab_Post_Check }
+            {CustomFunction.CUSTOM_FUNCTION_LAB_POST_CHECK, Custom_Lab_Post_Check },
+            {CustomFunction.CUSTOM_FUNCTION_SERVICE_JAR_INIT_STATE, Custom_Service_Jar_Init_State }
         };
 
         private static void Custom_Reset_Lab_Misc_Values()
@@ -76,7 +77,7 @@ namespace Gob3AQ.Brain.CustomFunctions
 
         private static void Custom_Lab_Add_Liquid(LabLiquid liquid)
         {
-            Span<GameAction> threeActions = stackalloc GameAction[4];
+            Span<GameAction> actionGroup = stackalloc GameAction[5];
 
             ulong uval = VARMAP_GameEventMaster.GET_SHADOW_ELEM_MISC_VALUES((int)MiscValuesIndex.MISC_VALUE_INDEX_LAB_PORTION_VALS);
             NumberPack npack = new(long1: (long)uval);
@@ -141,38 +142,39 @@ namespace Gob3AQ.Brain.CustomFunctions
 
                 VARMAP_GameEventMaster.SET_ELEM_MISC_VALUES((int)MiscValuesIndex.MISC_VALUE_INDEX_LAB_PORTION_VALS, (ulong)npack.long1);
 
-                threeActions[0] = GameAction.ACTION_CUSTOM_UPDATE_JUG_LIQUID_VALUE;   /* With delay of 2.0s */
-                threeActions[1] = animationAction;
-                threeActions[2] = GameAction.ACTION_CUSTOM_LAB_POST_CHECK_VALUE;
-                threeActions[3] = GameAction.ACTION_LOSE_RUST_POWDER;
+                actionGroup[0] = GameAction.ACTION_CUSTOM_UPDATE_JUG_LIQUID_VALUE;   /* With delay of 2.0s */
+                actionGroup[1] = animationAction;
+                actionGroup[2] = GameAction.ACTION_CUSTOM_LAB_POST_CHECK_VALUE;
+                actionGroup[3] = GameAction.ACTION_EVENT_LAB_STARTED_MIX;
+                actionGroup[4] = GameAction.ACTION_LOSE_RUST_POWDER;
 
                 if(liquid != LabLiquid.LAB_LIQUID_RUST)
                 {
-                    threeActions = threeActions[..3];
+                    actionGroup = actionGroup[..4];
                 }
 
-                VARMAP_GameEventMaster.PERFORM_ACTION(threeActions, null);
+                VARMAP_GameEventMaster.PERFORM_ACTION(actionGroup, null);
             }
             else if(liquidConf.isValid)
             {
-                threeActions = threeActions[..1];
-                threeActions[0] = GameAction.ACTION_DIALOGUE_TRY_USE_WITH_COMPLETE_JUG_MIX;
+                actionGroup = actionGroup[..1];
+                actionGroup[0] = GameAction.ACTION_DIALOGUE_TRY_USE_WITH_COMPLETE_JUG_MIX;
 
-                VARMAP_GameEventMaster.PERFORM_ACTION(threeActions, null);
+                VARMAP_GameEventMaster.PERFORM_ACTION(actionGroup, null);
             }
             else if((liquidConf.nRust == 0) && (liquid == LabLiquid.LAB_LIQUID_RUST))
             {
-                threeActions = threeActions[..1];
-                threeActions[0] = GameAction.ACTION_DIALOGUE_MAINCHAR_NONSENSE_NOTYET;
+                actionGroup = actionGroup[..1];
+                actionGroup[0] = GameAction.ACTION_DIALOGUE_MAINCHAR_NONSENSE_NOTYET;
 
-                VARMAP_GameEventMaster.PERFORM_ACTION(threeActions, null);
+                VARMAP_GameEventMaster.PERFORM_ACTION(actionGroup, null);
             }
             else
             {
-                threeActions = threeActions[..1];
-                threeActions[0] = GameAction.ACTION_DIALOGUE_MAINCHAR_NONSENSE_TOO_MUCH;
+                actionGroup = actionGroup[..1];
+                actionGroup[0] = GameAction.ACTION_DIALOGUE_MAINCHAR_NONSENSE_TOO_MUCH;
 
-                VARMAP_GameEventMaster.PERFORM_ACTION(threeActions, null);
+                VARMAP_GameEventMaster.PERFORM_ACTION(actionGroup, null);
             }
         }
 
@@ -191,6 +193,45 @@ namespace Gob3AQ.Brain.CustomFunctions
                 threeActions[2] = GameAction.ACTION_DIALOGUE_COMMENT_PERFECT_MIX_LAB;
 
                 VARMAP_GameEventMaster.PERFORM_ACTION(threeActions, null);
+            }
+        }
+
+        private static void Custom_Service_Jar_Init_State()
+        {
+            Span<GameEventCombi> conditions = stackalloc GameEventCombi[1];
+            Span<GameAction> actions = stackalloc GameAction[1];
+
+            conditions[0] = new(GameEvent.EVENT_LAB_STARTED_MIX, false);
+            VARMAP_GameEventMaster.IS_EVENT_COMBI_OCCURRED(conditions, out bool startedMix);
+            conditions[0] = new(GameEvent.EVENT_MIX_JAR_IN_INVENTORY, false);
+            VARMAP_GameEventMaster.IS_EVENT_COMBI_OCCURRED(conditions, out bool jarInInventory);
+            conditions[0] = new(GameEvent.EVENT_LAB_PERFECT_MIX, false);
+            VARMAP_GameEventMaster.IS_EVENT_COMBI_OCCURRED(conditions, out bool perfectMix);
+
+            if (perfectMix)
+            {
+                actions[0] = GameAction.ACTION_DESTROY_LAB_WORKDESK;
+                VARMAP_GameEventMaster.PERFORM_ACTION(actions, null);
+            }
+
+            if (jarInInventory)
+            {
+                actions[0] = GameAction.ACTION_DESPAWN_MIX_JAR;
+                VARMAP_GameEventMaster.PERFORM_ACTION(actions, null);
+            }
+            else if(perfectMix)
+            {
+                actions[0] = GameAction.ACTION_SET_SPRITE_MIX_JAR_PERFECT;
+                VARMAP_GameEventMaster.PERFORM_ACTION(actions, null);
+            }
+            else if(startedMix)
+            {
+                actions[0] = GameAction.ACTION_SET_SPRITE_MIX_JAR_IMPERFECT;
+                VARMAP_GameEventMaster.PERFORM_ACTION(actions, null);
+            }
+            else
+            {
+                /* Empty jar on its place */
             }
         }
     }

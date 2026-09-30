@@ -530,6 +530,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a6cee030c6a1c464d9e945c599aae38d
+    m_Address: SPRITE_MIX_JAR_PERFECT_SWIRLING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a75b7445ea97e974bb97beccacf0f9b0
     m_Address: SPRITE_ATLAS_HIVE1_2
     m_ReadOnly: 0
@@ -567,6 +572,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ae7c13f98cc3241468d749bc8ff7e12d
     m_Address: ANIMATOR_REME
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b10ed159c4cd2f64383c5a0fb706b74b
+    m_Address: ANIMATION_LAB_JAR_EMPTY_MIX
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -652,6 +662,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bdb42964342ed7046aa8cc68d4353695
     m_Address: SOUND_DIALOG_REME_2_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be1245a54cc5b89489c7666098c6a304
+    m_Address: ANIMATION_LAB_JAR_PERFECT_MIX
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -742,6 +757,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d6b629a75853aef4aadd562e667b7aef
     m_Address: SOUND_OBSERVE_LAB_MAGAZINE_4_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d71eb1c856e5669459993aeba5c39184
+    m_Address: ANIMATOR_LAB_JAR_MIX
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -842,6 +862,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fc1321eaef286c3478f455f590954402
     m_Address: SPRITE_ATLAS_HIVE1_3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe927456a44fcbb4d9e384ce909868b2
+    m_Address: ANIMATION_LAB_JAR_IMPERFECT_MIX
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

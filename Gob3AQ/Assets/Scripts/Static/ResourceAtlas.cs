@@ -541,11 +541,11 @@ namespace Gob3AQ.ResourceAtlas
             new GameSprite[1]{GameSprite.BACKGROUND_SERVICE_ROOM_DAY},
             new GameSound[1]{GameSound.MUSIC_ROOM_PUZZLE},
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_SERVICE_ROOM_DAY, GameSprite.FOREGROUND_SERVICE_ROOM_DAY}), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(9){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_GUMBALL_MACHINE, GameItem.ITEM_PICKABLE_MIX_JAR, GameItem.ITEM_PICKABLE_TAR_CAN, GameItem.ITEM_SQUAT_WC, GameItem.ITEM_CLATTERING_COIN, GameItem.ITEM_COIN_IN_CRACK, GameItem.ITEM_GENERIC_DOOR2}), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(11){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_GUMBALL_MACHINE, GameItem.ITEM_PICKABLE_MIX_JAR, GameItem.ITEM_PICKABLE_TAR_CAN, GameItem.ITEM_SQUAT_WC, GameItem.ITEM_CLATTERING_COIN, GameItem.ITEM_COIN_IN_CRACK, GameItem.ITEM_GENERIC_DOOR2, GameItem.ITEM_PICKABLE_IMPERFECT_MIX_JAR, GameItem.ITEM_PICKABLE_PERFECT_MIX_JAR}), 
             new ReadOnlyHashSet<DetailType>(new HashSet<DetailType>(1){DetailType.PREFAB_NONE}), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_ROOM_PUZZLE}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
-            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(3){UnchainConditions.UNCHAINER_UNCLICKABLE_CLATTERING_COIN, UnchainConditions.UNCHAIN_DESTROY_CLATTERING_COIN, UnchainConditions.UNCHAIN_DESTROY_TAR_CAN}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(4){UnchainConditions.UNCHAINER_UNCLICKABLE_CLATTERING_COIN, UnchainConditions.UNCHAIN_DESTROY_CLATTERING_COIN, UnchainConditions.UNCHAIN_DESTROY_TAR_CAN, UnchainConditions.UNCHAIN_SERVICE_ROOM_JAR_INIT_STATE}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
             ),
 

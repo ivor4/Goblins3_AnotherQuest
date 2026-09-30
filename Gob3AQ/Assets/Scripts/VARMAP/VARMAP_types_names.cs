@@ -94,6 +94,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_RUSTY_SPRING, 
         NAME_RUST_POWDER, 
         NAME_MEMENTO_HIVE_LAB, 
+        NAME_IMPERFECT_MIX_JAR, 
         NAME_PERFECT_MIX_JAR, 
         NAME_NPC_LAST, 
         

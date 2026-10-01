@@ -1,7 +1,9 @@
 using Gob3AQ.GameElement.Notification;
+using Gob3AQ.ItemMaster;
 using Gob3AQ.VARMAP.ItemMaster;
 using Gob3AQ.VARMAP.Types;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -20,6 +22,18 @@ namespace Gob3AQ.GameElement.Animation
         {
             if (director.state == PlayState.Paused)
             {
+                switch (ownedAnimation)
+                {
+                    case GameAnimation.ANIMATION_PLAYER_POUR_GREEN_MIX:
+                    case GameAnimation.ANIMATION_PLAYER_POUR_RED_MIX:
+                        VARMAP_ItemMaster.OBTAIN_SCENARIO_ITEMS(out IReadOnlyDictionary<GameItem, GameElementClass> instances);
+                        GameElementClass playerInstance = instances[GameItem.ITEM_PLAYER_MAIN];
+
+                        RebindCharacter(playerInstance.transform.parent.gameObject);
+                        break;
+                    default:
+                        break;
+                }
                 director.Play();
 
                 endedCallback = callback;
@@ -64,6 +78,26 @@ namespace Gob3AQ.GameElement.Animation
             director.stopped -= AnimationEnded;
 
             endedCallback?.Invoke();
+        }
+
+        private void RebindCharacter(GameObject instantiatedCharacter)
+        {
+            foreach (var output in director.playableAsset.outputs)
+            {
+                if (output.streamName.Contains("Animation") || output.outputTargetType == typeof(Animator))
+                {
+                    Animator characterAnimator = instantiatedCharacter.GetComponent<Animator>();
+                    if (characterAnimator != null)
+                    {
+                        director.SetGenericBinding(output.sourceObject, characterAnimator);
+                    }
+                    else
+                    {
+                        Debug.LogError($"Could not find Animator component on instantiated character: {instantiatedCharacter.name}");
+                    }
+                    break;
+                }
+            }
         }
     }
 }

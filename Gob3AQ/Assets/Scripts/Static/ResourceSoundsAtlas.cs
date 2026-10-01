@@ -393,6 +393,7 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_OBSERVE_PERFECT_MIX_JAR_SPANISH"), /* SOUND_OBSERVE_PERFECT_MIX_JAR */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_OBSERVE_IMPERFECT_MIX_JAR_SPANISH"), /* SOUND_OBSERVE_IMPERFECT_MIX_JAR */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_MIX_JAR_BUBBLES"), /* SOUND_MIX_JAR_BUBBLES */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_MAINCHAR_TRY_AGAIN_LAB_SPANISH"), /* SOUND_MAINCHAR_TRY_AGAIN_LAB */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

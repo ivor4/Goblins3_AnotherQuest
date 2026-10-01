@@ -1510,6 +1510,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,GameSound.SOUND_MAINCHAR_NONSENSE_TOO_MUCH, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MAINCHAR_NONSENSE_TOO_MUCH */ 
             new(0,GameSound.SOUND_OBSERVE_IMPERFECT_MIX_JAR, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_IMPERFECT_MIX_JAR */ 
             new(0,GameSound.SOUND_OBSERVE_PERFECT_MIX_JAR, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_PERFECT_MIX_JAR */ 
+            new(0,GameSound.SOUND_MAINCHAR_TRY_AGAIN_LAB, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MAINCHAR_TRY_AGAIN_LAB */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

@@ -77,14 +77,20 @@ namespace Gob3AQ.Brain.CustomFunctions
 
         private static void Custom_Lab_Add_Liquid(LabLiquid liquid)
         {
+            Span<GameEventCombi> conditions = stackalloc GameEventCombi[1];
             Span<GameAction> actionGroup = stackalloc GameAction[5];
 
             ulong uval = VARMAP_GameEventMaster.GET_SHADOW_ELEM_MISC_VALUES((int)MiscValuesIndex.MISC_VALUE_INDEX_LAB_PORTION_VALS);
             NumberPack npack = new(long1: (long)uval);
             LabLiquidConf liquidConf = new(in npack);
 
+            conditions[0] = new(GameEvent.EVENT_LAB_PERFECT_MIX, false);
+
+            VARMAP_GameEventMaster.IS_EVENT_COMBI_OCCURRED(conditions, out bool perfectMix);
+
 
             bool canMix = liquid != LabLiquid.LAB_LIQUID_NONE;
+            canMix &= !perfectMix;
             canMix &= !liquidConf.isValid;
             canMix &= (liquid != LabLiquid.LAB_LIQUID_RUST) || ((liquidConf.nRust < 1) && (liquidConf.height == LabLiquidConf.MAX_HEIGHT_NR));
             canMix &= (liquid != LabLiquid.LAB_LIQUID_DETERGENT) || (liquidConf.nDetergent < 2);
@@ -155,7 +161,7 @@ namespace Gob3AQ.Brain.CustomFunctions
 
                 VARMAP_GameEventMaster.PERFORM_ACTION(actionGroup, null);
             }
-            else if(liquidConf.isValid)
+            else if(liquidConf.isValid || perfectMix)
             {
                 actionGroup = actionGroup[..1];
                 actionGroup[0] = GameAction.ACTION_DIALOGUE_TRY_USE_WITH_COMPLETE_JUG_MIX;

@@ -619,10 +619,14 @@ namespace Gob3AQ.GameMaster
         {
             IReadOnlyList<PrefabEnum> charsList = LevelOptionsClass.CHARACTERS_TO_LOAD_PER_SCENE.GetValueOrDefault(room, DEFAULT_CHARACTER_PREFAB);
 
+            int i = 1;
+
             foreach (PrefabEnum charElem in charsList)
             {
                 GameObject maincharPrefab = ResourceAtlasClass.GetPrefab(charElem);
-                _ = Instantiate(maincharPrefab);
+                GameObject charInstance = Instantiate(maincharPrefab);
+                charInstance.name = $"Player_{i}";
+                i++;
             }
         }
     }

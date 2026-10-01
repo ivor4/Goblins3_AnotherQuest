@@ -365,6 +365,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66b1478234e71314f8a3ab8dbb7265f1
+    m_Address: SPRITE_MAINCHAR_POURING_GREEN_JAR
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 68b83f8fbe7ae8940ab114cf159e25dc
     m_Address: ANIMATION_REME_SWEEPING_ENTRY
     m_ReadOnly: 0
@@ -382,6 +387,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6bd7cd2eb89fb4a4a941ddae91d246f9
     m_Address: SOUND_DIALOG_REME_INTRO_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6cb9ba4a07334f449ba8cbe174b78efa
+    m_Address: SPRITE_MAINCHAR_POURING_RED_JAR
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -427,6 +437,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 82712cf09e0a9be4c8728781d7e40c4c
     m_Address: SOUND_TAKE_COIN25_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 835df97250d37a646a6b05c555aa4ff4
+    m_Address: SOUND_MAINCHAR_TRY_AGAIN_LAB_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -587,6 +602,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ae7c13f98cc3241468d749bc8ff7e12d
     m_Address: ANIMATOR_REME
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b0c352452f00c334383099997ab6f91e
+    m_Address: TIMELINE_SRV_ROOM_GREEN_POUR
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -720,6 +720,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c1982e91fafc8f2429422f8fd7bb97ae
+    m_Address: TIMELINE_SRV_ROOM_RED_POUR
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c3bbea957ac9c38409b3fb27c31d7ec3
     m_Address: SOUND_COMBINE_IDEA_ROACHES_REME_SPANISH
     m_ReadOnly: 0
@@ -807,6 +812,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d813509abde52554b9a9b0193a292716
     m_Address: SCENE_HIVE1_WC_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d96e9a4fe1f55f44bbc5f59854e183e3
+    m_Address: SOUND_MAINCHAR_LETS_FLEE_FROM_SRV_ROOM_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -216,7 +216,10 @@ namespace Gob3AQ.Brain.CustomFunctions
             VARMAP_GameEventMaster.IS_EVENT_COMBI_OCCURRED(conditions, out bool jarInInventory);
             conditions[0] = new(GameEvent.EVENT_LAB_PERFECT_MIX, false);
             VARMAP_GameEventMaster.IS_EVENT_COMBI_OCCURRED(conditions, out bool perfectMix);
+            conditions[0] = new(GameEvent.EVENT_ROACHES_MOB_STARTED, false);
+            VARMAP_GameEventMaster.IS_EVENT_COMBI_OCCURRED(conditions, out bool roachesMobStarted);
 
+            
             if (perfectMix)
             {
                 Span<GameAction> action = actions[..1];
@@ -224,7 +227,7 @@ namespace Gob3AQ.Brain.CustomFunctions
                 VARMAP_GameEventMaster.PERFORM_ACTION(action, null);
             }
 
-            if (jarInInventory)
+            if (jarInInventory || roachesMobStarted)
             {
                 actions[0] = GameAction.ACTION_DESPAWN_MIX_JAR;
                 actions[1] = GameAction.ACTION_DESPAWN_IMPERFECT_MIX_JAR;

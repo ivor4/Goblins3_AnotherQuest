@@ -395,6 +395,7 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_MIX_JAR_BUBBLES"), /* SOUND_MIX_JAR_BUBBLES */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_MAINCHAR_TRY_AGAIN_LAB_SPANISH"), /* SOUND_MAINCHAR_TRY_AGAIN_LAB */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_MAINCHAR_MUST_RETURN_JUG_SPANISH"), /* SOUND_MAINCHAR_MUST_RETURN_JUG */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_MAINCHAR_LETS_FLEE_FROM_SRV_ROOM_SPANISH"), /* SOUND_MAINCHAR_LETS_FLEE_FROM_SRV_ROOM */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

@@ -300,6 +300,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ec248d92cddef740a510ce97f5b2141
+    m_Address: TIMELINE_MAINCHAR_GRAB_FRONT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7fcf47bea09438d4aa168c977ea60161
     m_Address: SPRITE_MAINCHAR_WALKING_FRONT
     m_ReadOnly: 0

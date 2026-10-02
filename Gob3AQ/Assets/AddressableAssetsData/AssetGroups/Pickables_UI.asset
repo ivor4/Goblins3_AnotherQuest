@@ -276,7 +276,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3fcc51660d89f634881a6274b72b6de7
-    m_Address: SPRITE_COIN25
+    m_Address: SPRITE_PICKABLE_COIN25
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

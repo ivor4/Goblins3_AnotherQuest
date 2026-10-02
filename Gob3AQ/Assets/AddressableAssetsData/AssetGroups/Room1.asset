@@ -240,6 +240,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 46d7a31298fbc1b46a34b01e78bf4b45
+    m_Address: SOUND_MAINCHAR_MUST_RETURN_JUG_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4772d01bfe3198947b23cdee94f46543
     m_Address: SOUND_POOR_MAN_BCKG_1
     m_ReadOnly: 0

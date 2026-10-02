@@ -26,6 +26,7 @@ namespace Gob3AQ.GameElement.Animation
                 {
                     case GameAnimation.ANIMATION_PLAYER_POUR_GREEN_MIX:
                     case GameAnimation.ANIMATION_PLAYER_POUR_RED_MIX:
+                    case GameAnimation.ANIMATION_PLAYER_GRAB_FRONT:
                         VARMAP_ItemMaster.OBTAIN_SCENARIO_ITEMS(out IReadOnlyDictionary<GameItem, GameElementClass> instances);
                         GameElementClass playerInstance = instances[GameItem.ITEM_PLAYER_MAIN];
 

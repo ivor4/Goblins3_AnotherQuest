@@ -1086,6 +1086,11 @@ namespace Gob3AQ.GameEventMaster
             {
                 switch (newval)
                 {
+                    case Game_Status.GAME_STATUS_STOPPED:
+                        _bufferedEvents.Clear();
+                        _pendingActions.Clear();
+                        _pendingDelayedActions.Clear();
+                        break;
                     case Game_Status.GAME_STATUS_LOADING:
                         StartCoroutine(Scene_Loading_Task_Coroutine(VARMAP_GameEventMaster.GET_ACTUAL_ROOM()));
                         break;

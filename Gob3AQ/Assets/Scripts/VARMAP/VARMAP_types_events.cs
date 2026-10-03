@@ -83,7 +83,6 @@ namespace Gob3AQ.VARMAP.Types
         EVENT_LAB_PERFECT_MIX, 
         EVENT_MIX_JAR_IN_INVENTORY, 
         EVENT_ROACHES_MOB_STARTED, 
-        EVENT_ROACHES_MOB_ENDED, 
         EVENT_LAST, 
         
 EVENT_TOTAL

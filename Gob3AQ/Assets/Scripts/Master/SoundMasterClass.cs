@@ -97,8 +97,12 @@ namespace Gob3AQ.SoundMaster
         public static void PlaySoundService(GameSound sound, Action callback, bool loop)
         {
             if (_singleton == null) return;
-            
-            if (!_singleton.availableSources.TryDequeue(out PooledAudioSource source)) return;
+
+            if (!_singleton.availableSources.TryDequeue(out PooledAudioSource source))
+            {
+                Debug.LogError($"No available audio sources to play sound: {sound}. Consider increasing the pool size.");
+                return;
+            }
             
             ref readonly SoundConfig soundConfig = ref ResourceSoundsAtlasClass.GetSoundConfig(sound);
 

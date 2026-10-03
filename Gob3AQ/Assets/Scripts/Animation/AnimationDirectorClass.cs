@@ -72,6 +72,13 @@ namespace Gob3AQ.GameElement.Animation
             {
                 VARMAP_ItemMaster.STOP_SOUND(soundStopMarker.sound);
             }
+            /* Animation continues but callback is called now */
+            else if(notification is AnimationPrematureEndMarker)
+            {
+                endedCallback?.Invoke();
+                endedCallback = null;
+                director.stopped -= AnimationEnded;
+            }
         }
 
         private void AnimationEnded(PlayableDirector dir)
@@ -79,6 +86,7 @@ namespace Gob3AQ.GameElement.Animation
             director.stopped -= AnimationEnded;
 
             endedCallback?.Invoke();
+            endedCallback = null;
         }
 
         private void RebindCharacter(GameObject instantiatedCharacter)

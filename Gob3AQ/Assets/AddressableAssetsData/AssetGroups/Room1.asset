@@ -40,6 +40,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 08feae21f92359d46953563ea63775c6
+    m_Address: SPRITE_REME_SHOCKED_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0ac151a8d5bd349468367843d4511ed0
     m_Address: BACKGROUND_HIVE1_HALL1
     m_ReadOnly: 0
@@ -325,6 +330,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5dcd2462e8b9f364f9f29babd62db528
+    m_Address: SPRITE_REME_SHOCKED_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6079f99650a6f4b469dd7c8cc9e0bd05
     m_Address: BACKGROUND_HIVE1_HALL1_NIGHT
     m_ReadOnly: 0
@@ -337,6 +347,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 616c01754f1b7c9498f35f124f6b76c8
     m_Address: SOUND_DIALOG_OBSERVE_ITEM_GUMBALL_MACHINE_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 62319dd87d507c544b7bdc861e4c1ffd
+    m_Address: TIMELINE_CORRIDOR_ROACH_MOB
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -842,6 +857,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e9082aa84649ad44ea1baf3df2ae6cd7
     m_Address: ANIMATION_KEY_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9919346ba583da489a090dd2eac3180
+    m_Address: SPRITE_REME_SHOCKED_3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

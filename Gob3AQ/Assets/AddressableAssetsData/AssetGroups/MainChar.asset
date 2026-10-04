@@ -190,6 +190,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 529466188851bfd4094666677f8c8e5c
+    m_Address: SPRITE_MAINCHAR_HORRIFIED
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 52bc09d9c922cb1489def6d8f522389f
     m_Address: SOUND_MAINCHAR_NONSENSE_NOTYET_SPANISH
     m_ReadOnly: 0
@@ -232,6 +237,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5e8638f8257133a43adfe746a387cdda
     m_Address: ANIMATION_MAINCHAR_WALKING_BACK
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 60f32987d7deee9459a604555e9c342e
+    m_Address: SPRITE_MAINCHAR_SHOCKED
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

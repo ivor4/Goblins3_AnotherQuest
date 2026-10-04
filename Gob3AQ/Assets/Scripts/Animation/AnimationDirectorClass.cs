@@ -1,11 +1,13 @@
 using Gob3AQ.GameElement.Notification;
 using Gob3AQ.ItemMaster;
-using Gob3AQ.VARMAP.ItemMaster;
+using Gob3AQ.VARMAP.DialogMaster;
+using Gob3AQ.VARMAP.GameEventMaster;
 using Gob3AQ.VARMAP.Types;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using static PlasticGui.WorkspaceWindow.Merge.MergeInProgress;
 
 namespace Gob3AQ.GameElement.Animation
 {
@@ -27,7 +29,8 @@ namespace Gob3AQ.GameElement.Animation
                     case GameAnimation.ANIMATION_PLAYER_POUR_GREEN_MIX:
                     case GameAnimation.ANIMATION_PLAYER_POUR_RED_MIX:
                     case GameAnimation.ANIMATION_PLAYER_GRAB_FRONT:
-                        VARMAP_ItemMaster.OBTAIN_SCENARIO_ITEMS(out IReadOnlyDictionary<GameItem, GameElementClass> instances);
+                    case GameAnimation.ANIMATION_ROACH_MOB:
+                        VARMAP_DialogMaster.OBTAIN_SCENARIO_ITEMS(out IReadOnlyDictionary<GameItem, GameElementClass> instances);
                         GameElementClass playerInstance = instances[GameItem.ITEM_PLAYER_MAIN];
 
                         RebindCharacter(playerInstance.transform.parent.gameObject);
@@ -50,13 +53,13 @@ namespace Gob3AQ.GameElement.Animation
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         private void Start()
         {
-            VARMAP_ItemMaster.DIRECTOR_REGISTER(ownedAnimation, this, true);
+            VARMAP_DialogMaster.DIRECTOR_REGISTER(ownedAnimation, this, true);
         }
 
 
         private void OnDestroy()
         {
-            VARMAP_ItemMaster.DIRECTOR_REGISTER(ownedAnimation, this, false);
+            VARMAP_DialogMaster.DIRECTOR_REGISTER(ownedAnimation, this, false);
         }
 
         public void OnNotify(Playable origin, INotification notification, object context)
@@ -66,11 +69,24 @@ namespace Gob3AQ.GameElement.Animation
 
             if (notification is SoundMarker soundMarker)
             {
-                VARMAP_ItemMaster.PLAY_SOUND(soundMarker.sound, null, false);
+                VARMAP_DialogMaster.PLAY_SOUND(soundMarker.sound, null, false);
             }
             else if(notification is SoundStopMarker soundStopMarker)
             {
-                VARMAP_ItemMaster.STOP_SOUND(soundStopMarker.sound);
+                VARMAP_DialogMaster.STOP_SOUND(soundStopMarker.sound);
+            }
+            else if(notification is ZoomMarker zoomMarker)
+            {
+                GameObject foundZoomObject = GameObject.Find(zoomMarker.zoomObjectName);
+                if (foundZoomObject)
+                {
+                    Bounds bounds = foundZoomObject.GetComponent<BoxCollider2D>().bounds;
+                    VARMAP_GameEventMaster.ACTIVATE_FORCED_ZOOM_MODE(true, false, bounds);
+                }
+                else
+                {
+                    Debug.LogError($"Zoom object {zoomMarker.zoomObjectName} not found");
+                }
             }
             /* Animation continues but callback is called now */
             else if(notification is AnimationPrematureEndMarker)
@@ -93,7 +109,7 @@ namespace Gob3AQ.GameElement.Animation
         {
             foreach (var output in director.playableAsset.outputs)
             {
-                if (output.streamName.Contains("Animation") || output.outputTargetType == typeof(Animator))
+                if (output.streamName.Contains("PlayerAnimation"))
                 {
                     Animator characterAnimator = instantiatedCharacter.GetComponent<Animator>();
                     if (characterAnimator != null)

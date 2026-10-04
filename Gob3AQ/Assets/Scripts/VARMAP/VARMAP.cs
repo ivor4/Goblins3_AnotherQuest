@@ -236,7 +236,7 @@ protected static DOOR_REGISTER_DELEGATE _DOOR_REGISTER;
         /// <summary> 
 /// Obtains dictionary of placed elements in actual Scene 
 /// <para> Owner: LevelMaster </para> 
-/// <para> Accessors: ItemMaster </para> 
+/// <para> Accessors: DialogMaster, ItemMaster </para> 
 /// <para> Method: <see cref="LevelMasterClass.ObtainScenarioItemsService"/> </para> 
 /// </summary>
 protected static OBTAIN_SCENARIO_ITEMS_DELEGATE _OBTAIN_SCENARIO_ITEMS;

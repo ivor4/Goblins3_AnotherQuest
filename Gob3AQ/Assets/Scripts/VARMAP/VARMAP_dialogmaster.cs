@@ -33,6 +33,7 @@ namespace Gob3AQ.VARMAP.DialogMaster
             GET_BUSY_STATE = _GET_BUSY_STATE;
             MODULE_LOADING_COMPLETED = _MODULE_LOADING_COMPLETED;
             IS_MODULE_LOADED = _IS_MODULE_LOADED;
+            OBTAIN_SCENARIO_ITEMS = _OBTAIN_SCENARIO_ITEMS;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
             SHOW_DIALOGUE = _SHOW_DIALOGUE;
@@ -80,6 +81,13 @@ public static LOADING_COMPLETED_DELEGATE MODULE_LOADING_COMPLETED;
 /// <para> Method: <see cref="GameMasterClass.IsModuleLoadedService"/> </para> 
 /// </summary>
 public static IS_MODULE_LOADED_DELEGATE IS_MODULE_LOADED;
+        /// <summary> 
+/// Obtains dictionary of placed elements in actual Scene 
+/// <para> Owner: LevelMaster </para> 
+/// <para> Accessors: DialogMaster, ItemMaster </para> 
+/// <para> Method: <see cref="LevelMasterClass.ObtainScenarioItemsService"/> </para> 
+/// </summary>
+public static OBTAIN_SCENARIO_ITEMS_DELEGATE OBTAIN_SCENARIO_ITEMS;
         /// <summary> 
 /// Checks if a combination of events is totally complied (event absence can also be requested) 
 /// <para> Owner: GameEventMaster </para> 

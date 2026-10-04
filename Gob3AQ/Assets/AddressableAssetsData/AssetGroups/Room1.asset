@@ -505,6 +505,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d08e53e24fe22544a70d783d67f4f46
+    m_Address: SOUND_REME_RUNNING_DOWNSTAIRS
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8e3a93004d0a617488e3991fd0394d4e
     m_Address: SOUND_OBSERVE_ITEM_RUSTY_SPRING_SPANISH
     m_ReadOnly: 0

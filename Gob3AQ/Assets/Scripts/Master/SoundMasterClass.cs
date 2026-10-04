@@ -1,3 +1,4 @@
+using Gob3AQ.Brain.LevelOptions;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceSounds;
@@ -230,11 +231,33 @@ namespace Gob3AQ.SoundMaster
 
         private GameSound GetRoomMusic(Room room)
         {
-            ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(room);
+            var roomMusicConditions = LevelOptionsClass.GetRoomMusicCondition(room, out GameSound conditionsMusic);
 
-            MomentType actualMoment = VARMAP_SoundMaster.GET_DAY_MOMENT();
+            bool musicConditioned;
 
-            GameSound nextBgMusic = roomInfo.BackgroundMusic.Length > 1 ? roomInfo.BackgroundMusic[(int)actualMoment] : roomInfo.BackgroundMusic[0];
+            if(roomMusicConditions.Length > 0)
+            {
+                VARMAP_SoundMaster.IS_EVENT_COMBI_OCCURRED(roomMusicConditions, out musicConditioned);
+            }
+            else
+            {
+                musicConditioned = false;
+            }
+
+            GameSound nextBgMusic;
+
+            if (musicConditioned)
+            {
+                nextBgMusic = conditionsMusic;
+            }
+            else
+            {
+                ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(room);
+
+                MomentType actualMoment = VARMAP_SoundMaster.GET_DAY_MOMENT();
+
+                nextBgMusic = roomInfo.BackgroundMusic.Length > 1 ? roomInfo.BackgroundMusic[(int)actualMoment] : roomInfo.BackgroundMusic[0];
+            }
 
             return nextBgMusic;
         }

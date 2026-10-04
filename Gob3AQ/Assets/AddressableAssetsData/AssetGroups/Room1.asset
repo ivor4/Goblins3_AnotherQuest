@@ -40,6 +40,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 07119359b516aed45bf7bc444e6a767b
+    m_Address: MUSIC_ROACH_SWARM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 07d71510096f5044aba9721afa13914f
     m_Address: SPRITE_ATLAS_SERVICE_ROOM1
     m_ReadOnly: 0

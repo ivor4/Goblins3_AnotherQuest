@@ -511,7 +511,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             true,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[2]{new(GameEvent.EVENT_ROACHES_MOB_STARTED, false), new(GameEvent.EVENT_REME_MOVED, true)}, 
             MomentType.MOMENT_MORNING, 
-            new GameAction[7]{GameAction.ACTION_SET_GAME_ANIMATION_MODE, GameAction.ACTION_ANIMATE_REME_HEAR, GameAction.ACTION_WAIT_2S, GameAction.ACTION_ANIMATION_ROACH_MOB, GameAction.ACTION_DESPAWN_REME_1, GameAction.ACTION_DIALOGUE_MAINCHAR_AFTERMATH_ROACH_SWARM, GameAction.ACTION_EVENT_REME_MOVED}), 
+            new GameAction[9]{GameAction.ACTION_SET_GAME_ANIMATION_MODE, GameAction.ACTION_MOVE_MAINCHAR_OBSERVE_SWARM, GameAction.ACTION_ANIMATE_REME_HEAR, GameAction.ACTION_WAIT_2S, GameAction.ACTION_ANIMATION_ROACH_MOB, GameAction.ACTION_DESPAWN_REME_1, GameAction.ACTION_DIALOGUE_MAINCHAR_AFTERMATH_ROACH_SWARM, GameAction.ACTION_ZOOM_ALL_END_GARDEN_SCENE, GameAction.ACTION_EVENT_REME_MOVED}), 
 
             new( /* UNCHAIN_LAST */
             false,false,false,new(GameEvent.EVENT_NONE, false), 
@@ -4742,6 +4742,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.HIVE1_CORRIDOR_1,"serviceExit",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_MOVE_MAINCHAR_OBSERVE_SWARM */
+            true,ActionType.ACTION_TYPE_MOVE_TO_WAYPOINT,GameItem.ITEM_PLAYER_MAIN,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"observeSwarm",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_ANIMATION_ROACH_MOB */
             true,ActionType.ACTION_TYPE_START_ANIMATION,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

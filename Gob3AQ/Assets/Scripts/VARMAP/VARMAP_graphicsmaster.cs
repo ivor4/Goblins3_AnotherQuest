@@ -100,7 +100,7 @@ public static GET_PLAYER_LIST_DELEGATE GET_PLAYER_LIST;
         /// <summary> 
 /// Checks if a combination of events is totally complied (event absence can also be requested) 
 /// <para> Owner: GameEventMaster </para> 
-/// <para> Accessors: LevelMaster, GraphicsMaster, GameMenu, DialogMaster, ItemMaster </para> 
+/// <para> Accessors: LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, ItemMaster </para> 
 /// <para> Method: <see cref="GameEventMasterClass.IsEventCombiOccurredService"/> </para> 
 /// </summary>
 public static IS_EVENT_COMBI_OCCURRED_DELEGATE IS_EVENT_COMBI_OCCURRED;

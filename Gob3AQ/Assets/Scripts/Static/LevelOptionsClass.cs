@@ -27,6 +27,21 @@ namespace Gob3AQ.Brain.LevelOptions
             return !_ROOM_AVOIDS_DIALOG_ZOOM.Contains(room);
         }
 
+        public static ReadOnlySpan<GameEventCombi> GetRoomMusicCondition(Room room, out GameSound music)
+        {
+            music = GameSound.SOUND_NONE;
+
+            if(_ROOM_MUSIC_CONDITIONS.TryGetValue(room, out var conditions))
+            {
+                music = conditions.Item2;
+                return conditions.Item1;
+            }
+            else
+            {
+                return Array.Empty<GameEventCombi>();
+            }
+        }
+
 
         private static readonly string[] _ROOM_TO_SCENE_NAME = new string[(int)Room.ROOMS_TOTAL]
         {
@@ -88,6 +103,18 @@ namespace Gob3AQ.Brain.LevelOptions
         {
             Room.UNDER_BED,
             Room.HIVE1_LAB
+        };
+
+        private static readonly IReadOnlyDictionary<Room, Tuple<GameEventCombi[],GameSound>> _ROOM_MUSIC_CONDITIONS = new Dictionary<Room, Tuple<GameEventCombi[], GameSound>>()
+        {
+            {
+                Room.HIVE1_CORRIDOR_1,
+                new Tuple<GameEventCombi[], GameSound>(
+                    new GameEventCombi[]{
+                        new GameEventCombi(GameEvent.EVENT_ROACHES_MOB_STARTED, false),
+                        new GameEventCombi(GameEvent.EVENT_REME_MOVED, true)},
+                    GameSound.MUSIC_ROACH_SWARM)
+            }
         };
 
         private static readonly InitialWalkInfo[] _DefaultInitialWalkInfo = new InitialWalkInfo[1]

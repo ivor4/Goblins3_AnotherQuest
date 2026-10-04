@@ -401,6 +401,7 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_SHOTGUN_RELOAD_AND_FIRE"), /* SOUND_SHOTGUN_RELOAD_AND_FIRE */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_MAINCHAR_AFTERMATH_ROACH_SWARM_SPANISH"), /* SOUND_MAINCHAR_AFTERMATH_ROACH_SWARM */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_REME_RUNNING_DOWNSTAIRS"), /* SOUND_REME_RUNNING_DOWNSTAIRS */ 
+            new(SoundEffect.EFFECT_NONE,"MUSIC_ROACH_SWARM"), /* MUSIC_ROACH_SWARM */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

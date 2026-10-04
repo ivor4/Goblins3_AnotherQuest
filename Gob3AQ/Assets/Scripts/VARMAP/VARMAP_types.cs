@@ -201,6 +201,20 @@ namespace Gob3AQ.VARMAP.Types
         public int nTotal;
         public bool isValid;
 
+        public static readonly LabLiquidConf FULL = new LabLiquidConf(3, 1, 2, 0, 1, 5, 7, true);
+
+        private LabLiquidConf(int nFloorwasher, int nDetergent, int nInsecticide, int nVarnish, int nRust, int height, int nTotal, bool isValid)
+        {
+            this.nFloorwasher = nFloorwasher;
+            this.nDetergent = nDetergent;
+            this.nInsecticide = nInsecticide;
+            this.nVarnish = nVarnish;
+            this.nRust = nRust;
+            this.height = height;
+            this.nTotal = nTotal;
+            this.isValid = isValid;
+        }
+
         public LabLiquidConf(in NumberPack numberPack)
         {
             ulong uval = (ulong)numberPack.long1;

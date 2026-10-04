@@ -1150,12 +1150,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new( /* COND_COMBINE_IDEAS_REME_ROACHES */
             new GameEventCombi[1]{new(GameEvent.EVENT_REME_SAID_SCARED_ROACHES, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_IDEA_ROACHES,ItemInteractionType.INTERACTION_COMBINE,"",
-            new GameAction[2]{GameAction.ACTION_DIALOGUE_COMBINE_IDEA_REME_ROACHES, GameAction.ACTION_MEMENTO_ROACHES_2}), 
+            new GameAction[3]{GameAction.ACTION_DIALOGUE_COMBINE_IDEA_REME_ROACHES, GameAction.ACTION_MEMENTO_ROACHES_2, GameAction.ACTION_EVENT_THOUGHT_ROACHES_MEMENTO_REME}), 
 
             new( /* COND_COMBINE_IDEAS_ROACHES_REME */
             new GameEventCombi[1]{new(GameEvent.EVENT_REME_SAID_SCARED_ROACHES, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_IDEA_REME,ItemInteractionType.INTERACTION_COMBINE,"",
-            new GameAction[2]{GameAction.ACTION_DIALOGUE_COMBINE_IDEA_REME_ROACHES, GameAction.ACTION_MEMENTO_ROACHES_2}), 
+            new GameAction[3]{GameAction.ACTION_DIALOGUE_COMBINE_IDEA_REME_ROACHES, GameAction.ACTION_MEMENTO_ROACHES_2, GameAction.ACTION_EVENT_THOUGHT_ROACHES_MEMENTO_REME}), 
 
             new( /* COND_OBSERVE_LAB_MAGAZINE */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
@@ -1163,7 +1163,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameAction[3]{GameAction.ACTION_DIALOGUE_OBSERVE_LAB_MAGAZINE, GameAction.ACTION_EVENT_READ_LAB_MAGAZINE, GameAction.ACTION_MEMENTO_HIVE_LAB_2}), 
 
             new( /* COND_USE_ROACHES_IDEA_W_EXPERIMENT_TABLE */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            new GameEventCombi[1]{new(GameEvent.EVENT_THOUGHT_ROACHES_MEMENTO_REME, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_IDEA_ROACHES,ItemInteractionType.INTERACTION_USE,"",
             new GameAction[5]{GameAction.ACTION_EVENT_USED_IDEA_ROACHES_EXPERIMENT_TABLE, GameAction.ACTION_SCENE_HIVE_LAB, GameAction.ACTION_MEMENTO_HIVE_LAB_1, GameAction.ACTION_DIALOGUE_MAINCHAR_LETS_EXPERIMENT, GameAction.ACTION_ANIMATE_MAINCHAR_ABOUT_ENJOY}), 
 
@@ -4219,6 +4219,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             false,ActionType.ACTION_TYPE_MEMENTO,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_ROACHES_2,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_EVENT_THOUGHT_ROACHES_MEMENTO_REME */
+            false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_THOUGHT_ROACHES_MEMENTO_REME, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_DIALOGUE_MAINCHAR_NONSENSE_COMBINE */

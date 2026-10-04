@@ -1,5 +1,4 @@
 using Gob3AQ.GameElement.Notification;
-using Gob3AQ.ItemMaster;
 using Gob3AQ.VARMAP.DialogMaster;
 using Gob3AQ.VARMAP.GameEventMaster;
 using Gob3AQ.VARMAP.Types;
@@ -7,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
-using static PlasticGui.WorkspaceWindow.Merge.MergeInProgress;
 
 namespace Gob3AQ.GameElement.Animation
 {

@@ -34,9 +34,22 @@ namespace Gob3AQ.Brain.CustomFunctions
 
         private static void Custom_Lab_Recover_Values()
         {
-            ulong uval = VARMAP_GameEventMaster.GET_SHADOW_ELEM_MISC_VALUES((int)MiscValuesIndex.MISC_VALUE_INDEX_LAB_PORTION_VALS);
+            Span<GameEventCombi> conditions = stackalloc GameEventCombi[1];
+            NumberPack npack;
 
-            NumberPack npack = new(true, long1: (long)uval);
+            conditions[0] = new(GameEvent.EVENT_LAB_PERFECT_MIX, false);
+
+            VARMAP_GameEventMaster.IS_EVENT_COMBI_OCCURRED(conditions, out bool perfectMix);
+
+            if (perfectMix)
+            {
+                npack = LabLiquidConf.FULL.ToNumberPack(true);
+            }
+            else
+            {
+                ulong uval = VARMAP_GameEventMaster.GET_SHADOW_ELEM_MISC_VALUES((int)MiscValuesIndex.MISC_VALUE_INDEX_LAB_PORTION_VALS);
+                npack = new(true, long1: (long)uval);
+            }
 
             VARMAP_GameEventMaster.EXECUTE_ITEM_EXT_FUNCTION(ItemExtensionFunction.ITEM_EXTENSION_FN_FILL_LAB_LIQUID, in npack);
         }

@@ -114,6 +114,7 @@ namespace Gob3AQ.GameElement
         private bool isMotion_ext;
 
         protected PhysicalState physicalstate;
+        protected float actualWaypointSizeFactor;
         private WaypointProgrammedPath actualProgrammedPath;
         private float baseSize;
 
@@ -752,6 +753,8 @@ namespace Gob3AQ.GameElement
         {
             Vector3 scale = size * baseSize * Vector3.one;
             topParentTransform.localScale = scale;
+
+            actualWaypointSizeFactor = size;
         }
 
         private void ChangedGameStatus(ChangedEventType eventType, in Game_Status oldval, in Game_Status newval)

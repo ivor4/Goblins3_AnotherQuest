@@ -22,7 +22,11 @@ namespace Gob3AQ.GameElement.PlayableChar
         private CharacterType charType;
 
         public CharacterType CharType => charType;
-     
+
+
+        private static readonly int BlurID = Shader.PropertyToID("_BlurAmount");
+        private MaterialPropertyBlock propertyBlock;
+
 
 
         #region "Services"
@@ -61,6 +65,8 @@ namespace Gob3AQ.GameElement.PlayableChar
             myCollider = topParent.GetComponent<Collider2D>();
             myRigidbody = topParent.GetComponent<Rigidbody2D>();
             myAnimator = topParent.GetComponent<Animator>();
+
+            propertyBlock = new MaterialPropertyBlock();
 
             SetVisible_Internal(false);
         }
@@ -186,9 +192,17 @@ namespace Gob3AQ.GameElement.PlayableChar
         private void Execute_Play()
         {
             UpdateSortingOrder();
+            SetBlur(Mathf.Clamp(1.0f - actualWaypointSizeFactor, 0.0f, 1.0f));
             SetAvailable((physicalstate == PhysicalState.PHYSICAL_STATE_STANDING) || (physicalstate == PhysicalState.PHYSICAL_STATE_WALKING));
         }
-#endregion
+        #endregion
+
+        public void SetBlur(float blurValue)
+        {
+            mySpriteRenderer.GetPropertyBlock(propertyBlock);
+            propertyBlock.SetFloat(BlurID, blurValue);
+            mySpriteRenderer.SetPropertyBlock(propertyBlock);
+        }
 
     }
 

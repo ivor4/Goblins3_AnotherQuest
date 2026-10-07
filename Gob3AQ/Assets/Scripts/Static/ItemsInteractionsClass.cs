@@ -1117,6 +1117,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,"",
             new GameAction[2]{GameAction.ACTION_DIALOGUE_OBSERVE_ITEM_SQUAT_WC, GameAction.ACTION_MEMENTO_ROACHES_1}), 
 
+            new( /* COND_OBSERVE_ITEM_SQUAT_WC_AFTER_INCIDENT */
+            new GameEventCombi[1]{new(GameEvent.EVENT_REME_MOVED, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,"",
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_DIALOG_OBSERVE_ITEM_SQUAT_WC_AFTER_INCIDENT}), 
+
             new( /* COND_USE_25COIN_GUMBALL_MACHINE */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_PICKABLE_COIN25,ItemInteractionType.INTERACTION_USE,"",
@@ -1317,6 +1322,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_MORNING,CharacterType.CHARACTER_MAIN,GameItem.ITEM_PICKABLE_PERFECT_MIX_JAR,ItemInteractionType.INTERACTION_USE,"",
             new GameAction[11]{GameAction.ACTION_LOSE_PERFECT_MIX_JAR, GameAction.ACTION_EARN_EMPTY_MIX_JAR, GameAction.ACTION_CLEAR_EVENT_MIX_JAR_IN_INVENTORY, GameAction.ACTION_CLEAR_EVENT_LAB_STARTED_MIX, GameAction.ACTION_ANIMATION_POUR_RED_MIX, GameAction.ACTION_EVENT_ROACHES_MOB_STARTED, GameAction.ACTION_DIALOGUE_MAINCHAR_LETS_FLEE_FROM_SRV_ROOM, GameAction.ACTION_SET_GAME_ANIMATION_MODE, GameAction.ACTION_WAIT_0p5S, GameAction.ACTION_MOVE_MAINCHAR_EXIT_SRV_ROOM, GameAction.ACTION_CHANGE_SCENE_HIVE_CORRIDOR}), 
 
+            new( /* COND_AVOID_USE_BED_1 */
+            new GameEventCombi[1]{new(GameEvent.EVENT_MANYO_LOOK_FOR_RECIPE_MISSION, true)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,"",
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_MAINCHAR_NOT_NEED_SLEEP}), 
+
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,"",
@@ -1404,7 +1414,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_HIVE1_BED */
             NameType.NAME_ITEM_BED,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
             GameSprite.SPRITE_BLANK,false,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
-            new(new HashSet<ActionConditions>(2){ActionConditions.COND_USE_BED_PENDING_DREAM_1, ActionConditions.COND_USE_HIVE1_BED})),
+            new(new HashSet<ActionConditions>(3){ActionConditions.COND_AVOID_USE_BED_1, ActionConditions.COND_USE_BED_PENDING_DREAM_1, ActionConditions.COND_USE_HIVE1_BED})),
 
             new ( /* ITEM_STREET1_STH_DOOR */
             NameType.NAME_SOUTH_NEIGHBORHOOD,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
@@ -1754,7 +1764,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_SQUAT_WC */
             NameType.NAME_SQUAT_WC,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
             GameSprite.SPRITE_BLANK,false,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
-            new(new HashSet<ActionConditions>(3){ActionConditions.COND_OBSERVE_ITEM_SQUAT_WC, ActionConditions.COND_USE_IMPERFECT_MIX_JAR_SQUAT_WC, ActionConditions.COND_USE_PERFECT_MIX_JAR_SQUAT_WC})),
+            new(new HashSet<ActionConditions>(4){ActionConditions.COND_OBSERVE_ITEM_SQUAT_WC_AFTER_INCIDENT, ActionConditions.COND_OBSERVE_ITEM_SQUAT_WC, ActionConditions.COND_USE_IMPERFECT_MIX_JAR_SQUAT_WC, ActionConditions.COND_USE_PERFECT_MIX_JAR_SQUAT_WC})),
 
             new ( /* ITEM_PICKABLE_GUMBALL */
             NameType.NAME_GUMBALL,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PICKABLE_GUMBALL}),
@@ -4784,6 +4794,18 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_REME_MOVED, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_DIALOG_OBSERVE_ITEM_SQUAT_WC_AFTER_INCIDENT */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_DIALOG_OBSERVE_ITEM_SQUAT_WC_AFTER_INCIDENT,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_MAINCHAR_NOT_NEED_SLEEP */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_MAINCHAR_NOT_NEED_SLEEP,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

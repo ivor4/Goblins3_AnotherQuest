@@ -30,6 +30,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 03b95536528d2734abea8b725be8efbd
+    m_Address: SOUND_DIALOG_OBSERVE_ITEM_SQUAT_WC_AFTER_INCIDENT_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 03facea0787146c468d7f9da1795717b
     m_Address: SOUND_POWDER_POUR_JUG
     m_ReadOnly: 0

@@ -25,6 +25,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 090df628c7f57104185aca579dba20f0
+    m_Address: SOUND_MAINCHAR_NOT_NEED_SLEEP_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0cf42b1ce72e5784cb53b2dad65fe977
     m_Address: ANIMATION_MAINCHAR_TALKING_SEMI_2
     m_ReadOnly: 0

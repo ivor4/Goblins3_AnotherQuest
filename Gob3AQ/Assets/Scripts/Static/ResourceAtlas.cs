@@ -277,11 +277,11 @@ namespace Gob3AQ.ResourceAtlas
             new GameSprite[2]{GameSprite.BACKGROUND_CITY1_STREET1, GameSprite.BACKGROUND_CITY1_STREET1_N},
             new GameSound[2]{GameSound.MUSIC_CITY_1, GameSound.SOUND_AMBIENCE_CITY_NIGHT},
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_CITY1_STREET1, GameSprite.BACKGROUND_CITY1_STREET1_N}), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(4){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_STREET1_STH_DOOR, GameItem.ITEM_STREET1_CENTER_DOOR, GameItem.ITEM_PLAYER_MAIN}), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(6){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_STREET1_STH_DOOR, GameItem.ITEM_STREET1_CENTER_DOOR, GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_DECO_STREET1_FACHADE, GameItem.ITEM_DECO_STREET1_BLIND}), 
             new ReadOnlyHashSet<DetailType>(new HashSet<DetailType>(1){DetailType.PREFAB_NONE}), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(2){GameSound.MUSIC_CITY_1, GameSound.SOUND_AMBIENCE_CITY_NIGHT}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
-            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_STREET1_FACHADE_ONLY_DAY}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
             ),
 

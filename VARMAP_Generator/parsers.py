@@ -421,7 +421,7 @@ def process_items(ctx: CodeGenContext):
             ctx.items_interact.insert_line(3, f"{PREFIXES['sprite']}{cols[5]},{str(is_pickable).lower()},{cols[7].lower()},{cols[8].lower()},{PREFIXES['sprite']}{cols[9]},{PREFIXES['pickable']}{pickname},{PREFIXES['detail']}{cols[10]},{str(is_prefab_detail).lower()},\n")
             
             conds = build_array_str(cols[12].split('|'), PREFIXES['cond'])
-            ctx.items_interact.insert_line(3, f"new(new HashSet<ActionConditions>({len(cols[12].split('|'))}){{{conds}}})),\n\n")
+            ctx.items_interact.insert_line(3, f"new ActionConditions[{len(cols[12].split('|'))}]{{{conds}}}),\n\n")
             
     ctx.items_types.insert_line(1, "\nITEM_TOTAL\n")
     ctx.items_types.insert_line(2, "\nITEM_PICK_TOTAL\n")

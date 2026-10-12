@@ -404,6 +404,8 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"MUSIC_ROACH_SWARM"), /* MUSIC_ROACH_SWARM */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_OBSERVE_ITEM_SQUAT_WC_AFTER_INCIDENT_SPANISH"), /* SOUND_DIALOG_OBSERVE_ITEM_SQUAT_WC_AFTER_INCIDENT */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_MAINCHAR_NOT_NEED_SLEEP_SPANISH"), /* SOUND_MAINCHAR_NOT_NEED_SLEEP */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_WARDROBE_OPEN_CLOSE"), /* SOUND_WARDROBE_OPEN_CLOSE */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_CHEST_OPEN_CLOSE"), /* SOUND_CHEST_OPEN_CLOSE */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

@@ -278,7 +278,7 @@ namespace Gob3AQ.ItemMaster
                 srcItemInfo = ref ItemsInteractionsClass.GetItemInfo(usage.itemSource);
             }
             ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(usage.itemDest);
-            ReadOnlyHashSet<ActionConditions> conditionsEnumArray = itemInfo.conditions;
+            ReadOnlySpan<ActionConditions> conditionsEnumArray = itemInfo.conditions;
             ReadOnlySpan<CharacterType> owners = VARMAP_ItemMaster.GET_SHADOW_ARRAY_PICKABLE_ITEM_OWNER();
 
             /* Search for the first condition which matches (char and/or srcItem) */

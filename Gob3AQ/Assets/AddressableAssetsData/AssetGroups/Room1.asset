@@ -185,8 +185,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d8554154c1b2944bbabca263158265f
+    m_Address: ANIMATION_STREET1_FACHADE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2fd77aefa9a97f44b929224c156197f9
     m_Address: SOUND_OBSERVE_EXPERIMENT_TABLE_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 30f7d67ff41155a42879260445e8e83f
+    m_Address: SOUND_CHEST_OPEN_CLOSE
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -447,6 +457,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6eb9c4e97a03fcd4d97ff26d5ab801e0
     m_Address: SOUND_GIANT_ROACH_GROWL
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6ef02b7268e8e524b8c9415ad7fb40e1
+    m_Address: SPRITE_CITY1_STREET1_MOV_BLIND
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -825,6 +840,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce7c129e475436d4db928f2bce65131d
+    m_Address: ANIMATION_STREET1_BLIND
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d1146cd8e63552f4793dc847852c68d3
     m_Address: SOUND_OBSERVE_COIN_IN_CRACK_SPANISH
     m_ReadOnly: 0
@@ -850,8 +870,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d5a88ccbde4bf6b40a5132fd4a3f8cdf
+    m_Address: SOUND_WARDROBE_OPEN_CLOSE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d6854e7caefd2bf40850dc29bc08bdc6
     m_Address: SOUND_REME_SCREAMING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d6abfd36b5b1ecc4abd491712d9407e5
+    m_Address: SPRITE_CITY1_STREET1_MOV_FACHADE
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -942,6 +972,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f117a8e286cb1464593886e445bc6fbd
     m_Address: SOUND_DIALOG_OBSERVE_BROKEN_HIVE_ROOM_KEY_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f1caa93811001e440897d6371f66096a
+    m_Address: ANIMATOR_STREET1_FACHADE
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

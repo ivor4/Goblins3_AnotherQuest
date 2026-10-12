@@ -167,7 +167,7 @@ namespace Gob3AQ.Brain.CustomFunctions
                 actionGroup[3] = GameAction.ACTION_EVENT_LAB_STARTED_MIX;
                 actionGroup[4] = GameAction.ACTION_LOSE_RUST_POWDER;
 
-                if(liquid != LabLiquid.LAB_LIQUID_RUST)
+                if(!liquidConf.isValid)
                 {
                     actionGroup = actionGroup[..4];
                 }

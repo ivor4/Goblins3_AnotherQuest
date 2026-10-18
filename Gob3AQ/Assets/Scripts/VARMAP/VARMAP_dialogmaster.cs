@@ -182,7 +182,7 @@ public static ACTIVATE_FORCED_ZOOM_MODE_DELEGATE ACTIVATE_FORCED_ZOOM_MODE;
         /// <summary> 
 /// Gets world boundaries of given item 
 /// <para> Owner: ItemMaster </para> 
-/// <para> Accessors: DialogMaster </para> 
+/// <para> Accessors: GraphicsMaster, DialogMaster </para> 
 /// <para> Method: <see cref="ItemMasterClass.GetItemBoundariesService"/> </para> 
 /// </summary>
 public static GET_ITEM_SPRITE_BOUNDARIES_DELEGATE GET_ITEM_SPRITE_BOUNDARIES;

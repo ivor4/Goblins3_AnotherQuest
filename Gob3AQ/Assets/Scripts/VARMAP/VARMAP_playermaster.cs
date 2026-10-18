@@ -34,7 +34,6 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             MONO_REGISTER = _MONO_REGISTER;
             PLAYER_WAYPOINT_UPDATE = _PLAYER_WAYPOINT_UPDATE;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
-            GET_NEAREST_WP = _GET_NEAREST_WP;
             LOCK_PLAYER = _LOCK_PLAYER;
             /* > ATG 1 END */
         }
@@ -98,13 +97,6 @@ public static PLAYER_WAYPOINT_UPDATE_DELEGATE PLAYER_WAYPOINT_UPDATE;
 /// <para> Method: <see cref="LevelMasterClass.GetPlayerListService"/> </para> 
 /// </summary>
 public static GET_PLAYER_LIST_DELEGATE GET_PLAYER_LIST;
-        /// <summary> 
-/// Gets nearest WP from a given coordinates of level 
-/// <para> Owner: LevelMaster </para> 
-/// <para> Accessors: PlayerMaster, ItemMaster </para> 
-/// <para> Method: <see cref="LevelMasterClass.GetNearestWPService"/> </para> 
-/// </summary>
-public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
         /// <summary> 
 /// Locks player so it cannot act until an action over it has been done (or removes lock) 
 /// <para> Owner: PlayerMaster </para> 

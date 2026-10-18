@@ -33,9 +33,10 @@ namespace Gob3AQ.FixedConfig
         public const ulong MAP_POINT_FINAL_MOVEMENT_COOLDOWN_MS = 500;
         public const ulong PUSH_NOTIF_APPEAR_MS = 500;
         public const ulong PUSH_NOTIF_STAY_MS = 1500;
+        public const ulong CAMERA_AUTO_RECOMMENDED_TIMEOUT_MS = 3000;
 
         /* HUD */
-        public const float DISTANCE_MOUSE_FURTHEST_WP = 1.5f;
+        public const float DISTANCE_MOUSE_FURTHEST_WP = 10.0f;
         public const float MIN_CAMERA_ORTHO_SIZE = 0.5f;
 
 
@@ -46,6 +47,7 @@ namespace Gob3AQ.FixedConfig
         public const float GAME_ZONE_CURSOR_MOVE_CAMERA_FACTOR = 0.1f;
         public const float GAME_ZONE_CURSOR_MOVE_CAMERA_1MFACTOR = 1.0f - GAME_ZONE_CURSOR_MOVE_CAMERA_FACTOR;
         public const float GAME_ZONE_CURSOR_PERCENT_MAX_SPEED = 0.25f;
+        public const float GAME_RECOMMENDED_ZOOM_EXTRA_Y_SIZE = 4f / 3f;
         public const float GAME_ZONE_CURSOR_PERCENT_MAX_SPEED_DIV = 1f/GAME_ZONE_CURSOR_PERCENT_MAX_SPEED;
         public const float FADE_BLACK_TIMEOUT_MS = 250f;
         public const float FADE_BLACK_TIMEOUT_LONG_MS = 2500f;

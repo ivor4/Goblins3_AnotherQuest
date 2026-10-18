@@ -62,7 +62,6 @@ namespace Gob3AQ.VARMAP.LevelMaster
             PLAYER_WAYPOINT_UPDATE = _PLAYER_WAYPOINT_UPDATE;
             GET_WP_LIST = _GET_WP_LIST;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
-            GET_NEAREST_WP = _GET_NEAREST_WP;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
             MOVE_ITEM_TO_WAYPOINT = _MOVE_ITEM_TO_WAYPOINT;
             ITEM_REACHED_WAYPOINT = _ITEM_REACHED_WAYPOINT;
@@ -197,13 +196,6 @@ public static GET_WP_LIST_DELEGATE GET_WP_LIST;
 /// <para> Method: <see cref="LevelMasterClass.GetPlayerListService"/> </para> 
 /// </summary>
 public static GET_PLAYER_LIST_DELEGATE GET_PLAYER_LIST;
-        /// <summary> 
-/// Gets nearest WP from a given coordinates of level 
-/// <para> Owner: LevelMaster </para> 
-/// <para> Accessors: PlayerMaster, ItemMaster </para> 
-/// <para> Method: <see cref="LevelMasterClass.GetNearestWPService"/> </para> 
-/// </summary>
-public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
         /// <summary> 
 /// Checks if a combination of events is totally complied (event absence can also be requested) 
 /// <para> Owner: GameEventMaster </para> 

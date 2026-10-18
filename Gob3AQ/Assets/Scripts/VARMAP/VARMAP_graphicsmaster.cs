@@ -6,6 +6,7 @@ using Gob3AQ.LevelMaster;
 using Gob3AQ.PlayerMaster;
 using Gob3AQ.ItemMaster;
 using Gob3AQ.GameEventMaster;
+using Gob3AQ.GraphicsMaster;
 
 namespace Gob3AQ.VARMAP.GraphicsMaster
 {
@@ -45,6 +46,7 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
             NOTIFY_ENDED_ACTION = _NOTIFY_ENDED_ACTION;
             TAKE_LOADING_SNAPSHOT = _TAKE_LOADING_SNAPSHOT;
             ACTIVATE_FORCED_ZOOM_MODE = _ACTIVATE_FORCED_ZOOM_MODE;
+            GET_ITEM_SPRITE_BOUNDARIES = _GET_ITEM_SPRITE_BOUNDARIES;
             LABEL_ELEM_HOVER = _LABEL_ELEM_HOVER;
             /* > ATG 1 END */
         }
@@ -132,6 +134,13 @@ public static TAKE_LOADING_SNAPSHOT_DELEGATE TAKE_LOADING_SNAPSHOT;
 /// <para> Method: <see cref="GraphicsMasterClass.ActivateForcedZoomMode"/> </para> 
 /// </summary>
 public static ACTIVATE_FORCED_ZOOM_MODE_DELEGATE ACTIVATE_FORCED_ZOOM_MODE;
+        /// <summary> 
+/// Gets world boundaries of given item 
+/// <para> Owner: ItemMaster </para> 
+/// <para> Accessors: GraphicsMaster, DialogMaster </para> 
+/// <para> Method: <see cref="ItemMasterClass.GetItemBoundariesService"/> </para> 
+/// </summary>
+public static GET_ITEM_SPRITE_BOUNDARIES_DELEGATE GET_ITEM_SPRITE_BOUNDARIES;
         /// <summary> 
 /// Tells Graphics Module to activate or deactivate label with specific info 
 /// <para> Owner: GraphicsMaster </para> 

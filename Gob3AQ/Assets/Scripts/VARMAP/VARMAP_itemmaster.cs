@@ -44,7 +44,6 @@ namespace Gob3AQ.VARMAP.ItemMaster
             DOOR_REGISTER = _DOOR_REGISTER;
             OBTAIN_SCENARIO_ITEMS = _OBTAIN_SCENARIO_ITEMS;
             GET_WP_LIST = _GET_WP_LIST;
-            GET_NEAREST_WP = _GET_NEAREST_WP;
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
             MOVE_ITEM_TO_WAYPOINT = _MOVE_ITEM_TO_WAYPOINT;
             ACTION_TO_ITEM = _ACTION_TO_ITEM;
@@ -130,13 +129,6 @@ public static OBTAIN_SCENARIO_ITEMS_DELEGATE OBTAIN_SCENARIO_ITEMS;
 /// <para> Method: <see cref="LevelMasterClass.GetWaypointListService"/> </para> 
 /// </summary>
 public static GET_WP_LIST_DELEGATE GET_WP_LIST;
-        /// <summary> 
-/// Gets nearest WP from a given coordinates of level 
-/// <para> Owner: LevelMaster </para> 
-/// <para> Accessors: PlayerMaster, ItemMaster </para> 
-/// <para> Method: <see cref="LevelMasterClass.GetNearestWPService"/> </para> 
-/// </summary>
-public static GET_NEAREST_WP_DELEGATE GET_NEAREST_WP;
         /// <summary> 
 /// Checks if a combination of events is totally complied (event absence can also be requested) 
 /// <para> Owner: GameEventMaster </para> 
@@ -231,7 +223,7 @@ public static PERFORM_ACTION_DELEGATE PERFORM_ACTION;
         /// <summary> 
 /// Gets world boundaries of given item 
 /// <para> Owner: ItemMaster </para> 
-/// <para> Accessors: DialogMaster </para> 
+/// <para> Accessors: GraphicsMaster, DialogMaster </para> 
 /// <para> Method: <see cref="ItemMasterClass.GetItemBoundariesService"/> </para> 
 /// </summary>
 public static GET_ITEM_SPRITE_BOUNDARIES_DELEGATE GET_ITEM_SPRITE_BOUNDARIES;

@@ -262,13 +262,6 @@ protected static GET_WP_LIST_DELEGATE _GET_WP_LIST;
 /// </summary>
 protected static GET_PLAYER_LIST_DELEGATE _GET_PLAYER_LIST;
         /// <summary> 
-/// Gets nearest WP from a given coordinates of level 
-/// <para> Owner: LevelMaster </para> 
-/// <para> Accessors: PlayerMaster, ItemMaster </para> 
-/// <para> Method: <see cref="LevelMasterClass.GetNearestWPService"/> </para> 
-/// </summary>
-protected static GET_NEAREST_WP_DELEGATE _GET_NEAREST_WP;
-        /// <summary> 
 /// Checks if a combination of events is totally complied (event absence can also be requested) 
 /// <para> Owner: GameEventMaster </para> 
 /// <para> Accessors: LevelMaster, GraphicsMaster, SoundMaster, GameMenu, DialogMaster, ItemMaster </para> 
@@ -502,7 +495,7 @@ protected static ACTIVATE_FORCED_ZOOM_MODE_DELEGATE _ACTIVATE_FORCED_ZOOM_MODE;
         /// <summary> 
 /// Gets world boundaries of given item 
 /// <para> Owner: ItemMaster </para> 
-/// <para> Accessors: DialogMaster </para> 
+/// <para> Accessors: GraphicsMaster, DialogMaster </para> 
 /// <para> Method: <see cref="ItemMasterClass.GetItemBoundariesService"/> </para> 
 /// </summary>
 protected static GET_ITEM_SPRITE_BOUNDARIES_DELEGATE _GET_ITEM_SPRITE_BOUNDARIES;

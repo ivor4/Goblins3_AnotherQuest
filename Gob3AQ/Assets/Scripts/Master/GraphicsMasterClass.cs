@@ -3,8 +3,8 @@ using Gob3AQ.Brain.LevelOptions;
 using Gob3AQ.FixedConfig;
 using Gob3AQ.GameElement.PlayableChar;
 using Gob3AQ.GameMenu.UICanvas;
-using Gob3AQ.Libs.Arith;
 using Gob3AQ.ResourceAtlas;
+using Gob3AQ.ResourceDialogsAtlas;
 using Gob3AQ.ResourceSprites;
 using Gob3AQ.VARMAP.GraphicsMaster;
 using Gob3AQ.VARMAP.Types;
@@ -36,7 +36,7 @@ namespace Gob3AQ.GraphicsMaster
 
         private UICanvasClass uicanvas_cls;
 
-        private static float _maxCameraOrthographicSize;
+        private float _maxCameraOrthographicSize;
         private Vector2 _mouseStartedCameraDrag;
         private Vector3 _cameraPosStartedCameraDrag;
         private Vector3 _screenToWorldFactor;
@@ -70,6 +70,11 @@ namespace Gob3AQ.GraphicsMaster
         private float forcedZoomDeltaOrthoSize;
         private ulong forcedZoomTransitionStartTime;
 
+        private Bounds recommendedZoomWorldBounds;
+        private Vector3 recommendedZoomPosition;
+        private float recommendedZoomOrthoSize;
+        private ulong lastZoomChangeTimestamp;
+
         private bool mouseWheelZoomActive;
         private bool mouseWheelZoomDirectionUp;
         private ulong mouseWheelZoomStartTime;
@@ -77,6 +82,9 @@ namespace Gob3AQ.GraphicsMaster
 
         private bool prevEffect;
 
+        private Bounds dbg_gizmo1;
+        private Bounds dbg_gizmo2;
+        private Bounds dbg_gizmo3;
 
 
         public static void ZoomSubscriptionService(bool subscribe, ZOOM_CHANGED_DELEGATE callback)
@@ -104,40 +112,29 @@ namespace Gob3AQ.GraphicsMaster
 
         public static void ActivateForcedZoomMode(bool activate, bool reversible, Bounds regionOfInterest)
         {
-            if (_singleton != null)
+            if (!_singleton) return;
+
+            if (activate)
             {
-                if (activate)
-                {
-                    _singleton.preForcedZoomDisposition = VARMAP_GraphicsMaster.GET_CAMERA_DISPOSITION();
-                    _singleton.forcedZoomState = ForcedZoomState.ACTIVATING;
-                    _singleton.forcedZoomReversible = reversible;
+                _singleton.preForcedZoomDisposition = VARMAP_GraphicsMaster.GET_CAMERA_DISPOSITION();
+                _singleton.forcedZoomState = ForcedZoomState.ACTIVATING;
+                _singleton.forcedZoomReversible = reversible;
 
-                    regionOfInterest.extents *= 1.25f;
+                Bounds calcROI = _singleton.CalculateRecommendedZoom(in regionOfInterest);
 
-                    Vector2 src = _singleton.mainCamera.ScreenToWorldPoint(new(0, 0, 0));
-                    Vector2 dst = _singleton.mainCamera.ScreenToWorldPoint(new(1, 1, 0));
-                    var screenToWorldFactor = dst - src;
-
-                    /* Add toolbar as a distance to save for zoom */
-                    regionOfInterest.max = regionOfInterest.max + new Vector3(0,screenToWorldFactor.y * Screen.safeArea.height * GameFixedConfig.MENU_TOP_SCREEN_HEIGHT_PERCENT);
-
-                    Vector3 cameraNewPosition = regionOfInterest.center;
-                    cameraNewPosition.z = _singleton.mainCameraTransform.position.z;
-
-                    _singleton.forcedZoomFinalOrthoSize = Mathf.Max(regionOfInterest.extents.y, regionOfInterest.extents.x / _singleton.mainCamera.aspect);
-                    _singleton.forcedZoomFinalPosition = cameraNewPosition;
-                }
-                else if(_singleton.forcedZoomState != ForcedZoomState.NONE)
-                {
-                    _singleton.forcedZoomState = ForcedZoomState.DEACTIVATING;
-                    _singleton.forcedZoomFinalPosition = _singleton.preForcedZoomDisposition.position;
-                    _singleton.forcedZoomFinalOrthoSize = _singleton.preForcedZoomDisposition.orthoSize;
-                }
-
-                _singleton.forcedZoomDeltaPosition = _singleton.forcedZoomFinalPosition - _singleton.mainCameraTransform.position;
-                _singleton.forcedZoomDeltaOrthoSize = _singleton.forcedZoomFinalOrthoSize - _singleton.mainCamera.orthographicSize;
-                _singleton.forcedZoomTransitionStartTime = VARMAP_GraphicsMaster.GET_ELAPSED_TIME_MS();
+                _singleton.forcedZoomFinalOrthoSize = calcROI.extents.y;
+                _singleton.forcedZoomFinalPosition = calcROI.center;
             }
+            else if(_singleton.forcedZoomState != ForcedZoomState.NONE)
+            {
+                _singleton.forcedZoomState = ForcedZoomState.DEACTIVATING;
+                _singleton.forcedZoomFinalPosition = _singleton.preForcedZoomDisposition.position;
+                _singleton.forcedZoomFinalOrthoSize = _singleton.preForcedZoomDisposition.orthoSize;
+            }
+
+            _singleton.forcedZoomDeltaPosition = _singleton.forcedZoomFinalPosition - _singleton.mainCameraTransform.position;
+            _singleton.forcedZoomDeltaOrthoSize = _singleton.forcedZoomFinalOrthoSize - _singleton.mainCamera.orthographicSize;
+            _singleton.forcedZoomTransitionStartTime = VARMAP_GraphicsMaster.GET_ELAPSED_TIME_MS();
         }
 
         public static void LabelElemHoverService(bool activate, in LevelElemLabelInfo labelInfo)
@@ -261,7 +258,7 @@ namespace Gob3AQ.GraphicsMaster
                     Execute_Loading(actualTimestamp);
                     break;
                 case Game_Status.GAME_STATUS_PLAY:
-                    FollowMouseWithCamera(in mouse, in keys, actualTimestamp);
+                    ExecuteUpdatePlay(in mouse, in keys, actualTimestamp);
                     UpdateCameraEffects();
                     break;
                 default:
@@ -331,10 +328,21 @@ namespace Gob3AQ.GraphicsMaster
                         /* When entering a new room */
                         else
                         {
-                            mainCamera.orthographicSize = Mathf.Min(5.0f, _maxCameraOrthographicSize);
-                            VARMAP_GraphicsMaster.GET_PLAYER_LIST(out ReadOnlySpan<PlayableCharScript> playerList);
-                            cameraPosition = playerList[(int)VARMAP_GraphicsMaster.GET_PLAYER_SELECTED()].transform.position;
+                            CharacterType selectedChar = VARMAP_GraphicsMaster.GET_PLAYER_SELECTED();
+                            GameItem selectedItem = ResourceDialogsAtlasClass.GetItemForCharacter(selectedChar);
+
+                            VARMAP_GraphicsMaster.GET_ITEM_SPRITE_BOUNDARIES(selectedItem, out Bounds characterWorldBounds);
+                            recommendedZoomWorldBounds = CalculateRecommendedZoom(in characterWorldBounds);
+                            recommendedZoomPosition = recommendedZoomWorldBounds.center;
+                            recommendedZoomOrthoSize = recommendedZoomWorldBounds.extents.y;
+
+
+                            mainCamera.orthographicSize = recommendedZoomOrthoSize;
+                            cameraPosition = recommendedZoomPosition;
                         }
+
+                        /* Start with timeout elapsed */
+                        lastZoomChangeTimestamp = VARMAP_GraphicsMaster.GET_ELAPSED_TIME_MS() - GameFixedConfig.CAMERA_AUTO_RECOMMENDED_TIMEOUT_MS;
 
                         UpdateCameraBounds();
                         cameraPosition.z = mainCameraTransform.position.z;
@@ -375,11 +383,25 @@ namespace Gob3AQ.GraphicsMaster
         }
 
 
-        private void FollowMouseWithCamera(in MousePropertiesStruct mouse, in KeyStruct keys, ulong timestamp)
+        private void ExecuteUpdatePlay(in MousePropertiesStruct mouse, in KeyStruct keys, ulong timestamp)
         {
             Vector2 screenzone_orig = new(mouse.posPixels.x / Screen.safeArea.width, mouse.posPixels.y / Screen.safeArea.height);
             Vector2 szone = new(screenzone_orig.x, screenzone_orig.y * GameFixedConfig.GAME_ZONE_HEIGHT_FACTOR);
             bool mouseDraggingChanged = _mouseDraggingCamera;
+
+            CharacterType selectedChar = VARMAP_GraphicsMaster.GET_PLAYER_SELECTED();
+
+            /* When exitting room, there are a couple of cycles of GAME_PLAY and character being none */
+            if (selectedChar != CharacterType.CHARACTER_NONE)
+            {
+                GameItem selectedItem = ResourceDialogsAtlasClass.GetItemForCharacter(selectedChar);
+
+                VARMAP_GraphicsMaster.GET_ITEM_SPRITE_BOUNDARIES(selectedItem, out Bounds characterWorldBounds);
+
+                recommendedZoomWorldBounds = CalculateRecommendedZoom(in characterWorldBounds);
+                recommendedZoomPosition = recommendedZoomWorldBounds.center;
+                recommendedZoomOrthoSize = recommendedZoomWorldBounds.extents.y;
+            }
 
             if (_mouseScreenZoneLimit.Contains(szone))
             {
@@ -396,6 +418,8 @@ namespace Gob3AQ.GraphicsMaster
                     cameraNewPosition = _cameraPosStartedCameraDrag + moveCameraDelta;
 
                     MoveCameraToPosition(in cameraNewPosition);
+
+                    lastZoomChangeTimestamp = timestamp;
                 }
                 else
                 {
@@ -404,6 +428,8 @@ namespace Gob3AQ.GraphicsMaster
                         _mouseDraggingCamera = true;
                         _mouseStartedCameraDrag = mouse.posPixels;
                         _cameraPosStartedCameraDrag = mainCameraTransform.position;
+
+                        lastZoomChangeTimestamp = timestamp;
                     }
                     else
                     {
@@ -443,6 +469,8 @@ namespace Gob3AQ.GraphicsMaster
 
                             Vector3 CameraNewPosition = new(mouse.pos1.x + worldDistance.x, mouse.pos1.y + worldDistance.y, mainCameraTransform.position.z);
                             MoveCameraToPosition(in CameraNewPosition);
+
+                            lastZoomChangeTimestamp = timestamp;
                         }
                         else
                         {
@@ -454,6 +482,17 @@ namespace Gob3AQ.GraphicsMaster
             else
             {
                 _mouseDraggingCamera = false;
+            }
+
+            if ((forcedZoomState == ForcedZoomState.NONE) && ((timestamp - lastZoomChangeTimestamp) >= GameFixedConfig.CAMERA_AUTO_RECOMMENDED_TIMEOUT_MS))
+            {
+                //if((recommendedZoomOrthoSize / mainCamera.orthographicSize) is > 1.1f or < 0.9f)
+                {
+                    //VARMAP_GraphicsMaster.ACTIVATE_FORCED_ZOOM_MODE(true, false, recommendedZoomWorldBounds);
+                    mainCamera.orthographicSize = recommendedZoomOrthoSize;
+                    UpdateCameraBounds();
+                    MoveCameraToPosition(in recommendedZoomPosition);
+                }
             }
 
             mouseDraggingChanged ^= _mouseDraggingCamera;
@@ -490,6 +529,31 @@ namespace Gob3AQ.GraphicsMaster
             };
 
             VARMAP_GraphicsMaster.SET_CAMERA_DISPOSITION(in cameradisp);
+        }
+
+        private Bounds CalculateRecommendedZoom(in Bounds characterWorldBounds)
+        {
+            Bounds roi = new Bounds(new Vector3(characterWorldBounds.center.x, characterWorldBounds.center.y, mainCamera.transform.position.z), characterWorldBounds.size);
+            float yExtent = roi.extents.y * GameFixedConfig.GAME_RECOMMENDED_ZOOM_EXTRA_Y_SIZE;
+
+
+            roi.extents = new Vector3(mainCamera.aspect * yExtent, yExtent, 1f);
+
+            dbg_gizmo1 = roi;
+
+            if (roi.extents.y > _maxCameraOrthographicSize)
+            {
+                roi.extents = new Vector3(_maxCameraOrthographicSize * mainCamera.aspect, _maxCameraOrthographicSize, roi.extents.z);
+            }
+
+            dbg_gizmo2 = roi;
+
+            roi.center += new Vector3(Mathf.Max(0f, _levelBounds.min.x - roi.min.x), Mathf.Max(0f, _levelBounds.min.y - roi.min.y), 0f);
+            roi.center += new Vector3(Mathf.Min(0f, _levelBounds.max.x - roi.max.x), Mathf.Min(0f, _levelBounds.max.y - roi.max.y), 0f);
+
+            dbg_gizmo3 = roi;
+
+            return roi;
         }
 
         private void UpdateCameraEffects()
@@ -686,6 +750,18 @@ namespace Gob3AQ.GraphicsMaster
                         break;
                 }
             }
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireCube(dbg_gizmo1.center, dbg_gizmo1.size);
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireCube(dbg_gizmo2.center, dbg_gizmo2.size);
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireCube(dbg_gizmo3.center, dbg_gizmo3.size);
+
+            Gizmos.color = Color.white;
         }
     }
 }

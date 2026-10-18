@@ -150,8 +150,6 @@ namespace Gob3AQ.GameElement.Item
 
         protected virtual void Loading_Task()
         {
-            VARMAP_ItemMaster.GET_NEAREST_WP(transform.position, float.MaxValue, out int nearestWaypointIndex, out _);
-
             if (startingWaypoint && startingExposedWaypoint)
             {
                 actualWaypoint = startingWaypoint.ID_in_Network;
@@ -159,7 +157,7 @@ namespace Gob3AQ.GameElement.Item
             }
             else if (!startingWaypoint && !startingExposedWaypoint)
             {
-                actualWaypoint = nearestWaypointIndex;
+                actualWaypoint = -1;
                 exposedWaypoint = actualWaypoint;
             }
             else if (startingWaypoint)

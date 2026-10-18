@@ -85,62 +85,61 @@ namespace Gob3AQ.LevelMaster
             }
         }
 
-        public static void GetNearestWPService(Vector2 position, float maxRadius, out int candidate_index,
-            out Vector2 candidate_pos)
+        public void GetNearestWP(Vector2 position, float maxRadius, out int candidate_index,
+            out Vector2 candidate_pos, CharacterType targetChar = CharacterType.CHARACTER_NONE)
         {
             GameEventCombi combi = new();
             Span<GameEventCombi> gameEventCombis = MemoryMarshal.CreateSpan(ref combi, 1);
 
-            if (_singleton)
+
+            float minDistance = float.PositiveInfinity;
+            candidate_pos = Vector2.zero;
+            candidate_index = -1;
+
+            for (int i = 0; i < _WP_Info_List.Count; ++i)
             {
-                float minDistance = float.PositiveInfinity;
-                candidate_pos = Vector2.zero;
-                candidate_index = -1;
+                WaypointInfo wpinfo = _WP_Info_List[i];
 
-                for (int i = 0; i < _singleton._WP_Info_List.Count; ++i)
+                if ((targetChar != CharacterType.CHARACTER_NONE) && (_Player_List[(int)targetChar].ExposedWaypoint == i))
                 {
-                    WaypointInfo wpinfo = _singleton._WP_Info_List[i];
+                    continue;
+                }
+            
 
-                    bool pass;
+                bool pass;
 
-                    switch(wpinfo.Reachability)
-                    {
-                        case WaypointReachability.REACHABLE_ALWAYS:
-                            pass = true;
-                            break;
-                        case WaypointReachability.REACHABLE_WHEN_COMBI:
-                            VARMAP_LevelMaster.TRY_UNCHAIN_CONDITION(wpinfo.CrossingConditions, true, out bool empty, out _, out pass);
-                            pass |= empty;
-                            break;
-                        default:
-                            pass = false;
-                            break;
-                    }
-
-                    if (pass)
-                    {
-                        Vector2 wp_pos = wpinfo.Position;
-                        float dist = Vector2.Distance(wp_pos, position);
-
-                        if (dist < minDistance)
-                        {
-                            minDistance = dist;
-                            candidate_pos = wp_pos;
-                            candidate_index = i;
-                        }
-                    }
+                switch(wpinfo.Reachability)
+                {
+                    case WaypointReachability.REACHABLE_ALWAYS:
+                        pass = true;
+                        break;
+                    case WaypointReachability.REACHABLE_WHEN_COMBI:
+                        VARMAP_LevelMaster.TRY_UNCHAIN_CONDITION(wpinfo.CrossingConditions, true, out bool empty, out _, out pass);
+                        pass |= empty;
+                        break;
+                    default:
+                        pass = false;
+                        break;
                 }
 
-                /* Its better to cancel with ONE comparison at the end than do this comparison on each element */
-                if (minDistance > maxRadius)
+                if (pass)
                 {
-                    candidate_index = -1;
+                    Vector2 wp_pos = wpinfo.Position;
+                    float dist = Vector2.Distance(wp_pos, position);
+
+                    if (dist < minDistance)
+                    {
+                        minDistance = dist;
+                        candidate_pos = wp_pos;
+                        candidate_index = i;
+                    }
                 }
             }
-            else
+
+            /* Its better to cancel with ONE comparison at the end than do this comparison on each element */
+            if (minDistance > maxRadius)
             {
                 candidate_index = -1;
-                candidate_pos = Vector2.zero;
             }
         }
 
@@ -728,7 +727,7 @@ namespace Gob3AQ.LevelMaster
 
         private void CheckPlayerMovementOrder(in MousePropertiesStruct mouse, CharacterType selectedCharacter)
         {
-            GetNearestWPService(mouse.pos1, GameFixedConfig.DISTANCE_MOUSE_FURTHEST_WP, out int candidate_index, out Vector2 candidate_pos);
+            GetNearestWP(mouse.pos1, GameFixedConfig.DISTANCE_MOUSE_FURTHEST_WP, out int candidate_index, out Vector2 candidate_pos, selectedCharacter);
 
             if (candidate_index >= 0)
             {

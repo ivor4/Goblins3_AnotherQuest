@@ -122,18 +122,19 @@ namespace Gob3AQ.Brain.LevelOptions
             new(string.Empty,string.Empty)
         };
 
-        private static readonly Dictionary<Room, InitialWalkInfo[]> _RoomInitialWaypointWalk = new Dictionary<Room, InitialWalkInfo[]>
+        private static readonly IReadOnlyDictionary<Room, InitialWalkInfo[]> _RoomInitialWaypointWalk = new Dictionary<Room, InitialWalkInfo[]>
         {
             {Room.HIVE1_CORRIDOR_1, new InitialWalkInfo[]{new("serviceExit", "serviceExitWalk")} },
-            {Room.SERVICE_ROOM, new InitialWalkInfo[]{new("serviceEntry", "serviceEntryWalk")} }
+            {Room.SERVICE_ROOM, new InitialWalkInfo[]{new("serviceEntry", "serviceEntryWalk")} },
+            {Room.CITY1_STREET_1, new InitialWalkInfo[]{new("alleyExit", "alleyExitWalk"), new("mapEntry", "mapEntryWalk")} }
         };
 
-        private static readonly Dictionary<int, Tuple<string, NameType>> _CHAPTER_TO_TITLE = new Dictionary<int, Tuple<string, NameType>>()
+        private static readonly IReadOnlyDictionary<int, Tuple<string, NameType>> _CHAPTER_TO_TITLE = new Dictionary<int, Tuple<string, NameType>>()
         {
             {1, new Tuple<string, NameType>("I", NameType.NAME_DENIAL) }
         };
 
-        private static readonly Dictionary<int, Tuple<Room, string>> _CHAPTER_TO_ROOM_AND_INIT_WP = new Dictionary<int, Tuple<Room, string>>()
+        private static readonly IReadOnlyDictionary<int, Tuple<Room, string>> _CHAPTER_TO_ROOM_AND_INIT_WP = new Dictionary<int, Tuple<Room, string>>()
         {
             {1, new Tuple<Room, string>(Room.DREAM_1_CORRIDOR, "initial") }
         };

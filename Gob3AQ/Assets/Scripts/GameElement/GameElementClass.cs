@@ -671,6 +671,11 @@ namespace Gob3AQ.GameElement
             /* Fill in children */
         }
 
+        protected virtual void StartingNewSegment(ulong walkTime_ms, Bounds finalBounds)
+        {
+            /* Fill in children */
+        }
+
         private void Walk_StartNextSegment()
         {
             Vector2 delta;
@@ -732,6 +737,13 @@ namespace Gob3AQ.GameElement
             speed_reduction_factor = 1f;
 
             myRigidbody.linearVelocity = GameFixedConfig.CHARACTER_NORMAL_SPEED * speed_reduction_factor * delta;
+
+            Bounds finalBounds = mySpriteRenderer.bounds;
+            finalBounds.extents *= waypoints_infos[actualProgrammedPath.target_index].CharacterSizeFactor / waypoints_infos[actualWaypoint].CharacterSizeFactor;
+            finalBounds.center = (Vector2)waypoints_infos[actualProgrammedPath.target_index].Position;
+            finalBounds.center += new Vector3(0f, finalBounds.extents.y, 0f);
+
+            StartingNewSegment((ulong)(1000f*actualProgrammedPath.wp_distance / myRigidbody.linearVelocity.magnitude), finalBounds);
         }
 
         protected void PresetProgrammedPathStruct(int waypoint_index)

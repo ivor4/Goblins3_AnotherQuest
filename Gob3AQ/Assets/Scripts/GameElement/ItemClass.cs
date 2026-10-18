@@ -157,7 +157,7 @@ namespace Gob3AQ.GameElement.Item
             }
             else if (!startingWaypoint && !startingExposedWaypoint)
             {
-                actualWaypoint = -1;
+                actualWaypoint = 0;
                 exposedWaypoint = actualWaypoint;
             }
             else if (startingWaypoint)

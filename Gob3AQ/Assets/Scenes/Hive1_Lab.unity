@@ -290,6 +290,10 @@ PrefabInstance:
       propertyPath: _waypointLeadTo
       value: tableOut
       objectReference: {fileID: 0}
+    - target: {fileID: 7285149739629647594, guid: 7d3dc241ee35f624293e1691ed3e54f0, type: 3}
+      propertyPath: startingExposedWaypoint
+      value: 
+      objectReference: {fileID: 792673489}
     - target: {fileID: 7615836467117073131, guid: 7d3dc241ee35f624293e1691ed3e54f0, type: 3}
       propertyPath: m_Sprite
       value: 

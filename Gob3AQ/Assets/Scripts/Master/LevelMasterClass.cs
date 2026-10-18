@@ -86,7 +86,7 @@ namespace Gob3AQ.LevelMaster
         }
 
         public void GetNearestWP(Vector2 position, float maxRadius, out int candidate_index,
-            out Vector2 candidate_pos, CharacterType targetChar = CharacterType.CHARACTER_NONE)
+            out Vector2 candidate_pos)
         {
             GameEventCombi combi = new();
             Span<GameEventCombi> gameEventCombis = MemoryMarshal.CreateSpan(ref combi, 1);
@@ -99,11 +99,6 @@ namespace Gob3AQ.LevelMaster
             for (int i = 0; i < _WP_Info_List.Count; ++i)
             {
                 WaypointInfo wpinfo = _WP_Info_List[i];
-
-                if ((targetChar != CharacterType.CHARACTER_NONE) && (_Player_List[(int)targetChar].ExposedWaypoint == i))
-                {
-                    continue;
-                }
             
 
                 bool pass;
@@ -727,7 +722,7 @@ namespace Gob3AQ.LevelMaster
 
         private void CheckPlayerMovementOrder(in MousePropertiesStruct mouse, CharacterType selectedCharacter)
         {
-            GetNearestWP(mouse.pos1, GameFixedConfig.DISTANCE_MOUSE_FURTHEST_WP, out int candidate_index, out Vector2 candidate_pos, selectedCharacter);
+            GetNearestWP(mouse.pos1, GameFixedConfig.DISTANCE_MOUSE_FURTHEST_WP, out int candidate_index, out Vector2 candidate_pos);
 
             if (candidate_index >= 0)
             {

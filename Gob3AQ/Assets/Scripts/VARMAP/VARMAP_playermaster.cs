@@ -7,6 +7,7 @@ using Gob3AQ.PlayerMaster;
 using Gob3AQ.ItemMaster;
 using Gob3AQ.GameEventMaster;
 using Gob3AQ.InputMaster;
+using Gob3AQ.GraphicsMaster;
 
 namespace Gob3AQ.VARMAP.PlayerMaster
 {
@@ -35,6 +36,8 @@ namespace Gob3AQ.VARMAP.PlayerMaster
             PLAYER_WAYPOINT_UPDATE = _PLAYER_WAYPOINT_UPDATE;
             GET_PLAYER_LIST = _GET_PLAYER_LIST;
             LOCK_PLAYER = _LOCK_PLAYER;
+            ACTIVATE_FORCED_ZOOM_MODE = _ACTIVATE_FORCED_ZOOM_MODE;
+            CHANGE_RECOMMENDED_ZOOM = _CHANGE_RECOMMENDED_ZOOM;
             /* > ATG 1 END */
         }
 
@@ -104,6 +107,20 @@ public static GET_PLAYER_LIST_DELEGATE GET_PLAYER_LIST;
 /// <para> Method: <see cref="PlayerMasterClass.LockPlayerService"/> </para> 
 /// </summary>
 public static LOCK_PLAYER_DELEGATE LOCK_PLAYER;
+        /// <summary> 
+/// Service for GraphicsMaste to make zoom into a region of interest 
+/// <para> Owner: GraphicsMaster </para> 
+/// <para> Accessors: DialogMaster, PlayerMaster, GameEventMaster </para> 
+/// <para> Method: <see cref="GraphicsMasterClass.ActivateForcedZoomMode"/> </para> 
+/// </summary>
+public static ACTIVATE_FORCED_ZOOM_MODE_DELEGATE ACTIVATE_FORCED_ZOOM_MODE;
+        /// <summary> 
+/// Service to tell recommended zoom based on selected character 
+/// <para> Owner: GraphicsMaster </para> 
+/// <para> Accessors: PlayerMaster </para> 
+/// <para> Method: <see cref="GraphicsMasterClass.ChangeRecommendedZoom"/> </para> 
+/// </summary>
+public static CHANGE_RECOMMENDED_ZOOM_DELEGATE CHANGE_RECOMMENDED_ZOOM;
         /* > ATG 3 END */
     }
 }

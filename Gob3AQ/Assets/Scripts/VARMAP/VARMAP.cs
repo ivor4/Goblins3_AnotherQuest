@@ -85,11 +85,6 @@ namespace Gob3AQ.VARMAP
         protected static SetVARMAPArrayDelegate<WaypointIdTupleStruct> _SET_ARRAY_PLAYER_ACTUAL_WAYPOINT;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<WaypointIdTupleStruct> _REG_PLAYER_ACTUAL_WAYPOINT;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<WaypointIdTupleStruct> _UNREG_PLAYER_ACTUAL_WAYPOINT;
-        protected static GetVARMAPValueDelegate<CameraDispositionStruct> _GET_CAMERA_DISPOSITION;
-        protected static GetVARMAPValueDelegate<CameraDispositionStruct> _GET_SHADOW_CAMERA_DISPOSITION;
-        protected static SetVARMAPValueDelegate<CameraDispositionStruct> _SET_CAMERA_DISPOSITION;
-        protected static ReUnRegisterVARMAPValueChangeEventDelegate<CameraDispositionStruct> _REG_CAMERA_DISPOSITION;
-        protected static ReUnRegisterVARMAPValueChangeEventDelegate<CameraDispositionStruct> _UNREG_CAMERA_DISPOSITION;
         protected static GetVARMAPValueDelegate<MomentType> _GET_DAY_MOMENT;
         protected static GetVARMAPValueDelegate<MomentType> _GET_SHADOW_DAY_MOMENT;
         protected static SetVARMAPValueDelegate<MomentType> _SET_DAY_MOMENT;
@@ -488,10 +483,17 @@ protected static EXECUTE_EXIT_ROOM_CONDS_DELEGATE _EXECUTE_EXIT_ROOM_CONDS;
         /// <summary> 
 /// Service for GraphicsMaste to make zoom into a region of interest 
 /// <para> Owner: GraphicsMaster </para> 
-/// <para> Accessors: DialogMaster, GameEventMaster </para> 
+/// <para> Accessors: DialogMaster, PlayerMaster, GameEventMaster </para> 
 /// <para> Method: <see cref="GraphicsMasterClass.ActivateForcedZoomMode"/> </para> 
 /// </summary>
 protected static ACTIVATE_FORCED_ZOOM_MODE_DELEGATE _ACTIVATE_FORCED_ZOOM_MODE;
+        /// <summary> 
+/// Service to tell recommended zoom based on selected character 
+/// <para> Owner: GraphicsMaster </para> 
+/// <para> Accessors: PlayerMaster </para> 
+/// <para> Method: <see cref="GraphicsMasterClass.ChangeRecommendedZoom"/> </para> 
+/// </summary>
+protected static CHANGE_RECOMMENDED_ZOOM_DELEGATE _CHANGE_RECOMMENDED_ZOOM;
         /// <summary> 
 /// Gets world boundaries of given item 
 /// <para> Owner: ItemMaster </para> 

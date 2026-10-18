@@ -341,7 +341,7 @@ namespace Gob3AQ.DialogMaster
                     zoomBounds.Encapsulate(itemBounds);
                 }
                 
-                VARMAP_DialogMaster.ACTIVATE_FORCED_ZOOM_MODE(true, true, zoomBounds);
+                VARMAP_DialogMaster.ACTIVATE_FORCED_ZOOM_MODE(true, in zoomBounds, GameFixedConfig.ZOOM_OUT_DURATION_MS);
             }
 
 
@@ -446,7 +446,7 @@ namespace Gob3AQ.DialogMaster
             dialog_actualPhraseSoundStop = GameSound.SOUND_NONE;
             dialog_optionPending = false;
 
-            VARMAP_DialogMaster.ACTIVATE_FORCED_ZOOM_MODE(false, false, default);
+            VARMAP_DialogMaster.ACTIVATE_FORCED_ZOOM_MODE(false, default, GameFixedConfig.ZOOM_OUT_DURATION_MS);
             Stop_DialogTalkersAnimation();
             
 

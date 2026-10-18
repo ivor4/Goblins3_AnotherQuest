@@ -971,7 +971,7 @@ namespace Gob3AQ.GameEventMaster
                             mustWait = info.waitForEnd;
                             notifyAction = NotifyAction.NOTIFY_ZOOM;
                             Bounds bounds = foundZoomObject.GetComponent<BoxCollider2D>().bounds;
-                            VARMAP_GameEventMaster.ACTIVATE_FORCED_ZOOM_MODE(true, false, bounds);
+                            VARMAP_GameEventMaster.ACTIVATE_FORCED_ZOOM_MODE(true, in bounds, GameFixedConfig.ZOOM_OUT_DURATION_MS);
                         }
                         else
                         {

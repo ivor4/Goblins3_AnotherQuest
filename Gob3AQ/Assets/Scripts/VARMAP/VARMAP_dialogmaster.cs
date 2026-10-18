@@ -175,7 +175,7 @@ public static NOTIFY_ENDED_ACTION_DELEGATE NOTIFY_ENDED_ACTION;
         /// <summary> 
 /// Service for GraphicsMaste to make zoom into a region of interest 
 /// <para> Owner: GraphicsMaster </para> 
-/// <para> Accessors: DialogMaster, GameEventMaster </para> 
+/// <para> Accessors: DialogMaster, PlayerMaster, GameEventMaster </para> 
 /// <para> Method: <see cref="GraphicsMasterClass.ActivateForcedZoomMode"/> </para> 
 /// </summary>
 public static ACTIVATE_FORCED_ZOOM_MODE_DELEGATE ACTIVATE_FORCED_ZOOM_MODE;

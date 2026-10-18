@@ -300,7 +300,7 @@ public static EXECUTE_EXIT_ROOM_CONDS_DELEGATE EXECUTE_EXIT_ROOM_CONDS;
         /// <summary> 
 /// Service for GraphicsMaste to make zoom into a region of interest 
 /// <para> Owner: GraphicsMaster </para> 
-/// <para> Accessors: DialogMaster, GameEventMaster </para> 
+/// <para> Accessors: DialogMaster, PlayerMaster, GameEventMaster </para> 
 /// <para> Method: <see cref="GraphicsMasterClass.ActivateForcedZoomMode"/> </para> 
 /// </summary>
 public static ACTIVATE_FORCED_ZOOM_MODE_DELEGATE ACTIVATE_FORCED_ZOOM_MODE;

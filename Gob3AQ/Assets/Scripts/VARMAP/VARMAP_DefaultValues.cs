@@ -23,7 +23,6 @@ namespace Gob3AQ.VARMAP.DefaultValues
             ((VARMAP_Variable_Interface<MultiBitFieldStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_UNWATCHED_PARENT_MEMENTO]).InitializeListElems(default);
             ((VARMAP_Variable_Interface<CharacterType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PICKABLE_ITEM_OWNER]).InitializeListElems(CharacterType.CHARACTER_NONE);
             ((VARMAP_Variable_Interface<WaypointIdTupleStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_ACTUAL_WAYPOINT]).InitializeListElems(WaypointIdTuple_Default);
-            ((VARMAP_Variable_Interface<CameraDispositionStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_CAMERA_DISPOSITION]).SetValue(CameraDispositionStruct_Default);
             ((VARMAP_Variable_Interface<MomentType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_DAY_MOMENT]).SetValue(MomentType.MOMENT_MORNING);
             ((VARMAP_Variable_Interface<ulong>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_MISC_VALUES]).InitializeListElems(0UL);
             ((VARMAP_Variable_Interface<GameItem>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_ITEM_MENU_HOVER]).SetValue(GameItem.ITEM_NONE);

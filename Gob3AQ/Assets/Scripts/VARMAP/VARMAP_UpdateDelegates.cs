@@ -87,11 +87,6 @@ namespace Gob3AQ.VARMAP.Initialization
             _SET_ARRAY_PLAYER_ACTUAL_WAYPOINT = ((VARMAP_Variable_Interface<WaypointIdTupleStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_ACTUAL_WAYPOINT]).SetListValues;
             _REG_PLAYER_ACTUAL_WAYPOINT = ((VARMAP_Variable_Interface<WaypointIdTupleStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_ACTUAL_WAYPOINT]).RegisterChangeEvent;
             _UNREG_PLAYER_ACTUAL_WAYPOINT = ((VARMAP_Variable_Interface<WaypointIdTupleStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_ACTUAL_WAYPOINT]).UnregisterChangeEvent;
-            _GET_CAMERA_DISPOSITION = ((VARMAP_Variable_Interface<CameraDispositionStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_CAMERA_DISPOSITION]).GetValue;
-            _GET_SHADOW_CAMERA_DISPOSITION = ((VARMAP_Variable_Interface<CameraDispositionStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_CAMERA_DISPOSITION]).GetShadowValue;
-            _SET_CAMERA_DISPOSITION = ((VARMAP_Variable_Interface<CameraDispositionStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_CAMERA_DISPOSITION]).SetValue;
-            _REG_CAMERA_DISPOSITION = ((VARMAP_Variable_Interface<CameraDispositionStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_CAMERA_DISPOSITION]).RegisterChangeEvent;
-            _UNREG_CAMERA_DISPOSITION = ((VARMAP_Variable_Interface<CameraDispositionStruct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_CAMERA_DISPOSITION]).UnregisterChangeEvent;
             _GET_DAY_MOMENT = ((VARMAP_Variable_Interface<MomentType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_DAY_MOMENT]).GetValue;
             _GET_SHADOW_DAY_MOMENT = ((VARMAP_Variable_Interface<MomentType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_DAY_MOMENT]).GetShadowValue;
             _SET_DAY_MOMENT = ((VARMAP_Variable_Interface<MomentType>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_DAY_MOMENT]).SetValue;
@@ -213,6 +208,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _TAKE_LOADING_SNAPSHOT = GraphicsMasterClass.TakeLoadingSnapshotService;
             _EXECUTE_EXIT_ROOM_CONDS = GameEventMasterClass.ExecuteExitRoomCondsService;
             _ACTIVATE_FORCED_ZOOM_MODE = GraphicsMasterClass.ActivateForcedZoomMode;
+            _CHANGE_RECOMMENDED_ZOOM = GraphicsMasterClass.ChangeRecommendedZoom;
             _GET_ITEM_SPRITE_BOUNDARIES = ItemMasterClass.GetItemBoundariesService;
             _START_CARD_GAME = CardMasterClass.StartCardGameService;
             _GIVE_UP_CARD_GAME = CardMasterClass.GiveUpCardGameService;

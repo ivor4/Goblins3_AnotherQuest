@@ -22,9 +22,6 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
             GET_GAME_OPTIONS = _GET_GAME_OPTIONS;
             GET_ELAPSED_TIME_MS = _GET_ELAPSED_TIME_MS;
             GET_ACTUAL_ROOM = _GET_ACTUAL_ROOM;
-            GET_CAMERA_DISPOSITION = _GET_CAMERA_DISPOSITION;
-            GET_SHADOW_CAMERA_DISPOSITION = _GET_SHADOW_CAMERA_DISPOSITION;
-            SET_CAMERA_DISPOSITION = _SET_CAMERA_DISPOSITION;
             GET_DAY_MOMENT = _GET_DAY_MOMENT;
             GET_GAMESTATUS = _GET_GAMESTATUS;
             REG_GAMESTATUS = _REG_GAMESTATUS;
@@ -46,6 +43,7 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
             NOTIFY_ENDED_ACTION = _NOTIFY_ENDED_ACTION;
             TAKE_LOADING_SNAPSHOT = _TAKE_LOADING_SNAPSHOT;
             ACTIVATE_FORCED_ZOOM_MODE = _ACTIVATE_FORCED_ZOOM_MODE;
+            CHANGE_RECOMMENDED_ZOOM = _CHANGE_RECOMMENDED_ZOOM;
             GET_ITEM_SPRITE_BOUNDARIES = _GET_ITEM_SPRITE_BOUNDARIES;
             LABEL_ELEM_HOVER = _LABEL_ELEM_HOVER;
             /* > ATG 1 END */
@@ -58,9 +56,6 @@ namespace Gob3AQ.VARMAP.GraphicsMaster
         public static GetVARMAPValueDelegate<GameOptionsStruct> GET_GAME_OPTIONS;
         public static GetVARMAPValueDelegate<ulong> GET_ELAPSED_TIME_MS;
         public static GetVARMAPValueDelegate<Room> GET_ACTUAL_ROOM;
-        public static GetVARMAPValueDelegate<CameraDispositionStruct> GET_CAMERA_DISPOSITION;
-        public static GetVARMAPValueDelegate<CameraDispositionStruct> GET_SHADOW_CAMERA_DISPOSITION;
-        public static SetVARMAPValueDelegate<CameraDispositionStruct> SET_CAMERA_DISPOSITION;
         public static GetVARMAPValueDelegate<MomentType> GET_DAY_MOMENT;
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
@@ -130,10 +125,17 @@ public static TAKE_LOADING_SNAPSHOT_DELEGATE TAKE_LOADING_SNAPSHOT;
         /// <summary> 
 /// Service for GraphicsMaste to make zoom into a region of interest 
 /// <para> Owner: GraphicsMaster </para> 
-/// <para> Accessors: DialogMaster, GameEventMaster </para> 
+/// <para> Accessors: DialogMaster, PlayerMaster, GameEventMaster </para> 
 /// <para> Method: <see cref="GraphicsMasterClass.ActivateForcedZoomMode"/> </para> 
 /// </summary>
 public static ACTIVATE_FORCED_ZOOM_MODE_DELEGATE ACTIVATE_FORCED_ZOOM_MODE;
+        /// <summary> 
+/// Service to tell recommended zoom based on selected character 
+/// <para> Owner: GraphicsMaster </para> 
+/// <para> Accessors: PlayerMaster </para> 
+/// <para> Method: <see cref="GraphicsMasterClass.ChangeRecommendedZoom"/> </para> 
+/// </summary>
+public static CHANGE_RECOMMENDED_ZOOM_DELEGATE CHANGE_RECOMMENDED_ZOOM;
         /// <summary> 
 /// Gets world boundaries of given item 
 /// <para> Owner: ItemMaster </para> 

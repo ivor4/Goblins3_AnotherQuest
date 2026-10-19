@@ -62,6 +62,7 @@ namespace Gob3AQ.GraphicsMaster
         private ulong zoomTransitionTotalTime;
         private bool zoomActive;
         private bool zoomRoomAcceptsRecommended;
+        private float zoomRoomRecommendedExtraYSize;
 
         private Bounds recommendedZoomWorldBounds;
         private ulong lastZoomChangeTimestamp;
@@ -97,7 +98,7 @@ namespace Gob3AQ.GraphicsMaster
             }
         }
 
-        public static void ActivateForcedZoomMode(bool activate, in Bounds regionOfInterest, ulong zoomDuration)
+        public static void ActivateForcedZoomMode(bool activate, in Bounds regionOfInterest, float extra_y_size_ratio, ulong zoomDuration)
         {
             if (!_singleton) return;
 
@@ -109,7 +110,7 @@ namespace Gob3AQ.GraphicsMaster
 
             if (activate)
             {
-                Bounds calcROI = _singleton.CalculateWorldBoundsROI(in regionOfInterest);
+                Bounds calcROI = _singleton.CalculateWorldBoundsROI(in regionOfInterest, extra_y_size_ratio);
 
                 _singleton.zoomFinalOrthoSize = calcROI.extents.y;
                 _singleton.zoomFinalPosition = calcROI.center;
@@ -128,7 +129,12 @@ namespace Gob3AQ.GraphicsMaster
             if (!_singleton) return;
             if (!_singleton.zoomRoomAcceptsRecommended) return;
 
-            _singleton.recommendedZoomWorldBounds = _singleton.CalculateWorldBoundsROI(in regionOfInterest);
+            _singleton.recommendedZoomWorldBounds = _singleton.CalculateWorldBoundsROI(in regionOfInterest, _singleton.zoomRoomRecommendedExtraYSize);
+
+            if(VARMAP_GraphicsMaster.GET_GAMESTATUS() == Game_Status.GAME_STATUS_PLAY)
+            {
+                ActivateForcedZoomMode(true, in regionOfInterest, _singleton.zoomRoomRecommendedExtraYSize, zoomDuration);
+            }
         }
 
         public static void LabelElemHoverService(bool activate, in LevelElemLabelInfo labelInfo)
@@ -292,6 +298,8 @@ namespace Gob3AQ.GraphicsMaster
                             zoomRoomAcceptsRecommended = false;
                         }
 
+                        zoomRoomRecommendedExtraYSize = LevelOptionsClass.GetRoomZoomYExtraFactor(actualRoom);
+
                         GameSprite background_sprite;
 
                         if (roomInfo.Backgrounds.Length == 1)
@@ -318,7 +326,7 @@ namespace Gob3AQ.GraphicsMaster
                             GameItem selectedItem = ResourceDialogsAtlasClass.GetItemForCharacter(selectedChar);
 
                             VARMAP_GraphicsMaster.GET_ITEM_SPRITE_BOUNDARIES(selectedItem, out Bounds characterWorldBounds);
-                            recommendedZoomWorldBounds = CalculateWorldBoundsROI(in characterWorldBounds);
+                            recommendedZoomWorldBounds = CalculateWorldBoundsROI(in characterWorldBounds, zoomRoomRecommendedExtraYSize);
                         }
                         else
                         {
@@ -467,7 +475,7 @@ namespace Gob3AQ.GraphicsMaster
 
             if ((!zoomActive) && ((timestamp - lastZoomChangeTimestamp) >= GameFixedConfig.CAMERA_AUTO_RECOMMENDED_TIMEOUT_MS))
             {
-                VARMAP_GraphicsMaster.ACTIVATE_FORCED_ZOOM_MODE(false, default, GameFixedConfig.ZOOM_OUT_DURATION_MS);
+                VARMAP_GraphicsMaster.ACTIVATE_FORCED_ZOOM_MODE(false, default, 1,1);
             }
 
             mouseDraggingChanged ^= _mouseDraggingCamera;
@@ -495,10 +503,10 @@ namespace Gob3AQ.GraphicsMaster
             mainCameraTransform.position = cameraNewPosition;
         }
 
-        private Bounds CalculateWorldBoundsROI(in Bounds characterWorldBounds)
+        private Bounds CalculateWorldBoundsROI(in Bounds characterWorldBounds, float extraYSizeRatio)
         {
             Bounds roi = new Bounds(new Vector3(characterWorldBounds.center.x, characterWorldBounds.center.y, mainCamera.transform.position.z), characterWorldBounds.size);
-            float yExtent = roi.extents.y * GameFixedConfig.GAME_RECOMMENDED_ZOOM_EXTRA_Y_SIZE;
+            float yExtent = roi.extents.y * extraYSizeRatio;
 
 
             roi.extents = new Vector3(mainCamera.aspect * yExtent, yExtent, 1f);

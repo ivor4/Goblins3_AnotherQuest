@@ -80,7 +80,7 @@ namespace Gob3AQ.GameElement.Animation
                 if (foundZoomObject)
                 {
                     Bounds bounds = foundZoomObject.GetComponent<BoxCollider2D>().bounds;
-                    VARMAP_GameEventMaster.ACTIVATE_FORCED_ZOOM_MODE(true, in bounds, GameFixedConfig.ZOOM_OUT_DURATION_MS);
+                    VARMAP_GameEventMaster.ACTIVATE_FORCED_ZOOM_MODE(true, in bounds, 1f, GameFixedConfig.ZOOM_OUT_DURATION_MS);
                 }
                 else
                 {

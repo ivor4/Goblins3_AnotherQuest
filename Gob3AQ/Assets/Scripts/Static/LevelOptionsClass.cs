@@ -27,6 +27,11 @@ namespace Gob3AQ.Brain.LevelOptions
             return !_ROOM_AVOIDS_DIALOG_ZOOM.Contains(room);
         }
 
+        public static float GetRoomZoomYExtraFactor(Room room)
+        {
+            return _ROOM_ZOOM_Y_EXTRA_FACTOR.GetValueOrDefault(room, GameFixedConfig.GAME_RECOMMENDED_ZOOM_EXTRA_Y_SIZE);
+        }
+
         public static ReadOnlySpan<GameEventCombi> GetRoomMusicCondition(Room room, out GameSound music)
         {
             music = GameSound.SOUND_NONE;
@@ -102,7 +107,14 @@ namespace Gob3AQ.Brain.LevelOptions
         private static readonly HashSet<Room> _ROOM_AVOIDS_DIALOG_ZOOM = new HashSet<Room>()
         {
             Room.UNDER_BED,
-            Room.HIVE1_LAB
+            Room.HIVE1_LAB,
+            Room.MAP_1
+        };
+
+        private static readonly IReadOnlyDictionary<Room, float> _ROOM_ZOOM_Y_EXTRA_FACTOR = new Dictionary<Room, float>()
+        {
+            {Room.PHARMACY_1, GameFixedConfig.GAME_RECOMMENDED_THIGHT_EXTRA_Y_SIZE },
+            {Room.SERVICE_ROOM, GameFixedConfig.GAME_RECOMMENDED_THIGHT_EXTRA_Y_SIZE }
         };
 
         private static readonly IReadOnlyDictionary<Room, Tuple<GameEventCombi[],GameSound>> _ROOM_MUSIC_CONDITIONS = new Dictionary<Room, Tuple<GameEventCombi[], GameSound>>()

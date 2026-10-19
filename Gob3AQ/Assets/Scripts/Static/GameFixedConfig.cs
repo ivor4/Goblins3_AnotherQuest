@@ -24,9 +24,7 @@ namespace Gob3AQ.FixedConfig
 
         /* Time and timeouts */
         public const float SECONDS_TO_MILLISECONDS = 1000f;
-        public const float KEY_REFRESH_TIME_SECONDS = 0.05f;
         public const float CHARACTER_NORMAL_SPEED = 5.0f;
-        public const float MOVE_CAMERA_SPEED = 20.0f;
         public const float USER_INTERACTION_CHANGE_ANIMATION_TIME = 0.5f;
         public const ulong DOUBLE_CLICK_MS = 400;
         public const ulong BACKGROUND_ITEM_ACTIONS_MS = 3000;
@@ -45,11 +43,9 @@ namespace Gob3AQ.FixedConfig
         public const float MENU_TOP_SCREEN_HEIGHT_PERCENT = 64f/768f;
         public const float GAME_ZONE_HEIGHT_PERCENT = 1.0f - MENU_TOP_SCREEN_HEIGHT_PERCENT;
         public const float GAME_ZONE_HEIGHT_FACTOR = 1.0f / GAME_ZONE_HEIGHT_PERCENT;
-        public const float GAME_ZONE_CURSOR_MOVE_CAMERA_FACTOR = 0.1f;
-        public const float GAME_ZONE_CURSOR_MOVE_CAMERA_1MFACTOR = 1.0f - GAME_ZONE_CURSOR_MOVE_CAMERA_FACTOR;
-        public const float GAME_ZONE_CURSOR_PERCENT_MAX_SPEED = 0.25f;
+        public const float GAME_RECOMMENDED_THIGHT_EXTRA_Y_SIZE = 5f / 4f;
         public const float GAME_RECOMMENDED_ZOOM_EXTRA_Y_SIZE = 8f / 4f;
-        public const float GAME_ZONE_CURSOR_PERCENT_MAX_SPEED_DIV = 1f/GAME_ZONE_CURSOR_PERCENT_MAX_SPEED;
+        public const float GAME_DIALOG_ZOOM_EXTRA_Y_SIZE = 5f / 4f;
         public const float FADE_BLACK_TIMEOUT_MS = 250f;
         public const float FADE_BLACK_TIMEOUT_LONG_MS = 2500f;
 

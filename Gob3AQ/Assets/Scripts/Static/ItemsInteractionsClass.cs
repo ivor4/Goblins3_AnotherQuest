@@ -1429,8 +1429,8 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ActionConditions[1]{ActionConditions.COND_OK}),
 
             new ( /* ITEM_ELMANYO_OWNER */
-            NameType.NAME_OWNER,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_MANYO_OWNER}),
-            GameSprite.SPRITE_MANYO_OWNER,false,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            NameType.NAME_OWNER,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_MANYO_BOSS_STEADY}),
+            GameSprite.SPRITE_MANYO_BOSS_STEADY,false,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new ActionConditions[1]{ActionConditions.COND_TALK_MANYO_OWNER}),
 
             new ( /* ITEM_STUFFED_DEER */

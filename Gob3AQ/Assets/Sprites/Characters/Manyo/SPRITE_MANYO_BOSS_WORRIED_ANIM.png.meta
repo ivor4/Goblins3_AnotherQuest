@@ -1,0 +1,639 @@
+fileFormatVersion: 2
+guid: 844c0f867411f0243b5c28f438ab2369
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8721142945571294036
+    second: SPRITE_MANYO_BOSS_WORRIED_ANIM_0
+  - first:
+      213: 5439092066942672946
+    second: SPRITE_MANYO_BOSS_WORRIED_ANIM_1
+  - first:
+      213: -1951149159097035421
+    second: SPRITE_MANYO_BOSS_WORRIED_ANIM_2
+  - first:
+      213: -5730939313669550743
+    second: SPRITE_MANYO_BOSS_WORRIED_ANIM_3
+  - first:
+      213: -4211412084761342142
+    second: SPRITE_MANYO_BOSS_WORRIED_ANIM_4
+  - first:
+      213: -3280104306815854578
+    second: SPRITE_MANYO_BOSS_WORRIED_ANIM_5
+  - first:
+      213: 7068941769083221777
+    second: SPRITE_MANYO_BOSS_WORRIED_ANIM_6
+  - first:
+      213: 4911775156634943047
+    second: SPRITE_MANYO_BOSS_WORRIED_ANIM_7
+  - first:
+      213: -1133896159213778579
+    second: SPRITE_MANYO_BOSS_WORRIED_ANIM_8
+  - first:
+      213: 2366308273437747492
+    second: SPRITE_MANYO_BOSS_WORRIED_ANIM_9
+  - first:
+      213: 4831314542568401173
+    second: SPRITE_MANYO_BOSS_WORRIED_ANIM_10
+  - first:
+      213: -3455806816108768221
+    second: SPRITE_MANYO_BOSS_WORRIED_ANIM_11
+  - first:
+      213: -6522648672671320093
+    second: SPRITE_MANYO_BOSS_WORRIED_ANIM_12
+  - first:
+      213: -7388535770243284828
+    second: SPRITE_MANYO_BOSS_WORRIED_ANIM_13
+  - first:
+      213: 6977468212649603382
+    second: SPRITE_MANYO_BOSS_WORRIED_ANIM_14
+  - first:
+      213: -5558903392090637182
+    second: SPRITE_MANYO_BOSS_WORRIED_ANIM_15
+  - first:
+      213: 4877142513402074091
+    second: SPRITE_MANYO_BOSS_WORRIED_ANIM_16
+  - first:
+      213: -7781461616590287182
+    second: SPRITE_MANYO_BOSS_WORRIED_ANIM_17
+  - first:
+      213: -4095008104114205803
+    second: SPRITE_MANYO_BOSS_WORRIED_ANIM_18
+  - first:
+      213: 4021059543249927151
+    second: SPRITE_MANYO_BOSS_WORRIED_ANIM_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_WORRIED_ANIM_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca4b1d592b648f680800000000000000
+      internalID: -8721142945571294036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_WORRIED_ANIM_1
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 1920
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23063c6da698b7b40800000000000000
+      internalID: 5439092066942672946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_WORRIED_ANIM_2
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 1920
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 365183c6d202ce4e0800000000000000
+      internalID: -1951149159097035421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_WORRIED_ANIM_3
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 1920
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96dc76bde0d9770b0800000000000000
+      internalID: -5730939313669550743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_WORRIED_ANIM_4
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 1920
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24f430d950f0e85c0800000000000000
+      internalID: -4211412084761342142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_WORRIED_ANIM_5
+      rect:
+        serializedVersion: 2
+        x: 1900
+        y: 1920
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e08130ef28aba72d0800000000000000
+      internalID: -3280104306815854578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_WORRIED_ANIM_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 117702c061de91260800000000000000
+      internalID: 7068941769083221777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_WORRIED_ANIM_7
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 1280
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74e70d33b712a2440800000000000000
+      internalID: 4911775156634943047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_WORRIED_ANIM_8
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 1280
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6902e963779340f0800000000000000
+      internalID: -1133896159213778579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_WORRIED_ANIM_9
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 1280
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 429235366d0d6d020800000000000000
+      internalID: 2366308273437747492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_WORRIED_ANIM_10
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 1280
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 519e7f3aaf64c0340800000000000000
+      internalID: 4831314542568401173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_WORRIED_ANIM_11
+      rect:
+        serializedVersion: 2
+        x: 1900
+        y: 1280
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3249679a2028a00d0800000000000000
+      internalID: -3455806816108768221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_WORRIED_ANIM_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e7b0c63795ea75a0800000000000000
+      internalID: -6522648672671320093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_WORRIED_ANIM_13
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 640
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a0c164fcd5a67990800000000000000
+      internalID: -7388535770243284828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_WORRIED_ANIM_14
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 640
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6313f860f52f4d060800000000000000
+      internalID: 6977468212649603382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_WORRIED_ANIM_15
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 640
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28c39b531decad2b0800000000000000
+      internalID: -5558903392090637182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_WORRIED_ANIM_16
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 640
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be3594696471fa340800000000000000
+      internalID: 4877142513402074091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_WORRIED_ANIM_17
+      rect:
+        serializedVersion: 2
+        x: 1900
+        y: 640
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2be8ccd33e1b20490800000000000000
+      internalID: -7781461616590287182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_WORRIED_ANIM_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59b4de953db9b27c0800000000000000
+      internalID: -4095008104114205803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_WORRIED_ANIM_19
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 0
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: feb3b10a95cadc730800000000000000
+      internalID: 4021059543249927151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 48beac1595fb38e4eb3896be7d4ad2ad
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":4.0},"gridSpriteSize":{"x":380.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_MANYO_BOSS_WORRIED_ANIM_0: -8721142945571294036
+      SPRITE_MANYO_BOSS_WORRIED_ANIM_1: 5439092066942672946
+      SPRITE_MANYO_BOSS_WORRIED_ANIM_10: 4831314542568401173
+      SPRITE_MANYO_BOSS_WORRIED_ANIM_11: -3455806816108768221
+      SPRITE_MANYO_BOSS_WORRIED_ANIM_12: -6522648672671320093
+      SPRITE_MANYO_BOSS_WORRIED_ANIM_13: -7388535770243284828
+      SPRITE_MANYO_BOSS_WORRIED_ANIM_14: 6977468212649603382
+      SPRITE_MANYO_BOSS_WORRIED_ANIM_15: -5558903392090637182
+      SPRITE_MANYO_BOSS_WORRIED_ANIM_16: 4877142513402074091
+      SPRITE_MANYO_BOSS_WORRIED_ANIM_17: -7781461616590287182
+      SPRITE_MANYO_BOSS_WORRIED_ANIM_18: -4095008104114205803
+      SPRITE_MANYO_BOSS_WORRIED_ANIM_19: 4021059543249927151
+      SPRITE_MANYO_BOSS_WORRIED_ANIM_2: -1951149159097035421
+      SPRITE_MANYO_BOSS_WORRIED_ANIM_3: -5730939313669550743
+      SPRITE_MANYO_BOSS_WORRIED_ANIM_4: -4211412084761342142
+      SPRITE_MANYO_BOSS_WORRIED_ANIM_5: -3280104306815854578
+      SPRITE_MANYO_BOSS_WORRIED_ANIM_6: 7068941769083221777
+      SPRITE_MANYO_BOSS_WORRIED_ANIM_7: 4911775156634943047
+      SPRITE_MANYO_BOSS_WORRIED_ANIM_8: -1133896159213778579
+      SPRITE_MANYO_BOSS_WORRIED_ANIM_9: 2366308273437747492
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

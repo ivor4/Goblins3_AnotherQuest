@@ -57,6 +57,7 @@ namespace Gob3AQ.GameElement.Item
         private Color original_color;
 
         private ItemProgrammedAnimationRuntime[] programmedAnimationsRt;
+        private ulong prevTimestamp;
 
         protected override void Awake()
         {
@@ -234,13 +235,16 @@ namespace Gob3AQ.GameElement.Item
             if ((!myAnimator.runtimeAnimatorController) || (programmedAnimationsRt.Length <= 0) || (queuedTrigger != AnimationTrigger.ANIMATION_TRIGGER_ZERO) || (pendingStateCrossings != 0)) return;
 
             ulong actualTimestamp = VARMAP_ItemMaster.GET_ELAPSED_TIME_MS();
+            ulong delta = actualTimestamp - prevTimestamp;
+
             for (int i = 0; i < programmedAnimationsRt.Length; i++)
             {
                 ref ItemProgrammedAnimationRuntime rt = ref programmedAnimationsRt[i];
 
                 if (rt.progAnim.conditionActualTrigger != actualAnimationTrigger)
                 {
-                    rt.lastTimestampMs = actualTimestamp;
+                    /* Add delay */
+                    rt.lastTimestampMs += delta;
                     continue;
                 }
 
@@ -250,6 +254,8 @@ namespace Gob3AQ.GameElement.Item
 
                 PerformAnimation(rt.progAnim.destTrigger, null, null, false, null, false);
             }
+
+            prevTimestamp = actualTimestamp;
         }
 
         private void _OnZoomChanged(float newZoonLevel)

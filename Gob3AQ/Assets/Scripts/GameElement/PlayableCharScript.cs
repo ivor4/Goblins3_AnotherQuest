@@ -129,7 +129,7 @@ namespace Gob3AQ.GameElement.PlayableChar
         {
             if(VARMAP_PlayerMaster.GET_PLAYER_SELECTED() == charType)
             {
-                VARMAP_PlayerMaster.CHANGE_RECOMMENDED_ZOOM(in finalBounds, walkTime_ms);
+                VARMAP_PlayerMaster.CHANGE_RECOMMENDED_ZOOM(in finalBounds, Math.Max(4000, walkTime_ms*4));
             }
         }
 

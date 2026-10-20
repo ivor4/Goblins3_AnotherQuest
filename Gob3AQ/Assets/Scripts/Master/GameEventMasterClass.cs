@@ -897,9 +897,13 @@ namespace Gob3AQ.GameEventMaster
                         VARMAP_GameEventMaster.SHOW_DIALOGUE(info.targetDialog, DialogOption.DIALOG_OPTION_NONE, info.targetPhrase, GameItem.ITEM_NONE, true);
                         break;
                     case ActionType.ACTION_TYPE_START_DIALOGUE_IN_OPT:
-                        mustWait = info.waitForEnd;
-                        notifyAction = NotifyAction.NOTIFY_DIALOG;
-                        VARMAP_GameEventMaster.SHOW_DIALOGUE(info.targetDialog, info.targetDialogOption,info.targetPhrase, GameItem.ITEM_NONE, false);
+                        VARMAP_GameEventMaster.CHANGE_GAME_MODE(Game_Status.GAME_STATUS_PLAY_DIALOG, out error);
+                        if (!error)
+                        {
+                            mustWait = info.waitForEnd;
+                            notifyAction = NotifyAction.NOTIFY_DIALOG;
+                            VARMAP_GameEventMaster.SHOW_DIALOGUE(info.targetDialog, info.targetDialogOption, info.targetPhrase, GameItem.ITEM_NONE, false);
+                        }
                         break;
                     case ActionType.ACTION_TYPE_START_ANIMATION:
                         mustWait = info.waitForEnd;

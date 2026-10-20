@@ -8,7 +8,6 @@ using Gob3AQ.ResourceDialogs;
 using Gob3AQ.ResourceSprites;
 using Gob3AQ.VARMAP.ItemMaster;
 using Gob3AQ.VARMAP.Types;
-using Gob3AQ.VARMAP.Types.Cards;
 using Gob3AQ.Waypoint;
 using Gob3AQ.Waypoint.Network;
 using System;
@@ -42,7 +41,7 @@ namespace Gob3AQ.GameElement
         {
             PHYSICAL_STATE_STANDING,
             PHYSICAL_STATE_WALKING,
-            PHYSICAL_STATE_WALKING_FINAL_COOLDOWN,
+            PHYSICAL_STATE_WALKING_FINAL_COOLDOWN,  /* Only for pin point map */
             PHYSICAL_STATE_LOCKED
         }
 

@@ -140,6 +140,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 241cf1310cda8b74db4ac68e0c3e56cb
+    m_Address: ANIMATION_STREET2_PLACE_PEOPLE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 242c80f42c45edc4e942a9b83183144d
     m_Address: ANIMATION_REME_SWEEPING_EXEC1
     m_ReadOnly: 0
@@ -210,6 +215,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 345514b9d58432c45ae54d481acd61ec
+    m_Address: ANIMATION_STREET2_BLIND
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 348ad15acbe113a4d9f6be972cc934ab
     m_Address: ANIMATION_REME_SWEEPING_EXEC2
     m_ReadOnly: 0
@@ -232,6 +242,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 367433e1c51f07b468f16b8bb69186dc
     m_Address: BACKGROUND_HIVE1_CORRIDOR1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3806b7e4f9ff96e4cb2b95082a246fe8
+    m_Address: SOUND_OBSERVE_HIVE1_AD_BOARD_1_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -310,6 +325,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 50912ab5343872d4687eacac77eabb64
+    m_Address: SPRITE_CITY1_STREET2_MOV_PEOPLE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 510991f604f8d0045bed6c8ae0469c2d
     m_Address: ANIMATOR_KEY_SCRATCHER
     m_ReadOnly: 0
@@ -367,6 +387,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5dcd2462e8b9f364f9f29babd62db528
     m_Address: SPRITE_REME_SHOCKED_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5ff1108a3f0249e44b95701b94d064c8
+    m_Address: SOUND_DIALOG_EXIT_HIVE1_HALL_1_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -695,6 +720,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b492172b5736aec46a17f74364eba4d5
+    m_Address: ANIMATOR_STREET2_FACHADE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b4d195c909ea88f4fba9b8a1b299aea5
     m_Address: TIMELINE_LAB_RUST_POUR
     m_ReadOnly: 0
@@ -925,6 +955,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e74e57c84f007374892cddde0f4ba89b
+    m_Address: ANIMATOR_STREET2_PLACE_PEOPLE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e9082aa84649ad44ea1baf3df2ae6cd7
     m_Address: ANIMATION_KEY_STEADY
     m_ReadOnly: 0
@@ -1007,6 +1042,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fc1321eaef286c3478f455f590954402
     m_Address: SPRITE_ATLAS_HIVE1_3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc877d6009b19124ca2257d226944f07
+    m_Address: SPRITE_CITY1_STREET2_MOV_BLIND
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -408,6 +408,11 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_CHEST_OPEN_CLOSE"), /* SOUND_CHEST_OPEN_CLOSE */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_EXIT_HIVE1_HALL_1_SPANISH"), /* SOUND_DIALOG_EXIT_HIVE1_HALL_1 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_OBSERVE_HIVE1_AD_BOARD_1_SPANISH"), /* SOUND_OBSERVE_HIVE1_AD_BOARD_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_OBSERVE_MANYO_OWNER_SPANISH"), /* SOUND_OBSERVE_MANYO_OWNER */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_MANYO_INTRO_2_SPANISH"), /* SOUND_DIALOG_MANYO_INTRO_2 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_MANYO_INTRO_1_SPANISH"), /* SOUND_DIALOG_MANYO_INTRO_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_MANYO_OWNER_YAWN"), /* SOUND_MANYO_OWNER_YAWN */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_MANYO_FOREHEAD"), /* SOUND_MANYO_FOREHEAD */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

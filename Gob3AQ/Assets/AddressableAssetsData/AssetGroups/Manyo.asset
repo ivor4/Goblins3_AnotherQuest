@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Manyo
   m_GUID: 7d82e4fc964fe7740a88138d6f76a482
   m_SerializeEntries:
+  - m_GUID: 0f7e48369412ac74381da8d784c99cfd
+    m_Address: ANIMATION_MANYO_LISTENING_CYCLE_EXEC2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2537bbe984788f14089c6816c8e26377
     m_Address: ANIMATION_MANYO_YAWN
     m_ReadOnly: 0
@@ -40,8 +45,28 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 485b0c61de58dd04b8cc3222da718e7d
+    m_Address: ANIMATION_MANYO_LEAN_TO_LISTEN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4cb5a84556f0dfa4aa3550c22688e303
+    m_Address: SOUND_MANYO_OWNER_YAWN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d7be7049e20ebe4ebf07f6f3c1e510c
+    m_Address: SOUND_MANYO_FOREHEAD
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 547a9cc2785b6fa48974930d54623d36
     m_Address: ANIMATION_MANYO_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7cda8e6a1a207fe48818b22d6306dbde
+    m_Address: ANIMATION_MANYO_LISTENING_CYCLE_EXEC1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -55,6 +80,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8369b6f8c60fccd44bd0829b8a26478b
+    m_Address: ANIMATION_MANYO_TALKING_EXEC1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 844c0f867411f0243b5c28f438ab2369
     m_Address: SPRITE_MANYO_BOSS_WORRIED_ANIM
     m_ReadOnly: 0
@@ -62,6 +92,31 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8684cb1a8fa4c8f47b2d259404e52aea
     m_Address: SOUND_PHRASE_DIALOG_MANYO_BCKG_CROWD_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 921028b1b1d95ae4f8058e39eade4e0e
+    m_Address: SOUND_DIALOG_MANYO_INTRO_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92ced1e30cfa3914fa089622c911fbdf
+    m_Address: SPRITE_MANYO_BOSS_TALKING_ANIM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94e1a88d1342f3b469a642bb15627b88
+    m_Address: SOUND_OBSERVE_MANYO_OWNER_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f2db8351a9e807439fe11be2230330c
+    m_Address: ANIMATION_MANYO_TALKING_EXEC2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aff233ea74ff51d47bc6ce6d416af3a4
+    m_Address: ANIMATION_MANYO_STEADY_LISTENING
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -90,8 +145,28 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bdb78119dc1ae3b44a1937ba92fd7adc
+    m_Address: SOUND_DIALOG_MANYO_INTRO_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c1bd0890e3bb54449b8490c0bd6e6eed
+    m_Address: ANIMATION_MANYO_TALKING_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c542d0bd3f9689b4b9aacbcf0ffd4c6f
     m_Address: SPRITE_ATLAS_MANYO_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c577e5740c370ca4d8eb4d8e0b0dda0b
+    m_Address: SPRITE_MANYO_BOSS_LISTENING_ANIM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: daef3fd16be235048b45e55c26ca2aff
+    m_Address: ANIMATION_MANYO_TALKING_ENTRY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -122,6 +197,21 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ebfd59d2dd85dcb4a910b3d0595c2dcf
     m_Address: SPRITE_MANYO_BOSS_YAWN_ANIM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f49907ea3a544e44096e12fe6c9d2dcd
+    m_Address: SPRITE_MANYO_BOSS_LEAN_TO_LISTEN_ANIM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8734d708a375a74fa12880d99a0ce21
+    m_Address: ANIMATION_MANYO_LISTENING_CYCLE_ENTRY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fcaad39fda6d1474fb99db4f275fa144
+    m_Address: ANIMATION_MANYO_LISTENING_CYCLE_EXIT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

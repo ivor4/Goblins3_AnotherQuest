@@ -1,0 +1,535 @@
+fileFormatVersion: 2
+guid: 92ced1e30cfa3914fa089622c911fbdf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1480511358000837064
+    second: SPRITE_MANYO_BOSS_TALKING_ANIM_0
+  - first:
+      213: 6355333242692671943
+    second: SPRITE_MANYO_BOSS_TALKING_ANIM_1
+  - first:
+      213: 2569464410829784616
+    second: SPRITE_MANYO_BOSS_TALKING_ANIM_2
+  - first:
+      213: 618694340243501861
+    second: SPRITE_MANYO_BOSS_TALKING_ANIM_3
+  - first:
+      213: -2876724718188592750
+    second: SPRITE_MANYO_BOSS_TALKING_ANIM_4
+  - first:
+      213: -5166973921065166449
+    second: SPRITE_MANYO_BOSS_TALKING_ANIM_5
+  - first:
+      213: 3742530967342374535
+    second: SPRITE_MANYO_BOSS_TALKING_ANIM_6
+  - first:
+      213: -6376326005533223212
+    second: SPRITE_MANYO_BOSS_TALKING_ANIM_7
+  - first:
+      213: 5490869244188796662
+    second: SPRITE_MANYO_BOSS_TALKING_ANIM_8
+  - first:
+      213: 2722230658732089924
+    second: SPRITE_MANYO_BOSS_TALKING_ANIM_9
+  - first:
+      213: 8360360132227404981
+    second: SPRITE_MANYO_BOSS_TALKING_ANIM_10
+  - first:
+      213: -8416141621830882595
+    second: SPRITE_MANYO_BOSS_TALKING_ANIM_11
+  - first:
+      213: -5203689360643477024
+    second: SPRITE_MANYO_BOSS_TALKING_ANIM_12
+  - first:
+      213: -894895859436817402
+    second: SPRITE_MANYO_BOSS_TALKING_ANIM_13
+  - first:
+      213: -6705352882834282396
+    second: SPRITE_MANYO_BOSS_TALKING_ANIM_14
+  - first:
+      213: 8252716100224914121
+    second: SPRITE_MANYO_BOSS_TALKING_ANIM_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_TALKING_ANIM_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 340
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c1329b6c35db8410800000000000000
+      internalID: 1480511358000837064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_TALKING_ANIM_1
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 1920
+        width: 340
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c99de789eda23850800000000000000
+      internalID: 6355333242692671943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_TALKING_ANIM_2
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 1920
+        width: 340
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 826848e944298a320800000000000000
+      internalID: 2569464410829784616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_TALKING_ANIM_3
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 1920
+        width: 340
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52332c6793b069800800000000000000
+      internalID: 618694340243501861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_TALKING_ANIM_4
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 1920
+        width: 340
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29188cf3c12d318d0800000000000000
+      internalID: -2876724718188592750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_TALKING_ANIM_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 340
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f89143738983b48b0800000000000000
+      internalID: -5166973921065166449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_TALKING_ANIM_6
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 1280
+        width: 340
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78e5755061420f330800000000000000
+      internalID: 3742530967342374535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_TALKING_ANIM_7
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 1280
+        width: 340
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d65b1cf74db287a0800000000000000
+      internalID: -6376326005533223212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_TALKING_ANIM_8
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 1280
+        width: 340
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f6adf75c7c733c40800000000000000
+      internalID: 5490869244188796662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_TALKING_ANIM_9
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 1280
+        width: 340
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44267627c5e47c520800000000000000
+      internalID: 2722230658732089924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_TALKING_ANIM_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 340
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b490c3ce37f50470800000000000000
+      internalID: 8360360132227404981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_TALKING_ANIM_11
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 640
+        width: 340
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddae36b19cbd33b80800000000000000
+      internalID: -8416141621830882595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_TALKING_ANIM_12
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 640
+        width: 340
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e1bd59c818c8c7b0800000000000000
+      internalID: -5203689360643477024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_TALKING_ANIM_13
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 640
+        width: 340
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 604fc4b05f0b493f0800000000000000
+      internalID: -894895859436817402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_TALKING_ANIM_14
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 640
+        width: 340
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 468650d541dc1f2a0800000000000000
+      internalID: -6705352882834282396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_TALKING_ANIM_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 340
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c29d028199878270800000000000000
+      internalID: 8252716100224914121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 519f428be8e075844a6d153a22d493fc
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":4.0},"gridSpriteSize":{"x":340.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_MANYO_BOSS_TALKING_ANIM_0: 1480511358000837064
+      SPRITE_MANYO_BOSS_TALKING_ANIM_1: 6355333242692671943
+      SPRITE_MANYO_BOSS_TALKING_ANIM_10: 8360360132227404981
+      SPRITE_MANYO_BOSS_TALKING_ANIM_11: -8416141621830882595
+      SPRITE_MANYO_BOSS_TALKING_ANIM_12: -5203689360643477024
+      SPRITE_MANYO_BOSS_TALKING_ANIM_13: -894895859436817402
+      SPRITE_MANYO_BOSS_TALKING_ANIM_14: -6705352882834282396
+      SPRITE_MANYO_BOSS_TALKING_ANIM_15: 8252716100224914121
+      SPRITE_MANYO_BOSS_TALKING_ANIM_2: 2569464410829784616
+      SPRITE_MANYO_BOSS_TALKING_ANIM_3: 618694340243501861
+      SPRITE_MANYO_BOSS_TALKING_ANIM_4: -2876724718188592750
+      SPRITE_MANYO_BOSS_TALKING_ANIM_5: -5166973921065166449
+      SPRITE_MANYO_BOSS_TALKING_ANIM_6: 3742530967342374535
+      SPRITE_MANYO_BOSS_TALKING_ANIM_7: -6376326005533223212
+      SPRITE_MANYO_BOSS_TALKING_ANIM_8: 5490869244188796662
+      SPRITE_MANYO_BOSS_TALKING_ANIM_9: 2722230658732089924
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

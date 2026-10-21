@@ -1,0 +1,535 @@
+fileFormatVersion: 2
+guid: c577e5740c370ca4d8eb4d8e0b0dda0b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8867153631654279259
+    second: SPRITE_MANYO_BOSS_LISTENING_ANIM_0
+  - first:
+      213: 282831558889833094
+    second: SPRITE_MANYO_BOSS_LISTENING_ANIM_1
+  - first:
+      213: -8351466245691441350
+    second: SPRITE_MANYO_BOSS_LISTENING_ANIM_2
+  - first:
+      213: -8724892027071098636
+    second: SPRITE_MANYO_BOSS_LISTENING_ANIM_3
+  - first:
+      213: 8175231047624514685
+    second: SPRITE_MANYO_BOSS_LISTENING_ANIM_4
+  - first:
+      213: -3164915182515597022
+    second: SPRITE_MANYO_BOSS_LISTENING_ANIM_5
+  - first:
+      213: -5997529252150399386
+    second: SPRITE_MANYO_BOSS_LISTENING_ANIM_6
+  - first:
+      213: 7370480200756793988
+    second: SPRITE_MANYO_BOSS_LISTENING_ANIM_7
+  - first:
+      213: -8779545726546996690
+    second: SPRITE_MANYO_BOSS_LISTENING_ANIM_8
+  - first:
+      213: 2981601682889366462
+    second: SPRITE_MANYO_BOSS_LISTENING_ANIM_9
+  - first:
+      213: -1348825802836887470
+    second: SPRITE_MANYO_BOSS_LISTENING_ANIM_10
+  - first:
+      213: 4708637657525224651
+    second: SPRITE_MANYO_BOSS_LISTENING_ANIM_11
+  - first:
+      213: -2035328810254670020
+    second: SPRITE_MANYO_BOSS_LISTENING_ANIM_12
+  - first:
+      213: 2472495977240013942
+    second: SPRITE_MANYO_BOSS_LISTENING_ANIM_13
+  - first:
+      213: 1441154777714014481
+    second: SPRITE_MANYO_BOSS_LISTENING_ANIM_14
+  - first:
+      213: -7341632048630529737
+    second: SPRITE_MANYO_BOSS_LISTENING_ANIM_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_LISTENING_ANIM_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a78e6090ca81f480800000000000000
+      internalID: -8867153631654279259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_LISTENING_ANIM_1
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 1920
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68206e6edc1dce300800000000000000
+      internalID: 282831558889833094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_LISTENING_ANIM_2
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 1920
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3f75ef82b1a91c80800000000000000
+      internalID: -8351466245691441350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_LISTENING_ANIM_3
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 1920
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f01ac68de4fae680800000000000000
+      internalID: -8724892027071098636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_LISTENING_ANIM_4
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 1920
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7c5766d251447170800000000000000
+      internalID: 8175231047624514685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_LISTENING_ANIM_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 221dae1f866f314d0800000000000000
+      internalID: -3164915182515597022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_LISTENING_ANIM_6
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 1280
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66eaf83ebee74cca0800000000000000
+      internalID: -5997529252150399386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_LISTENING_ANIM_7
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 1280
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 482982e21b4394660800000000000000
+      internalID: 7370480200756793988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_LISTENING_ANIM_8
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 1280
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e221edf7da9c82680800000000000000
+      internalID: -8779545726546996690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_LISTENING_ANIM_9
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 1280
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebbd352fee6c06920800000000000000
+      internalID: 2981601682889366462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_LISTENING_ANIM_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 258b6062412084de0800000000000000
+      internalID: -1348825802836887470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_LISTENING_ANIM_11
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 640
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc481d88001785140800000000000000
+      internalID: 4708637657525224651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_LISTENING_ANIM_12
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 640
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c37e6af0b3f01c3e0800000000000000
+      internalID: -2035328810254670020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_LISTENING_ANIM_13
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 640
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67c29ffcdf1105220800000000000000
+      internalID: 2472495977240013942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_LISTENING_ANIM_14
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 640
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 119300082a2000410800000000000000
+      internalID: 1441154777714014481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MANYO_BOSS_LISTENING_ANIM_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 380
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73101c5ac884d1a90800000000000000
+      internalID: -7341632048630529737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 25ebd87856cbcad4fa73ccbae7a077e4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":4.0},"gridSpriteSize":{"x":380.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_MANYO_BOSS_LISTENING_ANIM_0: -8867153631654279259
+      SPRITE_MANYO_BOSS_LISTENING_ANIM_1: 282831558889833094
+      SPRITE_MANYO_BOSS_LISTENING_ANIM_10: -1348825802836887470
+      SPRITE_MANYO_BOSS_LISTENING_ANIM_11: 4708637657525224651
+      SPRITE_MANYO_BOSS_LISTENING_ANIM_12: -2035328810254670020
+      SPRITE_MANYO_BOSS_LISTENING_ANIM_13: 2472495977240013942
+      SPRITE_MANYO_BOSS_LISTENING_ANIM_14: 1441154777714014481
+      SPRITE_MANYO_BOSS_LISTENING_ANIM_15: -7341632048630529737
+      SPRITE_MANYO_BOSS_LISTENING_ANIM_2: -8351466245691441350
+      SPRITE_MANYO_BOSS_LISTENING_ANIM_3: -8724892027071098636
+      SPRITE_MANYO_BOSS_LISTENING_ANIM_4: 8175231047624514685
+      SPRITE_MANYO_BOSS_LISTENING_ANIM_5: -3164915182515597022
+      SPRITE_MANYO_BOSS_LISTENING_ANIM_6: -5997529252150399386
+      SPRITE_MANYO_BOSS_LISTENING_ANIM_7: 7370480200756793988
+      SPRITE_MANYO_BOSS_LISTENING_ANIM_8: -8779545726546996690
+      SPRITE_MANYO_BOSS_LISTENING_ANIM_9: 2981601682889366462
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

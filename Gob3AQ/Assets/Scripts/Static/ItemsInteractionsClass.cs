@@ -619,6 +619,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,"",
             new GameAction[3]{GameAction.ACTION_ANIMATE_MANYO_LISTENING_STEADY, GameAction.ACTION_ANIMATE_MANYO_LEAN_TO_LISTEN, GameAction.ACTION_DIALOGUE_TALK_MANYO_OWNER}), 
 
+            new( /* COND_USE_WORK_IDEA_MANYO_OWNER */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_MORNING,CharacterType.CHARACTER_MAIN,GameItem.ITEM_IDEA_FIND_JOB,ItemInteractionType.INTERACTION_USE,"",
+            new GameAction[4]{GameAction.ACTION_ANIMATE_MANYO_LISTENING_STEADY, GameAction.ACTION_ANIMATE_MANYO_LEAN_TO_LISTEN, GameAction.ACTION_EVENT_USED_WORK_IDEA_MANYO, GameAction.ACTION_DIALOGUE_OPTION_MANYO_WORK}), 
+
             new( /* COND_TAKE_UMBRELLA_MORNING */
             new GameEventCombi[1]{new(GameEvent.EVENT_UMBRELLA_PICKABLE_TAKEN, true)}, 
             MomentType.MOMENT_MORNING,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,"",
@@ -1436,7 +1441,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_ELMANYO_OWNER */
             NameType.NAME_OWNER,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_MANYO_BOSS_STEADY}),
             GameSprite.SPRITE_MANYO_BOSS_STEADY,false,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
-            new ActionConditions[2]{ActionConditions.COND_TALK_MANYO_OWNER, ActionConditions.COND_OBSERVE_MANYO_OWNER}),
+            new ActionConditions[3]{ActionConditions.COND_TALK_MANYO_OWNER, ActionConditions.COND_OBSERVE_MANYO_OWNER, ActionConditions.COND_USE_WORK_IDEA_MANYO_OWNER}),
 
             new ( /* ITEM_STUFFED_DEER */
             NameType.NAME_STUFFED_DEER,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
@@ -4817,6 +4822,18 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_FOUR,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_EVENT_USED_WORK_IDEA_MANYO */
+            false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_USED_WORK_IDEA_MANYO, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_OPTION_MANYO_WORK */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE_IN_OPT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_MANYO_OWNER,DialogOption.DIALOG_OPTION_MANYO_WORK_NOTE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

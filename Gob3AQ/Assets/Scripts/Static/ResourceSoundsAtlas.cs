@@ -427,6 +427,8 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_MANYO_WORK_NOTE_3_SPANISH"), /* SOUND_DIALOG_MANYO_WORK_NOTE_3 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_MANYO_WORK_NOTE_2_SPANISH"), /* SOUND_DIALOG_MANYO_WORK_NOTE_2 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_DIALOG_MANYO_WORK_NOTE_1_SPANISH"), /* SOUND_DIALOG_MANYO_WORK_NOTE_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_BULB_SQUEEZE"), /* SOUND_BULB_SQUEEZE */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_REME_YELLING_ASSASIN_SPANISH"), /* SOUND_REME_YELLING_ASSASIN */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

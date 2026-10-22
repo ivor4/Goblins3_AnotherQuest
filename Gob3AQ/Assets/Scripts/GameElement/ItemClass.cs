@@ -236,6 +236,7 @@ namespace Gob3AQ.GameElement.Item
 
             ulong actualTimestamp = VARMAP_ItemMaster.GET_ELAPSED_TIME_MS();
             ulong delta = actualTimestamp - prevTimestamp;
+            bool chosenOne = false;
 
             for (int i = 0; i < programmedAnimationsRt.Length; i++)
             {
@@ -248,11 +249,12 @@ namespace Gob3AQ.GameElement.Item
                     continue;
                 }
 
-                if ((actualTimestamp - rt.lastTimestampMs) < rt.progAnim.everyMs) continue;
+                if (((actualTimestamp - rt.lastTimestampMs) < rt.progAnim.everyMs)||chosenOne) continue;
 
                 rt.lastTimestampMs = actualTimestamp;
 
                 PerformAnimation(rt.progAnim.destTrigger, null, null, false, null, false);
+                chosenOne = true;
             }
 
             prevTimestamp = actualTimestamp;

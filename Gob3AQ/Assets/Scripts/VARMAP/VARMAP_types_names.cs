@@ -29,6 +29,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_CITY_CENTER, 
         NAME_CITY_PERIPH, 
         NAME_PHARMACY, 
+        NAME_PHARMACIST_AND_REME, 
         NAME_PHARMACIST, 
         NAME_UMBRELLA, 
         NAME_ELMANYO, 

@@ -126,6 +126,11 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new DialogOption[1]{DialogOption.DIALOG_OPTION_REME_CARDS}
             ),
 
+            new( /* DIALOG_PHARMACIST_WITH_REME */
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_PHARMACY_REME_ILL_AND_PHARM},
+            new DialogOption[1]{DialogOption.DIALOG_PHARMACIST_WITH_REME_INTRO_OPTION}
+            ),
+
             new( /* DIALOG_TRY_TALK_PHARMACIST_1 */
             new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_PHARMACY_NPC_OWNER},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_TRY_TALK_PHARMACIST}
@@ -453,6 +458,13 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_NONE,false,
             new DialogPhrase[2]{DialogPhrase.PHRASE_USE_CARDS_REME_1, DialogPhrase.PHRASE_USE_CARDS_REME_2}
+            ),
+            new( /* DIALOG_PHARMACIST_WITH_REME_INTRO_OPTION */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_NONE},
+            DialogType.DIALOG_NONE,false,
+            new DialogPhrase[1]{DialogPhrase.PHRASE_REME_YELLING_ASSASIN}
             ),
             new( /* DIALOG_OPTION_TRY_TALK_PHARMACIST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
@@ -1114,6 +1126,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MEMENTO_FIND_JOB_3 */ 
             new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_MANYO_UMBRELLA_NOT_1 */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_UMBRELLA_TAKEN */ 
+            new(1,GameSound.SOUND_REME_YELLING_ASSASIN, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_FOUR,AnimationTrigger.ANIMATION_TRIGGER_THREE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_REME_YELLING_ASSASIN */ 
             new(0,GameSound.SOUND_PHRASE_DIALOG_MANYO_BCKG_CROWD_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_MANYO_BCKG_CROWD_1 */ 
             new(0,GameSound.SOUND_PHRASE_DIALOG_MANYO_BCKG_CROWD_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_MANYO_BCKG_CROWD_2 */ 
             new(0,GameSound.SOUND_PHRASE_DIALOG_MANYO_BCKG_CROWD_3, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_MANYO_BCKG_CROWD_3 */ 

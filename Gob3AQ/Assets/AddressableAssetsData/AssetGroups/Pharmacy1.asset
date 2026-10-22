@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Pharmacy1
   m_GUID: a2f9a537e818dd24997ef459fc191183
   m_SerializeEntries:
+  - m_GUID: 0dded33d58d6c704ea050b85ba91fbcb
+    m_Address: SPRITE_REME_WITH_PHARMACIST_YELLING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 14b3c04febff73a43823a7b799f5343b
     m_Address: SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM
     m_ReadOnly: 0
@@ -65,6 +70,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 780a1e232574674429d5ff4cc665ac45
+    m_Address: ANIMATION_REME_WITH_PHARMACIST_CHECKING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f594b08593cbdc41934a0ad88a4551d
+    m_Address: ANIMATION_REME_WITH_PHARMACIST_YELLING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 80852efae97901744a5bf656b4fbd7f1
     m_Address: ANIMATOR_REME_WITH_PHARMACIST
     m_ReadOnly: 0
@@ -80,6 +95,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94b5a4b939ec04642841f3d0d64d20c0
+    m_Address: SOUND_REME_YELLING_ASSASIN_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9868bd7086e5405418c388cc4fcea94e
     m_Address: ANIMATION_REME_WITH_PHARMACIST_STEADY
     m_ReadOnly: 0
@@ -92,6 +112,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b10b66ceb7b86c94b83fdcfb2a6b1c06
     m_Address: ANIMATOR_PHARMACY_OWNER
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c362ee059949afa43a2f73b418f8fdce
+    m_Address: SOUND_BULB_SQUEEZE
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

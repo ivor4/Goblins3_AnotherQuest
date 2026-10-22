@@ -604,6 +604,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_CROSS_DOOR,"",
             new GameAction[1]{GameAction.ACTION_DIALOGUE_NOT_GO_SOUTH_NEIGH}), 
 
+            new( /* COND_TALK_PHARMACIST_WITH_REME */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,"",
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_TALK_PHARMACIST_WITH_REME}), 
+
             new( /* COND_TRY_TALK_PHARMACIST */
             new GameEventCombi[1]{new(GameEvent.EVENT_PHARMACY_EMPTY, true)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,"",
@@ -1419,9 +1424,9 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ActionConditions[1]{ActionConditions.COND_OK}),
 
             new ( /* ITEM_PHARMACY_REME_ILL_AND_PHARM */
-            NameType.NAME_PHARMACIST,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_REME_WITH_PARHMACIST_STEADY}),
+            NameType.NAME_PHARMACIST_AND_REME,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_REME_WITH_PARHMACIST_STEADY}),
             GameSprite.SPRITE_REME_WITH_PARHMACIST_STEADY,false,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
-            new ActionConditions[1]{ActionConditions.COND_OK}),
+            new ActionConditions[1]{ActionConditions.COND_TALK_PHARMACIST_WITH_REME}),
 
             new ( /* ITEM_PHARMACY_NPC_OWNER */
             NameType.NAME_PHARMACIST,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_NPC_PHARMACY_OWNER}),
@@ -2340,6 +2345,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_WONT_GO_SOUTH_NEIGH,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_TALK_PHARMACIST_WITH_REME */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_PHARMACIST_WITH_REME,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_DIALOGUE_TRY_TALK_PHARMACIST */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

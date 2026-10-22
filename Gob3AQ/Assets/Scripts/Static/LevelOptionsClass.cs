@@ -113,7 +113,7 @@ namespace Gob3AQ.Brain.LevelOptions
 
         private static readonly IReadOnlyDictionary<Room, float> _ROOM_ZOOM_Y_EXTRA_FACTOR = new Dictionary<Room, float>()
         {
-            {Room.PHARMACY_1, GameFixedConfig.GAME_RECOMMENDED_THIGHT_EXTRA_Y_SIZE },
+            {Room.PHARMACY_1, GameFixedConfig.GAME_RECOMMENDED_THIGHT_EXTRA_Y_SIZE*1.1f },
             {Room.SERVICE_ROOM, GameFixedConfig.GAME_RECOMMENDED_THIGHT_EXTRA_Y_SIZE },
             {Room.CITY1_STREET_1, GameFixedConfig.GAME_RECOMMENDED_ZOOM_EXTRA_Y_SIZE * 1.5f },
             {Room.CITY1_STREET_2, GameFixedConfig.GAME_RECOMMENDED_ZOOM_EXTRA_Y_SIZE * 1.5f },

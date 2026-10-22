@@ -1,0 +1,639 @@
+fileFormatVersion: 2
+guid: 5d7f32d0d8156574b9b53d2f0c974608
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8529166274695146512
+    second: SPRITE_REME_WITH_PHARMACIST_INFLATING_0
+  - first:
+      213: 1784696679266114970
+    second: SPRITE_REME_WITH_PHARMACIST_INFLATING_1
+  - first:
+      213: -1482144669738224680
+    second: SPRITE_REME_WITH_PHARMACIST_INFLATING_2
+  - first:
+      213: -3088384819312176845
+    second: SPRITE_REME_WITH_PHARMACIST_INFLATING_3
+  - first:
+      213: -1302164396152291942
+    second: SPRITE_REME_WITH_PHARMACIST_INFLATING_4
+  - first:
+      213: 472435217845654614
+    second: SPRITE_REME_WITH_PHARMACIST_INFLATING_5
+  - first:
+      213: -1705564434950953824
+    second: SPRITE_REME_WITH_PHARMACIST_INFLATING_6
+  - first:
+      213: -8158891576555148679
+    second: SPRITE_REME_WITH_PHARMACIST_INFLATING_7
+  - first:
+      213: 5631705168529821041
+    second: SPRITE_REME_WITH_PHARMACIST_INFLATING_8
+  - first:
+      213: -2092803899561033159
+    second: SPRITE_REME_WITH_PHARMACIST_INFLATING_9
+  - first:
+      213: 8039750417709063864
+    second: SPRITE_REME_WITH_PHARMACIST_INFLATING_10
+  - first:
+      213: -6700238127759540051
+    second: SPRITE_REME_WITH_PHARMACIST_INFLATING_11
+  - first:
+      213: -3085724256325995505
+    second: SPRITE_REME_WITH_PHARMACIST_INFLATING_12
+  - first:
+      213: 5864843136191330861
+    second: SPRITE_REME_WITH_PHARMACIST_INFLATING_13
+  - first:
+      213: 88278827392925110
+    second: SPRITE_REME_WITH_PHARMACIST_INFLATING_14
+  - first:
+      213: -1857053958005854009
+    second: SPRITE_REME_WITH_PHARMACIST_INFLATING_15
+  - first:
+      213: 4434784819647821771
+    second: SPRITE_REME_WITH_PHARMACIST_INFLATING_16
+  - first:
+      213: -1713173980298494231
+    second: SPRITE_REME_WITH_PHARMACIST_INFLATING_17
+  - first:
+      213: -8078876522952210873
+    second: SPRITE_REME_WITH_PHARMACIST_INFLATING_18
+  - first:
+      213: -3231296315801958333
+    second: SPRITE_REME_WITH_PHARMACIST_INFLATING_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_INFLATING_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1080
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01c2271998fad5670800000000000000
+      internalID: 8529166274695146512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_INFLATING_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1080
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9dd97f8c2484c810800000000000000
+      internalID: 1784696679266114970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_INFLATING_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1080
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d3b38e864d5e6be0800000000000000
+      internalID: -1482144669738224680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_INFLATING_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1080
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 331503bae5ad325d0800000000000000
+      internalID: -3088384819312176845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_INFLATING_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 810
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9d7e208168cdede0800000000000000
+      internalID: -1302164396152291942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_INFLATING_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 810
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 654131bd35d6e8600800000000000000
+      internalID: 472435217845654614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_INFLATING_6
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 810
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a46531de2e9458e0800000000000000
+      internalID: -1705564434950953824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_INFLATING_7
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 810
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97ae08ab65bc5ce80800000000000000
+      internalID: -8158891576555148679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_INFLATING_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 540
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17d83f14306d72e40800000000000000
+      internalID: 5631705168529821041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_INFLATING_9
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 540
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 932cc1601fdd4f2e0800000000000000
+      internalID: -2092803899561033159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_INFLATING_10
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 540
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bed852986ee29f60800000000000000
+      internalID: 8039750417709063864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_INFLATING_11
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 540
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da04d541ce8f303a0800000000000000
+      internalID: -6700238127759540051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_INFLATING_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 270
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f04f1e2432e4d25d0800000000000000
+      internalID: -3085724256325995505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_INFLATING_13
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 270
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2a721452cb146150800000000000000
+      internalID: 5864843136191330861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_INFLATING_14
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 270
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bd71f33021a93100800000000000000
+      internalID: 88278827392925110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_INFLATING_15
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 270
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c0f358a34b6a36e0800000000000000
+      internalID: -1857053958005854009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_INFLATING_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc737660c458b8d30800000000000000
+      internalID: 4434784819647821771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_INFLATING_17
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9eebdd977559938e0800000000000000
+      internalID: -1713173980298494231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_INFLATING_18
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 746c0392b9012ef80800000000000000
+      internalID: -8078876522952210873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_INFLATING_19
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3488894fe112823d0800000000000000
+      internalID: -3231296315801958333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 46739e086b4fd41448ea28455c90a9f7
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":5.0},"gridSpriteSize":{"x":320.0,"y":270.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.11851851642131806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_REME_WITH_PHARMACIST_INFLATING_0: 8529166274695146512
+      SPRITE_REME_WITH_PHARMACIST_INFLATING_1: 1784696679266114970
+      SPRITE_REME_WITH_PHARMACIST_INFLATING_10: 8039750417709063864
+      SPRITE_REME_WITH_PHARMACIST_INFLATING_11: -6700238127759540051
+      SPRITE_REME_WITH_PHARMACIST_INFLATING_12: -3085724256325995505
+      SPRITE_REME_WITH_PHARMACIST_INFLATING_13: 5864843136191330861
+      SPRITE_REME_WITH_PHARMACIST_INFLATING_14: 88278827392925110
+      SPRITE_REME_WITH_PHARMACIST_INFLATING_15: -1857053958005854009
+      SPRITE_REME_WITH_PHARMACIST_INFLATING_16: 4434784819647821771
+      SPRITE_REME_WITH_PHARMACIST_INFLATING_17: -1713173980298494231
+      SPRITE_REME_WITH_PHARMACIST_INFLATING_18: -8078876522952210873
+      SPRITE_REME_WITH_PHARMACIST_INFLATING_19: -3231296315801958333
+      SPRITE_REME_WITH_PHARMACIST_INFLATING_2: -1482144669738224680
+      SPRITE_REME_WITH_PHARMACIST_INFLATING_3: -3088384819312176845
+      SPRITE_REME_WITH_PHARMACIST_INFLATING_4: -1302164396152291942
+      SPRITE_REME_WITH_PHARMACIST_INFLATING_5: 472435217845654614
+      SPRITE_REME_WITH_PHARMACIST_INFLATING_6: -1705564434950953824
+      SPRITE_REME_WITH_PHARMACIST_INFLATING_7: -8158891576555148679
+      SPRITE_REME_WITH_PHARMACIST_INFLATING_8: 5631705168529821041
+      SPRITE_REME_WITH_PHARMACIST_INFLATING_9: -2092803899561033159
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -29,7 +29,6 @@ namespace Gob3AQ.VARMAP.Types
         NAME_CITY_CENTER, 
         NAME_CITY_PERIPH, 
         NAME_PHARMACY, 
-        NAME_QUEUE_PEOPLE, 
         NAME_PHARMACIST, 
         NAME_UMBRELLA, 
         NAME_ELMANYO, 

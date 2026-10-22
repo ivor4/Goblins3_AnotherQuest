@@ -21,71 +21,70 @@
 19,NAME_CITY_CENTER,City center,Centro de la ciudad
 20,NAME_CITY_PERIPH,City periphery,Barrio periferia
 21,NAME_PHARMACY,Pharmacy,Botica
-22,NAME_QUEUE_PEOPLE,Client queue,Cola de clientes
-23,NAME_PHARMACIST,Pharmacist,Boticario
-24,NAME_UMBRELLA,Umbrella,Paraguas
-25,NAME_ELMANYO,Restaurant El Maño,Restaurante El Maño
-26,NAME_OWNER,Owner,Propietario
-27,NAME_STUFFED_DEER,Stuffed deer,Ciervo disecado
-28,NAME_MEMENTO_RECIPE_MISSION,New recipe for El Maño,Nueva receta para El Maño
-29,NAME_CROWD,Crowd,Gentío
-30,NAME_POOR_MAN_WC,Poor man in WC,Pobre hombre en letrina
-31,NAME_MEMENTO_PARENT_POOR_MAN_WC,A poor man in WC,Un pobre hombre en la letrina
-32,NAME_ROACH,Cockroach,Cucaracha
-33,NAME_PIPE,Pipe,Tubería
-34,NAME_VALVE_BOX,Valve box,Caja de válvula
-35,NAME_SHOELACE,Shoelace,Cordón de bota
-36,NAME_VALVE,Valve,Válvula
-37,NAME_ARTURO,Arturo Minglanilla,Arturo Minglanilla
-38,NAME_INVITATION,Invitation,Invitación
-39,NAME_ANNOTATION,Annotation,Anotación
-40,NAME_INKWELL,Inkwell,Bote de tinta
-41,NAME_INK,Inkwell,Tinta
-42,NAME_FIK,Fik,Fik
-43,NAME_WATER_FLOWING,Water flowing,Agua cayendo
-44,NAME_GERMAN,Neighbor,Vecino
-45,NAME_WAITER,Waiter,Camarero
-46,NAME_UNKNOWN_GIRLS,Unknown women,Señoras desconocidas
-47,NAME_CLOWN,Clown,Payaso
-48,NAME_SILVANA,Silvana,Silvana
-49,NAME_CORNER,Corner,Esquina
-50,NAME_OLIVE_BOWL,Olives,Olivas
-51,NAME_BEER_FULL,Beer,Cerveza
-52,NAME_OLIVE,Olives,Oliva
-53,NAME_INNOCENT_PLANT,A plant whcih did nothing wrong,Una planta que no ha hecho nada malo
-54,NAME_FULL_BLADDER,Full bladder,Vegiga llena
-55,NAME_CLIENT,Client,Cliente
-56,NAME_RADIO,Radio,Radio
-57,NAME_DENIAL,Home,Hogar
-58,NAME_PORTRAIT,Portrait,Retrato
-59,NAME_CLOCK,Clock,Reloj
-60,NAME_SULTAN,Sultan,Sultan
-61,NAME_PILAR,Pilar,Pilar
-62,NAME_ALTER_EGO1,???,???
-63,NAME_FIG,Fig,Higo
-64,NAME_PINPOINT_MAP,Actual position,Posición actual
-65,NAME_UNDER_BED,Under bed,Bajo la cama
-66,NAME_HIVE_ROOM_KEY,Inn key,Llave de pensión
-67,NAME_COIN25,25 cents coin,Moneda de 25 céntimos
-68,NAME_DOOR_SERVICE,Service room,Habitación de servicio
-69,NAME_GUMBALL_MACHINE,Gumball machine,Máquina de pelotas
-70,NAME_MIX_JAR,Mixing jar,Jarra de mezclas
-71,NAME_TAR_CAN,Tar can,Lata de betún
-72,NAME_HIVE_KEY_BROKEN,Broken key,Llave rota
-73,NAME_SQUAT_WC,Squat WC,Placa turca
-74,NAME_GUMBALL,Gumball,Pelota de goma
-75,NAME_GIANT_ROACH,Giant roach,Cucaracha gigante
-76,NAME_MEMENTO_REME,A problem with Reme,Un problema con Reme
-77,NAME_MEMENTO_ROACHES,Roach infest,Infestación de cucarachas
-78,NAME_LAB_MAGAZINE,Women home magazine,Revista hogar mujeres
-79,NAME_LAB_WORKDESK,Experiment table,Mesa de experimentos
-80,NAME_FLOORWASHER,Floorwasher,Lava-suelos
-81,NAME_DETERGENT,Detergent,Detergente
-82,NAME_INSECTICIDE,Insecticide,Insecticida
-83,NAME_VARNISH,Varnish,Barniz
-84,NAME_RUSTY_SPRING,Rusty spring,Muelle oxidado
-85,NAME_RUST_POWDER,Rust powder,Virutas de óxido
-86,NAME_MEMENTO_HIVE_LAB,Insecticide experiment,Experimento insecticida
-87,NAME_IMPERFECT_MIX_JAR,Failed experiment,Experimento fallido
-88,NAME_PERFECT_MIX_JAR,Mass insecticide weapon,Arma de insecticidio masivo
-89,NAME_NPC_LAST,Last,Ultimo
+22,NAME_PHARMACIST,Pharmacist,Boticario
+23,NAME_UMBRELLA,Umbrella,Paraguas
+24,NAME_ELMANYO,Restaurant El Maño,Restaurante El Maño
+25,NAME_OWNER,Owner,Propietario
+26,NAME_STUFFED_DEER,Stuffed deer,Ciervo disecado
+27,NAME_MEMENTO_RECIPE_MISSION,New recipe for El Maño,Nueva receta para El Maño
+28,NAME_CROWD,Crowd,Gentío
+29,NAME_POOR_MAN_WC,Poor man in WC,Pobre hombre en letrina
+30,NAME_MEMENTO_PARENT_POOR_MAN_WC,A poor man in WC,Un pobre hombre en la letrina
+31,NAME_ROACH,Cockroach,Cucaracha
+32,NAME_PIPE,Pipe,Tubería
+33,NAME_VALVE_BOX,Valve box,Caja de válvula
+34,NAME_SHOELACE,Shoelace,Cordón de bota
+35,NAME_VALVE,Valve,Válvula
+36,NAME_ARTURO,Arturo Minglanilla,Arturo Minglanilla
+37,NAME_INVITATION,Invitation,Invitación
+38,NAME_ANNOTATION,Annotation,Anotación
+39,NAME_INKWELL,Inkwell,Bote de tinta
+40,NAME_INK,Inkwell,Tinta
+41,NAME_FIK,Fik,Fik
+42,NAME_WATER_FLOWING,Water flowing,Agua cayendo
+43,NAME_GERMAN,Neighbor,Vecino
+44,NAME_WAITER,Waiter,Camarero
+45,NAME_UNKNOWN_GIRLS,Unknown women,Señoras desconocidas
+46,NAME_CLOWN,Clown,Payaso
+47,NAME_SILVANA,Silvana,Silvana
+48,NAME_CORNER,Corner,Esquina
+49,NAME_OLIVE_BOWL,Olives,Olivas
+50,NAME_BEER_FULL,Beer,Cerveza
+51,NAME_OLIVE,Olives,Oliva
+52,NAME_INNOCENT_PLANT,A plant whcih did nothing wrong,Una planta que no ha hecho nada malo
+53,NAME_FULL_BLADDER,Full bladder,Vegiga llena
+54,NAME_CLIENT,Client,Cliente
+55,NAME_RADIO,Radio,Radio
+56,NAME_DENIAL,Home,Hogar
+57,NAME_PORTRAIT,Portrait,Retrato
+58,NAME_CLOCK,Clock,Reloj
+59,NAME_SULTAN,Sultan,Sultan
+60,NAME_PILAR,Pilar,Pilar
+61,NAME_ALTER_EGO1,???,???
+62,NAME_FIG,Fig,Higo
+63,NAME_PINPOINT_MAP,Actual position,Posición actual
+64,NAME_UNDER_BED,Under bed,Bajo la cama
+65,NAME_HIVE_ROOM_KEY,Inn key,Llave de pensión
+66,NAME_COIN25,25 cents coin,Moneda de 25 céntimos
+67,NAME_DOOR_SERVICE,Service room,Habitación de servicio
+68,NAME_GUMBALL_MACHINE,Gumball machine,Máquina de pelotas
+69,NAME_MIX_JAR,Mixing jar,Jarra de mezclas
+70,NAME_TAR_CAN,Tar can,Lata de betún
+71,NAME_HIVE_KEY_BROKEN,Broken key,Llave rota
+72,NAME_SQUAT_WC,Squat WC,Placa turca
+73,NAME_GUMBALL,Gumball,Pelota de goma
+74,NAME_GIANT_ROACH,Giant roach,Cucaracha gigante
+75,NAME_MEMENTO_REME,A problem with Reme,Un problema con Reme
+76,NAME_MEMENTO_ROACHES,Roach infest,Infestación de cucarachas
+77,NAME_LAB_MAGAZINE,Women home magazine,Revista hogar mujeres
+78,NAME_LAB_WORKDESK,Experiment table,Mesa de experimentos
+79,NAME_FLOORWASHER,Floorwasher,Lava-suelos
+80,NAME_DETERGENT,Detergent,Detergente
+81,NAME_INSECTICIDE,Insecticide,Insecticida
+82,NAME_VARNISH,Varnish,Barniz
+83,NAME_RUSTY_SPRING,Rusty spring,Muelle oxidado
+84,NAME_RUST_POWDER,Rust powder,Virutas de óxido
+85,NAME_MEMENTO_HIVE_LAB,Insecticide experiment,Experimento insecticida
+86,NAME_IMPERFECT_MIX_JAR,Failed experiment,Experimento fallido
+87,NAME_PERFECT_MIX_JAR,Mass insecticide weapon,Arma de insecticidio masivo
+88,NAME_NPC_LAST,Last,Ultimo

@@ -40,11 +40,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3aae4c406cb068944ba1f8ed0685f634
-    m_Address: SPRITE_MANYO_OWNER
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3af315d699a319649ac32777d13cccdb
     m_Address: SPRITE_MANYO_BOSS_BREATH_ANIM
     m_ReadOnly: 0

@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Pharmacy1
   m_GUID: a2f9a537e818dd24997ef459fc191183
   m_SerializeEntries:
+  - m_GUID: 14b3c04febff73a43823a7b799f5343b
+    m_Address: SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1d60cbf1d8def5f4ba47d73b944a7d36
     m_Address: BACKGROUND_PHARMACY1
     m_ReadOnly: 0
@@ -35,8 +40,33 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5beb16656ed63a841abbab405af7efc4
+    m_Address: ANIMATION_REME_WITH_PHARMACIST_INFLATING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d7f32d0d8156574b9b53d2f0c974608
+    m_Address: SPRITE_REME_WITH_PHARMACIST_INFLATING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5e3d219e66bd25e4da577924c9eef9ba
     m_Address: SPRITE_PHARMACY_INKWELL_NORMAL
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 670a0fb425ff7314db7c3407b0b42804
+    m_Address: SPRITE_REME_WITH_PARHMACIST_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6957f1cd20bef3e43bf7df8e07a60553
+    m_Address: SPRITE_CHAIR_ARM_MASK
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 80852efae97901744a5bf656b4fbd7f1
+    m_Address: ANIMATOR_REME_WITH_PHARMACIST
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -50,6 +80,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9868bd7086e5405418c388cc4fcea94e
+    m_Address: ANIMATION_REME_WITH_PHARMACIST_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aba4ff5aa30dda246a6ac7f301874162
     m_Address: SPRITE_ATLAS_PHARMACY1_1
     m_ReadOnly: 0
@@ -57,6 +92,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b10b66ceb7b86c94b83fdcfb2a6b1c06
     m_Address: ANIMATOR_PHARMACY_OWNER
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc2ba0e302d79c740945e83dbde31b2d
+    m_Address: SPRITE_REME_ARM_MASK_STEADY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

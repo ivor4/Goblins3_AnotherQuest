@@ -1,0 +1,379 @@
+fileFormatVersion: 2
+guid: 14b3c04febff73a43823a7b799f5343b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5349699595784167058
+    second: SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_0
+  - first:
+      213: 7948092120567035995
+    second: SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_1
+  - first:
+      213: 7822564516622229263
+    second: SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_2
+  - first:
+      213: 9156370551359097478
+    second: SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_3
+  - first:
+      213: 3577974485127047039
+    second: SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_4
+  - first:
+      213: 1471529402729574679
+    second: SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_5
+  - first:
+      213: -5252218226554963172
+    second: SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_6
+  - first:
+      213: -4455509842439810239
+    second: SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_7
+  - first:
+      213: 7145411420802431848
+    second: SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_8
+  - first:
+      213: -1564685093863191680
+    second: SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 810
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e61eb32cf8c02c5b0800000000000000
+      internalID: -5349699595784167058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 810
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b58ba704cab4d4e60800000000000000
+      internalID: 7948092120567035995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 810
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0fd7dd6bf45f8c60800000000000000
+      internalID: 7822564516622229263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 540
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68a4b910186f11f70800000000000000
+      internalID: 9156370551359097478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_4
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 540
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f77a86956d487a130800000000000000
+      internalID: 3577974485127047039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 540
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7113d3ef13ceb6410800000000000000
+      internalID: 1471529402729574679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 270
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1bfb53b95f5c17b0800000000000000
+      internalID: -5252218226554963172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_7
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 270
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1435e149769da22c0800000000000000
+      internalID: -4455509842439810239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_8
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 270
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86bb2f644d9992360800000000000000
+      internalID: 7145411420802431848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 270
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11851852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08b8fea723f194ae0800000000000000
+      internalID: -1564685093863191680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f20e18fe882075746aa8d27e1482faf4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":4.0},"gridSpriteSize":{"x":320.0,"y":270.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.11851851642131806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_0: -5349699595784167058
+      SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_1: 7948092120567035995
+      SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_2: 7822564516622229263
+      SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_3: 9156370551359097478
+      SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_4: 3577974485127047039
+      SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_5: 1471529402729574679
+      SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_6: -5252218226554963172
+      SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_7: -4455509842439810239
+      SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_8: 7145411420802431848
+      SPRITE_REME_WITH_PHARMACIST_STEADY_ANIM_9: -1564685093863191680
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

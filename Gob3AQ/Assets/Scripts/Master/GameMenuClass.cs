@@ -481,7 +481,7 @@ namespace Gob3AQ.GameMenu
                     ref readonly MementoStatus parentStatusInfo = ref parentStatus[i];
                     ref readonly MementoParentInfo parentInfo = ref ItemsInteractionsClass.GetMementoParentInfo((MementoParent)i);
 
-                    if ((parentInfo.associatedItem != GameItem.ITEM_NONE) && (parentInfo.associatedChar == selectedChar) && parentStatusInfo.unlocked)
+                    if ((parentInfo.associatedItem != GameItem.ITEM_NONE) && (parentInfo.associatedChar == selectedChar) && parentStatusInfo.unlocked && !parentStatusInfo.completed)
                     {
                         ref readonly ItemInfo itemInfo = ref ItemsInteractionsClass.GetItemInfo(parentInfo.associatedItem);
 
@@ -494,8 +494,6 @@ namespace Gob3AQ.GameMenu
             }
 
             int startIndex = inventory_pageIndex * GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS;
-
-            /* for (int i = startIndex; (i < endIndex) && (i < inventory_availableItems.Count); ++i) */
 
             for (int i = 0; i < GameFixedConfig.MAX_DISPLAYED_PICKED_ITEMS; ++i)
             {

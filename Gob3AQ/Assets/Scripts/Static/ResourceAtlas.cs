@@ -301,7 +301,7 @@ namespace Gob3AQ.ResourceAtlas
             new GameSprite[1]{GameSprite.BACKGROUND_PHARMACY1},
             new GameSound[1]{GameSound.MUSIC_PHARMACY},
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_PHARMACY1}), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(6){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_PHARMACY_NPC_QUEUE, GameItem.ITEM_PHARMACY_NPC_OWNER, GameItem.ITEM_PHARMACY_INKWELL, GameItem.ITEM_PHARMACY_INK, GameItem.ITEM_PLAYER_MAIN}), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(6){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_PHARMACY_NPC_OWNER, GameItem.ITEM_PHARMACY_REME_ILL_AND_PHARM, GameItem.ITEM_PHARMACY_INKWELL, GameItem.ITEM_PHARMACY_INK, GameItem.ITEM_PLAYER_MAIN}), 
             new ReadOnlyHashSet<DetailType>(new HashSet<DetailType>(1){DetailType.PREFAB_NONE}), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_PHARMACY}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 

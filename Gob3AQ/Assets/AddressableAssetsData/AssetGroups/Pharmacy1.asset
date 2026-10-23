@@ -15,8 +15,23 @@ MonoBehaviour:
   m_GroupName: Pharmacy1
   m_GUID: a2f9a537e818dd24997ef459fc191183
   m_SerializeEntries:
+  - m_GUID: 0059b85541c213e4a9901bdad8fc29e5
+    m_Address: SOUND_DIALOG_REME_AND_PHARMACIST_INTRO_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 072b9e179a09ef94eab669822d6ae976
+    m_Address: SPRITE_REME_WITH_PHARMACIST_MAN_TALKING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0dded33d58d6c704ea050b85ba91fbcb
     m_Address: SPRITE_REME_WITH_PHARMACIST_YELLING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 116682febaa74a749adc3158aa59f79d
+    m_Address: ANIMATION_REME_WITH_PHARMACIST_STEADY_LISTENING
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -25,8 +40,28 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 18e8b727d1db1714d868544d7e7ea1e7
+    m_Address: SOUND_DIALOG_REME_AND_PHARMACIST_OPTION_RECIPE_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 19b5380851c175b43b4d9a3254638035
+    m_Address: ANIMATION_REME_WITH_PHARMACIST_MAN_TALKING_EXEC2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1be1dfaf19f9ec347a0205e19874bd7a
+    m_Address: ANIMATION_REME_WITH_PHARMACIST_STEADY_TO_LISTEN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1d60cbf1d8def5f4ba47d73b944a7d36
     m_Address: BACKGROUND_PHARMACY1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1e8498bb6eca5ad4cb8095f4dae06ea8
+    m_Address: SPRITE_REME_WITH_PHARMACIST_LISTENING_ANIM
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -42,6 +77,26 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3470e72b33799074eae09eb7fb1bb96d
     m_Address: SPRITE_PHARMACY_INKWELL_WASTED
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ff69e1a90f404e488da2e2669f84cbd
+    m_Address: SOUND_DIALOG_REME_AND_PHARMACIST_OPTION_RECIPE_3_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 478e70ae32cc213458bf568ebff1917c
+    m_Address: SOUND_OBSERVE_REME_AND_PHARMACIST_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59674b807e3c1bb42a80276e3a0c89c1
+    m_Address: ANIMATION_REME_WITH_PHARMACIST_MAN_TALKING_ENTRY_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59981f72f92974d4b8fc9c8c8435f730
+    m_Address: SOUND_DIALOG_REME_AND_PHARMACIST_OPTION_RECIPE_4_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -67,6 +122,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6957f1cd20bef3e43bf7df8e07a60553
     m_Address: SPRITE_CHAIR_ARM_MASK
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 76e64cc1797ec034ab1d0c0dc3f5ac17
+    m_Address: ANIMATION_REME_WITH_PHARMACIST_LISTENING_ENTRY_EXIT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -115,6 +175,21 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b11366257534ac64798bbac92860ca21
+    m_Address: ANIMATION_REME_WITH_PHARMACIST_LISTEN_TO_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba23c4d2d7379bd4db90e183f05e28f3
+    m_Address: ANIMATION_REME_WITH_PHARMACIST_MAN_TALKING_EXEC1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bacc7f12f02dc2f48a10bc29b7ffa24b
+    m_Address: SOUND_DIALOG_REME_AND_PHARMACIST_OPTION_RECIPE_5_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c362ee059949afa43a2f73b418f8fdce
     m_Address: SOUND_BULB_SQUEEZE
     m_ReadOnly: 0
@@ -122,6 +197,21 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cc2ba0e302d79c740945e83dbde31b2d
     m_Address: SPRITE_REME_ARM_MASK_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ea9bb699cc7ac5645846b497e498f850
+    m_Address: SOUND_DIALOG_REME_AND_PHARMACIST_OPTION_RECIPE_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb6a9d81382a3f2468f8784cd4cce54b
+    m_Address: SPRITE_REME_WITH_PHARMACIST_STEADY_TO_LISTEN_ANIM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff26ea9509b942640a1f1ee180e82341
+    m_Address: ANIMATION_REME_WITH_PHARMACIST_LISTENING_EXEC1_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

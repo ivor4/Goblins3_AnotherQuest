@@ -490,6 +490,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc59213201349644aafc557ca05d0aaa
+    m_Address: ANIMATION_MAINCHAR_STEADY_BACKWARDS
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bdc64c7d9f4442542965d92513085569
     m_Address: ANIMATION_MAINCHAR_TALKING2_ENDING
     m_ReadOnly: 0

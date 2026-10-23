@@ -126,9 +126,19 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new DialogOption[1]{DialogOption.DIALOG_OPTION_REME_CARDS}
             ),
 
+            new( /* DIALOG_PHARMACIST_WITH_REME_INTRO */
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_PHARMACY_REME_ILL_AND_PHARM},
+            new DialogOption[1]{DialogOption.DIALOG_OPTION_PHARMACIST_WITH_REME_INTRO}
+            ),
+
             new( /* DIALOG_PHARMACIST_WITH_REME */
             new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_PHARMACY_REME_ILL_AND_PHARM},
-            new DialogOption[1]{DialogOption.DIALOG_PHARMACIST_WITH_REME_INTRO_OPTION}
+            new DialogOption[2]{DialogOption.DIALOG_OPTION_PHARMACIST_WITH_REME_RECIPE, DialogOption.DIALOG_OPTION_PHARMACIST_WITH_REME_BYE}
+            ),
+
+            new( /* DIALOG_PHARMACIST_WITH_REME_ASSASIN */
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_PHARMACY_REME_ILL_AND_PHARM},
+            new DialogOption[1]{DialogOption.DIALOG_OPTION_PHARMACIST_WITH_REME_ASSASIN}
             ),
 
             new( /* DIALOG_TRY_TALK_PHARMACIST_1 */
@@ -459,19 +469,40 @@ namespace Gob3AQ.ResourceDialogsAtlas
             DialogType.DIALOG_NONE,false,
             new DialogPhrase[2]{DialogPhrase.PHRASE_USE_CARDS_REME_1, DialogPhrase.PHRASE_USE_CARDS_REME_2}
             ),
-            new( /* DIALOG_PHARMACIST_WITH_REME_INTRO_OPTION */
-            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
-            MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE},
-            DialogType.DIALOG_NONE,false,
-            new DialogPhrase[1]{DialogPhrase.PHRASE_REME_YELLING_ASSASIN}
-            ),
             new( /* DIALOG_OPTION_TRY_TALK_PHARMACIST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
             new GameAction[1]{GameAction.ACTION_NONE},
             DialogType.DIALOG_TRY_TALK_PHARMACIST_2,false,
             new DialogPhrase[1]{DialogPhrase.PHRASE_TRY_TALK_PHARMACIST_BUSY}
+            ),
+            new( /* DIALOG_OPTION_PHARMACIST_WITH_REME_ASSASIN */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_NONE},
+            DialogType.DIALOG_NONE,false,
+            new DialogPhrase[1]{DialogPhrase.PHRASE_REME_YELLING_ASSASIN}
+            ),
+            new( /* DIALOG_OPTION_PHARMACIST_WITH_REME_INTRO */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_NONE},
+            DialogType.DIALOG_PHARMACIST_WITH_REME,false,
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_REME_AND_PHARMACIST_INTRO_1}
+            ),
+            new( /* DIALOG_OPTION_PHARMACIST_WITH_REME_RECIPE */
+            new GameEventCombi[1]{new(GameEvent.EVENT_MANYO_LOOK_FOR_RECIPE_MISSION, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_NONE},
+            DialogType.DIALOG_PHARMACIST_WITH_REME,false,
+            new DialogPhrase[5]{DialogPhrase.PHRASE_DIALOG_REME_AND_PHARMACIST_OPTION_RECIPE_1, DialogPhrase.PHRASE_DIALOG_REME_AND_PHARMACIST_OPTION_RECIPE_2, DialogPhrase.PHRASE_DIALOG_REME_AND_PHARMACIST_OPTION_RECIPE_3, DialogPhrase.PHRASE_DIALOG_REME_AND_PHARMACIST_OPTION_RECIPE_4, DialogPhrase.PHRASE_DIALOG_REME_AND_PHARMACIST_OPTION_RECIPE_5}
+            ),
+            new( /* DIALOG_OPTION_PHARMACIST_WITH_REME_BYE */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[3]{GameAction.ACTION_ANIMATE_MAINCHAR_SET_STEADY_NORMAL, GameAction.ACTION_ANIMATE_SET_STEADY_PHARMACIST_AND_REME_STEADY, GameAction.ACTION_ANIMATE_PHARMACIST_AND_REME_LISTEN_TO_STEADY},
+            DialogType.DIALOG_NONE,false,
+            new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_REME_AND_PHARMACIST_OPTION_BYE}
             ),
             new( /* DIALOG_OPTION_PHARMACIST_BUSY */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
@@ -1127,6 +1158,14 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(1,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_MANYO_UMBRELLA_NOT_1 */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_UMBRELLA_TAKEN */ 
             new(1,GameSound.SOUND_REME_YELLING_ASSASIN, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_FOUR,AnimationTrigger.ANIMATION_TRIGGER_THREE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_REME_YELLING_ASSASIN */ 
+            new(0,GameSound.SOUND_OBSERVE_REME_AND_PHARMACIST, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_REME_AND_PHARMACIST */ 
+            new(1,GameSound.SOUND_DIALOG_REME_AND_PHARMACIST_INTRO_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_FOUR,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_REME_AND_PHARMACIST_INTRO_1 */ 
+            new(0,GameSound.SOUND_DIALOG_REME_AND_PHARMACIST_OPTION_RECIPE_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_THREE,AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_REME_AND_PHARMACIST_OPTION_RECIPE_1 */ 
+            new(1,GameSound.SOUND_DIALOG_REME_AND_PHARMACIST_OPTION_RECIPE_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_FOUR,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_REME_AND_PHARMACIST_OPTION_RECIPE_2 */ 
+            new(0,GameSound.SOUND_DIALOG_REME_AND_PHARMACIST_OPTION_RECIPE_3, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_THREE,AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_REME_AND_PHARMACIST_OPTION_RECIPE_3 */ 
+            new(1,GameSound.SOUND_DIALOG_REME_AND_PHARMACIST_OPTION_RECIPE_4, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_FOUR,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_REME_AND_PHARMACIST_OPTION_RECIPE_4 */ 
+            new(0,GameSound.SOUND_DIALOG_REME_AND_PHARMACIST_OPTION_RECIPE_5, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_THREE,AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_REME_AND_PHARMACIST_OPTION_RECIPE_5 */ 
+            new(0,GameSound.SOUND_DIALOG_MANYO_BYE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_THREE,AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_REME_AND_PHARMACIST_OPTION_BYE */ 
             new(0,GameSound.SOUND_PHRASE_DIALOG_MANYO_BCKG_CROWD_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_MANYO_BCKG_CROWD_1 */ 
             new(0,GameSound.SOUND_PHRASE_DIALOG_MANYO_BCKG_CROWD_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_MANYO_BCKG_CROWD_2 */ 
             new(0,GameSound.SOUND_PHRASE_DIALOG_MANYO_BCKG_CROWD_3, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_MANYO_BCKG_CROWD_3 */ 

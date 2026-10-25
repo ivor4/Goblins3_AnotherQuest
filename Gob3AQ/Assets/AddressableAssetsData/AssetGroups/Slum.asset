@@ -25,13 +25,38 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 43199dcfd60a1d04c81fd41cee7a0a2d
+    m_Address: SPRITE_SLUM_CLOTHES_ANIM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7adacd891e763ac43abc930a52fbd463
+    m_Address: ANIMATION_SLUM_FACTORY_CLOTHES
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9223257a8f5af4c4c98a8bfd8aec50ec
+    m_Address: ANIMATOR_SLUM_FACHADE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 94c857c0830123045b3d2075a3c1f402
     m_Address: SPRITE_ATLAS_SLUM_FACTORY_1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 98b3be25bf0b34b48b5feee760e6be94
+    m_Address: ANIMATION_SLUM_FACTORY_PUDDLE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b65d9f96e9a429e4daa7ee35ede9caa7
     m_Address: SPRITE_ATLAS_SLUM_FACTORY_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de4a63ef1dae32f4a84e1ba3989d885c
+    m_Address: SPRITE_PUDDLE_ANIM
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

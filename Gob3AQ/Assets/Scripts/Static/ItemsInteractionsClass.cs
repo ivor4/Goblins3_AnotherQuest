@@ -1880,6 +1880,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_NONE,false,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new ActionConditions[1]{ActionConditions.COND_OK}),
 
+            new ( /* ITEM_MAP_POINT_SLUM_FACTORY */
+            NameType.NAME_SLUM_FACTORY,GameItemFamily.ITEM_FAMILY_TYPE_MAP_POINT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
+            GameSprite.SPRITE_BLANK,false,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            new ActionConditions[1]{ActionConditions.COND_OK}),
+
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST}),
             GameSprite.SPRITE_LAST,false,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,

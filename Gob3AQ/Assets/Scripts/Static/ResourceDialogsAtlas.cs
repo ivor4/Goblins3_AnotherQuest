@@ -493,7 +493,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new( /* DIALOG_OPTION_PHARMACIST_WITH_REME_RECIPE */
             new GameEventCombi[1]{new(GameEvent.EVENT_MANYO_LOOK_FOR_RECIPE_MISSION, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE},
+            new GameAction[2]{GameAction.ACTION_EVENT_PHARMACIST_GAVE_RECIPE_CLUE, GameAction.ACTION_MEMENTO_RECIPE_MISSION_2},
             DialogType.DIALOG_PHARMACIST_WITH_REME,false,
             new DialogPhrase[5]{DialogPhrase.PHRASE_DIALOG_REME_AND_PHARMACIST_OPTION_RECIPE_1, DialogPhrase.PHRASE_DIALOG_REME_AND_PHARMACIST_OPTION_RECIPE_2, DialogPhrase.PHRASE_DIALOG_REME_AND_PHARMACIST_OPTION_RECIPE_3, DialogPhrase.PHRASE_DIALOG_REME_AND_PHARMACIST_OPTION_RECIPE_4, DialogPhrase.PHRASE_DIALOG_REME_AND_PHARMACIST_OPTION_RECIPE_5}
             ),
@@ -1549,6 +1549,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,GameSound.SOUND_DIALOG_OBSERVE_ITEM_SQUAT_WC_AFTER_INCIDENT, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_OBSERVE_ITEM_SQUAT_WC_AFTER_INCIDENT */ 
             new(0,GameSound.SOUND_MAINCHAR_NOT_NEED_SLEEP, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MAINCHAR_NOT_NEED_SLEEP */ 
             new(0,GameSound.SOUND_OBSERVE_MANYO_OWNER, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_MANYO_OWNER */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MEMENTO_RECIPE_MISSION_2 */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

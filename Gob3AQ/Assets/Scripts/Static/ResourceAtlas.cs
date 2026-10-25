@@ -281,7 +281,7 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<DetailType>(new HashSet<DetailType>(1){DetailType.PREFAB_NONE}), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(2){GameSound.MUSIC_CITY_1, GameSound.SOUND_AMBIENCE_CITY_NIGHT}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
-            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_STREET1_FACHADE_ONLY_DAY}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(2){UnchainConditions.UNCHAIN_STREET1_FACHADE_ONLY_DAY, UnchainConditions.UNCHAIN_STREET1_FACHADE_ONLY_NIGHT}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
             ),
 
@@ -293,7 +293,7 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<DetailType>(new HashSet<DetailType>(1){DetailType.PREFAB_NONE}), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(2){GameSound.MUSIC_CITY_1, GameSound.SOUND_AMBIENCE_CITY_NIGHT}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
-            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_STREET1_FACHADE_ONLY_DAY}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(2){UnchainConditions.UNCHAIN_STREET1_FACHADE_ONLY_DAY, UnchainConditions.UNCHAIN_STREET1_FACHADE_ONLY_NIGHT}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
             ),
 
@@ -305,7 +305,7 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<DetailType>(new HashSet<DetailType>(1){DetailType.PREFAB_NONE}), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_PHARMACY}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
-            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_PLAY_SOUND_PHARMACY_VISIT_ENTER}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
             ),
 
@@ -558,6 +558,18 @@ namespace Gob3AQ.ResourceAtlas
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(2){GameSound.MUSIC_ROOM_PUZZLE, GameSound.SOUND_LIQUID_POUR_JUG}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_RECOVER_JUG_LIQUID_VALUE}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
+            ),
+
+            new( /* SLUM_FACTORY */
+            new GameSprite[2]{GameSprite.BACKGROUND_SLUM_FACTORY_DAY, GameSprite.BACKGROUND_SLUM_FACTORY_NIGHT},
+            new GameSound[1]{GameSound.MUSIC_SLUM_AND_FACTORY},
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_SLUM_FACTORY_DAY, GameSprite.BACKGROUND_SLUM_FACTORY_NIGHT}), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(2){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_PLAYER_MAIN}), 
+            new ReadOnlyHashSet<DetailType>(new HashSet<DetailType>(1){DetailType.PREFAB_NONE}), 
+            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.SOUND_NONE}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
             ),
 

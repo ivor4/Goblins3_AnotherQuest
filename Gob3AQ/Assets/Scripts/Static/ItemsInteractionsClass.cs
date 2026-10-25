@@ -513,6 +513,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_MORNING, 
             new GameAction[9]{GameAction.ACTION_SET_GAME_ANIMATION_MODE, GameAction.ACTION_MOVE_MAINCHAR_OBSERVE_SWARM, GameAction.ACTION_ANIMATE_REME_HEAR, GameAction.ACTION_WAIT_2S, GameAction.ACTION_ANIMATION_ROACH_MOB, GameAction.ACTION_DESPAWN_REME_1, GameAction.ACTION_DIALOGUE_MAINCHAR_AFTERMATH_ROACH_SWARM, GameAction.ACTION_ZOOM_ALL_END_GARDEN_SCENE, GameAction.ACTION_EVENT_REME_MOVED}), 
 
+            new( /* UNCHAIN_STREET1_FACHADE_ONLY_NIGHT */
+            true,false,false,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_NIGHT, 
+            new GameAction[2]{GameAction.ACTION_HIDE_STREET1_FACHADE, GameAction.ACTION_HIDE_STREET1_BLIND}), 
+
             new( /* UNCHAIN_STREET1_FACHADE_ONLY_DAY */
             true,false,false,new(GameEvent.EVENT_NONE, false), 
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
@@ -524,6 +530,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             MomentType.MOMENT_MORNING, 
             new GameAction[1]{GameAction.ACTION_SHOW_STREET1_FACHADE}), 
+
+            new( /* UNCHAIN_PLAY_SOUND_PHARMACY_VISIT_ENTER */
+            true,false,false,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY, 
+            new GameAction[1]{GameAction.ACTION_PLAY_SOUND_PHARMACY_VISIT_ENTER}), 
 
             new( /* UNCHAIN_LAST */
             false,false,false,new(GameEvent.EVENT_NONE, false), 
@@ -1956,7 +1968,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             /* MEMENTO_PARENT_RECIPE_MISSION */
             new(
             NameType.NAME_MEMENTO_RECIPE_MISSION,GameSprite.SPRITE_MEMENTO_RECIPE,GameItem.ITEM_NONE,CharacterType.CHARACTER_MAIN,
-            new Memento[1]{Memento.MEMENTO_RECIPE_MISSION_1}
+            new Memento[2]{Memento.MEMENTO_RECIPE_MISSION_1, Memento.MEMENTO_RECIPE_MISSION_2}
             ),
 
             /* MEMENTO_PARENT_ROACHES */
@@ -2011,6 +2023,8 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new(MementoParent.MEMENTO_PARENT_HIVE_LAB,DialogPhrase.PHRASE_MEMENTO_HIVE_LAB_3,true),
             /* MEMENTO_RECIPE_MISSION_1 */
             new(MementoParent.MEMENTO_PARENT_RECIPE_MISSION,DialogPhrase.PHRASE_MEMENTO_RECIPE_MISSION_1,false),
+            /* MEMENTO_RECIPE_MISSION_2 */
+            new(MementoParent.MEMENTO_PARENT_RECIPE_MISSION,DialogPhrase.PHRASE_MEMENTO_RECIPE_MISSION_2,false),
             /* MEMENTO_POOR_MAN_WC_1 */
             new(MementoParent.MEMENTO_PARENT_POOR_MAN_WC,DialogPhrase.PHRASE_MEMENTO_POOR_MAN_WC_1,false),
             /* MEMENTO_POOR_MAN_WC_2 */
@@ -4835,6 +4849,18 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
 
+            new( /* ACTION_HIDE_STREET1_FACHADE */
+            false,ActionType.ACTION_TYPE_DESPAWN,GameItem.ITEM_DECO_STREET1_FACHADE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_HIDE_STREET1_BLIND */
+            false,ActionType.ACTION_TYPE_DESPAWN,GameItem.ITEM_DECO_STREET1_BLIND,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
             new( /* ACTION_DIALOGUE_OBSERVE_MANYO_OWNER */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
@@ -4906,6 +4932,24 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"storeOnly",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_PLAY_SOUND_PHARMACY_VISIT_ENTER */
+            false,ActionType.ACTION_TYPE_PLAY_SOUND,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_PHARMACY_VISIT_ENTER,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_EVENT_PHARMACIST_GAVE_RECIPE_CLUE */
+            false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_PHARMACIST_GAVE_RECIPE_CLUE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_MEMENTO_RECIPE_MISSION_2 */
+            false,ActionType.ACTION_TYPE_MEMENTO,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_RECIPE_MISSION_2,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

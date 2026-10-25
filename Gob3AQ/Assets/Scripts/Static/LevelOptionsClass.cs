@@ -78,6 +78,7 @@ namespace Gob3AQ.Brain.LevelOptions
             "SCENE_UNDER_BED",
             "SCENE_SERVICE_ROOM",
             "SCENE_HIVE1_LAB",
+            "SCENE_SLUM_FACTORY",
             ""
         };
 

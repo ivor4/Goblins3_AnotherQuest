@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Slum
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Slum
+  m_GUID: b078e17e8c639a444b8c6d021644c170
+  m_SerializeEntries:
+  - m_GUID: 35506650d7651044688206d24062b176
+    m_Address: BACKGROUND_SLUM_FACTORY_DAY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 394436da019a7f14d82e662955097047
+    m_Address: BACKGROUND_SLUM_FACTORY_NIGHT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94c857c0830123045b3d2075a3c1f402
+    m_Address: SPRITE_ATLAS_SLUM_FACTORY_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b65d9f96e9a429e4daa7ee35ede9caa7
+    m_Address: SPRITE_ATLAS_SLUM_FACTORY_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e11489e55a74ffe4fa23f7d24e901ec2
+    m_Address: MUSIC_SLUM_AND_FACTORY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7637dd5431ca6a46be6ee843adb988b
+    m_Address: SCENE_SLUM_FACTORY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c63f0f3646ca67f4abe7e9d9a952af85, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: bbe0621359b4bd84fa80584e16de160d, type: 2}
+    - {fileID: 11400000, guid: 65d0cc34c73ae244ebce023b7d07eb69, type: 2}

@@ -200,6 +200,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ea7b9068d5614fe4684afaaadf8c9e56
+    m_Address: SOUND_PHARMACY_VISIT_ENTER
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ea9bb699cc7ac5645846b497e498f850
     m_Address: SOUND_DIALOG_REME_AND_PHARMACIST_OPTION_RECIPE_2_SPANISH
     m_ReadOnly: 0

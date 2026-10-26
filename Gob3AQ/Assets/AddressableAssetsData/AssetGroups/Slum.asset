@@ -15,13 +15,43 @@ MonoBehaviour:
   m_GroupName: Slum
   m_GUID: b078e17e8c639a444b8c6d021644c170
   m_SerializeEntries:
+  - m_GUID: 0a9a0906573e7b24e838a5392d8b6f66
+    m_Address: SPRITE_MATRIARCH_STEADY_2_ANIM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1195054e88ee28e4894f95da4eb6e8b8
+    m_Address: SOUND_MATRIARCH_INTRO_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1671cc7fcd11a4e4abb25c82df41f8a0
     m_Address: SPRITE_ATLAS_SLUM_NEIGH_1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2517905c4c84e1f43abe016290438c00
+    m_Address: ANIMATION_MATRIARCH_TALKING_ENTRY_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 25f881eb5aa53364b8d2256c622cad65
     m_Address: ANIMATOR_MATRIARCH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 29a377b9ac4a7184ea559af5550748bf
+    m_Address: SPRITE_MATRIARCH_LISTEN_ANIM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2bc4dce8e7d2bf04eb3037ac2cd52310
+    m_Address: ANIMATION_MATRIARCH_SEWING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34ef16c72cec3ba4b8b60106138592a9
+    m_Address: SOUND_MATRIARCH_BYE_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -40,8 +70,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4cff7d3321ce1494687c84baca6af51a
+    m_Address: SPRITE_ATLAS_MATRIARCH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 595d7dc9959298e4bbe1cf27e7c9c5de
+    m_Address: ANIMATION_MATRIARCH_TALKING_EXEC1_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 64dd1d6e6ebb2a648bb0fa50333f5d00
     m_Address: ANIMATION_SLUM_NEIGH_CLOTHES_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 67710876437cf7e4b8cb529a7be3a4d2
+    m_Address: ANIMATION_MATRIARCH_LISTEN_EXEC1_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -75,6 +120,26 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0fd343a0a68a4f4fac918bca771bb6a
+    m_Address: SPRITE_MATRIARCH_TALKING_ANIM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3f5e79f32a116d4296e1582a7756440
+    m_Address: SOUND_MATRIARCH_RECIPE_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae6d8cf1fe909134a99dd1ae0728ccb4
+    m_Address: SPRITE_MATRIARCH_STEADY_TO_LISTEN_ANIM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b25080c647fd35840aff059f1fd884eb
+    m_Address: ANIMATION_MATRIARCH_LISTEN_ENTRY_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b65d9f96e9a429e4daa7ee35ede9caa7
     m_Address: SPRITE_ATLAS_SLUM_FACTORY_2
     m_ReadOnly: 0
@@ -90,8 +155,28 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9fddaf7b2e5a7341b4324e008997252
+    m_Address: SOUND_MATRIARCH_RECIPE_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d153a90d59a0f7e42946954539ebe8dd
     m_Address: BACKGROUND_SLUM_NEIGH_DAY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d53c48f64ff2b104b859aabdf3eff17d
+    m_Address: ANIMATION_MATRIARCH_STEADY_LISTEN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d84730ba6690b6c47a58297eadfb06d7
+    m_Address: ANIMATION_MATRIARCH_LISTEN_TO_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dbf63e84917dfea4cadfe1c9943425b8
+    m_Address: ANIMATION_MATRIARCH_STEADY_TO_LISTEN
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

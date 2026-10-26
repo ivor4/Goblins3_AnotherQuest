@@ -621,6 +621,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,"",
             new GameAction[5]{GameAction.ACTION_ANIMATE_SET_STEADY_PHARMACIST_AND_REME_LISTEN, GameAction.ACTION_ANIMATE_MAINCHAR_SET_STEADY_BACKWARDS, GameAction.ACTION_ANIMATE_MAINCHAR_STEADY_BACKWARDS, GameAction.ACTION_ANIMATE_PHARMACIST_AND_REME_STEADY_TO_LISTEN, GameAction.ACTION_DIALOGUE_TALK_PHARMACIST_WITH_REME}), 
 
+            new( /* COND_USE_RECIPE_IDEA_PHARMACIST */
+            new GameEventCombi[1]{new(GameEvent.EVENT_MANYO_LOOK_FOR_RECIPE_MISSION, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_IDEA_RECIPE,ItemInteractionType.INTERACTION_USE,"",
+            new GameAction[2]{GameAction.ACTION_EVENT_USED_RECIPE_IDEA_PHARMACIST, GameAction.ACTION_DIALOGUE_TALK_PHARMACIST_WITH_REME_RECIPE_OPT}), 
+
             new( /* COND_TRY_TALK_PHARMACIST */
             new GameEventCombi[1]{new(GameEvent.EVENT_PHARMACY_EMPTY, true)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,"",
@@ -1331,6 +1336,16 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,"",
             new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_MANYO_OWNER}), 
 
+            new( /* COND_TALK_MATRIARCH */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,"",
+            new GameAction[3]{GameAction.ACTION_ANIMATE_MATRIARCH_SET_STEADY_LISTEN, GameAction.ACTION_ANIMATE_MATRIARCH_STEADY_TO_LISTEN, GameAction.ACTION_DIALOGUE_MATRIARCH}), 
+
+            new( /* COND_USE_RECIPE_IDEA_MATRIARCH */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_IDEA_RECIPE,ItemInteractionType.INTERACTION_USE,"",
+            new GameAction[4]{GameAction.ACTION_ANIMATE_MATRIARCH_SET_STEADY_LISTEN, GameAction.ACTION_ANIMATE_MATRIARCH_STEADY_TO_LISTEN, GameAction.ACTION_EVENT_USED_RECIPE_IDEA_MATRIARCH, GameAction.ACTION_DIALOGUE_MATRIARCH_RECIPE_OPT}), 
+
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,"",
@@ -1443,7 +1458,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_PHARMACY_REME_ILL_AND_PHARM */
             NameType.NAME_PHARMACIST_AND_REME,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_REME_WITH_PARHMACIST_STEADY}),
             GameSprite.SPRITE_REME_WITH_PARHMACIST_STEADY,false,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
-            new ActionConditions[2]{ActionConditions.COND_TALK_PHARMACIST_WITH_REME, ActionConditions.COND_OBSERVE_PHARMACIST_WITH_REME}),
+            new ActionConditions[3]{ActionConditions.COND_TALK_PHARMACIST_WITH_REME, ActionConditions.COND_OBSERVE_PHARMACIST_WITH_REME, ActionConditions.COND_USE_RECIPE_IDEA_PHARMACIST}),
 
             new ( /* ITEM_PHARMACY_NPC_OWNER */
             NameType.NAME_PHARMACIST,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_NPC_PHARMACY_OWNER}),
@@ -1888,6 +1903,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_NPC_MATRIARCH */
             NameType.NAME_MATRIARCH,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_MATRIARCH_STEADY}),
             GameSprite.SPRITE_MATRIARCH_STEADY,false,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
+            new ActionConditions[2]{ActionConditions.COND_TALK_MATRIARCH, ActionConditions.COND_USE_RECIPE_IDEA_MATRIARCH}),
+
+            new ( /* ITEM_IDEA_RECIPE */
+            NameType.NAME_MEMENTO_RECIPE_MISSION,GameItemFamily.ITEM_FAMILY_TYPE_IDEA,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_MEMENTO_RECIPE}),
+            GameSprite.SPRITE_MEMENTO_RECIPE,true,true,false,GameSprite.SPRITE_MEMENTO_RECIPE,GamePickableItem.ITEM_PICK_IDEA_RECIPE,DetailType.PREFAB_NONE,false,
             new ActionConditions[1]{ActionConditions.COND_OK}),
 
             new ( /* ITEM_LAST */
@@ -1926,6 +1946,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameItem.ITEM_PICKABLE_RUST_POWDER,	/* ITEM_PICK_PICKABLE_RUST_POWDER */
             GameItem.ITEM_PICKABLE_IMPERFECT_MIX_JAR,	/* ITEM_PICK_PICKABLE_IMPERFECT_MIX_JAR */
             GameItem.ITEM_PICKABLE_PERFECT_MIX_JAR,	/* ITEM_PICK_PICKABLE_PERFECT_MIX_JAR */
+            GameItem.ITEM_IDEA_RECIPE,	/* ITEM_PICK_IDEA_RECIPE */
             /* > ATG 4 END < */
         };
 
@@ -1957,6 +1978,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_PICKABLE_RUST_POWDER,	/* ITEM_PICK_PICKABLE_RUST_POWDER */
             GameSprite.SPRITE_PICKABLE_MIX_JAR_IMPERFECT,	/* ITEM_PICK_PICKABLE_IMPERFECT_MIX_JAR */
             GameSprite.SPRITE_PICKABLE_MIX_JAR_PERFECT,	/* ITEM_PICK_PICKABLE_PERFECT_MIX_JAR */
+            GameSprite.SPRITE_MEMENTO_RECIPE,	/* ITEM_PICK_IDEA_RECIPE */
             /* > ATG 5 END < */
         };
 
@@ -1977,8 +1999,8 @@ namespace Gob3AQ.Brain.ItemsInteraction
 
             /* MEMENTO_PARENT_RECIPE_MISSION */
             new(
-            NameType.NAME_MEMENTO_RECIPE_MISSION,GameSprite.SPRITE_MEMENTO_RECIPE,GameItem.ITEM_NONE,CharacterType.CHARACTER_MAIN,
-            new Memento[2]{Memento.MEMENTO_RECIPE_MISSION_1, Memento.MEMENTO_RECIPE_MISSION_2}
+            NameType.NAME_MEMENTO_RECIPE_MISSION,GameSprite.SPRITE_MEMENTO_RECIPE,GameItem.ITEM_IDEA_RECIPE,CharacterType.CHARACTER_MAIN,
+            new Memento[3]{Memento.MEMENTO_RECIPE_MISSION_1, Memento.MEMENTO_RECIPE_MISSION_2, Memento.MEMENTO_RECIPE_MISSION_3}
             ),
 
             /* MEMENTO_PARENT_ROACHES */
@@ -2035,6 +2057,8 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new(MementoParent.MEMENTO_PARENT_RECIPE_MISSION,DialogPhrase.PHRASE_MEMENTO_RECIPE_MISSION_1,false),
             /* MEMENTO_RECIPE_MISSION_2 */
             new(MementoParent.MEMENTO_PARENT_RECIPE_MISSION,DialogPhrase.PHRASE_MEMENTO_RECIPE_MISSION_2,false),
+            /* MEMENTO_RECIPE_MISSION_3 */
+            new(MementoParent.MEMENTO_PARENT_RECIPE_MISSION,DialogPhrase.PHRASE_MEMENTO_RECIPE_MISSION_3,false),
             /* MEMENTO_POOR_MAN_WC_1 */
             new(MementoParent.MEMENTO_PARENT_POOR_MAN_WC,DialogPhrase.PHRASE_MEMENTO_POOR_MAN_WC_1,false),
             /* MEMENTO_POOR_MAN_WC_2 */
@@ -2380,6 +2404,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_PHARMACIST_WITH_REME_INTRO,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_TALK_PHARMACIST_WITH_REME_RECIPE_OPT */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE_IN_OPT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_PHARMACIST_WITH_REME,DialogOption.DIALOG_OPTION_PHARMACIST_WITH_REME_RECIPE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_DIALOGUE_TRY_TALK_PHARMACIST */
             false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
@@ -4958,6 +4988,60 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new( /* ACTION_MEMENTO_RECIPE_MISSION_2 */
             false,ActionType.ACTION_TYPE_MEMENTO,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_RECIPE_MISSION_2,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_ANIMATE_MATRIARCH_SET_STEADY_LISTEN */
+            false,ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION,GameItem.ITEM_NPC_MATRIARCH,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"storeOnly",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_ANIMATE_MATRIARCH_STEADY_TO_LISTEN */
+            true,ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION,GameItem.ITEM_NPC_MATRIARCH,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_TWO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_ANIMATE_MATRIARCH_SET_STEADY_STEADY */
+            false,ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION,GameItem.ITEM_NPC_MATRIARCH,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"storeOnly",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_ANIMATE_MATRIARCH_LISTEN_TO_STEADY */
+            true,ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION,GameItem.ITEM_NPC_MATRIARCH,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_THREE,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_MATRIARCH */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_MATRIARCH_INTRO,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_EVENT_USED_RECIPE_IDEA_PHARMACIST */
+            false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_USED_RECIPE_IDEA_PHARMACIST, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_EVENT_USED_RECIPE_IDEA_MATRIARCH */
+            false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_USED_RECIPE_IDEA_MATRIARCH, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_MATRIARCH_RECIPE_OPT */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE_IN_OPT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_MATRIARCH,DialogOption.DIALOG_OPTION_MATRIARCH_RECIPE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_MEMENTO_RECIPE_MISSION_3 */
+            false,ActionType.ACTION_TYPE_MEMENTO,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_RECIPE_MISSION_3,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
 

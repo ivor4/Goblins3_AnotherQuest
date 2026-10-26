@@ -1,0 +1,525 @@
+fileFormatVersion: 2
+guid: a0fd343a0a68a4f4fac918bca771bb6a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6276664867300574166
+    second: SPRITE_MATRIARCH_TALKING_ANIM_0
+  - first:
+      213: -8124438514306304022
+    second: SPRITE_MATRIARCH_TALKING_ANIM_1
+  - first:
+      213: 121628891636879876
+    second: SPRITE_MATRIARCH_TALKING_ANIM_2
+  - first:
+      213: -4050096404338833524
+    second: SPRITE_MATRIARCH_TALKING_ANIM_3
+  - first:
+      213: -97122747233743129
+    second: SPRITE_MATRIARCH_TALKING_ANIM_4
+  - first:
+      213: 7735489547746510375
+    second: SPRITE_MATRIARCH_TALKING_ANIM_5
+  - first:
+      213: 6073184558062418576
+    second: SPRITE_MATRIARCH_TALKING_ANIM_6
+  - first:
+      213: 6896583521020028500
+    second: SPRITE_MATRIARCH_TALKING_ANIM_7
+  - first:
+      213: 6699310928036733110
+    second: SPRITE_MATRIARCH_TALKING_ANIM_8
+  - first:
+      213: -7601367564205727653
+    second: SPRITE_MATRIARCH_TALKING_ANIM_9
+  - first:
+      213: -7553701907106496351
+    second: SPRITE_MATRIARCH_TALKING_ANIM_10
+  - first:
+      213: 1582754559159768365
+    second: SPRITE_MATRIARCH_TALKING_ANIM_11
+  - first:
+      213: -6501824815409540088
+    second: SPRITE_MATRIARCH_TALKING_ANIM_12
+  - first:
+      213: -4633231685053119548
+    second: SPRITE_MATRIARCH_TALKING_ANIM_13
+  - first:
+      213: -6254239823145375228
+    second: SPRITE_MATRIARCH_TALKING_ANIM_14
+  - first:
+      213: 6319374766756606246
+    second: SPRITE_MATRIARCH_TALKING_ANIM_15
+  - first:
+      213: -5449459641241094463
+    second: SPRITE_MATRIARCH_TALKING_ANIM_16
+  - first:
+      213: -280743728651802166
+    second: SPRITE_MATRIARCH_TALKING_ANIM_17
+  - first:
+      213: -1893383375620741286
+    second: SPRITE_MATRIARCH_TALKING_ANIM_18
+  - first:
+      213: 2422102700179261103
+    second: SPRITE_MATRIARCH_TALKING_ANIM_19
+  - first:
+      213: -4421559263023547693
+    second: SPRITE_MATRIARCH_TALKING_ANIM_20
+  - first:
+      213: 7820598414291713478
+    second: SPRITE_MATRIARCH_TALKING_ANIM_21
+  - first:
+      213: -630860459031250250
+    second: SPRITE_MATRIARCH_TALKING_ANIM_22
+  - first:
+      213: -140877892790459204
+    second: SPRITE_MATRIARCH_TALKING_ANIM_23
+  - first:
+      213: 3642650415931787193
+    second: SPRITE_MATRIARCH_TALKING_ANIM_24
+  - first:
+      213: -9159729381417582996
+    second: SPRITE_MATRIARCH_TALKING_ANIM_25
+  - first:
+      213: -226866365142580007
+    second: SPRITE_MATRIARCH_TALKING_ANIM_26
+  - first:
+      213: -2472716167893110151
+    second: SPRITE_MATRIARCH_TALKING_ANIM_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 98.5
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_TALKING_ANIM_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.503125, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2cff52fe8ec4e8a0800000000000000
+      internalID: -6276664867300574166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_TALKING_ANIM_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1920
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.503125, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae735436732304f80800000000000000
+      internalID: -8124438514306304022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_TALKING_ANIM_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1920
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.503125, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 402d07025dc10b100800000000000000
+      internalID: 121628891636879876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_TALKING_ANIM_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1920
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.503125, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c870c4157ca2bc7c0800000000000000
+      internalID: -4050096404338833524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_TALKING_ANIM_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.503125, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7eec58f3063f6aef0800000000000000
+      internalID: -97122747233743129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_TALKING_ANIM_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1280
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.503125, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7268d2162caf95b60800000000000000
+      internalID: 7735489547746510375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_TALKING_ANIM_6
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1280
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.503125, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09ab2bead29484450800000000000000
+      internalID: 6073184558062418576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_TALKING_ANIM_7
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1280
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.503125, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45626363c2695bf50800000000000000
+      internalID: 6896583521020028500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_TALKING_ANIM_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.503125, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b0a5896bcbb8fc50800000000000000
+      internalID: 6699310928036733110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_TALKING_ANIM_9
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 640
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.503125, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5067506974828690800000000000000
+      internalID: -7601367564205727653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_TALKING_ANIM_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 640
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.503125, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a00abff22cdb2790800000000000000
+      internalID: -7553701907106496351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_TALKING_ANIM_11
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 640
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.503125, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d251951c2e217f510800000000000000
+      internalID: 1582754559159768365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_TALKING_ANIM_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.503125, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 804d1bd47c0e4c5a0800000000000000
+      internalID: -6501824815409540088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_TALKING_ANIM_13
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.503125, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c30352945473bfb0800000000000000
+      internalID: -4633231685053119548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: df42e21a3f7d97441a6ab6adb4e2aa26
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":4.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.503125011920929,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_MATRIARCH_TALKING_ANIM_0: -6276664867300574166
+      SPRITE_MATRIARCH_TALKING_ANIM_1: -8124438514306304022
+      SPRITE_MATRIARCH_TALKING_ANIM_10: -7553701907106496351
+      SPRITE_MATRIARCH_TALKING_ANIM_11: 1582754559159768365
+      SPRITE_MATRIARCH_TALKING_ANIM_12: -6501824815409540088
+      SPRITE_MATRIARCH_TALKING_ANIM_13: -4633231685053119548
+      SPRITE_MATRIARCH_TALKING_ANIM_2: 121628891636879876
+      SPRITE_MATRIARCH_TALKING_ANIM_3: -4050096404338833524
+      SPRITE_MATRIARCH_TALKING_ANIM_4: -97122747233743129
+      SPRITE_MATRIARCH_TALKING_ANIM_5: 7735489547746510375
+      SPRITE_MATRIARCH_TALKING_ANIM_6: 6073184558062418576
+      SPRITE_MATRIARCH_TALKING_ANIM_7: 6896583521020028500
+      SPRITE_MATRIARCH_TALKING_ANIM_8: 6699310928036733110
+      SPRITE_MATRIARCH_TALKING_ANIM_9: -7601367564205727653
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

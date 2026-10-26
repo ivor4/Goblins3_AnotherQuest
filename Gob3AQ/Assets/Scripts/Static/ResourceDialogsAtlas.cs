@@ -416,6 +416,16 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new DialogOption[1]{DialogOption.DIALOG_OPTION_OBSERVE_LAB_MAGAZINE_0}
             ),
 
+            new( /* DIALOG_MATRIARCH_INTRO */
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_MATRIARCH},
+            new DialogOption[1]{DialogOption.DIALOG_OPTION_MATRIARCH_INTRO}
+            ),
+
+            new( /* DIALOG_MATRIARCH */
+            new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_MATRIARCH},
+            new DialogOption[2]{DialogOption.DIALOG_OPTION_MATRIARCH_RECIPE, DialogOption.DIALOG_OPTION_MATRIARCH_BYE}
+            ),
+
             new( /* DIALOG_LAST */
             new GameItem[1]{GameItem.ITEM_NONE},
             new DialogOption[1]{DialogOption.DIALOG_OPTION_NONE}
@@ -491,7 +501,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new DialogPhrase[1]{DialogPhrase.PHRASE_DIALOG_REME_AND_PHARMACIST_INTRO_1}
             ),
             new( /* DIALOG_OPTION_PHARMACIST_WITH_REME_RECIPE */
-            new GameEventCombi[1]{new(GameEvent.EVENT_MANYO_LOOK_FOR_RECIPE_MISSION, false)},
+            new GameEventCombi[1]{new(GameEvent.EVENT_USED_RECIPE_IDEA_PHARMACIST, false)},
             MomentType.MOMENT_ANY,
             new GameAction[2]{GameAction.ACTION_EVENT_PHARMACIST_GAVE_RECIPE_CLUE, GameAction.ACTION_MEMENTO_RECIPE_MISSION_2},
             DialogType.DIALOG_PHARMACIST_WITH_REME,false,
@@ -1092,6 +1102,27 @@ namespace Gob3AQ.ResourceDialogsAtlas
             DialogType.DIALOG_NONE,false,
             new DialogPhrase[5]{DialogPhrase.PHRASE_OBSERVE_LAB_MAGAZINE_1, DialogPhrase.PHRASE_OBSERVE_LAB_MAGAZINE_2, DialogPhrase.PHRASE_OBSERVE_LAB_MAGAZINE_3, DialogPhrase.PHRASE_OBSERVE_LAB_MAGAZINE_4, DialogPhrase.PHRASE_OBSERVE_LAB_MAGAZINE_5}
             ),
+            new( /* DIALOG_OPTION_MATRIARCH_INTRO */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_NONE},
+            DialogType.DIALOG_MATRIARCH,false,
+            new DialogPhrase[1]{DialogPhrase.PHRASE_MATRIARCH_INTRO_1}
+            ),
+            new( /* DIALOG_OPTION_MATRIARCH_RECIPE */
+            new GameEventCombi[1]{new(GameEvent.EVENT_USED_RECIPE_IDEA_MATRIARCH, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_MEMENTO_RECIPE_MISSION_3},
+            DialogType.DIALOG_MATRIARCH,false,
+            new DialogPhrase[2]{DialogPhrase.PHRASE_MATRIARCH_RECIPE_1, DialogPhrase.PHRASE_MATRIARCH_RECIPE_2}
+            ),
+            new( /* DIALOG_OPTION_MATRIARCH_BYE */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[2]{GameAction.ACTION_ANIMATE_MATRIARCH_SET_STEADY_STEADY, GameAction.ACTION_ANIMATE_MATRIARCH_LISTEN_TO_STEADY},
+            DialogType.DIALOG_NONE,false,
+            new DialogPhrase[1]{DialogPhrase.PHRASE_MATRIARCH_BYE}
+            ),
             new( /* DIALOG_OPTION_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
@@ -1550,6 +1581,11 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(0,GameSound.SOUND_MAINCHAR_NOT_NEED_SLEEP, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MAINCHAR_NOT_NEED_SLEEP */ 
             new(0,GameSound.SOUND_OBSERVE_MANYO_OWNER, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_TWO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_OBSERVE_MANYO_OWNER */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MEMENTO_RECIPE_MISSION_2 */ 
+            new(1,GameSound.SOUND_MATRIARCH_INTRO_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MATRIARCH_INTRO_1 */ 
+            new(0,GameSound.SOUND_MATRIARCH_RECIPE_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MATRIARCH_RECIPE_1 */ 
+            new(1,GameSound.SOUND_MATRIARCH_RECIPE_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MATRIARCH_RECIPE_2 */ 
+            new(0,GameSound.SOUND_MATRIARCH_BYE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MATRIARCH_BYE */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MEMENTO_RECIPE_MISSION_3 */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

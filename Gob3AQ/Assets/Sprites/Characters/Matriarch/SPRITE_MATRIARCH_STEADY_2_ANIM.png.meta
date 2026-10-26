@@ -1,0 +1,741 @@
+fileFormatVersion: 2
+guid: 0a9a0906573e7b24e838a5392d8b6f66
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1473090288464405696
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_0
+  - first:
+      213: 1221909197521917585
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_1
+  - first:
+      213: 6023486174303502365
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_2
+  - first:
+      213: -7773213895438322340
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_3
+  - first:
+      213: -7762558839815600149
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_4
+  - first:
+      213: 4687188418733650574
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_5
+  - first:
+      213: 5331230854451918405
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_6
+  - first:
+      213: -3334936889279784282
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_7
+  - first:
+      213: 4660270857858481941
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_8
+  - first:
+      213: 826747642967254654
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_9
+  - first:
+      213: 399156974966078457
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_10
+  - first:
+      213: -4365753685674327849
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_11
+  - first:
+      213: 1573383928125635005
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_12
+  - first:
+      213: 4682996146473185680
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_13
+  - first:
+      213: 4122040206596458270
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_14
+  - first:
+      213: 5851704914812513070
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_15
+  - first:
+      213: 233279614782468572
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_16
+  - first:
+      213: 5392640806928256321
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_17
+  - first:
+      213: -2227658085572102
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_18
+  - first:
+      213: 1356691541805609513
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_19
+  - first:
+      213: 1676699517705547334
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_20
+  - first:
+      213: 6525529993578542551
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_21
+  - first:
+      213: 4239893308069762330
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_22
+  - first:
+      213: -3688253726926596767
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_23
+  - first:
+      213: 6284680645418080735
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_24
+  - first:
+      213: 3928993260342594821
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_25
+  - first:
+      213: 4099718327144425682
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_26
+  - first:
+      213: -6182256178241570100
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_27
+  - first:
+      213: -3027546765743344642
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_28
+  - first:
+      213: 7179672675949012624
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_29
+  - first:
+      213: 8143275235185745793
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_30
+  - first:
+      213: 4011486765831576606
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_31
+  - first:
+      213: 5678706744248223042
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_32
+  - first:
+      213: 5351083375635023094
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_33
+  - first:
+      213: -5909791148058369972
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_34
+  - first:
+      213: -6395354994484727638
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_35
+  - first:
+      213: 4302061754327826634
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_36
+  - first:
+      213: -2906184939031801531
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_37
+  - first:
+      213: 6234215642569884249
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_38
+  - first:
+      213: -2870047158853226075
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_39
+  - first:
+      213: -5713963104493190526
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_40
+  - first:
+      213: 6057580176740159362
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_41
+  - first:
+      213: 8099299902190271742
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_42
+  - first:
+      213: 5767621387184900497
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_43
+  - first:
+      213: -5467132395357471666
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_44
+  - first:
+      213: 3119555445035968631
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_45
+  - first:
+      213: -7919701504784765226
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_46
+  - first:
+      213: 3553396589185677955
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_47
+  - first:
+      213: 8937883996642462826
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_48
+  - first:
+      213: 2362083460269628165
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_49
+  - first:
+      213: -5782698097304881818
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_50
+  - first:
+      213: 226183872869919004
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_51
+  - first:
+      213: 1835908311145926151
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_52
+  - first:
+      213: -3222023357500735343
+    second: SPRITE_MATRIARCH_STEADY_2_ANIM_53
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_STEADY_2_ANIM_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2560
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c4aff500d7717410800000000000000
+      internalID: 1473090288464405696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_STEADY_2_ANIM_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2560
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1969312f0f715f010800000000000000
+      internalID: 1221909197521917585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_STEADY_2_ANIM_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2560
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1046d003c8b79350800000000000000
+      internalID: 6023486174303502365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_STEADY_2_ANIM_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2560
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c55b447752fff1490800000000000000
+      internalID: -7773213895438322340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_STEADY_2_ANIM_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be709bcecd9d54490800000000000000
+      internalID: -7762558839815600149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_STEADY_2_ANIM_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1920
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e82b1f5780d3c0140800000000000000
+      internalID: 4687188418733650574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_STEADY_2_ANIM_6
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1920
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 546753f47365cf940800000000000000
+      internalID: 5331230854451918405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_STEADY_2_ANIM_7
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1920
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6aad126819ce7b1d0800000000000000
+      internalID: -3334936889279784282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_STEADY_2_ANIM_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51f72cf67ab9ca040800000000000000
+      internalID: 4660270857858481941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_STEADY_2_ANIM_9
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1280
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7664f9d992397b00800000000000000
+      internalID: 826747642967254654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_STEADY_2_ANIM_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1280
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fbf87667271a8500800000000000000
+      internalID: 399156974966078457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_STEADY_2_ANIM_11
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1280
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d08784572ab963c0800000000000000
+      internalID: -4365753685674327849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_STEADY_2_ANIM_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db9bc33b858c5d510800000000000000
+      internalID: 1573383928125635005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_STEADY_2_ANIM_13
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 640
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 091be030f285df040800000000000000
+      internalID: 4682996146473185680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_STEADY_2_ANIM_14
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 640
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e174f087abd643930800000000000000
+      internalID: 4122040206596458270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_STEADY_2_ANIM_15
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 640
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2baec9cd9e653150800000000000000
+      internalID: 5851704914812513070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_STEADY_2_ANIM_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd1f27cd296cc3300800000000000000
+      internalID: 233279614782468572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_STEADY_2_ANIM_17
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14d0c321e3286da40800000000000000
+      internalID: 5392640806928256321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_STEADY_2_ANIM_18
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af1e02fe4f518fff0800000000000000
+      internalID: -2227658085572102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_MATRIARCH_STEADY_2_ANIM_19
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 922b91be4cfe3d210800000000000000
+      internalID: 1356691541805609513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1d8a05bbb6f6ee1419be546d93a3b428
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":5.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_MATRIARCH_STEADY_2_ANIM_0: 1473090288464405696
+      SPRITE_MATRIARCH_STEADY_2_ANIM_1: 1221909197521917585
+      SPRITE_MATRIARCH_STEADY_2_ANIM_10: 399156974966078457
+      SPRITE_MATRIARCH_STEADY_2_ANIM_11: -4365753685674327849
+      SPRITE_MATRIARCH_STEADY_2_ANIM_12: 1573383928125635005
+      SPRITE_MATRIARCH_STEADY_2_ANIM_13: 4682996146473185680
+      SPRITE_MATRIARCH_STEADY_2_ANIM_14: 4122040206596458270
+      SPRITE_MATRIARCH_STEADY_2_ANIM_15: 5851704914812513070
+      SPRITE_MATRIARCH_STEADY_2_ANIM_16: 233279614782468572
+      SPRITE_MATRIARCH_STEADY_2_ANIM_17: 5392640806928256321
+      SPRITE_MATRIARCH_STEADY_2_ANIM_18: -2227658085572102
+      SPRITE_MATRIARCH_STEADY_2_ANIM_19: 1356691541805609513
+      SPRITE_MATRIARCH_STEADY_2_ANIM_2: 6023486174303502365
+      SPRITE_MATRIARCH_STEADY_2_ANIM_3: -7773213895438322340
+      SPRITE_MATRIARCH_STEADY_2_ANIM_4: -7762558839815600149
+      SPRITE_MATRIARCH_STEADY_2_ANIM_5: 4687188418733650574
+      SPRITE_MATRIARCH_STEADY_2_ANIM_6: 5331230854451918405
+      SPRITE_MATRIARCH_STEADY_2_ANIM_7: -3334936889279784282
+      SPRITE_MATRIARCH_STEADY_2_ANIM_8: 4660270857858481941
+      SPRITE_MATRIARCH_STEADY_2_ANIM_9: 826747642967254654
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

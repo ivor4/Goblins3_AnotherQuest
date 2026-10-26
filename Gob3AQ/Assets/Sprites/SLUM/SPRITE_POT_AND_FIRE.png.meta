@@ -1,0 +1,354 @@
+fileFormatVersion: 2
+guid: 9b1d0f064b0a30546b355a0cdd083503
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7446858647422776777
+    second: SPRITE_POT_AND_FIRE_0
+  - first:
+      213: -526243707100154203
+    second: SPRITE_POT_AND_FIRE_1
+  - first:
+      213: -6003154831273375004
+    second: SPRITE_POT_AND_FIRE_2
+  - first:
+      213: 313378952689320310
+    second: SPRITE_POT_AND_FIRE_3
+  - first:
+      213: -6942345311474540318
+    second: SPRITE_POT_AND_FIRE_4
+  - first:
+      213: 3417984181264998450
+    second: SPRITE_POT_AND_FIRE_5
+  - first:
+      213: 1397857606440061074
+    second: SPRITE_POT_AND_FIRE_6
+  - first:
+      213: 5039752096839841115
+    second: SPRITE_POT_AND_FIRE_7
+  - first:
+      213: 3120349465041309302
+    second: SPRITE_POT_AND_FIRE_8
+  - first:
+      213: 4725377099773294504
+    second: SPRITE_POT_AND_FIRE_9
+  - first:
+      213: 254357922697925842
+    second: SPRITE_POT_AND_FIRE_10
+  - first:
+      213: -5099653520143272387
+    second: SPRITE_POT_AND_FIRE_11
+  - first:
+      213: -976545668197953955
+    second: SPRITE_POT_AND_FIRE_12
+  - first:
+      213: -8548743656182747309
+    second: SPRITE_POT_AND_FIRE_13
+  - first:
+      213: -4615919508680320114
+    second: SPRITE_POT_AND_FIRE_14
+  - first:
+      213: -6957754242134033524
+    second: SPRITE_POT_AND_FIRE_15
+  - first:
+      213: 7453144190797792524
+    second: SPRITE_POT_AND_FIRE_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_POT_AND_FIRE_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 456
+        width: 228
+        height: 228
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73ac1dbe38177a890800000000000000
+      internalID: -7446858647422776777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_POT_AND_FIRE_1
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 456
+        width: 228
+        height: 228
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a6b205f22862b8f0800000000000000
+      internalID: -526243707100154203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_POT_AND_FIRE_2
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 456
+        width: 228
+        height: 228
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eac74eac7280bca0800000000000000
+      internalID: -6003154831273375004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_POT_AND_FIRE_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 228
+        width: 228
+        height: 228
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67181234f78595400800000000000000
+      internalID: 313378952689320310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_POT_AND_FIRE_4
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 228
+        width: 228
+        height: 228
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e02679a8b5d7af90800000000000000
+      internalID: -6942345311474540318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_POT_AND_FIRE_5
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 228
+        width: 228
+        height: 228
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 230643ce08e1f6f20800000000000000
+      internalID: 3417984181264998450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_POT_AND_FIRE_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 228
+        height: 228
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 298007e3610366310800000000000000
+      internalID: 1397857606440061074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_POT_AND_FIRE_7
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 0
+        width: 228
+        height: 228
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b553b2094dbc0f540800000000000000
+      internalID: 5039752096839841115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 976b33c474e179541b58d2080553e627
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":3.0},"gridSpriteSize":{"x":228.0,"y":228.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_POT_AND_FIRE_0: -7446858647422776777
+      SPRITE_POT_AND_FIRE_1: -526243707100154203
+      SPRITE_POT_AND_FIRE_2: -6003154831273375004
+      SPRITE_POT_AND_FIRE_3: 313378952689320310
+      SPRITE_POT_AND_FIRE_4: -6942345311474540318
+      SPRITE_POT_AND_FIRE_5: 3417984181264998450
+      SPRITE_POT_AND_FIRE_6: 1397857606440061074
+      SPRITE_POT_AND_FIRE_7: 5039752096839841115
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -443,6 +443,8 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_MATRIARCH_BYE_SPANISH"), /* SOUND_MATRIARCH_BYE */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_MATRIARCH_RECIPE_2_SPANISH"), /* SOUND_MATRIARCH_RECIPE_2 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_MATRIARCH_RECIPE_1_SPANISH"), /* SOUND_MATRIARCH_RECIPE_1 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_MATRIARCH_WHATSCOOKING_2_SPANISH"), /* SOUND_MATRIARCH_WHATSCOOKING_2 */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_MATRIARCH_WHATSCOOKING_1_SPANISH"), /* SOUND_MATRIARCH_WHATSCOOKING_1 */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

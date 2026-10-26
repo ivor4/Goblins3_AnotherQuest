@@ -423,7 +423,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
 
             new( /* DIALOG_MATRIARCH */
             new GameItem[2]{GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_NPC_MATRIARCH},
-            new DialogOption[2]{DialogOption.DIALOG_OPTION_MATRIARCH_RECIPE, DialogOption.DIALOG_OPTION_MATRIARCH_BYE}
+            new DialogOption[3]{DialogOption.DIALOG_OPTION_MATRIARCH_RECIPE, DialogOption.DIALOG_OPTION_MATRIARCH_WHATSCOOKING, DialogOption.DIALOG_OPTION_MATRIARCH_BYE}
             ),
 
             new( /* DIALOG_LAST */
@@ -1116,6 +1116,13 @@ namespace Gob3AQ.ResourceDialogsAtlas
             DialogType.DIALOG_MATRIARCH,false,
             new DialogPhrase[2]{DialogPhrase.PHRASE_MATRIARCH_RECIPE_1, DialogPhrase.PHRASE_MATRIARCH_RECIPE_2}
             ),
+            new( /* DIALOG_OPTION_MATRIARCH_WHATSCOOKING */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
+            MomentType.MOMENT_ANY,
+            new GameAction[1]{GameAction.ACTION_NONE},
+            DialogType.DIALOG_MATRIARCH,false,
+            new DialogPhrase[2]{DialogPhrase.PHRASE_MATRIARCH_WHATSCOOKING_1, DialogPhrase.PHRASE_MATRIARCH_WHATSCOOKING_2}
+            ),
             new( /* DIALOG_OPTION_MATRIARCH_BYE */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
@@ -1584,6 +1591,8 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(1,GameSound.SOUND_MATRIARCH_INTRO_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MATRIARCH_INTRO_1 */ 
             new(0,GameSound.SOUND_MATRIARCH_RECIPE_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MATRIARCH_RECIPE_1 */ 
             new(1,GameSound.SOUND_MATRIARCH_RECIPE_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MATRIARCH_RECIPE_2 */ 
+            new(0,GameSound.SOUND_MATRIARCH_WHATSCOOKING_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MATRIARCH_WHATSCOOKING_1 */ 
+            new(0,GameSound.SOUND_MATRIARCH_WHATSCOOKING_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MATRIARCH_WHATSCOOKING_2 */ 
             new(0,GameSound.SOUND_MATRIARCH_BYE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MATRIARCH_BYE */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MEMENTO_RECIPE_MISSION_3 */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_LAST */ 

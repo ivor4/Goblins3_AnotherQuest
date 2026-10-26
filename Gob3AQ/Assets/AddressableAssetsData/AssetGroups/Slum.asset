@@ -20,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 25f881eb5aa53364b8d2256c622cad65
+    m_Address: ANIMATOR_MATRIARCH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 35506650d7651044688206d24062b176
     m_Address: BACKGROUND_SLUM_FACTORY_DAY
     m_ReadOnly: 0
@@ -80,6 +85,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0f1a661979cf2a49a2e1436b7d1bb33
+    m_Address: SPRITE_MATRIARCH_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d153a90d59a0f7e42946954539ebe8dd
     m_Address: BACKGROUND_SLUM_NEIGH_DAY
     m_ReadOnly: 0
@@ -97,6 +107,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e2980612b6002584ab723061874db5c1
     m_Address: SCENE_SLUM_NEIGH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6497934bd3d6b54193c74e929bbc519
+    m_Address: SPRITE_MATRIARCH_STEADY_ANIM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5ecfe352673c324494b62609ae2ab8c
+    m_Address: ANIMATION_MATRIARCH_STEADY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

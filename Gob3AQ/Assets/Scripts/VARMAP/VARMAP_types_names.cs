@@ -97,6 +97,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_IMPERFECT_MIX_JAR, 
         NAME_PERFECT_MIX_JAR, 
         NAME_SLUM_FACTORY, 
+        NAME_MATRIARCH, 
         NAME_NPC_LAST, 
         
 NAME_TOTAL

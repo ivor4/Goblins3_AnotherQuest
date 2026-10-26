@@ -114,6 +114,7 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_DECO_STREET1_FACHADE, 
         ITEM_DECO_STREET1_BLIND, 
         ITEM_MAP_POINT_SLUM_FACTORY, 
+        ITEM_NPC_MATRIARCH, 
         ITEM_LAST, 
         
 ITEM_TOTAL

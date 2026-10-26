@@ -577,7 +577,7 @@ namespace Gob3AQ.ResourceAtlas
             new GameSprite[1]{GameSprite.BACKGROUND_SLUM_NEIGH_DAY},
             new GameSound[1]{GameSound.MUSIC_SLUM_AND_FACTORY},
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_SLUM_NEIGH_DAY}), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(2){GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_GENERIC_DOOR1}), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(3){GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_NPC_MATRIARCH}), 
             new ReadOnlyHashSet<DetailType>(new HashSet<DetailType>(1){DetailType.PREFAB_NONE}), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_SLUM_AND_FACTORY}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 

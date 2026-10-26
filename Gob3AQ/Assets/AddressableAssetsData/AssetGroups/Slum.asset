@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Slum
   m_GUID: b078e17e8c639a444b8c6d021644c170
   m_SerializeEntries:
+  - m_GUID: 1671cc7fcd11a4e4abb25c82df41f8a0
+    m_Address: SPRITE_ATLAS_SLUM_NEIGH_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 35506650d7651044688206d24062b176
     m_Address: BACKGROUND_SLUM_FACTORY_DAY
     m_ReadOnly: 0
@@ -30,13 +35,28 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 64dd1d6e6ebb2a648bb0fa50333f5d00
+    m_Address: ANIMATION_SLUM_NEIGH_CLOTHES_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 77ab7e1e498595f48bf1753dd3cd0416
+    m_Address: SPRITE_SLUM_CLOTHES_2_ANIM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7adacd891e763ac43abc930a52fbd463
     m_Address: ANIMATION_SLUM_FACTORY_CLOTHES
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d9ef3e2d655b7641b400f48a57bc14d
+    m_Address: ANIMATION_SLUM_NEIGH_CLOTHES_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9223257a8f5af4c4c98a8bfd8aec50ec
-    m_Address: ANIMATOR_SLUM_FACHADE
+    m_Address: ANIMATOR_SLUM_FACTORY_FACHADE
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -55,6 +75,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bdab8efe00abfff44bc9569ad9c8f6fc
+    m_Address: ANIMATOR_SLUM_NEIGH_FACHADE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d153a90d59a0f7e42946954539ebe8dd
+    m_Address: BACKGROUND_SLUM_NEIGH_DAY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: de4a63ef1dae32f4a84e1ba3989d885c
     m_Address: SPRITE_PUDDLE_ANIM
     m_ReadOnly: 0
@@ -62,6 +92,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e11489e55a74ffe4fa23f7d24e901ec2
     m_Address: MUSIC_SLUM_AND_FACTORY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2980612b6002584ab723061874db5c1
+    m_Address: SCENE_SLUM_NEIGH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

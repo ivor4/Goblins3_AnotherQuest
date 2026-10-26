@@ -79,6 +79,7 @@ namespace Gob3AQ.Brain.LevelOptions
             "SCENE_SERVICE_ROOM",
             "SCENE_HIVE1_LAB",
             "SCENE_SLUM_FACTORY",
+            "SCENE_SLUM_NEIGH",
             ""
         };
 
@@ -145,7 +146,8 @@ namespace Gob3AQ.Brain.LevelOptions
             {Room.CITY1_STREET_1, new InitialWalkInfo[]{new("alleyExit", "alleyExitWalk"), new("mapEntry", "mapEntryWalk")} },
             {Room.CITY1_STREET_2, new InitialWalkInfo[]{new("mapEntry", "mapEntryWalk")} },
             {Room.HIVE1_BACKALLEY, new InitialWalkInfo[]{new("alleyEntry", "alleyEntryWalk")} },
-            {Room.SLUM_FACTORY, new InitialWalkInfo[]{new("mapEntry", "mapEntryWalk")} }
+            {Room.SLUM_FACTORY, new InitialWalkInfo[]{new("mapEntry", "mapEntryWalk")} },
+            {Room.SLUM_NEIGH, new InitialWalkInfo[]{new("mapEntry", "mapEntryWalk")} },
         };
 
         private static readonly IReadOnlyDictionary<int, Tuple<string, NameType>> _CHAPTER_TO_TITLE = new Dictionary<int, Tuple<string, NameType>>()

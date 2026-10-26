@@ -35,6 +35,7 @@ namespace Gob3AQ.VARMAP.Types
         SERVICE_ROOM, 
         HIVE1_LAB, 
         SLUM_FACTORY, 
+        SLUM_NEIGH, 
         ROOM_LAST, 
         
 ROOMS_TOTAL 

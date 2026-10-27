@@ -1,0 +1,623 @@
+fileFormatVersion: 2
+guid: 487d4f97a34f9df45a5019abb90f68e2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1232404797691673638
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_0
+  - first:
+      213: -8476021787916932006
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_1
+  - first:
+      213: -7874027514066655799
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_2
+  - first:
+      213: 3058978809969924736
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_3
+  - first:
+      213: 7537401559424795238
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_4
+  - first:
+      213: -3326167999742824428
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_5
+  - first:
+      213: -8147509799302153588
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_6
+  - first:
+      213: 1434171826524052078
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_7
+  - first:
+      213: -4374185035825847878
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_8
+  - first:
+      213: -5131956082638951524
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_9
+  - first:
+      213: -7101613800230072404
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_10
+  - first:
+      213: 8488565163688654141
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_11
+  - first:
+      213: -1619707074703945222
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_12
+  - first:
+      213: 6596536617534876058
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_13
+  - first:
+      213: 5740992384527703955
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_14
+  - first:
+      213: -6886427696361972528
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_15
+  - first:
+      213: -2528489413729436626
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_16
+  - first:
+      213: 4830246337335278000
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_17
+  - first:
+      213: -3696417506016161577
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_18
+  - first:
+      213: 7283888900635279132
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_19
+  - first:
+      213: -1181062578493254003
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_20
+  - first:
+      213: -7363495237984950468
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_21
+  - first:
+      213: 1614651182434041025
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_22
+  - first:
+      213: 6466444447245188373
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_23
+  - first:
+      213: 4247149060203265963
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_24
+  - first:
+      213: -5137940404900635083
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_25
+  - first:
+      213: 6368375645212143993
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_26
+  - first:
+      213: -6555125061271217955
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_27
+  - first:
+      213: 2083681423011041320
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_28
+  - first:
+      213: -4970958971032822692
+    second: SPRITE_SLUM_KIDS_SLAP_ANIM_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_SLAP_ANIM_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62c36e942a16a1110800000000000000
+      internalID: 1232404797691673638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_SLAP_ANIM_1
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1920
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5c6dbe771f1f5a80800000000000000
+      internalID: -8476021787916932006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_SLAP_ANIM_2
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1920
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c5a760c1b5d9b290800000000000000
+      internalID: -7874027514066655799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_SLAP_ANIM_3
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1920
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08a54bf350da37a20800000000000000
+      internalID: 3058978809969924736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_SLAP_ANIM_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1440
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6628dfe88ca3a9860800000000000000
+      internalID: 7537401559424795238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_SLAP_ANIM_5
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1440
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 410be08b3d317d1d0800000000000000
+      internalID: -3326167999742824428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_SLAP_ANIM_6
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1440
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8ab490410b3eee80800000000000000
+      internalID: -8147509799302153588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_SLAP_ANIM_7
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1440
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6ad6da7da337e310800000000000000
+      internalID: 1434171826524052078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_SLAP_ANIM_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab165c5a2e5cb43c0800000000000000
+      internalID: -4374185035825847878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_SLAP_ANIM_9
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 960
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9b66631221a7c8b0800000000000000
+      internalID: -5131956082638951524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_SLAP_ANIM_10
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 960
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caf4649efdff17d90800000000000000
+      internalID: -7101613800230072404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_SLAP_ANIM_11
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 960
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d35fa62ca017dc570800000000000000
+      internalID: 8488565163688654141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_SLAP_ANIM_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 480
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af195144ff4a589e0800000000000000
+      internalID: -1619707074703945222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_SLAP_ANIM_13
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 480
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a99e50c8a1b9b8b50800000000000000
+      internalID: 6596536617534876058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_SLAP_ANIM_14
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 480
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39f1ff9182a1caf40800000000000000
+      internalID: 5740992384527703955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_SLAP_ANIM_15
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 480
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dcdeeafe7e7e60a0800000000000000
+      internalID: -6886427696361972528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_SLAP_ANIM_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2c3254564009ecd0800000000000000
+      internalID: -2528489413729436626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_SLAP_ANIM_17
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b9308ab37b780340800000000000000
+      internalID: 4830246337335278000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: bccf254df891554499697382a40ac770
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":5.0},"gridSpriteSize":{"x":480.0,"y":480.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.06666667014360428},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_SLUM_KIDS_SLAP_ANIM_0: 1232404797691673638
+      SPRITE_SLUM_KIDS_SLAP_ANIM_1: -8476021787916932006
+      SPRITE_SLUM_KIDS_SLAP_ANIM_10: -7101613800230072404
+      SPRITE_SLUM_KIDS_SLAP_ANIM_11: 8488565163688654141
+      SPRITE_SLUM_KIDS_SLAP_ANIM_12: -1619707074703945222
+      SPRITE_SLUM_KIDS_SLAP_ANIM_13: 6596536617534876058
+      SPRITE_SLUM_KIDS_SLAP_ANIM_14: 5740992384527703955
+      SPRITE_SLUM_KIDS_SLAP_ANIM_15: -6886427696361972528
+      SPRITE_SLUM_KIDS_SLAP_ANIM_16: -2528489413729436626
+      SPRITE_SLUM_KIDS_SLAP_ANIM_17: 4830246337335278000
+      SPRITE_SLUM_KIDS_SLAP_ANIM_2: -7874027514066655799
+      SPRITE_SLUM_KIDS_SLAP_ANIM_3: 3058978809969924736
+      SPRITE_SLUM_KIDS_SLAP_ANIM_4: 7537401559424795238
+      SPRITE_SLUM_KIDS_SLAP_ANIM_5: -3326167999742824428
+      SPRITE_SLUM_KIDS_SLAP_ANIM_6: -8147509799302153588
+      SPRITE_SLUM_KIDS_SLAP_ANIM_7: 1434171826524052078
+      SPRITE_SLUM_KIDS_SLAP_ANIM_8: -4374185035825847878
+      SPRITE_SLUM_KIDS_SLAP_ANIM_9: -5131956082638951524
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

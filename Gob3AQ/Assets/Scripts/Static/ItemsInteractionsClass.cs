@@ -1346,6 +1346,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_IDEA_RECIPE,ItemInteractionType.INTERACTION_USE,"",
             new GameAction[4]{GameAction.ACTION_ANIMATE_MATRIARCH_SET_STEADY_LISTEN, GameAction.ACTION_ANIMATE_MATRIARCH_STEADY_TO_LISTEN, GameAction.ACTION_EVENT_USED_RECIPE_IDEA_MATRIARCH, GameAction.ACTION_DIALOGUE_MATRIARCH_RECIPE_OPT}), 
 
+            new( /* COND_OBSERVE_MATRIARCH */
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,"",
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_MATRIARCH}), 
+
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,"",
@@ -1903,11 +1908,16 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_NPC_MATRIARCH */
             NameType.NAME_MATRIARCH,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_MATRIARCH_STEADY}),
             GameSprite.SPRITE_MATRIARCH_STEADY,false,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
-            new ActionConditions[2]{ActionConditions.COND_TALK_MATRIARCH, ActionConditions.COND_USE_RECIPE_IDEA_MATRIARCH}),
+            new ActionConditions[3]{ActionConditions.COND_TALK_MATRIARCH, ActionConditions.COND_USE_RECIPE_IDEA_MATRIARCH, ActionConditions.COND_OBSERVE_MATRIARCH}),
 
             new ( /* ITEM_IDEA_RECIPE */
             NameType.NAME_MEMENTO_RECIPE_MISSION,GameItemFamily.ITEM_FAMILY_TYPE_IDEA,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_MEMENTO_RECIPE}),
             GameSprite.SPRITE_MEMENTO_RECIPE,true,true,false,GameSprite.SPRITE_MEMENTO_RECIPE,GamePickableItem.ITEM_PICK_IDEA_RECIPE,DetailType.PREFAB_NONE,false,
+            new ActionConditions[1]{ActionConditions.COND_OK}),
+
+            new ( /* ITEM_NPC_SLUM_KIDS */
+            NameType.NAME_SLUM_KIDS,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_SLUM_KIDS_STEADY}),
+            GameSprite.SPRITE_SLUM_KIDS_STEADY,false,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new ActionConditions[1]{ActionConditions.COND_OK}),
 
             new ( /* ITEM_LAST */
@@ -5044,6 +5054,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_RECIPE_MISSION_3,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_OBSERVE_MATRIARCH */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_OBSERVE_MATRIARCH,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

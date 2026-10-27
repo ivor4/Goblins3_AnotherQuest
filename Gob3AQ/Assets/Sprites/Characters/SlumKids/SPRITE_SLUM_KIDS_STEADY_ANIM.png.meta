@@ -1,0 +1,525 @@
+fileFormatVersion: 2
+guid: b1b1940df6f37164bbc693aee541f16b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6954663142344425088
+    second: SPRITE_SLUM_KIDS_STEADY_ANIM_0
+  - first:
+      213: -6256251822910182465
+    second: SPRITE_SLUM_KIDS_STEADY_ANIM_1
+  - first:
+      213: -3065316791907175434
+    second: SPRITE_SLUM_KIDS_STEADY_ANIM_2
+  - first:
+      213: -7594337650077416369
+    second: SPRITE_SLUM_KIDS_STEADY_ANIM_3
+  - first:
+      213: 3314173156957254537
+    second: SPRITE_SLUM_KIDS_STEADY_ANIM_4
+  - first:
+      213: -2067158902655856515
+    second: SPRITE_SLUM_KIDS_STEADY_ANIM_5
+  - first:
+      213: 8485519362861584399
+    second: SPRITE_SLUM_KIDS_STEADY_ANIM_6
+  - first:
+      213: -380354910691516254
+    second: SPRITE_SLUM_KIDS_STEADY_ANIM_7
+  - first:
+      213: -2806909629394955105
+    second: SPRITE_SLUM_KIDS_STEADY_ANIM_8
+  - first:
+      213: 8516732926589587060
+    second: SPRITE_SLUM_KIDS_STEADY_ANIM_9
+  - first:
+      213: -2914692682545596716
+    second: SPRITE_SLUM_KIDS_STEADY_ANIM_10
+  - first:
+      213: 3019781556124805411
+    second: SPRITE_SLUM_KIDS_STEADY_ANIM_11
+  - first:
+      213: -8569710856664033127
+    second: SPRITE_SLUM_KIDS_STEADY_ANIM_12
+  - first:
+      213: 1081306204214694519
+    second: SPRITE_SLUM_KIDS_STEADY_ANIM_13
+  - first:
+      213: 7034263458973107745
+    second: SPRITE_SLUM_KIDS_STEADY_ANIM_14
+  - first:
+      213: -1961841649427504202
+    second: SPRITE_SLUM_KIDS_STEADY_ANIM_15
+  - first:
+      213: 6868994251971036933
+    second: SPRITE_SLUM_KIDS_STEADY_ANIM_16
+  - first:
+      213: -4586456630032692997
+    second: SPRITE_SLUM_KIDS_STEADY_ANIM_17
+  - first:
+      213: -6956203255753948417
+    second: SPRITE_SLUM_KIDS_STEADY_ANIM_18
+  - first:
+      213: -6522412112287613241
+    second: SPRITE_SLUM_KIDS_STEADY_ANIM_19
+  - first:
+      213: 6669223032560372373
+    second: SPRITE_SLUM_KIDS_STEADY_ANIM_20
+  - first:
+      213: -3886331583870750109
+    second: SPRITE_SLUM_KIDS_STEADY_ANIM_21
+  - first:
+      213: -8724558925939716981
+    second: SPRITE_SLUM_KIDS_STEADY_ANIM_22
+  - first:
+      213: 5916438717397778009
+    second: SPRITE_SLUM_KIDS_STEADY_ANIM_23
+  - first:
+      213: 6204684099333935058
+    second: SPRITE_SLUM_KIDS_STEADY_ANIM_24
+  - first:
+      213: -3427281331324373196
+    second: SPRITE_SLUM_KIDS_STEADY_ANIM_25
+  - first:
+      213: 2819634860132272281
+    second: SPRITE_SLUM_KIDS_STEADY_ANIM_26
+  - first:
+      213: -3319398434559174423
+    second: SPRITE_SLUM_KIDS_STEADY_ANIM_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_STEADY_ANIM_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1440
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08ef0f3d74de38060800000000000000
+      internalID: 6954663142344425088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_STEADY_ANIM_1
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1440
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbb6c063d145d29a0800000000000000
+      internalID: -6256251822910182465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_STEADY_ANIM_2
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1440
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f335565e9ec575d0800000000000000
+      internalID: -3065316791907175434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_STEADY_ANIM_3
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1440
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f44c2cec42e7b9690800000000000000
+      internalID: -7594337650077416369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_STEADY_ANIM_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98372905dee4efd20800000000000000
+      internalID: 3314173156957254537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_STEADY_ANIM_5
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 960
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7059e82ee9ff43e0800000000000000
+      internalID: -2067158902655856515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_STEADY_ANIM_6
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 960
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f00501ef6ee92c570800000000000000
+      internalID: 8485519362861584399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_STEADY_ANIM_7
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 960
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a028a35935b8baf0800000000000000
+      internalID: -380354910691516254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_STEADY_ANIM_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 480
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f945a4f409adb09d0800000000000000
+      internalID: -2806909629394955105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_STEADY_ANIM_9
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 480
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47ece302973813670800000000000000
+      internalID: 8516732926589587060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_STEADY_ANIM_10
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 480
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d6707ba27eec87d0800000000000000
+      internalID: -2914692682545596716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_STEADY_ANIM_11
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 480
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3296818635b68e920800000000000000
+      internalID: 3019781556124805411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_STEADY_ANIM_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9985bb05165421980800000000000000
+      internalID: -8569710856664033127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_SLUM_KIDS_STEADY_ANIM_13
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77294a38342910f00800000000000000
+      internalID: 1081306204214694519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ea6c6bd689931384db5c1bb76a4b3e0b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":4.0},"gridSpriteSize":{"x":480.0,"y":480.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.06666667014360428},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_SLUM_KIDS_STEADY_ANIM_0: 6954663142344425088
+      SPRITE_SLUM_KIDS_STEADY_ANIM_1: -6256251822910182465
+      SPRITE_SLUM_KIDS_STEADY_ANIM_10: -2914692682545596716
+      SPRITE_SLUM_KIDS_STEADY_ANIM_11: 3019781556124805411
+      SPRITE_SLUM_KIDS_STEADY_ANIM_12: -8569710856664033127
+      SPRITE_SLUM_KIDS_STEADY_ANIM_13: 1081306204214694519
+      SPRITE_SLUM_KIDS_STEADY_ANIM_2: -3065316791907175434
+      SPRITE_SLUM_KIDS_STEADY_ANIM_3: -7594337650077416369
+      SPRITE_SLUM_KIDS_STEADY_ANIM_4: 3314173156957254537
+      SPRITE_SLUM_KIDS_STEADY_ANIM_5: -2067158902655856515
+      SPRITE_SLUM_KIDS_STEADY_ANIM_6: 8485519362861584399
+      SPRITE_SLUM_KIDS_STEADY_ANIM_7: -380354910691516254
+      SPRITE_SLUM_KIDS_STEADY_ANIM_8: -2806909629394955105
+      SPRITE_SLUM_KIDS_STEADY_ANIM_9: 8516732926589587060
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

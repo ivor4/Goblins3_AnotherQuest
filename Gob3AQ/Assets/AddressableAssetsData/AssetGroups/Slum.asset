@@ -35,6 +35,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1306377f9ccedb945b29e1ac45594c20
+    m_Address: SOUND_SLUM_KIDS_BYE_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1671cc7fcd11a4e4abb25c82df41f8a0
     m_Address: SPRITE_ATLAS_SLUM_NEIGH_1
     m_ReadOnly: 0
@@ -57,6 +62,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2bc4dce8e7d2bf04eb3037ac2cd52310
     m_Address: ANIMATION_MATRIARCH_SEWING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2cdbb0cce24a24947bc9822264d310a3
+    m_Address: SOUND_SLUM_KIDS_LOOKING_FOR_1_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -175,6 +185,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: af881ae496d177e41a970fd49d516165
+    m_Address: SOUND_SLUM_KIDS_INTRO_1_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b1b1940df6f37164bbc693aee541f16b
     m_Address: SPRITE_SLUM_KIDS_STEADY_ANIM
     m_ReadOnly: 0
@@ -215,6 +230,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf4fe79960337304e8a4cd3a00bb88c0
+    m_Address: SOUND_SLUM_KIDS_INTRO_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d153a90d59a0f7e42946954539ebe8dd
     m_Address: BACKGROUND_SLUM_NEIGH_DAY
     m_ReadOnly: 0
@@ -235,6 +255,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d9e5b4e63168f6542b6da07ec3f43fe3
+    m_Address: SOUND_SLUM_KIDS_LOOKING_FOR_2_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dbf63e84917dfea4cadfe1c9943425b8
     m_Address: ANIMATION_MATRIARCH_STEADY_TO_LISTEN
     m_ReadOnly: 0
@@ -242,6 +267,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: de4a63ef1dae32f4a84e1ba3989d885c
     m_Address: SPRITE_PUDDLE_ANIM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e0c4f5bf71c4dc5468e72b742b5e34fa
+    m_Address: SOUND_OBSERVE_SLUM_KIDS_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

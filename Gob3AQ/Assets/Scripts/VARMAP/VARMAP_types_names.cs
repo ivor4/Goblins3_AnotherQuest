@@ -99,6 +99,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_SLUM_FACTORY, 
         NAME_MATRIARCH, 
         NAME_SLUM_KIDS, 
+        NAME_MEMENTO_SLUM_PEOPLE, 
         NAME_NPC_LAST, 
         
 NAME_TOTAL

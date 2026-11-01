@@ -1122,7 +1122,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new( /* DIALOG_OPTION_MATRIARCH_RECIPE */
             new GameEventCombi[1]{new(GameEvent.EVENT_USED_RECIPE_IDEA_MATRIARCH, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_MEMENTO_RECIPE_MISSION_3},
+            new GameAction[2]{GameAction.ACTION_MEMENTO_RECIPE_MISSION_3, GameAction.ACTION_MEMENTO_SLUM_PEOPLE_1},
             DialogType.DIALOG_MATRIARCH,false,
             new DialogPhrase[2]{DialogPhrase.PHRASE_MATRIARCH_RECIPE_1, DialogPhrase.PHRASE_MATRIARCH_RECIPE_2}
             ),
@@ -1150,14 +1150,14 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new( /* DIALOG_OPTION_SLUM_KIDS_LOOKING_FOR */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE},
+            new GameAction[1]{GameAction.ACTION_MEMENTO_SLUM_PEOPLE_2},
             DialogType.DIALOG_SLUM_KIDS,false,
-            new DialogPhrase[2]{DialogPhrase.PHRASE_SLUM_KIDS_LOOKING_FOR_1, DialogPhrase.PHRASE_SLUM_KIDS_LOOKING_FOR_2}
+            new DialogPhrase[3]{DialogPhrase.PHRASE_SLUM_KIDS_LOOKING_FOR_1, DialogPhrase.PHRASE_SLUM_KIDS_LOOKING_FOR_2, DialogPhrase.PHRASE_SLUM_KIDS_LOOKING_FOR_3}
             ),
             new( /* DIALOG_OPTION_SLUM_KIDS_BYE */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_NONE},
+            new GameAction[3]{GameAction.ACTION_ANIMATE_MAINCHAR_SET_STEADY_NORMAL, GameAction.ACTION_ANIMATE_SLUM_KIDS_SET_STEADY_STEADY, GameAction.ACTION_ANIMATE_SLUM_KIDS_LISTEN_TO_STEADY},
             DialogType.DIALOG_NONE,false,
             new DialogPhrase[1]{DialogPhrase.PHRASE_SLUM_KIDS_BYE}
             ),
@@ -1631,8 +1631,11 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new(1,GameSound.SOUND_SLUM_KIDS_INTRO_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_FOUR,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_SLUM_KIDS_INTRO_1 */ 
             new(0,GameSound.SOUND_SLUM_KIDS_INTRO_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_THREE,AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_SLUM_KIDS_INTRO_2 */ 
             new(0,GameSound.SOUND_SLUM_KIDS_LOOKING_FOR_1, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_THREE,AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_SLUM_KIDS_LOOKING_FOR_1 */ 
-            new(0,GameSound.SOUND_SLUM_KIDS_LOOKING_FOR_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_FOUR,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_SLUM_KIDS_LOOKING_FOR_2 */ 
+            new(1,GameSound.SOUND_SLUM_KIDS_LOOKING_FOR_2, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_CYCLE_FOUR,AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_SLUM_KIDS_LOOKING_FOR_2 */ 
+            new(0,GameSound.SOUND_SLUM_KIDS_LOOKING_FOR_3, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_THREE,AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_SLUM_KIDS_LOOKING_FOR_3 */ 
             new(0,GameSound.SOUND_SLUM_KIDS_BYE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_THREE,AnimationTrigger.ANIMATION_TRIGGER_CYCLE_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_SLUM_KIDS_BYE */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MEMENTO_SLUM_PEOPLE_1 */ 
+            new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_MEMENTO_SLUM_PEOPLE_2 */ 
             new(0,GameSound.SOUND_NONE, new AnimationTrigger[3]{AnimationTrigger.ANIMATION_TRIGGER_TALK_ONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,AnimationTrigger.ANIMATION_TRIGGER_ZERO}), /* PHRASE_DIALOG_LAST */ 
             /* > ATG 3 END < */
         };

@@ -95,6 +95,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 15a4b7e7fda94b64eab978ead72d3486
+    m_Address: SPRITE_MEMENTO_SLUM_PEOPLE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 15aa323ef5b8b3749a1add88a95187ca
     m_Address: ANIMATION_GENERIC_ACTION16
     m_ReadOnly: 0

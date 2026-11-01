@@ -452,6 +452,7 @@ namespace Gob3AQ.ResourceSoundsAtlas
             new(SoundEffect.EFFECT_NONE,"SOUND_SLUM_KIDS_LOOKING_FOR_2_SPANISH"), /* SOUND_SLUM_KIDS_LOOKING_FOR_2 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_SLUM_KIDS_LOOKING_FOR_1_SPANISH"), /* SOUND_SLUM_KIDS_LOOKING_FOR_1 */ 
             new(SoundEffect.EFFECT_NONE,"SOUND_SLUM_KIDS_BYE_SPANISH"), /* SOUND_SLUM_KIDS_BYE */ 
+            new(SoundEffect.EFFECT_NONE,"SOUND_SLUM_KIDS_LOOKING_FOR_3_SPANISH"), /* SOUND_SLUM_KIDS_LOOKING_FOR_3 */ 
             new(SoundEffect.EFFECT_NONE,""), /* SOUND_LAST */ 
             /* > ATG 1 END < */
         };

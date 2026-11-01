@@ -45,6 +45,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1749c546cbdaa9e448c05d6d70afbf83
+    m_Address: ANIMATION_SLUM_KIDS_LISTEN_TO_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2517905c4c84e1f43abe016290438c00
     m_Address: ANIMATION_MATRIARCH_TALKING_ENTRY_EXIT
     m_ReadOnly: 0
@@ -57,6 +62,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 29a377b9ac4a7184ea559af5550748bf
     m_Address: SPRITE_MATRIARCH_LISTEN_ANIM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b76daff5b9c885428279550b0ef6c98
+    m_Address: SPRITE_SLUM_KIDS_LISTEN_ANIM
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -100,6 +110,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a0df915d44866c4985b3c022db7f34e
+    m_Address: ANIMATION_SLUM_KIDS_LISTEN_EXEC1_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b0e1d8f85345214aa98f7123a7e0703
+    m_Address: ANIMATION_SLUM_KIDS_STEADY_TO_LISTEN_ANIM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4cff7d3321ce1494687c84baca6af51a
     m_Address: SPRITE_ATLAS_MATRIARCH
     m_ReadOnly: 0
@@ -107,6 +127,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 595d7dc9959298e4bbe1cf27e7c9c5de
     m_Address: ANIMATION_MATRIARCH_TALKING_EXEC1_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5cd8ef793a9335e4ab72c22dfce244f8
+    m_Address: ANIMATION_SLUM_KIDS_LISTEN_ENTER_EXIT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6139f795e8e6f604e83fb802a8077e6e
+    m_Address: ANIMATION_SLUM_KIDS_TALK_ENTER_EXIT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -125,6 +155,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7604dbd2896514a4a97d339f4c6bb29b
+    m_Address: ANIMATION_SLUM_KIDS_STEADY_LISTEN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 77ab7e1e498595f48bf1753dd3cd0416
     m_Address: SPRITE_SLUM_CLOTHES_2_ANIM
     m_ReadOnly: 0
@@ -137,6 +172,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7d9ef3e2d655b7641b400f48a57bc14d
     m_Address: ANIMATION_SLUM_NEIGH_CLOTHES_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8190da39343a55247a3db256dbcc5477
+    m_Address: SOUND_SLUM_KIDS_LOOKING_FOR_3_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -230,6 +270,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cbf5bcd9485edb04d89d353fa3d906d4
+    m_Address: SPRITE_SLUM_KIDS_TALK_ANIM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cf4fe79960337304e8a4cd3a00bb88c0
     m_Address: SOUND_SLUM_KIDS_INTRO_2_SPANISH
     m_ReadOnly: 0
@@ -237,6 +282,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d153a90d59a0f7e42946954539ebe8dd
     m_Address: BACKGROUND_SLUM_NEIGH_DAY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d53746b90c3ed504cb555800cad4bd55
+    m_Address: SPRITE_SLUM_KIDS_STEADY_TO_LISTEN
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -280,6 +330,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e23828519fa52a048a301123ebe34916
+    m_Address: SPRITE_SLUM_KIDS_LISTEN_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e2980612b6002584ab723061874db5c1
     m_Address: SCENE_SLUM_NEIGH
     m_ReadOnly: 0
@@ -297,6 +352,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f7637dd5431ca6a46be6ee843adb988b
     m_Address: SCENE_SLUM_FACTORY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fdb4a6f4d7cf0f64fb73b5e03c23ff18
+    m_Address: ANIMATION_SLUM_KIDS_TALK_EXEC1_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -624,7 +624,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new( /* COND_USE_RECIPE_IDEA_PHARMACIST */
             new GameEventCombi[1]{new(GameEvent.EVENT_MANYO_LOOK_FOR_RECIPE_MISSION, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_IDEA_RECIPE,ItemInteractionType.INTERACTION_USE,"",
-            new GameAction[2]{GameAction.ACTION_EVENT_USED_RECIPE_IDEA_PHARMACIST, GameAction.ACTION_DIALOGUE_TALK_PHARMACIST_WITH_REME_RECIPE_OPT}), 
+            new GameAction[6]{GameAction.ACTION_ANIMATE_SET_STEADY_PHARMACIST_AND_REME_LISTEN, GameAction.ACTION_ANIMATE_MAINCHAR_SET_STEADY_BACKWARDS, GameAction.ACTION_ANIMATE_MAINCHAR_STEADY_BACKWARDS, GameAction.ACTION_ANIMATE_PHARMACIST_AND_REME_STEADY_TO_LISTEN, GameAction.ACTION_EVENT_USED_RECIPE_IDEA_PHARMACIST, GameAction.ACTION_DIALOGUE_TALK_PHARMACIST_WITH_REME_RECIPE_OPT}), 
 
             new( /* COND_TRY_TALK_PHARMACIST */
             new GameEventCombi[1]{new(GameEvent.EVENT_PHARMACY_EMPTY, true)}, 
@@ -1359,7 +1359,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new( /* COND_TALK_SLUM_KIDS */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TALK,"",
-            new GameAction[1]{GameAction.ACTION_DIALOGUE_SLUM_KIDS_INTRO}), 
+            new GameAction[5]{GameAction.ACTION_ANIMATE_MAINCHAR_SET_STEADY_BACKWARDS, GameAction.ACTION_ANIMATE_MAINCHAR_STEADY_BACKWARDS, GameAction.ACTION_ANIMATE_SLUM_KIDS_SET_STEADY_LISTEN, GameAction.ACTION_ANIMATE_SLUM_KIDS_STEADY_TO_LISTEN, GameAction.ACTION_DIALOGUE_SLUM_KIDS_INTRO}), 
 
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
@@ -1930,6 +1930,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_SLUM_KIDS_STEADY,false,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new ActionConditions[2]{ActionConditions.COND_OBSERVE_SLUM_KIDS, ActionConditions.COND_TALK_SLUM_KIDS}),
 
+            new ( /* ITEM_IDEA_SLUM_PEOPLE */
+            NameType.NAME_MEMENTO_SLUM_PEOPLE,GameItemFamily.ITEM_FAMILY_TYPE_IDEA,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_MEMENTO_SLUM_PEOPLE}),
+            GameSprite.SPRITE_MEMENTO_SLUM_PEOPLE,true,true,false,GameSprite.SPRITE_MEMENTO_SLUM_PEOPLE,GamePickableItem.ITEM_PICK_IDEA_SLUM_PEOPLE,DetailType.PREFAB_NONE,false,
+            new ActionConditions[1]{ActionConditions.COND_OK}),
+
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST}),
             GameSprite.SPRITE_LAST,false,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
@@ -1967,6 +1972,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameItem.ITEM_PICKABLE_IMPERFECT_MIX_JAR,	/* ITEM_PICK_PICKABLE_IMPERFECT_MIX_JAR */
             GameItem.ITEM_PICKABLE_PERFECT_MIX_JAR,	/* ITEM_PICK_PICKABLE_PERFECT_MIX_JAR */
             GameItem.ITEM_IDEA_RECIPE,	/* ITEM_PICK_IDEA_RECIPE */
+            GameItem.ITEM_IDEA_SLUM_PEOPLE,	/* ITEM_PICK_IDEA_SLUM_PEOPLE */
             /* > ATG 4 END < */
         };
 
@@ -1999,6 +2005,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_PICKABLE_MIX_JAR_IMPERFECT,	/* ITEM_PICK_PICKABLE_IMPERFECT_MIX_JAR */
             GameSprite.SPRITE_PICKABLE_MIX_JAR_PERFECT,	/* ITEM_PICK_PICKABLE_PERFECT_MIX_JAR */
             GameSprite.SPRITE_MEMENTO_RECIPE,	/* ITEM_PICK_IDEA_RECIPE */
+            GameSprite.SPRITE_MEMENTO_SLUM_PEOPLE,	/* ITEM_PICK_IDEA_SLUM_PEOPLE */
             /* > ATG 5 END < */
         };
 
@@ -2033,6 +2040,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new(
             NameType.NAME_MEMENTO_HIVE_LAB,GameSprite.SPRITE_MEMENTO_HIVE_LAB,GameItem.ITEM_NONE,CharacterType.CHARACTER_MAIN,
             new Memento[3]{Memento.MEMENTO_HIVE_LAB_1, Memento.MEMENTO_HIVE_LAB_2, Memento.MEMENTO_HIVE_LAB_3}
+            ),
+
+            /* MEMENTO_PARENT_SLUM_PEOPLE */
+            new(
+            NameType.NAME_MEMENTO_SLUM_PEOPLE,GameSprite.SPRITE_MEMENTO_SLUM_PEOPLE,GameItem.ITEM_IDEA_SLUM_PEOPLE,CharacterType.CHARACTER_MAIN,
+            new Memento[2]{Memento.MEMENTO_SLUM_PEOPLE_1, Memento.MEMENTO_SLUM_PEOPLE_2}
             ),
 
             /* MEMENTO_PARENT_POOR_MAN_WC */
@@ -2079,6 +2092,10 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new(MementoParent.MEMENTO_PARENT_RECIPE_MISSION,DialogPhrase.PHRASE_MEMENTO_RECIPE_MISSION_2,false),
             /* MEMENTO_RECIPE_MISSION_3 */
             new(MementoParent.MEMENTO_PARENT_RECIPE_MISSION,DialogPhrase.PHRASE_MEMENTO_RECIPE_MISSION_3,false),
+            /* MEMENTO_SLUM_PEOPLE_1 */
+            new(MementoParent.MEMENTO_PARENT_SLUM_PEOPLE,DialogPhrase.PHRASE_MEMENTO_SLUM_PEOPLE_1,false),
+            /* MEMENTO_SLUM_PEOPLE_2 */
+            new(MementoParent.MEMENTO_PARENT_SLUM_PEOPLE,DialogPhrase.PHRASE_MEMENTO_SLUM_PEOPLE_2,false),
             /* MEMENTO_POOR_MAN_WC_1 */
             new(MementoParent.MEMENTO_PARENT_POOR_MAN_WC,DialogPhrase.PHRASE_MEMENTO_POOR_MAN_WC_1,false),
             /* MEMENTO_POOR_MAN_WC_2 */
@@ -5082,6 +5099,42 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SLUM_KIDS_INTRO,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_ANIMATE_SLUM_KIDS_SET_STEADY_LISTEN */
+            false,ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION,GameItem.ITEM_NPC_SLUM_KIDS,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"storeOnly",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_ANIMATE_SLUM_KIDS_SET_STEADY_STEADY */
+            false,ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION,GameItem.ITEM_NPC_SLUM_KIDS,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"storeOnly",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_ANIMATE_SLUM_KIDS_STEADY_TO_LISTEN */
+            true,ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION,GameItem.ITEM_NPC_SLUM_KIDS,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_TWO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_ANIMATE_SLUM_KIDS_LISTEN_TO_STEADY */
+            true,ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION,GameItem.ITEM_NPC_SLUM_KIDS,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_THREE,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_MEMENTO_SLUM_PEOPLE_1 */
+            false,ActionType.ACTION_TYPE_MEMENTO,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_SLUM_PEOPLE_1,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_MEMENTO_SLUM_PEOPLE_2 */
+            false,ActionType.ACTION_TYPE_MEMENTO,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_SLUM_PEOPLE_2,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

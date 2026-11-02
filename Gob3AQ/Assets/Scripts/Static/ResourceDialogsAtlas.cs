@@ -1150,7 +1150,7 @@ namespace Gob3AQ.ResourceDialogsAtlas
             new( /* DIALOG_OPTION_SLUM_KIDS_LOOKING_FOR */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)},
             MomentType.MOMENT_ANY,
-            new GameAction[1]{GameAction.ACTION_MEMENTO_SLUM_PEOPLE_2},
+            new GameAction[2]{GameAction.ACTION_MEMENTO_SLUM_PEOPLE_2, GameAction.ACTION_EVENT_KIDS_SAID_PANCHO_MISSING},
             DialogType.DIALOG_SLUM_KIDS,false,
             new DialogPhrase[3]{DialogPhrase.PHRASE_SLUM_KIDS_LOOKING_FOR_1, DialogPhrase.PHRASE_SLUM_KIDS_LOOKING_FOR_2, DialogPhrase.PHRASE_SLUM_KIDS_LOOKING_FOR_3}
             ),

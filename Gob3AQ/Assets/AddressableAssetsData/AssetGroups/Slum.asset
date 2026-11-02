@@ -50,6 +50,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ab99ca1a1c0efa429bf2b6befdb39dd
+    m_Address: SPRITE_ATLAS_PANCHO_0
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2517905c4c84e1f43abe016290438c00
     m_Address: ANIMATION_MATRIARCH_TALKING_ENTRY_EXIT
     m_ReadOnly: 0
@@ -57,6 +62,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 25f881eb5aa53364b8d2256c622cad65
     m_Address: ANIMATOR_MATRIARCH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 266fadd5f1ba40a459ea0dc84c5024cb
+    m_Address: SPRITE_ROOSTER_PANCHO_STEADY
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -155,6 +155,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21172697fefd52c43b5644efdccbe786
+    m_Address: SPRITE_PICKABLE_ROOSTER
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2360d360a61a4e94c9a7cc0f6eb08cfb
     m_Address: ANIMATION_GENERIC_WALKINGFRONT_ENTRY
     m_ReadOnly: 0

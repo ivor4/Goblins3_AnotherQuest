@@ -1935,6 +1935,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_MEMENTO_SLUM_PEOPLE,true,true,false,GameSprite.SPRITE_MEMENTO_SLUM_PEOPLE,GamePickableItem.ITEM_PICK_IDEA_SLUM_PEOPLE,DetailType.PREFAB_NONE,false,
             new ActionConditions[1]{ActionConditions.COND_OK}),
 
+            new ( /* ITEM_ROOSTER_PANCHO */
+            NameType.NAME_ROOSTER_PANCHO,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PANCHO_STEADY}),
+            GameSprite.SPRITE_PANCHO_STEADY,true,false,false,GameSprite.SPRITE_PICKABLE_ROOSTER,GamePickableItem.ITEM_PICK_ROOSTER_PANCHO,DetailType.PREFAB_NONE,false,
+            new ActionConditions[1]{ActionConditions.COND_OK}),
+
             new ( /* ITEM_LAST */
             NameType.NAME_NPC_LAST,GameItemFamily.ITEM_FAMILY_TYPE_NONE,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_LAST}),
             GameSprite.SPRITE_LAST,false,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
@@ -1973,6 +1978,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameItem.ITEM_PICKABLE_PERFECT_MIX_JAR,	/* ITEM_PICK_PICKABLE_PERFECT_MIX_JAR */
             GameItem.ITEM_IDEA_RECIPE,	/* ITEM_PICK_IDEA_RECIPE */
             GameItem.ITEM_IDEA_SLUM_PEOPLE,	/* ITEM_PICK_IDEA_SLUM_PEOPLE */
+            GameItem.ITEM_ROOSTER_PANCHO,	/* ITEM_PICK_ROOSTER_PANCHO */
             /* > ATG 4 END < */
         };
 
@@ -2006,6 +2012,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_PICKABLE_MIX_JAR_PERFECT,	/* ITEM_PICK_PICKABLE_PERFECT_MIX_JAR */
             GameSprite.SPRITE_MEMENTO_RECIPE,	/* ITEM_PICK_IDEA_RECIPE */
             GameSprite.SPRITE_MEMENTO_SLUM_PEOPLE,	/* ITEM_PICK_IDEA_SLUM_PEOPLE */
+            GameSprite.SPRITE_PICKABLE_ROOSTER,	/* ITEM_PICK_ROOSTER_PANCHO */
             /* > ATG 5 END < */
         };
 
@@ -5134,6 +5141,12 @@ namespace Gob3AQ.Brain.ItemsInteraction
             false,ActionType.ACTION_TYPE_MEMENTO,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_SLUM_PEOPLE_2,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_EVENT_KIDS_SAID_PANCHO_MISSING */
+            false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_KIDS_SAID_PANCHO_MISSING, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_LAST */

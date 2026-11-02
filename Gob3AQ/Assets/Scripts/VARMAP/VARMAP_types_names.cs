@@ -100,6 +100,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_MATRIARCH, 
         NAME_SLUM_KIDS, 
         NAME_MEMENTO_SLUM_PEOPLE, 
+        NAME_ROOSTER_PANCHO, 
         NAME_NPC_LAST, 
         
 NAME_TOTAL

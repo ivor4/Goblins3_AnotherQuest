@@ -1936,8 +1936,13 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ActionConditions[1]{ActionConditions.COND_OK}),
 
             new ( /* ITEM_ROOSTER_PANCHO */
-            NameType.NAME_ROOSTER_PANCHO,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_PANCHO_STEADY}),
-            GameSprite.SPRITE_PANCHO_STEADY,true,false,false,GameSprite.SPRITE_PICKABLE_ROOSTER,GamePickableItem.ITEM_PICK_ROOSTER_PANCHO,DetailType.PREFAB_NONE,false,
+            NameType.NAME_ROOSTER_PANCHO,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ROOSTER_PANCHO_STEADY}),
+            GameSprite.SPRITE_ROOSTER_PANCHO_STEADY,true,false,false,GameSprite.SPRITE_PICKABLE_ROOSTER,GamePickableItem.ITEM_PICK_ROOSTER_PANCHO,DetailType.PREFAB_NONE,false,
+            new ActionConditions[1]{ActionConditions.COND_OK}),
+
+            new ( /* ITEM_DOOR_FISHERMEN */
+            NameType.NAME_PORCH,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
+            GameSprite.SPRITE_BLANK,false,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
             new ActionConditions[1]{ActionConditions.COND_OK}),
 
             new ( /* ITEM_LAST */

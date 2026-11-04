@@ -565,7 +565,7 @@ namespace Gob3AQ.ResourceAtlas
             new GameSprite[2]{GameSprite.BACKGROUND_SLUM_FACTORY_DAY, GameSprite.BACKGROUND_SLUM_FACTORY_NIGHT},
             new GameSound[1]{GameSound.MUSIC_SLUM_AND_FACTORY},
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(2){GameSprite.BACKGROUND_SLUM_FACTORY_DAY, GameSprite.BACKGROUND_SLUM_FACTORY_NIGHT}), 
-            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(3){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_ROOSTER_PANCHO}), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(4){GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_ROOSTER_PANCHO, GameItem.ITEM_DOOR_FISHERMEN}), 
             new ReadOnlyHashSet<DetailType>(new HashSet<DetailType>(1){DetailType.PREFAB_NONE}), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_SLUM_AND_FACTORY}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
@@ -578,6 +578,18 @@ namespace Gob3AQ.ResourceAtlas
             new GameSound[1]{GameSound.MUSIC_SLUM_AND_FACTORY},
             new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_SLUM_NEIGH_DAY}), 
             new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(4){GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_GENERIC_DOOR1, GameItem.ITEM_NPC_MATRIARCH, GameItem.ITEM_NPC_SLUM_KIDS}), 
+            new ReadOnlyHashSet<DetailType>(new HashSet<DetailType>(1){DetailType.PREFAB_NONE}), 
+            new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_SLUM_AND_FACTORY}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 
+            new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}) 
+            ),
+
+            new( /* FISHERMEN_BHOOD */
+            new GameSprite[1]{GameSprite.BACKGROUND_FISHERMEN_BHOOD_DAY},
+            new GameSound[1]{GameSound.MUSIC_SLUM_AND_FACTORY},
+            new ReadOnlyHashSet<GameSprite>(new HashSet<GameSprite>(1){GameSprite.BACKGROUND_FISHERMEN_BHOOD_DAY}), 
+            new ReadOnlyHashSet<GameItem>(new HashSet<GameItem>(2){GameItem.ITEM_PLAYER_MAIN, GameItem.ITEM_GENERIC_DOOR1}), 
             new ReadOnlyHashSet<DetailType>(new HashSet<DetailType>(1){DetailType.PREFAB_NONE}), 
             new ReadOnlyHashSet<GameSound>(new HashSet<GameSound>(1){GameSound.MUSIC_SLUM_AND_FACTORY}), 
             new ReadOnlyHashSet<UnchainConditions>(new HashSet<UnchainConditions>(1){UnchainConditions.UNCHAIN_NONE}), 

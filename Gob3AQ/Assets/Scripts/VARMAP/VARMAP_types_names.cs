@@ -101,6 +101,7 @@ namespace Gob3AQ.VARMAP.Types
         NAME_SLUM_KIDS, 
         NAME_MEMENTO_SLUM_PEOPLE, 
         NAME_ROOSTER_PANCHO, 
+        NAME_PORCH, 
         NAME_NPC_LAST, 
         
 NAME_TOTAL

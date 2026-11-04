@@ -80,6 +80,7 @@ namespace Gob3AQ.Brain.LevelOptions
             "SCENE_HIVE1_LAB",
             "SCENE_SLUM_FACTORY",
             "SCENE_SLUM_NEIGH",
+            "SCENE_FISHERMEN_BHOOD",
             ""
         };
 
@@ -119,7 +120,8 @@ namespace Gob3AQ.Brain.LevelOptions
             {Room.SERVICE_ROOM, GameFixedConfig.GAME_RECOMMENDED_THIGHT_EXTRA_Y_SIZE },
             {Room.CITY1_STREET_1, GameFixedConfig.GAME_RECOMMENDED_ZOOM_EXTRA_Y_SIZE * 1.5f },
             {Room.CITY1_STREET_2, GameFixedConfig.GAME_RECOMMENDED_ZOOM_EXTRA_Y_SIZE * 1.5f },
-            {Room.MANYO_1, GameFixedConfig.GAME_RECOMMENDED_THIGHT_EXTRA_Y_SIZE }
+            {Room.MANYO_1, GameFixedConfig.GAME_RECOMMENDED_THIGHT_EXTRA_Y_SIZE },
+            {Room.FISHERMEN_BHOOD, GameFixedConfig.GAME_RECOMMENDED_THIGHT_EXTRA_Y_SIZE }
         };
 
         private static readonly IReadOnlyDictionary<Room, Tuple<GameEventCombi[],GameSound>> _ROOM_MUSIC_CONDITIONS = new Dictionary<Room, Tuple<GameEventCombi[], GameSound>>()

@@ -119,6 +119,7 @@ namespace Gob3AQ.VARMAP.Types
         ITEM_NPC_SLUM_KIDS, 
         ITEM_IDEA_SLUM_PEOPLE, 
         ITEM_ROOSTER_PANCHO, 
+        ITEM_DOOR_FISHERMEN, 
         ITEM_LAST, 
         
 ITEM_TOTAL

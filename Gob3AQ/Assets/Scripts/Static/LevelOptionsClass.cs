@@ -133,6 +133,14 @@ namespace Gob3AQ.Brain.LevelOptions
                         new GameEventCombi(GameEvent.EVENT_ROACHES_MOB_STARTED, false),
                         new GameEventCombi(GameEvent.EVENT_REME_MOVED, true)},
                     GameSound.MUSIC_ROACH_SWARM)
+            },
+            {
+                Room.FISHERMEN_BHOOD,
+                new Tuple<GameEventCombi[], GameSound>(
+                    new GameEventCombi[]{
+                        new GameEventCombi(GameEvent.EVENT_KIDS_SAID_PANCHO_MISSING, false),
+                        new GameEventCombi(GameEvent.EVENT_PANCHO_CAUGHT, true)},
+                    GameSound.MUSIC_ROOM_PUZZLE)
             }
         };
 
@@ -150,6 +158,7 @@ namespace Gob3AQ.Brain.LevelOptions
             {Room.HIVE1_BACKALLEY, new InitialWalkInfo[]{new("alleyEntry", "alleyEntryWalk")} },
             {Room.SLUM_FACTORY, new InitialWalkInfo[]{new("mapEntry", "mapEntryWalk"), new("neighExit", "mapEntryWalk") } },
             {Room.SLUM_NEIGH, new InitialWalkInfo[]{new("mapEntry", "mapEntryWalk")} },
+            {Room.FISHERMEN_BHOOD, new InitialWalkInfo[]{new("mapEntry", "mapEntryWalk")} }
         };
 
         private static readonly IReadOnlyDictionary<int, Tuple<string, NameType>> _CHAPTER_TO_TITLE = new Dictionary<int, Tuple<string, NameType>>()

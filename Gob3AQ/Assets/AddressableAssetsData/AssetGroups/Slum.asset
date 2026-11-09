@@ -235,6 +235,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 937c055a220dfb241811331523955c78
+    m_Address: FOREGROUND_FISHERMEN_COLUMN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 94c857c0830123045b3d2075a3c1f402
     m_Address: SPRITE_ATLAS_SLUM_FACTORY_1
     m_ReadOnly: 0

@@ -1,13 +1,30 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Gob3AQ.Libs.Arith
 {
+    public static class StackExtensions
+    {
+        public static void CopyTo<T>(this Stack<T> stack, Span<T> destination, int startIndex = 0)
+        {
+            int index = startIndex;
+            foreach (var item in stack)
+            {
+                destination[index++] = item;
+            }
+        }
+
+        public static void CopyTo<T>(this Stack<T> stack, List<T> destination)
+        {
+            destination.Clear();
+            foreach (var item in stack)
+            {
+                destination.Add(item);
+            }
+        }
+    }
     public static class HashSetExtensions
     {
         /// <summary>

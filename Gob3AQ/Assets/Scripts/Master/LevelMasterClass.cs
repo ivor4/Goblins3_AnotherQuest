@@ -578,19 +578,41 @@ namespace Gob3AQ.LevelMaster
             }
             else if (keys.isKeyCycleReleased(KeyFunctions.KEYFUNC_SELECT))
             {
+                bool isPlayerMovement = false;
+                bool isInteractionWithHoveredItem = false;
+
                 /* If there is a hovered element, interact with it */
                 if (_HoveredElem.family != GameItemFamily.ITEM_FAMILY_TYPE_NONE)
                 {
-                    CheckInteractionWithHoveredItem(playerSelected, chosenItem, in _HoveredElem);
+                    if(ResourceDialogsAtlasClass.IsItemCharacter(_HoveredElem.item, out CharacterType selectedChar))
+                    {
+                        if((_HoveredElem.family == GameItemFamily.ITEM_FAMILY_TYPE_PLAYER) && (chosenItem == GameItem.ITEM_NONE) && (playerSelected == selectedChar))
+                        {
+                            isPlayerMovement = true;
+                        }
+                        else
+                        {
+                            isInteractionWithHoveredItem = true;
+                        }
+                    }
+                    else
+                    {
+                        isInteractionWithHoveredItem = true;
+                    }
                 }
                 /* Selected player or item */
                 else if (playerSelected != CharacterType.CHARACTER_NONE)
                 {
-                    CheckPlayerMovementOrder(in mouse, playerSelected);
+                    isPlayerMovement = true;
                 }
-                else
+
+                if(isInteractionWithHoveredItem)
                 {
-                    /**/
+                    CheckInteractionWithHoveredItem(playerSelected, chosenItem, in _HoveredElem);
+                }
+                else if (isPlayerMovement)
+                {
+                    CheckPlayerMovementOrder(in mouse, playerSelected);
                 }
             }
             else

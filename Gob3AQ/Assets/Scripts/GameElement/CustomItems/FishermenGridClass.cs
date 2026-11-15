@@ -148,20 +148,9 @@ namespace Gob3AQ.GameElement.Extension.FishermanGrid
 
             for (int hashCode = 0; hashCode < TOTAL_SIZE; hashCode++)
             {
-                if (grid[hashCode].selectable)
+                if (grid[hashCode].selectable && !grid[hashCode].painted)
                 {
                     Propagate(hashCode);
-                }
-            }
-
-            if (false)
-            {
-                for (int i = 0; i < TOTAL_SIZE; i++)
-                {
-                    for (int j = 0; j < TOTAL_SIZE; j++)
-                    {
-                        Debug.Log($"Solution from {i} to {j} is {solutions[i, j]}");
-                    }
                 }
             }
         }
@@ -210,7 +199,7 @@ namespace Gob3AQ.GameElement.Extension.FishermanGrid
 
                     GridPosition connectionPos = new GridPosition(x, y);
 
-                    if (!grid[connectionPos.hashCode].selectable) continue;
+                    if ((!grid[connectionPos.hashCode].selectable) || grid[connectionPos.hashCode].painted) continue;
 
 
                     /* Calculate distance to this point and add to base distance */

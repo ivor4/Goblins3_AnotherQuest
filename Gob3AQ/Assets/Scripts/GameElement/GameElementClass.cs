@@ -733,7 +733,7 @@ namespace Gob3AQ.GameElement
             ExecuteQueuedTrigger();
 
             /* Remove after debugging */
-            speed_reduction_factor = 1f;
+            //speed_reduction_factor = 1f;
 
             myRigidbody.linearVelocity = GameFixedConfig.CHARACTER_NORMAL_SPEED * speed_reduction_factor * delta;
 

@@ -41,6 +41,7 @@ namespace Gob3AQ.Waypoint
 
 
         public int ID_in_Network => id_in_network;
+        public float CharacterSizeFactor => characterSizeFactor;
         public IReadOnlyList<WaypointClass> ConnectedWaypoints => connectedWaypoints;
 
 
@@ -64,6 +65,11 @@ namespace Gob3AQ.Waypoint
         public void SetNetwork(WaypointNetwork nw)
         {
             network = nw;
+        }
+
+        public void SetCharacterSizeFactor(float factor)
+        {
+            characterSizeFactor = factor;
         }
 
         public void ConnectWith(WaypointClass w)

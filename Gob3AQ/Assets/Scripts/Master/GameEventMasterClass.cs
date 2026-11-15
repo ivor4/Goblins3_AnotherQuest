@@ -945,6 +945,7 @@ namespace Gob3AQ.GameEventMaster
                             mustWait = info.waitForEnd && !storeOnly;
                             notifyAction = NotifyAction.NOTIFY_ANIMATION;
                             bool immediate = info.boolOption2.HasValue && info.boolOption2.Value;
+                            /* boolOption1 is flipX after animation */
                             VARMAP_GameEventMaster.ITEM_PERFORM_ANIMATION(info.targetItem, info.animTrigger, null, mustWait ? EndOfItemAnimationCallback : null, storeOnly, info.boolOption1, immediate);
                             break;
                         }

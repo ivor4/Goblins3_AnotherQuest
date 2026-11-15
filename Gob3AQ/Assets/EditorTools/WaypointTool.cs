@@ -153,6 +153,7 @@ namespace Gob3AQ.Waypoint.WaypointTool
                 if (GUILayout.Button("Connect New Waypoint", GUILayout.Width(200)))
                 {
                     WaypointClass waypoint = CreateWaypoint(selectedWaypoint.transform.position + Vector3.up, selectedWaypoint.name + "_NEW");
+                    waypoint.SetCharacterSizeFactor(selectedWaypoint.CharacterSizeFactor);
 
                     selectedWaypoint.ConnectWith(waypoint);
                     waypoint.ConnectWith(selectedWaypoint);
@@ -168,12 +169,17 @@ namespace Gob3AQ.Waypoint.WaypointTool
                     for (int i = 0; i < selectedWaypoint.ConnectedWaypoints.Count; i++)
                     {
                         WaypointClass otherWaypoint = selectedWaypoint.ConnectedWaypoints[i];
-
-                        selectedWaypoint.DisconnectWith(otherWaypoint);
                         otherWaypoint.DisconnectWith(selectedWaypoint);
                         EditorUtility.SetDirty(otherWaypoint);
                         EditorUtility.SetDirty(otherWaypoint.gameObject);
                     }
+
+                    for (int i = 0; i < selectedWaypoint.ConnectedWaypoints.Count; i++)
+                    {
+                        WaypointClass otherWaypoint = selectedWaypoint.ConnectedWaypoints[i];
+                        selectedWaypoint.DisconnectWith(otherWaypoint);
+                    }
+
                     DestroyImmediate(selectedWaypoint.gameObject);
                 }
             }
@@ -204,7 +210,8 @@ namespace Gob3AQ.Waypoint.WaypointTool
 
                     if (GUILayout.Button("Insert New between", GUILayout.Width(200)))
                     {
-                        WaypointClass waypoint = CreateWaypoint((selectedWaypoints[0].transform.position + selectedWaypoints[1].transform.position) / 2 + Vector3.up, selectedWaypoints[0].name + "_NEW");
+                        WaypointClass waypoint = CreateWaypoint((selectedWaypoints[0].transform.position + selectedWaypoints[1].transform.position) / 2f, selectedWaypoints[0].name + "_NEW");
+                        waypoint.SetCharacterSizeFactor((selectedWaypoints[0].CharacterSizeFactor + selectedWaypoints[1].CharacterSizeFactor) / 2f);
 
                         selectedWaypoints[0].DisconnectWith(selectedWaypoints[1]);
                         selectedWaypoints[1].DisconnectWith(selectedWaypoints[0]);

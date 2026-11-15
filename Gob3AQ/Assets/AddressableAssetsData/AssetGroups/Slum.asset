@@ -65,6 +65,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1694538a5c644294ca05d88794512999
+    m_Address: SOUND_MAINCHAR_COMMENT_ROOSTER_GAME_START_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1749c546cbdaa9e448c05d6d70afbf83
     m_Address: ANIMATION_SLUM_KIDS_LISTEN_TO_STEADY
     m_ReadOnly: 0
@@ -72,6 +77,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1ab99ca1a1c0efa429bf2b6befdb39dd
     m_Address: SPRITE_ATLAS_PANCHO_0
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1dc3608ba382313498998af881911904
+    m_Address: ANIMATION_ROOSTER_PANCHO_TURNING_RIGHT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -87,6 +97,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 266fadd5f1ba40a459ea0dc84c5024cb
     m_Address: SPRITE_ROOSTER_PANCHO_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2897ff23591935349a3e83f46488655a
+    m_Address: ANIMATION_ROOSTER_PANCHO_FLYING_EXIT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -115,6 +130,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 322c12352ce779e4fa66d731f592adb8
+    m_Address: SPRITE_ROOSTER_PANCHO_FLYING_ANIM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3248e02bf44dfc94a931ad0f9af18dca
+    m_Address: SPRITE_ROOSTER_PANCHO_TURNING_RIGHT_ANIM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 34ef16c72cec3ba4b8b60106138592a9
     m_Address: SOUND_MATRIARCH_BYE_SPANISH
     m_ReadOnly: 0
@@ -122,6 +147,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 35506650d7651044688206d24062b176
     m_Address: BACKGROUND_SLUM_FACTORY_DAY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 35a896c3790bf4644a55b09b58b4c199
+    m_Address: SOUND_ROOSTER_SCARED
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -170,6 +200,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b87713a38e725c47b596ccad1d2dad5
+    m_Address: ANIMATION_ROOSTER_PANCHO_FLYING_EXEC1_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5cd8ef793a9335e4ab72c22dfce244f8
     m_Address: ANIMATION_SLUM_KIDS_LISTEN_ENTER_EXIT
     m_ReadOnly: 0
@@ -202,6 +237,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 77ab7e1e498595f48bf1753dd3cd0416
     m_Address: SPRITE_SLUM_CLOTHES_2_ANIM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a35bcfdbb393d04994d71fab5406289
+    m_Address: ANIMATION_ROOSTER_PANCHO_SCOUTING
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -325,6 +365,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd74816e2af78b94381bc5afcb13f4f8
+    m_Address: SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cf4fe79960337304e8a4cd3a00bb88c0
     m_Address: SOUND_SLUM_KIDS_INTRO_2_SPANISH
     m_ReadOnly: 0
@@ -397,6 +442,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e6497934bd3d6b54193c74e929bbc519
     m_Address: SPRITE_MATRIARCH_STEADY_ANIM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee68bd5e63d55f94a978f4aafa2cee30
+    m_Address: ANIMATION_ROOSTER_PANCHO_FLYING
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

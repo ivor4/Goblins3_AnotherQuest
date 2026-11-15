@@ -1,0 +1,639 @@
+fileFormatVersion: 2
+guid: 322c12352ce779e4fa66d731f592adb8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2096192708418885051
+    second: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_0
+  - first:
+      213: 1468262255706734950
+    second: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_1
+  - first:
+      213: 2766166552711365557
+    second: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_2
+  - first:
+      213: 6204919610583736763
+    second: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_3
+  - first:
+      213: 2860571009519543417
+    second: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_4
+  - first:
+      213: -4664518580788451369
+    second: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_5
+  - first:
+      213: -7975586107712145899
+    second: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_6
+  - first:
+      213: -6816846511427452184
+    second: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_7
+  - first:
+      213: -5343414465868932277
+    second: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_8
+  - first:
+      213: 6196550178837112044
+    second: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_9
+  - first:
+      213: -6391463355084965915
+    second: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_10
+  - first:
+      213: -2833018472551175067
+    second: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_11
+  - first:
+      213: 4496368037827137378
+    second: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_12
+  - first:
+      213: -4018408704137492802
+    second: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_13
+  - first:
+      213: 7530551114308101681
+    second: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_14
+  - first:
+      213: -6368291828484700480
+    second: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_15
+  - first:
+      213: -2314773805695226766
+    second: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_16
+  - first:
+      213: 8631062909721139109
+    second: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_17
+  - first:
+      213: 3859009788767126502
+    second: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_18
+  - first:
+      213: 7224471879781937382
+    second: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54aade976d3d8e2e0800000000000000
+      internalID: -2096192708418885051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 661838c0eb0506410800000000000000
+      internalID: 1468262255706734950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b38debe2d5636620800000000000000
+      internalID: 2766166552711365557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb1e2b0c28d4c1650800000000000000
+      internalID: 6204919610583736763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 974613d5d2ac2b720800000000000000
+      internalID: 2860571009519543417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d725ef701d444fb0800000000000000
+      internalID: -4664518580788451369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_6
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 516f64601b6015190800000000000000
+      internalID: -7975586107712145899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_7
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e2810e0732b561a0800000000000000
+      internalID: -6816846511427452184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4bd23a9ad068d5b0800000000000000
+      internalID: -5343414465868932277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_9
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce428729e819ef550800000000000000
+      internalID: 6196550178837112044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_10
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e7fb3521f5fc47a0800000000000000
+      internalID: -6391463355084965915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_11
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56ca77d85b81fa8d0800000000000000
+      internalID: -2833018472551175067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26f4b1a58ee466e30800000000000000
+      internalID: 4496368037827137378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_13
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb60c83f29ebb38c0800000000000000
+      internalID: -4018408704137492802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_14
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 136a1430754e18860800000000000000
+      internalID: 7530551114308101681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_15
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c6852992584f97a0800000000000000
+      internalID: -6368291828484700480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27c2828ec7540efd0800000000000000
+      internalID: -2314773805695226766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_17
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a75affacf1b7c770800000000000000
+      internalID: 8631062909721139109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_18
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e3483cf4f4fd8530800000000000000
+      internalID: 3859009788767126502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_FLYING_ANIM_19
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e07334d5ea724460800000000000000
+      internalID: 7224471879781937382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 78f1962b802fdf841806b5b79cda4efd
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":5.0},"gridSpriteSize":{"x":256.0,"y":256.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0625},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_ROOSTER_PANCHO_FLYING_ANIM_0: -2096192708418885051
+      SPRITE_ROOSTER_PANCHO_FLYING_ANIM_1: 1468262255706734950
+      SPRITE_ROOSTER_PANCHO_FLYING_ANIM_10: -6391463355084965915
+      SPRITE_ROOSTER_PANCHO_FLYING_ANIM_11: -2833018472551175067
+      SPRITE_ROOSTER_PANCHO_FLYING_ANIM_12: 4496368037827137378
+      SPRITE_ROOSTER_PANCHO_FLYING_ANIM_13: -4018408704137492802
+      SPRITE_ROOSTER_PANCHO_FLYING_ANIM_14: 7530551114308101681
+      SPRITE_ROOSTER_PANCHO_FLYING_ANIM_15: -6368291828484700480
+      SPRITE_ROOSTER_PANCHO_FLYING_ANIM_16: -2314773805695226766
+      SPRITE_ROOSTER_PANCHO_FLYING_ANIM_17: 8631062909721139109
+      SPRITE_ROOSTER_PANCHO_FLYING_ANIM_18: 3859009788767126502
+      SPRITE_ROOSTER_PANCHO_FLYING_ANIM_19: 7224471879781937382
+      SPRITE_ROOSTER_PANCHO_FLYING_ANIM_2: 2766166552711365557
+      SPRITE_ROOSTER_PANCHO_FLYING_ANIM_3: 6204919610583736763
+      SPRITE_ROOSTER_PANCHO_FLYING_ANIM_4: 2860571009519543417
+      SPRITE_ROOSTER_PANCHO_FLYING_ANIM_5: -4664518580788451369
+      SPRITE_ROOSTER_PANCHO_FLYING_ANIM_6: -7975586107712145899
+      SPRITE_ROOSTER_PANCHO_FLYING_ANIM_7: -6816846511427452184
+      SPRITE_ROOSTER_PANCHO_FLYING_ANIM_8: -5343414465868932277
+      SPRITE_ROOSTER_PANCHO_FLYING_ANIM_9: 6196550178837112044
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

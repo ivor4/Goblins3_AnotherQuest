@@ -1,0 +1,431 @@
+fileFormatVersion: 2
+guid: cd74816e2af78b94381bc5afcb13f4f8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4003815210386551556
+    second: SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_0
+  - first:
+      213: -7502458100800573039
+    second: SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_1
+  - first:
+      213: -767604164839192256
+    second: SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_2
+  - first:
+      213: -1752181124243618049
+    second: SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_3
+  - first:
+      213: -7443994040201630051
+    second: SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_4
+  - first:
+      213: 442833916175375982
+    second: SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_5
+  - first:
+      213: 2720225121575856533
+    second: SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_6
+  - first:
+      213: -3273891315950024704
+    second: SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_7
+  - first:
+      213: -3378324447962931689
+    second: SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_8
+  - first:
+      213: 1721294429283377247
+    second: SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_9
+  - first:
+      213: 4955369604929028504
+    second: SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_10
+  - first:
+      213: 6031564869374532659
+    second: SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 403756188b8609730800000000000000
+      internalID: 4003815210386551556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 191b7876b1ae1e790800000000000000
+      internalID: -7502458100800573039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04946aa341ce855f0800000000000000
+      internalID: -767604164839192256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff6805b0d800fa7e0800000000000000
+      internalID: -1752181124243618049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9e28a34cde91b890800000000000000
+      internalID: -7443994040201630051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_5
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6ed02cb913452600800000000000000
+      internalID: 442833916175375982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5996f90f55e20c520800000000000000
+      internalID: 2720225121575856533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_7
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0080097a13dc092d0800000000000000
+      internalID: -3273891315950024704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71ed62f40d7cd11d0800000000000000
+      internalID: -3378324447962931689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f506b43e92443e710800000000000000
+      internalID: 1721294429283377247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_10
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8910098a66205c440800000000000000
+      internalID: 4955369604929028504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_11
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33c5bc6ca4c64b350800000000000000
+      internalID: 6031564869374532659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b506b67a7eca886418550e75f7a6b77c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":4.0},"gridSpriteSize":{"x":256.0,"y":256.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0625},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_0: 4003815210386551556
+      SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_1: -7502458100800573039
+      SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_10: 4955369604929028504
+      SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_11: 6031564869374532659
+      SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_2: -767604164839192256
+      SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_3: -1752181124243618049
+      SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_4: -7443994040201630051
+      SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_5: 442833916175375982
+      SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_6: 2720225121575856533
+      SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_7: -3273891315950024704
+      SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_8: -3378324447962931689
+      SPRITE_ROOSTER_PANCHO_SCOUTING_ANIM_9: 1721294429283377247
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -861,6 +861,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ItemPancho
       objectReference: {fileID: 0}
+    - target: {fileID: 3638331546681014208, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6869328664999452173, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
       value: 0.0625
@@ -976,8 +980,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5801370947504161610, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 889867204}
   m_SourcePrefab: {fileID: 100100000, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+--- !u!1 &889867203 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5801370947504161610, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+  m_PrefabInstance: {fileID: 889867202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &889867204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889867203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5faf948d70c9f1942ba39cd362523327, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameCode::Gob3AQ.GameElement.Extension.RoosterPancho.RoosterPanchoClass
 --- !u!1001 &1012771658
 PrefabInstance:
   m_ObjectHideFlags: 0

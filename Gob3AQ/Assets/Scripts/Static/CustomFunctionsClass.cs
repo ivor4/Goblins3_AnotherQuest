@@ -21,7 +21,9 @@ namespace Gob3AQ.Brain.CustomFunctions
             {CustomFunction.CUSTOM_FUNCTION_LAB_ADD_VARNISH,  Custom_Lab_Add_Varnish},
             {CustomFunction.CUSTOM_FUNCTION_LAB_ADD_RUST,  Custom_Lab_Add_Rust},
             {CustomFunction.CUSTOM_FUNCTION_LAB_POST_CHECK, Custom_Lab_Post_Check },
-            {CustomFunction.CUSTOM_FUNCTION_SERVICE_JAR_INIT_STATE, Custom_Service_Jar_Init_State }
+            {CustomFunction.CUSTOM_FUNCTION_SERVICE_JAR_INIT_STATE, Custom_Service_Jar_Init_State },
+
+            {CustomFunction.CUSTOM_FUNCTION_ROOSTER_GAME_START, Custom_Rooster_Game_Start }
         };
 
         private static void Custom_Reset_Lab_Misc_Values()
@@ -267,6 +269,12 @@ namespace Gob3AQ.Brain.CustomFunctions
             }
 
             VARMAP_GameEventMaster.PERFORM_ACTION(actions, null);
+        }
+
+        private static void Custom_Rooster_Game_Start()
+        {
+            NumberPack numberPack = new();
+            VARMAP_GameEventMaster.EXECUTE_ITEM_EXT_FUNCTION(ItemExtensionFunction.ITEM_EXTENSION_ROOSTER_PANCHO_GAME_START, in numberPack);
         }
     }
 }

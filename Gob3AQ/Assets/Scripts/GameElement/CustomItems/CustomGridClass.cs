@@ -8,8 +8,8 @@ using UnityEngine;
 
 namespace Gob3AQ.GameElement.Extension.FishermanGrid
 {
-
-    public class FishermenGridClass : MonoBehaviour, IGameElementExtension
+    /* Not used, but may be useful in the future */
+    public class CustomGridClass : MonoBehaviour, IGameElementExtension
     {
         private const int X_SIZE = 6;
         private const int Y_SIZE = 18;
@@ -93,7 +93,7 @@ namespace Gob3AQ.GameElement.Extension.FishermanGrid
 
         public void OnExtensionDestroy()
         {
-            ItemMasterClass.RemoveItemExtension(ItemExtensionFunction.ITEM_EXTENSION_FN_PAINT_FISHERMEN_GRID);
+            //ItemMasterClass.RemoveItemExtension(ItemExtensionFunction.ITEM_EXTENSION_FN_PAINT_FISHERMEN_GRID);
         }
 
         public void OnReceiveExtFn(ItemExtensionFunction extFn, in NumberPack numberPack)
@@ -123,7 +123,7 @@ namespace Gob3AQ.GameElement.Extension.FishermanGrid
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         private void Start()
         {
-            ItemMasterClass.AddItemExtension(ItemExtensionFunction.ITEM_EXTENSION_FN_PAINT_FISHERMEN_GRID, this);
+            //ItemMasterClass.AddItemExtension(ItemExtensionFunction.ITEM_EXTENSION_FN_PAINT_FISHERMEN_GRID, this);
 
             for(int x=0; x < X_SIZE; x++)
             {

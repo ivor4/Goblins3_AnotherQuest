@@ -67,6 +67,9 @@ namespace Gob3AQ.FixedConfig
         public const int MAX_ANIMATIONS_PERFORMING = 8;
         public const int MAX_QUEUED_PUSH_NOTIFS = 4;
 
+        /* Difficulty (Minigames) */
+        public const ulong ROOSTER_PANCHO_GAME_SCOUT_PERIOD_MS = 2000;
+
 
         /* File routes */
         public static readonly string LOADSAVE_FILEPATH = Application.persistentDataPath + "/savedat.dat";

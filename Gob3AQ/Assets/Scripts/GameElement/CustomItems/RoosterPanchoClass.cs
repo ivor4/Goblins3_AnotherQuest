@@ -1,10 +1,11 @@
-using Gob3AQ.VARMAP.Types;
-using Gob3AQ.VARMAP.ItemMaster;
-using Gob3AQ.ItemMaster;
-using UnityEngine;
-using Gob3AQ.GameElement.Item;
-using System.Collections.Generic;
 using Gob3AQ.FixedConfig;
+using Gob3AQ.GameElement.Item;
+using Gob3AQ.ItemMaster;
+using Gob3AQ.VARMAP.ItemMaster;
+using Gob3AQ.VARMAP.Types;
+using System.Collections.Generic;
+using UnityEditor.Animations;
+using UnityEngine;
 
 namespace Gob3AQ.GameElement.Extension.RoosterPancho
 {
@@ -19,14 +20,17 @@ namespace Gob3AQ.GameElement.Extension.RoosterPancho
         private bool gameStarted;
         private ulong startTimestamp;
         private bool scouting;
+        private int animationState;
+        private bool receivedAnimationEndFlag;
 
         void IGameElementExtension.OnDespawn()
         {
-            /**/
+            activated = false;
         }
 
         void IGameElementExtension.OnExtensionDestroy()
         {
+            activated = false;
             ItemMasterClass.RemoveItemExtension(ItemExtensionFunction.ITEM_EXTENSION_ROOSTER_PANCHO_GAME_START);
         }
 
@@ -74,15 +78,51 @@ namespace Gob3AQ.GameElement.Extension.RoosterPancho
                 if((elapsedSinceStart > GameFixedConfig.ROOSTER_PANCHO_GAME_SCOUT_PERIOD_MS) && !scouting)
                 {
                     scouting = true;
-                    item_rooster.PerformAnimation(AnimationTrigger.ANIMATION_TRIGGER_FOUR, null, ScoutingEnded, false, null, true);
+                    animationState = 0;
+                    receivedAnimationEndFlag = false;
+
+                    /* Store right steady */
+                    item_rooster.PerformAnimation(AnimationTrigger.ANIMATION_TRIGGER_STEADY_TWO, null, null, true, null, false);
+
+                    /* Turn right */
+                    item_rooster.PerformAnimation(AnimationTrigger.ANIMATION_TRIGGER_TWO, null, ScoutAnimationEnded, false, null, true);
+                }
+                else if(receivedAnimationEndFlag)
+                {
+                    switch (animationState)
+                    {
+                        case 0:
+                            /* Scout */
+                            item_rooster.PerformAnimation(AnimationTrigger.ANIMATION_TRIGGER_FOUR, null, ScoutAnimationEnded, false, null, false);
+                            break;
+
+                        case 1:
+                            /* Store left steady */
+                            item_rooster.PerformAnimation(AnimationTrigger.ANIMATION_TRIGGER_STEADY_ONE, null, null, true, null, false);
+
+                            /* Turn left */
+                            item_rooster.PerformAnimation(AnimationTrigger.ANIMATION_TRIGGER_THREE, null, ScoutAnimationEnded, false, null, false);
+                            break;
+
+                        default:
+                            /* Scout end */
+                            scouting = false;
+                            startTimestamp = VARMAP_ItemMaster.GET_ELAPSED_TIME_MS();
+                            break;
+                    }
+                    ++animationState;
+                    receivedAnimationEndFlag = false;
+                }
+                else
+                {
+                    /**/
                 }
             }
         }
 
-        private void ScoutingEnded()
+        private void ScoutAnimationEnded()
         {
-            scouting = false;
-            startTimestamp = VARMAP_ItemMaster.GET_ELAPSED_TIME_MS();
+            receivedAnimationEndFlag = true;
         }
     }
 }

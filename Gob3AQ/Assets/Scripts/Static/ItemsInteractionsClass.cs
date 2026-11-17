@@ -538,8 +538,8 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new GameAction[1]{GameAction.ACTION_PLAY_SOUND_PHARMACY_VISIT_ENTER}), 
 
             new( /* UNCHAIN_SPAWN_ROOSTER_PANCHO */
-            false,false,false,new(GameEvent.EVENT_NONE, false), 
-            new GameEventCombi[2]{new(GameEvent.EVENT_KIDS_SAID_PANCHO_MISSING, false), new(GameEvent.EVENT_PANCHO_CAUGHT, true)}, 
+            true,false,false,new(GameEvent.EVENT_NONE, false), 
+            new GameEventCombi[3]{new(GameEvent.EVENT_KIDS_SAID_PANCHO_MISSING, false), new(GameEvent.EVENT_PANCHO_CAUGHT, true), new(GameEvent.EVENT_PANCHO_GAME_STARTED, true)}, 
             MomentType.MOMENT_MORNING, 
             new GameAction[1]{GameAction.ACTION_SPAWN_ROOSTER_PANCHO}), 
 

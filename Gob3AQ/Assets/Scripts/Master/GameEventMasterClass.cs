@@ -285,11 +285,10 @@ namespace Gob3AQ.GameEventMaster
             }
         }
 
-        public static void ExecuteExitRoomCondsService()
+        public static void ExecuteExitRoomCondsService(Room room)
         {
             if (!_singleton) return;
             
-            Room room = VARMAP_GameEventMaster.GET_ACTUAL_ROOM();
             if (room == Room.ROOM_NONE) return;
             
             ref readonly RoomInfo roomInfo = ref ResourceAtlasClass.GetRoomInfo(room);

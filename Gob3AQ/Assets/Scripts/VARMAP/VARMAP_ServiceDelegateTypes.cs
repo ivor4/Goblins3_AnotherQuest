@@ -33,7 +33,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void START_GAME_DELEGATE(out bool error);
     public delegate void SAVE_GAME_DELEGATE();
     public delegate void LOAD_GAME_DELEGATE();
-    public delegate void LOAD_ROOM_DELEGATE(Room room, out bool error);
+    public delegate void LOAD_ROOM_DELEGATE(Room room, bool isLoadingGame, out bool error);
     public delegate void EXIT_GAME_DELEGATE(out bool error);
     public delegate void LOADING_COMPLETED_DELEGATE(GameModules module);
     public delegate void IS_MODULE_LOADED_DELEGATE(GameModules module, out bool loaded);
@@ -76,7 +76,7 @@ namespace Gob3AQ.VARMAP.Types.Delegates
     public delegate void IS_DIALOG_ACTIVE_DELEGATE(out bool active);
     public delegate void NOTIFY_ENDED_ACTION_DELEGATE(NotifyAction notify);
     public delegate void TAKE_LOADING_SNAPSHOT_DELEGATE();
-    public delegate void EXECUTE_EXIT_ROOM_CONDS_DELEGATE();
+    public delegate void EXECUTE_EXIT_ROOM_CONDS_DELEGATE(Room room);
     public delegate void GET_ITEM_SPRITE_BOUNDARIES_DELEGATE(GameItem item, out Bounds worldBounds);
     public delegate void ACTIVATE_FORCED_ZOOM_MODE_DELEGATE(bool activate, in Bounds regionOfInterest, float extra_y_size_ratio, ulong zoomDurationMs);
     public delegate void CHANGE_RECOMMENDED_ZOOM_DELEGATE(in Bounds regionOfInterest, ulong zoomDuration);

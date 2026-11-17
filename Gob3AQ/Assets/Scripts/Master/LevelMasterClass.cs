@@ -250,7 +250,7 @@ namespace Gob3AQ.LevelMaster
 
             _singleton.crossingDoor = true;
 
-            VARMAP_LevelMaster.LOAD_ROOM(room, out _);
+            VARMAP_LevelMaster.LOAD_ROOM(room, false, out _);
         }
 
 
@@ -912,7 +912,7 @@ namespace Gob3AQ.LevelMaster
 
             crossingDoor = true;
 
-            VARMAP_LevelMaster.LOAD_ROOM(doorInfo.roomLeadTo, out _);
+            VARMAP_LevelMaster.LOAD_ROOM(doorInfo.roomLeadTo, false, out _);
         }
 
         private void ClearHovered()

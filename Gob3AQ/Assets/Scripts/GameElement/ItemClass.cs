@@ -217,6 +217,16 @@ namespace Gob3AQ.GameElement.Item
 
             ItemMasterClass.AddOneItemLoaded();
 
+
+            if(startUnspawned)
+            {
+                SetUnspawned(true);
+                SetMotion(false);
+                SetActive(false);
+                SetClickable(false);
+                SetVisible(false);
+            }
+
             
         }
 

@@ -62,6 +62,8 @@ namespace Gob3AQ.GameElement
 
         [SerializeField]
         protected bool reverseFlipX;
+        [SerializeField]
+        protected bool startUnspawned;
 
 
         public GameItem ItemID => itemID;

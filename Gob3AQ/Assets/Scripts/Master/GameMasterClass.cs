@@ -242,7 +242,7 @@ namespace Gob3AQ.GameMaster
         }
 
 
-        public static void LoadRoomService(Room room, out bool error)
+        public static void LoadRoomService(Room room, bool isLoadingGame, out bool error)
         {
             saveGamePending = false;
             Game_Status gstatus = VARMAP_GameMaster.GET_SHADOW_GAMESTATUS();
@@ -253,9 +253,11 @@ namespace Gob3AQ.GameMaster
                 error = false;
                 loadScenePending = room;
 
-                if (VARMAP_GameMaster.GET_SHADOW_ACTUAL_ROOM() != Room.ROOM_NONE)
+                Room prevRoom = VARMAP_GameMaster.GET_SHADOW_ACTUAL_ROOM();
+
+                if ((prevRoom != Room.ROOM_NONE)&&(!isLoadingGame))
                 {
-                    VARMAP_GameMaster.EXECUTE_EXIT_ROOM_CONDS();
+                    VARMAP_GameMaster.EXECUTE_EXIT_ROOM_CONDS(prevRoom);
                 }
             }
             else
@@ -327,7 +329,7 @@ namespace Gob3AQ.GameMaster
             }
 
             loadScenePendingFromGameLoad = true;
-            LoadRoomService(room, out _);
+            LoadRoomService(room, true, out _);
         }
 
         public static void LoadingCompletedService(GameModules module)

@@ -16,6 +16,14 @@ namespace Gob3AQ.VARMAP.Types
         CHANGED_EVENT_SET_LIST_ELEM
     }
 
+    public enum GameElementPhysicalState
+    {
+        PHYSICAL_STATE_STANDING,
+        PHYSICAL_STATE_WALKING,
+        PHYSICAL_STATE_WALKING_FINAL_COOLDOWN,  /* Only for pin point map */
+        PHYSICAL_STATE_LOCKED
+    }
+
     public enum KeyFunctionsIndex
     {
         KEYFUNC_INDEX_CHANGEACTION = 0,

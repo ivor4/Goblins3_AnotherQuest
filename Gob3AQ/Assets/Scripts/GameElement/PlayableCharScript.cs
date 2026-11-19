@@ -38,15 +38,15 @@ namespace Gob3AQ.GameElement.PlayableChar
                 if (IsAvailable)
                 {
                     /* Lock the character */
-                    physicalstate = PhysicalState.PHYSICAL_STATE_LOCKED;
+                    physicalstate = GameElementPhysicalState.PHYSICAL_STATE_LOCKED;
                 }
             }
             else
             {
-                if(physicalstate == PhysicalState.PHYSICAL_STATE_LOCKED)
+                if(physicalstate == GameElementPhysicalState.PHYSICAL_STATE_LOCKED)
                 {
                     /* Unlock the character */
-                    physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
+                    physicalstate = GameElementPhysicalState.PHYSICAL_STATE_STANDING;
                 }
             }
         }
@@ -75,7 +75,7 @@ namespace Gob3AQ.GameElement.PlayableChar
         {
             base.Start();
 
-            physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
+            physicalstate = GameElementPhysicalState.PHYSICAL_STATE_STANDING;
             SetAvailable(true);
 
             PlayerMasterClass.SetPlayerLoadPresent(CharType);
@@ -201,7 +201,7 @@ namespace Gob3AQ.GameElement.PlayableChar
         {
             UpdateSortingOrder();
             SetBlur(Mathf.Clamp(1.0f - actualWaypointSizeFactor, 0.0f, 1.0f));
-            SetAvailable((physicalstate == PhysicalState.PHYSICAL_STATE_STANDING) || (physicalstate == PhysicalState.PHYSICAL_STATE_WALKING));
+            SetAvailable((physicalstate == GameElementPhysicalState.PHYSICAL_STATE_STANDING) || (physicalstate == GameElementPhysicalState.PHYSICAL_STATE_WALKING));
         }
         #endregion
 

@@ -126,7 +126,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2fa319e4f831d214aa3e0d09ab5ad9ec
-    m_Address: ANIMATION_ROOSTER_PANCHO_CACKLE
+    m_Address: ANIMATION_ROOSTER_PANCHO_CACKLE_LEFT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -302,6 +302,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a17d8e36f31882f4d88768e720a959c3
     m_Address: SPRITE_ROOSTER_PANCHO_STEADY_ANIM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2d18c9ef4ce16245b6ad9d262006ce4
+    m_Address: ANIMATION_ROOSTER_PANCHO_CACKLE_RIGHT
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

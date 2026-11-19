@@ -37,13 +37,7 @@ namespace Gob3AQ.GameElement
             public float delta_size;
         }
 
-        protected enum PhysicalState
-        {
-            PHYSICAL_STATE_STANDING,
-            PHYSICAL_STATE_WALKING,
-            PHYSICAL_STATE_WALKING_FINAL_COOLDOWN,  /* Only for pin point map */
-            PHYSICAL_STATE_LOCKED
-        }
+        
 
 
         [SerializeField]
@@ -72,6 +66,7 @@ namespace Gob3AQ.GameElement
         public Bounds Bounds => mySpriteRenderer.bounds;
         public int Waypoint => actualWaypoint;
         public int ExposedWaypoint => exposedWaypoint;
+        public GameElementPhysicalState CurrentPhysicalState => physicalstate;
 
         public bool IsAvailable => isAvailable;
 
@@ -114,7 +109,7 @@ namespace Gob3AQ.GameElement
         private bool isMotion_int;
         private bool isMotion_ext;
 
-        protected PhysicalState physicalstate;
+        protected GameElementPhysicalState physicalstate;
         protected float actualWaypointSizeFactor;
         private WaypointProgrammedPath actualProgrammedPath;
         private float baseSize;
@@ -173,17 +168,17 @@ namespace Gob3AQ.GameElement
             {
                 switch (physicalstate)
                 {
-                    case PhysicalState.PHYSICAL_STATE_WALKING:
+                    case GameElementPhysicalState.PHYSICAL_STATE_WALKING:
                         Execute_Walk();
                         break;
 
-                    case PhysicalState.PHYSICAL_STATE_WALKING_FINAL_COOLDOWN:
+                    case GameElementPhysicalState.PHYSICAL_STATE_WALKING_FINAL_COOLDOWN:
                         ulong elapsed = VARMAP_ItemMaster.GET_ELAPSED_TIME_MS() - finalWalkCooldownTimestamp;
 
                         if(elapsed >= GameFixedConfig.MAP_POINT_FINAL_MOVEMENT_COOLDOWN_MS)
                         {
                             StartBufferedInteraction();
-                            physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
+                            physicalstate = GameElementPhysicalState.PHYSICAL_STATE_STANDING;
                         }
                         break;
                 }
@@ -273,7 +268,7 @@ namespace Gob3AQ.GameElement
             bool requestAccepted;
 
             /* Interact only if not talking or doing an action */
-            if (IsAvailable && (physicalstate is (not PhysicalState.PHYSICAL_STATE_LOCKED) and (not PhysicalState.PHYSICAL_STATE_WALKING_FINAL_COOLDOWN)))
+            if (IsAvailable && (physicalstate is (not GameElementPhysicalState.PHYSICAL_STATE_LOCKED) and (not GameElementPhysicalState.PHYSICAL_STATE_WALKING_FINAL_COOLDOWN)))
             {
                 int target_index = waypoints_infos[actualWaypoint].Solution.TravelTo[destWp_index];
 
@@ -283,11 +278,11 @@ namespace Gob3AQ.GameElement
                     actualProgrammedPath.final_index = destWp_index;
 
                     /* If already walking, complete its actual segment. If stopped, start with first inteded segment of new path from actual waypoint */
-                    if ((physicalstate != PhysicalState.PHYSICAL_STATE_WALKING) && (actualWaypoint != destWp_index))
+                    if ((physicalstate != GameElementPhysicalState.PHYSICAL_STATE_WALKING) && (actualWaypoint != destWp_index))
                     {
                         Walk_StartNextSegment();
                     }
-                    physicalstate = PhysicalState.PHYSICAL_STATE_WALKING;
+                    physicalstate = GameElementPhysicalState.PHYSICAL_STATE_WALKING;
 
                     requestAccepted = true;
                 }
@@ -651,13 +646,13 @@ namespace Gob3AQ.GameElement
 
                     if (itemID == GameItem.ITEM_PINPOINT_MAP)
                     {
-                        physicalstate = PhysicalState.PHYSICAL_STATE_WALKING_FINAL_COOLDOWN;
+                        physicalstate = GameElementPhysicalState.PHYSICAL_STATE_WALKING_FINAL_COOLDOWN;
                         finalWalkCooldownTimestamp = VARMAP_ItemMaster.GET_ELAPSED_TIME_MS();
                     }
                     else
                     {
                         StartBufferedInteraction();
-                        physicalstate = PhysicalState.PHYSICAL_STATE_STANDING;
+                        physicalstate = GameElementPhysicalState.PHYSICAL_STATE_STANDING;
                     }
                 }
                 else

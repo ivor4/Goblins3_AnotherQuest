@@ -340,6 +340,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b25f97a5aca2a9c4ea66fe3f82087604
+    m_Address: SOUND_ROOSTER_FLAPPING
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b65d9f96e9a429e4daa7ee35ede9caa7
     m_Address: SPRITE_ATLAS_SLUM_FACTORY_2
     m_ReadOnly: 0
@@ -357,6 +362,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bdab8efe00abfff44bc9569ad9c8f6fc
     m_Address: ANIMATOR_SLUM_NEIGH_FACHADE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bde7afe8318694546ac1e23134d4be63
+    m_Address: FOREGROUND_FISHERMEN_COLUMN_GROUP
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -460,6 +470,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e8e55d6aca5f1a14ba6228f80c8107ad
+    m_Address: SOUND_MAINCHAR_COMMENT_ROOSTER_GAME_LOST_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ee68bd5e63d55f94a978f4aafa2cee30
     m_Address: ANIMATION_ROOSTER_PANCHO_FLYING
     m_ReadOnly: 0
@@ -467,6 +482,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f5ecfe352673c324494b62609ae2ab8c
     m_Address: ANIMATION_MATRIARCH_STEADY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f75629e0033718a4a9c53c02bdf1ca62
+    m_Address: SOUND_OBSERVE_PANCHO_IN_GAME_SPANISH
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

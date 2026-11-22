@@ -1026,6 +1026,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5faf948d70c9f1942ba39cd362523327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: GameCode::Gob3AQ.GameElement.Extension.RoosterPancho.RoosterPanchoClass
+--- !u!95 &889867205 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8977490064374180080, guid: 77649d9e5fce8cb4eaeb5018a1407b86, type: 3}
+  m_PrefabInstance: {fileID: 889867202}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1012771658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9365,6 +9370,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1199191521139679277, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
+      propertyPath: wpTag
+      value: grabbingPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 1199191521139679277, guid: a71b80ba85ae5ad48b6dc3bd265dbf3c, type: 3}
       propertyPath: network
       value: 
       objectReference: {fileID: 1308009200}
@@ -9464,6 +9473,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6eef9a6e41d44b4ab9699a21c2e62fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gob3AQ.Waypoint.WaypointClass
+--- !u!1 &1994986648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1994986651}
+  - component: {fileID: 1994986650}
+  - component: {fileID: 1994986649}
+  m_Layer: 0
+  m_Name: GrabRoosterDirector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1994986649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994986648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 071171ea34d49334998950ccc0e089b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameCode::Gob3AQ.GameElement.Animation.AnimationDirectorClass
+  ownedAnimation: 9
+--- !u!320 &1994986650
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994986648}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 3cc113aa39e6a3549ae92b109c5b94a3, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -6470129715266923363, guid: 3cc113aa39e6a3549ae92b109c5b94a3, type: 2}
+    value: {fileID: 889867205}
+  - key: {fileID: -2437720853097879954, guid: 3cc113aa39e6a3549ae92b109c5b94a3, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []
+--- !u!4 &1994986651
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994986648}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.76939, y: -0.00364, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -9473,6 +9549,7 @@ SceneRoots:
   - {fileID: 889867202}
   - {fileID: 1817250328}
   - {fileID: 1685015344}
+  - {fileID: 1994986651}
   - {fileID: 1308009199}
   - {fileID: 1224255501}
   - {fileID: 666116679}

@@ -255,6 +255,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a6b6d732ca00324197d597f027e067d
+    m_Address: TIMELINE_LAB_FLOORWASHER_POUR
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3b4846889f74b73439c7e892e3df47d3
     m_Address: ANIMATION_KEY_SCRATCHER_SCRATCH
     m_ReadOnly: 0
@@ -440,6 +445,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6621a938cce4be244afdc6353eafe80b
+    m_Address: TIMELINE_LAB_DETERGENT_POUR
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 66314c760fc9ca04b9039df5734b7fac
     m_Address: SOUND_MAINCHAR_LETS_EXPERIMENT_SPANISH
     m_ReadOnly: 0
@@ -622,6 +632,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 98624f80b47a7294b93527a940f493e7
     m_Address: SPRITE_HIVE1_CHEST_CARDS
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9a9fdb4288395d14e85b694d44de109f
+    m_Address: TIMELINE_LAB_INSECTICIDE_POUR
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -842,6 +857,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c9135d5b99dde5c45b789a8cd9669935
     m_Address: ANIMATION_REME_WASHING_MOP
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c98101bfe67d337449798a73cd5d9b6d
+    m_Address: TIMELINE_LAB_VARNISH_POUR
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -1384,6 +1384,16 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_MORNING,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,"_self",
             new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_PANCHO_IN_GAME}), 
 
+            new( /* COND_OBSERVE_ROOSTER_PANCHO_IN_INVENTORY */
+            new GameEventCombi[1]{new(GameEvent.EVENT_PANCHO_CAUGHT, false)}, 
+            MomentType.MOMENT_ANY,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_OBSERVE,"",
+            new GameAction[1]{GameAction.ACTION_DIALOGUE_OBSERVE_PANCHO_IN_INVENTORY}), 
+
+            new( /* COND_TAKE_ROOSTER_PANCHO_IN_GAME */
+            new GameEventCombi[3]{new(GameEvent.EVENT_PANCHO_FLEE, true), new(GameEvent.EVENT_PANCHO_GAME_STARTED, false), new(GameEvent.EVENT_PANCHO_CAUGHT, true)}, 
+            MomentType.MOMENT_MORNING,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,"",
+            new GameAction[5]{GameAction.ACTION_ANIMATION_ROOSTER_GRAB, GameAction.ACTION_EVENT_PANCHO_CAUGHT, GameAction.ACTION_RESET_EVENT_PANCHO_GAME_STARTED, GameAction.ACTION_DESTROY_PANCHO_ROOSTER, GameAction.ACTION_OBTAIN_PANCHO_ITEM}), 
+
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,"",
@@ -1958,10 +1968,10 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_MEMENTO_SLUM_PEOPLE,true,true,false,GameSprite.SPRITE_MEMENTO_SLUM_PEOPLE,GamePickableItem.ITEM_PICK_IDEA_SLUM_PEOPLE,DetailType.PREFAB_NONE,false,
             new ActionConditions[1]{ActionConditions.COND_OK}),
 
-            new ( /* ITEM_ROOSTER_PANCHO */
+            new ( /* ITEM_PICKABLE_ROOSTER_PANCHO */
             NameType.NAME_ROOSTER_PANCHO,GameItemFamily.ITEM_FAMILY_TYPE_OBJECT,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_ROOSTER_PANCHO_STEADY}),
-            GameSprite.SPRITE_ROOSTER_PANCHO_STEADY,true,false,false,GameSprite.SPRITE_PICKABLE_ROOSTER,GamePickableItem.ITEM_PICK_ROOSTER_PANCHO,DetailType.PREFAB_NONE,false,
-            new ActionConditions[1]{ActionConditions.COND_OBSERVE_ROOSTER_PANCHO_IN_GAME}),
+            GameSprite.SPRITE_ROOSTER_PANCHO_STEADY,true,false,false,GameSprite.SPRITE_PICKABLE_ROOSTER,GamePickableItem.ITEM_PICK_PICKABLE_ROOSTER_PANCHO,DetailType.PREFAB_NONE,false,
+            new ActionConditions[3]{ActionConditions.COND_OBSERVE_ROOSTER_PANCHO_IN_GAME, ActionConditions.COND_TAKE_ROOSTER_PANCHO_IN_GAME, ActionConditions.COND_OBSERVE_ROOSTER_PANCHO_IN_INVENTORY}),
 
             new ( /* ITEM_DOOR_FISHERMEN */
             NameType.NAME_PORCH,GameItemFamily.ITEM_FAMILY_TYPE_DOOR,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_BLANK}),
@@ -2006,7 +2016,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameItem.ITEM_PICKABLE_PERFECT_MIX_JAR,	/* ITEM_PICK_PICKABLE_PERFECT_MIX_JAR */
             GameItem.ITEM_IDEA_RECIPE,	/* ITEM_PICK_IDEA_RECIPE */
             GameItem.ITEM_IDEA_SLUM_PEOPLE,	/* ITEM_PICK_IDEA_SLUM_PEOPLE */
-            GameItem.ITEM_ROOSTER_PANCHO,	/* ITEM_PICK_ROOSTER_PANCHO */
+            GameItem.ITEM_PICKABLE_ROOSTER_PANCHO,	/* ITEM_PICK_PICKABLE_ROOSTER_PANCHO */
             /* > ATG 4 END < */
         };
 
@@ -2040,7 +2050,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             GameSprite.SPRITE_PICKABLE_MIX_JAR_PERFECT,	/* ITEM_PICK_PICKABLE_PERFECT_MIX_JAR */
             GameSprite.SPRITE_MEMENTO_RECIPE,	/* ITEM_PICK_IDEA_RECIPE */
             GameSprite.SPRITE_MEMENTO_SLUM_PEOPLE,	/* ITEM_PICK_IDEA_SLUM_PEOPLE */
-            GameSprite.SPRITE_PICKABLE_ROOSTER,	/* ITEM_PICK_ROOSTER_PANCHO */
+            GameSprite.SPRITE_PICKABLE_ROOSTER,	/* ITEM_PICK_PICKABLE_ROOSTER_PANCHO */
             /* > ATG 5 END < */
         };
 
@@ -5178,13 +5188,13 @@ namespace Gob3AQ.Brain.ItemsInteraction
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_SPAWN_ROOSTER_PANCHO */
-            false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_ROOSTER_PANCHO,GameSprite.SPRITE_NONE,
+            false,ActionType.ACTION_TYPE_SPAWN,GameItem.ITEM_PICKABLE_ROOSTER_PANCHO,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_DESPAWN_ROOSTER_PANCHO */
-            false,ActionType.ACTION_TYPE_DESPAWN,GameItem.ITEM_ROOSTER_PANCHO,GameSprite.SPRITE_NONE,
+            false,ActionType.ACTION_TYPE_DESPAWN,GameItem.ITEM_PICKABLE_ROOSTER_PANCHO,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
@@ -5220,7 +5230,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_ROOSTER_SCARED,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_ANIMATE_ROOSTER_CACKLE */
-            true,ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION,GameItem.ITEM_ROOSTER_PANCHO,GameSprite.SPRITE_NONE,
+            true,ActionType.ACTION_TYPE_TRIGGER_ITEM_ANIMATION,GameItem.ITEM_PICKABLE_ROOSTER_PANCHO,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ONE,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
@@ -5256,7 +5266,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_OBSERVE_PANCHO_IN_GAME,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_MOVE_PANCHO_TO_FLEE */
-            false,ActionType.ACTION_TYPE_MOVE_TO_WAYPOINT,GameItem.ITEM_ROOSTER_PANCHO,GameSprite.SPRITE_NONE,
+            false,ActionType.ACTION_TYPE_MOVE_TO_WAYPOINT,GameItem.ITEM_PICKABLE_ROOSTER_PANCHO,GameSprite.SPRITE_NONE,
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"roosterFlee",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
@@ -5266,6 +5276,30 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_PANCHO_FLEE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_ANIMATION_ROOSTER_GRAB */
+            true,ActionType.ACTION_TYPE_START_ANIMATION,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_GRAB_ROOSTER,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DESTROY_PANCHO_ROOSTER */
+            false,ActionType.ACTION_TYPE_DESTROY,GameItem.ITEM_PICKABLE_ROOSTER_PANCHO,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_OBTAIN_PANCHO_ITEM */
+            false,ActionType.ACTION_TYPE_EARN_ITEM,GameItem.ITEM_PICKABLE_ROOSTER_PANCHO,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_MAIN,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_DIALOGUE_OBSERVE_PANCHO_IN_INVENTORY */
+            false,ActionType.ACTION_TYPE_START_DIALOGUE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_OBSERVE_PANCHO_IN_INVENTORY,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

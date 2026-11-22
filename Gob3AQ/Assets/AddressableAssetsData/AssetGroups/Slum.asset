@@ -60,6 +60,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1495cb1dfdb658d4982acc623e8e9477
+    m_Address: SOUND_OBSERVE_PANCHO_IN_INVENTORY_SPANISH
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1671cc7fcd11a4e4abb25c82df41f8a0
     m_Address: SPRITE_ATLAS_SLUM_NEIGH_1
     m_ReadOnly: 0
@@ -157,6 +162,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 394436da019a7f14d82e662955097047
     m_Address: BACKGROUND_SLUM_FACTORY_NIGHT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3cc113aa39e6a3549ae92b109c5b94a3
+    m_Address: TIMELINE_FISHERMEN_ROOSTER_GRAB
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

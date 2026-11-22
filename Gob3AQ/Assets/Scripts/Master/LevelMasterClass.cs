@@ -224,7 +224,32 @@ namespace Gob3AQ.LevelMaster
             }
         }
 
-        
+        public static void CancelPendingActionService(GameItem item, int waypointIndex)
+        {
+            if (!_singleton) return;
+
+            if (ResourceDialogsAtlasClass.IsItemCharacter(item, out CharacterType character))
+            {
+                _singleton._PendingCharInteractions[(int)character].ended = false;
+                _singleton._PendingCharInteractions[(int)character].pending = false;
+
+                /* If waypoint is different from -1, command a simple movement */
+                if(waypointIndex != -1)
+                {
+                    int furthestWaypoint = _singleton.CheckFurthestReachableWaypoint(character, waypointIndex);
+                    InteractionUsage usage = InteractionUsage.CreatePlayerMove(character, furthestWaypoint);
+
+                    VARMAP_LevelMaster.MOVE_ITEM_TO_WAYPOINT(ResourceDialogsAtlasClass.GetItemForCharacter(character), furthestWaypoint, out bool accepted);
+                    if (accepted)
+                    {
+                        _singleton._PendingCharInteractions[(int)character] = new PendingCharacterInteraction(in usage, false);
+                    }
+                }
+            }
+        }
+
+
+
         public static void LoadRoomAsActionService(Room room, int waypointIndex, string waypointTag, int chapterNr)
         {
             if (!_singleton) return;
@@ -703,6 +728,7 @@ namespace Gob3AQ.LevelMaster
 
                 int furthestWaypointIndex = CheckFurthestReachableWaypoint(playerSelected, proposedWaypointIndex);
 
+              
                 /* If path is shorter than expected, convert into single move operation */
                 if (furthestWaypointIndex != proposedWaypointIndex)
                 {

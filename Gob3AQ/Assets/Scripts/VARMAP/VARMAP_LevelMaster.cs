@@ -65,6 +65,7 @@ namespace Gob3AQ.VARMAP.LevelMaster
             IS_EVENT_COMBI_OCCURRED = _IS_EVENT_COMBI_OCCURRED;
             MOVE_ITEM_TO_WAYPOINT = _MOVE_ITEM_TO_WAYPOINT;
             ITEM_REACHED_WAYPOINT = _ITEM_REACHED_WAYPOINT;
+            CANCEL_PENDING_ACTION = _CANCEL_PENDING_ACTION;
             USE_ITEM = _USE_ITEM;
             PEEK_ITEM = _PEEK_ITEM;
             TRY_UNCHAIN_CONDITION = _TRY_UNCHAIN_CONDITION;
@@ -217,6 +218,13 @@ public static MOVE_ITEM_TO_WAYPOINT_DELEGATE MOVE_ITEM_TO_WAYPOINT;
 /// <para> Method: <see cref="LevelMasterClass.ItemReachedWaypointService"/> </para> 
 /// </summary>
 public static ITEM_REACHED_WAYPOINT_DELEGATE ITEM_REACHED_WAYPOINT;
+        /// <summary> 
+/// On a few chances this can be necessary. Cancel an order and make player move to desired waypoint. (Typical for cinematics) 
+/// <para> Owner: LevelMaster </para> 
+/// <para> Accessors: ItemMaster, GameEventMaster </para> 
+/// <para> Method: <see cref="LevelMasterClass.CancelPendingActionService"/> </para> 
+/// </summary>
+public static CANCEL_PENDING_ACTION_DELEGATE CANCEL_PENDING_ACTION;
         /// <summary> 
 /// Uses an item with something 
 /// <para> Owner: ItemMaster </para> 

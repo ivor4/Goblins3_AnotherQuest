@@ -69,6 +69,7 @@ namespace Gob3AQ.VARMAP.GameEventMaster
             MEMENTO_PARENT_WATCHED = _MEMENTO_PARENT_WATCHED;
             MOVE_ITEM_TO_WAYPOINT = _MOVE_ITEM_TO_WAYPOINT;
             ACTION_TO_ITEM = _ACTION_TO_ITEM;
+            CANCEL_PENDING_ACTION = _CANCEL_PENDING_ACTION;
             TRY_UNCHAIN_CONDITION = _TRY_UNCHAIN_CONDITION;
             MANAGE_EXT_PICKABLE_ITEM = _MANAGE_EXT_PICKABLE_ITEM;
             CHANGE_GAME_MODE = _CHANGE_GAME_MODE;
@@ -199,6 +200,13 @@ public static MOVE_ITEM_TO_WAYPOINT_DELEGATE MOVE_ITEM_TO_WAYPOINT;
 /// <para> Method: <see cref="ItemMasterClass.ActionToItemService"/> </para> 
 /// </summary>
 public static ACTION_TO_ITEM_DELEGATE ACTION_TO_ITEM;
+        /// <summary> 
+/// On a few chances this can be necessary. Cancel an order and make player move to desired waypoint. (Typical for cinematics) 
+/// <para> Owner: LevelMaster </para> 
+/// <para> Accessors: ItemMaster, GameEventMaster </para> 
+/// <para> Method: <see cref="LevelMasterClass.CancelPendingActionService"/> </para> 
+/// </summary>
+public static CANCEL_PENDING_ACTION_DELEGATE CANCEL_PENDING_ACTION;
         /// <summary> 
 /// Similar to PEEK_ITEM but without associated Item just pointing to named CONDITION 
 /// <para> Owner: GameEventMaster </para> 

@@ -34,6 +34,7 @@ namespace Gob3AQ.GameElement.Extension.RoosterPancho
         private ulong startTimestamp;
         private bool receivedAnimationEndFlag;
         private bool playerlostDialogDone;
+        private int playerSpottedDebounce;
 
         void IGameElementExtension.OnDespawn()
         {
@@ -53,6 +54,7 @@ namespace Gob3AQ.GameElement.Extension.RoosterPancho
                 case ItemExtensionFunction.ITEM_EXTENSION_ROOSTER_PANCHO_GAME_START:
                     gameStep = RoosterGameStep.GAME_STEP_WAITING_SCOUT;
                     startTimestamp = VARMAP_ItemMaster.GET_ELAPSED_TIME_MS();
+                    playerSpottedDebounce = 0;
                     VARMAP_ItemMaster.OBTAIN_SCENARIO_ITEMS(out scenarioItems);
                     break;
             }
@@ -107,6 +109,7 @@ namespace Gob3AQ.GameElement.Extension.RoosterPancho
                         case RoosterGameStep.GAME_STEP_TURNING_LEFT_FROM_SCOUTING:
                             /* Scout end */
                             startTimestamp = VARMAP_ItemMaster.GET_ELAPSED_TIME_MS();
+                            playerSpottedDebounce = 0;
                             gameStep = RoosterGameStep.GAME_STEP_WAITING_SCOUT;
                             break;
 
@@ -174,12 +177,25 @@ namespace Gob3AQ.GameElement.Extension.RoosterPancho
                             /* Spotted! */
                             if (mainChar.CurrentPhysicalState == GameElementPhysicalState.PHYSICAL_STATE_WALKING)
                             {
-                                itemRooster.SetUnclickable(true);
-                                gameStep = RoosterGameStep.GAME_STEP_FLEEING_1;
+                                if (playerSpottedDebounce < 3)
+                                {
+                                    ++playerSpottedDebounce;
+                                }
+                                else
+                                {
+                                    itemRooster.SetUnclickable(true);
+                                    gameStep = RoosterGameStep.GAME_STEP_FLEEING_1;
 
-                                GameAction flee_event = GameAction.ACTION_EVENT_PANCHO_FLEE;
-                                ReadOnlySpan<GameAction> oneAction = MemoryMarshal.CreateReadOnlySpan(ref flee_event, 1);
-                                VARMAP_ItemMaster.PERFORM_ACTION(oneAction, null);
+                                    VARMAP_ItemMaster.CANCEL_PENDING_ACTION(GameItem.ITEM_PLAYER_MAIN, mainChar.Waypoint);
+
+                                    GameAction flee_event = GameAction.ACTION_EVENT_PANCHO_FLEE;
+                                    ReadOnlySpan<GameAction> oneAction = MemoryMarshal.CreateReadOnlySpan(ref flee_event, 1);
+                                    VARMAP_ItemMaster.PERFORM_ACTION(oneAction, null);
+                                }
+                            }
+                            else
+                            {
+                                playerSpottedDebounce = 0;
                             }
                         }
                         break;

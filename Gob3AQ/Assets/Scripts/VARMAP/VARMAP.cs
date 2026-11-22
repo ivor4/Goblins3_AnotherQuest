@@ -306,6 +306,13 @@ protected static ACTION_TO_ITEM_DELEGATE _ACTION_TO_ITEM;
 /// </summary>
 protected static ITEM_REACHED_WAYPOINT_DELEGATE _ITEM_REACHED_WAYPOINT;
         /// <summary> 
+/// On a few chances this can be necessary. Cancel an order and make player move to desired waypoint. (Typical for cinematics) 
+/// <para> Owner: LevelMaster </para> 
+/// <para> Accessors: ItemMaster, GameEventMaster </para> 
+/// <para> Method: <see cref="LevelMasterClass.CancelPendingActionService"/> </para> 
+/// </summary>
+protected static CANCEL_PENDING_ACTION_DELEGATE _CANCEL_PENDING_ACTION;
+        /// <summary> 
 /// Uses an item with something 
 /// <para> Owner: ItemMaster </para> 
 /// <para> Accessors: LevelMaster, GameMenu </para> 

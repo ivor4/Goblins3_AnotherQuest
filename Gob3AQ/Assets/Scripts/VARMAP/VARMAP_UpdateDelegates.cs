@@ -182,6 +182,7 @@ namespace Gob3AQ.VARMAP.Initialization
             _MOVE_ITEM_TO_WAYPOINT = ItemMasterClass.MoveItemToWaypointService;
             _ACTION_TO_ITEM = ItemMasterClass.ActionToItemService;
             _ITEM_REACHED_WAYPOINT = LevelMasterClass.ItemReachedWaypointService;
+            _CANCEL_PENDING_ACTION = LevelMasterClass.CancelPendingActionService;
             _USE_ITEM = ItemMasterClass.UseItemService;
             _PEEK_ITEM = ItemMasterClass.PeekItemService;
             _TRY_UNCHAIN_CONDITION = GameEventMasterClass.TryUnchainConditionService;

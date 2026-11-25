@@ -1,16 +1,18 @@
-using Gob3AQ.VARMAP.Types;
-using Gob3AQ.VARMAP.ItemMaster;
-using UnityEngine;
-using System.Collections;
+using Gob3AQ.GameElement.Notification;
 using Gob3AQ.ResourceAnimationsAtlas;
 using Gob3AQ.ResourceAtlas;
 using Gob3AQ.ResourceSprites;
+using Gob3AQ.VARMAP.ItemMaster;
+using Gob3AQ.VARMAP.Types;
+using System.Collections;
+using UnityEngine;
+using UnityEngine.Playables;
 
 namespace Gob3AQ.GameElement.Decoration
 {
 
     [System.Serializable]
-    public class DecorationClass : MonoBehaviour
+    public class DecorationClass : MonoBehaviour, INotificationReceiver
     {
         [SerializeField] private GameSprite sprite;
 
@@ -64,6 +66,17 @@ namespace Gob3AQ.GameElement.Decoration
             }
 
             UpdateSortingOrder();
+        }
+
+        public void OnNotify(Playable origin, INotification notification, object context)
+        {
+            _ = origin;
+            _ = context;
+
+            if (notification is ChangeSortingEmiter sortingEmiter)
+            {
+                mySpriteRenderer.sortingLayerID = ResourceSpritesClass.SpriteSortingLayerArray[(int)sortingEmiter.sortingLayer].id;
+            }
         }
 
         private void UpdateSortingOrder()

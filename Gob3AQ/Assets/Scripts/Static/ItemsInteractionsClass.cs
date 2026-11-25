@@ -1394,6 +1394,11 @@ namespace Gob3AQ.Brain.ItemsInteraction
             MomentType.MOMENT_MORNING,CharacterType.CHARACTER_MAIN,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_TAKE,"",
             new GameAction[5]{GameAction.ACTION_ANIMATION_ROOSTER_GRAB, GameAction.ACTION_EVENT_PANCHO_CAUGHT, GameAction.ACTION_RESET_EVENT_PANCHO_GAME_STARTED, GameAction.ACTION_DESTROY_PANCHO_ROOSTER, GameAction.ACTION_OBTAIN_PANCHO_ITEM}), 
 
+            new( /* COND_USE_ROOSTER_KIDS */
+            new GameEventCombi[2]{new(GameEvent.EVENT_PANCHO_DELIVERED_KIDS, true), new(GameEvent.EVENT_PANCHO_CAUGHT, false)}, 
+            MomentType.MOMENT_MORNING,CharacterType.CHARACTER_MAIN,GameItem.ITEM_PICKABLE_ROOSTER_PANCHO,ItemInteractionType.INTERACTION_USE,"",
+            new GameAction[4]{GameAction.ACTION_ANIMATION_ROOSTER_DELIVER, GameAction.ACTION_EVENT_PANCHO_DELIVERED_KIDS, GameAction.ACTION_LOSE_PANCHO_ITEM, GameAction.ACTION_MEMENTO_SLUM_PEOPLE_3}), 
+
             new( /* COND_LAST */
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             MomentType.MOMENT_ANY,CharacterType.CHARACTER_NONE,GameItem.ITEM_NONE,ItemInteractionType.INTERACTION_NONE,"",
@@ -1961,7 +1966,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new ( /* ITEM_NPC_SLUM_KIDS */
             NameType.NAME_SLUM_KIDS,GameItemFamily.ITEM_FAMILY_TYPE_NPC,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_SLUM_KIDS_STEADY}),
             GameSprite.SPRITE_SLUM_KIDS_STEADY,false,false,false,GameSprite.SPRITE_NONE,GamePickableItem.ITEM_PICK_NONE,DetailType.PREFAB_NONE,false,
-            new ActionConditions[2]{ActionConditions.COND_OBSERVE_SLUM_KIDS, ActionConditions.COND_TALK_SLUM_KIDS}),
+            new ActionConditions[3]{ActionConditions.COND_OBSERVE_SLUM_KIDS, ActionConditions.COND_TALK_SLUM_KIDS, ActionConditions.COND_USE_ROOSTER_KIDS}),
 
             new ( /* ITEM_IDEA_SLUM_PEOPLE */
             NameType.NAME_MEMENTO_SLUM_PEOPLE,GameItemFamily.ITEM_FAMILY_TYPE_IDEA,new(new HashSet<GameSprite>(1){GameSprite.SPRITE_MEMENTO_SLUM_PEOPLE}),
@@ -2090,7 +2095,7 @@ namespace Gob3AQ.Brain.ItemsInteraction
             /* MEMENTO_PARENT_SLUM_PEOPLE */
             new(
             NameType.NAME_MEMENTO_SLUM_PEOPLE,GameSprite.SPRITE_MEMENTO_SLUM_PEOPLE,GameItem.ITEM_IDEA_SLUM_PEOPLE,CharacterType.CHARACTER_MAIN,
-            new Memento[2]{Memento.MEMENTO_SLUM_PEOPLE_1, Memento.MEMENTO_SLUM_PEOPLE_2}
+            new Memento[3]{Memento.MEMENTO_SLUM_PEOPLE_1, Memento.MEMENTO_SLUM_PEOPLE_2, Memento.MEMENTO_SLUM_PEOPLE_3}
             ),
 
             /* MEMENTO_PARENT_POOR_MAN_WC */
@@ -2141,6 +2146,8 @@ namespace Gob3AQ.Brain.ItemsInteraction
             new(MementoParent.MEMENTO_PARENT_SLUM_PEOPLE,DialogPhrase.PHRASE_MEMENTO_SLUM_PEOPLE_1,false),
             /* MEMENTO_SLUM_PEOPLE_2 */
             new(MementoParent.MEMENTO_PARENT_SLUM_PEOPLE,DialogPhrase.PHRASE_MEMENTO_SLUM_PEOPLE_2,false),
+            /* MEMENTO_SLUM_PEOPLE_3 */
+            new(MementoParent.MEMENTO_PARENT_SLUM_PEOPLE,DialogPhrase.PHRASE_MEMENTO_SLUM_PEOPLE_3,false),
             /* MEMENTO_POOR_MAN_WC_1 */
             new(MementoParent.MEMENTO_PARENT_POOR_MAN_WC,DialogPhrase.PHRASE_MEMENTO_POOR_MAN_WC_1,false),
             /* MEMENTO_POOR_MAN_WC_2 */
@@ -5300,6 +5307,30 @@ namespace Gob3AQ.Brain.ItemsInteraction
             CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
             new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
             DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_SIMPLE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_OBSERVE_PANCHO_IN_INVENTORY,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_EVENT_PANCHO_DELIVERED_KIDS */
+            false,ActionType.ACTION_TYPE_EVENT,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_PANCHO_DELIVERED_KIDS, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_LOSE_PANCHO_ITEM */
+            false,ActionType.ACTION_TYPE_LOSE_ITEM,GameItem.ITEM_PICKABLE_ROOSTER_PANCHO,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_ANIMATION_ROOSTER_DELIVER */
+            true,ActionType.ACTION_TYPE_START_ANIMATION,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_NONE,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_DELIVER_ROOSTER,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
+
+            new( /* ACTION_MEMENTO_SLUM_PEOPLE_3 */
+            false,ActionType.ACTION_TYPE_MEMENTO,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,
+            CharacterType.CHARACTER_NONE,Memento.MEMENTO_SLUM_PEOPLE_3,
+            new GameEventCombi[1]{new(GameEvent.EVENT_NONE, false)}, 
+            DecisionType.DECISION_NONE,MomentType.MOMENT_ANY,DialogType.DIALOG_NONE,DialogOption.DIALOG_OPTION_NONE,DialogPhrase.PHRASE_NONE,AnimationTrigger.ANIMATION_TRIGGER_ZERO,GameAnimation.ANIMATION_NONE,GameSound.SOUND_NONE,Room.ROOM_NONE,"",null,null,0,0,CustomFunction.CUSTOM_FUNCTION_NONE,CardGameID.CARD_GAME_NONE), 
 
             new( /* ACTION_LAST */
             false,ActionType.ACTION_TYPE_NONE,GameItem.ITEM_NONE,GameSprite.SPRITE_NONE,

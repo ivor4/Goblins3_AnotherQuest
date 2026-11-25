@@ -305,6 +305,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a06075614d42e8742b0ec8f1c0dfb08b
+    m_Address: TIMELINE_ROOSTER_DELIVER
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a0fd343a0a68a4f4fac918bca771bb6a
     m_Address: SPRITE_MATRIARCH_TALKING_ANIM
     m_ReadOnly: 0

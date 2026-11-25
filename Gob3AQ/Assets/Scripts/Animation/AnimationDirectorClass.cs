@@ -30,6 +30,7 @@ namespace Gob3AQ.GameElement.Animation
                     case GameAnimation.ANIMATION_PLAYER_GRAB_FRONT:
                     case GameAnimation.ANIMATION_ROACH_MOB:
                     case GameAnimation.ANIMATION_GRAB_ROOSTER:
+                    case GameAnimation.ANIMATION_DELIVER_ROOSTER:
                         VARMAP_DialogMaster.OBTAIN_SCENARIO_ITEMS(out IReadOnlyDictionary<GameItem, GameElementClass> instances);
                         GameElementClass playerInstance = instances[GameItem.ITEM_PLAYER_MAIN];
 
